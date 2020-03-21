@@ -7,4 +7,4 @@ This code will eventually become a drop-in replacement for `cfdfv`, a CFD code w
 
 ## First Step
 
-As a first step I want to recreate the SOD test case, the program output should be the same, as well as the calculation output.
+As a first step I want to recreate the SOD test case. The program output should be the same as the one from `cfdfv`, as well as the calculation output.
