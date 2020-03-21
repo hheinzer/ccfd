@@ -13,9 +13,16 @@
 
 int main(int argc, char *argv[])
 {
-	/* read in ini file */
+	/* greeting */
+	printf("|===========================================================|\n");
+	printf("|                           C C F D                         |\n");
+	printf("|===========================================================|\n");
+
+
+	/* read in parameter file */
 	char *iniFileName = "../calc/sod.ini";
 	fillCmds(iniFileName);
+	char *aStr = getStr("filename", NULL);
 
 	/*
 	 * test readInTools

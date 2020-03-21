@@ -173,7 +173,7 @@ char *getStr(const char *key, const char *proposal)
 {
 	char defMsg[8];
 	char *value = findCmd(key, defMsg, proposal);
-	printf("| %20s = %27s |%s|\n", key, value, defMsg);
+	printf("| %19s = %27s |%s|\n", key, value, defMsg);
 	return value;
 }
 
@@ -222,7 +222,7 @@ int getInt(const char *key, const char *proposal)
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
 	int value = strtol(valueStr, NULL, 10);
-	printf("| %20s = %27d |%s|\n", key, value, defMsg);
+	printf("| %19s = %27d |%s|\n", key, value, defMsg);
 	return value;
 }
 
@@ -236,7 +236,7 @@ double getDbl(const char *key, const char *proposal)
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
 	double value = strtod(valueStr, NULL);
-	printf("| %20s = %27g |%s|\n", key, value, defMsg);
+	printf("| %19s = %27g |%s|\n", key, value, defMsg);
 	return value;
 }
 
@@ -256,7 +256,7 @@ bool getBool(const char *key, const char *proposal)
 	} else {
 		value = false;
 	}
-	printf("| %20s = %27s |%s|\n", key, (value ? "T" : "F"), defMsg);
+	printf("| %19s = %27s |%s|\n", key, (value ? "T" : "F"), defMsg);
 	return value;
 }
 
@@ -291,7 +291,7 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 	}
 	sprintf(line + strlen(line), "}");
 
-	printf("| %17s[%d] = %27s |%s|\n", key, N, line, defMsg);
+	printf("| %18s[%d] = %27s |%s|\n", key, N, line, defMsg);
 	return value;
 }
 
@@ -320,7 +320,7 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 	}
 	sprintf(line + strlen(line), "}");
 
-	printf("| %17s[%d] = %27s |%s|\n", key, N, line, defMsg);
+	printf("| %18s[%d] = %27s |%s|\n", key, N, line, defMsg);
 	return value;
 }
 
