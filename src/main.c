@@ -11,6 +11,7 @@
 #include <stdbool.h>
 
 #include "readInTools.h"
+#include "timeDiscretization.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,20 +28,24 @@ int main(int argc, char *argv[])
 	printf("               http://www.iag.uni-stuttgart.de               \n");
 	printf("                                                             \n");
 	printf("           Recreated in C by Heinz Heinrich Heinzer          \n");
-	printf("=============================================================\n\n");
+	printf("=============================================================\n");
 
 	/* read parameter file and make the command list */
 	fillCmds(argv[1]);
+	isStationary = getBool("stationary", "T");
 
 	/* check command line arguments */
 	switch (argc) {
 	case 2:
-		//isRestart = false;
-		//iniIterationNumber = 0;
-		//startTime = 0.0;
+		isRestart = false;
+		iniIterationNumber = 0;
+		startTime = 0.0;
 		break;
 	default:
 		printf("ERROR: Wrong number of arguments, must be 1 or 2\n");
 		exit(1);
 	}
+
+	/* initialization routines */
+	initOutput();
 }
