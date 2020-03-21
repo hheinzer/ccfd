@@ -1,5 +1,5 @@
 #
-# CCFDFV Makefile
+# CCFD Makefile
 #
 # 'make' 	  : build libraries and executable
 # 'make libs' 	  : build only libraries
@@ -19,7 +19,7 @@ SRCDIR = ../src
 LIBDIR = ../lib
 
 ### Library options:
-# math
+# Math
 LIBS	     = -lm
 # CGNS
 ARCH         = LINUX64
@@ -39,10 +39,6 @@ FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
 INCDIR += -I src/$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
-
-### Formatting options:
-BOLD   = $(shell tput bold)
-NORMAL = $(shell tput sgr0)
 
 ### Build directions:
 .PHONY: default all clean allclean
@@ -68,7 +64,7 @@ $(TGT): $(OBJ)
 cgns:
 	@cd $(LIBDIR) && \
 	if [ ! -f $(CGNS_DIR)/build/src/libcgns.a ]; then \
-		printf "$(BOLD)Building CGNS library$(NORMAL)\n"; \
+		printf "Building CGNS library\n"; \
 		if [ ! -d $(CGNS_DIR) ]; then \
 			tar -xzf $(CGNS_DIR).tar.gz >/dev/null; \
 		fi; \
