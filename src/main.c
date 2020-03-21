@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -13,10 +14,9 @@
 
 int main(int argc, char *argv[])
 {
-	/* greeting */
-	printf(" =========================================================== \n");
+	printf("=============================================================\n");
 	printf("                            C C F D                          \n");
-	printf(" =========================================================== \n");
+	printf("=============================================================\n");
 	printf("   Solution of the two-dimensional Euler and Navier-Stokes   \n");
 	printf("     equations using an unstructured finite volume solver    \n");
 	printf("                                                             \n");
@@ -27,24 +27,20 @@ int main(int argc, char *argv[])
 	printf("               http://www.iag.uni-stuttgart.de               \n");
 	printf("                                                             \n");
 	printf("           Recreated in C by Heinz Heinrich Heinzer          \n");
-	printf(" =========================================================== \n\n");
+	printf("=============================================================\n\n");
 
+	/* read parameter file and make the command list */
+	fillCmds(argv[1]);
 
-	/* read in parameter file */
-	char *iniFileName = "../calc/sod.ini";
-	fillCmds(iniFileName);
+	/* check command line arguments */
+	switch (argc) {
+	case 2:
+		//isRestart = false;
+		//iniIterationNumber = 0;
+		//startTime = 0.0;
+		break;
+	default:
+		printf("ERROR: Wrong number of arguments, must be 1 or 2\n");
+		exit(1);
+	}
 }
-
-/*
- * test readInTools
- *
-char *aStr = getStr("filename", NULL);
-int aCount = countKeys("meshbctype", 3);
-printf("%i\n", aCount);
-int anInt = getInt("meshbctype", "440");
-double aDbl = getDbl("tEnd", "0.334");
-bool aBool = getBool("exactsolution", "F");
-int *anIntArray = getIntArray("nBCsegments", 4, "3,4,2,1");
-double *anDblArray = getDblArray("xmax", 2, "3.2,1.9");
-ignoredCmds();
-*/

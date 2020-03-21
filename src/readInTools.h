@@ -21,3 +21,17 @@ double *getDblArray(const char *key, const int N, const char *proposal);
 void ignoredCmds(void);
 
 #endif
+
+/*
+ * test readInTools
+ *
+char *aStr = getStr("filename", NULL);
+int aCount = countKeys("meshbctype", 3);
+printf("%i\n", aCount);
+int anInt = getInt("meshbctype", "440");
+double aDbl = getDbl("tEnd", "0.334");
+bool aBool = getBool("exactsolution", "F");
+int *anIntArray = getIntArray("nBCsegments", 4, "3,4,2,1");
+double *anDblArray = getDblArray("xmax", 2, "3.2,1.9");
+ignoredCmds();
+*/

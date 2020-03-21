@@ -100,5 +100,5 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@./$(TGT)
+	@./$(TGT) ../calc/sod.ini
 
