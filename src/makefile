@@ -51,9 +51,12 @@ SRC        = $(SRC_CORE) $(SRC_EQNSYS)
 OBJ        = $(OBJ_CORE) $(OBJ_EQNSYS)
 TGT        = $(BINDIR)/$(TARGET)
 
-default: cgns $(TGT)
+default: cgns folders $(TGT)
 all: default
 libs: cgns
+
+folders:
+	mkdir -p $(OBJDIR) $(BINDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h makefile
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -90,8 +93,8 @@ cgns:
 	fi;
 
 clean:
-	-rm -f $(OBJ)
-	-rm -f $(TGT)
+	-rm -rf $(OBJDIR)
+	-rm -rf $(BINDIR)
 
 allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
