@@ -17,8 +17,9 @@ int main(int argc, char *argv[])
 	char *iniFileName = "../calc/sod.ini";
 	fillCmds(iniFileName);
 
-	/* test readInTools */
-
+	/*
+	 * test readInTools
+	 *
 	char *aStr = getStr("filename", NULL);
 	int aCount = countKeys("meshbctype", 3);
 	printf("%i\n", aCount);
@@ -28,4 +29,5 @@ int main(int argc, char *argv[])
 	int *anIntArray = getIntArray("nBCsegments", 4, "3,4,2,1");
 	double *anDblArray = getDblArray("xmax", 2, "3.2,1.9");
 	ignoredCmds();
+	*/
 }
