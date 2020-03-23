@@ -41,6 +41,6 @@ extern int	nRKstages;
 extern double	RKcoeff[6];
 extern bool	isImplicit;
 
-void initTimeDisc (void);
+void initTimeDisc(void);
 
 #endif

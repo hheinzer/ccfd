@@ -48,4 +48,24 @@ int main(int argc, char *argv[])
 
 	/* initialization routines */
 	initOutput();
+	//initEquation();
+	//initBoundary();
+	//initMesh();
+	//initInitialCondition();
+	//initFV();
+	//initTimeDisc();
+	//initLinearSolver();
+	//outputTimes = NULL;
+
+	/* setting initial condition */
+	//setInitialCondition();
+
+	/* initialize c_a, c_w, and c_p calculation as well as record points */
+	//initAnalyze();
+
+	/* print ignored comands */
+	ignoredCmds();
+
+	/* start time stepping routine */
+	//timeDisc();
 }
