@@ -36,7 +36,7 @@ double sqrt3q, sqrt3, sqrt2;
  */
 void initEquation(void)
 {
-	printf("\nInitializing Constants\n");
+	printf("\nInitializing Constants:\n");
 	printf("| Using EULER equations\n");
 
 	gamma = getDbl("gamma", "1.4");

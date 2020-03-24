@@ -29,7 +29,7 @@ cmd_t *firstCmd;
 void fillCmds(char iniFileName[STRLEN])
 {
 	FILE *iniFile;
-	printf("\nReading parameter file: '%s'\n", iniFileName);
+	printf("\nReading Parameter File: '%s'\n", iniFileName);
 	iniFile = fopen(iniFileName, "r");
 	if (iniFile == NULL) {
 		printf("Abort! Could not find specified file.\n");

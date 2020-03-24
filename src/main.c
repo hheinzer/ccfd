@@ -14,6 +14,7 @@
 #include "timeDiscretization.h"
 #include "output.h"
 #include "equation.h"
+#include "boundary.h"
 
 int main(int argc, char *argv[])
 {
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
 		iniIterationNumber = 0;
 		startTime = 0.0;
 		break;
-	case 3: // TODO: Restart calculation
+	case 3: // Restart calculation
 		isRestart = true;
 		const char *restartFileName = argv[2];
 		//strcpy(strIniCondFile, restartFileName);
@@ -87,7 +88,7 @@ int main(int argc, char *argv[])
 	/* initialization routines */
 	initOutput();
 	initEquation();
-	//initBoundary();
+	initBoundary();
 	//initMesh();
 	//initInitialCondition();
 	//initFV();
