@@ -9,7 +9,7 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.0, for 
 
 ## Installation
 
-For now, I have only run it on Linux. Here just run `make` in the base directory. However, it should work on MacOS and Windows just as well, maybe some tweaks to the Makefile are necessary. Once a first working version is done, I will worry about other OSs.
+For now, I have only run it on Linux. Just run `make` in the base directory and everything should compile. However, it should work on MacOS and Windows just as well, maybe some tweaks to the Makefile are necessary. Once a first working version is done, I will worry about other OSs.
 
 ## First Step
 
