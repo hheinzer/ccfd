@@ -13,7 +13,7 @@
 #include "readInTools.h"
 
 /* extern variables */
-char strOutfile[STRLEN];
+char strOutFile[STRLEN];
 double IOtimeInterval;
 int IOiterInterval;
 int iVisuProg;
@@ -28,7 +28,7 @@ outputTime_t outputTimes;
 void initOutput(void)
 {
 	printf("\nInitializing IO:\n");
-	strcpy(strOutfile, getStr("fileName", NULL));
+	strcpy(strOutFile, getStr("fileName", NULL));
 	IOtimeInterval = getDbl("IOtimeInterval", NULL);
 	IOiterInterval = getDbl("IOiterInterval", NULL);
 	iVisuProg = getInt("outputFormat", "1");

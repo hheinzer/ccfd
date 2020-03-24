@@ -15,6 +15,7 @@
 #include "output.h"
 #include "equation.h"
 #include "boundary.h"
+#include "mesh.h"
 
 int main(int argc, char *argv[])
 {
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
 	initOutput();
 	initEquation();
 	initBoundary();
-	//initMesh();
+	initMesh();
 	//initInitialCondition();
 	//initFV();
 	//initTimeDisc();

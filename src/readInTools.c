@@ -291,7 +291,7 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 	}
 	sprintf(line + strlen(line), "}");
 
-	printf("| %18s[%d] = %27s (%s)\n", key, N, line, defMsg);
+	printf("| %16s[%d] = %27s (%s)\n", key, N, line, defMsg);
 	return value;
 }
 
@@ -320,7 +320,7 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 	}
 	sprintf(line + strlen(line), "}");
 
-	printf("| %18s[%d] = %27s (%s)\n", key, N, line, defMsg);
+	printf("| %16s[%d] = %27s (%s)\n", key, N, line, defMsg);
 	return value;
 }
 

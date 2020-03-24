@@ -10,7 +10,7 @@
 
 #include <stdbool.h>
 
-extern char strOutfile[STRLEN];
+extern char strOutFile[STRLEN];
 extern double IOtimeInterval;
 extern int IOiterInterval;
 extern int iVisuProg;
