@@ -12,6 +12,8 @@
 
 #include "readInTools.h"
 #include "timeDiscretization.h"
+#include "output.h"
+#include "equation.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,10 +38,46 @@ int main(int argc, char *argv[])
 
 	/* check command line arguments */
 	switch (argc) {
-	case 2:
+	case 2: // no restart required
 		isRestart = false;
 		iniIterationNumber = 0;
 		startTime = 0.0;
+		break;
+	case 3: // TODO: Restart calculation
+		isRestart = true;
+		const char *restartFileName = argv[2];
+		//strcpy(strIniCondFile, restartFileName);
+
+		printf("\nRestarting from file '%s':\n", restartFileName);
+		FILE *restartFile = fopen(restartFileName, "r");
+		if (restartFile == NULL) {
+			printf("| ERROR: No restart file found\n");
+			exit(1);
+		}
+		fclose(restartFile);
+
+		/* get restart time */
+		char *string = malloc(strlen(restartFileName));
+		strcpy(string, restartFileName);
+		while (strstr(string, "_") != NULL)
+			string = strstr(string, "_") + 1;
+		double timeStamp = strtod(string, NULL);
+		/* allocated memory can only be deallocated at the beginning
+		 * of the memory block, but the pointer 'string' was incremented
+		 * (see for yourself with 'printf("%p\n", string);')
+		 *	--> Move back to beginning of memory block via pointer
+		 *	    arithmetic
+		 */
+		free(string - (strlen(restartFileName) - strlen(string)));
+
+		if (isStationary) {
+			iniIterationNumber = (int)timeStamp;
+			startTime = 0.0;
+		} else {
+			iniIterationNumber = 0;
+			startTime = timeStamp;
+			restartTime = timeStamp;
+		}
 		break;
 	default:
 		printf("ERROR: Wrong number of arguments, must be 1 or 2\n");
@@ -48,7 +86,7 @@ int main(int argc, char *argv[])
 
 	/* initialization routines */
 	initOutput();
-	//initEquation();
+	initEquation();
 	//initBoundary();
 	//initMesh();
 	//initInitialCondition();

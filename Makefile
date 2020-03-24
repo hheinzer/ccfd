@@ -36,7 +36,7 @@ FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
-INCDIR += -I src/$(EQNSYS)
+INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
@@ -62,6 +62,9 @@ $(BINDIR):
 	mkdir -p $(BINDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)

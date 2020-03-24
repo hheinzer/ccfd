@@ -5,10 +5,13 @@
  * Author : hhh
  */
 
+#include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
 
 #include "main.h"
 #include "output.h"
+#include "readInTools.h"
 
 /* extern variables */
 char strOutfile[STRLEN];
@@ -20,4 +23,14 @@ int resUnit;
 bool doErrorOutput;
 outputTime_t outputTimes;
 
-
+/*
+ * Initialize output
+ */
+void initOutput(void)
+{
+	printf("\nInitializing IO:\n");
+	strcpy(strOutfile, getStr("fileName", NULL));
+	IOtimeInterval = getDbl("IOtimeInterval", NULL);
+	IOiterInterval = getDbl("IOiterInterval", NULL);
+	iVisuProg = getInt("outputFormat", "1");
+}
