@@ -347,7 +347,7 @@ void freeCmds(void)
  */
 void ignoredCmds(void)
 {
-	printf("\nThe following commands were ignored:\n");
+	printf("\nThe Following Commands were Ignored:\n");
 	for (cmd_t *currCmd = firstCmd; currCmd; currCmd = currCmd->next) {
 		printf("| \"%s\" = \"%s\"\n", currCmd->key, currCmd->value);
 	}
