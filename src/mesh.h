@@ -102,9 +102,9 @@ extern double xMin, xMax;
 extern double yMin, yMax;
 extern double dxRef;
 
-extern elem_t *elem;
-extern side_t *side;
-extern side_t *BCside;
+extern elem_t **elem;
+extern side_t **side;
+extern side_t **BCside;
 
 extern elem_t *firstElem;
 extern node_t *firstNode;

@@ -24,3 +24,6 @@ allclean:
 
 run:
 	@cd .. && $(MAKE) run --no-print-directory
+
+debug:
+	@cd .. && $(MAKE) debug --no-print-directory

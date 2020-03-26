@@ -108,3 +108,5 @@ allclean: clean
 run:
 	@./$(TGT) calc/sod.ini
 
+debug:
+	@gdb -q -tui --args $(TGT) calc/sod.ini
