@@ -17,6 +17,7 @@
 #include "readInTools.h"
 #include "output.h"
 #include "timeDiscretization.h"
+#include "memTools.h"
 
 /* extern variables */
 char parameterFile[STRLEN],
@@ -61,32 +62,6 @@ struct sideList_t {
 	side_t *side;
 	bool isRotated;
 };
-
-/*
- * allocate a dynamic 2D array of integers
- */
-long **dyn2DintArray(long I, int J)
-{
-	long **arr = malloc(sizeof(long *) * I + sizeof(long) * I * J);
-	long *ptr = (long *)(arr + I);
-	for (int i = 0; i < I; ++i) {
-		arr[i] = (ptr + J * i);
-	}
-	return arr;
-}
-
-/*
- * allocate a dynamic 2D array of doubles
- */
-double **dyn2DdblArray(unsigned long int I, int J)
-{
-	double **arr = malloc(sizeof(double *) * I + sizeof(double) * I * J);
-	double *ptr = (double *)(arr + I);
-	for (int i = 0; i < I; ++i) {
-		arr[i] = (ptr + J * i);
-	}
-	return arr;
-}
 
 /*
  * compute required vectors for reconstruction

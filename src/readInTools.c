@@ -45,7 +45,7 @@ void fillCmds(char iniFileName[STRLEN])
 		/* read key and make it lowercase */
 		j = 0;
 		for (i = 0; i < strlen(line); ++i) {
-			if (isalnum(line[i])) {
+			if (isalnum(line[i])  || (line[i] == '_')) {
 				tmp[j++] = tolower(line[i]);
 			} else if ((line[i] == '!') || (line[i] == '#') ||
 				   (line[i] == '=')) {
