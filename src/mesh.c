@@ -57,10 +57,231 @@ side_t *firstBCside;
 typedef struct sideList_t sideList_t;
 struct sideList_t {
 	long node[2];
-	int BC;
+	bool BC;
 	side_t *side;
 	bool isRotated;
 };
+
+/*
+ * allocate a dynamic 2D array of integers
+ */
+long **dyn2DintArray(long I, int J)
+{
+	long **arr = malloc(sizeof(long *) * I + sizeof(long) * I * J);
+	long *ptr = (long *)(arr + I);
+	for (int i = 0; i < I; ++i) {
+		arr[i] = (ptr + J * i);
+	}
+	return arr;
+}
+
+/*
+ * allocate a dynamic 2D array of doubles
+ */
+double **dyn2DdblArray(unsigned long int I, int J)
+{
+	double **arr = malloc(sizeof(double *) * I + sizeof(double) * I * J);
+	double *ptr = (double *)(arr + I);
+	for (int i = 0; i < I; ++i) {
+		arr[i] = (ptr + J * i);
+	}
+	return arr;
+}
+
+/*
+ * compute required vectors for reconstruction
+ */
+void createReconstructionInfo(elem_t *aElem)
+{
+	double r11, r12, r22;
+	r11 = r12 = r22 = 0.0;
+
+	side_t *aSide = aElem->firstSide;
+	while (aSide) {
+		aSide->baryBaryVec[X] = aSide->GP[X] - aSide->connection->GP[X];
+		aSide->baryBaryVec[Y] = aSide->GP[Y] - aSide->connection->GP[Y];
+
+		aSide->baryBaryDist = sqrt(aSide->baryBaryVec[X] * aSide->baryBaryVec[X] +
+				           aSide->baryBaryVec[Y] * aSide->baryBaryVec[Y]);
+
+		r11 += aSide->baryBaryVec[X] * aSide->baryBaryVec[X];
+		r12 += aSide->baryBaryVec[X] * aSide->baryBaryVec[Y];
+		r22 += aSide->baryBaryVec[Y] * aSide->baryBaryVec[Y];
+
+		aSide = aSide->nextElemSide;
+	}
+
+	r11 = sqrt(r11);
+	r12 = r12 / r11;
+	r22 = sqrt(r22 - r12 * r12);
+
+	aSide = aElem->firstSide;
+	while (aSide) {
+		double alpha1 = aSide->baryBaryVec[X] / (r11 * r11);
+		double alpha2 = (aSide->baryBaryVec[Y] - r12 / r11 *
+				aSide->baryBaryVec[X]) / (r22 * r22);
+
+		aSide->w[X] = alpha1 - r12 / r11 * alpha2;
+		aSide->w[Y] = alpha2;
+
+		aSide = aSide->nextElemSide;
+	}
+
+	/* gaussian integration points and weights for volume integrals */
+	switch (aElem->elemType) {
+	case 3:
+		aElem->nGP = 3;
+		aElem->wGP = malloc(aElem->nGP * sizeof(double));
+		aElem->xGP = dyn2DdblArray(aElem->nGP, NDIM);
+
+		aSide = aElem->firstSide;
+		for (int iGP = 0; iGP < aElem->nGP; ++iGP) {
+			aElem->xGP[iGP][X] = aElem->bary[X] + aSide->GP[X];
+			aElem->xGP[iGP][Y] = aElem->bary[Y] + aSide->GP[Y];
+
+			aElem->wGP[iGP] = aElem->area / 3.0;
+
+			aSide = aSide->nextElemSide;
+		}
+		break;
+	case 4:
+		aElem->nGP = 5;
+		aElem->wGP = malloc(aElem->nGP * sizeof(double));
+		aElem->xGP = dyn2DdblArray(aElem->nGP, NDIM);
+
+		aSide = aElem->firstSide;
+		for (int iGP = 0; iGP < aElem->nGP - 1; ++iGP) {
+			aElem->xGP[iGP][X] = aElem->bary[X] + aSide->GP[X];
+			aElem->xGP[iGP][Y] = aElem->bary[Y] + aSide->GP[Y];
+
+			aElem->wGP[iGP] = aElem->area / 6.0;
+
+			aSide = aSide->nextElemSide;
+		}
+		aElem->xGP[aElem->nGP - 1][X] = (aElem->node[0]->x[X]
+				+ aElem->node[2]->x[X]) / 2.0;
+		aElem->xGP[aElem->nGP - 1][Y] = (aElem->node[0]->x[Y]
+				+ aElem->node[2]->x[Y]) / 2.0;
+		aElem->wGP[aElem->nGP - 1] = aElem->area / 3.0;
+		break;
+	default:
+		printf("| ERROR in createReconstructionInfo:\n");
+		printf("| No quadrature rule for elements other than triangles or quadrilaterals\n");
+		exit(1);
+	}
+}
+
+/*
+ * create connection for periodic BCs
+ */
+void connectPeriodicBC(void)
+{
+	isPeriodic = false;
+
+	side_t *aBCside = firstBCside;
+	double aGPpos[2], sGPpos[2];
+	bool isConnected;
+	while (aBCside) {
+		if ((aBCside->BC->BCtype == PERIODIC) &&
+		    ((aBCside->BC->BCid % 10) == 1)) {
+			isPeriodic = true;
+			isConnected = false;
+
+			aGPpos[X] = aBCside->GP[X] + aBCside->elem->bary[X];
+			aGPpos[Y] = aBCside->GP[Y] + aBCside->elem->bary[Y];
+
+			int nPeriodicBC = aBCside->BC->BCid / 10;
+
+			side_t *sBCside = firstBCside;
+			while (sBCside) {
+				if ((sBCside->BC->BCtype == PERIODIC) &&
+				    ((sBCside->BC->BCid % 10) == 2) &&
+				    ((sBCside->BC->BCid / 10) == nPeriodicBC)) {
+					sGPpos[X] = sBCside->GP[X] + sBCside->elem->bary[X];
+					sGPpos[Y] = sBCside->GP[Y] + sBCside->elem->bary[Y];
+					if ((fabs(aGPpos[X] + aBCside->BC->connection[X] - sGPpos[X]) +
+					     fabs(aGPpos[Y] + aBCside->BC->connection[Y] - sGPpos[Y])) <= REALTOL) {
+						isConnected = true;
+
+						side_t *urSide = aBCside->connection;
+						side_t *targetSide = sBCside->connection;
+						urSide->connection = targetSide;
+						targetSide->connection = urSide;
+
+						/* reorganise lists: target side has to be removed */
+						nSides--;
+						if (firstSide == targetSide) {
+							firstSide = firstSide->next;
+						} else {
+							side_t *sSide = firstSide;
+							while (sSide) {
+								if (sSide->next == targetSide) {
+									sSide->next = targetSide->next;
+									break;
+								}
+								sSide = sSide->next;
+							}
+						}
+						break;
+					}
+				}
+
+				sBCside = sBCside->next;
+			}
+
+			if (!isConnected) {
+				printf("| ERROR in connectPeriodicBC: No connection found\n");
+				printf("| Side GP was: %g %g\n", aGPpos[X], aGPpos[Y]);
+				exit(1);
+			}
+		}
+
+		aBCside = aBCside->next;
+	}
+}
+
+/*
+ * create side info: normal vector, side length, ghost cells, ...
+ */
+void createSideInfo(side_t *aSide)
+{
+	aSide->n[X] = aSide->node[1]->x[Y] - aSide->node[0]->x[Y];
+	aSide->n[Y] = aSide->node[0]->x[X] - aSide->node[1]->x[X];
+
+	aSide->len = sqrt(aSide->n[X] * aSide->n[X] + aSide->n[Y] * aSide->n[Y]);
+
+	aSide->n[X] /= aSide->len;
+	aSide->n[Y] /= aSide->len;
+
+	aSide->GP[X] = (aSide->node[0]->x[X] + aSide->node[1]->x[X]) / 2.0
+		- aSide->elem->bary[X];
+	aSide->GP[Y] = (aSide->node[0]->x[Y] + aSide->node[1]->x[Y]) / 2.0
+		- aSide->elem->bary[Y];
+
+	/* compute dot-product of vector from barycenter to side midpoint with
+	 * normal vector, if it is less than zero, the direction must be
+	 * switched */
+	if ((aSide->n[X] * aSide->GP[X] + aSide->n[Y] * aSide->GP[Y]) < 0.0) {
+		aSide->n[X] *= -1.0;
+		aSide->n[Y] *= -1.0;
+	}
+
+	/* compute barycenter of ghost cell in case it is a boundary side */
+	if (aSide->connection->BC) {
+		double tmp = 2.0 * fabs(aSide->GP[X] * aSide->n[X]
+				      + aSide->GP[Y] * aSide->n[Y]);
+		aSide->connection->elem->bary[X] = aSide->elem->bary[X]
+			+ tmp * aSide->n[X];
+		aSide->connection->elem->bary[Y] = aSide->elem->bary[Y]
+			+ tmp * aSide->n[Y];
+	}
+
+	aSide->connection->GP[X] = aSide->GP[X] - aSide->connection->elem->bary[X];
+	aSide->connection->GP[Y] = aSide->GP[Y] - aSide->connection->elem->bary[Y];
+	aSide->connection->n[X] = aSide->n[X];
+	aSide->connection->n[Y] = aSide->n[Y];
+	aSide->connection->len = aSide->len;
+}
 
 /*
  * compute the cell specific values: barycenter, area, projection length of cell
@@ -122,8 +343,8 @@ void createElemInfo(elem_t *aElem)
 	/* projection of cell onto x- and y-axis */
 	aElem->sx = aElem->sy = 0;
 	for (int i = 0; i < aElem->elemType; ++i) {
-		aElem->sx += n[i][X] * len[i] / 2;
-		aElem->sy += n[i][Y] * len[i] / 2;
+		aElem->sx += fabs(n[i][X]) * len[i] / 2.0;
+		aElem->sy += fabs(n[i][Y]) * len[i] / 2.0;
 	}
 }
 
@@ -135,36 +356,14 @@ int compare(const void *a, const void *b)
 	sideList_t *A = (sideList_t *)a;
 	sideList_t *B = (sideList_t *)b;
 	if (A->node[0] == B->node[0]) {
-		return A->node[1] - B->node[1];
+		if (A->node[1] == B->node[1]) {
+			return A->BC - B->BC;
+		} else {
+			return A->node[1] - B->node[1];
+		}
 	} else {
 		return A->node[0] - B->node[0];
 	}
-}
-
-/*
- * allocate a dynamic 2D array of integers
- */
-long **dyn2DintArray(long I, int J)
-{
-	long **arr = malloc(sizeof(long *) * I + sizeof(long) * I * J);
-	long *ptr = (long *)(arr + I);
-	for (int i = 0; i < I; ++i) {
-		arr[i] = (ptr + J * i);
-	}
-	return arr;
-}
-
-/*
- * allocate a dynamic 2D array of doubles
- */
-double **dyn2DdblArray(unsigned long int I, int J)
-{
-	double **arr = malloc(sizeof(double *) * I + sizeof(double) * I * J);
-	double *ptr = (double *)(arr + I);
-	for (int i = 0; i < I; ++i) {
-		arr[i] = (ptr + J * i);
-	}
-	return arr;
 }
 
 /*
@@ -290,7 +489,7 @@ void createMesh(void)
 	double **vertex;
 	long **tria, **quad, **BCedge, *zoneConnect;
 	tria = quad = BCedge = NULL;
-	long nVertices, nBCedges, nZones;
+	long nVertices, nBCedges; //, nZones;
 	switch (meshType) {
 	case CARTESIAN:
 		createCartMesh(&vertex, &nVertices, &BCedge, &nBCedges, &quad);
@@ -420,7 +619,7 @@ void createMesh(void)
 
 			sideList[iSidePtr].node[0] = fmin(iNode1, iNode2);
 			sideList[iSidePtr].node[1] = fmax(iNode1, iNode2);
-			sideList[iSidePtr].BC = 0;
+			sideList[iSidePtr].BC = false;
 			if (fmin(iNode1, iNode2) == iNode2) {
 				sideList[iSidePtr].isRotated = true;
 			} else {
@@ -482,7 +681,7 @@ void createMesh(void)
 
 			sideList[iSidePtr].node[0] = fmin(iNode1, iNode2);
 			sideList[iSidePtr].node[1] = fmax(iNode1, iNode2);
-			sideList[iSidePtr].BC = 0;
+			sideList[iSidePtr].BC = false;
 			if (fmin(iNode1, iNode2) == iNode2) {
 				sideList[iSidePtr].isRotated = true;
 			} else {
@@ -516,7 +715,7 @@ void createMesh(void)
 
 		sideList[iSidePtr].node[0] = fmin(iNode1, iNode2);
 		sideList[iSidePtr].node[1] = fmax(iNode1, iNode2);
-		sideList[iSidePtr].BC = 1; // TODO: what is this used for
+		sideList[iSidePtr].BC = true;
 		if (fmin(iNode1, iNode2) == iNode2) {
 			sideList[iSidePtr].isRotated = true;
 		} else {
@@ -560,7 +759,14 @@ void createMesh(void)
 	 * 2 2       3 1
 	 * 3 3       3 3
 	 */
+	//for (long i = 0; i < 2*nSides; ++i) {
+	//	printf("%5ld %5ld %5ld %d %c\n", i+1, sideList[i].node[0]+1, sideList[i].node[1]+1, sideList[i].BC, sideList[i].isRotated ? 'T' : 'F');
+	//}
+	//printf("\n");
 	qsort(sideList, 2 * nSides, sizeof(sideList[0]), compare);
+	//for (long i = 0; i < 2*nSides; ++i) {
+	//	printf("%5ld %5ld %5ld %d %c\n", i+1, sideList[i].node[0]+1, sideList[i].node[1]+1, sideList[i].BC, sideList[i].isRotated ? 'T' : 'F');
+	//}
 
 	/* initialize side lists in mesh */
 	firstSide = firstBCside = NULL;
@@ -605,11 +811,57 @@ void createMesh(void)
 	elem_t *aElem = firstElem;
 	while (aElem) {
 		createElemInfo(aElem);
-		//printf("%g %g\n", aElem->bary[X], aElem->bary[Y]);
+		//printf("%g %g %g %g %g\n", aElem->bary[X], aElem->bary[Y], aElem->area, aElem->sx, aElem->sy);
 		aElem = aElem->next;
 	}
 
-	/*  */
+	/* extend side info: vector between barycenters, gaussian integration
+	 * points and normal vectors */
+	side_t *aSide = firstSide;
+	while (aSide) {
+		createSideInfo(aSide);
+		aSide = aSide->next;
+	}
+
+	/* periodic BCs */
+	connectPeriodicBC();
+
+	/* variables for reconstruction */
+	aElem = firstElem;
+	while (aElem) {
+		createReconstructionInfo(aElem);
+		aElem = aElem->next;
+	}
+
+	/* element and side lists */
+	side = malloc(nSides * sizeof(side_t *));
+	elem = malloc(nElems * sizeof(elem_t *));
+	BCside = malloc(nBCsides * sizeof(side_t *));
+
+	aElem = firstElem;
+	iElem = 0;
+	while (aElem) {
+		elem[iElem++] = aElem;
+		aElem = aElem->next;
+	}
+
+	aSide = firstSide;
+	long iSide = 0;
+	while (aSide) {
+		side[iSide++] = aSide;
+		aSide = aSide->next;
+	}
+
+	side_t *aBCside = firstBCside;
+	iSide = 0;
+	while (aBCside) {
+		if (aBCside->BC->BCtype != PERIODIC) {
+			BCside[iSide++] = aBCside;
+		}
+
+		aBCside = aBCside->next;
+	}
+	nBCsides = iSide;
 }
 
 /*

@@ -27,7 +27,7 @@ struct side_t {
 	boundary_t *BC;
 	double pVar[NVAR];
 	double n[NDIM];
-	double l;
+	double len;
 	double baryBaryVec[NDIM];
 	double baryBaryDist;
 	double GP[NDIM];
