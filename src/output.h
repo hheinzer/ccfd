@@ -24,7 +24,7 @@ struct outputTime_t {
 	double time;
 	outputTime_t *next;
 };
-extern outputTime_t outputTimes;
+extern outputTime_t *outputTimes;
 
 void initOutput(void);
 

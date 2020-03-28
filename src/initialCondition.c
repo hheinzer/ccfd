@@ -15,6 +15,9 @@
 #include "initialCondition.h"
 #include "equation.h"
 #include "memTools.h"
+#include "timeDiscretization.h"
+#include "mesh.h"
+#include "exactFunction.h"
 
 /* extern variables */
 int icType;
@@ -68,4 +71,63 @@ void initInitialCondition(void)
 		printf("| ERROR: Initial Condition '%d' not known\n", icType);
 		exit(1);
 	}
+}
+
+/*
+ * set initial flow in all cells
+ */
+void setInitialCondition(void)
+{
+	printf("\nSetting Initial Conditions:\n");
+	elem_t *aElem;
+	if (isRestart) {
+		// TODO: CGNS_readSolution();
+	} else {
+		switch (icType) {
+		case 0:
+			/* cell test */
+			aElem = firstElem;
+			while (aElem) {
+				aElem->pVar[VX] = 0.0;
+				aElem->pVar[VY] = 0.0;
+				aElem->pVar[RHO] = 1.0 * aElem->id;
+				aElem->pVar[P] = 1.0;
+
+				aElem = aElem->next;
+			}
+			break;
+		case 1:
+			/* 1: mult-domain homogenous initial condition
+			 * 2: homogenous initial condition over all domains */
+			aElem = firstElem;
+			while (aElem) {
+				if (nDomains == 1) {
+					memcpy(aElem->pVar, refState[0], 4 * sizeof(double));
+				} else {
+					memcpy(aElem->pVar, refState[aElem->domain], 4 * sizeof(double));
+				}
+				aElem = aElem->next;
+			}
+			break;
+		case 2:
+			/* exact function */
+			aElem = firstElem;
+			while (aElem) {
+				exactFunc(intExactFunc, aElem->bary, 0.0, aElem->pVar);
+				aElem = aElem->next;
+			}
+			break;
+		default:
+			printf("| ERROR: Illegal Initial Condition: %d\n", icType);
+			exit(1);
+		}
+	}
+
+	aElem = firstElem;
+	while (aElem) {
+		primCons(aElem->pVar, aElem->cVar);
+		aElem = aElem->next;
+	}
+
+	printf("| Done.\n");
 }

@@ -16,5 +16,6 @@ extern double alpha;
 extern double **refState;
 
 void initInitialCondition(void);
+void setInitialCondition(void);
 
 #endif

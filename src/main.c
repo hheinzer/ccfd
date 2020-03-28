@@ -98,10 +98,10 @@ int main(int argc, char *argv[])
 	initFV();
 	initTimeDisc();
 	initLinearSolver();
-	//outputTimes = NULL;
+	outputTimes = NULL;
 
 	/* setting initial condition */
-	//setInitialCondition();
+	setInitialCondition();
 
 	/* initialize c_a, c_w, and c_p calculation as well as record points */
 	//initAnalyze();

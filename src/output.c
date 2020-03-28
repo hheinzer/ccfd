@@ -20,7 +20,7 @@ int iVisuProg;
 char parameterFile[STRLEN];
 int resUnit;
 bool doErrorOutput;
-outputTime_t outputTimes;
+outputTime_t *outputTimes;
 
 /*
  * Initialize output
