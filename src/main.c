@@ -18,6 +18,7 @@
 #include "mesh.h"
 #include "initialCondition.h"
 #include "finiteVolume.h"
+#include "linearSolver.h"
 
 int main(int argc, char *argv[])
 {
@@ -95,8 +96,8 @@ int main(int argc, char *argv[])
 	initMesh();
 	initInitialCondition();
 	initFV();
-	//initTimeDisc();
-	//initLinearSolver();
+	initTimeDisc();
+	initLinearSolver();
 	//outputTimes = NULL;
 
 	/* setting initial condition */

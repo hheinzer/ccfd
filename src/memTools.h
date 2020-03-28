@@ -8,7 +8,10 @@
 #ifndef MEMTOOLS_H
 #define MEMTOOLS_H
 
-long **dyn2DintArray(long I, int J);
-double **dyn2DdblArray(long I, int J);
+long **dyn2DintArray(long I, long J);
+double **dyn2DdblArray(long I, long J);
+long ***dyn3DintArray(long I, long J, long K);
+double ***dyn3DdblArray(long I, long J, long K);
+double ****dyn4DdblArray(long I, long J, long K, long L);
 
 #endif
