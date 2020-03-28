@@ -109,4 +109,4 @@ run:
 	@./$(TGT) calc/sod.ini
 
 debug:
-	@gdb -q -tui --args $(TGT) calc/sod.ini
+	@gdb -q --args $(TGT) calc/sod.ini
