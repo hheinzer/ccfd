@@ -17,6 +17,7 @@
 #include "boundary.h"
 #include "mesh.h"
 #include "initialCondition.h"
+#include "finiteVolume.h"
 
 int main(int argc, char *argv[])
 {
@@ -93,7 +94,7 @@ int main(int argc, char *argv[])
 	initBoundary();
 	initMesh();
 	initInitialCondition();
-	//initFV();
+	initFV();
 	//initTimeDisc();
 	//initLinearSolver();
 	//outputTimes = NULL;
