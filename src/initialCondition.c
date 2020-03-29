@@ -18,6 +18,7 @@
 #include "timeDiscretization.h"
 #include "mesh.h"
 #include "exactFunction.h"
+#include "equationOfState.h"
 
 /* extern variables */
 int icType;
