@@ -124,9 +124,9 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 			}
 		} else {
 			double s = (x[X] - rp1Dinterface) / time;
-			exactRiemann(rho_l, rho_r, pVar[RHO],
-					u_l, u_r, pVar[VX],
-					p_l, p_r, pVar[P],
+			exactRiemann(rho_l, rho_r, &pVar[RHO],
+					u_l, u_r, &pVar[VX],
+					p_l, p_r, &pVar[P],
 					c_l, c_r, s);
 		}
 		pVar[VY] = 0.0;

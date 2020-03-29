@@ -278,12 +278,6 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 		tok = strtok(NULL, ",");
 	}
 
-	//printf("| %17s[%d] = {%d", key, N, value[0]);
-	//for (int i = 1; i < N; ++i) {
-	//	printf(", %d", value[i]);
-	//}
-	//printf("} |%s|\n", defMsg);
-
 	char line[STRLEN] = "";
 	sprintf(line, "{%d", value[0]);
 	for (int i = 1; i < N; ++i) {
