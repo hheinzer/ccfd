@@ -8,11 +8,11 @@ This code is intended to become a drop-in replacement for `cfdfv`, a CFD code wr
 
 The program uses the [CGNS](https://cgns.github.io/) library version 4.1.0, for storing the calculation results.
 
-## Installation
+# Installation
 
-### Linux
+## Linux
 
-#### Dependencies
+### Dependencies
 
 - `git`
 - `make`
@@ -21,7 +21,7 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.0, for 
 - `paraview` (optional, for post-processing the results)
 - `gnuplot` (optional, for displaying calculation residuals)
 
-#### Build
+### Build
 
 First make sure that all necessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice
 ```
@@ -44,15 +44,15 @@ $ make
 ```
 This should create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
 
-### MacOS
+## MacOS
 
 It should work basically the same as with Linux, but detailed instructions will follow soon...
 
-### Windows
+## Windows
 
 It should work basically the same as with Linux, but detailed instructions will follow soon...
 
-## Usage
+# Usage
 
 Navigate to the `calc` folder. Here you will find example input files, such as the SOD test case. The calculation can be started by simply executing `ccfd` followed by the `.ini` file, containing the case setup
 ```
