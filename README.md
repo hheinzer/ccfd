@@ -1,5 +1,5 @@
 <p align="center">
-<img src="ccfd.svg">
+<img src="doc/ccfd.svg">
 </p>
 
 # CCFD
