@@ -42,7 +42,7 @@ Then, you can enter change to the `ccfd` directory and build the program using `
 $ cd ccfd
 $ make
 ```
-This should create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
+This should compile the code and create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
 
 ## MacOS
 
