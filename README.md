@@ -1,3 +1,6 @@
+<p align="center">
+<img src="ccfd.svg">
+</p>
 
 # CCFD
 
