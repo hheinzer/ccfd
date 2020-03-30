@@ -284,8 +284,9 @@ void createElemInfo(elem_t *aElem)
 		n[i][X] = aElem->node[i + 1]->x[Y] - aElem->node[i]->x[Y];
 		n[i][Y] = aElem->node[i]->x[X] - aElem->node[i + 1]->x[X];
 
-		n[i][X] /= sqrt(n[i][X] * n[i][X] + n[i][Y] * n[i][Y]);
-		n[i][Y] /= sqrt(n[i][X] * n[i][X] + n[i][Y] * n[i][Y]);
+		double tmp = sqrt(n[i][X] * n[i][X] + n[i][Y] * n[i][Y]);
+		n[i][X] /= tmp;
+		n[i][Y] /= tmp;
 	}
 
 	vec[X] = aElem->node[0]->x[X] - aElem->node[aElem->elemType - 1]->x[X];
@@ -298,12 +299,10 @@ void createElemInfo(elem_t *aElem)
 	n[aElem->elemType - 1][Y] =
 		aElem->node[aElem->elemType - 1]->x[X] - aElem->node[0]->x[X];
 
-	n[aElem->elemType - 1][X] /=
-		sqrt(n[aElem->elemType - 1][X] * n[aElem->elemType - 1][X]
+	double tmp = sqrt(n[aElem->elemType - 1][X] * n[aElem->elemType - 1][X]
 			+ n[aElem->elemType - 1][Y] * n[aElem->elemType - 1][Y]);
-	n[aElem->elemType - 1][Y] /=
-		sqrt(n[aElem->elemType - 1][X] * n[aElem->elemType - 1][X]
-			+ n[aElem->elemType - 1][Y] * n[aElem->elemType - 1][Y]);
+	n[aElem->elemType - 1][X] /= tmp;
+	n[aElem->elemType - 1][Y] /= tmp;
 
 	aElem->area = len[0] * len[1] * fabs(n[0][X]*n[1][Y] - n[1][X]*n[0][Y]);
 	if (aElem->elemType == 3) {
