@@ -17,18 +17,18 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.0, for 
 - `make`
 - `gcc`
 - `gmsh` (optional, for mesh generation)
-- `paraview` (optional, for postprocessing of the results)
-- `gnuplot` (optioanl, for displaying calculation residuals)
+- `paraview` (optional, for post-processing the results)
+- `gnuplot` (optional, for displaying calculation residuals)
 
 #### Build
 
-First make sure that all neccessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice
+First make sure that all necessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice
 ```
 # pacman -S git base-devel
 ```
 For an Ubuntu like system the following command should do the trick
 ```
-# apt-get install git build-essential 
+# apt-get install git build-essential
 ```
 
 Next, navigate to the directory where you want to keep `ccfd` files and clone the git repository
@@ -53,7 +53,7 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 ## Usage
 
-Naviagte to the `calc` folder. Here you will find example input files, such as the SOD test case. The calculation can be started by simply executing `ccfd` followed by the `.ini` file, containing the case setup
+Navigate to the `calc` folder. Here you will find example input files, such as the SOD test case. The calculation can be started by simply executing `ccfd` followed by the `.ini` file, containing the case setup
 ```
 $ ../bin/ccfd sod.ini
 ```
