@@ -19,6 +19,7 @@
 #include "initialCondition.h"
 #include "finiteVolume.h"
 #include "linearSolver.h"
+#include "analyze.h"
 
 int main(int argc, char *argv[])
 {

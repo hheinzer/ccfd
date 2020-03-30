@@ -13,5 +13,6 @@ double **dyn2DdblArray(long I, long J);
 long ***dyn3DintArray(long I, long J, long K);
 double ***dyn3DdblArray(long I, long J, long K);
 double ****dyn4DdblArray(long I, long J, long K, long L);
+char **dynStringArray(long I, long J);
 
 #endif

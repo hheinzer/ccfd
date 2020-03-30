@@ -18,7 +18,7 @@ double IOtimeInterval;
 int IOiterInterval;
 int iVisuProg;
 char parameterFile[STRLEN];
-int resUnit;
+FILE *resFile;
 bool doErrorOutput;
 outputTime_t *outputTimes;
 

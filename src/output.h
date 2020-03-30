@@ -9,13 +9,14 @@
 #define OUTPUT_H
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 extern char strOutFile[STRLEN];
 extern double IOtimeInterval;
 extern int IOiterInterval;
 extern int iVisuProg;
 extern char parameterFile[STRLEN];
-extern int resUnit;
+extern FILE *resFile;
 extern bool doErrorOutput;
 
 typedef struct outputTime_t outputTime_t;

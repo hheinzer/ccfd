@@ -6,6 +6,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 
 /*
  * allocate a dynamic 2D array of integers
@@ -99,6 +100,20 @@ double ****dyn4DdblArray(long I, long J, long K, long L)
 				}
 			}
 		}
+	}
+	return arr;
+}
+
+/*
+ * allocate a dynamic array of strings
+ */
+char **dynStringArray(long I, long J)
+{
+	char **arr = malloc(sizeof(char *) * I + sizeof(char) * I * J);
+	char *ptr = (char *)(arr + I);
+	for (long i = 0; i < I; ++i) {
+		arr[i] = ptr + J * i;
+		strcpy(arr[i], "");
 	}
 	return arr;
 }
