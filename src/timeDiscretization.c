@@ -9,11 +9,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <omp.h>
 
 #include "main.h"
 #include "timeDiscretization.h"
 #include "readInTools.h"
 #include "output.h"
+#include "mesh.h"
+#include "equation.h"
 
 /* extern variables */
 double	cfl;
@@ -21,7 +24,7 @@ double	dfl;
 double	t;
 
 double	timeOverall;
-double	ioTime;
+//double	ioTime = 0.0;
 
 int	timeOrder;
 bool	isTimeStep1D;
@@ -214,4 +217,58 @@ void initTimeDisc(void)
 
 	printIter = (iniIterationNumber / IOiterInterval + 1) * IOiterInterval;
 	printTime = (floor(t / IOtimeInterval) + 1) * IOtimeInterval;
+}
+
+/*
+ * compute the time step
+ */
+void calcTimeStep(double *dt, bool *viscousTimeStepDominates)
+{
+	/* calculate local timestep for each cell */
+	*viscousTimeStepDominates = false;
+	if (isTimeStep1D) {
+		double dtMax = 1e150;
+		#pragma omp parallel for reduction(min:dtMax)
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			elem_t *aElem = elem[iElem];
+			double a = sqrt(gamma * aElem->pVar[P] / aElem->pVar[RHO]);
+			double dtConv = cfl * aElem->sy / (fabs(aElem->pVar[VX]) + a);
+			if (!isfinite(dtConv)) {
+				printf("| Convective Time Step NaN\n");
+				exit(1);
+			}
+			if (mu > 1e-10) {
+				printf("| TimeStep1D not implemented for Navier Stokes. Set mu = 0 or turn off timeStep1D\n");
+				exit(1);
+			}
+			dtMax = fmin(dtMax, dtConv);
+		}
+	}
+}
+
+/*
+ * selection of temporal integration method, as well as management of data
+ * output and analysis tools
+ */
+void timeDisc(void)
+{
+	bool hasConverged = (isStationary ? false : true);
+
+	/* write initial condition to disk */
+	printf("\nWriting Initial Condition to Disk:\n");
+	dataOutput(t, iniIterationNumber);
+	printf("| done.\n");
+
+	/* main program loop */
+	printf("\nStarting Computation:\n");
+	long start = iniIterationNumber + 1;
+	double tStart = CPU_TIME();
+	double tIOstart = tStart;
+	bool viscousTimeStepDominates;
+	double dt;
+	calcTimeStep(&dt, &viscousTimeStepDominates);
+	printf("| Initial Time Step: %g\n", dt);
+	if (viscousTimeStepDominates) {
+		printf("| Viscous Time Step Dominates!\n");
+	}
 }

@@ -30,7 +30,8 @@ INCDIR       = -I $(CGNS_DIR)/$(CGNS_LIB_DIR)/include
 LIBS        += -L $(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
+#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
+FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
@@ -68,7 +69,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)
-	$(CC) -Wall $^ -o $@ $(LIBS)
+	$(CC) $(LFLAGS) $^ -o $@ $(LIBS)
 
 cgns:
 	@cd $(LIBDIR) && \

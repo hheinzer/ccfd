@@ -111,5 +111,5 @@ int main(int argc, char *argv[])
 	ignoredCmds();
 
 	/* start time stepping routine */
-	//timeDisc();
+	timeDisc();
 }

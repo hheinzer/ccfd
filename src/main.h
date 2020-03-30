@@ -52,7 +52,7 @@ enum generalParameters {
 	NDIM = 2, NVAR = 4, NBC = 20
 };
 enum ioFormat {
-	CGNS, CURVE, DAT
+	CGNS = 1, CURVE, DAT
 };
 enum clcdResiduals {
 	CL = 4, CD

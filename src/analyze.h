@@ -15,8 +15,8 @@
 #include "boundary.h"
 #include "mesh.h"
 
-typedef struct time_t time_t;
-struct time_t {
+typedef struct times_t times_t;
+struct times_t {
 	double overall;
 	double io;
 	double flux;

@@ -9,13 +9,20 @@
 #define TIMEDISCRETIZATION_H
 
 #include <stdbool.h>
+#include <time.h>
+
+#ifdef _OPENMP
+#	define CPU_TIME() (omp_get_wtime())
+#else
+#	define CPU_TIME() ((double)clock() / (double)CLOCKS_PER_SEC)
+#endif
 
 extern double	cfl;
 extern double	dfl;
 extern double	t;
 
 extern double	timeOverall;
-extern double	ioTime;
+//extern double	ioTime;
 
 extern int	timeOrder;
 extern bool	isTimeStep1D;
@@ -42,5 +49,6 @@ extern double	RKcoeff[5];
 extern bool	isImplicit;
 
 void initTimeDisc(void);
+void timeDisc(void);
 
 #endif

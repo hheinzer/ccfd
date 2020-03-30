@@ -82,7 +82,7 @@ void setInitialCondition(void)
 	printf("\nSetting Initial Conditions:\n");
 	elem_t *aElem;
 	if (isRestart) {
-		// TODO: CGNS_readSolution();
+		// TODO: cgnsReadSolution();
 	} else {
 		switch (icType) {
 		case 0:

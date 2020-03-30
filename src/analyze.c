@@ -73,7 +73,7 @@ void initRecordPoints(void)
 		char ioFileName[2 * STRLEN];
 		sprintf(ioFileName, "%s_recordPoint_%ld.csv", strOutFile, iPt);
 		recordPoint.ioFile[iPt] = fopen(ioFileName, "w");
-		fprintf(recordPoint.ioFile[iPt], "# Time, Density, VelocityX, VelocityY, Pressure\n");
+		fprintf(recordPoint.ioFile[iPt], "Time, Density, VelocityX, VelocityY, Pressure\n");
 	}
 }
 
@@ -200,19 +200,19 @@ void initAnalyze(void)
 				 * header */
 				resFile = fopen(resFileName, "w");
 				if (doCalcWing) {
-					fprintf(resFile, "# iter, time, residual(%s), c_l, c_d\n",
+					fprintf(resFile, "Iter, Time, Residual(%s), C_L, C_D\n",
 							abortVariableName);
 				} else {
-					fprintf(resFile, "# iter, time, residual(RHO), residual(VX), residual(VY), residual(E)");
+					fprintf(resFile, "Iter, Time, Residual(RHO), Residual(VX), Residual(VY), Residual(E)\n");
 				}
 			}
 		} else {
 			resFile = fopen(resFileName, "w");
 			if (doCalcWing) {
-				fprintf(resFile, "# iter, time, residual(%s), c_l, c_d\n",
+				fprintf(resFile, "Iter, Time, Residual(%s), C_L, C_D\n",
 						abortVariableName);
 			} else {
-				fprintf(resFile, "# iter, time, residual(RHO), residual(VX), residual(VY), residual(E)");
+				fprintf(resFile, "Iter, Time, Residual(RHO), Residual(VX), Residual(VY), Residual(E)\n");
 			}
 		}
 	}

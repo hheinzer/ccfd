@@ -28,5 +28,6 @@ struct outputTime_t {
 extern outputTime_t *outputTimes;
 
 void initOutput(void);
+void dataOutput(double time, long iter);
 
 #endif
