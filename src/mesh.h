@@ -40,6 +40,12 @@ struct side_t {
 	elem_t *elem;
 };
 
+typedef struct sidePtr_t sidePtr_t;
+struct sidePtr_t {
+	side_t *side;
+	sidePtr_t *next;
+};
+
 struct elem_t {
 	int elemType;
 	long id;
@@ -109,7 +115,7 @@ extern side_t **BCside;
 extern elem_t *firstElem;
 extern node_t *firstNode;
 extern side_t *firstSide;
-extern side_t *firstBCside;
+extern sidePtr_t *firstBCside;
 
 void initMesh(void);
 

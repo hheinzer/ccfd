@@ -13,7 +13,7 @@
 
 #include "main.h"
 #include "mesh.h"
-#include "cgnslib.h"
+//#include "cgnslib.h"
 #include "readInTools.h"
 #include "output.h"
 #include "timeDiscretization.h"
@@ -53,7 +53,7 @@ side_t **BCside;
 elem_t *firstElem;
 node_t *firstNode;
 side_t *firstSide;
-side_t *firstBCside;
+sidePtr_t *firstBCside;
 
 typedef struct sideList_t sideList_t;
 struct sideList_t {
@@ -153,33 +153,35 @@ void connectPeriodicBC(void)
 {
 	isPeriodic = false;
 
-	side_t *aBCside = firstBCside;
+	sidePtr_t *aBCside = firstBCside;
 	double aGPpos[2], sGPpos[2];
 	bool isConnected;
 	while (aBCside) {
-		if ((aBCside->BC->BCtype == PERIODIC) &&
-		    ((aBCside->BC->BCid % 10) == 1)) {
+		side_t *aSide = aBCside->side;
+		if ((aSide->BC->BCtype == PERIODIC) &&
+		    ((aSide->BC->BCid % 10) == 1)) {
 			isPeriodic = true;
 			isConnected = false;
 
-			aGPpos[X] = aBCside->GP[X] + aBCside->elem->bary[X];
-			aGPpos[Y] = aBCside->GP[Y] + aBCside->elem->bary[Y];
+			aGPpos[X] = aSide->GP[X] + aSide->elem->bary[X];
+			aGPpos[Y] = aSide->GP[Y] + aSide->elem->bary[Y];
 
-			int nPeriodicBC = aBCside->BC->BCid / 10;
+			int nPeriodicBC = aSide->BC->BCid / 10;
 
-			side_t *sBCside = firstBCside;
+			sidePtr_t *sBCside = firstBCside;
 			while (sBCside) {
-				if ((sBCside->BC->BCtype == PERIODIC) &&
-				    ((sBCside->BC->BCid % 10) == 2) &&
-				    ((sBCside->BC->BCid / 10) == nPeriodicBC)) {
-					sGPpos[X] = sBCside->GP[X] + sBCside->elem->bary[X];
-					sGPpos[Y] = sBCside->GP[Y] + sBCside->elem->bary[Y];
-					if ((fabs(aGPpos[X] + aBCside->BC->connection[X] - sGPpos[X]) +
-					     fabs(aGPpos[Y] + aBCside->BC->connection[Y] - sGPpos[Y])) <= REALTOL) {
+				side_t *sSide = sBCside->side;
+				if ((sSide->BC->BCtype == PERIODIC) &&
+				    ((sSide->BC->BCid % 10) == 2) &&
+				    ((sSide->BC->BCid / 10) == nPeriodicBC)) {
+					sGPpos[X] = sSide->GP[X] + sSide->elem->bary[X];
+					sGPpos[Y] = sSide->GP[Y] + sSide->elem->bary[Y];
+					if ((fabs(aGPpos[X] + aSide->BC->connection[X] - sGPpos[X]) +
+					     fabs(aGPpos[Y] + aSide->BC->connection[Y] - sGPpos[Y])) <= REALTOL) {
 						isConnected = true;
 
-						side_t *urSide = aBCside->connection;
-						side_t *targetSide = sBCside->connection;
+						side_t *urSide = aSide->connection;
+						side_t *targetSide = sSide->connection;
 						urSide->connection = targetSide;
 						targetSide->connection = urSide;
 
@@ -744,7 +746,8 @@ void createMesh(void)
 	//}
 
 	/* initialize side lists in mesh */
-	firstSide = firstBCside = NULL;
+	firstSide = NULL;
+	firstBCside = NULL;
 	for (long iSide = 0; iSide < 2 * nSides; iSide += 2) {
 		side_t *aSide = sideList[iSide].side;
 		side_t *bSide = sideList[iSide + 1].side;
@@ -769,7 +772,8 @@ void createMesh(void)
 			}
 
 			/* save boundary side (bSide) into boundary side list */
-			side_t *aBCside = bSide;
+			sidePtr_t *aBCside = malloc(sizeof(sidePtr_t));
+			aBCside->side = bSide;
 			aBCside->next = firstBCside;
 			firstBCside = aBCside;
 		}
@@ -788,6 +792,20 @@ void createMesh(void)
 		createElemInfo(aElem);
 		//printf("%g %g %g %g %g\n", aElem->bary[X], aElem->bary[Y], aElem->area, aElem->sx, aElem->sy);
 		aElem = aElem->next;
+	}
+
+	/* generate virtual barycenters and ghostcells */
+	sidePtr_t *aBCside = firstBCside;
+	while (aBCside) {
+		side_t *aSide = aBCside->side;
+		double tmp = 2.0 *
+			fabs(aSide->connection->GP[X] * aSide->connection->n[X] +
+			     aSide->connection->GP[Y] * aSide->connection->n[Y]);
+		aSide->elem->bary[X] = aSide->connection->elem->bary[X] + tmp +
+			aSide->connection->n[X];
+		aSide->elem->bary[Y] = aSide->connection->elem->bary[Y] + tmp +
+			aSide->connection->n[Y];
+		aBCside = aBCside->next;
 	}
 
 	/* extend side info: vector between barycenters, gaussian integration
@@ -827,11 +845,11 @@ void createMesh(void)
 		aSide = aSide->next;
 	}
 
-	side_t *aBCside = firstBCside;
+	aBCside = firstBCside;
 	iSide = 0;
 	while (aBCside) {
-		if (aBCside->BC->BCtype != PERIODIC) {
-			BCside[iSide++] = aBCside;
+		if (aBCside->side->BC->BCtype != PERIODIC) {
+			BCside[iSide++] = aBCside->side;
 		}
 
 		aBCside = aBCside->next;
