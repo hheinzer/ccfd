@@ -1,5 +1,5 @@
 <p align="center">
-<img src="doc/ccfd.svg">
+  <img src="doc/ccfd.svg">
 </p>
 
 A two-dimensional finite volume computational fluid dynamics code, written in C
