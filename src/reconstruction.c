@@ -73,6 +73,7 @@ void limiterBarthJespersen(elem_t *aElem)
 				phiLoc[iVar] = fmin(1.0, minDiff[iVar] / uDiff[iVar]);
 			}
 		}
+
 		phi[RHO] = fmin(phi[RHO], phiLoc[RHO]);
 		phi[VX]  = fmin(phi[VX],  phiLoc[VX]);
 		phi[VY]  = fmin(phi[VY],  phiLoc[VY]);
@@ -99,7 +100,93 @@ void limiterBarthJespersen(elem_t *aElem)
  */
 void limiterVenkatakrishnan(elem_t *aElem)
 {
+	/* determine uMin and uMax */
+	double uMin[NVAR], uMax[NVAR];
+	uMin[RHO] = uMax[RHO] = aElem->pVar[RHO];
+	uMin[VX]  = uMax[VX]  = aElem->pVar[VX];
+	uMin[VY]  = uMax[VY]  = aElem->pVar[VY];
+	uMin[P]   = uMax[P]   = aElem->pVar[P];
 
+	side_t *aSide = aElem->firstSide;
+	while (aSide) {
+		uMin[RHO] = fmin(uMin[RHO], aSide->connection->elem->pVar[RHO]);
+		uMin[VX]  = fmin(uMin[VX],  aSide->connection->elem->pVar[VX]);
+		uMin[VY]  = fmin(uMin[VY],  aSide->connection->elem->pVar[VY]);
+		uMin[P]   = fmin(uMin[P],   aSide->connection->elem->pVar[P]);
+
+		uMax[RHO] = fmax(uMax[RHO], aSide->connection->elem->pVar[RHO]);
+		uMax[VX]  = fmax(uMax[VX],  aSide->connection->elem->pVar[VX]);
+		uMax[VY]  = fmax(uMax[VY],  aSide->connection->elem->pVar[VY]);
+		uMax[P]   = fmax(uMax[P],   aSide->connection->elem->pVar[P]);
+
+		aSide = aSide->nextElemSide;
+	}
+
+	double minDiff[NVAR], maxDiff[NVAR], minDiffsq[NVAR], maxDiffsq[NVAR];
+	minDiff[RHO] = uMin[RHO] - aElem->pVar[RHO];
+	minDiff[VX]  = uMin[VX]  - aElem->pVar[VX];
+	minDiff[VY]  = uMin[VY]  - aElem->pVar[VY];
+	minDiff[P]   = uMin[P]   - aElem->pVar[P];
+
+	maxDiff[RHO] = uMax[RHO] - aElem->pVar[RHO];
+	maxDiff[VX]  = uMax[VX]  - aElem->pVar[VX];
+	maxDiff[VY]  = uMax[VY]  - aElem->pVar[VY];
+	maxDiff[P]   = uMax[P]   - aElem->pVar[P];
+
+	minDiff[RHO] = minDiff[RHO] * minDiff[RHO];
+	minDiff[VX]  = minDiff[VX]  * minDiff[VX];
+	minDiff[VY]  = minDiff[VY]  * minDiff[VY];
+	minDiff[P]   = minDiff[P]   * minDiff[P];
+
+	maxDiff[RHO] = maxDiff[RHO] * maxDiff[RHO];
+	maxDiff[VX]  = maxDiff[VX]  * maxDiff[VX];
+	maxDiff[VY]  = maxDiff[VY]  * maxDiff[VY];
+	maxDiff[P]   = maxDiff[P]   * maxDiff[P];
+
+	/* loop over all edges: determine phi */
+	double phi[NVAR] = {1.0}, phiLoc[NVAR], uDiff[NVAR], uDiffsq[NVAR];
+	aSide = aElem->firstSide;
+	while (aSide) {
+		phiLoc[RHO] = 1.0;
+		phiLoc[VX]  = 1.0;
+		phiLoc[VY]  = 1.0;
+		phiLoc[P]   = 1.0;
+		for (int iVar = 0; iVar < NVAR; ++iVar) {
+			uDiff[iVar] = aElem->u_x[iVar] * aSide->GP[X]
+				    + aElem->u_y[iVar] * aSide->GP[Y];
+			uDiffsq[iVar] = uDiff[iVar] * uDiff[iVar];
+
+			if (uDiff[iVar] > 0.0) {
+				phiLoc[iVar] = 1.0 / uDiff[iVar] * (((maxDiffsq[iVar] + aElem->venkEps_sq) * uDiff[iVar]
+							+ 2.0 * uDiffsq[iVar] * maxDiff[iVar])
+						/ (maxDiffsq[iVar] + 2.0 * uDiffsq[iVar] + uDiff[iVar]
+							* maxDiff[iVar] + aElem->venkEps_sq));
+			} else if (uDiff[iVar] < 0.0) {
+				phiLoc[iVar] = 1.0 / uDiff[iVar] * (((minDiffsq[iVar] + aElem->venkEps_sq) * uDiff[iVar]
+							+ 2.0 * uDiffsq[iVar] * minDiff[iVar])
+						/ (minDiffsq[iVar] + 2.0 * uDiffsq[iVar] + uDiff[iVar]
+							* minDiff[iVar] + aElem->venkEps_sq));
+			}
+		}
+
+		phi[RHO] = fmin(phi[RHO], phiLoc[RHO]);
+		phi[VX]  = fmin(phi[VX],  phiLoc[VX]);
+		phi[VY]  = fmin(phi[VY],  phiLoc[VY]);
+		phi[P]   = fmin(phi[P],   phiLoc[P]);
+
+		aSide = aSide->nextElemSide;
+	}
+
+	/* compute limited gradients */
+	aElem->u_x[RHO] *= phi[RHO];
+	aElem->u_x[VX]  *= phi[VX];
+	aElem->u_x[VY]  *= phi[VY];
+	aElem->u_x[P]   *= phi[P];
+
+	aElem->u_y[RHO] *= phi[RHO];
+	aElem->u_y[VX]  *= phi[VX];
+	aElem->u_y[VY]  *= phi[VY];
+	aElem->u_y[P]   *= phi[P];
 }
 
 /*
