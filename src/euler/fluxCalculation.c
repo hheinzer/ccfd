@@ -19,7 +19,7 @@ void flux_god(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 	double cL = sqrt(gamma * pL / rhoL);
 	double cR = sqrt(gamma * pR / rhoR);
@@ -47,9 +47,70 @@ void flux_roe(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
+	/* calculate left/right enthalpy */
+	double mxL = rhoL * vxL;
+	double mxR = rhoR * vxR;
+	double myL = rhoL * vyL;
+	double myR = rhoR * vyR;
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
+	/* calculate left/right enthalpy */
+	double HR = (eR + pR) / rhoR;
+	double HL = (eL + pL) / rhoL;
+
+	/* calculate sqrt(rho) */
+	double rhoSqR = sqrt(rhoR);
+	double rhoSqL = sqrt(rhoL);
+	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
+
+	/* calculate Roe mean values */
+	double vxBar = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
+	double vyBar = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
+	double Hbar  = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
+	double cBar  = sqrt(gamma1 * (Hbar - 0.5 * (vxBar * vxBar + vyBar * vyBar)));
+
+	/* calculate mean Eigenvalues */
+	double a1 = vxBar - cBar;
+	double a2 = vxBar;
+	double a3 = vxBar;
+	double a4 = vxBar + cBar;
+
+	/* calculate mean eigenvectors */
+	double r1[4] = {1.0, a1, vyBar, Hbar - vxBar * cBar};
+	double r2[4] = {1.0, vxBar, vyBar, 0.5 * (vxBar * vxBar + vyBar * vyBar)};
+	double r3[4] = {0.0, 0.0, 1.0, vyBar};
+	double r4[4] = {1.0, a4, vyBar, Hbar + vxBar * cBar};
+
+	/* calculate differences */
+	double delRho = rhoR - rhoL;
+	double delMx  = mxR  - mxL;
+	double delMy  = myR  - myL;
+	double delE   = eR   - eL;
+	double delEq  = delE - (delMy - vyBar * delRho) * vyBar;
+
+	/* calculate wave strenght */
+	double cBarQ = 1.0 / cBar;
+	double gam2 = - gamma1 * cBarQ * cBarQ * (delRho * (vxBar * vxBar - Hbar)
+			+ delEq - delMx * vxBar);
+	double gam1 = - 0.5 * cBarQ * (delMx - delRho * (vxBar + cBar)) - 0.5 * gam2;
+	double gam4 = delRho - gam1 - gam2;
+	double gam3 = delMy - vyBar * delRho;
+
+	/* calculate physical fluxes */
+	double f1R[4] = {mxR, mxR * vxR + pR, mxR * vyR, vxR * (eR + pR)};
+	double f1L[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
+
+	/* calculate Row flux */
+	for (int i = 0; i < 0; ++i) {
+		fluxLoc[i] = 0.5 * (f1R[i] + f1L[i]
+				- gam1 * fabs(a1) * r1[i]
+				- gam2 * fabs(a2) * r2[i]
+				- gam3 * fabs(a3) * r3[i]
+				- gam4 * fabs(a4) * r4[i]);
+	}
 }
 
 /*
@@ -59,9 +120,66 @@ void flux_hll(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
+	/* calculation of auxiliary values */
+	double rhoLq = 1.0 / rhoL;
+	double rhoRq = 1.0 / rhoR;
+	double rhoSqL = sqrt(rhoL);
+	double rhoSqR = sqrt(rhoR);
+	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
 
+	/* calculate energies */
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+
+	/* calculate left/right conservative state vector */
+	double uL[NVAR] = {rhoL, rhoL * vxL, rhoL * vyL, eL};
+	double uR[NVAR] = {rhoR, rhoR * vxR, rhoR * vyR, eR};
+
+	/* calculate flux in left/right cell */
+	double fL[NVAR] = {uL[MX], uL[MX] * vxL + pL, uL[MX] * vyL, vxL * (eL + pL)};
+	double fR[NVAR] = {uR[MX], uR[MX] * vxR + pR, uR[MX] * vyR, vxR * (eR + pR)};
+
+	/* calculation of speed of sounds */
+	double cL = sqrt(gamma * pL * rhoLq);
+	double cR = sqrt(gamma * pR * rhoRq);
+
+	/* calculation of left/right enthalpy */
+	double HL = (eL + pL) * rhoLq;
+	double HR = (eR + pR) * rhoRq;
+
+	/* calculation Row mean values */
+	double uM = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
+	double vM = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
+	double HM = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
+	double cM = sqrt(gamma1 * (HM - 0.5 * (uM * uM + vM * vM)));
+
+	/* calculation signal speeds */
+	double arp = fmax(vxR + cR, uM + cM);
+	double alm = fmin(vxL - cL, uM - cM);
+
+	/* calculation HLL flux */
+	if (alm > 0.0) {
+		fluxLoc[0] = fL[0];
+		fluxLoc[1] = fL[1];
+		fluxLoc[2] = fL[2];
+		fluxLoc[3] = fL[3];
+	} else if (arp < 0.0) {
+		fluxLoc[0] = fR[0];
+		fluxLoc[1] = fR[1];
+		fluxLoc[2] = fR[2];
+		fluxLoc[3] = fR[3];
+	} else {
+		fluxLoc[0] = (arp * fL[0] - alm * fR[0]) / (arp - alm)
+			   + (arp * alm) / (arp - alm) * (uR - uL);
+		fluxLoc[1] = (arp * fL[1] - alm * fR[1]) / (arp - alm)
+			   + (arp * alm) / (arp - alm) * (uR - uL);
+		fluxLoc[2] = (arp * fL[2] - alm * fR[2]) / (arp - alm)
+			   + (arp * alm) / (arp - alm) * (uR - uL);
+		fluxLoc[3] = (arp * fL[3] - alm * fR[3]) / (arp - alm)
+			   + (arp * alm) / (arp - alm) * (uR - uL);
+	}
 }
 
 /*
@@ -71,7 +189,7 @@ void flux_hlle(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -83,7 +201,7 @@ void flux_hllc(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -95,7 +213,7 @@ void flux_lxf(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -107,7 +225,7 @@ void flux_stw(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -119,7 +237,7 @@ void flux_cen(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -131,7 +249,7 @@ void flux_ausmd(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -143,7 +261,7 @@ void flux_ausmdv(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -155,7 +273,7 @@ void flux_vanleer(double rhoL, double rhoR,
 	      double vxL,  double vxR,
 	      double vyL,  double vyR,
 	      double pL,   double pR,
-	      double fluxLoc[NVAR])
+	      double fluxLoc[4])
 {
 
 }
@@ -167,7 +285,7 @@ void convectiveFlux(double rhoL, double rhoR,
 		    double vxL,  double vxR,
 		    double vyL,  double vyR,
 		    double pL,   double pR,
-		    double fluxLoc[NVAR])
+		    double fluxLoc[4])
 {
 	switch (iFlux) {
 	case GOD:
@@ -245,7 +363,7 @@ void fluxCalculation(void)
 		pVarR[P]   = pVar[P];
 
 		/* calculate flux */
-		double fluxLoc[NVAR];
+		double fluxLoc[4];
 		convectiveFlux(pVarL[RHO], pVarR[RHO],
 			       pVarL[VX],  pVarR[VX],
 			       pVarL[VY],  pVarR[VY],
