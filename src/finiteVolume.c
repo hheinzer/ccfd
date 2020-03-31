@@ -15,6 +15,7 @@
 #include "readInTools.h"
 #include "reconstruction.h"
 #include "timeDiscretization.h"
+#include "fluxCalculation.h"
 
 /* extern variables */
 int spatialOrder;

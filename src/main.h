@@ -34,7 +34,7 @@ enum variableConversion {
 	PVAR_TO_CVAR, CVAR_TO_PVAR
 };
 enum fluxFunction {
-	GOD, ROE, HLL, HLLE, HLLC, LXF, STW, CEN, AUSMD, AUSMDV, VANLEER
+	GOD = 1, ROE, HLL, HLLE, HLLC, LXF, STW, CEN, AUSMD, AUSMDV, VANLEER
 };
 enum timestepping {
 	GLOBAL_STEP, LOCAL_STEP
