@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 #include "equation.h"
@@ -43,6 +44,21 @@ void initEquation(void)
 	R = getDbl("R", "287");
 
 	iFlux = getInt("fluxFunction", NULL);
+	if ((iFlux < GOD) || (iFlux > VANLEER)) {
+		printf("| ERROR: Unknown Flux Function:\n");
+		printf("|  1: Godunov scheme\n");
+		printf("|  2: Roe scheme\n");
+		printf("|  3: HLL scheme\n");
+		printf("|  4: HLLE scheme\n");
+		printf("|  5: HLLC scheme\n");
+		printf("|  6: Lax-Friedrichs scheme\n");
+		printf("|  7: Steger-Warming scheme\n");
+		printf("|  8: Central scheme\n");
+		printf("|  9: AUSMD scheme\n");
+		printf("| 10: AUSMDV scheme\n");
+		printf("| 11: van Leer scheme\n");
+		exit(1);
+	}
 
 	pi = acos(-1.0);
 	gamma1 = gamma - 1.0;
