@@ -133,15 +133,15 @@ void limiterVenkatakrishnan(elem_t *aElem)
 	maxDiff[VY]  = uMax[VY]  - aElem->pVar[VY];
 	maxDiff[P]   = uMax[P]   - aElem->pVar[P];
 
-	minDiff[RHO] = minDiff[RHO] * minDiff[RHO];
-	minDiff[VX]  = minDiff[VX]  * minDiff[VX];
-	minDiff[VY]  = minDiff[VY]  * minDiff[VY];
-	minDiff[P]   = minDiff[P]   * minDiff[P];
+	minDiffsq[RHO] = minDiff[RHO] * minDiff[RHO];
+	minDiffsq[VX]  = minDiff[VX]  * minDiff[VX];
+	minDiffsq[VY]  = minDiff[VY]  * minDiff[VY];
+	minDiffsq[P]   = minDiff[P]   * minDiff[P];
 
-	maxDiff[RHO] = maxDiff[RHO] * maxDiff[RHO];
-	maxDiff[VX]  = maxDiff[VX]  * maxDiff[VX];
-	maxDiff[VY]  = maxDiff[VY]  * maxDiff[VY];
-	maxDiff[P]   = maxDiff[P]   * maxDiff[P];
+	maxDiffsq[RHO] = maxDiff[RHO] * maxDiff[RHO];
+	maxDiffsq[VX]  = maxDiff[VX]  * maxDiff[VX];
+	maxDiffsq[VY]  = maxDiff[VY]  * maxDiff[VY];
+	maxDiffsq[P]   = maxDiff[P]   * maxDiff[P];
 
 	/* loop over all edges: determine phi */
 	double phi[NVAR] = {1.0}, phiLoc[NVAR], uDiff[NVAR], uDiffsq[NVAR];
