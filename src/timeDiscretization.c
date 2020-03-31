@@ -17,6 +17,10 @@
 #include "output.h"
 #include "mesh.h"
 #include "equation.h"
+#include "analyze.h"
+#include "linearSolver.h"
+#include "equationOfState.h"
+#include "finiteVolume.h"
 
 /* extern variables */
 double	cfl;
@@ -222,7 +226,7 @@ void initTimeDisc(void)
 /*
  * compute the time step
  */
-void calcTimeStep(double *dt, bool *viscousTimeStepDominates)
+void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 {
 	/* calculate local timestep for each cell */
 	*viscousTimeStepDominates = false;
@@ -243,7 +247,103 @@ void calcTimeStep(double *dt, bool *viscousTimeStepDominates)
 			}
 			dtMax = fmin(dtMax, dtConv);
 		}
+
+		*dt = dtMax;
+	} else {
+		double gammaPrMax = fmax(4.0 / 3.0, gamma / Pr);
+		double dtConvMax = 1e150;
+		#pragma omp parallel for reduction(min:dtConvMax)
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			elem_t *aElem = elem[iElem];
+			/* convective time step */
+			double a = sqrt(gamma * aElem->pVar[P] / aElem->pVar[RHO]);
+			double sumSpectralRadii = (fabs(aElem->pVar[VX]) + a) * aElem->sx
+						+ (fabs(aElem->pVar[VY]) + a) * aElem->sy;
+			double dtConv = cfl * aElem->area / sumSpectralRadii;
+			if (!isfinite(dtConv)) {
+				printf("| Convective Time Step NaN\n");
+				exit(1);
+			}
+			dtConvMax = fmin(dtConvMax, dtConv);
+		}
+
+		/* viscous time step */
+		double dtViscMax = 1e150;
+		if (mu > 1e-10) {
+			#pragma omp parallel for reduction(min:dtViscMax)
+			for (long iElem = 0; iElem < nElems; ++iElem) {
+				elem_t *aElem = elem[iElem];
+				double sumSpectralRadii
+					= gammaPrMax * mu * aElem->sx * aElem->sx
+					+ gammaPrMax * mu * aElem->sy * aElem->sy;
+				double dtVisc = dfl * aElem->pVar[RHO] * aElem->pVar[RHO]
+					* aElem->area * aElem->area
+					/ (4.0 * sumSpectralRadii);
+				if (!isfinite(dtVisc)) {
+					printf("| Viscous Time Step NaN\n");
+					exit(1);
+				}
+				dtViscMax = fmin(dtViscMax, dtVisc);
+			}
+		}
+
+		*dt = fmin(dtConvMax, dtViscMax);
+		if (dtViscMax < dtConvMax) {
+			*viscousTimeStepDominates = true;
+		}
 	}
+
+	/* special treatment for data output and stoptime */
+	if ((t + *dt > pTime) || (t + *dt > stopTime)) {
+		*dt = fmin(pTime, stopTime) - t;
+	} else if ((t + 1.5 * *dt > pTime) || (t + 1.5 * *dt > stopTime)) {
+		*dt = 0.5 * (fmin(pTime, stopTime) - t);
+	}
+
+	/* set local time step for each cell to the global time step */
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		aElem->dt = *dt;
+	}
+}
+
+/*
+ * performing explicit time step using Euler scheme
+ */
+void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
+{
+	FVtimeDerivative(time, iter);
+
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		aElem->cVar[RHO] += dt * aElem->u_t[RHO];
+		aElem->cVar[MX]  += dt * aElem->u_t[MX];
+		aElem->cVar[MY]  += dt * aElem->u_t[MY];
+		aElem->cVar[E]   += dt * aElem->u_t[E];
+		consPrim(aElem->cVar, aElem->pVar);
+	}
+
+	globalResidual(dt, resIter);
+}
+
+/*
+ * performing explicit time step using RK nstage scheme
+ */
+void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR + 2])
+{
+
+}
+
+/*
+ * Euler implicit time integration
+ * non-linear equations require the use of a Newton method with internal
+ * subiteration, using a GMRES method
+ */
+void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2])
+{
+
 }
 
 /*
@@ -252,7 +352,7 @@ void calcTimeStep(double *dt, bool *viscousTimeStepDominates)
  */
 void timeDisc(void)
 {
-	bool hasConverged = (isStationary ? false : true);
+	//bool hasConverged = (isStationary ? false : true);
 
 	/* write initial condition to disk */
 	printf("\nWriting Initial Condition to Disk:\n");
@@ -266,9 +366,112 @@ void timeDisc(void)
 	double tIOstart = tStart;
 	bool viscousTimeStepDominates;
 	double dt;
-	calcTimeStep(&dt, &viscousTimeStepDominates);
+	calcTimeStep(printTime, &dt, &viscousTimeStepDominates);
 	printf("| Initial Time Step: %g\n", dt);
 	if (viscousTimeStepDominates) {
 		printf("| Viscous Time Step Dominates!\n");
+	}
+
+	/* TODO: loop over all iterations */
+	long iter;
+	for (iter = start; iter <= maxIter; ++iter) {
+		calcTimeStep(printTime, &dt, &viscousTimeStepDominates);
+
+		/* main computation loop */
+		double resIter[NVAR + 2];
+		if (!isImplicit) {
+			if ((timeOrder == 1) && (nRKstages == 1)) {
+				explicitTimeStepEuler(t, dt, iter, resIter);
+			} else {
+				explicitTimeStepRK(t, dt, iter, resIter);
+			}
+		} else {
+			implicitTimeStep(t, dt, iter, resIter);
+		}
+		t += dt;
+
+		/* analyze results */
+		analyze(t, iter, resIter);
+
+		/* ent time abort criterion */
+		if (stopTime - t <= 1e-15) {
+			printf("\nTime Limit Reached - Computation Complete!\n");
+			printf("| Final Time      : %g\n", t);
+			printf("| Iteration Number: %ld\n", iter);
+			printf("| Writing Final State to Disk\n");
+			dataOutput(t, iter);
+			finalizeDataOutput();
+
+			/* error calculation (for exact function) */
+			if (hasExactSolution) {
+				calcErrors(t);
+			}
+
+			break;
+		}
+
+		/* residual abort criterion */
+		if (isStationary) {
+			// TODO
+		}
+
+		/* data output */
+		if ((printTime - t <= 1e-15) || (iter == printTime)) {
+			printf("\nData Output at Iteration %ld\n", iter);
+			double tIOend = CPU_TIME();
+			printf("| Time since last I/O: %g s\n", tIOend - tIOstart);
+			tIOstart = tIOend;
+
+			if (isStationary) {
+				// TODO
+			} else {
+				printf("| Time     : %g\n", t);
+				calcTimeStep(printTime + 1e150, &dt, &viscousTimeStepDominates);
+				printf("| Time Step: %g\n", dt);
+				if (viscousTimeStepDominates) {
+					printf("| Viscous Time Step Dominates!\n");
+				}
+			}
+
+			if (hasExactSolution) {
+				calcErrors(t);
+			}
+
+			/* data output */
+			dataOutput(t, iter);
+			finalizeDataOutput();
+
+			if (printTime - t <= 1e-15) {
+				printTime += IOtimeInterval;
+			}
+			if (iter == printTime) {
+				printIter += IOiterInterval;
+			}
+		}
+	}
+
+	double tEnd = CPU_TIME();
+
+	/* error handler for the case that the maximum iteration number was reached */
+	if (iter > maxIter) {
+		printf("\nERROR - ERROR - ERROR\n");
+		printf("| Maximum Iteration Number Reached. Calculation Aborted!\n");
+		printf("| Final Time %g has not been reached.\n", stopTime);
+		printf("| Current Time: %g\n", t);
+		printf("| Final State will be written to disk\n");
+
+		dataOutput(t, iter - 1);
+		finalizeDataOutput();
+
+		if (hasExactSolution) {
+			calcErrors(t);
+		}
+	}
+
+	/* standard output */
+	printf("\nComputation Time: %g s\n", tEnd - tStart);
+	if (isImplicit) {
+		printf("| Newton Iterations: %d\n", nNewtonIterGlobal);
+		printf("| GMRES Iterations : %d\n", nGMRESiterGlobal);
 	}
 }

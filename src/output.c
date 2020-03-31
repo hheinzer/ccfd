@@ -163,3 +163,13 @@ void dataOutput(double time, long iter)
 		}
 	}
 }
+
+/*
+ * finalize data output
+ */
+void finalizeDataOutput(void)
+{
+	if (iVisuProg == CGNS) {
+		// cgnsFinalizeOutput();
+	}
+}

@@ -40,7 +40,7 @@ enum timestepping {
 	GLOBAL_STEP, LOCAL_STEP
 };
 enum limiterFunction {
-	BARTHJESPERSEN, VENKATAKRISHNAN
+	BARTHJESPERSEN = 1, VENKATAKRISHNAN
 };
 enum equationTypes {
 	EULER_EQ, NAVIER_STOKES_EQ

@@ -267,3 +267,19 @@ void initAnalyze(void)
 		initRecordPoints();
 	}
 }
+
+/*
+ * compute aerodynamic coefficients and extract values at record points
+ */
+void analyze(double time, long iter, double resIter[NVAR + 2])
+{
+
+}
+
+/*
+ * calculate L1, L2, and Linf error norms
+ */
+void calcErrors(double time)
+{
+
+}

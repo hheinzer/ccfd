@@ -13,7 +13,7 @@
 /*
  * convert primitive variables into conservative
  */
-void primCons(double pVar[NVAR], double cVar[NVAR])
+void primCons(const double pVar[NVAR], double cVar[NVAR])
 {
 	cVar[RHO] = pVar[RHO];
 	cVar[MX]  = pVar[VX] * pVar[RHO];
@@ -22,7 +22,10 @@ void primCons(double pVar[NVAR], double cVar[NVAR])
 		+ 0.5 * (cVar[MX] * pVar[VX] + cVar[MY] * pVar[VY]);
 }
 
-void consPrim(double cVar[NVAR], double pVar[NVAR])
+/*
+ * convert conservative variables into primitive
+ */
+void consPrim(const double cVar[NVAR], double pVar[NVAR])
 {
 	pVar[RHO] = cVar[RHO];
 	pVar[VX]  = cVar[MX] / cVar[RHO];
@@ -39,6 +42,9 @@ void consPrim(double cVar[NVAR], double pVar[NVAR])
 	}
 }
 
+/*
+ * convert conservative variables to characteristic
+ */
 void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {
 	double c = sqrt(gamma * pVarRef[P] / pVarRef[RHO]);
@@ -63,6 +69,9 @@ void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 	}
 }
 
+/*
+ * convert characteristic variables to conservative
+ */
 void charCons(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {
 	double u = pVarRef[VX];
