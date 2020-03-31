@@ -6,9 +6,7 @@ This code is intended to become a drop-in replacement for `cfdfv`, a CFD code wr
 
 The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for storing the calculation results.
 
-# Installation
-
-## Dependencies
+# Dependencies
 
 - `git`
 - `make`
@@ -16,6 +14,8 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for 
 - `gmsh` (optional, for mesh generation)
 - `paraview` (optional, for post-processing the results)
 - `gnuplot` (optional, for displaying calculation residuals)
+
+# Installation
 
 ## Linux
 
