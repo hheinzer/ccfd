@@ -8,9 +8,7 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for 
 
 # Installation
 
-## Linux
-
-### Dependencies
+## Dependencies
 
 - `git`
 - `make`
@@ -18,6 +16,8 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for 
 - `gmsh` (optional, for mesh generation)
 - `paraview` (optional, for post-processing the results)
 - `gnuplot` (optional, for displaying calculation residuals)
+
+## Linux
 
 ### Build
 
