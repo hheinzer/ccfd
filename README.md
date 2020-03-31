@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="doc/ccfd.svg">
-</p>
+![](doc/ccfd.svg)
 
 A two-dimensional finite volume computational fluid dynamics code, written in C
 
