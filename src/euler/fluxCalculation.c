@@ -173,13 +173,13 @@ void flux_hll(double rhoL, double rhoR,
 		fluxLoc[3] = fR[3];
 	} else {
 		fluxLoc[0] = (arp * fL[0] - alm * fR[0]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[0] - uL[0]);
 		fluxLoc[1] = (arp * fL[1] - alm * fR[1]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[1] - uL[1]);
 		fluxLoc[2] = (arp * fL[2] - alm * fR[2]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[2] - uL[2]);
 		fluxLoc[3] = (arp * fL[3] - alm * fR[3]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[3] - uL[3]);
 	}
 }
 
@@ -239,13 +239,13 @@ void flux_hlle(double rhoL, double rhoR,
 		fluxLoc[3] = fR[3];
 	} else {
 		fluxLoc[0] = (arp * fL[0] - alm * fR[0]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[0] - uL[0]);
 		fluxLoc[1] = (arp * fL[1] - alm * fR[1]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[1] - uL[1]);
 		fluxLoc[2] = (arp * fL[2] - alm * fR[2]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[2] - uL[2]);
 		fluxLoc[3] = (arp * fL[3] - alm * fR[3]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR - uL);
+			   + (arp * alm) * arpAlmQ * (uR[3] - uL[3]);
 	}
 }
 
@@ -258,7 +258,66 @@ void flux_hllc(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculation of auxiliary values */
+	double rhoLq = 1.0 / rhoL;
+	double rhoRq = 1.0 / rhoR;
+	double rhoSqL = sqrt(rhoL);
+	double rhoSqR = sqrt(rhoR);
+	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
 
+	/* calculate energies */
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+
+	/* calculate left/right conservative state vector */
+	double uL[NVAR] = {rhoL, rhoL * vxL, rhoL * vyL, eL};
+	double uR[NVAR] = {rhoR, rhoR * vxR, rhoR * vyR, eR};
+
+	/* calculate flux in left/right cell */
+	double fL[NVAR] = {uL[MX], uL[MX] * vxL + pL, uL[MX] * vyL, vxL * (eL + pL)};
+	double fR[NVAR] = {uR[MX], uR[MX] * vxR + pR, uR[MX] * vyR, vxR * (eR + pR)};
+
+	/* calculation of speed of sounds */
+	double cL = sqrt(gamma * pL * rhoLq);
+	double cR = sqrt(gamma * pR * rhoRq);
+
+	/* calculation of left/right enthalpy */
+	double HL = (eL + pL) * rhoLq;
+	double HR = (eR + pR) * rhoRq;
+
+	/* calculation Row mean values */
+	double uM = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
+	double vM = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
+	double HM = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
+	double cM = sqrt(gamma1 * (HM - 0.5 * (uM * uM + vM * vM)));
+
+	/* calculation signal speeds */
+	double arp = fmax(vxR + cR, uM + cM);
+	double alm = fmin(vxL - cL, uM - cM);
+	double arpAlmQ = 1.0 / (arp - alm);
+
+	/* calculation HLL flux */
+	if (alm > 0.0) {
+		fluxLoc[0] = fL[0];
+		fluxLoc[1] = fL[1];
+		fluxLoc[2] = fL[2];
+		fluxLoc[3] = fL[3];
+	} else if (arp < 0.0) {
+		fluxLoc[0] = fR[0];
+		fluxLoc[1] = fR[1];
+		fluxLoc[2] = fR[2];
+		fluxLoc[3] = fR[3];
+	} else {
+		double as =
+		fluxLoc[0] = (arp * fL[0] - alm * fR[0]) * arpAlmQ
+			   + (arp * alm) * arpAlmQ * (uR[0] - uL[0]);
+		fluxLoc[1] = (arp * fL[1] - alm * fR[1]) * arpAlmQ
+			   + (arp * alm) * arpAlmQ * (uR[1] - uL[1]);
+		fluxLoc[2] = (arp * fL[2] - alm * fR[2]) * arpAlmQ
+			   + (arp * alm) * arpAlmQ * (uR[2] - uL[2]);
+		fluxLoc[3] = (arp * fL[3] - alm * fR[3]) * arpAlmQ
+			   + (arp * alm) * arpAlmQ * (uR[3] - uL[3]);
+	}
 }
 
 /*
