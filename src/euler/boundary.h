@@ -43,5 +43,7 @@ extern int nBC;
 extern bool isPeriodic;
 
 void initBoundary(void);
+void setBCatSides(double time);
+void setBCatBarys(double time);
 
 #endif
