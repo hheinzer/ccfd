@@ -17,9 +17,9 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for 
 
 # Installation
 
-## Linux
+The installation process is easiest on Linux, but possible on MacOS and Windows. For best performance you should build an run it on your native OS.
 
-### Build
+## Linux
 
 First make sure that all necessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice
 ```
