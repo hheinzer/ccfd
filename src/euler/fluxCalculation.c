@@ -444,22 +444,22 @@ void flux_cen(double rhoL, double rhoR,
 	double eR = gamma * gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	/* calculate the physical fluxes */
-	double fR[4], fL[4];
-	fR[0] = rhoR * vxR;
-	fR[1] = fR[0] * vxR + pR;
-	fR[2] = fR[0] * vyR;
-	fR[3] = vxR * (eR + pR);
-
+	double fL[4], fR[4];
 	fL[0] = rhoL * vxL;
 	fL[1] = fL[0] * vxL + pL;
 	fL[2] = fL[0] * vyL;
 	fL[3] = vxL * (eL + pL);
 
+	fR[0] = rhoR * vxR;
+	fR[1] = fR[0] * vxR + pR;
+	fR[2] = fR[0] * vyR;
+	fR[3] = vxR * (eR + pR);
+
 	/* calculate central flux */
-	fluxLoc[0] = 0.5 * (fR[0] + fL[0]);
-	fluxLoc[1] = 0.5 * (fR[1] + fL[1]);
-	fluxLoc[2] = 0.5 * (fR[2] + fL[2]);
-	fluxLoc[3] = 0.5 * (fR[3] + fL[3]);
+	fluxLoc[0] = 0.5 * (fL[0] + fR[0]);
+	fluxLoc[1] = 0.5 * (fL[1] + fR[1]);
+	fluxLoc[2] = 0.5 * (fL[2] + fR[2]);
+	fluxLoc[3] = 0.5 * (fL[3] + fR[3]);
 }
 
 /*
@@ -471,7 +471,46 @@ void flux_ausmd(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculate left/right energy and enthalpy */
+	double eL = gamma * gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma * gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
+	double HL = (eL + pL) / rhoL;
+	double HR = (eR + pR) / rhoR;
+
+	/* maximum speed of sound */
+	double cm = fmax(sqrt(gamma * pL / rhoL), sqrt(gamma * pR / rhoR));
+
+	double alphaL = 2.0 * pL / rhoL / (pL / rhoL + pR / rhoR);
+	double alphaR = 2.0 * pR / rhoR / (pL / rhoL + pR / rhoR);
+
+	double uPlus, pPlus;
+	if (fabs(vxL) < cm) {
+		uPlus = 0.25 * alphaL * (vxL + cm) * (vxL + cm) / cm
+			+ 0.5 * (1.0 - alphaL) * (vxL + fabs(vxL));
+		pPlus = 0.25 * pL * (vxL + cm) * (vxL + cm) / (cm * cm) * (2.0 - vxL / cm);
+	} else {
+		uPlus = 0.5 * (vxL + fabs(vxL));
+		pPlus = 0.5 * pL * (vxL + fabs(vxL)) / vxL;
+	}
+
+	double uMinus, pMinus;
+	if (fabs(vxR) < cm) {
+		uMinus = - 0.25 * alphaR * (vxR - cm) * (vxR - cm) / cm
+			+ 0.5 * (1.0 - alphaR) * (vxR - fabs(vxR));
+		pMinus = 0.25 * pR * (vxR - cm) * (vxR - cm) / (cm * cm) * (2.0 + vxR / cm);
+	} else {
+		uMinus = 0.5 * (vxR - fabs(vxR));
+		pMinus = 0.5 * pR * (vxR - fabs(vxR)) / vxR;
+	}
+
+	/* calculate AUSMD flux */
+	double rhoU = uPlus * rhoL + uMinus * rhoR;
+	fluxLoc[0] = rhoU;
+	fluxLoc[1] = 0.5 * (rhoU * (vxR + vxL) - fabs(rhoU) * (vxR - vxL))
+			+ (pPlus + pMinus);
+	fluxLoc[2] = 0.5 * (rhoU * (vyR + vyL) - fabs(rhoU) * (vyR - vyL));
+	fluxLoc[3] = 0.5 * (rhoU * (HR + HL) - fabs(rhoU) * (HR - HL));
 }
 
 /*
