@@ -16,6 +16,7 @@
 #include "reconstruction.h"
 #include "timeDiscretization.h"
 #include "fluxCalculation.h"
+#include "source.h"
 
 /* extern variables */
 int spatialOrder;
@@ -77,7 +78,7 @@ void FVtimeDerivative(double time, long iter)
 	spatialReconstruction(time);
 	setBCatSides(time);
 	fluxCalculation();
-	source(time);
+	calcSource(time);
 
 	/* time update of the conservative variables */
 	#pragma omp parallel for
@@ -98,8 +99,8 @@ void FVtimeDerivative(double time, long iter)
 
 		/* source term */
 		aElem->u_t[RHO] = (aElem->source[RHO] - aElem->u_t[RHO]) * aElem->areaq;
-		aElem->u_t[VX]  = (aElem->source[VX] - aElem->u_t[VX]) * aElem->areaq;
-		aElem->u_t[VY]  = (aElem->source[VY] - aElem->u_t[VY]) * aElem->areaq;
-		aElem->u_t[E]   = (aElem->source[E] - aElem->u_t[E]) * aElem->areaq;
+		aElem->u_t[VX]  = (aElem->source[VX]  - aElem->u_t[VX])  * aElem->areaq;
+		aElem->u_t[VY]  = (aElem->source[VY]  - aElem->u_t[VY])  * aElem->areaq;
+		aElem->u_t[E]   = (aElem->source[E]   - aElem->u_t[E])   * aElem->areaq;
 	}
 }

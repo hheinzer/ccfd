@@ -16,6 +16,9 @@
 #include "timeDiscretization.h"
 #include "output.h"
 #include "memTools.h"
+#include "reconstruction.h"
+#include "exactFunction.h"
+#include "equation.h"
 
 /* extern variables */
 bool doCalcWing;
@@ -269,17 +272,137 @@ void initAnalyze(void)
 }
 
 /*
+ *
+ */
+void calcCoef(long iter)
+{
+
+}
+
+/*
+ * evaluation of RPs
+ */
+void evalRecordPoints(double time)
+{
+	for (long iPt = 0; iPt < recordPoint.nPoints; ++iPt) {
+		elem_t *aElem = recordPoint.elem[iPt];
+		fprintf(recordPoint.ioFile[iPt],
+			"%15.9f,%15.9f,%15.9f,%15.9f,%15.9f\n",
+			time + aElem->dt, aElem->pVar[RHO], aElem->pVar[VX],
+			aElem->pVar[VY], aElem->pVar[P]);
+	}
+}
+
+/*
  * compute aerodynamic coefficients and extract values at record points
  */
 void analyze(double time, long iter, double resIter[NVAR + 2])
 {
+	/* record points */
+	if (recordPoint.nPoints > 0) {
+		evalRecordPoints(time);
+	}
 
+	/* aerodynamic coefficients */
+	if (doCalcWing) {
+		resIter[NVAR]     = wing.cl;
+		resIter[NVAR + 1] = wing.cd;
+
+		calcCoef(iter);
+
+		resIter[NVAR]     = fabs(resIter[NVAR]     - wing.cl) / firstElem->dt;
+		resIter[NVAR + 1] = fabs(resIter[NVAR + 1] - wing.cd) / firstElem->dt;
+
+		fprintf(resFile, "%7ld,%15.9f,%15.9e,%15.9f,%15.9f\n",
+			iter, time + firstElem->dt, resIter[abortVariable],
+			wing.cl, wing.cd);
+	} else {
+		if (isStationary) {
+			fprintf(resFile, "%7ld,%15.9f,%15.9e,%15.9e,%15.9e,%15.9e\n",
+				iter, time + firstElem->dt, resIter[RHO],
+				resIter[VX], resIter[VY], resIter[E]);
+		}
+	}
 }
 
 /*
  * calculate L1, L2, and Linf error norms
  */
 void calcErrors(double time)
+{
+	double L1[NVAR] = {0.0}, L2[NVAR] = {0.0}, Linf[NVAR] = {0.0};
+
+	spatialReconstruction(time);
+
+	#pragma omp parallel for reduction(max:Linf), reduction(+:L1,L2)
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		for (int iGP = 0; iGP < aElem->nGP; ++iGP) {
+			/* exact function */
+			double pVarEx[NVAR];
+			exactFunc(intExactFunc, aElem->xGP[iGP], time, pVarEx);
+
+			/* space expansion to obtain pVar at current GP */
+			double dx[NDIM] = {
+				aElem->xGP[iGP][X] - aElem->bary[X],
+				aElem->xGP[iGP][Y] - aElem->bary[Y]};
+
+			double pVar[NVAR] = {
+				aElem->pVar[RHO] + dx[X] * aElem->u_x[RHO] + dx[Y] * aElem->u_y[RHO],
+				aElem->pVar[VX]  + dx[X] * aElem->u_x[VX]  + dx[Y] * aElem->u_y[VX],
+				aElem->pVar[VY]  + dx[X] * aElem->u_x[VY]  + dx[Y] * aElem->u_y[VY],
+				aElem->pVar[P]   + dx[X] * aElem->u_x[P]   + dx[Y] * aElem->u_y[P]};
+
+			/* compute errors at GP */
+			double err[NVAR] = {
+				fabs(pVarEx[RHO] - pVar[RHO]),
+				fabs(pVarEx[VX]  - pVar[VX]),
+				fabs(pVarEx[VY]  - pVar[VY]),
+				fabs(pVarEx[P]   - pVar[P])};
+
+			/* update Linf error norm */
+			Linf[RHO] = fmax(Linf[RHO], err[RHO]);
+			Linf[VX]  = fmax(Linf[VX],  err[VX]);
+			Linf[VY]  = fmax(Linf[VY],  err[VY]);
+			Linf[P]   = fmax(Linf[P],   err[P]);
+
+			/* update L1 error norm */
+			L1[RHO] += err[RHO] * aElem->wGP[iGP];
+			L1[VX]  += err[VX]  * aElem->wGP[iGP];
+			L1[VY]  += err[VY]  * aElem->wGP[iGP];
+			L1[P]   += err[P]   * aElem->wGP[iGP];
+
+			/* update L2 error norm */
+			L2[RHO] += err[RHO] * err[RHO] * aElem->wGP[iGP];
+			L2[VX]  += err[VX]  * err[VX]  * aElem->wGP[iGP];
+			L2[VY]  += err[VY]  * err[VY]  * aElem->wGP[iGP];
+			L2[P]   += err[P]   * err[P]   * aElem->wGP[iGP];
+		}
+	}
+
+	/* finalize L1 and L2 */
+	L1[RHO] *= totalArea_q;
+	L1[VX]  *= totalArea_q;
+	L1[VY]  *= totalArea_q;
+	L1[P]   *= totalArea_q;
+
+	L2[RHO] = sqrt(L2[RHO] * totalArea_q);
+	L2[VX]  = sqrt(L2[VX]  * totalArea_q);
+	L2[VY]  = sqrt(L2[VY]  * totalArea_q);
+	L2[P]   = sqrt(L2[P]   * totalArea_q);
+
+	/* input and output */
+	printf("\nError Analysis at t = %g\n", time);
+	printf("|               RHO,          VX,          VY,           P\n");
+	printf("| L1  : %g, %g, %g, %g\n", L1[RHO], L1[VX], L1[VY], L1[P]);
+	printf("| L2  : %g, %g, %g, %g\n", L2[RHO], L2[VX], L2[VY], L2[P]);
+	printf("| Linf: %g, %g, %g, %g\n", Linf[RHO], Linf[VX], Linf[VY], Linf[P]);
+}
+
+/*
+ * calculate the global residual
+ */
+void globalResidual(double dt, double resIter[NVAR + 2])
 {
 
 }

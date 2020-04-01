@@ -51,5 +51,6 @@ extern bool hasExactSolution;
 void initAnalyze(void);
 void analyze(double time, long iter, double *resIter);
 void calcErrors(double time);
+void globalResidual(double dt, double resIter[NVAR + 2]);
 
 #endif

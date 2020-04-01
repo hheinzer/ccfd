@@ -169,18 +169,18 @@ void initTimeDisc(void)
 
 		abortResidual = getDbl("abortResidual", "1e-6");
 
-		abortVariable = getInt("abortVariable", "1");
+		abortVariable = getInt("abortVariable", "1") - 1;
 		switch (abortVariable) {
-		case RHO + 1:
+		case RHO:
 			strcpy(abortVariableName, "RHO");
 			break;
-		case MX + 1:
+		case MX:
 			strcpy(abortVariableName, "MX");
 			break;
-		case MY + 1:
+		case MY:
 			strcpy(abortVariableName, "MY");
 			break;
-		case E + 1:
+		case E:
 			strcpy(abortVariableName, "E");
 			break;
 		}

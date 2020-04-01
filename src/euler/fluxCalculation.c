@@ -616,7 +616,6 @@ void flux_vanleer(double rhoL, double rhoR,
 	/* calculate speed of sound */
 	double cL = sqrt(gamma * pL / rhoL);
 	double cR = sqrt(gamma * pR / rhoR);
-	double cm = fmax(cL, cR);
 
 	/* calculate left/right energy and enthalpy */
 	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
