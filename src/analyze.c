@@ -19,6 +19,7 @@
 #include "reconstruction.h"
 #include "exactFunction.h"
 #include "equation.h"
+#include "initialCondition.h"
 
 /* extern variables */
 bool doCalcWing;
@@ -203,7 +204,7 @@ void initAnalyze(void)
 				 * header */
 				resFile = fopen(resFileName, "w");
 				if (doCalcWing) {
-					fprintf(resFile, "Iter, Time, Residual(%s), C_L, C_D\n",
+					fprintf(resFile, "Iter, Time, Residual(%s), CL, CD\n",
 							abortVariableName);
 				} else {
 					fprintf(resFile, "Iter, Time, Residual(RHO), Residual(VX), Residual(VY), Residual(E)\n");
@@ -212,7 +213,7 @@ void initAnalyze(void)
 		} else {
 			resFile = fopen(resFileName, "w");
 			if (doCalcWing) {
-				fprintf(resFile, "Iter, Time, Residual(%s), C_L, C_D\n",
+				fprintf(resFile, "Iter, Time, Residual(%s), CL, CD\n",
 						abortVariableName);
 			} else {
 				fprintf(resFile, "Iter, Time, Residual(RHO), Residual(VX), Residual(VY), Residual(E)\n");
@@ -236,12 +237,12 @@ void initAnalyze(void)
 		fclose(demFile);
 
 		/* clcd plot file */
-		strcat(strcpy(demFileName, strOutFile), "_clcd.dem");
+		strcat(strcpy(demFileName, strOutFile), "_CLCD.dem");
 		demFile = fopen(demFileName, "w");
-		fprintf(demFile, "set title 'cl/cd Plot'\n");
-		fprintf(demFile, "plot '%s' using 1:4 title 'cl' with lines, \\\n",
+		fprintf(demFile, "set title 'CL/CD Plot'\n");
+		fprintf(demFile, "plot '%s' using 1:4 title 'CL' with lines, \\\n",
 				resFileName);
-		fprintf(demFile, "     '%s' using 1:5 title 'cd' with lines\n",
+		fprintf(demFile, "     '%s' using 1:5 title 'CD' with lines\n",
 				resFileName);
 		fprintf(demFile, "pause -1");
 		fclose(demFile);
@@ -272,11 +273,102 @@ void initAnalyze(void)
 }
 
 /*
- *
+ * calculate CL and CD
  */
 void calcCoef(long iter)
 {
+	/* initialize values */
+	double cl = 0.0, cd = 0.0;
+	double v = refState[0][VX] / cos(alpha * pi / 180.0);
+	double qInfQ = 1.0 / (refState[0][RHO] * 0.5 * v * v);
+	double qInfLq = qInfQ / wing.refLength;
+	double pInf = refState[0][P];
 
+	/* open file for writing cp data */
+	char pressureFileName[STRLEN];
+	strcat(strcpy(pressureFileName, strOutFile), "_CP_pressureSide.csv");
+	FILE *cp1File = fopen(pressureFileName, "w");
+	if (!cp1File) {
+		printf("| ERROR: Cannot open Output File for CP I/O\n");
+		exit(1);
+	}
+
+	/* presure side: CL, CD, CP */
+	fprintf(cp1File, "x, y, phi, CP_pressureSide\n");
+	sidePtr_t *aSidePtr = wing.firstPressureSide;
+	while (aSidePtr) {
+		double p0 = aSidePtr->side->pVar[P];
+		double n[NDIM];
+		n[X]  = aSidePtr->side->n[X];
+		n[Y]  = aSidePtr->side->n[Y];
+		double len = aSidePtr->side->len;
+		cl += n[Y] * p0 * len;
+		cd += n[X] * p0 * len;
+		double cp = (p0 - pInf) * qInfQ;
+		fprintf(cp1File, "%15.9f,%15.9f,%15.9f,%15.9f\n",
+			aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X],
+			aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
+			atan2(aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
+			      aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X]),
+			cp);
+		aSidePtr = aSidePtr->next;
+	}
+
+	/* open file for writing CP data */
+	char suctionFileName[STRLEN];
+	FILE *cp2File = fopen(suctionFileName, "w");
+	if (!cp2File) {
+		printf("| ERROR: Cannot open Output File for CP I/O\n");
+		exit(1);
+	}
+
+	fprintf(cp2File, "x, y, phi, CP_suctionSide\n");
+	aSidePtr = wing.firstSuctionSide;
+	while (aSidePtr) {
+		double p0 = aSidePtr->side->pVar[P];
+		double n[NDIM];
+		n[X]  = aSidePtr->side->n[X];
+		n[Y]  = aSidePtr->side->n[Y];
+		double len = aSidePtr->side->len;
+		cl += n[Y] * p0 * len;
+		cd += n[X] * p0 * len;
+		double cp = (p0 - pInf) * qInfQ;
+		fprintf(cp2File, "%15.9f,%15.9f,%15.9f,%15.9f\n",
+			aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X],
+			aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
+			atan2(aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
+			      aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X]),
+			cp);
+		aSidePtr = aSidePtr->next;
+	}
+
+	cl *= qInfLq;
+	cd *= qInfLq;
+
+	/* saving as global variables */
+	double alphaLoc = alpha * pi / 180.0;
+	wing.cl = cl * cos(alphaLoc) - cd * sin(alphaLoc);
+	wing.cd = cd * cos(alphaLoc) + cl * sin(alphaLoc);
+
+	fclose(cp1File);
+	fclose(cp2File);
+
+	/* write gnuplot file for CP plot */
+	char demFileName[STRLEN];
+	strcat(strcpy(demFileName, strOutFile), "_CP.dem");
+	FILE *demFile = fopen(demFileName, "r");
+	if (!demFile) {
+		demFile = fopen(demFileName, "w");
+		fprintf(demFile, "set title 'CP plot'\n");
+		fprintf(demFile, "set xlabel 'theta'\n");
+		fprintf(demFile, "set ylabel 'cp'\n");
+		fprintf(demFile, "plot '%s' using 3:4 w l lc rgb 'black' t 'pressureSide', \\\n",
+				pressureFileName);
+		fprintf(demFile, "     '%s' using 3:4 w l lc rgb 'blue' t 'suctionSide'\n",
+				suctionFileName);
+		fprintf(demFile, "pause -1");
+		fclose(demFile);
+	}
 }
 
 /*
@@ -404,5 +496,23 @@ void calcErrors(double time)
  */
 void globalResidual(double dt, double resIter[NVAR + 2])
 {
+	resIter[0] = 0.0;
+	resIter[1] = 0.0;
+	resIter[2] = 0.0;
+	resIter[3] = 0.0;
 
+	#pragma omp parallel for reduction(+:resIter[:4])
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		resIter[0] += aElem->area * aElem->u_t[0] * aElem->u_t[0];
+		resIter[1] += aElem->area * aElem->u_t[1] * aElem->u_t[1];
+		resIter[2] += aElem->area * aElem->u_t[2] * aElem->u_t[2];
+		resIter[3] += aElem->area * aElem->u_t[3] * aElem->u_t[3];
+	}
+
+	/* compute 2-Norm of the residual */
+	resIter[0] = sqrt(resIter[0] * totalArea_q);
+	resIter[1] = sqrt(resIter[1] * totalArea_q);
+	resIter[2] = sqrt(resIter[2] * totalArea_q);
+	resIter[3] = sqrt(resIter[3] * totalArea_q);
 }
