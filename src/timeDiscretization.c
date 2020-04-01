@@ -417,14 +417,24 @@ void timeDisc(void)
 		}
 
 		/* data output */
-		if ((printTime - t <= DBL_EPSILON) || (iter == printTime)) {
+		if ((printTime - t <= DBL_EPSILON) || (iter == printIter)) {
 			printf("\nData Output at Iteration %ld\n", iter);
 			double tIOend = CPU_TIME();
 			printf("| Time since last I/O: %g s\n", tIOend - tIOstart);
 			tIOstart = tIOend;
 
 			if (isStationary) {
-				// TODO
+				if (doCalcWing) {
+					printf("| Residuals: %s: %g\n",
+						abortVariableName, resIter[abortVariable]);
+					printf("|            CL : %g\n", resIter[NVAR]);
+					printf("|            CD : %g\n", resIter[NVAR + 1]);
+				} else {
+					printf("|            RHO: %g\n", resIter[RHO]);
+					printf("|            MX : %g\n", resIter[VX]);
+					printf("|            MY : %g\n", resIter[VY]);
+					printf("|            E  : %g\n", resIter[E]);
+				}
 			} else {
 				printf("| Time     : %g\n", t);
 				calcTimeStep(printTime + 1e150, &dt, &viscousTimeStepDominates);
@@ -445,7 +455,7 @@ void timeDisc(void)
 			if (printTime - t <= DBL_EPSILON) {
 				printTime += IOtimeInterval;
 			}
-			if (iter == printTime) {
+			if (iter == printIter) {
 				printIter += IOiterInterval;
 			}
 		}
