@@ -100,12 +100,12 @@ void flux_roe(double rhoL, double rhoR,
 	double gam3 = delMy - vyBar * delRho;
 
 	/* calculate physical fluxes */
-	double f1R[4] = {mxR, mxR * vxR + pR, mxR * vyR, vxR * (eR + pR)};
-	double f1L[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
+	double fR[4] = {mxR, mxR * vxR + pR, mxR * vyR, vxR * (eR + pR)};
+	double fL[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
 
 	/* calculate Row flux */
 	for (int i = 0; i < 0; ++i) {
-		fluxLoc[i] = 0.5 * (f1R[i] + f1L[i]
+		fluxLoc[i] = 0.5 * (fR[i] + fL[i]
 				- gam1 * fabs(a1) * r1[i]
 				- gam2 * fabs(a2) * r2[i]
 				- gam3 * fabs(a3) * r3[i]
@@ -294,7 +294,6 @@ void flux_hllc(double rhoL, double rhoR,
 	/* calculation signal speeds */
 	double arp = fmax(vxR + cR, uM + cM);
 	double alm = fmin(vxL - cL, uM - cM);
-	double arpAlmQ = 1.0 / (arp - alm);
 
 	/* calculation HLL flux */
 	if (alm > 0.0) {
@@ -308,20 +307,36 @@ void flux_hllc(double rhoL, double rhoR,
 		fluxLoc[2] = fR[2];
 		fluxLoc[3] = fR[3];
 	} else {
-		double as =
-		fluxLoc[0] = (arp * fL[0] - alm * fR[0]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR[0] - uL[0]);
-		fluxLoc[1] = (arp * fL[1] - alm * fR[1]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR[1] - uL[1]);
-		fluxLoc[2] = (arp * fL[2] - alm * fR[2]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR[2] - uL[2]);
-		fluxLoc[3] = (arp * fL[3] - alm * fR[3]) * arpAlmQ
-			   + (arp * alm) * arpAlmQ * (uR[3] - uL[3]);
+		double as = (pR - pL + uL[MX] * (alm - vxL) - uR[MX] * (arp - vxR))
+			/ (rhoL * (alm - vxL) - rhoR * (arp - vxR));
+		if ((alm <= 0.0) && (as >= 0.0)) {
+			double fac = rhoL * (alm - vxL) / (alm - as);
+			double us[NVAR] = {fac,
+					   as * fac,
+					   vyL * fac,
+					   fac * (eL / rhoL + (as - vxL) *
+						(as + pL / (rhoL * (alm - vxL))))};
+			fluxLoc[0] = fL[0] + alm * (us[0] - uL[0]);
+			fluxLoc[1] = fL[1] + alm * (us[1] - uL[1]);
+			fluxLoc[2] = fL[2] + alm * (us[2] - uL[2]);
+			fluxLoc[3] = fL[3] + alm * (us[3] - uL[3]);
+		} else {
+			double fac = rhoR * (arp - vxR) / (arp - as);
+			double us[NVAR] = {fac,
+					   as * fac,
+					   vyR * fac,
+					   fac * (eR / rhoR + (as - vxR) *
+						(as + pR / (rhoR * (arp - vxR))))};
+			fluxLoc[0] = fR[0] + arp * (us[0] - uR[0]);
+			fluxLoc[1] = fR[1] + arp * (us[1] - uR[1]);
+			fluxLoc[2] = fR[2] + arp * (us[2] - uR[2]);
+			fluxLoc[3] = fR[3] + arp * (us[3] - uR[3]);
+		}
 	}
 }
 
 /*
- * Lax-Friedrich flux
+ * Lax-Friedrichs flux
  */
 void flux_lxf(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -329,7 +344,36 @@ void flux_lxf(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* compute maximum Eigenvalue */
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
+	double a  = fmax(fabs(vxR) + cR, fabs(vxL) + cL);
 
+	/* calculate left/right energy and enthalpy */
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+
+	/* calculate the differences of the conservative variables */
+	double delU[NVAR] = {rhoR       - rhoL,
+			     rhoR * vxR - rhoL * vxL,
+			     rhoR * vyR - rhoL * vyL,
+			     eR         - eL};
+
+	/* calculate the physical fluxes */
+	double fL[4] = {rhoL * vxL,
+			 rhoL * vxL * vxL + pL,
+			 rhoL * vxL * vyL,
+			 vxL * (eL + pL)};
+	double fR[4] = {rhoR * vxR,
+			 rhoR * vxR * vxR + pR,
+			 rhoR * vxR * vyR,
+			 vxR * (eR + pR)};
+
+	/* calculate local Lax-Friedrichs flux */
+	fluxLoc[0] = 0.5 * (fR[0] + fL[0]) - 0.5 * a * delU[0];
+	fluxLoc[1] = 0.5 * (fR[1] + fL[1]) - 0.5 * a * delU[1];
+	fluxLoc[2] = 0.5 * (fR[2] + fL[2]) - 0.5 * a * delU[2];
+	fluxLoc[3] = 0.5 * (fR[3] + fL[3]) - 0.5 * a * delU[3];
 }
 
 /*
