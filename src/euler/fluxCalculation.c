@@ -385,7 +385,49 @@ void flux_stw(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculation of speed of sound */
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
 
+	/* auxiliary values */
+	double gamma2q = 0.5 / gamma;
+
+	/* calculation of eigenvalues */
+	double aL[4] = {vxL - cL, vxL, vxL, vxL + cL};
+	double aR[4] = {vxR - cR, vxR, vxR, vxR + cR};
+
+	/* calculation of positive and negative Eigenvalues */
+	double ap[4] = {fmax(aL[0], 0.0),
+			fmax(aL[1], 0.0),
+			fmax(aL[2], 0.0),
+			fmax(aL[3], 0.0)};
+	double am[4] = {fmin(aR[0], 0.0),
+			fmin(aR[1], 0.0),
+			fmin(aR[2], 0.0),
+			fmin(aR[3], 0.0)};
+
+	/* calculate positve flux from left and right */
+	double fp[4];
+	fp[0] =	rhoL * gamma2q * (2.0 * gamma1 * ap[1] + ap[0] + ap[3]);
+	fp[1] = fp[0] * vxL + (ap[3] - ap[0])* rhoL * cL * gamma2q;
+	fp[2] = fp[0] * vyL;
+	fp[3] = fp[0] * 0.5 * (vxL * vxL + vyL * vyL) + (ap[3] - ap[0])*
+			rhoL * cL * vxL * gamma2q + (ap[3] + ap[0]) *
+			rhoL * cL * cL * gamma2q * gamma1q;
+
+	/* calculate negative flux from right and left */
+	double fm[4];
+	fm[0] =	rhoR * gamma2q * (2.0 * gamma1 * am[1] + am[0] + am[3]);
+	fm[1] = fm[0] * vxR + (am[3] - am[0])* rhoR * cR * gamma2q;
+	fm[2] = fm[0] * vyR;
+	fm[3] = fm[0] * 0.5 * (vxR * vxR + vyR * vyR) + (am[3] - am[0])*
+			rhoR * cR * vxR * gamma2q + (am[3] + am[0]) *
+			rhoR * cR * cR * gamma2q * gamma1q;
+	/* calculate  Steger-Warming flux */
+	fluxLoc[0] = fp[0] + fm[0];
+	fluxLoc[1] = fp[1] + fm[1];
+	fluxLoc[2] = fp[2] + fm[2];
+	fluxLoc[3] = fp[3] + fm[3];
 }
 
 /*
@@ -397,7 +439,27 @@ void flux_cen(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculate energies */
+	double eL = gamma * gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma * gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
+	/* calculate the physical fluxes */
+	double fR[4], fL[4];
+	fR[0] = rhoR * vxR;
+	fR[1] = fR[0] * vxR + pR;
+	fR[2] = fR[0] * vyR;
+	fR[3] = vxR * (eR + pR);
+
+	fL[0] = rhoL * vxL;
+	fL[1] = fL[0] * vxL + pL;
+	fL[2] = fL[0] * vyL;
+	fL[3] = vxL * (eL + pL);
+
+	/* calculate central flux */
+	fluxLoc[0] = 0.5 * (fR[0] + fL[0]);
+	fluxLoc[1] = 0.5 * (fR[1] + fL[1]);
+	fluxLoc[2] = 0.5 * (fR[2] + fL[2]);
+	fluxLoc[3] = 0.5 * (fR[3] + fL[3]);
 }
 
 /*
