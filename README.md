@@ -6,6 +6,8 @@ This code is intended to become a drop-in replacement for `cfdfv`, a CFD code wr
 
 The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for storing the calculation results.
 
+The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
+
 # Dependencies
 
 - `git`
