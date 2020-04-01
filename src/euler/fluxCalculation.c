@@ -440,8 +440,8 @@ void flux_cen(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate energies */
-	double eL = gamma * gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma * gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	/* calculate the physical fluxes */
 	double fL[4], fR[4];
@@ -472,8 +472,8 @@ void flux_ausmd(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
-	double eL = gamma * gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma * gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	double HL = (eL + pL) / rhoL;
 	double HR = (eR + pR) / rhoR;
@@ -522,7 +522,86 @@ void flux_ausmdv(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculate left/right energy and enthalpy */
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
+	double HL = (eL + pL) / rhoL;
+	double HR = (eR + pR) / rhoR;
+
+	/* maximum speed of sound */
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
+	double cm = fmax(cL, cR);
+
+	double alphaL = 2.0 * pL / rhoL / (pL / rhoL + pR / rhoR);
+	double alphaR = 2.0 * pR / rhoR / (pL / rhoL + pR / rhoR);
+
+	double uPlus, pPlus;
+	if (fabs(vxL) < cm) {
+		pPlus = 0.25 * pL * (vxL + cm) * (vxL + cm) / (cm * cm) * (2.0 - vxL / cm);
+		if (vxL > 0.0) {
+			uPlus = vxL + alphaL * (vxL - cm) * (vxL - cm);
+		} else {
+			uPlus =       alphaL * (vxL + cm) * (vxL + cm);
+		}
+	} else {
+		if (vxL > 0.0) {
+			uPlus = vxL;
+			pPlus = pL;
+		} else {
+			uPlus = 0.0;
+			pPlus = 0.0;
+		}
+	}
+
+	double uMinus, pMinus;
+	if (fabs(vxR) < cm) {
+		pMinus = 0.25 * pR * (vxR - cm) * (vxR - cm) / (cm * cm) * (2.0 + vxR / cm);
+		if (vxR > 0.0) {
+			uMinus =     - alphaR * (vxL - cm) * (vxL - cm);
+		} else {
+			uMinus = vxR - alphaR * (vxR + cm) * (vxR + cm);
+		}
+	} else {
+		if (vxR > 0.0) {
+			uMinus = 0.0;
+			pMinus = 0.0;
+		} else {
+			uMinus = vxR;
+			pMinus = pR;
+		}
+	}
+
+	/* calculate AUSMDV flux */
+	double rhoU = uPlus * rhoL + uMinus * rhoR;
+
+	double s = fmin(1.0, 10.0 * fabs(pR - pL) / fmin(pR, pL));
+	double rhoUsq = 0.5 * (1.0 + s) * (rhoL * vxL * uPlus + rhoR * vxR * uMinus);
+	rhoUsq += 0.25 * (1.0 - s) * (rhoU * (vxR + vxL) - fabs(rhoU) * (vxR - vxL));
+
+	fluxLoc[0] = rhoU;
+	fluxLoc[1] = rhoUsq + (pPlus + pMinus);
+	fluxLoc[2] = 0.5 * (rhoU * (vyR + vyL) - fabs(rhoU) * (vyR - vyL));
+	fluxLoc[3] = 0.5 * (rhoU * (HR + HL) - fabs(rhoU) * (HR - HL));
+
+	/* entropy fix */
+	bool tmpa = (vxL - cL < 0.0) && (vxR - cR > 0.0);
+	bool tmpb = (vxL + cL < 0.0) && (vxR + cR > 0.0);
+	double tmpL[4] = {1.0, vxL, vyL, HL};
+	double tmpR[4] = {1.0, vxR, vyR, HR};
+	if (tmpa && !tmpb) {
+		fluxLoc[0] -= 0.125 * ((vxR - cR) - (vxL - cL)) * (rhoR * tmpR[0] - rhoL * tmpL[0]);
+		fluxLoc[1] -= 0.125 * ((vxR - cR) - (vxL - cL)) * (rhoR * tmpR[1] - rhoL * tmpL[1]);
+		fluxLoc[2] -= 0.125 * ((vxR - cR) - (vxL - cL)) * (rhoR * tmpR[2] - rhoL * tmpL[2]);
+		fluxLoc[3] -= 0.125 * ((vxR - cR) - (vxL - cL)) * (rhoR * tmpR[3] - rhoL * tmpL[3]);
+	}
+	if (!tmpa && tmpb) {
+		fluxLoc[0] -= 0.125 * ((vxR + cR) - (vxL + cL)) * (rhoR * tmpR[0] - rhoL * tmpL[0]);
+		fluxLoc[1] -= 0.125 * ((vxR + cR) - (vxL + cL)) * (rhoR * tmpR[1] - rhoL * tmpL[1]);
+		fluxLoc[2] -= 0.125 * ((vxR + cR) - (vxL + cL)) * (rhoR * tmpR[2] - rhoL * tmpL[2]);
+		fluxLoc[3] -= 0.125 * ((vxR + cR) - (vxL + cL)) * (rhoR * tmpR[3] - rhoL * tmpL[3]);
+	}
 }
 
 /*
@@ -534,7 +613,63 @@ void flux_vanleer(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
+	/* calculate speed of sound */
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
+	double cm = fmax(cL, cR);
 
+	/* calculate left/right energy and enthalpy */
+	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+
+	double HL = (eL + pL) / rhoL;
+	double HR = (eR + pR) / rhoR;
+
+	/* positive flux from left to right */
+	double fp[4], ML = vxL / cL;
+	if (ML > 1.0) {
+		fp[0] = rhoL * vxL;
+		fp[1] = fp[0] * vxL + pL;
+		fp[2] = fp[0] * vyL;
+		fp[3] = fp[0] * HL;
+	} else if ((ML < 1.0) && (ML > - 1.0)) {
+		double cx = gamma1 * vxL + 2.0 * cL;
+		fp[0] = 0.25 * rhoL * cL * (ML + 1.0) * (ML + 1.0);
+		fp[1] = fp[0] * cx / gamma;
+		fp[2] = fp[0] * vyL;
+		fp[3] = 0.5 * (fp[1] * cx * gamma / (gamma * gamma - 1.0) + fp[2] * vyL);
+	} else {
+		fp[0] = 0.0;
+		fp[1] = 0.0;
+		fp[2] = 0.0;
+		fp[3] = 0.0;
+	}
+
+	/* negative flux from right to left */
+	double fm[4], MR = vxR / cR;
+	if (MR < - 1.0) {
+		fm[0] = rhoR * vxR;
+		fm[1] = fm[0] * vxR + pR;
+		fm[2] = fm[0] * vyR;
+		fm[3] = fm[0] * HR;
+	} else if ((MR < 1.0) && (MR > - 1.0)) {
+		double cx = gamma1 * vxR - 2.0 * cR;
+		fm[0] = - 0.25 * rhoR * cR * (1.0 - MR) * (1.0 - MR);
+		fm[1] = fm[0] * cx / gamma;
+		fm[2] = fm[0] * vyR;
+		fm[3] = 0.5 * (fm[1] * cx * gamma / (gamma * gamma - 1.0) + fm[2] * vyR);
+	} else {
+		fm[0] = 0.0;
+		fm[1] = 0.0;
+		fm[2] = 0.0;
+		fm[3] = 0.0;
+	}
+
+	/* calculate van Leer flux */
+	fluxLoc[0] = fp[0] + fm[0];
+	fluxLoc[1] = fp[1] + fm[1];
+	fluxLoc[2] = fp[2] + fm[2];
+	fluxLoc[3] = fp[3] + fm[3];
 }
 
 /*

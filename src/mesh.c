@@ -10,6 +10,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
+#include <float.h>
 
 #include "main.h"
 #include "mesh.h"
@@ -176,7 +177,7 @@ void connectPeriodicBC(void)
 					sGPpos[X] = sSide->GP[X] + sSide->elem->bary[X];
 					sGPpos[Y] = sSide->GP[Y] + sSide->elem->bary[Y];
 					if ((fabs(aGPpos[X] + aSide->BC->connection[X] - sGPpos[X]) +
-					     fabs(aGPpos[Y] + aSide->BC->connection[Y] - sGPpos[Y])) <= REALTOL) {
+					     fabs(aGPpos[Y] + aSide->BC->connection[Y] - sGPpos[Y])) <= DBL_EPSILON) {
 						isConnected = true;
 
 						side_t *urSide = aSide->connection;

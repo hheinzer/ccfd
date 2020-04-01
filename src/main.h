@@ -9,8 +9,6 @@
 #define MAIN_H
 
 #define STRLEN 256
-#define LAMBDA 0.1	/* entropy fix */
-#define REALTOL 1e-7
 
 enum conservativeVariables {
 	RHO, MX, MY, E

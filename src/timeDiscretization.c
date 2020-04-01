@@ -10,6 +10,7 @@
 #include <string.h>
 #include <math.h>
 #include <omp.h>
+#include <float.h>
 
 #include "main.h"
 #include "timeDiscretization.h"
@@ -394,7 +395,7 @@ void timeDisc(void)
 		analyze(t, iter, resIter);
 
 		/* ent time abort criterion */
-		if (stopTime - t <= 1e-15) {
+		if (stopTime - t <= DBL_EPSILON) {
 			printf("\nTime Limit Reached - Computation Complete!\n");
 			printf("| Final Time      : %g\n", t);
 			printf("| Iteration Number: %ld\n", iter);
@@ -416,7 +417,7 @@ void timeDisc(void)
 		}
 
 		/* data output */
-		if ((printTime - t <= 1e-15) || (iter == printTime)) {
+		if ((printTime - t <= DBL_EPSILON) || (iter == printTime)) {
 			printf("\nData Output at Iteration %ld\n", iter);
 			double tIOend = CPU_TIME();
 			printf("| Time since last I/O: %g s\n", tIOend - tIOstart);
@@ -441,7 +442,7 @@ void timeDisc(void)
 			dataOutput(t, iter);
 			finalizeDataOutput();
 
-			if (printTime - t <= 1e-15) {
+			if (printTime - t <= DBL_EPSILON) {
 				printTime += IOtimeInterval;
 			}
 			if (iter == printTime) {
