@@ -44,7 +44,41 @@ void initEquation(void)
 	R = getDbl("R", "287");
 
 	iFlux = getInt("fluxFunction", NULL);
-	if ((iFlux < GOD) || (iFlux > VANLEER)) {
+	switch (iFlux) {
+	case GOD:
+		printf("| Flux Function: Godunov\n");
+		break;
+	case ROE:
+		printf("| Flux Function: Roe\n");
+		break;
+	case HLL:
+		printf("| Flux Function: HLL\n");
+		break;
+	case HLLE:
+		printf("| Flux Function: HLLE\n");
+		break;
+	case HLLC:
+		printf("| Flux Function: HLLC\n");
+		break;
+	case LXF:
+		printf("| Flux Function: Lax-Friedrichs\n");
+		break;
+	case STW:
+		printf("| Flux Function: Steger-Warming\n");
+		break;
+	case CEN:
+		printf("| Flux Function: Central Discretization\n");
+		break;
+	case AUSMD:
+		printf("| Flux Function: AUSMD\n");
+		break;
+	case AUSMDV:
+		printf("| Flux Function: AUSMDV\n");
+		break;
+	case VANLEER:
+		printf("| Flux Function: van Leer\n");
+		break;
+	default:
 		printf("| ERROR: Unknown Flux Function:\n");
 		printf("|  1: Godunov scheme\n");
 		printf("|  2: Roe scheme\n");
