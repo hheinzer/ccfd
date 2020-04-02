@@ -6,6 +6,7 @@
  */
 
 #include <math.h>
+#include <stdio.h>
 
 #include "main.h"
 #include "mesh.h"
@@ -35,7 +36,7 @@ void flux_god(double rhoL, double rhoR,
 	}
 
 	fluxLoc[0] = rho * vx;
-	fluxLoc[1] = rho * vx * vy + p;
+	fluxLoc[1] = rho * vx * vx + p;
 	fluxLoc[2] = rho * vx * vy;
 	fluxLoc[3] = vx * (gamma / gamma1 * p + 0.5 * rho * (vx * vx + vy * vy));
 }
@@ -762,5 +763,24 @@ void fluxCalculation(void)
 			       pVarL[VY],  pVarR[VY],
 			       pVarL[P],   pVarR[P],
 			       fluxLoc);
+		//printf("%2ld %7.4f %7.4f %7.4f %7.4f\n", iSide, fluxLoc[0], fluxLoc[1], fluxLoc[2], fluxLoc[3]);
+
+		/* rotate flux into global coordinate system and update residual */
+		aSide->flux[RHO] = fluxLoc[RHO];
+		aSide->flux[MX]  = aSide->n[X] * fluxLoc[MX] - aSide->n[Y] * fluxLoc[MY];
+		aSide->flux[MY]  = aSide->n[Y] * fluxLoc[MX] + aSide->n[X] * fluxLoc[MY];
+		aSide->flux[E]   = fluxLoc[E];
+
+		/* integrate flux over edge using the midpoint rule */
+		aSide->flux[RHO] *= aSide->len;
+		aSide->flux[MX]  *= aSide->len;
+		aSide->flux[MY]  *= aSide->len;
+		aSide->flux[E]   *= aSide->len;
+
+		/* set flux of connection cell */
+		aSide->connection->flux[RHO] = - aSide->flux[RHO];
+		aSide->connection->flux[MX]  = - aSide->flux[MX];
+		aSide->connection->flux[MY]  = - aSide->flux[MY];
+		aSide->connection->flux[E]   = - aSide->flux[E];
 	}
 }
