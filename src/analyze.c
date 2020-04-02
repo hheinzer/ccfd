@@ -485,10 +485,10 @@ void calcErrors(double time)
 
 	/* input and output */
 	printf("\nError Analysis at t = %g\n", time);
-	printf("|               RHO,          VX,          VY,           P\n");
-	printf("| L1  : %g, %g, %g, %g\n", L1[RHO], L1[VX], L1[VY], L1[P]);
-	printf("| L2  : %g, %g, %g, %g\n", L2[RHO], L2[VX], L2[VY], L2[P]);
-	printf("| Linf: %g, %g, %g, %g\n", Linf[RHO], Linf[VX], Linf[VY], Linf[P]);
+	printf("|                RHO           VX           VY            P\n");
+	printf("| L1  :  %7.5e  %7.5e  %7.5e  %7.5e\n", L1[RHO], L1[VX], L1[VY], L1[P]);
+	printf("| L2  :  %7.5e  %7.5e  %7.5e  %7.5e\n", L2[RHO], L2[VX], L2[VY], L2[P]);
+	printf("| Linf:  %7.5e  %7.5e  %7.5e  %7.5e\n", Linf[RHO], Linf[VX], Linf[VY], Linf[P]);
 }
 
 /*
