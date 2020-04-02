@@ -76,16 +76,13 @@ void flux_roe(double rhoL, double rhoR,
 	double cBar  = sqrt(gamma1 * (Hbar - 0.5 * (vxBar * vxBar + vyBar * vyBar)));
 
 	/* calculate mean Eigenvalues */
-	double a1 = vxBar - cBar;
-	double a2 = vxBar;
-	double a3 = vxBar;
-	double a4 = vxBar + cBar;
+	double a[4] = {vxBar - cBar, vxBar, vxBar, vxBar + cBar};
 
 	/* calculate mean eigenvectors */
-	double r1[4] = {1.0, a1, vyBar, Hbar - vxBar * cBar};
+	double r1[4] = {1.0, a[0], vyBar, Hbar - vxBar * cBar};
 	double r2[4] = {1.0, vxBar, vyBar, 0.5 * (vxBar * vxBar + vyBar * vyBar)};
 	double r3[4] = {0.0, 0.0, 1.0, vyBar};
-	double r4[4] = {1.0, a4, vyBar, Hbar + vxBar * cBar};
+	double r4[4] = {1.0, a[3], vyBar, Hbar + vxBar * cBar};
 
 	/* calculate differences */
 	double delRho = rhoR - rhoL;
@@ -106,13 +103,27 @@ void flux_roe(double rhoL, double rhoR,
 	double fR[4] = {mxR, mxR * vxR + pR, mxR * vyR, vxR * (eR + pR)};
 	double fL[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
 
+	/* TODO: entropy fix */
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
+	double al[4] = {vxL - cL, vxL, vxL, vxL + cL};
+	double ar[4] = {vxR - cR, vxR, vxR, vxR + cR};
+	for (int i = 0; i < 4; ++i) {
+		double da = fmax(fmax(0.0, a[i] - al[i]), ar[i] - a[i]);
+		if (fabs(a[i]) < da) {
+			a[i] = 0.5 * (a[i] * a[i] / da + da);
+		} else {
+			a[i] = fabs(a[i]);
+		}
+	}
+
 	/* calculate Row flux */
 	for (int i = 0; i < 4; ++i) {
 		fluxLoc[i] = 0.5 * (fR[i] + fL[i]
-				- gam1 * fabs(a1) * r1[i]
-				- gam2 * fabs(a2) * r2[i]
-				- gam3 * fabs(a3) * r3[i]
-				- gam4 * fabs(a4) * r4[i]);
+				- gam1 * fabs(a[0]) * r1[i]
+				- gam2 * fabs(a[1]) * r2[i]
+				- gam3 * fabs(a[2]) * r3[i]
+				- gam4 * fabs(a[3]) * r4[i]);
 	}
 }
 
