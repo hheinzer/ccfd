@@ -353,6 +353,17 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
  */
 void timeDisc(void)
 {
+	//for (long iElem = 0; iElem < nElems; ++iElem) {
+	//	elem_t *aElem = elem[iElem];
+	//	printf("%d\n", aElem->nGP);
+	//}
+	for (long iSide = 0; iSide < nSides; ++iSide) {
+		side_t *aSide = side[iSide];
+		printf("%ld\n", aSide->id);
+	}
+
+	exit(0);
+
 	//bool hasConverged = (isStationary ? false : true);
 
 	/* write initial condition to disk */

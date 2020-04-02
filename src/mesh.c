@@ -133,11 +133,10 @@ void createReconstructionInfo(elem_t *aElem)
 
 			aSide = aSide->nextElemSide;
 		}
-		aElem->xGP[aElem->nGP - 1][X] = (aElem->node[0]->x[X]
-				+ aElem->node[2]->x[X]) / 2.0;
-		aElem->xGP[aElem->nGP - 1][Y] = (aElem->node[0]->x[Y]
-				+ aElem->node[2]->x[Y]) / 2.0;
-		aElem->wGP[aElem->nGP - 1] = aElem->area / 3.0;
+		aElem->xGP[4][X] = 0.5 * (aElem->node[0]->x[X] + aElem->node[2]->x[X]);
+		aElem->xGP[4][Y] = 0.5 * (aElem->node[0]->x[Y] + aElem->node[2]->x[Y]);
+
+		aElem->wGP[4] = aElem->area / 3.0;
 		break;
 	default:
 		printf("| ERROR in createReconstructionInfo:\n");
@@ -230,10 +229,11 @@ void createSideInfo(side_t *aSide)
 	aSide->n[X] /= aSide->len;
 	aSide->n[Y] /= aSide->len;
 
-	aSide->GP[X] = (aSide->node[0]->x[X] + aSide->node[1]->x[X]) / 2.0
-		- aSide->elem->bary[X];
-	aSide->GP[Y] = (aSide->node[0]->x[Y] + aSide->node[1]->x[Y]) / 2.0
-		- aSide->elem->bary[Y];
+	double GP[NDIM];
+	GP[X] = 0.5 * (aSide->node[0]->x[X] + aSide->node[1]->x[X]);
+	GP[Y] = 0.5 * (aSide->node[0]->x[Y] + aSide->node[1]->x[Y]);
+	aSide->GP[X] = GP[X] - aSide->elem->bary[X];
+	aSide->GP[Y] = GP[Y] - aSide->elem->bary[Y];
 
 	/* compute dot-product of vector from barycenter to side midpoint with
 	 * normal vector, if it is less than zero, the direction must be
@@ -253,11 +253,11 @@ void createSideInfo(side_t *aSide)
 			+ tmp * aSide->n[Y];
 	}
 
-	aSide->connection->GP[X] = aSide->GP[X] - aSide->connection->elem->bary[X];
-	aSide->connection->GP[Y] = aSide->GP[Y] - aSide->connection->elem->bary[Y];
-	aSide->connection->n[X] = aSide->n[X];
-	aSide->connection->n[Y] = aSide->n[Y];
-	aSide->connection->len = aSide->len;
+	aSide->connection->GP[X] = GP[X] - aSide->connection->elem->bary[X];
+	aSide->connection->GP[Y] = GP[Y] - aSide->connection->elem->bary[Y];
+	aSide->connection->n[X]  = - aSide->n[X];
+	aSide->connection->n[Y]  = - aSide->n[Y];
+	aSide->connection->len   = aSide->len;
 }
 
 /*
@@ -333,7 +333,7 @@ int compare(const void *a, const void *b)
 	sideList_t *B = (sideList_t *)b;
 	if (A->node[0] == B->node[0]) {
 		if (A->node[1] == B->node[1]) {
-			return A->BC - B->BC;
+			return (A->BC ? 1 : 0) - (B->BC ? 1 : 0);
 		} else {
 			return A->node[1] - B->node[1];
 		}
@@ -579,6 +579,7 @@ void createMesh(void)
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < 3; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
+			aSide->id = iSidePtr;
 			aSide->connection = NULL;
 			aSide->nextElemSide = NULL;
 			aSide->next = NULL;
@@ -641,6 +642,7 @@ void createMesh(void)
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < 4; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
+			aSide->id = iSidePtr;
 			aSide->connection = NULL;
 			aSide->nextElemSide = NULL;
 			aSide->next = NULL;
@@ -677,6 +679,7 @@ void createMesh(void)
 	/* save all BCedges into the sideList array */
 	for (long iSide = 0; iSide < nBCsides; ++iSide) {
 		side_t *aSide = malloc(sizeof(side_t));
+		aSide->id = iSidePtr;
 		aSide->connection = NULL;
 		aSide->nextElemSide = NULL;
 		aSide->next = NULL;
@@ -735,14 +738,7 @@ void createMesh(void)
 	 * 2 2       3 1
 	 * 3 3       3 3
 	 */
-	//for (long i = 0; i < 2*nSides; ++i) {
-	//	printf("%5ld %5ld %5ld %d %c\n", i+1, sideList[i].node[0]+1, sideList[i].node[1]+1, sideList[i].BC, sideList[i].isRotated ? 'T' : 'F');
-	//}
-	//printf("\n");
 	qsort(sideList, 2 * nSides, sizeof(sideList[0]), compare);
-	//for (long i = 0; i < 2*nSides; ++i) {
-	//	printf("%5ld %5ld %5ld %d %c\n", i+1, sideList[i].node[0]+1, sideList[i].node[1]+1, sideList[i].BC, sideList[i].isRotated ? 'T' : 'F');
-	//}
 
 	/* initialize side lists in mesh */
 	firstSide = NULL;
@@ -751,7 +747,8 @@ void createMesh(void)
 		side_t *aSide = sideList[iSide].side;
 		side_t *bSide = sideList[iSide + 1].side;
 
-		/* grid file read check */
+		/* grid file read check
+		 * TODO: might not be necessary */
 		if ((sideList[iSide].node[0] - sideList[iSide + 1].node[0] +
 		     sideList[iSide].node[1] - sideList[iSide + 1].node[1])
 				!= 0) {
@@ -763,7 +760,8 @@ void createMesh(void)
 		if ((aSide->BC) || (bSide->BC)) {
 			/* boundary side: make sure aSide is the physical side
 			 * and bSide the ghost side and save only aSide into
-			 * list	*/
+			 * list
+			 * TODO: might not be necessary */
 			if (aSide->BC) {
 				side_t *tmp = aSide;
 				aSide = bSide;
@@ -789,7 +787,6 @@ void createMesh(void)
 	elem_t *aElem = firstElem;
 	while (aElem) {
 		createElemInfo(aElem);
-		//printf("%g %g %g %g %g\n", aElem->bary[X], aElem->bary[Y], aElem->area, aElem->sx, aElem->sy);
 		aElem = aElem->next;
 	}
 
@@ -815,7 +812,8 @@ void createMesh(void)
 		aSide = aSide->next;
 	}
 
-	/* periodic BCs */
+	/* periodic BCs
+	 * TODO: not yet checked */
 	connectPeriodicBC();
 
 	/* variables for reconstruction */
