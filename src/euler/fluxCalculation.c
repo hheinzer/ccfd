@@ -6,7 +6,8 @@
  */
 
 #include <math.h>
-#include <stdio.h>
+#include <stdio.h> // TODO: remove
+#include <stdlib.h>  // TODO: remove
 
 #include "main.h"
 #include "mesh.h"
@@ -55,6 +56,7 @@ void flux_roe(double rhoL, double rhoR,
 	double mxR = rhoR * vxR;
 	double myL = rhoL * vyL;
 	double myR = rhoR * vyR;
+
 	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
@@ -105,7 +107,7 @@ void flux_roe(double rhoL, double rhoR,
 	double fL[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
 
 	/* calculate Row flux */
-	for (int i = 0; i < 0; ++i) {
+	for (int i = 0; i < 4; ++i) {
 		fluxLoc[i] = 0.5 * (fR[i] + fL[i]
 				- gam1 * fabs(a1) * r1[i]
 				- gam2 * fabs(a2) * r2[i]
