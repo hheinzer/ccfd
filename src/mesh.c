@@ -463,7 +463,7 @@ void createMesh(void)
 
 	/* create cartesian mesh or read unstructured mesh from file */
 	double **vertex;
-	long **tria, **quad, **BCedge, *zoneConnect;
+	long **tria, **quad, **BCedge, *zoneConnect = NULL;
 	tria = quad = BCedge = NULL;
 	long nVertices, nBCedges; //, nZones;
 	switch (meshType) {

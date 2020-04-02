@@ -87,7 +87,7 @@ void initRecordPoints(void)
 void initWing(void)
 {
 	/* get a pointer to the wing section's BC */
-	boundary_t *aBC = firstBC, *wingBC;
+	boundary_t *aBC = firstBC, *wingBC = NULL;
 	while (aBC) {
 		if (aBC->BCtype * 100 + aBC->BCid == wing.wallId) {
 			wingBC = aBC;

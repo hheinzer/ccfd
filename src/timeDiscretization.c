@@ -362,6 +362,18 @@ void timeDisc(void)
 
 	/* main program loop */
 	printf("\nStarting Computation:\n");
+
+	#ifdef _OPENMP
+		if (omp_get_max_threads() > 1) {
+			printf("| OpenMP Enabled: Running on %d threads\n",
+					omp_get_max_threads());
+		} else {
+			printf("| OpenMP Enabled: Running on 1 thread\n");
+		}
+	#else
+		printf("| OpenMP Disabled: Running on 1 thread\n");
+	#endif
+
 	long start = iniIterationNumber + 1;
 	double tStart = CPU_TIME();
 	double tIOstart = tStart;
