@@ -6,6 +6,8 @@
  */
 
 #include <math.h>
+#include <stdio.h> // TODO: remove
+#include <stdlib.h> // TODO: remove
 
 #include "main.h"
 #include "reconstruction.h"
@@ -257,8 +259,8 @@ void spatialReconstruction(double time)
 			pDiff[P]   = aSide->connection->elem->pVar[P]   - aSide->elem->pVar[P];
 
 			/* least squares reconstruction */
-			elem_t *aElem = aSide->elem;
 			/* main element */
+			elem_t *aElem = aSide->elem;
 			aElem->u_x[RHO] += aSide->w[X] * pDiff[RHO];
 			aElem->u_x[VX]  += aSide->w[X] * pDiff[VX];
 			aElem->u_x[VY]  += aSide->w[X] * pDiff[VY];
@@ -329,10 +331,18 @@ void spatialReconstruction(double time)
 			while (aSide) {
 				double dx = aSide->GP[X];
 				double dy = aSide->GP[Y];
-				aSide->pVar[RHO] += dx * aElem->u_x[RHO] + dy * aElem->u_y[RHO];
-				aSide->pVar[VX]  += dx * aElem->u_x[VX]  + dy * aElem->u_y[VX];
-				aSide->pVar[VY]  += dx * aElem->u_x[VY]  + dy * aElem->u_y[VY];
-				aSide->pVar[P]   += dx * aElem->u_x[P]   + dy * aElem->u_y[P];
+
+				aSide->pVar[RHO] = aElem->pVar[RHO]
+					+ dx * aElem->u_x[RHO] + dy * aElem->u_y[RHO];
+
+				aSide->pVar[VX]  = aElem->pVar[VX]
+					+ dx * aElem->u_x[VX]  + dy * aElem->u_y[VX];
+
+				aSide->pVar[VY]  = aElem->pVar[VY]
+					+ dx * aElem->u_x[VY]  + dy * aElem->u_y[VY];
+
+				aSide->pVar[P]   = aElem->pVar[P]
+					+ dx * aElem->u_x[P]   + dy * aElem->u_y[P];
 
 				aSide = aSide->nextElemSide;
 			}

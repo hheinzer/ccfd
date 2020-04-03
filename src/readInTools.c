@@ -325,15 +325,17 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 void freeCmds(void)
 {
 	cmd_t *currCmd = firstCmd;
-	do {
+	while (currCmd && currCmd->next) {
 		currCmd = currCmd->next;
 		free(currCmd->prev->key);
 		free(currCmd->prev->value);
 		free(currCmd->prev);
-	} while (currCmd->next);
-	free(currCmd->key);
-	free(currCmd->value);
-	free(currCmd);
+	}
+	if (currCmd) {
+		free(currCmd->key);
+		free(currCmd->value);
+		free(currCmd);
+	}
 }
 
 /*

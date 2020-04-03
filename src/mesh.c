@@ -94,7 +94,7 @@ void createReconstructionInfo(elem_t *aElem)
 	while (aSide) {
 		double alpha1 = aSide->baryBaryVec[X] / (r11 * r11);
 		double alpha2 = (aSide->baryBaryVec[Y] - r12 / r11 *
-				aSide->baryBaryVec[X]) / (r22 * r22);
+				 aSide->baryBaryVec[X]) / (r22 * r22);
 
 		aSide->w[X] = alpha1 - r12 / r11 * alpha2;
 		aSide->w[Y] = alpha2;
