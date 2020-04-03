@@ -45,7 +45,7 @@ extern double	printTime;
 
 extern bool	isRK;
 extern int	nRKstages;
-extern double	RKcoeff[5];
+extern double	RKcoeff[6];
 extern bool	isImplicit;
 
 void initTimeDisc(void);

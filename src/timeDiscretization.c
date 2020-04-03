@@ -52,7 +52,7 @@ double	printTime;
 
 bool	isRK;
 int	nRKstages;
-double	RKcoeff[5] = {0.0};
+double	RKcoeff[6] = {0.0};
 bool	isImplicit;
 
 /*
@@ -86,66 +86,66 @@ void initTimeDisc(void)
 		case 3:
 			switch (timeOrder) {
 			case 1:
-				RKcoeff[0] = 0.1418;
-				RKcoeff[1] = 0.4;
-				RKcoeff[2] = 1.0;
+				RKcoeff[1] = 0.1418;
+				RKcoeff[2] = 0.4;
+				RKcoeff[3] = 1.0;
 				break;
 			case 2:
-				RKcoeff[0] = 0.1918;
-				RKcoeff[1] = 0.4929;
-				RKcoeff[2] = 1.0;
+				RKcoeff[1] = 0.1918;
+				RKcoeff[2] = 0.4929;
+				RKcoeff[3] = 1.0;
 				break;
 			case 3:
-				RKcoeff[0] = 0.2884;
-				RKcoeff[1] = 0.5010;
-				RKcoeff[2] = 1.0;
+				RKcoeff[1] = 0.2884;
+				RKcoeff[2] = 0.5010;
+				RKcoeff[3] = 1.0;
 				break;
 			}
 			break;
 		case 4:
 			switch (timeOrder) {
 			case 1:
-				RKcoeff[0] = 0.0833;
-				RKcoeff[1] = 0.2069;
-				RKcoeff[2] = 0.4265;
-				RKcoeff[3] = 1.0;
+				RKcoeff[1] = 0.0833;
+				RKcoeff[2] = 0.2069;
+				RKcoeff[3] = 0.4265;
+				RKcoeff[4] = 1.0;
 				break;
 			case 2:
-				RKcoeff[0] = 0.1084;
-				RKcoeff[1] = 0.2602;
-				RKcoeff[2] = 0.5052;
-				RKcoeff[3] = 1.0;
+				RKcoeff[1] = 0.1084;
+				RKcoeff[2] = 0.2602;
+				RKcoeff[3] = 0.5052;
+				RKcoeff[4] = 1.0;
 				break;
 			case 3:
-				RKcoeff[0] = 0.1666;
-				RKcoeff[1] = 0.3027;
-				RKcoeff[2] = 0.5275;
-				RKcoeff[3] = 1.0;
+				RKcoeff[1] = 0.1666;
+				RKcoeff[2] = 0.3027;
+				RKcoeff[3] = 0.5275;
+				RKcoeff[4] = 1.0;
 				break;
 			}
 			break;
 		case 5:
 			switch (timeOrder) {
 			case 1:
-				RKcoeff[0] = 0.0533;
-				RKcoeff[1] = 0.1263;
-				RKcoeff[2] = 0.2375;
-				RKcoeff[3] = 0.4414;
-				RKcoeff[4] = 1.0;
+				RKcoeff[1] = 0.0533;
+				RKcoeff[2] = 0.1263;
+				RKcoeff[3] = 0.2375;
+				RKcoeff[4] = 0.4414;
+				RKcoeff[5] = 1.0;
 				break;
 			case 2:
-				RKcoeff[0] = 0.0695;
-				RKcoeff[1] = 0.1602;
-				RKcoeff[2] = 0.2898;
-				RKcoeff[3] = 0.5060;
-				RKcoeff[4] = 1.0;
+				RKcoeff[1] = 0.0695;
+				RKcoeff[2] = 0.1602;
+				RKcoeff[3] = 0.2898;
+				RKcoeff[4] = 0.5060;
+				RKcoeff[5] = 1.0;
 				break;
 			case 3:
-				RKcoeff[0] = 0.1067;
-				RKcoeff[1] = 0.1979;
-				RKcoeff[2] = 0.3232;
-				RKcoeff[3] = 0.5201;
-				RKcoeff[4] = 1.0;
+				RKcoeff[1] = 0.1067;
+				RKcoeff[2] = 0.1979;
+				RKcoeff[3] = 0.3232;
+				RKcoeff[4] = 0.5201;
+				RKcoeff[5] = 1.0;
 				break;
 			}
 			break;
@@ -334,7 +334,43 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
  */
 void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR + 2])
 {
+	/* save the initial solution as needed for the RK scheme */
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		aElem->cVarStage[RHO] = aElem->cVar[RHO];
+		aElem->cVarStage[MX]  = aElem->cVar[MX];
+		aElem->cVarStage[MY]  = aElem->cVar[MY];
+		aElem->cVarStage[E]   = aElem->cVar[E];
+	}
 
+	/* loop over the RK stages */
+	for (int iStage = 1; iStage <= nRKstages; ++iStage) {
+		double dtStage = RKcoeff[iStage - 1] * dt;
+		FVtimeDerivative(time + dtStage, iter);
+
+		/* time update of conservative variables */
+		#pragma omp parallel for
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			elem_t *aElem = elem[iElem];
+
+			aElem->cVar[RHO] = aElem->cVarStage[RHO]
+				+ RKcoeff[iStage] * dt * aElem->u_t[RHO];
+
+			aElem->cVar[MX]  = aElem->cVarStage[MX]
+				+ RKcoeff[iStage] * dt * aElem->u_t[MX];
+
+			aElem->cVar[MY]  = aElem->cVarStage[MY]
+				+ RKcoeff[iStage] * dt * aElem->u_t[MY];
+
+			aElem->cVar[E]   = aElem->cVarStage[E]
+				+ RKcoeff[iStage] * dt * aElem->u_t[E];
+
+			consPrim(aElem->cVar, aElem->pVar);
+		}
+	}
+
+	globalResidual(dt, resIter);
 }
 
 /*
