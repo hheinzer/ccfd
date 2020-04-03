@@ -687,6 +687,7 @@ void createMesh(void)
 		aSide->node[1] = vertexPtr[BCedge[iSide][1]];
 
 		elem_t *aElem = malloc(sizeof(elem_t));
+		aElem->id = -1;
 		aSide->elem = aElem;
 
 		long iNode1 = vertexPtr[BCedge[iSide][0]]->id;
@@ -763,9 +764,9 @@ void createMesh(void)
 			 * list
 			 * TODO: might not be necessary */
 			if (aSide->BC) {
-				side_t *tmp = aSide;
+				side_t *cSide = aSide;
 				aSide = bSide;
-				bSide = tmp;
+				bSide = cSide;
 			}
 
 			/* save boundary side (bSide) into boundary side list */

@@ -12,6 +12,6 @@ extern int spatialOrder;
 extern int fluxFunction;
 
 void initFV(void);
-void FVtimeDerivative(double time, long iter);
+void fvTimeDerivative(double time, long iter);
 
 #endif

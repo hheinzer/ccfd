@@ -59,7 +59,7 @@ void limiterBarthJespersen(elem_t *aElem)
 	maxDiff[P]   = uMax[P]   - aElem->pVar[P];
 
 	/* loop over all edges: determine phi */
-	double phi[NVAR] = {1.0}, phiLoc[NVAR], uDiff[NVAR];
+	double phi[NVAR] = {1.0, 1.0, 1.0, 1.0}, phiLoc[NVAR], uDiff[NVAR];
 	aSide = aElem->firstSide;
 	while (aSide) {
 		phiLoc[RHO] = 1.0;
@@ -146,7 +146,7 @@ void limiterVenkatakrishnan(elem_t *aElem)
 	maxDiffsq[P]   = maxDiff[P]   * maxDiff[P];
 
 	/* loop over all edges: determine phi */
-	double phi[NVAR] = {1.0}, phiLoc[NVAR], uDiff[NVAR], uDiffsq[NVAR];
+	double phi[NVAR] = {1.0, 1.0, 1.0, 1.0}, phiLoc[NVAR], uDiff[NVAR], uDiffsq[NVAR];
 	aSide = aElem->firstSide;
 	while (aSide) {
 		phiLoc[RHO] = 1.0;
@@ -227,6 +227,7 @@ void spatialReconstruction(double time)
 		}
 	} else {
 		/* reconstruction of values at side GPs */
+		/* zero out all derivatives */
 		#pragma omp parallel for
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];

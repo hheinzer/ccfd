@@ -241,5 +241,4 @@ void setBCatBarys(double time)
 
 		boundary(gSide, time, aElem->pVar, gElem->pVar, gElem->bary);
 	}
-
 }

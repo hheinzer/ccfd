@@ -155,8 +155,8 @@ void initTimeDisc(void)
 		}
 
 		char line[STRLEN] = "";
-		sprintf(line, "{%g", RKcoeff[0]);
-		for (int iRK = 1; iRK < nRKstages; ++iRK) {
+		sprintf(line, "{%g", RKcoeff[1]);
+		for (int iRK = 2; iRK <= nRKstages; ++iRK) {
 			sprintf(line + strlen(line), ", %g", RKcoeff[iRK]);
 		}
 		sprintf(line + strlen(line), "}");
@@ -314,7 +314,7 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
  */
 void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
 {
-	FVtimeDerivative(time, iter);
+	fvTimeDerivative(time, iter);
 
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -347,7 +347,7 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
 	/* loop over the RK stages */
 	for (int iStage = 1; iStage <= nRKstages; ++iStage) {
 		double dtStage = RKcoeff[iStage - 1] * dt;
-		FVtimeDerivative(time + dtStage, iter);
+		fvTimeDerivative(time + dtStage, iter);
 
 		/* time update of conservative variables */
 		#pragma omp parallel for
