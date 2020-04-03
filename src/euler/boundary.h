@@ -10,9 +10,11 @@
 
 #include <stdbool.h>
 
-#include "main.h"
-
 typedef struct boundary_t boundary_t;
+
+#include "main.h"
+#include "mesh.h"
+
 struct boundary_t {
 	int BCtype;	/* Boundary type:
 			 * 1: Slip Wall
@@ -45,5 +47,7 @@ extern bool isPeriodic;
 void initBoundary(void);
 void setBCatSides(double time);
 void setBCatBarys(double time);
+void boundary(side_t *aSide, double time, double int_pVar[NVAR],
+		double ghost_pVar[NVAR], double x[NDIM]);
 
 #endif

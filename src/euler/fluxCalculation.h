@@ -9,5 +9,6 @@
 #define FLUXCALCULATION_H
 
 void fluxCalculation(void);
+void fluxJacobianFD(double time, elem_t *aElem, int iVar);
 
 #endif

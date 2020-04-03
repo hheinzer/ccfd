@@ -8,18 +8,21 @@
 #ifndef MESH_H
 #define MESH_H
 
+typedef struct node_t node_t;
+typedef struct elem_t elem_t;
+typedef struct side_t side_t;
+typedef struct sidePtr_t sidePtr_t;
+typedef struct cartMesh_t cartMesh_t;
+
 #include "main.h"
 #include "boundary.h"
 
-typedef struct node_t node_t;
 struct node_t {
 	long id;
 	node_t *next;
 	double x[NDIM];
 };
 
-typedef struct elem_t elem_t;
-typedef struct side_t side_t;
 struct side_t {
 	long id;
 	int BCtype;
@@ -40,7 +43,6 @@ struct side_t {
 	elem_t *elem;
 };
 
-typedef struct sidePtr_t sidePtr_t;
 struct sidePtr_t {
 	side_t *side;
 	sidePtr_t *next;
@@ -74,7 +76,6 @@ struct elem_t {
 	node_t **node;
 };
 
-typedef struct cartMesh_t cartMesh_t;
 struct cartMesh_t {
 	int iMax, jMax;
 	int *nBC;

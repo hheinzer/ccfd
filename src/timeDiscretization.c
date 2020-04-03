@@ -22,6 +22,7 @@
 #include "linearSolver.h"
 #include "equationOfState.h"
 #include "finiteVolume.h"
+#include "memTools.h"
 
 /* extern variables */
 double	cfl;
@@ -380,7 +381,98 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
  */
 void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2])
 {
+	/* input parameters for Newton */
+	iterGlobal = iter;
+	double alpha = 1.0;
+	double beta = 1.0;
 
+	double Q[NVAR][nElems];
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		Q[RHO][iElem] = aElem->cVar[RHO];
+		Q[MX][iElem]  = aElem->cVar[MX];
+		Q[MY][iElem]  = aElem->cVar[MY];
+		Q[E][iElem]   = aElem->cVar[E];
+
+		consPrim(aElem->cVar, aElem->pVar);
+	}
+
+	/* Newton */
+	time = t + beta * dt;
+
+	fvTimeDerivative(time, iter);
+
+	double F_X0[NVAR][nElems], F_XK[NVAR][nElems];
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+
+		F_X0[RHO][iElem] = aElem->cVar[RHO] - Q[RHO][iElem] - alpha * dt * aElem->u_t[RHO];
+		F_X0[MX][iElem]  = aElem->cVar[MX]  - Q[MX][iElem]  - alpha * dt * aElem->u_t[MX];
+		F_X0[MY][iElem]  = aElem->cVar[MY]  - Q[MY][iElem]  - alpha * dt * aElem->u_t[MY];
+		F_X0[E][iElem]   = aElem->cVar[E]   - Q[E][iElem]   - alpha * dt * aElem->u_t[E];
+
+		XK[RHO][iElem] = aElem->cVar[RHO];
+		XK[MX][iElem]  = aElem->cVar[MX];
+		XK[MY][iElem]  = aElem->cVar[MY];
+		XK[E][iElem]   = aElem->cVar[E];
+
+		R_XK[RHO][iElem] = aElem->u_t[RHO];
+		R_XK[MX][iElem]  = aElem->u_t[MX];
+		R_XK[MY][iElem]  = aElem->u_t[MY];
+		R_XK[E][iElem]   = aElem->u_t[E];
+
+		F_XK[RHO][iElem] = F_X0[RHO][iElem];
+		F_XK[MX][iElem]  = F_X0[MX][iElem];
+		F_XK[MY][iElem]  = F_X0[MY][iElem];
+		F_XK[E][iElem]   = F_X0[E][iElem];
+	}
+
+	/* vector dot product */
+	double norm2_F_X0 = vectorDotProduct(F_X0, F_X0);
+
+	/* preparation for matrix vector multiplication */
+	double norm2_F_XK;
+	if (norm2_F_X0 < DBL_EPSILON * DBL_EPSILON * nElems) {
+		norm2_F_XK = DBL_MIN;
+	} else {
+		norm2_F_XK = norm2_F_X0;
+	}
+
+	nInnerNewton = 0;
+
+	if (usePrecond) {
+		buildMatrix(t, dt);
+	}
+
+	/* Newton iterations */
+	double abortCritGMRES, norm2_F_XK_old, gammaA, gammaB;
+	while ((norm2_F_XK > eps2newton * norm2_F_X0) && (nInnerNewton < nNewtonIter)) {
+		if (nInnerNewton == 0) {
+			abortCritGMRES = 0.999;
+			norm2_F_XK_old = norm2_F_XK;
+		} else {
+			gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
+
+			if (gammaEW * abortCritGMRES * abortCritGMRES < 0.1) {
+				gammaB = fmin(0.999, gammaA);
+			} else {
+				gammaB = fmin(0.999, fmax(gammaA, gammaEW * abortCritGMRES * abortCritGMRES));
+			}
+
+			abortCritGMRES = fmin(0.999, fmax(gammaB, 0.5 * sqrt(eps2newton) / sqrt(norm2_F_XK)));
+
+			norm2_F_XK_old = norm2_F_XK;
+		}
+
+		nInnerNewton++;
+
+		double deltaX[NVAR][nElems];
+		GMRES_M(time, dt, alpha, beta, F_XK, sqrt(norm2_F_XK),
+				&abortCritGMRES, deltaX);
+
+	}
 }
 
 /*

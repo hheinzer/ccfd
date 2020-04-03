@@ -8,6 +8,8 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
+typedef struct outputTime_t outputTime_t;
+
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -19,7 +21,6 @@ extern char parameterFile[STRLEN];
 extern FILE *resFile;
 extern bool doErrorOutput;
 
-typedef struct outputTime_t outputTime_t;
 struct outputTime_t {
 	long iter;
 	double time;

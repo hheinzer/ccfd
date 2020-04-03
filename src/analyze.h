@@ -8,6 +8,10 @@
 #ifndef ANALYZE_H
 #define ANALYZE_H
 
+typedef struct times_t times_t;
+typedef struct wing_t wing_t;
+typedef struct recordPoint_t recordPoint_t;
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -15,7 +19,6 @@
 #include "boundary.h"
 #include "mesh.h"
 
-typedef struct times_t times_t;
 struct times_t {
 	double overall;
 	double io;
@@ -25,7 +28,6 @@ struct times_t {
 	double timeInt;
 };
 
-typedef struct wing_t wing_t;
 struct wing_t {
 	double refLength;
 	int wallId;
@@ -35,7 +37,6 @@ struct wing_t {
 	sidePtr_t *firstSuctionSide;
 };
 
-typedef struct recordPoint_t recordPoint_t;
 struct recordPoint_t {
 	int nPoints;
 	double **x;
