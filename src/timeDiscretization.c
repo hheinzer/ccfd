@@ -472,7 +472,45 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 		GMRES_M(time, dt, alpha, beta, F_XK, sqrt(norm2_F_XK),
 				&abortCritGMRES, deltaX);
 
+		#pragma omp parallel for
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			elem_t *aElem = elem[iElem];
+
+			for (int iVar = 0; iVar < NVAR; ++iVar) {
+				XK[iVar][iElem] += deltaX[iVar][iElem];
+
+				aElem->cVar[iVar] = XK[iVar][iElem];
+			}
+
+			consPrim(aElem->cVar, aElem->pVar);
+		}
+
+		fvTimeDerivative(time, iter);
+
+		#pragma omp parallel for
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			elem_t *aElem = elem[iElem];
+
+			for (int iVar = 0; iVar < NVAR; ++iVar) {
+				R_XK[iVar][iElem] = aElem->u_t[iVar];
+				F_XK[iVar][iElem] = aElem->cVar[iVar] - Q[iVar][iElem]
+					- alpha * dt * aElem->u_t[iVar];
+			}
+		}
+
+		norm2_F_XK = vectorDotProduct(F_XK, F_XK);
 	}
+
+	nNewtonIterGlobal += nInnerNewton;
+
+	if (nInnerNewton == nNewtonIter) {
+		printf("| %g\n", eps2newton);
+		printf("| Newton NOT converged with %d Newton iteraions\n", nInnerNewton);
+		printf("| Norm / Norm_R0 = %g\n", norm2_F_XK / norm2_F_X0);
+		exit(1);
+	}
+
+	globalResidual(dt, resIter);
 }
 
 /*

@@ -19,6 +19,8 @@
 #include "timeDiscretization.h"
 #include "memTools.h"
 #include "fluxCalculation.h"
+#include "equationOfState.h"
+#include "finiteVolume.h"
 
 /* extern variables */
 int nKdim;
@@ -88,7 +90,7 @@ void initLinearSolver(void)
 				long iSide1 = 0;
 				while (aSide) {
 					long NBelemId = aSide->connection->elem->id;
-					if ((NBelemId > 0) && (NBelemId < nElems)) {
+					if ((NBelemId >= 0) && (NBelemId < nElems)) {
 						side_t *bSide = aSide->connection->elem->firstSide;
 						long iSide2 = 0;
 						while (bSide) {
@@ -219,10 +221,17 @@ void buildMatrix(double time, double dt)
 				if ((NBelemId >= 0) && (NBelemId < nElems)) {
 					long NBsideId = elemToElem[1][iSide][iElem];
 
-					lowerUpper[RHO][iVar][NBsideId][NBelemId] += aSide->connection->elem->u_t[RHO];
-					lowerUpper[MX][iVar][NBsideId][NBelemId]  += aSide->connection->elem->u_t[MX];
-					lowerUpper[MY][iVar][NBsideId][NBelemId]  += aSide->connection->elem->u_t[MY];
-					lowerUpper[E][iVar][NBsideId][NBelemId]   += aSide->connection->elem->u_t[E];
+					lowerUpper[RHO][iVar][NBsideId][NBelemId]
+						+= aSide->connection->elem->u_t[RHO];
+
+					lowerUpper[MX][iVar][NBsideId][NBelemId]
+						+= aSide->connection->elem->u_t[MX];
+
+					lowerUpper[MY][iVar][NBsideId][NBelemId]
+						+= aSide->connection->elem->u_t[MY];
+
+					lowerUpper[E][iVar][NBsideId][NBelemId]
+						+= aSide->connection->elem->u_t[E];
 				}
 
 				aSide = aSide->nextElemSide;
@@ -261,6 +270,130 @@ void buildMatrix(double time, double dt)
 }
 
 /*
+ * LUSGS preconditioner, uses precomputed Block-LUSGS, B is the old vector and
+ * deltaX is preconditioned vector
+ */
+void LUSGS_FD(double time, double dt, double **B, double **deltaX)
+{
+	/* compute LU-SGS with FDs */
+	memset(deltaX, 0, NVAR * nElems * sizeof(double));
+
+	double deltaXstar[NVAR][nElems];
+	memset(deltaXstar, 0, NVAR * nElems * sizeof(double));
+
+	/* forward sweep */
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		side_t *aSide = aElem->firstSide;
+		long iSide = 0;
+		while (aSide) {
+			long NBelemId = aSide->connection->elem->id;
+			if ((NBelemId >= 0) && (NBelemId < iElem)) {
+				/* rotate state into normal direction */
+				for (int i = 0; i < NVAR; ++i) {
+					for (int j = 0; j < NVAR; ++j) {
+						// TODO: check
+						deltaXstar[i][iElem] += lowerUpper[i][j][iSide][iElem] * deltaXstar[j][NBelemId];
+					}
+				}
+			}
+
+			aSide = aSide->nextElemSide;
+			iSide++;
+		}
+
+		/* calculate deltaXstar */
+		for (int i = 0; i < NVAR; ++i) {
+			double tmp = 0.0;
+			for (int j = 0; j < NVAR; ++j) {
+				// TODO: check
+				tmp += Dinv[i][j][iElem] * (B[j][iElem] - deltaXstar[j][iElem]);
+			}
+
+			deltaXstar[i][iElem] = tmp;
+		}
+	}
+
+	/* backward sweep */
+	#pragma omp parallel for
+	for (long iElem = nElems - 1; iElem >= 0; --iElem) {
+		elem_t *aElem = elem[iElem];
+		side_t *aSide = aElem->firstSide;
+		long iSide = 0;
+		while (aSide) {
+			long NBelemId = aSide->connection->elem->id;
+			if ((NBelemId > iElem) && (NBelemId < nElems)) {
+				/* rotate state into normal direction */
+				for (int i = 0; i < NVAR; ++i) {
+					for (int j = 0; j < NVAR; ++j) {
+						// TODO: check
+						deltaX[i][iElem] += lowerUpper[i][j][iSide][iElem] * deltaX[j][NBelemId];
+					}
+				}
+			}
+
+			aSide = aSide->nextElemSide;
+			iSide++;
+		}
+
+		/* calculate deltaXstar */
+		for (int i = 0; i < NVAR; ++i) {
+			double tmp = 0.0;
+			for (int j = 0; j < NVAR; ++j) {
+				// TODO: check
+				tmp += Dinv[i][j][iElem] * deltaX[j][iElem];
+			}
+
+			deltaX[i][iElem] = deltaXstar[i][iElem] - tmp;
+		}
+	}
+}
+
+/*
+ * computes matrix vector product using spatial operator and finite difference
+ * approach, A is operator at linearization state xk (Newton iteration)
+ */
+void matrixVector(double time, double dt, double alpha, double beta, double **V,
+		double res[NVAR][nElems])
+{
+	/* prerequisites for FD matrix vector approximation */
+	double epsFD = 0.0;
+	#pragma omp parallel for reduction(+:epsFD)
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		epsFD += V[RHO][iElem] * V[RHO][iElem];
+		epsFD += V[MX][iElem]  * V[MX][iElem];
+		epsFD += V[MY][iElem]  * V[MY][iElem];
+		epsFD += V[E][iElem]   * V[E][iElem];
+	}
+	epsFD = rEps0 / sqrt(epsFD);
+
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+
+		aElem->cVar[RHO] = XK[RHO][iElem] + epsFD * V[RHO][iElem];
+		aElem->cVar[MX]  = XK[MX][iElem]  + epsFD * V[MX][iElem];
+		aElem->cVar[MY]  = XK[MY][iElem]  + epsFD * V[MY][iElem];
+		aElem->cVar[E]   = XK[E][iElem]   + epsFD * V[E][iElem];
+
+		consPrim(aElem->cVar, aElem->pVar);
+	}
+
+	fvTimeDerivative(time, iterGlobal);
+
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+
+		res[RHO][iElem] = V[RHO][iElem] - alpha * dt * (aElem->u_t[RHO] - R_XK[RHO][iElem]) / epsFD;
+		res[MX][iElem]  = V[MX][iElem]  - alpha * dt * (aElem->u_t[MX]  - R_XK[MX][iElem])  / epsFD;
+		res[MY][iElem]  = V[MY][iElem]  - alpha * dt * (aElem->u_t[MY]  - R_XK[MY][iElem])  / epsFD;
+		res[E][iElem]   = V[E][iElem]   - alpha * dt * (aElem->u_t[E]   - R_XK[E][iElem])   / epsFD;
+	}
+}
+
+/*
  * uses matrix free to solve the linear system, deltaX=0 is the initial guess
  * X0 is already stored in U
  */
@@ -268,4 +401,115 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 		double normB, double *abortCrit, double deltaX[NVAR][nElems])
 {
 	*abortCrit = epsGMRES * normB;
+
+	double R0[NVAR][nElems];
+	memcpy(R0, B, NVAR * nElems * sizeof(double));
+
+	double normR0 = normB;
+
+	memset(deltaX, 0, NVAR * nElems * sizeof(double));
+
+	nInnerGMRES = 0;
+
+	/* GMRES(m) */
+	double ***V = dyn3DdblArray(nKdim, NVAR, nElems);
+	for (int i = 0; i < NVAR; ++i) {
+		for (long j = 0; j < nElems; ++j) {
+			V[0][i][j] = R0[i][j] / normR0;
+		}
+	}
+
+	double gam[nKdim + 1], ***Z = dyn3DdblArray(nKdim, NVAR, nElems);
+	gam[0] = normR0;
+
+	int m;
+	for (m = 0; m < nKdim; ++m) {
+		nInnerGMRES++;
+
+		if (usePrecond) {
+			LUSGS_FD(time, dt, V[m], Z[m]);
+		} else {
+			memcpy(Z[m], V[m], NVAR * nElems * sizeof(double));
+		}
+
+		double W[NVAR][nElems];
+		matrixVector(time, dt, alpha, beta, Z[m], W);
+
+		/* Gram-Schmidt */
+		double H[nKdim + 1][nKdim + 1];
+		for (int nn = 0; nn < m; ++nn) {
+			double res = 0.0;
+			#pragma omp parallel for reduction(+:res)
+			for (long iElem = 0; iElem < nElems; ++iElem) {
+				res += V[nn][RHO][iElem] * W[RHO][iElem];
+				res += V[nn][MX][iElem]  * W[MX][iElem];
+				res += V[nn][MY][iElem]  * W[MY][iElem];
+				res += V[nn][E][iElem]   * W[E][iElem];
+			}
+			H[nn][m] = res;
+
+			for (int i = 0; i < 4; ++i) {
+				for (int j = 0; j < 4; ++j) {
+					W[i][j] -= H[nn][m] * V[nn][i][j];
+				}
+			}
+		}
+
+		double res = vectorDotProduct(W, W);
+
+		H[m + 1][m] = sqrt(res);
+
+		/* Givens rotation */
+		double C[nKdim], S[nKdim];
+		for (int nn = 0; nn < m - 1; ++nn) {
+			double tmp = C[nn] * H[nn][m] + S[nn] * H[nn + 1][m];
+			H[nn + 1][m] = - S[nn] * H[nn][m] + C[nn] * H[nn + 1][m];
+			H[nn][m] = tmp;
+		}
+
+		double bet = sqrt(H[m][m] * H[m][m] + H[m + 1][m] * H[m + 1][m]);
+		S[m] = H[m + 1][m] / bet;
+		C[m] = H[m][m] / bet;
+		H[m][m] = bet;
+		gam[m + 1] = - S[m] * gam[m];
+		gam[m] = C[m] * gam[m];
+
+		if ((fabs(gam[m + 1]) <= *abortCrit) && (m == nKdim)) {
+			double alp[nKdim];
+			for (int nn = m; nn >= 0; --nn) { // TODO: check
+				alp[nn] = gam[nn];
+
+				for (int o = nn + 1; o <= m; ++o) { // TODO: check
+					alp[nn] -= H[nn][o] * alp[o];
+				}
+
+				alp[nn] /= H[nn][nn];
+			}
+
+			for (int nn = 0; nn < m; ++nn) { // TODO: check
+				for (long iElem = 0; iElem < nElems; ++iElem) {
+					deltaX[RHO][iElem] += alp[nn] * Z[nn][RHO][iElem];
+					deltaX[MX][iElem]  += alp[nn] * Z[nn][MX][iElem];
+					deltaX[MY][iElem]  += alp[nn] * Z[nn][MY][iElem];
+					deltaX[E][iElem]   += alp[nn] * Z[nn][E][iElem];
+				}
+			}
+
+			nGMRESiterGlobal += nInnerGMRES;
+			return;
+		} else {
+			/* no convergence, next iteration */
+			for (int iVar = 0; iVar < NVAR; ++iVar) {
+				for (long iElem = 0; iElem < nElems; ++iElem) {
+					V[m + 1][iVar][iElem] =
+						W[iVar][iElem] / H[m + 1][m];
+				}
+			}
+		}
+	}
+
+	printf("| GMRES not converged with %d iterations:\n", nInnerGMRES);
+	printf("| Norm_R0: %g\n", fabs(gam[0]));
+	printf("| Norm_R : %g\n", fabs(gam[m]));
+	exit(1);
 }
