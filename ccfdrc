@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# export path ccfd executable
+#
+
+export PATH="$PATH:$(pwd)/bin"
