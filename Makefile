@@ -107,7 +107,7 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@./$(TGT) calc/riemann/sod_implicit.ini
+	@./$(TGT)
 
 debug:
 	@gdb -q $(TGT)

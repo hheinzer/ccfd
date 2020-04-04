@@ -151,38 +151,22 @@ bool calcDinv(double **A, double **Ainv)
 
 	double coFac[4][4];
 
-	coFac[0][0] = A[1][1]*(A[2][2]*A[3][3]-A[2][3]*A[3][2])+A[1][2]*(A[2][3]
-		*A[3][1]-A[2][1]*A[3][3])+A[1][3]*(A[2][1]*A[3][2]-A[2][2]*A[3][1]);
-	coFac[0][1] = A[1][0]*(A[2][3]*A[3][2]-A[2][2]*A[3][3])+A[1][2]*(A[2][0]
-		*A[3][3]-A[2][3]*A[3][0])+A[1][3]*(A[2][2]*A[3][0]-A[2][0]*A[3][2]);
-	coFac[0][2] = A[1][0]*(A[2][1]*A[3][3]-A[2][3]*A[3][1])+A[1][1]*(A[2][3]
-		*A[3][0]-A[2][0]*A[3][3])+A[1][3]*(A[2][0]*A[3][1]-A[2][1]*A[3][0]);
-	coFac[0][3] = A[1][0]*(A[2][2]*A[3][1]-A[2][1]*A[3][2])+A[1][1]*(A[2][0]
-		*A[3][2]-A[2][2]*A[3][0])+A[1][2]*(A[2][1]*A[3][0]-A[2][0]*A[3][1]);
-	coFac[1][0] = A[0][1]*(A[2][3]*A[3][2]-A[2][2]*A[3][3])+A[0][2]*(A[2][1]
-		*A[3][3]-A[2][3]*A[3][1])+A[0][3]*(A[2][2]*A[3][1]-A[2][1]*A[3][2]);
-	coFac[1][1] = A[0][0]*(A[2][2]*A[3][3]-A[2][3]*A[3][2])+A[0][2]*(A[2][3]
-		*A[3][0]-A[2][0]*A[3][3])+A[0][3]*(A[2][0]*A[3][2]-A[2][2]*A[3][0]);
-	coFac[1][2] = A[0][0]*(A[2][3]*A[3][1]-A[2][1]*A[3][3])+A[0][1]*(A[2][0]
-		*A[3][3]-A[2][3]*A[3][0])+A[0][3]*(A[2][1]*A[3][0]-A[2][0]*A[3][1]);
-	coFac[1][3] = A[0][0]*(A[2][1]*A[3][2]-A[2][2]*A[3][1])+A[0][1]*(A[2][2]
-		*A[3][0]-A[2][0]*A[3][2])+A[0][2]*(A[2][0]*A[3][1]-A[2][1]*A[3][0]);
-	coFac[2][0] = A[0][1]*(A[1][2]*A[3][3]-A[1][3]*A[3][2])+A[0][2]*(A[1][3]
-		*A[3][1]-A[1][1]*A[3][3])+A[0][3]*(A[1][1]*A[3][2]-A[1][2]*A[3][1]);
-	coFac[2][1] = A[0][0]*(A[1][3]*A[3][2]-A[1][2]*A[3][3])+A[0][2]*(A[1][0]
-		*A[3][3]-A[1][3]*A[3][0])+A[0][3]*(A[1][2]*A[3][0]-A[1][0]*A[3][2]);
-	coFac[2][2] = A[0][0]*(A[1][1]*A[3][3]-A[1][3]*A[3][1])+A[0][1]*(A[1][3]
-		*A[3][0]-A[1][0]*A[3][3])+A[0][3]*(A[1][0]*A[3][1]-A[1][1]*A[3][0]);
-	coFac[2][3] = A[0][0]*(A[1][2]*A[3][1]-A[1][1]*A[3][2])+A[0][1]*(A[1][0]
-		*A[3][2]-A[1][2]*A[3][0])+A[0][2]*(A[1][1]*A[3][0]-A[1][0]*A[3][1]);
-	coFac[3][0] = A[0][1]*(A[1][3]*A[2][2]-A[1][2]*A[2][3])+A[0][2]*(A[1][1]
-		*A[2][3]-A[1][3]*A[2][1])+A[0][3]*(A[1][2]*A[2][1]-A[1][1]*A[2][2]);
-	coFac[3][1] = A[0][0]*(A[1][2]*A[2][3]-A[1][3]*A[2][2])+A[0][2]*(A[1][3]
-		*A[2][0]-A[1][0]*A[2][3])+A[0][3]*(A[1][0]*A[2][2]-A[1][2]*A[2][0]);
-	coFac[3][2] = A[0][0]*(A[1][3]*A[2][1]-A[1][1]*A[2][3])+A[0][1]*(A[1][0]
-		*A[2][3]-A[1][3]*A[2][0])+A[0][3]*(A[1][1]*A[2][0]-A[1][0]*A[2][1]);
-	coFac[3][3] = A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1])+A[0][1]*(A[1][2]
-		*A[2][0]-A[1][0]*A[2][2])+A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);
+	coFac[0][0] = A[1][1]*(A[2][2]*A[3][3]-A[2][3]*A[3][2])+A[1][2]*(A[2][3]*A[3][1]-A[2][1]*A[3][3])+A[1][3]*(A[2][1]*A[3][2]-A[2][2]*A[3][1]);
+	coFac[0][1] = A[1][0]*(A[2][3]*A[3][2]-A[2][2]*A[3][3])+A[1][2]*(A[2][0]*A[3][3]-A[2][3]*A[3][0])+A[1][3]*(A[2][2]*A[3][0]-A[2][0]*A[3][2]);
+	coFac[0][2] = A[1][0]*(A[2][1]*A[3][3]-A[2][3]*A[3][1])+A[1][1]*(A[2][3]*A[3][0]-A[2][0]*A[3][3])+A[1][3]*(A[2][0]*A[3][1]-A[2][1]*A[3][0]);
+	coFac[0][3] = A[1][0]*(A[2][2]*A[3][1]-A[2][1]*A[3][2])+A[1][1]*(A[2][0]*A[3][2]-A[2][2]*A[3][0])+A[1][2]*(A[2][1]*A[3][0]-A[2][0]*A[3][1]);
+	coFac[1][0] = A[0][1]*(A[2][3]*A[3][2]-A[2][2]*A[3][3])+A[0][2]*(A[2][1]*A[3][3]-A[2][3]*A[3][1])+A[0][3]*(A[2][2]*A[3][1]-A[2][1]*A[3][2]);
+	coFac[1][1] = A[0][0]*(A[2][2]*A[3][3]-A[2][3]*A[3][2])+A[0][2]*(A[2][3]*A[3][0]-A[2][0]*A[3][3])+A[0][3]*(A[2][0]*A[3][2]-A[2][2]*A[3][0]);
+	coFac[1][2] = A[0][0]*(A[2][3]*A[3][1]-A[2][1]*A[3][3])+A[0][1]*(A[2][0]*A[3][3]-A[2][3]*A[3][0])+A[0][3]*(A[2][1]*A[3][0]-A[2][0]*A[3][1]);
+	coFac[1][3] = A[0][0]*(A[2][1]*A[3][2]-A[2][2]*A[3][1])+A[0][1]*(A[2][2]*A[3][0]-A[2][0]*A[3][2])+A[0][2]*(A[2][0]*A[3][1]-A[2][1]*A[3][0]);
+	coFac[2][0] = A[0][1]*(A[1][2]*A[3][3]-A[1][3]*A[3][2])+A[0][2]*(A[1][3]*A[3][1]-A[1][1]*A[3][3])+A[0][3]*(A[1][1]*A[3][2]-A[1][2]*A[3][1]);
+	coFac[2][1] = A[0][0]*(A[1][3]*A[3][2]-A[1][2]*A[3][3])+A[0][2]*(A[1][0]*A[3][3]-A[1][3]*A[3][0])+A[0][3]*(A[1][2]*A[3][0]-A[1][0]*A[3][2]);
+	coFac[2][2] = A[0][0]*(A[1][1]*A[3][3]-A[1][3]*A[3][1])+A[0][1]*(A[1][3]*A[3][0]-A[1][0]*A[3][3])+A[0][3]*(A[1][0]*A[3][1]-A[1][1]*A[3][0]);
+	coFac[2][3] = A[0][0]*(A[1][2]*A[3][1]-A[1][1]*A[3][2])+A[0][1]*(A[1][0]*A[3][2]-A[1][2]*A[3][0])+A[0][2]*(A[1][1]*A[3][0]-A[1][0]*A[3][1]);
+	coFac[3][0] = A[0][1]*(A[1][3]*A[2][2]-A[1][2]*A[2][3])+A[0][2]*(A[1][1]*A[2][3]-A[1][3]*A[2][1])+A[0][3]*(A[1][2]*A[2][1]-A[1][1]*A[2][2]);
+	coFac[3][1] = A[0][0]*(A[1][2]*A[2][3]-A[1][3]*A[2][2])+A[0][2]*(A[1][3]*A[2][0]-A[1][0]*A[2][3])+A[0][3]*(A[1][0]*A[2][2]-A[1][2]*A[2][0]);
+	coFac[3][2] = A[0][0]*(A[1][3]*A[2][1]-A[1][1]*A[2][3])+A[0][1]*(A[1][0]*A[2][3]-A[1][3]*A[2][0])+A[0][3]*(A[1][1]*A[2][0]-A[1][0]*A[2][1]);
+	coFac[3][3] = A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1])+A[0][1]*(A[1][2]*A[2][0]-A[1][0]*A[2][2])+A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);
 
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
@@ -276,8 +260,6 @@ void buildMatrix(double time, double dt)
 void LUSGS_FD(double time, double dt, double **B, double **deltaX)
 {
 	/* compute LU-SGS with FDs */
-	memset(deltaX, 0, NVAR * nElems * sizeof(double));
-
 	double deltaXstar[NVAR][nElems];
 	memset(deltaXstar, 0, NVAR * nElems * sizeof(double));
 
@@ -287,16 +269,22 @@ void LUSGS_FD(double time, double dt, double **B, double **deltaX)
 		elem_t *aElem = elem[iElem];
 		side_t *aSide = aElem->firstSide;
 		long iSide = 0;
+
 		while (aSide) {
 			long NBelemId = aSide->connection->elem->id;
 			if ((NBelemId >= 0) && (NBelemId < iElem)) {
 				/* rotate state into normal direction */
+				double tmp[4] = {0.0};
 				for (int i = 0; i < NVAR; ++i) {
 					for (int j = 0; j < NVAR; ++j) {
-						// TODO: check
-						deltaXstar[i][iElem] += lowerUpper[i][j][iSide][iElem] * deltaXstar[j][NBelemId];
+						tmp[i] += lowerUpper[i][j][iSide][iElem] * deltaXstar[j][NBelemId];
 					}
 				}
+
+				deltaXstar[0][iElem] += tmp[0];
+				deltaXstar[1][iElem] += tmp[1];
+				deltaXstar[2][iElem] += tmp[2];
+				deltaXstar[3][iElem] += tmp[3];
 			}
 
 			aSide = aSide->nextElemSide;
@@ -304,15 +292,16 @@ void LUSGS_FD(double time, double dt, double **B, double **deltaX)
 		}
 
 		/* calculate deltaXstar */
+		double tmp[4] = {0.0};
 		for (int i = 0; i < NVAR; ++i) {
-			double tmp = 0.0;
 			for (int j = 0; j < NVAR; ++j) {
-				// TODO: check
-				tmp += Dinv[i][j][iElem] * (B[j][iElem] - deltaXstar[j][iElem]);
+				tmp[i] += Dinv[iElem][i][j] * (B[j][iElem] - deltaXstar[j][iElem]);
 			}
-
-			deltaXstar[i][iElem] = tmp;
 		}
+		deltaXstar[0][iElem] = tmp[0];
+		deltaXstar[1][iElem] = tmp[1];
+		deltaXstar[2][iElem] = tmp[2];
+		deltaXstar[3][iElem] = tmp[3];
 	}
 
 	/* backward sweep */
@@ -325,12 +314,17 @@ void LUSGS_FD(double time, double dt, double **B, double **deltaX)
 			long NBelemId = aSide->connection->elem->id;
 			if ((NBelemId > iElem) && (NBelemId < nElems)) {
 				/* rotate state into normal direction */
+				double tmp[4] = {0.0};
 				for (int i = 0; i < NVAR; ++i) {
 					for (int j = 0; j < NVAR; ++j) {
-						// TODO: check
-						deltaX[i][iElem] += lowerUpper[i][j][iSide][iElem] * deltaX[j][NBelemId];
+						tmp[i] += lowerUpper[i][j][iSide][iElem] * deltaX[j][NBelemId];
 					}
 				}
+
+				deltaX[0][iElem] += tmp[0];
+				deltaX[1][iElem] += tmp[1];
+				deltaX[2][iElem] += tmp[2];
+				deltaX[3][iElem] += tmp[3];
 			}
 
 			aSide = aSide->nextElemSide;
@@ -338,15 +332,17 @@ void LUSGS_FD(double time, double dt, double **B, double **deltaX)
 		}
 
 		/* calculate deltaXstar */
+		double tmp[4] = {0.0};
 		for (int i = 0; i < NVAR; ++i) {
-			double tmp = 0.0;
 			for (int j = 0; j < NVAR; ++j) {
-				// TODO: check
-				tmp += Dinv[i][j][iElem] * deltaX[j][iElem];
+				tmp[i] += Dinv[iElem][i][j] * deltaX[j][iElem];
 			}
-
-			deltaX[i][iElem] = deltaXstar[i][iElem] - tmp;
 		}
+
+		deltaX[0][iElem] = deltaXstar[0][iElem] - tmp[0];
+		deltaX[1][iElem] = deltaXstar[1][iElem] - tmp[1];
+		deltaX[2][iElem] = deltaXstar[2][iElem] - tmp[2];
+		deltaX[3][iElem] = deltaXstar[3][iElem] - tmp[3];
 	}
 }
 
