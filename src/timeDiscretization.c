@@ -408,10 +408,17 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
 
-		F_X0[RHO][iElem] = aElem->cVar[RHO] - Q[RHO][iElem] - alpha * dt * aElem->u_t[RHO];
-		F_X0[MX][iElem]  = aElem->cVar[MX]  - Q[MX][iElem]  - alpha * dt * aElem->u_t[MX];
-		F_X0[MY][iElem]  = aElem->cVar[MY]  - Q[MY][iElem]  - alpha * dt * aElem->u_t[MY];
-		F_X0[E][iElem]   = aElem->cVar[E]   - Q[E][iElem]   - alpha * dt * aElem->u_t[E];
+		F_X0[RHO][iElem] = aElem->cVar[RHO] - Q[RHO][iElem]
+			- alpha * dt * aElem->u_t[RHO];
+
+		F_X0[MX][iElem]  = aElem->cVar[MX]  - Q[MX][iElem]
+			- alpha * dt * aElem->u_t[MX];
+
+		F_X0[MY][iElem]  = aElem->cVar[MY]  - Q[MY][iElem]
+			- alpha * dt * aElem->u_t[MY];
+
+		F_X0[E][iElem]   = aElem->cVar[E]   - Q[E][iElem]
+			- alpha * dt * aElem->u_t[E];
 
 		XK[RHO][iElem] = aElem->cVar[RHO];
 		XK[MX][iElem]  = aElem->cVar[MX];
@@ -434,7 +441,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 
 	/* preparation for matrix vector multiplication */
 	double norm2_F_XK;
-	if (norm2_F_X0 < DBL_EPSILON * DBL_EPSILON * nElems) {
+	if (norm2_F_X0 <= (DBL_EPSILON) * (DBL_EPSILON) * nElems) {
 		norm2_F_XK = DBL_MIN;
 	} else {
 		norm2_F_XK = norm2_F_X0;
@@ -447,21 +454,24 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	}
 
 	/* Newton iterations */
-	double abortCritGMRES, norm2_F_XK_old, gammaA, gammaB;
+	double abortCritGMRES, norm2_F_XK_old = norm2_F_XK;
 	while ((norm2_F_XK > eps2newton * norm2_F_X0) && (nInnerNewton < nNewtonIter)) {
 		if (nInnerNewton == 0) {
 			abortCritGMRES = 0.999;
 			norm2_F_XK_old = norm2_F_XK;
 		} else {
-			gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
+			double gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
 
+			double gammaB;
 			if (gammaEW * abortCritGMRES * abortCritGMRES < 0.1) {
 				gammaB = fmin(0.999, gammaA);
 			} else {
-				gammaB = fmin(0.999, fmax(gammaA, gammaEW * abortCritGMRES * abortCritGMRES));
+				gammaB = fmin(0.999, fmax(gammaA,
+					gammaEW * abortCritGMRES * abortCritGMRES));
 			}
 
-			abortCritGMRES = fmin(0.999, fmax(gammaB, 0.5 * sqrt(eps2newton) / sqrt(norm2_F_XK)));
+			abortCritGMRES = fmin(0.999, fmax(gammaB,
+					0.5 * sqrt(eps2newton) / sqrt(norm2_F_XK)));
 
 			norm2_F_XK_old = norm2_F_XK;
 		}

@@ -403,7 +403,11 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 	*abortCrit = epsGMRES * normB;
 
 	double R0[NVAR][nElems];
-	memcpy(R0, B, NVAR * nElems * sizeof(double));
+	for (int iVar = 0; iVar < NVAR; ++iVar) {
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			R0[iVar][iElem] = - B[iVar][iElem];
+		}
+	}
 
 	double normR0 = normB;
 
@@ -413,16 +417,19 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 
 	/* GMRES(m) */
 	double ***V = dyn3DdblArray(nKdim, NVAR, nElems);
-	for (int i = 0; i < NVAR; ++i) {
-		for (long j = 0; j < nElems; ++j) {
-			V[0][i][j] = R0[i][j] / normR0;
+	for (int iVar = 0; iVar < NVAR; ++iVar) {
+		for (long iElem = 0; iElem < nElems; ++iElem) {
+			V[0][iVar][iElem] = R0[iVar][iElem] / normR0;
 		}
 	}
+
 
 	double gam[nKdim + 1], ***Z = dyn3DdblArray(nKdim, NVAR, nElems);
 	gam[0] = normR0;
 
 	int m;
+	double H[nKdim + 1][nKdim + 1], C[nKdim], S[nKdim];
+	memset(H, 0, (nKdim + 1) * (nKdim + 1) * sizeof(double));
 	for (m = 0; m < nKdim; ++m) {
 		nInnerGMRES++;
 
@@ -436,8 +443,7 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 		matrixVector(time, dt, alpha, beta, Z[m], W);
 
 		/* Gram-Schmidt */
-		double H[nKdim + 1][nKdim + 1];
-		for (int nn = 0; nn < m; ++nn) {
+		for (int nn = 0; nn <= m; ++nn) {
 			double res = 0.0;
 			#pragma omp parallel for reduction(+:res)
 			for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -448,9 +454,9 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 			}
 			H[nn][m] = res;
 
-			for (int i = 0; i < 4; ++i) {
-				for (int j = 0; j < 4; ++j) {
-					W[i][j] -= H[nn][m] * V[nn][i][j];
+			for (int iVar = 0; iVar < 4; ++iVar) {
+				for (int iElem = 0; iElem < nElems; ++iElem) {
+					W[iVar][iElem] -= H[nn][m] * V[nn][iVar][iElem];
 				}
 			}
 		}
@@ -460,8 +466,7 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 		H[m + 1][m] = sqrt(res);
 
 		/* Givens rotation */
-		double C[nKdim], S[nKdim];
-		for (int nn = 0; nn < m - 1; ++nn) {
+		for (int nn = 0; nn <= m - 1; ++nn) {
 			double tmp = C[nn] * H[nn][m] + S[nn] * H[nn + 1][m];
 			H[nn + 1][m] = - S[nn] * H[nn][m] + C[nn] * H[nn + 1][m];
 			H[nn][m] = tmp;
@@ -474,19 +479,19 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 		gam[m + 1] = - S[m] * gam[m];
 		gam[m] = C[m] * gam[m];
 
-		if ((fabs(gam[m + 1]) <= *abortCrit) && (m == nKdim)) {
+		if ((fabs(gam[m + 1]) <= *abortCrit) || (m == nKdim - 1)) {
 			double alp[nKdim];
-			for (int nn = m; nn >= 0; --nn) { // TODO: check
+			for (int nn = m; nn >= 0; --nn) {
 				alp[nn] = gam[nn];
 
-				for (int o = nn + 1; o <= m; ++o) { // TODO: check
+				for (int o = nn + 1; o <= m; ++o) {
 					alp[nn] -= H[nn][o] * alp[o];
 				}
 
 				alp[nn] /= H[nn][nn];
 			}
 
-			for (int nn = 0; nn < m; ++nn) { // TODO: check
+			for (int nn = 0; nn <= m; ++nn) {
 				for (long iElem = 0; iElem < nElems; ++iElem) {
 					deltaX[RHO][iElem] += alp[nn] * Z[nn][RHO][iElem];
 					deltaX[MX][iElem]  += alp[nn] * Z[nn][MX][iElem];
@@ -494,7 +499,6 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 					deltaX[E][iElem]   += alp[nn] * Z[nn][E][iElem];
 				}
 			}
-
 			nGMRESiterGlobal += nInnerGMRES;
 			return;
 		} else {

@@ -249,43 +249,44 @@ void spatialReconstruction(double time)
 
 		setBCatBarys(time);
 
-		for (long iSide = 0; iSide < nSides; ++iSide) {
-			side_t *aSide = side[iSide];
 
-			/* difference of primitive variables over the side */
-			double pDiff[NVAR];
-			pDiff[RHO] = aSide->connection->elem->pVar[RHO] - aSide->elem->pVar[RHO];
-			pDiff[VX]  = aSide->connection->elem->pVar[VX]  - aSide->elem->pVar[VX];
-			pDiff[VY]  = aSide->connection->elem->pVar[VY]  - aSide->elem->pVar[VY];
-			pDiff[P]   = aSide->connection->elem->pVar[P]   - aSide->elem->pVar[P];
+		//for (long iSide = 0; iSide < nSides; ++iSide) {
+		//	side_t *aSide = side[iSide];
 
-			/* least squares reconstruction */
-			/* main element */
-			elem_t *aElem = aSide->elem;
-			aElem->u_x[RHO] += aSide->w[X] * pDiff[RHO];
-			aElem->u_x[VX]  += aSide->w[X] * pDiff[VX];
-			aElem->u_x[VY]  += aSide->w[X] * pDiff[VY];
-			aElem->u_x[P]   += aSide->w[X] * pDiff[P];
+		//	/* difference of primitive variables over the side */
+		//	double pDiff[NVAR];
+		//	pDiff[RHO] = aSide->connection->elem->pVar[RHO] - aSide->elem->pVar[RHO];
+		//	pDiff[VX]  = aSide->connection->elem->pVar[VX]  - aSide->elem->pVar[VX];
+		//	pDiff[VY]  = aSide->connection->elem->pVar[VY]  - aSide->elem->pVar[VY];
+		//	pDiff[P]   = aSide->connection->elem->pVar[P]   - aSide->elem->pVar[P];
 
-			aElem->u_y[RHO] += aSide->w[Y] * pDiff[RHO];
-			aElem->u_y[VX]  += aSide->w[Y] * pDiff[VX];
-			aElem->u_y[VY]  += aSide->w[Y] * pDiff[VY];
-			aElem->u_y[P]   += aSide->w[Y] * pDiff[P];
+		//	/* least squares reconstruction */
+		//	/* main element */
+		//	elem_t *aElem = aSide->elem;
+		//	aElem->u_x[RHO] += aSide->w[X] * pDiff[RHO];
+		//	aElem->u_x[VX]  += aSide->w[X] * pDiff[VX];
+		//	aElem->u_x[VY]  += aSide->w[X] * pDiff[VY];
+		//	aElem->u_x[P]   += aSide->w[X] * pDiff[P];
 
-			/* connection element */
-			aElem = aSide->connection->elem;
-			aElem->u_x[RHO] -= aSide->connection->w[X] * pDiff[RHO];
-			aElem->u_x[VX]  -= aSide->connection->w[X] * pDiff[VX];
-			aElem->u_x[VY]  -= aSide->connection->w[X] * pDiff[VY];
-			aElem->u_x[P]   -= aSide->connection->w[X] * pDiff[P];
+		//	aElem->u_y[RHO] += aSide->w[Y] * pDiff[RHO];
+		//	aElem->u_y[VX]  += aSide->w[Y] * pDiff[VX];
+		//	aElem->u_y[VY]  += aSide->w[Y] * pDiff[VY];
+		//	aElem->u_y[P]   += aSide->w[Y] * pDiff[P];
 
-			aElem->u_y[RHO] -= aSide->connection->w[Y] * pDiff[RHO];
-			aElem->u_y[VX]  -= aSide->connection->w[Y] * pDiff[VX];
-			aElem->u_y[VY]  -= aSide->connection->w[Y] * pDiff[VY];
-			aElem->u_y[P]   -= aSide->connection->w[Y] * pDiff[P];
-		}
+		//	/* connection element */
+		//	aElem = aSide->connection->elem;
+		//	aElem->u_x[RHO] -= aSide->connection->w[X] * pDiff[RHO];
+		//	aElem->u_x[VX]  -= aSide->connection->w[X] * pDiff[VX];
+		//	aElem->u_x[VY]  -= aSide->connection->w[X] * pDiff[VY];
+		//	aElem->u_x[P]   -= aSide->connection->w[X] * pDiff[P];
 
-		/* TODO: check parallel version's speed
+		//	aElem->u_y[RHO] -= aSide->connection->w[Y] * pDiff[RHO];
+		//	aElem->u_y[VX]  -= aSide->connection->w[Y] * pDiff[VX];
+		//	aElem->u_y[VY]  -= aSide->connection->w[Y] * pDiff[VY];
+		//	aElem->u_y[P]   -= aSide->connection->w[Y] * pDiff[P];
+		//}
+
+		/* TODO: check parallel version's speed */
 		#pragma omp parallel for
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
@@ -310,7 +311,6 @@ void spatialReconstruction(double time)
 				aSide = aSide->nextElemSide;
 			}
 		}
-		*/
 
 		/* limit gradients and reconstruct values at side GPs */
 		#pragma omp parallel for
