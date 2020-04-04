@@ -1,0 +1,25 @@
+Point(1) = {-2, 3, 0};
+Point(2) = {-2, -3, 0};
+Point(3) = {4, 3, 0};
+Point(4) = {4, -3, 0};
+Point(5) = {-1, 0, 0};
+Point(6) = {1, 0, 0};
+Point(7) = {0, 0.2, 0};
+Line(1) = {2, 1};
+Line(2) = {1, 3};
+Line(3) = {3, 4};
+Line(4) = {4, 2};
+Line(5) = {5, 7};
+Line(6) = {7, 6};
+Line(7) = {6, 5};
+Line Loop(8) = {2, 3, 4, 1};
+Line Loop(9) = {6, 7, 5};
+Plane Surface(10) = {8, 9};
+
+Transfinite Line {5, 6} = 14 Using Progression 1;
+Transfinite Line {7} = 24 Using Progression 1;
+Transfinite Line {1, 2, 3, 4} = 23 Using Progression 1;
+Physical Line(301) = {1, 4};
+Physical Line(401) = {2, 3};
+Physical Line(101) = {5, 6, 7};
+Physical Surface(14) = {10};
