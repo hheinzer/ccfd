@@ -535,6 +535,7 @@ void timeDisc(void)
 	printf("\nWriting Initial Condition to Disk:\n");
 	dataOutput(t, iniIterationNumber);
 	printf("| done.\n");
+	exit(0);
 
 	/* main program loop */
 	printf("\nStarting Computation:\n");

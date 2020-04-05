@@ -111,7 +111,7 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	if (cg_set_file_type(CG_FILE_ADF2))
 		cg_error_exit();
 
-	int indexFile;
+	int indexFile, indexBase, indexZone, indexSolution, indexField;
 	if (cg_open(fileName, CG_MODE_WRITE, &indexFile))
 		cg_error_exit();
 
@@ -119,12 +119,10 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	cgsize_t iSize[3] = {nNodes, nElems, 0};
 
 	/* create base */
-	int indexBase;
 	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
 		cg_error_exit();
 
 	/* create zone */
-	int indexZone;
 	if (cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured,
 				&indexZone))
 		cg_error_exit();
@@ -136,11 +134,17 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	if (cg_link_write("GridCoordinates", gridFile, "/Base/Zone/GridCoordinates"))
 		cg_error_exit();
 
-	if (cg_link_write("Elements", gridFile, "/Base/Zone/Elements"))
-		cg_error_exit();
+	if (nTrias > 0) {
+		if (cg_link_write("Triangles", gridFile, "/Base/Zone/Triangles"))
+			cg_error_exit();
+	}
+
+	if (nQuads > 0) {
+		if (cg_link_write("Quadrilaterals", gridFile, "/Base/Zone/Quadrilaterals"))
+			cg_error_exit();
+	}
 
 	/* create new solution zone */
-	int indexSolution;
 	if (cg_sol_write(indexFile, indexBase, indexZone, "FlowSolution",
 				CellCenter, &indexSolution))
 		cg_error_exit();
@@ -180,7 +184,6 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	}
 
 	/* write solution to CGNS file */
-	int indexField;
 	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
 				RealDouble, "Density", rhoArr, &indexField))
 		cg_error_exit();
@@ -364,8 +367,8 @@ void cgnsWriteMesh(void)
 				if (aBCside->side->BC == aBC) {
 					BCsides[iBCside  ][0] =
 						aBCside->side->node[0]->id + 1;
-					BCsides[iBCside++][0] =
-						aBCside->side->node[0]->id + 1;
+					BCsides[iBCside++][1] =
+						aBCside->side->node[1]->id + 1;
 					nSide++;
 				}
 
@@ -380,33 +383,48 @@ void cgnsWriteMesh(void)
 	int indexFile, indexBase, indexZone, indexGrid, indexCoordinate,
 	    indexSection, indexBounary;
 	/* open CGNS grid file for writing */
+	if (cg_set_file_type(CG_FILE_ADF2))
+		cg_error_exit();
+
 	if (cg_open(gridFile, CG_MODE_WRITE, &indexFile))
 		cg_error_exit();
 
 	/* write coordinate base to CGNS file */
-	cg_base_write(indexFile, "Base", 2, 2, &indexBase);
+	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+		cg_error_exit();
 
 	/* write computational zone and grid to CGNS file */
-	cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured, &indexZone);
-	cg_grid_write(indexFile, indexBase, indexZone, "GridCoordinates", &indexGrid);
+	if (cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured, &indexZone))
+		cg_error_exit();
+	if (cg_grid_write(indexFile, indexBase, indexZone, "GridCoordinates", &indexGrid))
+		cg_error_exit();
 
 	/* write cordinates to file */
-	cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateX",
-			nodes[X], &indexCoordinate);
-	cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateY",
-			nodes[Y], &indexCoordinate);
+	if (cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateX",
+			nodes[X], &indexCoordinate))
+		cg_error_exit();
+	if (cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateY",
+			nodes[Y], &indexCoordinate))
+		cg_error_exit();
 
 	/* write the element connectivity to the CGNS file */
-	cg_section_write(indexFile, indexBase, indexZone, "Triangles", TRI_3,
-			1, nTrias, 0, trias[0], &indexSection);
-	cg_section_write(indexFile, indexBase, indexZone, "Quadrilaterals", QUAD_4,
-			nTrias + 1, nTrias + nQuads, 0, quads[0], &indexSection);
+	if (nTrias > 0) {
+		if (cg_section_write(indexFile, indexBase, indexZone, "Triangles", TRI_3,
+				1, nTrias, 0, trias[0], &indexSection))
+			cg_error_exit();
+	}
+	if (nQuads > 0) {
+		if (cg_section_write(indexFile, indexBase, indexZone, "Quadrilaterals", QUAD_4,
+				nTrias + 1, nTrias + nQuads, 0, quads[0], &indexSection))
+			cg_error_exit();
+	}
 
 	/* write the boundary connectivity to the CGNS file */
 	if (!isPeriodic) {
-		cg_section_write(indexFile, indexBase, indexZone, "Boundaries",
+		if (cg_section_write(indexFile, indexBase, indexZone, "Boundaries",
 					BAR_2, nElems + 1, nElems + nBCsides, 0,
-					BCsides[0], &indexSection);
+					BCsides[0], &indexSection))
+			cg_error_exit();
 
 		/* write the boundary connectivity to the CGNS file */
 		long iBC = 0;
@@ -420,8 +438,9 @@ void cgnsWriteMesh(void)
 				iPoints[nCount++] = n;
 			}
 
-			cg_boco_write(indexFile, indexBase, indexZone, cBC, BCGeneral,
-					ElementList, nCount, iPoints, &indexBounary);
+			if (cg_boco_write(indexFile, indexBase, indexZone, cBC, BCGeneral,
+					ElementList, nCount, iPoints, &indexBounary))
+				cg_error_exit();
 
 			aBC = aBC->next;
 			iBC++;
@@ -429,7 +448,8 @@ void cgnsWriteMesh(void)
 	}
 
 	/* close CGNS file */
-	cg_close(indexFile);
+	if (cg_close(indexFile))
+		cg_error_exit();
 
 	free(nodes);
 }

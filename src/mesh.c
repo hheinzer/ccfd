@@ -1184,7 +1184,6 @@ void readMesh(void)
 	}
 }
 
-
 /*
  * Initalize the mesh and call read mesh
  */
