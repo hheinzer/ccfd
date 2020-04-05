@@ -453,9 +453,260 @@ void createCartMesh(
 }
 
 /*
+ * read in gmsh mesh file
+ */
+void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
+		long *nBCedges, long ***tria, long ***quad)
+{
+	/* open the mesh file */
+	FILE *meshFile = fopen(fileName, "r");
+	if (!meshFile) {
+		printf("| ERROR: Could not find Mesh File '%s'\n", fileName);
+		exit(1);
+	}
+
+	char line[STRLEN];
+
+	/* read in mesh format */
+	int mshFmt;
+	while (fgets(line, sizeof(line), meshFile)) {
+		if (!strcmp(line, "$MeshFormat\n")) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%d", &mshFmt);
+			break;
+		}
+	}
+
+	switch (mshFmt) {
+	case 2:
+		/* read in number of nodes */
+		*nVertices = 0;
+		while (fgets(line, sizeof(line), meshFile)) {
+			if (!strcmp(line, "$Nodes\n")) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%ld", nVertices);
+				break;
+			}
+		}
+		if (*nVertices == 0) {
+			printf("| ERROR: No Nodes in Mesh file\n");
+			exit(1);
+		}
+
+		/* read in nodes */
+		long id;
+		double x, y;
+		*vertex = dyn2DdblArray(*nVertices, 2);
+		for (long iVert = 0; iVert < *nVertices; ++iVert) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%ld %lg %lg", &id, &x, &y);
+			if (iVert == id - 1) {
+				(*vertex)[iVert][X] = x;
+				(*vertex)[iVert][Y] = y;
+			} else {
+				printf("| ERROR: NodeID %ld does not match Node Position\n", id);
+				exit(1);
+			}
+		}
+		printf("| %7ld Nodes read\n", *nVertices);
+
+		*nBCedges = nTrias = nQuads = 0;
+
+		/* read in number of elements */
+		long nElem = 0;
+		while (fgets(line, sizeof(line), meshFile)) {
+			if (!strcmp(line, "$Elements\n")) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%ld", &nElem);
+				break;
+			}
+		}
+		if (nElem == 0) {
+			printf("| ERROR: No Elements in Mesh file\n");
+			exit(1);
+		}
+
+		/* allocate space for the elements, more than actually necessary,
+		 * because the number of individual elements is not known, will be
+		 * freeed later on though */
+		long **BCedgeTmp = dyn2DintArray(nElem, 3);
+		long **triaTmp = dyn2DintArray(nElem, 4);
+		long **quadTmp = dyn2DintArray(nElem, 5);
+		if (!BCedgeTmp || !triaTmp || !quadTmp) {
+			printf("| ERROR: Not enough memory available\n");
+			exit(1);
+		}
+
+		/* read in elements */
+		int type, nTags, pGroup;
+		char *token, sep[] = " ";
+		for (long iElem = 0; iElem < nElem; ++iElem) {
+			fgets(line, sizeof(line), meshFile);
+
+			/* read element id */
+			token = strtok(line, sep);
+			if (token) {
+				id = strtol(token, NULL, 10);
+			} else {
+				printf("| ERROR: Reading error in gmsh file\n");
+				exit(1);
+			}
+
+			/* read element type */
+			token = strtok(NULL, sep);
+			if (token) {
+				type = strtol(token, NULL, 10);
+			} else {
+				printf("| ERROR: Reading error in gmsh file\n");
+				exit(1);
+			}
+
+			/* read number of integer tags */
+			token = strtok(NULL, sep);
+			if (token) {
+				nTags = strtol(token, NULL, 10);
+			} else {
+				printf("| ERROR: Reading error in gmsh file\n");
+				exit(1);
+			}
+
+			/* read physical group, first integer tag */
+			token = strtok(NULL, sep);
+			if (token) {
+				pGroup = strtol(token, NULL, 10);
+			} else {
+				printf("| ERROR: Reading error in gmsh file\n");
+				exit(1);
+			}
+
+			/* discard rest of tags */
+			for (int iTag = 1; iTag < nTags; ++iTag) {
+				token = strtok(NULL, sep);
+				if (!token) {
+					printf("| ERROR: Reading error in gmsh file\n");
+					exit(1);
+				}
+			}
+
+			/* handle different element types */
+			switch (type) {
+			case 1:
+				/* line */
+				if (pGroup > 100) {
+					/* boundary condition */
+					BCedgeTmp[*nBCedges][2] = pGroup;
+
+					/* read two nodes */
+					for (int i = 0; i < 2; ++i) {
+						token = strtok(NULL, sep);
+						if (!token) {
+							printf("| ERROR: Reading error in gmsh file\n");
+							exit(1);
+						}
+						BCedgeTmp[*nBCedges][i] = strtol(token, NULL, 10) - 1;
+					}
+
+					(*nBCedges)++;
+				}
+				break;
+			case 2:
+				/* triangle */
+				triaTmp[nTrias][3] = pGroup;
+
+				/* read three nodes */
+				for (int i = 0; i < 3; ++i) {
+					token = strtok(NULL, sep);
+					if (!token) {
+						printf("| ERROR: Reading error in gmsh file\n");
+						exit(1);
+					}
+					triaTmp[nTrias][i] = strtol(token, NULL, 10) - 1;
+				}
+
+				nTrias++;
+
+				break;
+			case 3:
+				/* quadrilateral */
+				quadTmp[nQuads][4] = pGroup;
+
+				/* read three nodes */
+				for (int i = 0; i < 4; ++i) {
+					token = strtok(NULL, sep);
+					if (!token) {
+						printf("| ERROR: Reading error in gmsh file\n");
+						exit(1);
+					}
+					quadTmp[nQuads][i] = strtol(token, NULL, 10) - 1;
+				}
+
+				nQuads++;
+
+				break;
+			}
+		}
+
+		/* allocate right amount of space and free temporary space */
+		*BCedge = dyn2DintArray(*nBCedges, 3);
+		if (!*BCedge) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iBCedge = 0; iBCedge < *nBCedges; ++iBCedge) {
+				(*BCedge)[iBCedge][0] = BCedgeTmp[iBCedge][0];
+				(*BCedge)[iBCedge][1] = BCedgeTmp[iBCedge][1];
+				(*BCedge)[iBCedge][2] = BCedgeTmp[iBCedge][2];
+			}
+		}
+		printf("| %7ld Boundary Edges read\n", *nBCedges);
+		free(BCedgeTmp);
+
+		*tria = dyn2DintArray(nTrias, 4);
+		if (!*tria) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iTria = 0; iTria < nTrias; ++iTria) {
+				(*tria)[iTria][0] = triaTmp[iTria][0];
+				(*tria)[iTria][1] = triaTmp[iTria][1];
+				(*tria)[iTria][2] = triaTmp[iTria][2];
+				(*tria)[iTria][3] = triaTmp[iTria][3];
+			}
+		}
+		printf("| %7ld Triangles read\n", nTrias);
+		free(triaTmp);
+
+		*quad = dyn2DintArray(nQuads, 5);
+		if (!*quad) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
+				(*quad)[iQuad][0] = quadTmp[iQuad][0];
+				(*quad)[iQuad][1] = quadTmp[iQuad][1];
+				(*quad)[iQuad][2] = quadTmp[iQuad][2];
+				(*quad)[iQuad][3] = quadTmp[iQuad][3];
+				(*quad)[iQuad][4] = quadTmp[iQuad][4];
+			}
+		}
+		printf("| %7ld Quadrilaterals read\n", nQuads);
+		free(quadTmp);
+
+		fclose(meshFile);
+
+		break;
+	case 4:
+		break;
+	default:
+		printf("| ERROR: Wrong gmsh Mesh Format '%d'\n", mshFmt);
+		exit(1);
+	}
+}
+
+/*
  * create a cartesian, structured mesh
  * read in of all supported mesh types:
- * *.msh, *.emc2, *.cgns
+ * *.msh, *.msh2, *.msh4 *.emc2, *.cgns
  */
 void createMesh(void)
 {
@@ -472,7 +723,28 @@ void createMesh(void)
 		zoneConnect = calloc(nVertices, sizeof(long));
 		break;
 	case UNSTRUCTURED:
-		// TODO: read in unstructured mesh
+		if (!strcmp(strMeshFormat, ".msh") ||
+				!strcmp(strMeshFormat, ".msh2") ||
+				!strcmp(strMeshFormat, ".msh4")) {
+			printf("| Reading gmsh File:\n");
+
+			readGmsh(strMeshFile, &vertex, &nVertices, &BCedge,
+					&nBCedges, &tria, &quad);
+
+			zoneConnect = calloc(nVertices, sizeof(long));
+
+		} else if (!strcmp(strMeshFormat, ".mesh")) {
+			printf("| Reading EMC2 File:\n");
+			printf("| Not yet implemented...\n");
+			exit(1);
+		} else if (!strcmp(strMeshFormat, ".cgns")) {
+			printf("| Reading Gridgen CGNS File:\n");
+			printf("| Not yet implemented...\n");
+			exit(1);
+		} else {
+			printf("| ERROR: Unknown Mesh Format\n");
+			exit(1);
+		}
 		break;
 	}
 
@@ -912,6 +1184,7 @@ void readMesh(void)
 	}
 }
 
+
 /*
  * Initalize the mesh and call read mesh
  */
@@ -922,7 +1195,7 @@ void initMesh(void)
 	strcat(strcpy(gridFile, strOutFile), "_mesh.cgns");
 	createMesh();
 	if ((iVisuProg == CGNS) && (!isRestart)) {
-		//cgnsWriteMesh();
+		cgnsWriteMesh();
 	}
 	dxRef = sqrt(1.0 / (totalArea_q * nElems));
 }

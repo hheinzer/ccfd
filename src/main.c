@@ -44,12 +44,14 @@ int main(int argc, char *argv[])
 
 	/* check command line arguments */
 	switch (argc) {
-	case 2: /* no restart required */
+	case 2:
+		/* no restart required */
 		isRestart = false;
 		iniIterationNumber = 0;
 		startTime = 0.0;
 		break;
-	case 3: /* Restart calculation */
+	case 3:
+		/* Restart calculation */
 		isRestart = true;
 		const char *restartFileName = argv[2];
 		strcpy(strIniCondFile, restartFileName);

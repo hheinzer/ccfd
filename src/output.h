@@ -31,5 +31,6 @@ extern outputTime_t *outputTimes;
 void initOutput(void);
 void dataOutput(double time, long iter);
 void finalizeDataOutput(void);
+void cgnsWriteMesh(void);
 
 #endif

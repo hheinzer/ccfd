@@ -17,6 +17,8 @@
 #include "analyze.h"
 #include "equation.h"
 #include "exactFunction.h"
+#include "cgnslib.h"
+#include "memTools.h"
 
 /* extern variables */
 char strOutFile[STRLEN];
@@ -43,7 +45,7 @@ void initOutput(void)
 /*
  * tabular CSV output, only for 1D data
  */
-void csvOutput(char fileName[STRLEN], double time, double iter, bool doExact)
+void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
 	/* prepare data (only for equidistant grids) */
 	double flowData[nElems][NVAR];
@@ -101,6 +103,128 @@ void csvOutput(char fileName[STRLEN], double time, double iter, bool doExact)
 }
 
 /*
+ * write solution to CGNS file
+ */
+void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
+{
+	/* open solution file */
+	if (cg_set_file_type(CG_FILE_ADF2))
+		cg_error_exit();
+
+	int indexFile;
+	if (cg_open(fileName, CG_MODE_WRITE, &indexFile))
+		cg_error_exit();
+
+	/* set up data for CGNS */
+	cgsize_t iSize[3] = {nNodes, nElems, 0};
+
+	/* create base */
+	int indexBase;
+	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+		cg_error_exit();
+
+	/* create zone */
+	int indexZone;
+	if (cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured,
+				&indexZone))
+		cg_error_exit();
+
+	/* link vertices and connectivity from the CGNS grid file */
+	if (cg_goto(indexFile, indexBase, "Zone_t", indexZone, "end"))
+		cg_error_exit();
+
+	if (cg_link_write("GridCoordinates", gridFile, "/Base/Zone/GridCoordinates"))
+		cg_error_exit();
+
+	if (cg_link_write("Elements", gridFile, "/Base/Zone/Elements"))
+		cg_error_exit();
+
+	/* create new solution zone */
+	int indexSolution;
+	if (cg_sol_write(indexFile, indexBase, indexZone, "FlowSolution",
+				CellCenter, &indexSolution))
+		cg_error_exit();
+
+	/* prepare density array, x-velocity array, y-velocity array, and
+	 * pressure array */
+	double rhoArr[nElems], vxArr[nElems], vyArr[nElems], vzArr[nElems], pArr[nElems];
+
+	/* save solution in a CGNS compatible format */
+	if (hasExactSolution) {
+		elem_t *aElem = firstElem;
+
+		while (aElem) {
+			double pVar[NVAR];
+			exactFunc(intExactFunc, aElem->bary, time, pVar);
+
+			rhoArr[aElem->id] = pVar[RHO];
+			vxArr[aElem->id]  = pVar[VX];
+			vyArr[aElem->id]  = pVar[VY];
+			vzArr[aElem->id]  = 0.0;
+			pArr[aElem->id]   = pVar[P];
+
+			aElem = aElem->next;
+		}
+	} else {
+		elem_t *aElem = firstElem;
+
+		while (aElem) {
+			rhoArr[aElem->id] = aElem->pVar[RHO];
+			vxArr[aElem->id]  = aElem->pVar[VX];
+			vyArr[aElem->id]  = aElem->pVar[VY];
+			vzArr[aElem->id]  = 0.0;
+			pArr[aElem->id]   = aElem->pVar[P];
+
+			aElem = aElem->next;
+		}
+	}
+
+	/* write solution to CGNS file */
+	int indexField;
+	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
+				RealDouble, "Density", rhoArr, &indexField))
+		cg_error_exit();
+
+	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
+				RealDouble, "VelocityX", vxArr, &indexField))
+		cg_error_exit();
+
+	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
+				RealDouble, "VelocityY", vyArr, &indexField))
+		cg_error_exit();
+
+	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
+				RealDouble, "VelocityZ", vzArr, &indexField))
+		cg_error_exit();
+
+	if (cg_field_write(indexFile, indexBase, indexZone, indexSolution,
+				RealDouble, "Pressure", pArr, &indexField))
+		cg_error_exit();
+
+	/* write convergence information */
+	if (cg_goto(indexFile, indexBase, "end"))
+		cg_error_exit();
+
+	char text[STRLEN];
+	sprintf(text, "%20.12f %20.12f", time, timeOverall);
+
+	if (cg_descriptor_write("ConvergenceInfo", text))
+		cg_error_exit();
+
+	/* close file */
+	if (cg_close(indexFile))
+		cg_error_exit();
+}
+
+/*
+ * curve data output
+ */
+void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
+{
+
+}
+
+/*
  * data output in different formats
  */
 void dataOutput(double time, long iter)
@@ -122,11 +246,11 @@ void dataOutput(double time, long iter)
 	switch (iVisuProg) {
 	case CGNS:
 		strcat(fileName, ".cgns");
-		//cgnsOutput(fileName, time, iter, false);
+		cgnsOutput(fileName, time, iter, false);
 		break;
 	case CURVE:
 		strcat(fileName, ".curve");
-		//curveOutput(fileName, time, iter, false);
+		curveOutput(fileName, time, iter, false);
 		break;
 	case DAT:
 		strcat(fileName, ".csv");
@@ -147,11 +271,11 @@ void dataOutput(double time, long iter)
 		switch (iVisuProg) {
 		case CGNS:
 			strcat(fileName, ".cgns");
-			//cgnsOutput(fileName, time, iter, true);
+			cgnsOutput(fileName, time, iter, true);
 			break;
 		case CURVE:
 			strcat(fileName, ".curve");
-			//curveOutput(fileName, time, iter, true);
+			curveOutput(fileName, time, iter, true);
 			break;
 		case DAT:
 			strcat(fileName, ".csv");
@@ -165,11 +289,147 @@ void dataOutput(double time, long iter)
 }
 
 /*
+ *
+ */
+void cgnsFinalizeOutput(void)
+{
+
+}
+
+/*
  * finalize data output
  */
 void finalizeDataOutput(void)
 {
 	if (iVisuProg == CGNS) {
-		// cgnsFinalizeOutput();
+		cgnsFinalizeOutput();
 	}
+}
+
+/*
+ * write CGNS mesh
+ */
+void cgnsWriteMesh(void)
+{
+	/* set up data */
+	cgsize_t iSize[3] = {nNodes, nElems, 0};
+
+	/* allocate element arrays */
+	cgsize_t trias[nTrias][3], quads[nQuads][4], BCsides[nBCsides][2];
+	double **nodes = dyn2DdblArray(NDIM, nNodes);
+
+	/* save verticies in a CGNS compatible format */
+	long iNode = 0;
+	node_t *aNode = firstNode;
+	while (aNode) {
+		nodes[X][iNode] = aNode->x[X];
+		nodes[Y][iNode] = aNode->x[Y];
+
+		aNode->id = iNode++;
+		aNode = aNode->next;
+	}
+
+	/* save element connectivity in a CGNS compatible format */
+	long iTria = 0, iQuad = 0;
+	elem_t *aElem = firstElem;
+	while (aElem) {
+		switch (aElem->elemType) {
+		case 3:
+			trias[iTria  ][0] = aElem->node[0]->id + 1;
+			trias[iTria  ][1] = aElem->node[1]->id + 1;
+			trias[iTria++][2] = aElem->node[2]->id + 1;
+			break;
+		case 4:
+			quads[iQuad  ][0] = aElem->node[0]->id + 1;
+			quads[iQuad  ][1] = aElem->node[1]->id + 1;
+			quads[iQuad  ][2] = aElem->node[2]->id + 1;
+			quads[iQuad++][3] = aElem->node[3]->id + 1;
+			break;
+		}
+
+		aElem = aElem->next;
+	}
+
+	/* save boundary elements */
+	cgsize_t BCpartition[nBC + 1];
+	if (!isPeriodic) {
+		BCpartition[0] = (cgsize_t)nElems;
+		cgsize_t nSide = nElems;
+		long iBCside = 0;
+		int iBC = 1;
+		boundary_t *aBC = firstBC;
+		while (aBC) {
+			sidePtr_t *aBCside = firstBCside;
+			while (aBCside) {
+				if (aBCside->side->BC == aBC) {
+					BCsides[iBCside  ][0] =
+						aBCside->side->node[0]->id + 1;
+					BCsides[iBCside++][0] =
+						aBCside->side->node[0]->id + 1;
+					nSide++;
+				}
+
+				aBCside = aBCside->next;
+			}
+
+			BCpartition[iBC++] = nSide;
+			aBC = aBC->next;
+		}
+	}
+
+	int indexFile, indexBase, indexZone, indexGrid, indexCoordinate,
+	    indexSection, indexBounary;
+	/* open CGNS grid file for writing */
+	if (cg_open(gridFile, CG_MODE_WRITE, &indexFile))
+		cg_error_exit();
+
+	/* write coordinate base to CGNS file */
+	cg_base_write(indexFile, "Base", 2, 2, &indexBase);
+
+	/* write computational zone and grid to CGNS file */
+	cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured, &indexZone);
+	cg_grid_write(indexFile, indexBase, indexZone, "GridCoordinates", &indexGrid);
+
+	/* write cordinates to file */
+	cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateX",
+			nodes[X], &indexCoordinate);
+	cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateY",
+			nodes[Y], &indexCoordinate);
+
+	/* write the element connectivity to the CGNS file */
+	cg_section_write(indexFile, indexBase, indexZone, "Triangles", TRI_3,
+			1, nTrias, 0, trias[0], &indexSection);
+	cg_section_write(indexFile, indexBase, indexZone, "Quadrilaterals", QUAD_4,
+			nTrias + 1, nTrias + nQuads, 0, quads[0], &indexSection);
+
+	/* write the boundary connectivity to the CGNS file */
+	if (!isPeriodic) {
+		cg_section_write(indexFile, indexBase, indexZone, "Boundaries",
+					BAR_2, nElems + 1, nElems + nBCsides, 0,
+					BCsides[0], &indexSection);
+
+		/* write the boundary connectivity to the CGNS file */
+		long iBC = 0;
+		boundary_t *aBC = firstBC;
+		while (aBC) {
+			char cBC[STRLEN];
+			sprintf(cBC, "%d", aBC->BCtype * 100 + aBC->BCid);
+			cgsize_t iPoints[nBCsides];
+			long nCount = 0;
+			for (cgsize_t n = BCpartition[iBC] + 1; n <= BCpartition[iBC + 1]; ++n) {
+				iPoints[nCount++] = n;
+			}
+
+			cg_boco_write(indexFile, indexBase, indexZone, cBC, BCGeneral,
+					ElementList, nCount, iPoints, &indexBounary);
+
+			aBC = aBC->next;
+			iBC++;
+		}
+	}
+
+	/* close CGNS file */
+	cg_close(indexFile);
+
+	free(nodes);
 }

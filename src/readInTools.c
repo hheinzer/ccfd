@@ -31,7 +31,7 @@ void fillCmds(char iniFileName[STRLEN])
 	FILE *iniFile;
 	printf("\nReading Parameter File: '%s'\n", iniFileName);
 	iniFile = fopen(iniFileName, "r");
-	if (iniFile == NULL) {
+	if (!iniFile) {
 		printf("Abort! Could not find specified file.\n");
 		exit(1);
 	}
