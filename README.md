@@ -1,6 +1,6 @@
 ![](doc/ccfd.svg)
 
-A two-dimensional finite volume computational fluid dynamics code, written in C
+A two-dimensional finite volume computational fluid dynamics code, written in C.
 
 This code is intended to become a drop-in replacement for `cfdfv`, a CFD code written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it is a modified version of [FLEXI](https://www.flexi-project.org/).
 
@@ -13,9 +13,9 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 - `git`
 - `make`
 - `gcc`
-- `gmsh` (optional, for mesh generation)
-- `paraview` (optional, for post-processing the results)
 - `gnuplot` (optional, for displaying calculation residuals)
+- `gmsh` (optional, for mesh generation, available [here](http://gmsh.info/))
+- `paraview` (optional, for post-processing the results, available [here](https://www.paraview.org/))
 
 # Installation
 
