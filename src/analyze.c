@@ -305,7 +305,7 @@ void calcCoef(long iter)
 		cl += n[Y] * p0 * len;
 		cd += n[X] * p0 * len;
 		double cp = (p0 - pInf) * qInfQ;
-		fprintf(cp1File, "%15.9f,%15.9f,%15.9f,%15.9f\n",
+		fprintf(cp1File, "%15.7f,%15.7f,%15.7f,%15.7f\n",
 			aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X],
 			aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
 			atan2(aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
@@ -333,7 +333,7 @@ void calcCoef(long iter)
 		cl += n[Y] * p0 * len;
 		cd += n[X] * p0 * len;
 		double cp = (p0 - pInf) * qInfQ;
-		fprintf(cp2File, "%15.9f,%15.9f,%15.9f,%15.9f\n",
+		fprintf(cp2File, "%15.7f,%15.7f,%15.7f,%15.7f\n",
 			aSidePtr->side->GP[X] + aSidePtr->side->elem->bary[X],
 			aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
 			atan2(aSidePtr->side->GP[Y] + aSidePtr->side->elem->bary[Y],
@@ -379,7 +379,7 @@ void evalRecordPoints(double time)
 	for (long iPt = 0; iPt < recordPoint.nPoints; ++iPt) {
 		elem_t *aElem = recordPoint.elem[iPt];
 		fprintf(recordPoint.ioFile[iPt],
-			"%15.9f,%15.9f,%15.9f,%15.9f,%15.9f\n",
+			"%20.12f,%20.12f,%20.12f,%20.12f,%20.12f\n",
 			time + aElem->dt, aElem->pVar[RHO], aElem->pVar[VX],
 			aElem->pVar[VY], aElem->pVar[P]);
 	}
@@ -405,12 +405,12 @@ void analyze(double time, long iter, double resIter[NVAR + 2])
 		resIter[NVAR]     = fabs(resIter[NVAR]     - wing.cl) / firstElem->dt;
 		resIter[NVAR + 1] = fabs(resIter[NVAR + 1] - wing.cd) / firstElem->dt;
 
-		fprintf(resFile, "%7ld,%15.9f,%15.9e,%15.9f,%15.9f\n",
+		fprintf(resFile, "%7ld, %13.8f, %15.8e, %15.10f, %15.10f\n",
 			iter, time + firstElem->dt, resIter[abortVariable],
 			wing.cl, wing.cd);
 	} else {
 		if (isStationary) {
-			fprintf(resFile, "%7ld,%15.9f,%15.9e,%15.9e,%15.9e,%15.9e\n",
+			fprintf(resFile, "%7ld, %13.8f, %15.8e, %15.8e, %15.8e, %15.8e\n",
 				iter, time + firstElem->dt, resIter[RHO],
 				resIter[VX], resIter[VY], resIter[E]);
 		}

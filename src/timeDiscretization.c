@@ -535,7 +535,6 @@ void timeDisc(void)
 	printf("\nWriting Initial Condition to Disk:\n");
 	dataOutput(t, iniIterationNumber);
 	printf("| done.\n");
-	exit(0);
 
 	/* main program loop */
 	printf("\nStarting Computation:\n");
@@ -562,7 +561,7 @@ void timeDisc(void)
 		printf("| Viscous Time Step Dominates!\n");
 	}
 
-	/* TODO: loop over all iterations */
+	/* loop over all iterations */
 	long iter;
 	for (iter = start; iter <= maxIter; ++iter) {
 		calcTimeStep(printTime, &dt, &viscousTimeStepDominates);
