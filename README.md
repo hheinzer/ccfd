@@ -11,7 +11,7 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 # Dependencies
 
 - `git`
-- `make`
+- `make`, and `cmake`
 - `gcc`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
 - `gmsh` (optional, for mesh generation, available [here](http://gmsh.info/))
@@ -25,11 +25,11 @@ The installation process is easiest on Linux, but possible on MacOS and Windows.
 
 First make sure that all necessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice
 ```
-# pacman -S git base-devel
+# pacman -S git base-devel cmake
 ```
 For an Ubuntu like system the following command should do the trick
 ```
-# apt-get install git build-essential
+# apt-get install git build-essential cmake
 ```
 
 Next, navigate to the directory where you want to keep `ccfd` files and clone the git repository
@@ -44,6 +44,8 @@ $ make
 ```
 This should compile the code and create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
 
+Continue with [Usage](#usage-under-linux)
+
 ## MacOS
 
 It should work basically the same as with Linux, but detailed instructions will follow soon...
@@ -52,10 +54,46 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 It should work basically the same as with Linux, but detailed instructions will follow soon...
 
-# Usage
+# Usage under Linux
 
-Navigate to the `calc` folder. Here you will find example input files, such as the SOD test case. The calculation can be started by simply executing `ccfd` followed by the `.ini` file, containing the case setup
+As a first step you should add the `ccfd` executable to your path. You can do so by running
+
 ```
-$ ../bin/ccfd sod.ini
+$ source ccfdrc
 ```
-The program will display information about the initialization and time stepping process until the calculation is finished. Depending on what output format was set in the `.ini` file, the results at the specified output times/intervals are written to disk.
+Next, navigate to the `calc` folder. Here you will find example case files, contained in folder. First, let us try the Riemann problems. Navigate to the `riemann` folder with
+```
+$ cd riemann
+```
+Here you will find the SOD test case, as well as different versions of the case. Start a calculation with
+```
+$ ccfd sod.ini
+```
+and observe the output. There should be four new files. The initial condition of the case and the calculation results at t = 0.25 s. They should all be `.csv` files. You can examine them with any spreadsheet program you like. Alternatively you can use `paraview`, a free post-processing program, that can visualize 1D, 2D, and 3D data. For most distributions you can install it from the package manager. On Arch Linux, run
+```
+# pacman -S paraview
+```
+
+On Ubuntu, the Paraview program in the repositories does not read CGNS files for some reason. You will need to compile [Paraview from source](https://github.com/Kitware/ParaView/blob/master/Documentation/dev/build.md), with CGNS enabled:
+```
+# apt-get install git cmake build-essential libgl1-mesa-dev libxt-dev qt5-default libqt5x11extras5-dev libqt5help5 qttools5-dev qtxmlpatterns5-dev-tools libqt5svg5-dev python3-dev python3-numpy libopenmpi-dev libtbb-dev ninja-build
+$ git clone https://gitlab.kitware.com/paraview/paraview.git
+$ mkdir paraview_build
+$ cd paraview
+$ git checkout v5.8.0
+$ git submodule update --init --recursive
+$ cd ../paraview_build
+$ cmake -GNinja -DPARAVIEW_ENABLE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_SMP_IMPLEMENTATION_TYPE=TBB -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_ENABLE_CGNS=ON ../paraview
+$ ninja
+```
+
+
+Next open the Paraview program
+```
+$ paraview &
+```
+Now, click on *File*->*Open* and select both sets of `.csv` files. Because we will be looking at 1D data, we need to change from *Render View* to *Line Chart View*. In the top right of the viewing area, click on the `X` button. Now select *Line Chart View* from the list. You should now see an empty grid with an x-, and a y-axis. Now in the *Pipeline Browser* to the left, click on the eye icons of the `.csv` files you have loaded in. A plot should appear in on the axis grid. It will probably show the initial state. In the top bar, click on the play button. Now, the final state should be shown. You will see the analytical, or exact, solution, as well as the numerical solution.
+
+For more information on the theory, maybe have a look at [Wikipedia](https://en.wikipedia.org/wiki/Sod_shock_tube).
+
+The procedure for running the other cases is the same. However, if the solution data is 2D, then you do not need to switch to *Line Chart View*. You can stay in *Render View* and click *Apply*, once you have loaded the solution file. The 2D CGNS output files will usually have more than just the solution. You can can load everything at once by selecting the file that hast `_Master` in its name.
