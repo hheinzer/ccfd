@@ -13,7 +13,7 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 - `git`
 - `make`
 - `gcc`
-- `gnuplot` (optional, for displaying calculation residuals)
+- `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
 - `gmsh` (optional, for mesh generation, available [here](http://gmsh.info/))
 - `paraview` (optional, for post-processing the results, available [here](https://www.paraview.org/))
 
