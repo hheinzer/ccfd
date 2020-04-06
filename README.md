@@ -8,6 +8,8 @@ The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for 
 
 The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
 
+![](doc/wedge.svg)
+
 # Dependencies
 
 - `git`
