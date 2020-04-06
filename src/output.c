@@ -108,8 +108,8 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
 	/* open solution file */
-	if (cg_set_file_type(CG_FILE_ADF2))
-		cg_error_exit();
+	//if (cg_set_file_type(CG_FILE_ADF2))
+	//	cg_error_exit();
 
 	int indexFile, indexBase, indexZone, indexSolution, indexField;
 	if (cg_open(fileName, CG_MODE_WRITE, &indexFile))
@@ -292,11 +292,120 @@ void dataOutput(double time, long iter)
 }
 
 /*
- *
+ * finalize CGNS output
  */
 void cgnsFinalizeOutput(void)
 {
+	/* count number of data outputs */
+	cgsize_t nOutputs[1] = {0};
+	outputTime_t *outputTime = outputTimes;
+	while (outputTime) {
+		nOutputs[0]++;
+		outputTime = outputTime->next;
+	}
 
+	/* allocate and fill arrays */
+	double times[nOutputs[0]];
+	long iters[nOutputs[0]];
+	char solutionNames[nOutputs[0]][STRLEN];
+
+	long iOutput = nOutputs[0];
+	outputTime = outputTimes;
+	while (outputTime) {
+		times[iOutput] = outputTime->time;
+		iters[iOutput] = outputTime->iter;
+		sprintf(solutionNames[iOutput], "FlowSolution%9ld", iters[iOutput]);
+		iOutput--;
+		outputTime = outputTime->next;
+	}
+
+	int indexFile, indexBase, indexZone;
+	/* open CGNS file */
+	//if (cg_set_file_type(CG_FILE_ADF2))
+	//	cg_error_exit();
+
+	char masterFileName[STRLEN];
+	strcat(strcpy(masterFileName, strOutFile), "_Master.cgns");
+	if (cg_open(masterFileName, CG_MODE_WRITE, &indexFile))
+		cg_error_exit();
+
+	/* set up data for CGNS */
+	cgsize_t iSize[3] = {nNodes, nElems, 0};
+
+	/* create base */
+	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+		cg_error_exit();
+
+	/* create zone */
+	if (cg_zone_write(indexFile, indexBase, "Zone", iSize, Unstructured,
+				&indexZone))
+		cg_error_exit();
+
+	/* link vertices and connectivity from the CGNS grid file */
+	if (cg_goto(indexFile, indexBase, "Zone_t", indexZone, "end"))
+		cg_error_exit();
+
+	if (cg_link_write("GridCoordinates", gridFile, "/Base/Zone/GridCoordinates"))
+		cg_error_exit();
+
+	if (nTrias > 0) {
+		if (cg_link_write("Triangles", gridFile, "/Base/Zone/Triangles"))
+			cg_error_exit();
+	}
+
+	if (nQuads > 0) {
+		if (cg_link_write("Quadrilaterals", gridFile, "/Base/Zone/Quadrilaterals"))
+			cg_error_exit();
+	}
+
+	/* link solutions */
+	if (cg_goto(indexFile, indexBase, "Zone_t", indexZone, "end"))
+		cg_error_exit();
+	for (iOutput = 0; iOutput < nOutputs[0]; iOutput++) {
+		char solutionFileName[2 * STRLEN];
+		if (isStationary) {
+			sprintf(solutionFileName, "%s_%9ld.cgns", strOutFile,
+					iters[iOutput]);
+			if (cg_link_write(solutionNames[iOutput], solutionFileName,
+					"/Base/Zone/FlowSolution"))
+				cg_error_exit();
+		} else {
+			sprintf(solutionFileName, "%s_%15.7f.cgns", strOutFile,
+					times[iOutput]);
+			if (cg_link_write(solutionNames[iOutput], solutionFileName,
+					"/Base/Zone/FlowSolution"))
+				cg_error_exit();
+		}
+	}
+
+	/* crete BaseIter node */
+	if (cg_biter_write(indexFile, indexBase, "TimeIterValues", nOutputs[0]))
+		cg_error_exit();
+
+	if (cg_goto(indexFile, indexBase, "BaseIterativeData_t", 1, "end"))
+		cg_error_exit();
+
+	if (cg_array_write("TimeValues", RealDouble, 1, nOutputs, times))
+		cg_error_exit();
+
+	if (cg_array_write("IterationValues", Integer, 1, nOutputs, iters))
+		cg_error_exit();
+
+	/* create ZoneIter node */
+	if (cg_ziter_write(indexFile, indexBase, indexZone, "ZoneIterativeData"))
+		cg_error_exit();
+
+	if (cg_goto(indexFile, indexBase, "Zone_t", indexZone, "ZoneIterativeData_t",
+				1, "end"))
+		cg_error_exit();
+
+	cgsize_t tmp[2] = {STRLEN, nOutputs[0]};
+	if (cg_array_write("FlowSolutionPointers", Character, 2, tmp, solutionNames))
+		cg_error_exit();
+
+	/* close file */
+	if (cg_close(indexFile))
+		cg_error_exit();
 }
 
 /*
@@ -383,8 +492,8 @@ void cgnsWriteMesh(void)
 	int indexFile, indexBase, indexZone, indexGrid, indexCoordinate,
 	    indexSection, indexBounary;
 	/* open CGNS grid file for writing */
-	if (cg_set_file_type(CG_FILE_ADF2))
-		cg_error_exit();
+	//if (cg_set_file_type(CG_FILE_ADF2))
+	//	cg_error_exit();
 
 	if (cg_open(gridFile, CG_MODE_WRITE, &indexFile))
 		cg_error_exit();
