@@ -1,4 +1,0 @@
-set title 'Residual Plot'
-set logscale y
-plot 'wedge_coarse_analysis.csv' using 1:3 title 'RHO' with lines
-pause -1

@@ -3,3 +3,6 @@ obj/*
 **/CGNS-*/
 test/*
 lit/*
+*.cgns
+*.dem
+*.csv
