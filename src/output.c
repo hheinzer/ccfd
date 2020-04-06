@@ -297,24 +297,24 @@ void dataOutput(double time, long iter)
 void cgnsFinalizeOutput(void)
 {
 	/* count number of data outputs */
-	cgsize_t nOutputs[1] = {0};
+	cgsize_t nOutputs = 0;
 	outputTime_t *outputTime = outputTimes;
 	while (outputTime) {
-		nOutputs[0]++;
+		nOutputs++;
 		outputTime = outputTime->next;
 	}
 
 	/* allocate and fill arrays */
-	double times[nOutputs[0]];
-	long iters[nOutputs[0]];
-	char solutionNames[nOutputs[0]][STRLEN];
+	double times[nOutputs];
+	long iters[nOutputs];
+	char solutionNames[nOutputs][32];
 
-	long iOutput = nOutputs[0];
+	long iOutput = nOutputs - 1;
 	outputTime = outputTimes;
 	while (outputTime) {
 		times[iOutput] = outputTime->time;
 		iters[iOutput] = outputTime->iter;
-		sprintf(solutionNames[iOutput], "FlowSolution%9ld", iters[iOutput]);
+		sprintf(solutionNames[iOutput], "FlowSolution%09ld", iters[iOutput]);
 		iOutput--;
 		outputTime = outputTime->next;
 	}
@@ -361,10 +361,10 @@ void cgnsFinalizeOutput(void)
 	/* link solutions */
 	if (cg_goto(indexFile, indexBase, "Zone_t", indexZone, "end"))
 		cg_error_exit();
-	for (iOutput = 0; iOutput < nOutputs[0]; iOutput++) {
+	for (iOutput = 0; iOutput < nOutputs; iOutput++) {
 		char solutionFileName[2 * STRLEN];
 		if (isStationary) {
-			sprintf(solutionFileName, "%s_%9ld.cgns", strOutFile,
+			sprintf(solutionFileName, "%s_%09ld.cgns", strOutFile,
 					iters[iOutput]);
 			if (cg_link_write(solutionNames[iOutput], solutionFileName,
 					"/Base/Zone/FlowSolution"))
@@ -379,16 +379,17 @@ void cgnsFinalizeOutput(void)
 	}
 
 	/* crete BaseIter node */
-	if (cg_biter_write(indexFile, indexBase, "TimeIterValues", nOutputs[0]))
+	if (cg_biter_write(indexFile, indexBase, "TimeIterValues", nOutputs))
 		cg_error_exit();
 
 	if (cg_goto(indexFile, indexBase, "BaseIterativeData_t", 1, "end"))
 		cg_error_exit();
 
-	if (cg_array_write("TimeValues", RealDouble, 1, nOutputs, times))
+	cgsize_t tmp1[1] = {nOutputs};
+	if (cg_array_write("TimeValues", RealDouble, 1, tmp1, times))
 		cg_error_exit();
 
-	if (cg_array_write("IterationValues", Integer, 1, nOutputs, iters))
+	if (cg_array_write("IterationValues", Integer, 1, tmp1, iters))
 		cg_error_exit();
 
 	/* create ZoneIter node */
@@ -399,8 +400,8 @@ void cgnsFinalizeOutput(void)
 				1, "end"))
 		cg_error_exit();
 
-	cgsize_t tmp[2] = {STRLEN, nOutputs[0]};
-	if (cg_array_write("FlowSolutionPointers", Character, 2, tmp, solutionNames))
+	cgsize_t tmp2[2] = {32, nOutputs};
+	if (cg_array_write("FlowSolutionPointers", Character, 2, tmp2, solutionNames))
 		cg_error_exit();
 
 	/* close file */

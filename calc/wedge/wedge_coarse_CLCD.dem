@@ -1,0 +1,4 @@
+set title 'CL/CD Plot'
+plot 'wedge_coarse_analysis.csv' using 1:4 title 'CL' with lines, \
+     'wedge_coarse_analysis.csv' using 1:5 title 'CD' with lines
+pause -1

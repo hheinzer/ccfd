@@ -316,6 +316,7 @@ void calcCoef(long iter)
 
 	/* open file for writing CP data */
 	char suctionFileName[STRLEN];
+	strcat(strcpy(suctionFileName, strOutFile), "_CP_suctionSide.csv");
 	FILE *cp2File = fopen(suctionFileName, "w");
 	if (!cp2File) {
 		printf("| ERROR: Cannot open Output File for CP I/O\n");

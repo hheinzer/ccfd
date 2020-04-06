@@ -529,7 +529,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
  */
 void timeDisc(void)
 {
-	//bool hasConverged = (isStationary ? false : true);
+	bool hasConverged = (isStationary ? false : true);
 
 	/* write initial condition to disk */
 	printf("\nWriting Initial Condition to Disk:\n");
@@ -601,7 +601,60 @@ void timeDisc(void)
 
 		/* residual abort criterion */
 		if (isStationary) {
-			// TODO
+			if (fabs(resIter[abortVariable]) < abortResidual) {
+				if (doAbortOnClResidual) {
+					if (fabs(resIter[4]) < clAbortResidual) {
+						printf("\nConverged in CL - Calculation complete\n");
+						printf("| Iteration number: %ld\n", iter);
+						printf("| Writing final state to disk\n");
+
+						if (doCalcWing) {
+							printf("| Final Lift and Drag Coefficients:\n");
+							printf("|   CL: %g\n", wing.cl);
+							printf("|   CD: %g\n", wing.cd);
+						}
+
+						hasConverged = true;
+					}
+				} else if (doAbortOnCdResidual) {
+					if (fabs(resIter[5]) < cdAbortResidual) {
+						printf("\nConverged in CD - Calculation complete\n");
+						printf("| Iteration number: %ld\n", iter);
+						printf("| Writing final state to disk\n");
+
+						if (doCalcWing) {
+							printf("| Final Lift and Drag Coefficients:\n");
+							printf("|   CL: %g\n", wing.cl);
+							printf("|   CD: %g\n", wing.cd);
+						}
+
+						hasConverged = true;
+					}
+				} else {
+					printf("\nConverged in '%s' - Calculation complete\n", abortVariableName);
+					printf("| Iteration number: %ld\n", iter);
+					printf("| Writing final state to disk\n");
+
+					if (doCalcWing) {
+						printf("| Final Lift and Drag Coefficients:\n");
+						printf("|   CL: %g\n", wing.cl);
+						printf("|   CD: %g\n", wing.cd);
+					}
+
+					hasConverged = true;
+				}
+			}
+
+			if (hasConverged) {
+				dataOutput(t, iter);
+				finalizeDataOutput();
+
+				if (hasExactSolution) {
+					calcErrors(t);
+				}
+
+				break;
+			}
 		}
 
 		/* data output */
@@ -613,15 +666,15 @@ void timeDisc(void)
 
 			if (isStationary) {
 				if (doCalcWing) {
-					printf("| Residuals: %s: %g\n",
+					printf("| Residuals: %s: %11.6e\n",
 						abortVariableName, resIter[abortVariable]);
-					printf("|            CL : %g\n", resIter[NVAR]);
-					printf("|            CD : %g\n", resIter[NVAR + 1]);
+					printf("|            CL : %11.6e\n", resIter[4]);
+					printf("|            CD : %11.6e\n", resIter[5]);
 				} else {
-					printf("|            RHO: %g\n", resIter[RHO]);
-					printf("|            MX : %g\n", resIter[VX]);
-					printf("|            MY : %g\n", resIter[VY]);
-					printf("|            E  : %g\n", resIter[E]);
+					printf("|            RHO: %11.6e\n", resIter[RHO]);
+					printf("|            MX : %11.6e\n", resIter[VX]);
+					printf("|            MY : %11.6e\n", resIter[VY]);
+					printf("|            E  : %11.6e\n", resIter[E]);
 				}
 			} else {
 				printf("| Time     : %g\n", t);

@@ -1,0 +1,6 @@
+set title 'CP plot'
+set xlabel 'theta'
+set ylabel 'cp'
+plot 'wedge_coarse_CP_pressureSide.csv' using 3:4 w l lc rgb 'black' t 'pressureSide', \
+     'wedge_coarse_CP_suctionSide.csv' using 3:4 w l lc rgb 'blue' t 'suctionSide'
+pause -1
