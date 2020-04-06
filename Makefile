@@ -26,14 +26,14 @@ ARCH         = LINUX64
 CGNS_VERSION = 4.1.1
 CGNS_DIR     = CGNS-$(CGNS_VERSION)
 CGNS_LIB_DIR = $(ARCH)
-INCDIR       = -I $(CGNS_DIR)/$(CGNS_LIB_DIR)/include
-LIBS        += -L $(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
+INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
+LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
 
 ### Compile- and linkflags:
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
+ FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
- FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
+#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
