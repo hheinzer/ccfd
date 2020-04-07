@@ -2,7 +2,7 @@
 
 This code is intended to become a drop-in replacement for `cfdfv`, a CFD code written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it features a similar code structure to [FLEXI](https://www.flexi-project.org/).
 
-The program uses the [CGNS](https://cgns.github.io/) library version 4.1.1, for storing the calculation results.
+The program uses the [CGNS](https://cgns.github.io/) library version 3.1.4, for storing the calculation results.
 
 The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
 
