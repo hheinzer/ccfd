@@ -966,10 +966,12 @@ void createMesh(void)
 		} else if (!strcmp(strMeshFormat, ".mesh")) {
 			printf("| Reading EMC2 File:\n");
 			printf("| Not yet implemented...\n");
+			// TODO
 			exit(1);
 		} else if (!strcmp(strMeshFormat, ".cgns")) {
 			printf("| Reading Gridgen CGNS File:\n");
 			printf("| Not yet implemented...\n");
+			// TODO
 			exit(1);
 		} else {
 			printf("| ERROR: Unknown Mesh Format\n");
@@ -1398,7 +1400,7 @@ void readMesh(void)
 					cartMesh.BCrange[iSide][0][1] = cartMesh.jMax;
 				}
 			} else {
-				for (int i = 0; i < cartMesh.nBC[i]; ++i) {
+				for (int i = 0; i < cartMesh.nBC[iSide]; ++i) {
 					cartMesh.BCtype[iSide][i] = getInt("meshBCtype", NULL);
 					cartMesh.BCrange[iSide][i][0] = getInt("BCstart", NULL);
 					cartMesh.BCrange[iSide][i][1] = getInt("BCend", NULL);

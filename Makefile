@@ -7,8 +7,8 @@
 # 'make allclean' : remove executable and libraries
 
 ### Equation system:
-EQNSYS = euler
-#EQNSYS = navierStokes
+#EQNSYS = euler
+EQNSYS = navierstokes
 
 ### Build options:
 TARGET = ccfd
@@ -23,7 +23,8 @@ LIBDIR = lib
 LIBS	     = -lm
 # CGNS
 ARCH         = LINUX64
-CGNS_VERSION = 4.1.1
+CGNS_VERSION = 3.1.4
+#CGNS_VERSION = 4.1.1
 CGNS_DIR     = CGNS-$(CGNS_VERSION)
 CGNS_LIB_DIR = $(ARCH)
 INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
@@ -106,7 +107,7 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@cd ./calc/wedge/ && ../../bin/ccfd wedge_coarse.ini wedge_coarse_000000500.cgns
+	@cd ./calc/blasius && ../../bin/ccfd blasius.ini
 
 debug:
-	@cd ./calc/wedge/ && gdb -q --args ../../bin/ccfd wedge_coarse.ini wedge_coarse_000000500.cgns
+	@cd ./calc/blasius && gdb -q --args ../../bin/ccfd blasius.ini
