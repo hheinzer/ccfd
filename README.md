@@ -69,31 +69,25 @@ Here you will find the SOD test case, as well as different versions of the case.
 ```
 $ ccfd sod.ini
 ```
-and observe the output. There should be four new files. The initial condition of the case and the calculation results at t = 0.25 s. They should all be `.csv` files. You can examine them with any spreadsheet program you like. Alternatively you can use `paraview`, a free post-processing program, that can visualize 1D, 2D, and 3D data. For most distributions you can install it from the package manager. On Arch Linux, run
+and observe the output. There should be four new files. The initial condition of the case and the calculation results at t = 0.25 s. They should all be `.csv` files. You can examine them with any spreadsheet program you like. Alternatively you can use `paraview`, a free post-processing program, that can visualize 1D, 2D, and 3D data. For Arch-based distributions you can install it from the package manager
 ```
 # pacman -S paraview
 ```
 
-On Ubuntu, the Paraview program in the repositories does not read CGNS files for some reason. You will need to compile [Paraview from source](https://github.com/Kitware/ParaView/blob/master/Documentation/dev/build.md), with CGNS enabled:
+On Ubuntu, the Paraview program in the repositories does not read CGNS files correctly for some reason. You will need to download Paraview 5.8 from the [Paraview website](https://www.paraview.org/download/). Next do the following
 ```
-# apt-get install git cmake build-essential libgl1-mesa-dev libxt-dev qt5-default libqt5x11extras5-dev libqt5help5 qttools5-dev qtxmlpatterns5-dev-tools libqt5svg5-dev python3-dev python3-numpy libopenmpi-dev libtbb-dev ninja-build
-$ git clone https://gitlab.kitware.com/paraview/paraview.git
-$ mkdir paraview_build
-$ cd paraview
-$ git checkout v5.8.0
-$ git submodule update --init --recursive
-$ cd ../paraview_build
-$ cmake -GNinja -DPARAVIEW_ENABLE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_SMP_IMPLEMENTATION_TYPE=TBB -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_ENABLE_CGNS=ON ../paraview
-$ ninja
+$ cd folder/where/you/downloaded/paraview
+$ tar -xvf ParaView-5.8.0-MPI-Linux-Python3.7-64bit.tar.gz
+# mv ParaView-5.8.0-MPI-Linux-Python3.7-64bit.tar.gz /opt
+$ echo "export PATH:$PATH:/opt/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin" >> ~/.bashrc
 ```
-
-
-Next open the Paraview program
+Next open the Paraview program in the directory where you performed the calculations
 ```
+$ cd path/to/ccfd/calc/riemann
 $ paraview &
 ```
 Now, click on *File*->*Open* and select both sets of `.csv` files. Because we will be looking at 1D data, we need to change from *Render View* to *Line Chart View*. In the top right of the viewing area, click on the `X` button. Now select *Line Chart View* from the list. You should now see an empty grid with an x-, and a y-axis. Now in the *Pipeline Browser* to the left, click on the eye icons of the `.csv` files you have loaded in. A plot should appear in on the axis grid. It will probably show the initial state. In the top bar, click on the play button. Now, the final state should be shown. You will see the analytical, or exact, solution, as well as the numerical solution.
 
 For more information on the theory, maybe have a look at [Wikipedia](https://en.wikipedia.org/wiki/Sod_shock_tube).
 
-The procedure for running the other cases is the same. However, if the solution data is 2D, then you do not need to switch to *Line Chart View*. You can stay in *Render View* and click *Apply*, once you have loaded the solution file. The 2D CGNS output files will usually have more than just the solution. You can can load everything at once by selecting the file that hast `_Master` in its name.
+The procedure for running the other cases is the same. However, if the solution data is 2D, then you do not need to switch to *Line Chart View*. The 2D CGNS output files will usually have more than just the solution file. You can load everything at once by selecting the file that has `_Master` in its name. After loading the file, select all *Cell Arrays* in the *Pipeline Browser* and click on *Apply*. Then you can look at the different fields of the solution, by selecting them in the top bar.
