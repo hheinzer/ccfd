@@ -45,7 +45,7 @@ $ make
 ```
 This should compile the code and create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
 
-Continue with [Usage](#usage-under-linux)
+Continue with [Usage under Linux](#usage-under-linux)
 
 ## MacOS
 
