@@ -239,7 +239,6 @@ void buildMatrix(double time, double dt)
 		}
 	}
 
-	// TODO: maybe dt can be multiplied above
 	for (int i = 0; i < NVAR; ++i) {
 		for (int j = 0; j < NVAR; ++j) {
 			for (int k = 0; k < 4; ++k) {

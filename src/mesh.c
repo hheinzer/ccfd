@@ -1250,8 +1250,7 @@ void createMesh(void)
 		side_t *aSide = sideList[iSide].side;
 		side_t *bSide = sideList[iSide + 1].side;
 
-		/* grid file read check
-		 * TODO: might not be necessary */
+		/* grid file read check */
 		if ((sideList[iSide].node[0] - sideList[iSide + 1].node[0] +
 		     sideList[iSide].node[1] - sideList[iSide + 1].node[1])
 				!= 0) {
@@ -1263,8 +1262,7 @@ void createMesh(void)
 		if ((aSide->BC) || (bSide->BC)) {
 			/* boundary side: make sure aSide is the physical side
 			 * and bSide the ghost side and save only aSide into
-			 * list
-			 * TODO: might not be necessary */
+			 * list */
 			if (aSide->BC) {
 				side_t *cSide = aSide;
 				aSide = bSide;
