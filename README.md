@@ -11,7 +11,8 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 # Dependencies
 
 - `git`
-- `make`, and `cmake`
+- `make` 
+- `cmake`
 - `gcc`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
 - `gmsh` (optional, for mesh generation, available [here](http://gmsh.info/))
