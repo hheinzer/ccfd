@@ -478,7 +478,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	}
 
 	switch (mshFmt) {
-	case 2:
+	case 2: {
 		/* read in number of nodes */
 		*nVertices = 0;
 		while (fgets(line, sizeof(line), meshFile)) {
@@ -695,8 +695,238 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		fclose(meshFile);
 
 		break;
-	case 4:
+	}
+	case 4: {
+		/* read curve number of entity tags */
+		long nPEntities, nCEntities;
+		while (fgets(line, sizeof(line), meshFile)) {
+			if (!strcmp(line, "$Entities\n")) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%ld %ld", &nPEntities, &nCEntities);
+				break;
+			}
+		}
+		if (nCEntities == 0) {
+			printf("| ERROR: No curves in mesh file\n");
+			exit(1);
+		}
+
+		/* read curve entity tags */
+		int pTag[nCEntities];
+		char *token, sep[] = " ";
+		for (int l = 0; l < nPEntities; l++) {
+			/* skip point tags */
+			fgets(line, sizeof(line), meshFile);
+		}
+		for (int l = 0; l < nCEntities; l++) {
+			fgets(line, sizeof(line), meshFile);
+			token = strtok(line, sep);
+			for (int k = 0; k < 8; ++k) {
+				token = strtok(NULL, sep);
+			}
+			pTag[l] = strtol(token, NULL, 10);
+		}
+
+		/* read in number of entity block and number of nordes */
+		*nVertices = 0;
+		int nEblocks;
+		while (fgets(line, sizeof(line), meshFile)) {
+			if (!strcmp(line, "$Nodes\n")) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%d %ld", &nEblocks, nVertices);
+				break;
+			}
+		}
+		if (*nVertices == 0) {
+			printf("| ERROR: No Nodes in Mesh file\n");
+			exit(1);
+		}
+
+		/* read in nodes */
+		long id[*nVertices];
+		long nNinB, iVert = 0, iId = 0;
+		double x, y;
+		*vertex = dyn2DdblArray(*nVertices, 2);
+		for (int e = 0; e < nEblocks; ++e) {
+			fgets(line, sizeof(line), meshFile);
+
+			/* read number of nodes in block */
+			sscanf(line, "%*d %*d %*d %ld", &nNinB);
+
+			/* read ids */
+			for (long i = 0; i < nNinB; ++i) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%ld", &id[iId++]);
+			}
+
+			/* read coordinates */
+			for (long i = 0; i < nNinB; ++i) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%lg %lg", &x, &y);
+
+				if (iVert == id[iVert] - 1) {
+					(*vertex)[iVert  ][X] = x;
+					(*vertex)[iVert++][Y] = y;
+				} else {
+					printf("| ERROR: NodeID %ld does not match Node Position\n", id[iVert]);
+					exit(1);
+				}
+			}
+		}
+
+		printf("| %7ld Nodes read\n", *nVertices);
+
+		*nBCedges = nTrias = nQuads = 0;
+
+		/* read in number of element blocks and number of elements */
+		long nElem = 0;
+		while (fgets(line, sizeof(line), meshFile)) {
+			if (!strcmp(line, "$Elements\n")) {
+				fgets(line, sizeof(line), meshFile);
+				sscanf(line, "%d %ld", &nEblocks, &nElem);
+				break;
+			}
+		}
+		if (nElem == 0) {
+			printf("| ERROR: No Elements in Mesh file\n");
+			exit(1);
+		}
+
+		/* allocate space for the elements, more than actually necessary,
+		 * because the number of individual elements is not known, will be
+		 * freeed later on though */
+		long **BCedgeTmp = dyn2DintArray(nElem, 3);
+		long **triaTmp = dyn2DintArray(nElem, 4);
+		long **quadTmp = dyn2DintArray(nElem, 5);
+		if (!BCedgeTmp || !triaTmp || !quadTmp) {
+			printf("| ERROR: Not enough memory available\n");
+			exit(1);
+		}
+
+		/* read in elements */
+		int type, tag;
+		for (int e = 0; e < nEblocks; ++e) {
+			fgets(line, sizeof(line), meshFile);
+
+			/* read element tag, type, and number of elements in block */
+			sscanf(line, "%*d %d %d %ld", &tag, &type, &nNinB);
+
+			/* handle different element types */
+			switch (type) {
+			case 1:
+				/* line */
+				for (long i = 0; i < nNinB; ++i) {
+					if (pTag[tag - 1] > 100) {
+						/* boundary condition */
+						BCedgeTmp[*nBCedges][2] = pTag[tag - 1];
+
+						/* read two nodes */
+						fgets(line, sizeof(line), meshFile);
+						sscanf(line, "%*d %ld %ld",
+								&BCedgeTmp[*nBCedges][0],
+								&BCedgeTmp[*nBCedges][1]);
+
+						BCedgeTmp[*nBCedges][0]--;
+						BCedgeTmp[*nBCedges][1]--;
+
+						(*nBCedges)++;
+					}
+				}
+				break;
+			case 2:
+				/* triangle */
+				for (long i = 0; i < nNinB; ++i) {
+					triaTmp[nTrias][3] = tag;
+
+					/* read three nodes */
+					fgets(line, sizeof(line), meshFile);
+					sscanf(line, "%*d %ld %ld %ld",
+							&triaTmp[nTrias][0],
+							&triaTmp[nTrias][1],
+							&triaTmp[nTrias][2]);
+
+					triaTmp[nTrias][0]--;
+					triaTmp[nTrias][1]--;
+					triaTmp[nTrias][2]--;
+
+					nTrias++;
+				}
+
+				break;
+			case 3:
+				/* quadrilateral */
+				for (long i = 0; i < nNinB; ++i) {
+					quadTmp[nQuads][4] = tag;
+
+					/* read three nodes */
+					fgets(line, sizeof(line), meshFile);
+					sscanf(line, "%*d %ld %ld %ld %ld",
+							&quadTmp[nQuads][0],
+							&quadTmp[nQuads][1],
+							&quadTmp[nQuads][2],
+							&quadTmp[nQuads][3]);
+
+					quadTmp[nQuads][0]--;
+					quadTmp[nQuads][1]--;
+					quadTmp[nQuads][2]--;
+					quadTmp[nQuads][3]--;
+
+					nQuads++;
+				}
+
+				break;
+			}
+		}
+
+		/* allocate right amount of space and free temporary space */
+		*BCedge = dyn2DintArray(*nBCedges, 3);
+		if (!*BCedge) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iBCedge = 0; iBCedge < *nBCedges; ++iBCedge) {
+				(*BCedge)[iBCedge][0] = BCedgeTmp[iBCedge][0];
+				(*BCedge)[iBCedge][1] = BCedgeTmp[iBCedge][1];
+				(*BCedge)[iBCedge][2] = BCedgeTmp[iBCedge][2];
+			}
+		}
+		printf("| %7ld Boundary Edges read\n", *nBCedges);
+		free(BCedgeTmp);
+
+		*tria = dyn2DintArray(nTrias, 4);
+		if (!*tria) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iTria = 0; iTria < nTrias; ++iTria) {
+				(*tria)[iTria][0] = triaTmp[iTria][0];
+				(*tria)[iTria][1] = triaTmp[iTria][1];
+				(*tria)[iTria][2] = triaTmp[iTria][2];
+				(*tria)[iTria][3] = triaTmp[iTria][3];
+			}
+		}
+		printf("| %7ld Triangles read\n", nTrias);
+		free(triaTmp);
+
+		*quad = dyn2DintArray(nQuads, 5);
+		if (!*quad) {
+			printf("| ERROR: Not enough Memory\n");
+			exit(1);
+		} else {
+			for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
+				(*quad)[iQuad][0] = quadTmp[iQuad][0];
+				(*quad)[iQuad][1] = quadTmp[iQuad][1];
+				(*quad)[iQuad][2] = quadTmp[iQuad][2];
+				(*quad)[iQuad][3] = quadTmp[iQuad][3];
+				(*quad)[iQuad][4] = quadTmp[iQuad][4];
+			}
+		}
+		printf("| %7ld Quadrilaterals read\n", nQuads);
+		free(quadTmp);
+
+		fclose(meshFile);
 		break;
+	}
 	default:
 		printf("| ERROR: Wrong gmsh Mesh Format '%d'\n", mshFmt);
 		exit(1);
