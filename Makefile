@@ -23,18 +23,17 @@ LIBDIR = lib
 LIBS	     = -lm
 # CGNS
 ARCH         = LINUX64
-CGNS_VERSION = 3.1.4
+CGNS_VERSION = 4.1.1
 CGNS_DIR     = CGNS-$(CGNS_VERSION)
 CGNS_LIB_DIR = $(ARCH)
 INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
 LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
 
 ### Compile- and linkflags:
- FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -O0 -g -fopenmp
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
+#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g -fopenmp
+#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
+ FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
 INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
@@ -107,7 +106,7 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@cd ./calc/wedge/ && ../../bin/ccfd wedge_coarse.ini
+	@cd ./calc/wedge/ && ../../bin/ccfd wedge_coarse.ini wedge_coarse_000000500.cgns
 
 debug:
-	@cd ./calc/wedge/ && gdb -q --args ../../bin/ccfd wedge_coarse.ini
+	@cd ./calc/wedge/ && gdb -q --args ../../bin/ccfd wedge_coarse.ini wedge_coarse_000000500.cgns
