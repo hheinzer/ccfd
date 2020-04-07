@@ -23,7 +23,7 @@ LIBDIR = lib
 LIBS	     = -lm
 # CGNS
 ARCH         = LINUX64
-CGNS_VERSION = 4.1.1
+CGNS_VERSION = 3.1.4
 CGNS_DIR     = CGNS-$(CGNS_VERSION)
 CGNS_LIB_DIR = $(ARCH)
 INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
