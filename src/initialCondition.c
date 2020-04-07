@@ -19,6 +19,7 @@
 #include "mesh.h"
 #include "exactFunction.h"
 #include "equationOfState.h"
+#include "cgnslib.h"
 
 /* extern variables */
 int icType;
@@ -75,6 +76,64 @@ void initInitialCondition(void)
 }
 
 /*
+ * read solution from CGNS file (for restart)
+ */
+void cgnsReadSolution(void)
+{
+	int indexFile;
+	/* open CGNS file */
+	if (cg_open(strIniCondFile, CG_MODE_READ, &indexFile))
+		cg_error_exit();
+
+	/* get number of elements */
+	char zoneName[32];
+	cgsize_t iSize[3];
+	if (cg_zone_read(indexFile, 1, 1, zoneName, iSize))
+		cg_error_exit();
+
+	if (nElems != iSize[1]) {
+		printf("| ERROR: Wrong Number of Elements in CGNS flow solution\n");
+		exit(1);
+	}
+
+	/* allocate array for the flow solution */
+	double rhoArr[nElems], vxArr[nElems], vyArr[nElems], pArr[nElems];
+	cgsize_t rMin[1] = {1}, rMax[1] = {nElems};
+	if (cg_field_read(indexFile, 1, 1, 1, "Density", RealDouble, rMin, rMax, rhoArr))
+		cg_error_exit();
+	if (cg_field_read(indexFile, 1, 1, 1, "VelocityX", RealDouble, rMin, rMax, vxArr))
+		cg_error_exit();
+	if (cg_field_read(indexFile, 1, 1, 1, "VelocityY", RealDouble, rMin, rMax, vyArr))
+		cg_error_exit();
+	if (cg_field_read(indexFile, 1, 1, 1, "Pressure", RealDouble, rMin, rMax, pArr))
+		cg_error_exit();
+
+	/* read iteration number, time, and wall clock time */
+	if (cg_goto(indexFile, 1, "end"))
+		cg_error_exit();
+
+	char descriptorName[32], *text;
+	if (cg_descriptor_read(1, descriptorName, &text))
+		cg_error_exit();
+	sscanf(text, "%lg %lg", &t, &timeOverall);
+
+	/* close CGNS file */
+	if (cg_close(indexFile))
+		cg_error_exit();
+
+	/* save CGNS solution into mesh */
+	elem_t *aElem = firstElem;
+	while (aElem) {
+		aElem->pVar[RHO] = rhoArr[aElem->id];
+		aElem->pVar[VX]  = vxArr[aElem->id];
+		aElem->pVar[VY]  = vyArr[aElem->id];
+		aElem->pVar[P]   = pArr[aElem->id];
+
+		aElem = aElem->next;
+	}
+}
+
+/*
  * set initial flow in all cells
  */
 void setInitialCondition(void)
@@ -82,7 +141,7 @@ void setInitialCondition(void)
 	printf("\nSetting Initial Conditions:\n");
 	elem_t *aElem;
 	if (isRestart) {
-		// TODO: cgnsReadSolution();
+		cgnsReadSolution();
 	} else {
 		switch (icType) {
 		case 0:
