@@ -6,8 +6,6 @@
  */
 
 #include <math.h>
-#include <stdio.h> // TODO: remove
-#include <stdlib.h> // TODO: remove
 
 #include "main.h"
 #include "mesh.h"

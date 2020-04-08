@@ -170,13 +170,19 @@ void connectPeriodicBC(void)
 			sidePtr_t *sBCside = firstBCside;
 			while (sBCside) {
 				side_t *sSide = sBCside->side;
+
+				/* check for potential connection */
 				if ((sSide->BC->BCtype == PERIODIC) &&
 				    ((sSide->BC->BCid % 10) == 2) &&
 				    ((sSide->BC->BCid / 10) == nPeriodicBC)) {
+
+					/* check if the connection works out */
 					sGPpos[X] = sSide->GP[X] + sSide->elem->bary[X];
 					sGPpos[Y] = sSide->GP[Y] + sSide->elem->bary[Y];
+
 					if ((fabs(aGPpos[X] + aSide->BC->connection[X] - sGPpos[X]) +
-					     fabs(aGPpos[Y] + aSide->BC->connection[Y] - sGPpos[Y])) <= DBL_EPSILON) {
+					     fabs(aGPpos[Y] + aSide->BC->connection[Y] - sGPpos[Y])) <= 1e-7) {
+
 						isConnected = true;
 
 						side_t *urSide = aSide->connection;
@@ -1315,8 +1321,7 @@ void createMesh(void)
 		aSide = aSide->next;
 	}
 
-	/* periodic BCs
-	 * TODO: not yet checked */
+	/* periodic BCs */
 	connectPeriodicBC();
 
 	/* variables for reconstruction */

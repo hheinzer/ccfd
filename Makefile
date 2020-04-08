@@ -31,10 +31,10 @@ INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
 LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
 
 ### Compile- and linkflags:
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
+ FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
- FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
+#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
 INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
@@ -107,7 +107,7 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@cd ./calc/sinewave/ && ../../bin/ccfd sinwave_NS_2D_O1.ini
+	@cd ./calc/sinewave/ && ../../bin/ccfd sinewave_1D.ini
 
 debug:
-	@cd ./calc/sinewave/ && gdb -q --args ../../bin/ccfd sinwave_NS_2D_O1.ini
+	@cd ./calc/sinewave/ && gdb -q --args ../../bin/ccfd sinewave_1D.ini

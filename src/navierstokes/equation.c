@@ -44,6 +44,12 @@ void initEquation(void)
 	gamma = getDbl("gamma", "1.4");
 	R = getDbl("R", "287");
 
+	mu = getDbl("mu", "0.0");
+
+	Pr = getDbl("Pr", "0.72");
+
+	ReRef = getDbl("Re", "1.0");
+
 	iFlux = getInt("fluxFunction", NULL);
 	switch (iFlux) {
 	case GOD:
@@ -102,12 +108,6 @@ void initEquation(void)
 	sqrt2 = sqrt(2.0);
 	sqrt3 = sqrt(3.0);
 	sqrt3q = 1 / sqrt3;
-
-	mu = getDbl("mu", "0.0");
-
-	Pr = getDbl("Pr", "0.72");
-
-	ReRef = getDbl("Re", "1.0");
 
 	doCalcSource = getBool("calcSource", "F");
 	if (doCalcSource) {

@@ -138,8 +138,8 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		double amplitude = 0.00001;
 		double omega = pi * freq;
 		double cons0[NVAR] = {1.0, 0.1, 0.0, 1.0};
-		double prims0[NVAR] = {0.0};
-		consPrim(prims0, cons0);
+		double prims0[NVAR];
+		consPrim(cons0, prims0);
 		double c0 = sqrt(gamma * prims0[P] / prims0[RHO]);
 		double H0 = (cons0[E] + prims0[P]) / prims0[RHO];
 		double R[NVAR][NVAR] = {
@@ -154,10 +154,10 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		for (int i = 0; i < NVAR; ++i) {
 			resu[i] = cons0[i];
 			for (int j = 0; j < NVAR; ++j) {
-				resu[i] += R[j][i] * vec[j];
+				resu[i] += R[i][j] * vec[j];
 			}
 		}
-		consPrim(pVar, resu);
+		consPrim(resu, pVar);
 		break;
 	}
 	default:
