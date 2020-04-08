@@ -10,13 +10,21 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 
 # YOU can help this project
 
-Due to the Corona situation, I was separated from my more powerful tower PC at home and now only have my ThinkPad X220 with me. Some of the example cases just take for ever to complete, so I am looking for people that can test `ccfd` on these cases. The cases in question are
-- [ ] `blasius/blasius.ini` and `blasius/blasius_resolved_wall.ini`
+Due to the Corona situation, I was separated from my more powerful tower PC at home and now only have my ThinkPad X220 with me. Some of the example cases just take for ever to complete, so I am looking for people that can test `ccfd` on these cases:
+- [ ] `blasius`
+- [ ] `cylinder`
+- [ ] `doubleMachReflection`
+- [ ] `forwardFacingStep`
+- [ ] `naca0012`
+- [ ] `naca2312`
+- [ ] `pulse`
+- [ ] `richtmyerMeshkov`
+- [ ] `vortexStreet`
 
 # Dependencies
 
 - `git`
-- `make` 
+- `make`
 - `cmake`
 - `gcc`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
