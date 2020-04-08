@@ -55,7 +55,7 @@ $ make
 ```
 There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
 
-Continue with [Usage](#usage)
+Continue with [Usage](#usage).
 
 ## MacOS
 
