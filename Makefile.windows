@@ -27,8 +27,8 @@ CGNS_VERSION = 3.1.4
 #CGNS_VERSION = 4.1.1
 CGNS_DIR     = CGNS-$(CGNS_VERSION)
 CGNS_LIB_DIR = $(ARCH)
-INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
-LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
+INCDIR       = -I $(LIBDIR)\$(CGNS_DIR)\$(CGNS_LIB_DIR)\include
+LIBS        += -L $(LIBDIR)\$(CGNS_DIR)\$(CGNS_LIB_DIR)\lib -lcgns
 
 ### Compile- and linkflags:
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
@@ -37,20 +37,20 @@ LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
  FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
-INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
+INCDIR += -I $(SRCDIR) -I $(SRCDIR)\$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
 .PHONY: default all clean allclean
 
-SRC_CORE   = $(wildcard $(SRCDIR)/*.c)
-OBJ_CORE   = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC_CORE))
-SRC_EQNSYS = $(wildcard $(SRCDIR)/$(EQNSYS)/*.c)
-OBJ_EQNSYS = $(patsubst $(SRCDIR)/$(EQNSYS)/%.c, $(OBJDIR)/%.o, $(SRC_EQNSYS))
+SRC_CORE   = $(wildcard $(SRCDIR)\*.c)
+OBJ_CORE   = $(patsubst $(SRCDIR)\%.c, $(OBJDIR)\%.o, $(SRC_CORE))
+SRC_EQNSYS = $(wildcard $(SRCDIR)\$(EQNSYS)\*.c)
+OBJ_EQNSYS = $(patsubst $(SRCDIR)\$(EQNSYS)\%.c, $(OBJDIR)\%.o, $(SRC_EQNSYS))
 SRC        = $(SRC_CORE) $(SRC_EQNSYS)
 OBJ        = $(OBJ_CORE) $(OBJ_EQNSYS)
-TGT        = $(BINDIR)/$(TARGET)
+TGT        = $(BINDIR)\$(TARGET)
 
 default: cgns $(OBJDIR) $(BINDIR) $(TGT)
 all: default
@@ -62,10 +62,10 @@ $(OBJDIR):
 $(BINDIR):
 	mkdir -p $(BINDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile
+$(OBJDIR)\%.o: $(SRCDIR)\%.c $(SRCDIR)\%.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
+$(OBJDIR)\%.o: $(SRCDIR)\$(EQNSYS)\%.c $(SRCDIR)\$(EQNSYS)\%.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)
@@ -73,16 +73,16 @@ $(TGT): $(OBJ)
 
 cgns:
 	@cd $(LIBDIR) && \
-	if [ ! -f $(CGNS_DIR)/build/src/libcgns.a ]; then \
+	if [ ! -f $(CGNS_DIR)\build\src\libcgns.a ]; then \
 		printf "Building CGNS library\n"; \
 		if [ ! -d $(CGNS_DIR) ]; then \
-			tar -xzf $(CGNS_DIR).tar.gz >/dev/null; \
+			tar -xzf $(CGNS_DIR).tar.gz > NUL; \
 		fi; \
-		mkdir $(CGNS_DIR)/build && \
-		cd $(CGNS_DIR)/build && \
+		mkdir $(CGNS_DIR)\build && \
+		cd $(CGNS_DIR)\build && \
 		cmake \
 			-Wno-dev \
-			-DCMAKE_INSTALL_PREFIX=$(shell pwd)/$(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR) \
+			-DCMAKE_INSTALL_PREFIX=$(shell pwd)\$(LIBDIR)\$(CGNS_DIR)\$(CGNS_LIB_DIR) \
 			-DCGNS_BUILD_CGNSTOOLS=OFF \
 			-DCGNS_BUILD_SHARED=OFF \
 			-DCGNS_BUILD_TESTING=OFF \
@@ -104,10 +104,10 @@ clean:
 	-rm -rf $(BINDIR)
 
 allclean: clean
-	-rm -rf $(LIBDIR)/$(CGNS_DIR)
+	-rm -rf $(LIBDIR)\$(CGNS_DIR)
 
 run:
-	@cd ./calc/sinewave/ && ../../bin/ccfd sinewave_1D.ini
+	@cd .\calc\sinewave\ && ..\..\bin\ccfd sinewave_1D.ini
 
 debug:
-	@cd ./calc/sinewave/ && gdb -q --args ../../bin/ccfd sinewave_1D.ini
+	@cd .\calc\sinewave\ && gdb -q --args ..\..\bin\ccfd sinewave_1D.ini
