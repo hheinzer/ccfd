@@ -3,6 +3,12 @@
  *
  * Created: Fri 27 Mar 2020 02:38:03 PM CET
  * Author : hhh
+ *
+ * Manual Memory Management:
+ *
+ * " The manual type involves malloc and free, and is where most of your segfaults
+ * happen. This memory model is why Jesus weeps when he has to code in C. "
+ *	- Ben Klemens
  */
 
 #include <stdlib.h>
