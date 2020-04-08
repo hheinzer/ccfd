@@ -73,8 +73,8 @@ $(TGT): $(OBJ)
 cgns: $(CGNS_LIB)
 
 $(CGNS_LIB) : $(CGNS_DIR)
-	@mkdir $(CGNS_DIR)/BUILD; \
-	cd $(CGNS_DIR)/BUILD; \
+	@mkdir $(CGNS_DIR)/BUILD && \
+	cd $(CGNS_DIR)/BUILD && \
 	cmake \
 		-Wno-dev \
 		-DCMAKE_INSTALL_PREFIX=. \
@@ -99,8 +99,8 @@ $(CGNS_LIB) : $(CGNS_DIR)
 		-DCGNS_ENABLE_SCOPING=OFF \
 		-DCGNS_ENABLE_TESTS=OFF \
 		-DCGNS_USE_SHARED=ON \
-		..; \
-	$(MAKE) install;
+		.. && \
+	$(MAKE) install
 
 $(CGNS_DIR):
 	tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)

@@ -33,7 +33,7 @@ Due to the Corona situation, I was separated from my more powerful tower PC at h
 
 # Installation
 
-The installation process is easiest on Linux, but possible on MacOS and Windows. For best performance you should build an run it on your native OS.
+The installation process is easiest on Linux, but possible on MacOS and Windows.
 
 ## Linux
 
@@ -66,7 +66,21 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 ## Windows
 
-It should work basically the same as with Linux, but detailed instructions will follow soon...
+I was not really able to install it on windows directly, so you will have to use a [Linux Bash shell](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for compiling and running the calculations. Get the latest Ubuntu shell. After the installation process is done, start the Ubuntu shell and install the necessary utilities
+```
+# apt update && apt upgrade
+# apt install git make cmake gcc
+```
+Now go to your desired working directory. I would suggest selecting something in your actual Windows drive, as this will make accessing the calculation results a lot easier
+```
+$ cd /mnt/c/Users/<YourUserName>/Desktop
+$ git clone https://github.com/hhh95/ccfd.git
+$ cd ccfd
+$ make
+```
+This should compile the code and create the two folders `obj` and `bin`, the last one containing the `ccfd` executable.
+
+After everything is set up, continue with [Usage under Linux](#usage-under-linux). However, when installing ParaView, do not install it in the Ubuntu shell, but rather install it normally for [Windows](https://www.paraview.org/download/).
 
 # Usage under Linux
 
@@ -88,14 +102,14 @@ and observe the output. There should be four new files. The initial condition of
 # pacman -S paraview
 ```
 
-On Ubuntu, the Paraview program in the repositories does not read CGNS files correctly for some reason. You will need to download Paraview 5.8 from the [Paraview website](https://www.paraview.org/download/). Next do the following
+On Ubuntu, the ParaView program in the repositories does not read CGNS files correctly for some reason. You will need to download ParaView 5.8 from the [ParaView website](https://www.paraview.org/download/). Next do the following
 ```
 $ cd folder/where/you/downloaded/paraview
 $ tar -xvf ParaView-5.8.0-MPI-Linux-Python3.7-64bit.tar.gz
 # mv ParaView-5.8.0-MPI-Linux-Python3.7-64bit.tar.gz /opt
 $ echo "export PATH:$PATH:/opt/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin" >> ~/.bashrc
 ```
-Next open the Paraview program in the directory where you performed the calculations
+Next open the ParaView program in the directory where you performed the calculations
 ```
 $ cd path/to/ccfd/calc/riemann
 $ paraview &
