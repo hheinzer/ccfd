@@ -22,13 +22,12 @@ LIBDIR = lib
 # Math
 LIBS	     = -lm
 # CGNS
-ARCH         = LINUX64
 CGNS_VERSION = 3.1.4
 #CGNS_VERSION = 4.1.1
-CGNS_DIR     = CGNS-$(CGNS_VERSION)
-CGNS_LIB_DIR = $(ARCH)
-INCDIR       = -I $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/include
-LIBS        += -L $(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR)/lib -lcgns
+CGNS_DIR     = $(LIBDIR)/CGNS-$(CGNS_VERSION)
+CGNS_LIB     = $(CGNS_DIR)/BUILD/src/libcgns.a
+INCDIR       = -I $(CGNS_DIR)/BUILD/include
+LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
 #FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
@@ -62,7 +61,7 @@ $(OBJDIR):
 $(BINDIR):
 	mkdir -p $(BINDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
@@ -71,40 +70,47 @@ $(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
 $(TGT): $(OBJ)
 	$(CC) $(LFLAGS) $^ -o $@ $(LIBS)
 
-cgns:
-	@cd $(LIBDIR) && \
-	if [ ! -f $(CGNS_DIR)/build/src/libcgns.a ]; then \
-		printf "Building CGNS library\n"; \
-		if [ ! -d $(CGNS_DIR) ]; then \
-			tar -xzf $(CGNS_DIR).tar.gz >/dev/null; \
-		fi; \
-		mkdir $(CGNS_DIR)/build && \
-		cd $(CGNS_DIR)/build && \
-		cmake \
-			-Wno-dev \
-			-DCMAKE_INSTALL_PREFIX=$(shell pwd)/$(LIBDIR)/$(CGNS_DIR)/$(CGNS_LIB_DIR) \
-			-DCGNS_BUILD_CGNSTOOLS=OFF \
-			-DCGNS_BUILD_SHARED=OFF \
-			-DCGNS_BUILD_TESTING=OFF \
-			-DCGNS_ENABLE_64BIT=ON \
-			-DCGNS_ENABLE_BASE_SCOPE=OFF \
-			-DCGNS_ENABLE_FORTRAN=OFF \
-			-DCGNS_ENABLE_HDF5=OFF \
-			-DCGNS_ENABLE_MEM_DEBUG=OFF \
-			-DCGNS_ENABLE_SCOPING=OFF \
-			-DCGNS_ENABLE_TESTS=OFF \
-			-DCGNS_ENABLE_LEGACY=OFF \
-			.. && \
-		$(MAKE) && \
-		$(MAKE) install; \
-	fi;
+cgns: $(CGNS_LIB)
+
+$(CGNS_LIB) : $(CGNS_DIR)
+	@mkdir $(CGNS_DIR)/BUILD; \
+	cd $(CGNS_DIR)/BUILD; \
+	cmake \
+		-Wno-dev \
+		-DCMAKE_INSTALL_PREFIX=. \
+		-DBUILD_CGNSTOOLS=OFF \
+		-DCGNS_BUILD_SHARED=OFF \
+		-DCGNS_USE_SHARED=ON \
+		-DENABLE_64BIT=ON \
+		-DENABLE_FORTRAN=OFF \
+		-DENABLE_HDF5=OFF \
+		-DENABLE_LEGACY=OFF \
+		-DENABLE_SCOPING=OFF \
+		-DENABLE_TESTS=OFF \
+		-DCGNS_BUILD_CGNSTOOLS=OFF \
+		-DCGNS_BUILD_SHARED=OFF \
+		-DCGNS_BUILD_TESTING=OFF \
+		-DCGNS_ENABLE_64BIT=ON \
+		-DCGNS_ENABLE_BASE_SCOPE=OFF \
+		-DCGNS_ENABLE_FORTRAN=OFF \
+		-DCGNS_ENABLE_HDF5=OFF \
+		-DCGNS_ENABLE_LEGACY=OFF \
+		-DCGNS_ENABLE_MEM_DEBUG=OFF \
+		-DCGNS_ENABLE_SCOPING=OFF \
+		-DCGNS_ENABLE_TESTS=OFF \
+		-DCGNS_USE_SHARED=ON \
+		..; \
+	$(MAKE) install;
+
+$(CGNS_DIR):
+	tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
 
 clean:
 	-rm -rf $(OBJDIR)
 	-rm -rf $(BINDIR)
 
 allclean: clean
-	-rm -rf $(LIBDIR)/$(CGNS_DIR)
+	-rm -rf $(CGNS_DIR)
 
 run:
 	@cd ./calc/sinewave/ && ../../bin/ccfd sinewave_1D.ini
