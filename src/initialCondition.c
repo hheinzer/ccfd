@@ -148,9 +148,9 @@ void setInitialCondition(void)
 			/* cell test */
 			aElem = firstElem;
 			while (aElem) {
+				aElem->pVar[RHO] = 1.0 * aElem->id;
 				aElem->pVar[VX] = 0.0;
 				aElem->pVar[VY] = 0.0;
-				aElem->pVar[RHO] = 1.0 * aElem->id;
 				aElem->pVar[P] = 1.0;
 
 				aElem = aElem->next;
@@ -162,9 +162,15 @@ void setInitialCondition(void)
 			aElem = firstElem;
 			while (aElem) {
 				if (nDomains == 1) {
-					memcpy(aElem->pVar, refState[0], 4 * sizeof(double));
+					aElem->pVar[RHO] = refState[0][RHO];
+					aElem->pVar[VX]  = refState[0][VX];
+					aElem->pVar[VY]  = refState[0][VY];
+					aElem->pVar[P]   = refState[0][P];
 				} else {
-					memcpy(aElem->pVar, refState[aElem->domain], 4 * sizeof(double));
+					aElem->pVar[RHO] = refState[aElem->domain - 1][RHO];
+					aElem->pVar[VX]  = refState[aElem->domain - 1][VX];
+					aElem->pVar[VY]  = refState[aElem->domain - 1][VY];
+					aElem->pVar[P]   = refState[aElem->domain - 1][P];
 				}
 				aElem = aElem->next;
 			}

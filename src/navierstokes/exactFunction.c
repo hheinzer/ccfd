@@ -70,7 +70,7 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		resu[0] = resu[1] = resu[2] =
 			2.0 + amplitude * sin(omega * (x[X] + x[Y]) - a * time);
 		resu[3] = resu[0] * resu[0];
-		consPrim(pVar, resu);
+		consPrim(resu, pVar);
 		break;
 	}
 	case 4: {

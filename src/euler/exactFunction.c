@@ -22,9 +22,9 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 	case 1: {
 		/* Richtmyer-Meshkov Instability (independent of time, only
 		 * initial condition) */
+		pVar[RHO] = 1.0;
 		pVar[VX] = 0.0;
 		pVar[VY] = 0.0;
-		pVar[RHO] = 1.0;
 		pVar[P] = 1.0;
 
 		double xLen = xMax - xMin;
@@ -35,8 +35,8 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		}
 
 		if ((x[X] <= 0.1 * xLen) && (x[X] >= 1.0/30.0 * xLen)) {
-			pVar[P] = 4.9;
 			pVar[RHO] = 4.22;
+			pVar[P] = 4.9;
 		}
 		break;
 	}
@@ -70,7 +70,7 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		resu[0] = resu[1] = resu[2] =
 			2.0 + amplitude * sin(omega * (x[X] + x[Y]) - a * time);
 		resu[3] = resu[0] * resu[0];
-		consPrim(pVar, resu);
+		consPrim(resu, pVar);
 		break;
 	}
 	case 4: {

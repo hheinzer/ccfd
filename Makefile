@@ -107,7 +107,7 @@ allclean: clean
 	-rm -rf $(LIBDIR)/$(CGNS_DIR)
 
 run:
-	@cd ./calc/blasius && ../../bin/ccfd blasius.ini
+	@cd ./calc/sinewave/ && ../../bin/ccfd sinwave_NS_2D_O1.ini
 
 debug:
-	@cd ./calc/blasius && gdb -q --args ../../bin/ccfd blasius.ini
+	@cd ./calc/sinewave/ && gdb -q --args ../../bin/ccfd sinwave_NS_2D_O1.ini

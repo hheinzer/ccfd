@@ -6,6 +6,8 @@
  */
 
 #include <math.h>
+#include <stdio.h> // TODO: remove
+#include <stdlib.h> // TODO: remove
 
 #include "main.h"
 #include "mesh.h"
@@ -855,10 +857,10 @@ void fluxCalculation(void)
 		aSide->flux[E]   = fluxLoc[E];
 
 		/* sum up diffusion part of the fluxes */
-		aSide->flux[RHO] -= fluxDiffX[RHO] * aSide->n[X] - fluxDiffY[RHO] * aSide->n[Y];
-		aSide->flux[MX]  -= fluxDiffX[MX]  * aSide->n[X] - fluxDiffY[MX]  * aSide->n[Y];
-		aSide->flux[MY]  -= fluxDiffX[MY]  * aSide->n[X] - fluxDiffY[MY]  * aSide->n[Y];
-		aSide->flux[E]   -= fluxDiffX[E]   * aSide->n[X] - fluxDiffY[E]   * aSide->n[Y];
+		aSide->flux[RHO] -= (fluxDiffX[RHO] * aSide->n[X] + fluxDiffY[RHO] * aSide->n[Y]);
+		aSide->flux[MX]  -= (fluxDiffX[MX]  * aSide->n[X] + fluxDiffY[MX]  * aSide->n[Y]);
+		aSide->flux[MY]  -= (fluxDiffX[MY]  * aSide->n[X] + fluxDiffY[MY]  * aSide->n[Y]);
+		aSide->flux[E]   -= (fluxDiffX[E]   * aSide->n[X] + fluxDiffY[E]   * aSide->n[Y]);
 
 		/* integrate flux over edge using the midpoint rule */
 		aSide->flux[RHO] *= aSide->len;

@@ -582,7 +582,7 @@ void timeDisc(void)
 		/* analyze results */
 		analyze(t, iter, resIter);
 
-		/* ent time abort criterion */
+		/* end time abort criterion */
 		if (stopTime - t <= DBL_EPSILON) {
 			printf("\nTime Limit Reached - Computation Complete!\n");
 			printf("| Final Time      : %g\n", t);
@@ -601,9 +601,9 @@ void timeDisc(void)
 
 		/* residual abort criterion */
 		if (isStationary) {
-			if (fabs(resIter[abortVariable]) < abortResidual) {
+			if (fabs(resIter[abortVariable]) <= abortResidual) {
 				if (doAbortOnClResidual) {
-					if (fabs(resIter[4]) < clAbortResidual) {
+					if (fabs(resIter[4]) <= clAbortResidual) {
 						printf("\nConverged in CL - Calculation complete\n");
 						printf("| Iteration number: %ld\n", iter);
 						printf("| Writing final state to disk\n");
@@ -617,7 +617,7 @@ void timeDisc(void)
 						hasConverged = true;
 					}
 				} else if (doAbortOnCdResidual) {
-					if (fabs(resIter[5]) < cdAbortResidual) {
+					if (fabs(resIter[5]) <= cdAbortResidual) {
 						printf("\nConverged in CD - Calculation complete\n");
 						printf("| Iteration number: %ld\n", iter);
 						printf("| Writing final state to disk\n");
