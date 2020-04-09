@@ -63,7 +63,7 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 ## Windows
 
-I am still working on installing it on Windows directly, but have not yet managed to do so. For now it only works with a [Linux Bash shell](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Get the latest Ubuntu shell and complete the installation process. Next, start the Ubuntu shell and install the necessary utilities
+I am still working on installing it on Windows directly, but have not yet managed to do so. For now it only works with a [Linux Bash shell](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Get the latest Ubuntu shell and complete the installation process. Next, start the Ubuntu shell and install the necessary utilities (if you have never used Linux before, `$` in front of a command means the command can be executed as a normal user and `#` in front of a command means, you need administrative rights; these can be obtained by typing `sudo` in front of the command and entering the password)
 ```
 # apt update && apt upgrade
 # apt install git make cmake gcc
