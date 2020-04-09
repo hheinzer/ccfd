@@ -18,6 +18,7 @@
 #include "output.h"
 #include "timeDiscretization.h"
 #include "memTools.h"
+#include "initialCondition.h"
 
 /* extern variables */
 char parameterFile[STRLEN],
@@ -667,38 +668,40 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		printf("| %7ld Boundary Edges read\n", *nBCedges);
 		free(BCedgeTmp);
 
-		*tria = dyn2DintArray(nTrias, 4);
-		if (!*tria) {
-			printf("| ERROR: Not enough Memory\n");
-			exit(1);
-		} else {
-			for (long iTria = 0; iTria < nTrias; ++iTria) {
-				(*tria)[iTria][0] = triaTmp[iTria][0];
-				(*tria)[iTria][1] = triaTmp[iTria][1];
-				(*tria)[iTria][2] = triaTmp[iTria][2];
-				(*tria)[iTria][3] = triaTmp[iTria][3];
+		if (nTrias > 0) {
+			*tria = dyn2DintArray(nTrias, 4);
+			if (!*tria) {
+				printf("| ERROR: Not enough Memory\n");
+				exit(1);
+			} else {
+				for (long iTria = 0; iTria < nTrias; ++iTria) {
+					(*tria)[iTria][0] = triaTmp[iTria][0];
+					(*tria)[iTria][1] = triaTmp[iTria][1];
+					(*tria)[iTria][2] = triaTmp[iTria][2];
+					(*tria)[iTria][3] = triaTmp[iTria][3];
+				}
 			}
+			printf("| %7ld Triangles read\n", nTrias);
 		}
-		printf("| %7ld Triangles read\n", nTrias);
 		free(triaTmp);
 
-		*quad = dyn2DintArray(nQuads, 5);
-		if (!*quad) {
-			printf("| ERROR: Not enough Memory\n");
-			exit(1);
-		} else {
-			for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
-				(*quad)[iQuad][0] = quadTmp[iQuad][0];
-				(*quad)[iQuad][1] = quadTmp[iQuad][1];
-				(*quad)[iQuad][2] = quadTmp[iQuad][2];
-				(*quad)[iQuad][3] = quadTmp[iQuad][3];
-				(*quad)[iQuad][4] = quadTmp[iQuad][4];
+		if (nQuads > 0) {
+			*quad = dyn2DintArray(nQuads, 5);
+			if (!*quad) {
+				printf("| ERROR: Not enough Memory\n");
+				exit(1);
+			} else {
+				for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
+					(*quad)[iQuad][0] = quadTmp[iQuad][0];
+					(*quad)[iQuad][1] = quadTmp[iQuad][1];
+					(*quad)[iQuad][2] = quadTmp[iQuad][2];
+					(*quad)[iQuad][3] = quadTmp[iQuad][3];
+					(*quad)[iQuad][4] = quadTmp[iQuad][4];
+				}
 			}
+			printf("| %7ld Quadrilaterals read\n", nQuads);
 		}
-		printf("| %7ld Quadrilaterals read\n", nQuads);
 		free(quadTmp);
-
-		fclose(meshFile);
 
 		break;
 	}
@@ -899,44 +902,195 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		printf("| %7ld Boundary Edges read\n", *nBCedges);
 		free(BCedgeTmp);
 
-		*tria = dyn2DintArray(nTrias, 4);
-		if (!*tria) {
-			printf("| ERROR: Not enough Memory\n");
-			exit(1);
-		} else {
-			for (long iTria = 0; iTria < nTrias; ++iTria) {
-				(*tria)[iTria][0] = triaTmp[iTria][0];
-				(*tria)[iTria][1] = triaTmp[iTria][1];
-				(*tria)[iTria][2] = triaTmp[iTria][2];
-				(*tria)[iTria][3] = triaTmp[iTria][3];
+		if (nTrias > 0) {
+			*tria = dyn2DintArray(nTrias, 4);
+			if (!*tria) {
+				printf("| ERROR: Not enough Memory\n");
+				exit(1);
+			} else {
+				for (long iTria = 0; iTria < nTrias; ++iTria) {
+					(*tria)[iTria][0] = triaTmp[iTria][0];
+					(*tria)[iTria][1] = triaTmp[iTria][1];
+					(*tria)[iTria][2] = triaTmp[iTria][2];
+					(*tria)[iTria][3] = triaTmp[iTria][3];
+				}
 			}
+			printf("| %7ld Triangles read\n", nTrias);
 		}
-		printf("| %7ld Triangles read\n", nTrias);
 		free(triaTmp);
 
-		*quad = dyn2DintArray(nQuads, 5);
-		if (!*quad) {
-			printf("| ERROR: Not enough Memory\n");
-			exit(1);
-		} else {
-			for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
-				(*quad)[iQuad][0] = quadTmp[iQuad][0];
-				(*quad)[iQuad][1] = quadTmp[iQuad][1];
-				(*quad)[iQuad][2] = quadTmp[iQuad][2];
-				(*quad)[iQuad][3] = quadTmp[iQuad][3];
-				(*quad)[iQuad][4] = quadTmp[iQuad][4];
+		if (nQuads > 0) {
+			*quad = dyn2DintArray(nQuads, 5);
+			if (!*quad) {
+				printf("| ERROR: Not enough Memory\n");
+				exit(1);
+			} else {
+				for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
+					(*quad)[iQuad][0] = quadTmp[iQuad][0];
+					(*quad)[iQuad][1] = quadTmp[iQuad][1];
+					(*quad)[iQuad][2] = quadTmp[iQuad][2];
+					(*quad)[iQuad][3] = quadTmp[iQuad][3];
+					(*quad)[iQuad][4] = quadTmp[iQuad][4];
+				}
 			}
+			printf("| %7ld Quadrilaterals read\n", nQuads);
 		}
-		printf("| %7ld Quadrilaterals read\n", nQuads);
 		free(quadTmp);
 
-		fclose(meshFile);
 		break;
 	}
 	default:
 		printf("| ERROR: Wrong gmsh Mesh Format '%d'\n", mshFmt);
 		exit(1);
 	}
+
+	fclose(meshFile);
+}
+
+/*
+ *
+ */
+void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
+		long *nBCedges, long ***tria, long ***quad)
+{
+	/* open the mesh file */
+	FILE *meshFile = fopen(fileName, "r");
+	if (!meshFile) {
+		printf("| ERROR: Could not find Mesh File '%s'\n", fileName);
+		exit(1);
+	}
+
+	char line[STRLEN];
+
+	/* read number of vertices */
+	while (fgets(line, sizeof(line), meshFile)) {
+		if (strstr(line, "Vertices")) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%ld", nVertices);
+			break;
+		} else if (strstr(line, "End")) {
+			break;
+		}
+	}
+
+	/* allocate memory for vertices */
+	*vertex = dyn2DdblArray(*nVertices, 2);
+	for (long iVert = 0; iVert < *nVertices; ++iVert) {
+		fgets(line, sizeof(line), meshFile);
+		double x, y;
+		sscanf(line, "%lg %lg", &x, &y);
+		(*vertex)[iVert][X] = x;
+		(*vertex)[iVert][Y] = y;
+	}
+	printf("| %7ld Vertices read\n", *nVertices);
+
+	/* read number of edges */
+	long nEdges;
+	while (fgets(line, sizeof(line), meshFile)) {
+		if (strstr(line, "Edges")) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%ld", &nEdges);
+			break;
+		} else if (strstr(line, "End")) {
+			break;
+		}
+	}
+
+	/* read edge information, sort out edges with ID 0 */
+	long **tmpEdges = dyn2DintArray(nEdges, 3);
+	for (long iEdge = 0; iEdge < nEdges; ++iEdge) {
+		fgets(line, sizeof(line), meshFile);
+
+		long tmp;
+		sscanf(line, "%*d %*d %ld", &tmp);
+
+		if (tmp != 0) {
+			long tmp0, tmp1, tmp2;
+			sscanf(line, "%ld %ld %ld", &tmp0, &tmp1, &tmp2);
+			tmpEdges[iEdge][0] = tmp0;
+			tmpEdges[iEdge][1] = tmp1;
+			tmpEdges[iEdge][2] = tmp2;
+			(*nBCedges)++;
+		}
+	}
+
+	*BCedge = dyn2DintArray(*nBCedges, 3);
+	for (long iEdge = 0; iEdge < *nBCedges; ++iEdge) {
+		(*BCedge)[iEdge][0] = tmpEdges[iEdge][0] - 1;
+		(*BCedge)[iEdge][1] = tmpEdges[iEdge][1] - 1;
+		(*BCedge)[iEdge][2] = tmpEdges[iEdge][2];
+	}
+	printf("| %7ld Boundary Edges read\n", *nBCedges);
+
+	free(tmpEdges);
+
+	/* read number of triangles */
+	nTrias = 0;
+	while (fgets(line, sizeof(line), meshFile)) {
+		if (strstr(line, "Triangles")) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%ld", &nTrias);
+			break;
+		} else if (strstr(line, "End")) {
+			break;
+		}
+	}
+
+	/* read in triangles */
+	if (nTrias > 0) {
+		*tria = dyn2DintArray(nTrias, 4);
+		for (long iTria = 0; iTria < nTrias; ++iTria) {
+			fgets(line, sizeof(line), meshFile);
+			long tmp0, tmp1, tmp2, tmp3;
+			sscanf(line, "%ld %ld %ld %ld", &tmp0, &tmp1, &tmp2, &tmp3);
+			(*tria)[iTria][0] = tmp0 - 1;
+			(*tria)[iTria][1] = tmp1 - 1;
+			(*tria)[iTria][2] = tmp2 - 1;
+			(*tria)[iTria][3] = tmp3;
+		}
+	}
+	printf("| %7ld Triangles read\n", nTrias);
+
+	/* read number of quadrangles */
+	nQuads = 0;
+	while (fgets(line, sizeof(line), meshFile)) {
+		if (strstr(line, "Quadrangles")) {
+			fgets(line, sizeof(line), meshFile);
+			sscanf(line, "%ld", &nQuads);
+			break;
+		} else if (strstr(line, "End")) {
+			break;
+		}
+	}
+
+	/* read in triangles */
+	if (nQuads > 0) {
+		*quad = dyn2DintArray(nQuads, 5);
+		for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
+			fgets(line, sizeof(line), meshFile);
+			long tmp0, tmp1, tmp2, tmp3, tmp4;
+			sscanf(line, "%ld %ld %ld %ld %ld",
+					&tmp0, &tmp1, &tmp2, &tmp3, &tmp4);
+			(*quad)[iQuad][0] = tmp0 - 1;
+			(*quad)[iQuad][1] = tmp1 - 1;
+			(*quad)[iQuad][2] = tmp2 - 1;
+			(*quad)[iQuad][3] = tmp3 - 1;
+			(*quad)[iQuad][4] = tmp4;
+		}
+	}
+	printf("| %7ld Quadrangles read\n", nQuads);
+
+	fclose(meshFile);
+}
+
+/*
+ *
+ */
+void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
+		long *nBCedges, long ***tria, long ***quad, long **zoneConnect,
+		int *nZones)
+{
+
 }
 
 /*
@@ -952,7 +1106,8 @@ void createMesh(void)
 	double **vertex;
 	long **tria, **quad, **BCedge, *zoneConnect = NULL;
 	tria = quad = BCedge = NULL;
-	long nVertices, nBCedges; //, nZones;
+	long nVertices, nBCedges;
+	int nZones = 0;
 	switch (meshType) {
 	case CARTESIAN:
 		createCartMesh(&vertex, &nVertices, &BCedge, &nBCedges, &quad);
@@ -971,14 +1126,27 @@ void createMesh(void)
 
 		} else if (!strcmp(strMeshFormat, ".mesh")) {
 			printf("| Reading EMC2 File:\n");
-			printf("| Not yet implemented...\n");
-			// TODO
-			exit(1);
+
+			readEMC2(strMeshFile, &vertex, &nVertices, &BCedge,
+					&nBCedges, &tria, &quad);
+
+			zoneConnect = calloc(nVertices, sizeof(long));
+
 		} else if (!strcmp(strMeshFormat, ".cgns")) {
 			printf("| Reading Gridgen CGNS File:\n");
-			printf("| Not yet implemented...\n");
-			// TODO
-			exit(1);
+
+			readCGNS(strMeshFile, &vertex, &nVertices, &BCedge, &nBCedges,
+					&tria, &quad, &zoneConnect, &nZones);
+
+			if ((nZones != nDomains) && (nDomains > 1)) {
+				printf("| ERROR: Number of Domains of Gridgen File: %d\n",
+						nZones);
+				printf("| and Number of Domains in Parameter File: %d\n",
+						nDomains);
+				printf("| are Contradictory\n");
+				exit(1);
+			}
+
 		} else {
 			printf("| ERROR: Unknown Mesh Format\n");
 			exit(1);

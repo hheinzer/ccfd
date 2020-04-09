@@ -7,8 +7,8 @@
 # 'make allclean' : remove executable and libraries
 
 ### Equation system:
-#EQNSYS = euler
-EQNSYS = navierstokes
+EQNSYS = euler
+#EQNSYS = navierstokes
 
 ### Build options:
 TARGET = ccfd
@@ -56,10 +56,10 @@ all: default
 libs: cgns
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	-mkdir -p $(OBJDIR)
 
 $(BINDIR):
-	mkdir -p $(BINDIR)
+	-mkdir -p $(BINDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -103,7 +103,7 @@ $(CGNS_LIB) : $(CGNS_DIR)
 	$(MAKE) install
 
 $(CGNS_DIR):
-	tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
+	-tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
 
 clean:
 	-rm -rf $(OBJDIR)
@@ -113,7 +113,7 @@ allclean: clean
 	-rm -rf $(CGNS_DIR)
 
 run:
-	@cd ./calc/sinewave/ && ../../bin/ccfd sinewave_1D.ini
+	@cd ./calc/naca2312 && ../../bin/ccfd NACA2312.ini
 
 debug:
-	@cd ./calc/sinewave/ && gdb -q --args ../../bin/ccfd sinewave_1D.ini
+	@cd ./calc/naca2312 && gdb -q --args ../../bin/ccfd NACA2312.ini

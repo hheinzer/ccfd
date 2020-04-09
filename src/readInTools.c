@@ -92,6 +92,8 @@ void fillCmds(char iniFileName[STRLEN])
 			free(aCmd);
 		}
 	}
+
+	fclose(iniFile);
 }
 
 /*

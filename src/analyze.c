@@ -253,11 +253,11 @@ void initAnalyze(void)
 		fprintf(demFile, "set logscale y\n");
 		fprintf(demFile, "plot '%s' using 1:3 title 'RHO' with lines, \\\n",
 				resFileName);
-		fprintf(demFile, "plot '%s' using 1:4 title 'MX' with lines, \\\n",
+		fprintf(demFile, "     '%s' using 1:4 title 'MX' with lines, \\\n",
 				resFileName);
-		fprintf(demFile, "plot '%s' using 1:5 title 'MY' with lines, \\\n",
+		fprintf(demFile, "     '%s' using 1:5 title 'MY' with lines, \\\n",
 				resFileName);
-		fprintf(demFile, "plot '%s' using 1:6 title 'E' with lines\n",
+		fprintf(demFile, "     '%s' using 1:6 title 'E' with lines\n",
 				resFileName);
 		fprintf(demFile, "pause -1");
 		fclose(demFile);
@@ -313,6 +313,7 @@ void calcCoef(long iter)
 			cp);
 		aSidePtr = aSidePtr->next;
 	}
+	fclose(cp1File);
 
 	/* open file for writing CP data */
 	char suctionFileName[STRLEN];
@@ -342,6 +343,7 @@ void calcCoef(long iter)
 			cp);
 		aSidePtr = aSidePtr->next;
 	}
+	fclose(cp2File);
 
 	cl *= qInfLq;
 	cd *= qInfLq;
@@ -350,9 +352,6 @@ void calcCoef(long iter)
 	double alphaLoc = alpha * pi / 180.0;
 	wing.cl = cl * cos(alphaLoc) - cd * sin(alphaLoc);
 	wing.cd = cd * cos(alphaLoc) + cl * sin(alphaLoc);
-
-	fclose(cp1File);
-	fclose(cp2File);
 
 	/* write gnuplot file for CP plot */
 	char demFileName[STRLEN];
@@ -368,8 +367,8 @@ void calcCoef(long iter)
 		fprintf(demFile, "     '%s' using 3:4 w l lc rgb 'blue' t 'suctionSide'\n",
 				suctionFileName);
 		fprintf(demFile, "pause -1");
-		fclose(demFile);
 	}
+	fclose(demFile);
 }
 
 /*
