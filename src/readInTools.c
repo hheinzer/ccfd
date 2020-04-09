@@ -253,12 +253,13 @@ bool getBool(const char *key, const char *proposal)
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
 	bool value;
-	if (!strcmp(valueStr, "T")) {
+	if (!strcmp(valueStr, "T") || !strcmp(valueStr, "True") ||
+		!strcmp(valueStr, "t") || !strcmp(valueStr, "true")) {
 		value = true;
 	} else {
 		value = false;
 	}
-	printf("| %19s = %27s (%s)\n", key, (value ? "T" : "F"), defMsg);
+	printf("| %19s = %27s (%s)\n", key, (value ? "true" : "false"), defMsg);
 	return value;
 }
 
