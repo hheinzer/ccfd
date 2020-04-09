@@ -359,12 +359,14 @@ void calcCoef(long iter)
 	FILE *demFile = fopen(demFileName, "r");
 	if (!demFile) {
 		demFile = fopen(demFileName, "w");
+		fprintf(demFile, "unset key\n");
 		fprintf(demFile, "set title 'CP plot'\n");
-		fprintf(demFile, "set xlabel 'theta'\n");
+		fprintf(demFile, "set xlabel 'x'\n");
 		fprintf(demFile, "set ylabel 'cp'\n");
-		fprintf(demFile, "plot '%s' using 3:4 w l lc rgb 'black' t 'pressureSide', \\\n",
+		fprintf(demFile, "set yrange [*:*] reverse\n");
+		fprintf(demFile, "plot '%s' using 1:4 w l lc rgb 'black', \\\n",
 				pressureFileName);
-		fprintf(demFile, "     '%s' using 3:4 w l lc rgb 'blue' t 'suctionSide'\n",
+		fprintf(demFile, "     '%s' using 1:4 w l lc rgb 'black'\n",
 				suctionFileName);
 		fprintf(demFile, "pause -1");
 	}
