@@ -360,7 +360,6 @@ void calcCoef(long iter)
 	if (!demFile) {
 		demFile = fopen(demFileName, "w");
 		fprintf(demFile, "unset key\n");
-		fprintf(demFile, "set title 'CP plot'\n");
 		fprintf(demFile, "set xlabel 'x'\n");
 		fprintf(demFile, "set ylabel 'cp'\n");
 		fprintf(demFile, "set yrange [*:*] reverse\n");
