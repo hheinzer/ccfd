@@ -32,7 +32,14 @@ bool hasExactSolution;
  */
 void initRecordPoints(void)
 {
+	recordPoint.x = dyn2DdblArray(recordPoint.nPoints, 2);
+
 	for (long iPt = 0; iPt < recordPoint.nPoints; ++iPt) {
+		double *coords = getDblArray("pointCoords", NDIM, NULL);
+		recordPoint.x[iPt][X] = coords[X];
+		recordPoint.x[iPt][Y] = coords[Y];
+		free(coords);
+
 		elem_t *aElem = firstElem;
 		bool isInside;
 		while (aElem) {
@@ -267,6 +274,7 @@ void initAnalyze(void)
 		initWing();
 	}
 
+	recordPoint.nPoints = getInt("nRecordPoints", "0");
 	if (recordPoint.nPoints > 0) {
 		initRecordPoints();
 	}
