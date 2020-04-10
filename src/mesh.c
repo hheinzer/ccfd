@@ -19,6 +19,7 @@
 #include "timeDiscretization.h"
 #include "memTools.h"
 #include "initialCondition.h"
+#include "cgnslib.h"
 
 /* extern variables */
 char parameterFile[STRLEN],
@@ -948,7 +949,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 }
 
 /*
- *
+ * read in EMC2 mesh file
  */
 void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -1084,13 +1085,15 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 }
 
 /*
- *
+ * read CGNS mesh
  */
 void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
-		long *nBCedges, long ***tria, long ***quad, long **zoneConnect,
-		int *nZones)
+		long *nBCedges, long ***tria, long ***quad)
 {
-
+	int indexFile;
+	/* open CGNS file */
+	if (cg_open(fileName, CG_MODE_READ, &indexFile))
+		cg_error_exit();
 }
 
 /*
@@ -1104,14 +1107,12 @@ void createMesh(void)
 
 	/* create cartesian mesh or read unstructured mesh from file */
 	double **vertex;
-	long **tria, **quad, **BCedge, *zoneConnect = NULL;
+	long **tria, **quad, **BCedge;
 	tria = quad = BCedge = NULL;
 	long nVertices, nBCedges;
-	int nZones = 0;
 	switch (meshType) {
 	case CARTESIAN:
 		createCartMesh(&vertex, &nVertices, &BCedge, &nBCedges, &quad);
-		zoneConnect = calloc(nVertices, sizeof(long));
 		break;
 	case UNSTRUCTURED:
 		if (!strcmp(strMeshFormat, ".msh") ||
@@ -1122,30 +1123,17 @@ void createMesh(void)
 			readGmsh(strMeshFile, &vertex, &nVertices, &BCedge,
 					&nBCedges, &tria, &quad);
 
-			zoneConnect = calloc(nVertices, sizeof(long));
-
 		} else if (!strcmp(strMeshFormat, ".mesh")) {
 			printf("| Reading EMC2 File:\n");
 
 			readEMC2(strMeshFile, &vertex, &nVertices, &BCedge,
 					&nBCedges, &tria, &quad);
 
-			zoneConnect = calloc(nVertices, sizeof(long));
-
 		} else if (!strcmp(strMeshFormat, ".cgns")) {
 			printf("| Reading Gridgen CGNS File:\n");
 
-			readCGNS(strMeshFile, &vertex, &nVertices, &BCedge, &nBCedges,
-					&tria, &quad, &zoneConnect, &nZones);
-
-			if ((nZones != nDomains) && (nDomains > 1)) {
-				printf("| ERROR: Number of Domains of Gridgen File: %d\n",
-						nZones);
-				printf("| and Number of Domains in Parameter File: %d\n",
-						nDomains);
-				printf("| are Contradictory\n");
-				exit(1);
-			}
+			readCGNS(strMeshFile, &vertex, &nVertices, &BCedge,
+					&nBCedges, &tria, &quad);
 
 		} else {
 			printf("| ERROR: Unknown Mesh Format\n");
@@ -1174,50 +1162,24 @@ void createMesh(void)
 
 	firstNode = NULL;
 	for (long iNode = nVertices - 1; iNode >= 0; --iNode) {
-		if (zoneConnect[iNode] == 0) {
-			node_t *aNode = malloc(sizeof(node_t));
-			aNode->id = iNode;
-			aNode->x[X] = vertex[iNode][X];
-			aNode->x[Y] = vertex[iNode][Y];
+		node_t *aNode = malloc(sizeof(node_t));
+		aNode->id = iNode;
+		aNode->x[X] = vertex[iNode][X];
+		aNode->x[Y] = vertex[iNode][Y];
 
-			xMin = fmin(aNode->x[X], xMin);
-			xMax = fmax(aNode->x[X], xMax);
-			yMin = fmin(aNode->x[Y], yMin);
-			yMax = fmax(aNode->x[Y], yMax);
+		xMin = fmin(aNode->x[X], xMin);
+		xMax = fmax(aNode->x[X], xMax);
+		yMin = fmin(aNode->x[Y], yMin);
+		yMax = fmax(aNode->x[Y], yMax);
 
-			aNode->next = firstNode;
-			firstNode = aNode;
+		aNode->next = firstNode;
+		firstNode = aNode;
 
-			vertexPtr[iNode] = aNode;
+		vertexPtr[iNode] = aNode;
 
-			nNodes++;
-		} else {
-			if (vertexPtr[zoneConnect[iNode]]) {
-				/* already built */
-				vertexPtr[iNode] = vertexPtr[zoneConnect[iNode]];
-			} else {
-				node_t *aNode = malloc(sizeof(node_t));
-				aNode->id = iNode;
-				aNode->x[X] = vertex[iNode][X];
-				aNode->x[Y] = vertex[iNode][Y];
-
-				xMin = fmin(aNode->x[X], xMin);
-				xMax = fmax(aNode->x[X], xMax);
-				yMin = fmin(aNode->x[Y], yMin);
-				yMax = fmax(aNode->x[Y], yMax);
-
-				aNode->next = firstNode;
-				firstNode = aNode;
-
-				vertexPtr[iNode] = aNode;
-				vertexPtr[zoneConnect[iNode]] = vertexPtr[iNode];
-
-				nNodes++;
-			}
-		}
+		nNodes++;
 	}
 	free(vertex);
-	free(zoneConnect);
 
 	/* elements and side pointers */
 	sideList_t *sideList = malloc(2 * nSides * sizeof(sideList_t));
