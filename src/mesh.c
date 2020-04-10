@@ -276,45 +276,31 @@ void createElemInfo(elem_t *aElem)
 	/* compute barycenter */
 	aElem->bary[X] = aElem->bary[Y] = 0.0;
 	for (int i = 0; i < aElem->elemType; ++i) {
-		for (int j = 0; j < NDIM; ++j) {
-			aElem->bary[j] += aElem->node[i]->x[j] / aElem->elemType;
-		}
+		aElem->bary[X] += aElem->node[i]->x[X] / aElem->elemType;
+		aElem->bary[Y] += aElem->node[i]->x[Y] / aElem->elemType;
 	}
 
 	/* element area and its inverse */
 	double vec[2], n[4][2], len[4];
-	for (int i = 0; i < aElem->elemType - 1; ++i) {
-		vec[X] = aElem->node[i + 1]->x[X] - aElem->node[i]->x[X];
-		vec[Y] = aElem->node[i + 1]->x[Y] - aElem->node[i]->x[Y];
+	for (int i = 0; i < aElem->elemType; ++i) {
+		int j = (i + 1) % aElem->elemType;
+		vec[X] = aElem->node[j]->x[X] - aElem->node[i]->x[X];
+		vec[Y] = aElem->node[j]->x[Y] - aElem->node[i]->x[Y];
 
 		len[i] = sqrt(vec[X] * vec[X] + vec[Y] * vec[Y]);
 
-		n[i][X] = aElem->node[i + 1]->x[Y] - aElem->node[i]->x[Y];
-		n[i][Y] = aElem->node[i]->x[X] - aElem->node[i + 1]->x[X];
+		n[i][X] = aElem->node[j]->x[Y] - aElem->node[i]->x[Y];
+		n[i][Y] = aElem->node[i]->x[X] - aElem->node[j]->x[X];
 
 		double tmp = sqrt(n[i][X] * n[i][X] + n[i][Y] * n[i][Y]);
 		n[i][X] /= tmp;
 		n[i][Y] /= tmp;
 	}
 
-	vec[X] = aElem->node[0]->x[X] - aElem->node[aElem->elemType - 1]->x[X];
-	vec[Y] = aElem->node[0]->x[Y] - aElem->node[aElem->elemType - 1]->x[Y];
-
-	len[aElem->elemType - 1] = sqrt(vec[X] * vec[X] + vec[Y] * vec[Y]);
-
-	n[aElem->elemType - 1][X] =
-		aElem->node[0]->x[Y] - aElem->node[aElem->elemType - 1]->x[Y];
-	n[aElem->elemType - 1][Y] =
-		aElem->node[aElem->elemType - 1]->x[X] - aElem->node[0]->x[X];
-
-	double tmp = sqrt(n[aElem->elemType - 1][X] * n[aElem->elemType - 1][X]
-			+ n[aElem->elemType - 1][Y] * n[aElem->elemType - 1][Y]);
-	n[aElem->elemType - 1][X] /= tmp;
-	n[aElem->elemType - 1][Y] /= tmp;
-
-	aElem->area = len[0] * len[1] * fabs(n[0][X]*n[1][Y] - n[1][X]*n[0][Y]);
-	if (aElem->elemType == 3) {
-		aElem->area /= 2;
+	aElem->area = 0.5 * len[0] * len[1] * fabs(n[0][X]*n[1][Y] - n[1][X]*n[0][Y]);
+	if (aElem->elemType == 4) {
+		aElem->area +=
+			0.5 * len[2] * len[3] * fabs(n[2][X]*n[3][Y] - n[3][X]*n[2][Y]);
 	}
 	aElem->areaq = 1.0 / aElem->area;
 
