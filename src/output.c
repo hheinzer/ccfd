@@ -493,9 +493,6 @@ void cgnsWriteMesh(void)
 	int indexFile, indexBase, indexZone, indexGrid, indexCoordinate,
 	    indexSection, indexBounary;
 	/* open CGNS grid file for writing */
-	//if (cg_set_file_type(CG_FILE_ADF2))
-	//	cg_error_exit();
-
 	if (cg_open(gridFile, CG_MODE_WRITE, &indexFile))
 		cg_error_exit();
 

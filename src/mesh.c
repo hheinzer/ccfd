@@ -1076,10 +1076,177 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
 {
-	int indexFile;
-	/* open CGNS file */
+	int indexFile, indexBase = 1, indexZone = 1;
+	/* open CGNS file, only one base and one zone */
 	if (cg_open(fileName, CG_MODE_READ, &indexFile))
 		cg_error_exit();
+
+	/* get nodes */
+	char zoneName[32];
+	cgsize_t iSize[3];
+	if (cg_zone_read(indexFile, indexBase, indexZone, zoneName, iSize))
+		cg_error_exit();
+
+	*nVertices = iSize[0];
+	*vertex = dyn2DdblArray(*nVertices, 2);
+
+	cgsize_t rMin[1] = {1}, rMax[2] = {*nVertices};
+	double x[*nVertices], y[*nVertices];
+	if (cg_coord_read(indexFile, indexBase, indexZone, "CoordinateX",
+				RealDouble, rMin, rMax, x))
+		cg_error_exit();
+	if (cg_coord_read(indexFile, indexBase, indexZone, "CoordinateY",
+				RealDouble, rMin, rMax, y))
+		cg_error_exit();
+
+	for (long iVert = 0; iVert < *nVertices; ++iVert) {
+		(*vertex)[iVert][X] = x[iVert];
+		(*vertex)[iVert][Y] = y[iVert];
+	}
+
+	printf("| %7ld Nodes read\n", *nVertices);
+
+	/* get number of sections */
+	int nSections;
+	if (cg_nsections(indexFile, indexBase, indexZone, &nSections))
+		cg_error_exit();
+
+	cgsize_t *elems;
+	nTrias = nQuads = 0;
+	for (int indexSection = 1; indexSection <= nSections; ++indexSection) {
+		/* get number of elements in section */
+		char sectionName[32];
+		ElementType_t sectionType;
+		cgsize_t elStart, elEnd;
+		int nbndry, parentFlag;
+		if (cg_section_read(indexFile, indexBase, indexZone, indexSection,
+				sectionName, &sectionType, &elStart, &elEnd,
+				&nbndry, &parentFlag))
+			cg_error_exit();
+
+		/* get number of entries in element connectivity */
+		cgsize_t dataSize;
+		if (cg_ElementDataSize(indexFile, indexBase, indexZone,
+				indexSection, &dataSize))
+			cg_error_exit();
+
+		elems = malloc(dataSize * sizeof(cgsize_t));
+
+		/* read element connectivity */
+		if (cg_elements_read(indexFile, indexBase, indexZone, indexSection,
+				elems, NULL))
+			cg_error_exit();
+
+		/* handle different section types */
+		switch (sectionType) {
+		case BAR_2:
+			break;
+		case TRI_3:
+			break;
+		case QUAD_4:
+			break;
+		case MIXED: {
+			for (long iElem = 0; iElem < (long)dataSize;) {
+				switch (elems[iElem]) {
+				case BAR_2:
+					(*nBCedges)++;
+					iElem += 3;
+					break;
+				case TRI_3:
+					nTrias++;
+					iElem += 4;
+					break;
+				case QUAD_4:
+					nQuads++;
+					iElem += 5;
+					break;
+				default:
+					printf("| ERROR: Only TRI_3 and QUAD_4 Elements allowed\n");
+					exit(1);
+				}
+			}
+
+			nElems = nTrias + nQuads;
+
+			/* allocate connectivity arrays */
+			if (!(*BCedge) && (*nBCedges > 0)) {
+				*BCedge = dyn2DintArray(*nBCedges, 3);
+			}
+			if (!(*tria) && (nTrias > 0)) {
+				*tria = dyn2DintArray(nTrias, 4);
+			}
+			if (!(*quad) && (nQuads > 0)) {
+				*quad = dyn2DintArray(nQuads, 5);
+			}
+
+			long iTria, iQuad, iBCedge;
+			iTria = iQuad = iBCedge = 0;
+			for (long iElem = 0; iElem < (long)dataSize;) {
+				switch (elems[iElem]) {
+				case BAR_2:
+					(*BCedge)[iBCedge  ][0] = elems[iElem + 1] - 1;
+					(*BCedge)[iBCedge++][1] = elems[iElem + 2] - 1;
+					iElem += 3;
+					break;
+				case TRI_3:
+					(*tria)[iTria  ][0] = elems[iElem + 1] - 1;
+					(*tria)[iTria  ][1] = elems[iElem + 2] - 1;
+					(*tria)[iTria  ][2] = elems[iElem + 3] - 1;
+					(*tria)[iTria++][3] = indexZone;
+					iElem += 4;
+					break;
+				case QUAD_4:
+					(*quad)[iQuad  ][0] = elems[iElem + 1] - 1;
+					(*quad)[iQuad  ][1] = elems[iElem + 2] - 1;
+					(*quad)[iQuad  ][2] = elems[iElem + 3] - 1;
+					(*quad)[iQuad  ][3] = elems[iElem + 4] - 1;
+					(*quad)[iQuad++][4] = indexZone;
+					iElem += 5;
+					break;
+				}
+			}
+
+			/* add the boundary codes */
+			if (*nBCedges > 0) {
+				if (cg_nbocos(indexFile, indexBase, indexZone, &nbndry))
+					cg_error_exit();
+
+				iBCedge = 0;
+				for (cgsize_t iBC = 1; iBC <= nbndry; ++iBC) {
+					char bocoName[32];
+					BCType_t BCtype;
+					PointSetType_t ptsetType;
+					cgsize_t nBCpoints, normalListSize;
+					int indexNormal, nDataSets;
+					DataType_t normalDataType;
+					if (cg_boco_info(indexFile, indexBase, indexZone,
+							iBC, bocoName, &BCtype, &ptsetType,
+							&nBCpoints, &indexNormal, &normalListSize,
+							&normalDataType, &nDataSets))
+						cg_error_exit();
+
+					for (cgsize_t iBCp = 0; iBCp < nBCpoints; ++iBCp) {
+						int BCcode;
+						sscanf(bocoName, "%d", &BCcode);
+						(*BCedge)[iBCedge++][2] = BCcode;
+					}
+				}
+
+			}
+
+			break;
+		}
+		default:
+			printf("| ERROR: Only TRI_3 and QUAD_4 Elements allowed\n");
+			exit(1);
+		}
+
+		free(elems);
+	}
+
+	printf("| %7ld Triangles read\n", nTrias);
+	printf("| %7ld Quadrangles read\n", nQuads);
+	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
 /*
@@ -1116,7 +1283,7 @@ void createMesh(void)
 					&nBCedges, &tria, &quad);
 
 		} else if (!strcmp(strMeshFormat, ".cgns")) {
-			printf("| Reading Gridgen CGNS File:\n");
+			printf("| Reading CGNS File:\n");
 
 			readCGNS(strMeshFile, &vertex, &nVertices, &BCedge,
 					&nBCedges, &tria, &quad);

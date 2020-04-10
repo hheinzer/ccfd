@@ -113,7 +113,7 @@ allclean: clean
 	-rm -rf $(CGNS_DIR)
 
 run:
-	@cd ./calc/naca2312 && ../../bin/ccfd NACA2312.ini
+	@cd ./calc/wedge && ../../bin/ccfd wedge.ini
 
 debug:
-	@cd ./calc/naca2312 && gdb -q --args ../../bin/ccfd NACA2312.ini
+	@cd ./calc/wedge && gdb -q --args ../../bin/ccfd wedge.ini
