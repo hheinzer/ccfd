@@ -726,4 +726,13 @@ void timeDisc(void)
 		printf("| Newton Iterations: %d\n", nNewtonIterGlobal);
 		printf("| GMRES Iterations : %d\n", nGMRESiterGlobal);
 	}
+
+	/* close files */
+	fclose(resFile);
+
+	if (recordPoint.nPoints > 0) {
+		for (int iPt = 0; iPt < recordPoint.nPoints; ++iPt) {
+			fclose(recordPoint.ioFile[iPt]);
+		}
+	}
 }
