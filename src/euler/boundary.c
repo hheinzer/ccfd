@@ -97,6 +97,11 @@ void initBoundary(void)
 
 			aBC->connection = getDblArray("connection", NDIM, NULL);
 			break;
+		case PRESSURE_OUT:
+			printf("| BC Type: Pressure Outlet\n");
+
+			aBC->pVar[P] = getDbl("pressure", NULL);
+			break;
 		default:
 			printf("| ERROR: Illegal boundary condition!\n");
 			exit(1);
@@ -209,6 +214,24 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 	case EXACTSOL:
 		exactFunc(aSide->BC->exactFunc, x, time, ghost_pVar);
 		break;
+	case PRESSURE_OUT: {
+		double c = sqrt(gamma * int_pVar[P] / int_pVar[RHO]);
+		double v = n[X] * int_pVar[VX] + n[Y] * int_pVar[VY];
+
+		double p;
+		if (v / c < 1.0) {
+			p = aSide->BC->pVar[P];
+		} else {
+			p = int_pVar[P];
+		}
+
+		ghost_pVar[RHO] = int_pVar[RHO] * p / int_pVar[P];
+		ghost_pVar[VX]  = int_pVar[VX];
+		ghost_pVar[VY]  = int_pVar[VY];
+		ghost_pVar[P]   = p;
+
+		break;
+	}
 	}
 }
 
