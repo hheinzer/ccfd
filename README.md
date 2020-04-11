@@ -8,19 +8,6 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 
 ![](doc/comparison.svg)
 
-# YOU can help this project
-
-Due to the Corona situation, I now only have my ThinkPad X220 with me, with which the example cases just take for ever to calculate. I am looking for people that can run `ccfd` on these cases and upload the final result:
-- [ ] `blasius`
-- [ ] `cylinder`
-- [ ] `doubleMachReflection`
-- [ ] `forwardFacingStep`
-- [ ] `naca0012`
-- [ ] `naca2312`
-- [ ] `pulse`
-- [ ] `richtmyerMeshkov`
-- [ ] `vortexStreet`
-
 # Dependencies
 
 - `git`
