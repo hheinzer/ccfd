@@ -406,13 +406,13 @@ void analyze(double time, long iter, double resIter[NVAR + 2])
 
 	/* aerodynamic coefficients */
 	if (doCalcWing) {
-		resIter[NVAR]     = wing.cl;
-		resIter[NVAR + 1] = wing.cd;
+		resIter[4] = wing.cl;
+		resIter[5] = wing.cd;
 
 		calcCoef(iter);
 
-		resIter[NVAR]     = fabs(resIter[NVAR]     - wing.cl) / firstElem->dt;
-		resIter[NVAR + 1] = fabs(resIter[NVAR + 1] - wing.cd) / firstElem->dt;
+		resIter[4] = fabs(resIter[4] - wing.cl) / firstElem->dt;
+		resIter[5] = fabs(resIter[5] - wing.cd) / firstElem->dt;
 
 		fprintf(resFile, "%7ld, %13.8f, %15.8e, %15.10f, %15.10f\n",
 			iter, time + firstElem->dt, resIter[abortVariable],

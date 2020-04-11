@@ -16,9 +16,9 @@ Line Loop(8) = {2, 3, 4, 1};
 Line Loop(9) = {6, 7, 5};
 Plane Surface(10) = {8, 9};
 
-Transfinite Line {5, 6} = 14 Using Progression 1;
-Transfinite Line {7} = 24 Using Progression 1;
-Transfinite Line {1, 2, 3, 4} = 23 Using Progression 1;
+Transfinite Line {5, 6} = 200 Using Bump 0.5;
+Transfinite Line {7} = 400 Using Bump 0.5;
+Transfinite Line {1, 2, 3, 4} = 200 Using Progression 1;
 Physical Line(301) = {1, 4};
 Physical Line(401) = {2, 3};
 Physical Line(101) = {5, 6, 7};

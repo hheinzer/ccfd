@@ -556,7 +556,7 @@ void timeDisc(void)
 	bool viscousTimeStepDominates;
 	double dt;
 	calcTimeStep(printTime, &dt, &viscousTimeStepDominates);
-	printf("| Initial Time Step: %g\n", dt);
+	printf("| Initial Time Step: %.10g\n", dt);
 	if (viscousTimeStepDominates) {
 		printf("| Viscous Time Step Dominates!\n");
 	}
@@ -583,9 +583,9 @@ void timeDisc(void)
 		analyze(t, iter, resIter);
 
 		/* end time abort criterion */
-		if (stopTime - t <= DBL_EPSILON) {
+		if (stopTime - t <= 1e-15) {
 			printf("\nTime Limit Reached - Computation Complete!\n");
-			printf("| Final Time      : %g\n", t);
+			printf("| Final Time      : %.10g\n", t);
 			printf("| Iteration Number: %ld\n", iter);
 			printf("| Writing Final State to Disk\n");
 			dataOutput(t, iter);
@@ -610,8 +610,8 @@ void timeDisc(void)
 
 						if (doCalcWing) {
 							printf("| Final Lift and Drag Coefficients:\n");
-							printf("|   CL: %g\n", wing.cl);
-							printf("|   CD: %g\n", wing.cd);
+							printf("|   CL: %.10g\n", wing.cl);
+							printf("|   CD: %.10g\n", wing.cd);
 						}
 
 						hasConverged = true;
@@ -624,8 +624,8 @@ void timeDisc(void)
 
 						if (doCalcWing) {
 							printf("| Final Lift and Drag Coefficients:\n");
-							printf("|   CL: %g\n", wing.cl);
-							printf("|   CD: %g\n", wing.cd);
+							printf("|   CL: %.10g\n", wing.cl);
+							printf("|   CD: %.10g\n", wing.cd);
 						}
 
 						hasConverged = true;
@@ -637,8 +637,8 @@ void timeDisc(void)
 
 					if (doCalcWing) {
 						printf("| Final Lift and Drag Coefficients:\n");
-						printf("|   CL: %g\n", wing.cl);
-						printf("|   CD: %g\n", wing.cd);
+						printf("|   CL: %.10g\n", wing.cl);
+						printf("|   CD: %.10g\n", wing.cd);
 					}
 
 					hasConverged = true;
@@ -658,28 +658,28 @@ void timeDisc(void)
 		}
 
 		/* data output */
-		if ((printTime - t <= DBL_EPSILON) || (iter == printIter)) {
+		if ((printTime - t <= 1e-15) || (iter == printIter)) {
 			printf("\nData Output at Iteration %ld\n", iter);
 			double tIOend = CPU_TIME();
-			printf("| Time since last I/O: %g s\n", tIOend - tIOstart);
+			printf("| Time since last I/O: %.10g s\n", tIOend - tIOstart);
 			tIOstart = tIOend;
 
 			if (isStationary) {
 				if (doCalcWing) {
-					printf("| Residuals: %s: %11.6e\n",
+					printf("| Residuals: %s: %20.14e\n",
 						abortVariableName, resIter[abortVariable]);
-					printf("|            CL : %11.6e\n", resIter[4]);
-					printf("|            CD : %11.6e\n", resIter[5]);
+					printf("|            CL : %20.14e\n", resIter[4]);
+					printf("|            CD : %20.14e\n", resIter[5]);
 				} else {
-					printf("|            RHO: %11.6e\n", resIter[RHO]);
-					printf("|            MX : %11.6e\n", resIter[VX]);
-					printf("|            MY : %11.6e\n", resIter[VY]);
-					printf("|            E  : %11.6e\n", resIter[E]);
+					printf("|            RHO: %20.14e\n", resIter[RHO]);
+					printf("|            MX : %20.14e\n", resIter[MX]);
+					printf("|            MY : %20.14e\n", resIter[MY]);
+					printf("|            E  : %20.14e\n", resIter[E]);
 				}
 			} else {
-				printf("| Time     : %g\n", t);
+				printf("| Time     : %.10g\n", t);
 				calcTimeStep(printTime + 1e150, &dt, &viscousTimeStepDominates);
-				printf("| Time Step: %g\n", dt);
+				printf("| Time Step: %.10g\n", dt);
 				if (viscousTimeStepDominates) {
 					printf("| Viscous Time Step Dominates!\n");
 				}
@@ -693,7 +693,7 @@ void timeDisc(void)
 			dataOutput(t, iter);
 			finalizeDataOutput();
 
-			if (printTime - t <= DBL_EPSILON) {
+			if (printTime - t <= 1e-15) {
 				printTime += IOtimeInterval;
 			}
 			if (iter == printIter) {
@@ -709,7 +709,7 @@ void timeDisc(void)
 		printf("\nERROR - ERROR - ERROR\n");
 		printf("| Maximum Iteration Number Reached. Calculation Aborted!\n");
 		printf("| Final Time %g has not been reached.\n", stopTime);
-		printf("| Current Time: %g\n", t);
+		printf("| Current Time: %.10g\n", t);
 		printf("| Final State will be written to disk\n");
 
 		dataOutput(t, iter - 1);
@@ -721,7 +721,7 @@ void timeDisc(void)
 	}
 
 	/* standard output */
-	printf("\nComputation Time: %g s\n", tEnd - tStart);
+	printf("\nComputation Time: %.10g s\n", tEnd - tStart);
 	if (isImplicit) {
 		printf("| Newton Iterations: %d\n", nNewtonIterGlobal);
 		printf("| GMRES Iterations : %d\n", nGMRESiterGlobal);
