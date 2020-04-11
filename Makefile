@@ -30,12 +30,7 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O0 -g -fopenmp
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3
- FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -pg
-#FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp -pg
+FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
@@ -111,9 +106,3 @@ clean:
 
 allclean: clean
 	-rm -rf $(CGNS_DIR)
-
-run:
-	@cd ./calc/wedge && ../../bin/ccfd wedge.ini
-
-debug:
-	@cd ./calc/wedge && gdb -q --args ../../bin/ccfd wedge.ini
