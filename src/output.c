@@ -110,9 +110,6 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
 	/* open solution file */
-	//if (cg_set_file_type(CG_FILE_ADF2))
-	//	cg_error_exit();
-
 	int indexFile, indexBase, indexZone, indexSolution, indexField;
 	if (cg_open(fileName, CG_MODE_WRITE, &indexFile))
 		cg_error_exit();
@@ -412,9 +409,6 @@ void cgnsFinalizeOutput(void)
 
 	int indexFile, indexBase, indexZone;
 	/* open CGNS file */
-	//if (cg_set_file_type(CG_FILE_ADF2))
-	//	cg_error_exit();
-
 	char masterFileName[STRLEN];
 	strcat(strcpy(masterFileName, strOutFile), "_Master.cgns");
 	if (cg_open(masterFileName, CG_MODE_WRITE, &indexFile))

@@ -38,8 +38,6 @@ extern double ***Dinv;
 extern double ****lowerUpper;
 extern long ***elemToElem;
 
-//extern bool implicitInitIsDone;
-
 void initLinearSolver(void);
 double vectorDotProduct(double A[NVAR][nElems], double B[NVAR][nElems]);
 void buildMatrix(double time, double dt);

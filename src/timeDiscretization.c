@@ -30,7 +30,6 @@ double	dfl;
 double	t;
 
 double	timeOverall;
-//double	ioTime = 0.0;
 
 int	timeOrder;
 bool	isTimeStep1D;

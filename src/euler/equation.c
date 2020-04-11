@@ -21,7 +21,6 @@ double gamma;
 double gamma1;
 double gamma2;
 double gamma1q;
-//double CFL;
 double cp;
 double Pr;
 double mu;

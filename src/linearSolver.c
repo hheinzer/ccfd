@@ -48,8 +48,6 @@ double ***Dinv;
 double ****lowerUpper;
 long ***elemToElem;
 
-//bool implicitInitIsDone = false;
-
 /*
  * initialize linear solver
  */
