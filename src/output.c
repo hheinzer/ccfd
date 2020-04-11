@@ -48,7 +48,7 @@ void initOutput(void)
 void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
 	/* prepare data (only for equidistant grids) */
-	double flowData[nElems][NVAR];
+	double **flowData = dyn2DdblArray(nElems, NVAR);
 	if (doExact) {
 		long iElem = 0;
 		elem_t *aElem = firstElem;
@@ -100,6 +100,8 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 			flowData[iElem][1], flowData[iElem][2], flowData[iElem][3]);
 	}
 	fclose(csvFile);
+
+	free(flowData);
 }
 
 /*
@@ -233,11 +235,82 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 }
 
 /*
- * curve data output
+ * curved data output, only for 1D data
  */
 void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
+	/* prepare data */
+	double **flowData = dyn2DdblArray(nElems, NVAR);
+	if (doExact) {
+		long iElem = 0;
+		elem_t *aElem = firstElem;
+		while (aElem) {
+			double pVar[NVAR];
+			exactFunc(intExactFunc, aElem->bary, time, pVar);
 
+			flowData[iElem][0] = aElem->bary[X];
+			flowData[iElem][1] = pVar[RHO];
+			flowData[iElem][2] = pVar[VX];
+			flowData[iElem][3] = pVar[P];
+
+			iElem++;
+			aElem = aElem->next;
+		}
+	} else {
+		long iElem = 0;
+		elem_t *aElem = firstElem;
+		while (aElem) {
+			flowData[iElem][0] = aElem->bary[X];
+			flowData[iElem][1] = aElem->pVar[RHO];
+			flowData[iElem][2] = aElem->pVar[VX];
+			flowData[iElem][3] = aElem->pVar[P];
+
+			iElem++;
+			aElem = aElem->next;
+		}
+	}
+
+	/* sort array */
+	long n = nElems;
+	bool isSwapped = true;
+	double tmp[NVAR];
+	while (isSwapped && (n > 0)) {
+		isSwapped = false;
+		for (long iElem = 0; iElem < n - 1; ++iElem) {
+			if (flowData[iElem][0] > flowData[iElem + 1][0]) {
+				memcpy(tmp, flowData[iElem + 1], NVAR * sizeof(double));
+				memcpy(flowData[iElem + 1], flowData[iElem], NVAR * sizeof(double));
+				memcpy(flowData[iElem], tmp, NVAR * sizeof(double));
+				isSwapped = true;
+			}
+		}
+		n--;
+	}
+
+	/* write data */
+	FILE *curveFile = fopen(fileName, "w");
+
+	fprintf(curveFile, "#Density\n");
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		fprintf(curveFile, "%15.9f,%15.9f\n", flowData[iElem][0],
+				flowData[iElem][1]);
+	}
+
+	fprintf(curveFile, "\n#Velocity\n");
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		fprintf(curveFile, "%15.9f,%15.9f\n", flowData[iElem][0],
+				flowData[iElem][2]);
+	}
+
+	fprintf(curveFile, "\n#Pressure\n");
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		fprintf(curveFile, "%15.9f,%15.9f\n", flowData[iElem][0],
+				flowData[iElem][3]);
+	}
+
+	fclose(curveFile);
+
+	free(flowData);
 }
 
 /*
