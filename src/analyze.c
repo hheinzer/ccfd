@@ -108,6 +108,11 @@ void initWing(void)
 		if (wingBC == aBCsidePtr->side->BC) {
 			bool isInserted = false;
 			sidePtr_t *aInsSidePtr = malloc(sizeof(sidePtr_t));
+			if (!aInsSidePtr) {
+				printf("| ERROR: could not allocate aInsSidePtr\n");
+				exit(1);
+			}
+
 			aInsSidePtr->side = aBCsidePtr->side->connection;
 			double xIns[NDIM];
 			xIns[X] = aInsSidePtr->side->GP[X] + aInsSidePtr->side->elem->bary[X];

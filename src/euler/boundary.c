@@ -35,6 +35,10 @@ void initBoundary(void)
 
 	for (int iBC = 0; iBC < nBC; ++iBC) {
 		boundary_t *aBC = malloc(sizeof(boundary_t));
+		if (!aBC) {
+			printf("| ERROR: could not allocate aBC\n");
+			exit(1);
+		}
 
 		aBC->next = firstBC;
 		firstBC = aBC;

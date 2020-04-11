@@ -41,6 +41,10 @@ void fillCmds(char iniFileName[STRLEN])
 	cmd_t *currCmd = NULL;
 	while (fgets(line, sizeof(line), iniFile)) {
 		cmd_t *aCmd = malloc(sizeof(cmd_t));
+		if (!aCmd) {
+			printf("| ERROR: could not allocate command\n");
+			exit(1);
+		}
 
 		/* read key and make it lowercase */
 		j = 0;
@@ -58,6 +62,11 @@ void fillCmds(char iniFileName[STRLEN])
 		if (strlen(tmp) > 0) {
 			/* store the key */
 			aCmd->key = malloc(strlen(tmp) + 1);
+			if (!aCmd->key) {
+				printf("| ERROR: could not allocate key\n");
+				exit(1);
+			}
+
 			strcpy(aCmd->key, tmp);
 			aCmd->next = NULL;
 
@@ -76,6 +85,11 @@ void fillCmds(char iniFileName[STRLEN])
 
 			/* store value */
 			aCmd->value = malloc(strlen(tmp) + 1);
+			if (!aCmd->value) {
+				printf("| ERROR: could not allocate value\n");
+				exit(1);
+			}
+
 			strcpy(aCmd->value, tmp);
 
 			/* complete the chain links */
@@ -128,6 +142,11 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 {
 	/* create a lowercase copy of the key */
 	char *keyLower = malloc(strlen(key) + 1);
+	if (!keyLower) {
+		printf("| ERROR: could not allocate keyLower\n");
+		exit(1);
+	}
+
 	strcpy(keyLower, key);
 	for (int i = 0; i < strlen(keyLower); ++i) {
 		keyLower[i] = tolower(keyLower[i]);
@@ -141,6 +160,11 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 			/* the keys are the same, create enough space for the
 			 * value to be stored and break out of the loop */
 			value = malloc(strlen(currCmd->value) + 1);
+			if (!value) {
+				printf("| ERROR: could not allocate value\n");
+				exit(1);
+			}
+
 			strcpy(value, currCmd->value);
 			strcpy(defMsg, "*CUSTOM");
 			deleteCmd(currCmd);
@@ -157,6 +181,11 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 			exit(1);
 		} else {
 			value = malloc(strlen(proposal) + 1);
+			if (!value) {
+				printf("| ERROR: could not allocate value\n");
+				exit(1);
+			}
+
 			strcpy(value, proposal);
 			strcpy(defMsg, "DEFAULT");
 		}
@@ -188,6 +217,11 @@ int countKeys(const char *key, const int proposal)
 {
 	/* make lowercase copy of the key */
 	char *keyLower = malloc(strlen(key) + 1);
+	if (!keyLower) {
+		printf("| ERROR: could not allocate keyLower\n");
+		exit(1);
+	}
+
 	strcpy(keyLower, key);
 	for (int i = 0; i < strlen(keyLower); ++i) {
 		keyLower[i] = tolower(keyLower[i]);
@@ -274,6 +308,10 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
 	int *value = malloc(N * sizeof(int));
+	if (!value) {
+		printf("| ERROR: could not allocate value\n");
+		exit(1);
+	}
 
 	char *tok = strtok(valueStr, ",");
 	for (int i = 0; i < N; ++i) {
@@ -303,6 +341,10 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
 	double *value = malloc(N * sizeof(double));
+	if (!value) {
+		printf("| ERROR: could not allocate value\n");
+		exit(1);
+	}
 
 	char *tok = strtok(valueStr, ",");
 	for (int i = 0; i < N; ++i) {

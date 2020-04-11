@@ -66,6 +66,11 @@ int main(int argc, char *argv[])
 
 		/* get restart time */
 		char *string = malloc(strlen(restartFileName));
+		if (!string) {
+			printf("| ERROR: could not allocate string\n");
+			exit(1);
+		}
+
 		strcpy(string, restartFileName);
 		while (strstr(string, "_") != NULL)
 			string = strstr(string, "_") + 1;

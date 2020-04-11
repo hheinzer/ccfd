@@ -151,7 +151,12 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 
 	/* prepare density array, x-velocity array, y-velocity array, and
 	 * pressure array */
-	double rhoArr[nElems], vxArr[nElems], vyArr[nElems], vzArr[nElems], pArr[nElems];
+	double *rhoArr = malloc(nElems * sizeof(double));
+	double *vxArr  = malloc(nElems * sizeof(double));
+	double *vyArr  = malloc(nElems * sizeof(double));
+	double *vzArr  = malloc(nElems * sizeof(double));
+	double *pArr   = malloc(nElems * sizeof(double));
+
 
 	/* save solution in a CGNS compatible format */
 	if (hasExactSolution) {
@@ -173,6 +178,7 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 		elem_t *aElem = firstElem;
 
 		while (aElem) {
+
 			rhoArr[aElem->id] = aElem->pVar[RHO];
 			vxArr[aElem->id]  = aElem->pVar[VX];
 			vyArr[aElem->id]  = aElem->pVar[VY];
@@ -217,6 +223,13 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	/* close file */
 	if (cg_close(indexFile))
 		cg_error_exit();
+
+	/* deallocate memory */
+	free(rhoArr);
+	free(vxArr);
+	free(vyArr);
+	free(vzArr);
+	free(pArr);
 }
 
 /*
@@ -234,6 +247,11 @@ void dataOutput(double time, long iter)
 {
 	/* output times */
 	outputTime_t *outputTime = malloc(sizeof(outputTime_t));
+	if (!outputTime) {
+		printf("| ERROR: could not allocate outputTime\n");
+		exit(1);
+	}
+
 	outputTime->time = time;
 	outputTime->iter = iter;
 	outputTime->next = outputTimes;

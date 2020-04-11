@@ -40,6 +40,11 @@ void initInitialCondition(void)
 	case 1:
 		nDomains = getInt("nDomains", "1");
 		domainID = malloc(nDomains * sizeof(int));
+		if (!domainID) {
+			printf("| ERROR: could not allocate domainID\n");
+			exit(1);
+		}
+
 		refState = dyn2DdblArray(nDomains, NVAR);
 		for (int i = 0; i < nDomains; ++i) {
 			printf("| Domain No.%d:\n", i);
@@ -97,7 +102,11 @@ void cgnsReadSolution(void)
 	}
 
 	/* allocate array for the flow solution */
-	double rhoArr[nElems], vxArr[nElems], vyArr[nElems], pArr[nElems];
+	double *rhoArr = malloc(nElems * sizeof(double));
+	double *vxArr = malloc(nElems * sizeof(double));
+	double *vyArr = malloc(nElems * sizeof(double));
+	double *pArr = malloc(nElems * sizeof(double));
+
 	cgsize_t rMin[1] = {1}, rMax[1] = {nElems};
 	if (cg_field_read(indexFile, 1, 1, 1, "Density", RealDouble, rMin, rMax, rhoArr))
 		cg_error_exit();
@@ -131,6 +140,12 @@ void cgnsReadSolution(void)
 
 		aElem = aElem->next;
 	}
+
+	/* deallocate memory */
+	free(rhoArr);
+	free(vxArr);
+	free(vyArr);
+	free(pArr);
 }
 
 /*

@@ -11,6 +11,7 @@
  *	- Ben Klemens
  */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -20,6 +21,11 @@
 long **dyn2DintArray(long I, long J)
 {
 	long **arr = malloc(sizeof(long *) * I + sizeof(long) * I * J);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	long *ptr = (long *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
@@ -36,6 +42,11 @@ long **dyn2DintArray(long I, long J)
 double **dyn2DdblArray(long I, long J)
 {
 	double **arr = malloc(sizeof(double *) * I + sizeof(double) * I * J);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	double *ptr = (double *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
@@ -52,6 +63,11 @@ double **dyn2DdblArray(long I, long J)
 long ***dyn3DintArray(long I, long J, long K)
 {
 	long ***arr = malloc(sizeof(long *) * I + sizeof(long **) * I * J + sizeof(long) * I * J * K);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	long **ptrI = (long **)(arr + I);
 	long *ptrJ = (long *)(arr + I + I * J);
 	for (long i = 0; i < I; ++i) {
@@ -72,6 +88,11 @@ long ***dyn3DintArray(long I, long J, long K)
 double ***dyn3DdblArray(long I, long J, long K)
 {
 	double ***arr = malloc(sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double) * I * J * K);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	double **ptrI = (double **)(arr + I);
 	double *ptrJ = (double *)(arr + I + I * J);
 	for (long i = 0; i < I; ++i) {
@@ -92,6 +113,11 @@ double ***dyn3DdblArray(long I, long J, long K)
 double ****dyn4DdblArray(long I, long J, long K, long L)
 {
 	double ****arr = malloc(sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double ***) * I * J * K + sizeof(double) * I * J * K * L);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	double ***ptrI = (double ***)(arr + I);
 	double **ptrJ = (double **)(arr + I + I * J);
 	double *ptrK = (double *)(arr + I + I * J + I * J * K);
@@ -116,6 +142,11 @@ double ****dyn4DdblArray(long I, long J, long K, long L)
 char **dynStringArray(long I, long J)
 {
 	char **arr = malloc(sizeof(char *) * I + sizeof(char) * I * J);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
 	char *ptr = (char *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;

@@ -109,6 +109,11 @@ void createReconstructionInfo(elem_t *aElem)
 	case 3:
 		aElem->nGP = 3;
 		aElem->wGP = malloc(aElem->nGP * sizeof(double));
+		if (!aElem->wGP) {
+			printf("| ERROR: could not allocate aElem->wGP\n");
+			exit(1);
+		}
+
 		aElem->xGP = dyn2DdblArray(aElem->nGP, NDIM);
 
 		aSide = aElem->firstSide;
@@ -124,6 +129,11 @@ void createReconstructionInfo(elem_t *aElem)
 	case 4:
 		aElem->nGP = 5;
 		aElem->wGP = malloc(aElem->nGP * sizeof(double));
+		if (!aElem->wGP) {
+			printf("| ERROR: could not allocate aElem->wGP\n");
+			exit(1);
+		}
+
 		aElem->xGP = dyn2DdblArray(aElem->nGP, NDIM);
 
 		aSide = aElem->firstSide;
@@ -365,7 +375,6 @@ void createCartMesh(
 		for (long i = 0; i < iMax + 1; ++i) {
 			(*vertex)[k][X] = x;
 			(*vertex)[k][Y] = y;
-			//printf("%ld %g %g\n", k, (*vertex)[k][X], (*vertex)[k][Y]);
 			k++;
 			x += dx;
 		}
@@ -381,7 +390,6 @@ void createCartMesh(
 			(*quad)[k][2] = (*quad)[k][1] + iMax + 1;
 			(*quad)[k][3] = (*quad)[k][2] - 1;
 			(*quad)[k][4] = 1;
-			//printf("%ld %ld %ld %ld %ld %ld\n", k, (*quad)[k][0], (*quad)[k][1], (*quad)[k][2], (*quad)[k][3], (*quad)[k][4]);
 			k++;
 		}
 	}
@@ -398,7 +406,6 @@ void createCartMesh(
 			(*BCedge)[k][0] = i;
 			(*BCedge)[k][1] = i + 1;
 			(*BCedge)[k][2] = cartMesh.BCtype[BOTTOM][iBC];
-			//printf("%ld %ld %ld %ld\n", k, (*BCedge)[k][0], (*BCedge)[k][1], (*BCedge)[k][2]);
 			k++;
 		}
 	}
@@ -412,7 +419,6 @@ void createCartMesh(
 			(*BCedge)[k][0] = (iMax + 1) * (j + 1) - 1;
 			(*BCedge)[k][1] = (iMax + 1) * (j + 2) - 1;
 			(*BCedge)[k][2] = cartMesh.BCtype[RIGHT][iBC];
-			//printf("%ld %ld %ld %ld\n", k, (*BCedge)[k][0], (*BCedge)[k][1], (*BCedge)[k][2]);
 			k++;
 		}
 	}
@@ -426,7 +432,6 @@ void createCartMesh(
 			(*BCedge)[k][0] = (iMax + 1) * jMax + i;
 			(*BCedge)[k][1] = (*BCedge)[k][0] + 1;
 			(*BCedge)[k][2] = cartMesh.BCtype[TOP][iBC];
-			//printf("%ld %ld %ld %ld\n", k, (*BCedge)[k][0], (*BCedge)[k][1], (*BCedge)[k][2]);
 			k++;
 		}
 	}
@@ -440,7 +445,6 @@ void createCartMesh(
 			(*BCedge)[k][0] = j * (iMax + 1);
 			(*BCedge)[k][1] = (*BCedge)[k][0] + iMax + 1;
 			(*BCedge)[k][2] = cartMesh.BCtype[LEFT][iBC];
-			//printf("%ld %ld %ld %ld\n", k, (*BCedge)[k][0], (*BCedge)[k][1], (*BCedge)[k][2]);
 			k++;
 		}
 	}
@@ -502,7 +506,6 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 				exit(1);
 			}
 		}
-		printf("| %7ld Nodes read\n", *nVertices);
 
 		*nBCedges = nTrias = nQuads = 0;
 
@@ -652,7 +655,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 				(*BCedge)[iBCedge][2] = BCedgeTmp[iBCedge][2];
 			}
 		}
-		printf("| %7ld Boundary Edges read\n", *nBCedges);
+
 		free(BCedgeTmp);
 
 		if (nTrias > 0) {
@@ -668,8 +671,8 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 					(*tria)[iTria][3] = triaTmp[iTria][3];
 				}
 			}
-			printf("| %7ld Triangles read\n", nTrias);
 		}
+
 		free(triaTmp);
 
 		if (nQuads > 0) {
@@ -686,8 +689,8 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 					(*quad)[iQuad][4] = quadTmp[iQuad][4];
 				}
 			}
-			printf("| %7ld Quadrilaterals read\n", nQuads);
 		}
+
 		free(quadTmp);
 
 		break;
@@ -769,8 +772,6 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 				}
 			}
 		}
-
-		printf("| %7ld Nodes read\n", *nVertices);
 
 		*nBCedges = nTrias = nQuads = 0;
 
@@ -886,7 +887,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 				(*BCedge)[iBCedge][2] = BCedgeTmp[iBCedge][2];
 			}
 		}
-		printf("| %7ld Boundary Edges read\n", *nBCedges);
+
 		free(BCedgeTmp);
 
 		if (nTrias > 0) {
@@ -902,7 +903,6 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 					(*tria)[iTria][3] = triaTmp[iTria][3];
 				}
 			}
-			printf("| %7ld Triangles read\n", nTrias);
 		}
 		free(triaTmp);
 
@@ -920,7 +920,6 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 					(*quad)[iQuad][4] = quadTmp[iQuad][4];
 				}
 			}
-			printf("| %7ld Quadrilaterals read\n", nQuads);
 		}
 		free(quadTmp);
 
@@ -932,6 +931,11 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	}
 
 	fclose(meshFile);
+
+	printf("| %7ld Nodes read\n", *nVertices);
+	printf("| %7ld Triangles read\n", nTrias);
+	printf("| %7ld Quadrangles read\n", nQuads);
+	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
 /*
@@ -969,7 +973,6 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		(*vertex)[iVert][X] = x;
 		(*vertex)[iVert][Y] = y;
 	}
-	printf("| %7ld Vertices read\n", *nVertices);
 
 	/* read number of edges */
 	long nEdges;
@@ -1007,7 +1010,6 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		(*BCedge)[iEdge][1] = tmpEdges[iEdge][1] - 1;
 		(*BCedge)[iEdge][2] = tmpEdges[iEdge][2];
 	}
-	printf("| %7ld Boundary Edges read\n", *nBCedges);
 
 	free(tmpEdges);
 
@@ -1036,7 +1038,6 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 			(*tria)[iTria][3] = tmp3;
 		}
 	}
-	printf("| %7ld Triangles read\n", nTrias);
 
 	/* read number of quadrangles */
 	nQuads = 0;
@@ -1065,9 +1066,13 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 			(*quad)[iQuad][4] = tmp4;
 		}
 	}
-	printf("| %7ld Quadrangles read\n", nQuads);
 
 	fclose(meshFile);
+
+	printf("| %7ld Nodes read\n", *nVertices);
+	printf("| %7ld Triangles read\n", nTrias);
+	printf("| %7ld Quadrangles read\n", nQuads);
+	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
 /*
@@ -1104,8 +1109,6 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		(*vertex)[iVert][Y] = y[iVert];
 	}
 
-	printf("| %7ld Nodes read\n", *nVertices);
-
 	/* get number of sections */
 	int nSections;
 	if (cg_nsections(indexFile, indexBase, indexZone, &nSections))
@@ -1131,6 +1134,10 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 			cg_error_exit();
 
 		elems = malloc(dataSize * sizeof(cgsize_t));
+		if (!elems) {
+			printf("| ERROR: could not allocate elems\n");
+			exit(1);
+		}
 
 		/* read element connectivity */
 		if (cg_elements_read(indexFile, indexBase, indexZone, indexSection,
@@ -1139,12 +1146,77 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 		/* handle different section types */
 		switch (sectionType) {
-		case BAR_2:
+		case BAR_2: {
+			*nBCedges = (long)dataSize / 2;
+
+			*BCedge = dyn2DintArray(*nBCedges, 3);
+
+			long iBCedge = 0;
+			for (long iElem = 0; iElem < (long)dataSize;) {
+				(*BCedge)[iBCedge  ][0] = elems[iElem + 0] - 1;
+				(*BCedge)[iBCedge++][1] = elems[iElem + 1] - 1;
+				iElem += 2;
+			}
+
+			if (cg_nbocos(indexFile, indexBase, indexZone, &nbndry))
+				cg_error_exit();
+
+			iBCedge = 0;
+			for (cgsize_t iBC = 1; iBC <= nbndry; ++iBC) {
+				char bocoName[32];
+				BCType_t BCtype;
+				PointSetType_t ptsetType;
+				cgsize_t nBCpoints, normalListSize;
+				int indexNormal, nDataSets;
+				DataType_t normalDataType;
+				if (cg_boco_info(indexFile, indexBase, indexZone,
+						iBC, bocoName, &BCtype, &ptsetType,
+						&nBCpoints, &indexNormal, &normalListSize,
+						&normalDataType, &nDataSets))
+					cg_error_exit();
+
+				for (cgsize_t iBCp = 0; iBCp < nBCpoints; ++iBCp) {
+					int BCcode;
+					sscanf(bocoName, "%d", &BCcode);
+					(*BCedge)[iBCedge++][2] = BCcode;
+				}
+			}
+
 			break;
-		case TRI_3:
+		}
+		case TRI_3: {
+			nTrias = (long)dataSize / 3;
+
+			*tria = dyn2DintArray(nTrias, 4);
+
+			long iTria = 0;
+			for (long iElem = 0; iElem < (long)dataSize;) {
+				(*tria)[iTria  ][0] = elems[iElem + 0] - 1;
+				(*tria)[iTria  ][1] = elems[iElem + 1] - 1;
+				(*tria)[iTria  ][2] = elems[iElem + 2] - 1;
+				(*tria)[iTria++][3] = indexZone;
+				iElem += 3;
+			}
+
 			break;
-		case QUAD_4:
+		}
+		case QUAD_4: {
+			nQuads = (long)dataSize / 4;
+
+			*quad = dyn2DintArray(nQuads, 5);
+
+			long iQuad = 0;
+			for (long iElem = 0; iElem < (long)dataSize;) {
+				(*quad)[iQuad  ][0] = elems[iElem + 0] - 1;
+				(*quad)[iQuad  ][1] = elems[iElem + 1] - 1;
+				(*quad)[iQuad  ][2] = elems[iElem + 2] - 1;
+				(*quad)[iQuad  ][3] = elems[iElem + 3] - 1;
+				(*quad)[iQuad++][4] = indexZone;
+				iElem += 4;
+			}
+
 			break;
+		}
 		case MIXED: {
 			for (long iElem = 0; iElem < (long)dataSize;) {
 				switch (elems[iElem]) {
@@ -1165,8 +1237,6 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 					exit(1);
 				}
 			}
-
-			nElems = nTrias + nQuads;
 
 			/* allocate connectivity arrays */
 			if (!(*BCedge) && (*nBCedges > 0)) {
@@ -1231,7 +1301,6 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 						(*BCedge)[iBCedge++][2] = BCcode;
 					}
 				}
-
 			}
 
 			break;
@@ -1241,9 +1310,12 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 			exit(1);
 		}
 
+		nElems = nTrias + nQuads;
+
 		free(elems);
 	}
 
+	printf("| %7ld Nodes read\n", *nVertices);
 	printf("| %7ld Triangles read\n", nTrias);
 	printf("| %7ld Quadrangles read\n", nQuads);
 	printf("| %7ld Boundary Edges read\n", *nBCedges);
@@ -1316,6 +1388,11 @@ void createMesh(void)
 	firstNode = NULL;
 	for (long iNode = nVertices - 1; iNode >= 0; --iNode) {
 		node_t *aNode = malloc(sizeof(node_t));
+		if (!aNode) {
+			printf("| ERROR: could not allocate aNode\n");
+			exit(1);
+		}
+
 		aNode->id = iNode;
 		aNode->x[X] = vertex[iNode][X];
 		aNode->x[Y] = vertex[iNode][Y];
@@ -1336,6 +1413,10 @@ void createMesh(void)
 
 	/* elements and side pointers */
 	sideList_t *sideList = malloc(2 * nSides * sizeof(sideList_t));
+	if (!sideList) {
+		printf("| ERROR: could not allocate sideList\n");
+		exit(1);
+	}
 
 	firstElem = NULL;
 	long iElem = 0, iSidePtr = 0;
@@ -1344,6 +1425,11 @@ void createMesh(void)
 	elem_t *prevElem = NULL;
 	for (long iTria = 0; iTria < nTrias; ++iTria) {
 		elem_t *aElem = malloc(sizeof(elem_t));
+		if (!aElem) {
+			printf("| ERROR: could not allocate aElem\n");
+			exit(1);
+		}
+
 		aElem->id = iElem++;
 		aElem->domain = tria[iTria][3];
 		aElem->elemType = 3;
@@ -1358,6 +1444,11 @@ void createMesh(void)
 		aElem->next = NULL;
 
 		aElem->node = malloc(3 * sizeof(node_t *));
+		if (!aElem->node) {
+			printf("| ERROR: could not allocate aElem->node\n");
+			exit(1);
+		}
+
 		for (int iNode = 0; iNode < 3; ++iNode) {
 			aElem->node[iNode] = vertexPtr[tria[iTria][iNode]];
 		}
@@ -1372,6 +1463,11 @@ void createMesh(void)
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < 3; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
+			if (!aSide) {
+				printf("| ERROR: could not allocate aSide\n");
+				exit(1);
+			}
+
 			aSide->id = iSidePtr;
 			aSide->connection = NULL;
 			aSide->nextElemSide = NULL;
@@ -1407,6 +1503,11 @@ void createMesh(void)
 	/* loop over all quadrilaterals */
 	for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
 		elem_t *aElem = malloc(sizeof(elem_t));
+		if (!aElem) {
+			printf("| ERROR: could not allocate aElem\n");
+			exit(0);
+		}
+
 		aElem->id = iElem++;
 		aElem->domain = quad[iQuad][4];
 		aElem->elemType = 4;
@@ -1421,6 +1522,11 @@ void createMesh(void)
 		aElem->next = NULL;
 
 		aElem->node = malloc(4 * sizeof(node_t *));
+		if (!aElem->node) {
+			printf("| ERROR: could not allocate aElem->node\n");
+			exit(0);
+		}
+
 		for (int iNode = 0; iNode < 4; ++iNode) {
 			aElem->node[iNode] = vertexPtr[quad[iQuad][iNode]];
 		}
@@ -1435,6 +1541,11 @@ void createMesh(void)
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < 4; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
+			if (!aSide) {
+				printf("| ERROR: could not allocate aSide\n");
+				exit(0);
+			}
+
 			aSide->id = iSidePtr;
 			aSide->connection = NULL;
 			aSide->nextElemSide = NULL;
@@ -1472,6 +1583,11 @@ void createMesh(void)
 	/* save all BCedges into the sideList array */
 	for (long iSide = 0; iSide < nBCsides; ++iSide) {
 		side_t *aSide = malloc(sizeof(side_t));
+		if (!aSide) {
+			printf("| ERROR: could not allocate aSide\n");
+			exit(0);
+		}
+
 		aSide->id = iSidePtr;
 		aSide->connection = NULL;
 		aSide->nextElemSide = NULL;
@@ -1480,6 +1596,11 @@ void createMesh(void)
 		aSide->node[1] = vertexPtr[BCedge[iSide][1]];
 
 		elem_t *aElem = malloc(sizeof(elem_t));
+		if (!aElem) {
+			printf("| ERROR: could not allocate aElem\n");
+			exit(0);
+		}
+
 		aElem->id = -1;
 		aSide->elem = aElem;
 
@@ -1562,6 +1683,11 @@ void createMesh(void)
 
 			/* save boundary side (bSide) into boundary side list */
 			sidePtr_t *aBCside = malloc(sizeof(sidePtr_t));
+			if (!aBCside) {
+				printf("| ERROR: could not allocate aBCside\n");
+				exit(1);
+			}
+
 			aBCside->side = bSide;
 			aBCside->next = firstBCside;
 			firstBCside = aBCside;
@@ -1616,8 +1742,23 @@ void createMesh(void)
 
 	/* element and side lists */
 	side = malloc(nSides * sizeof(side_t *));
+	if (!side) {
+		printf("| ERROR: could not allocate side\n");
+		exit(1);
+	}
+
 	elem = malloc(nElems * sizeof(elem_t *));
+	if (!elem) {
+		printf("| ERROR: could not allocate elem\n");
+		exit(1);
+	}
+
 	BCside = malloc(nBCsides * sizeof(side_t *));
+	if (!BCside) {
+		printf("| ERROR: could not allocate BCside\n");
+		exit(1);
+	}
+
 
 	aElem = firstElem;
 	iElem = 0;
