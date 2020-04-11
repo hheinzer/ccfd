@@ -188,7 +188,7 @@ void initWing(void)
 void readWing(void)
 {
 	printf("\nInitializing Wing:\n");
-	wing.refLength = getDbl("referenceLength", 1.0);
+	wing.refLength = getDbl("referenceLength", "1.0");
 	wing.wallId = getInt("wall_id", NULL);
 }
 
