@@ -7,8 +7,8 @@
 # 'make allclean' : remove executable and libraries
 
 ### Equation system:
-EQNSYS = euler
-#EQNSYS = navierstokes
+#EQNSYS = euler
+EQNSYS = navierstokes
 
 ### Build options:
 TARGET = ccfd
@@ -30,7 +30,7 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
+FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 #-fopenmp
 INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
@@ -106,3 +106,6 @@ clean:
 
 allclean: clean
 	-rm -rf $(CGNS_DIR)
+
+run:
+	cd calc/blasius && ../../bin/ccfd Blasius.ini
