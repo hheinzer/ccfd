@@ -30,7 +30,7 @@ First make sure that all necessary dependencies are all installed. These can usu
 ```
 For an Ubuntu based system the following command should be enough
 ```
-# apt-get install git build-essential cmake
+# apt-get install git cmake build-essential
 ```
 
 Next, navigate to the directory where you want to keep `ccfd`, clone the git repository and compile the code
@@ -52,7 +52,8 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 I am still working on installing it on Windows directly, but have not yet managed to do so. For now it only works with a [Linux Bash shell](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Get the latest Ubuntu shell and complete the installation process. Next, start the Ubuntu shell and install the necessary utilities (if you have never used Linux before, `$` in front of a command means the command can be executed as a normal user and `#` in front of a command means, you need administrative rights; these can be obtained by typing `sudo` in front of the command and entering the password)
 ```
-# apt update && apt upgrade
+# apt update
+# apt upgrade
 # apt install git cmake build-essential libomp-dev
 ```
 
