@@ -70,7 +70,7 @@ $ explorer.exe .
 ```
 This will open the directory in the Windows explorer and you can easily access the file with ParaView.
 
-If, after trying to open ParaView, you get an error that a 'VCOMP' library is missing, follow the explainatins of this [Forum Post](https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/missing-vcomp140dll/afca0b6b-3ced-4e82-8ce8-8734a440d516).
+If, after trying to open ParaView, you get an error that a 'VCOMP140.DLL' library is missing, follow the explainatins of this [Forum Post](https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/missing-vcomp140dll/afca0b6b-3ced-4e82-8ce8-8734a440d516).
 
 # Usage
 
