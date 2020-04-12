@@ -30,7 +30,7 @@ First make sure that all necessary dependencies are all installed. These can usu
 ```
 For an Ubuntu based system the following command should be enough
 ```
-# apt-get install git build-essential cmake
+# apt-get install git cmake build-essential
 ```
 
 Next, navigate to the directory where you want to keep `ccfd`, clone the git repository and compile the code
@@ -52,20 +52,26 @@ It should work basically the same as with Linux, but detailed instructions will 
 
 I am still working on installing it on Windows directly, but have not yet managed to do so. For now it only works with a [Linux Bash shell](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Get the latest Ubuntu shell and complete the installation process. Next, start the Ubuntu shell and install the necessary utilities (if you have never used Linux before, `$` in front of a command means the command can be executed as a normal user and `#` in front of a command means, you need administrative rights; these can be obtained by typing `sudo` in front of the command and entering the password)
 ```
-# apt update && apt upgrade
-# apt install git make cmake gcc
+# apt update
+# apt upgrade
+# apt install git cmake build-essential libomp-dev
 ```
 
-Now change to your desired working directory. I would suggest selecting something in your actual Windows drive, as this will make accessing the calculation results easier
+Now change to your desired working directory
 ```
-$ cd /mnt/c/Users/<YourUserName>/Desktop
 $ git clone https://github.com/hhh95/ccfd.git
 $ cd ccfd
 $ make
 ```
 There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
 
-After everything is set up, continue with [Usage](#usage). However, when installing ParaView, do not install it in the Ubuntu shell, but rather install it normally for [Windows](https://www.paraview.org/download/).
+After everything is set up, continue with [Usage](#usage). However, when installing ParaView, do not install it in the Ubuntu shell, but rather install it normally for [Windows](https://www.paraview.org/download/). When you want to access the files created by `ccfd` from Windows, just type the following into the Ubuntu shell
+```
+$ explorer.exe .
+```
+This will open the directory in the Windows explorer and you can easily access the file with ParaView.
+
+If, after trying to open ParaView, you get an error that a 'VCOMP140.DLL' library is missing, follow the explainatins of this [Forum Post](https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/missing-vcomp140dll/afca0b6b-3ced-4e82-8ce8-8734a440d516).
 
 # Usage
 
