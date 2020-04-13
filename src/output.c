@@ -118,7 +118,7 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	cgsize_t iSize[3] = {nNodes, nElems, 0};
 
 	/* create base */
-	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+	if (cg_base_write(indexFile, "Base", 2, 3, &indexBase))
 		cg_error_exit();
 
 	/* create zone */
@@ -418,7 +418,7 @@ void cgnsFinalizeOutput(void)
 	cgsize_t iSize[3] = {nNodes, nElems, 0};
 
 	/* create base */
-	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+	if (cg_base_write(indexFile, "Base", 2, 3, &indexBase))
 		cg_error_exit();
 
 	/* create zone */
@@ -514,7 +514,7 @@ void cgnsWriteMesh(void)
 
 	/* allocate element arrays */
 	cgsize_t trias[nTrias][3], quads[nQuads][4], BCsides[nBCsides][2];
-	double **nodes = dyn2DdblArray(NDIM, nNodes);
+	double **nodes = dyn2DdblArray(NDIM + 1, nNodes);
 
 	/* save verticies in a CGNS compatible format */
 	long iNode = 0;
@@ -522,6 +522,7 @@ void cgnsWriteMesh(void)
 	while (aNode) {
 		nodes[X][iNode] = aNode->x[X];
 		nodes[Y][iNode] = aNode->x[Y];
+		nodes[2][iNode] = 0.0;
 
 		aNode->id = iNode++;
 		aNode = aNode->next;
@@ -582,7 +583,7 @@ void cgnsWriteMesh(void)
 		cg_error_exit();
 
 	/* write coordinate base to CGNS file */
-	if (cg_base_write(indexFile, "Base", 2, 2, &indexBase))
+	if (cg_base_write(indexFile, "Base", 2, 3, &indexBase))
 		cg_error_exit();
 
 	/* write computational zone and grid to CGNS file */
@@ -597,6 +598,9 @@ void cgnsWriteMesh(void)
 		cg_error_exit();
 	if (cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateY",
 			nodes[Y], &indexCoordinate))
+		cg_error_exit();
+	if (cg_coord_write(indexFile, indexBase, indexZone, RealDouble, "CoordinateZ",
+			nodes[2], &indexCoordinate))
 		cg_error_exit();
 
 	/* write the element connectivity to the CGNS file */
