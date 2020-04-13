@@ -727,7 +727,9 @@ void timeDisc(void)
 	}
 
 	/* close files */
-	fclose(resFile);
+	if (isStationary) {
+		fclose(resFile);
+	}
 
 	if (recordPoint.nPoints > 0) {
 		for (int iPt = 0; iPt < recordPoint.nPoints; ++iPt) {

@@ -455,7 +455,7 @@ void cgnsFinalizeOutput(void)
 					"/Base/Zone/FlowSolution"))
 				cg_error_exit();
 		} else {
-			sprintf(solutionFileName, "%s_%15.7f.cgns", strOutFile,
+			sprintf(solutionFileName, "%s_%015.7f.cgns", strOutFile,
 					times[iOutput]);
 			if (cg_link_write(solutionNames[iOutput], solutionFileName,
 					"/Base/Zone/FlowSolution"))
