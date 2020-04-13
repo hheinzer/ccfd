@@ -440,7 +440,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 
 	/* preparation for matrix vector multiplication */
 	double norm2_F_XK;
-	if (norm2_F_X0 <= (DBL_EPSILON) * (DBL_EPSILON) * nElems) {
+	if (norm2_F_X0 <= (1e-8) * (1e-8) * nElems) {
 		norm2_F_XK = DBL_MIN;
 	} else {
 		norm2_F_XK = norm2_F_X0;
@@ -566,7 +566,7 @@ void timeDisc(void)
 		calcTimeStep(printTime, &dt, &viscousTimeStepDominates);
 
 		/* main computation loop */
-		double resIter[NVAR + 2];
+		double resIter[NVAR + 2] = {0.0};
 		if (!isImplicit) {
 			if ((timeOrder == 1) && (nRKstages == 1)) {
 				explicitTimeStepEuler(t, dt, iter, resIter);

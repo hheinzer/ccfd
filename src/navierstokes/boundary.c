@@ -249,7 +249,7 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		}
 
 		/* determine the primitive state of the ghost cell */
-		consPrim(ghost_pVar, ghost_cVar);
+		consPrim(ghost_cVar, ghost_pVar);
 
 		/* rotate the primitive state into the global coordinate system */
 		double VXloc = ghost_pVar[VX];
