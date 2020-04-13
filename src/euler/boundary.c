@@ -50,7 +50,7 @@ void initBoundary(void)
 		double Ma, alpha, c, v;
 		switch (aBC->BCtype) {
 		case SLIPWALL:
-			printf("| BC Type: Slipwall\n");
+			printf("| BC Type: Slip Wall\n");
 			break;
 		case INFLOW:
 			printf("| BC Type: Inflow\n");
