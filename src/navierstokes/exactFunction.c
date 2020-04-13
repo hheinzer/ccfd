@@ -89,7 +89,7 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 
 		double cVar[NVAR];
 		for (int i = 0; i < NVAR; ++i) {
-			cVar[i] = 0.5 * (cSum[i] - cDiff[i] * tanh(x[X] - (1.0 / 6.0 + (20.0 * time + x[Y] * sqrt3q)) * factor));
+			cVar[i] = 0.5 * (cSum[i] - cDiff[i] * tanh((x[X] - (1.0 / 6.0 + (20.0 * time + x[Y]) * sqrt3q)) * factor));
 		}
 
 		pVar[0] = cVar[0];
