@@ -513,7 +513,9 @@ void cgnsWriteMesh(void)
 	cgsize_t iSize[3] = {nNodes, nElems, 0};
 
 	/* allocate element arrays */
-	cgsize_t trias[nTrias][3], quads[nQuads][4], BCsides[nBCsides][2];
+	cgsize_t **trias = dyn2DcgsizeArray(nTrias, 3);
+	cgsize_t **quads = dyn2DcgsizeArray(nQuads, 4);
+	cgsize_t **BCsides = dyn2DcgsizeArray(nBCsides, 2);
 	double **nodes = dyn2DdblArray(NDIM + 1, nNodes);
 
 	/* save verticies in a CGNS compatible format */
@@ -648,4 +650,7 @@ void cgnsWriteMesh(void)
 		cg_error_exit();
 
 	free(nodes);
+	free(trias);
+	free(quads);
+	free(BCsides);
 }
