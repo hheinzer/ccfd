@@ -108,7 +108,7 @@ allclean: clean
 	-rm -rf $(CGNS_DIR)
 
 run:
-	cd calc/doubleMachReflection && ../../bin/ccfd dmr.ini
+	cd calc/forwardFacingStep && ../../bin/ccfd ffs.ini
 
 debug:
 	cd calc/doubleMachReflection && gdb --args ../../bin/ccfd dmr.ini

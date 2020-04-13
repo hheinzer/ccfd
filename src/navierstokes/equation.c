@@ -23,7 +23,6 @@ double gamma2;
 double gamma1q;
 double cp;
 double Pr;
-double ReRef;
 double mu;
 
 int iFlux;
@@ -46,8 +45,6 @@ void initEquation(void)
 	mu = getDbl("mu", "0.0");
 
 	Pr = getDbl("Pr", "0.72");
-
-	ReRef = getDbl("Re", "1.0");
 
 	iFlux = getInt("fluxFunction", NULL);
 	switch (iFlux) {

@@ -738,20 +738,20 @@ void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		double f[NVAR], double g[NVAR])
 {
 	f[RHO] = 0.0;
-	f[MX]  = (4.0 / 3.0 * gradX[MX] - 2.0 / 3.0 * gradY[MY]) * mu / ReRef;
-	f[MY]  = (gradY[MX] + gradX[MY]) * mu / ReRef;
+	f[MX]  = (4.0 / 3.0 * gradX[MX] - 2.0 / 3.0 * gradY[MY]) * mu;
+	f[MY]  = (gradY[MX] + gradX[MY]) * mu;
 	f[E]   = (4.0 / 3.0 * state[MX] * gradX[MX] - 2.0 / 3.0 * state[MX] * gradY[MY]
 		+ (gradX[MY] + gradY[MX]) * state[MY]
 		+ gamma / (gamma1 * Pr * state[RHO] * state[RHO])
-		* (state[RHO] * gradX[P] - state[P] * gradX[RHO])) * mu / ReRef;
+		* (state[RHO] * gradX[P] - state[P] * gradX[RHO])) * mu;
 
 	g[RHO] = 0.0;
-	g[MX]  = (gradY[MX] + gradX[MY]) * mu / ReRef;
-	g[MY]  = (4.0 / 3.0 * gradY[MY] - 2.0 / 3.0 * gradX[MX]) * mu / ReRef;
+	g[MX]  = (gradY[MX] + gradX[MY]) * mu;
+	g[MY]  = (4.0 / 3.0 * gradY[MY] - 2.0 / 3.0 * gradX[MX]) * mu;
 	g[E]   = (4.0 / 3.0 * state[MY] * gradY[MY] - 2.0 / 3.0 * state[MY] * gradX[MX]
 		+ (gradY[MX] + gradX[MY]) * state[MX]
 		+ gamma / (gamma1 * Pr * state[RHO] * state[RHO])
-		* (state[RHO] * gradY[P] - state[P] * gradY[RHO])) * mu / ReRef;
+		* (state[RHO] * gradY[P] - state[P] * gradY[RHO])) * mu;
 }
 
 /*
