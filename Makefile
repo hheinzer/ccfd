@@ -30,7 +30,7 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS = -std=c99 -pedantic -Wall -march=native -O3 -fopenmp
+FLAGS = -std=c99 -pedantic -Wall -Wno-unknown-pragmas -march=native -O3 -fopenmp
 INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
@@ -106,9 +106,3 @@ clean:
 
 allclean: clean
 	-rm -rf $(CGNS_DIR)
-
-run:
-	cd calc/forwardFacingStep && ../../bin/ccfd ffs.ini
-
-debug:
-	cd calc/doubleMachReflection && gdb --args ../../bin/ccfd dmr.ini
