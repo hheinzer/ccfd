@@ -467,6 +467,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 	/* read in mesh format */
 	int mshFmt;
+	rewind(meshFile);
 	while (fgets(line, sizeof(line), meshFile)) {
 		if (!strcmp(line, "$MeshFormat\n")) {
 			fgets(line, sizeof(line), meshFile);
@@ -479,6 +480,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	case 2: {
 		/* read in number of nodes */
 		*nVertices = 0;
+		rewind(meshFile);
 		while (fgets(line, sizeof(line), meshFile)) {
 			if (!strcmp(line, "$Nodes\n")) {
 				fgets(line, sizeof(line), meshFile);
@@ -511,6 +513,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 		/* read in number of elements */
 		long nElem = 0;
+		rewind(meshFile);
 		while (fgets(line, sizeof(line), meshFile)) {
 			if (!strcmp(line, "$Elements\n")) {
 				fgets(line, sizeof(line), meshFile);
@@ -698,6 +701,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	case 4: {
 		/* read curve number of entity tags */
 		long nPEntities, nCEntities;
+		rewind(meshFile);
 		while (fgets(line, sizeof(line), meshFile)) {
 			if (!strcmp(line, "$Entities\n")) {
 				fgets(line, sizeof(line), meshFile);
@@ -729,6 +733,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		/* read in number of entity block and number of nordes */
 		*nVertices = 0;
 		int nEblocks;
+		rewind(meshFile);
 		while (fgets(line, sizeof(line), meshFile)) {
 			if (!strcmp(line, "$Nodes\n")) {
 				fgets(line, sizeof(line), meshFile);
@@ -777,6 +782,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 		/* read in number of element blocks and number of elements */
 		long nElem = 0;
+		rewind(meshFile);
 		while (fgets(line, sizeof(line), meshFile)) {
 			if (!strcmp(line, "$Elements\n")) {
 				fgets(line, sizeof(line), meshFile);
@@ -954,6 +960,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	char line[STRLEN];
 
 	/* read number of vertices */
+	rewind(meshFile);
 	while (fgets(line, sizeof(line), meshFile)) {
 		if (strstr(line, "Vertices")) {
 			fgets(line, sizeof(line), meshFile);
@@ -976,6 +983,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 	/* read number of edges */
 	long nEdges;
+	rewind(meshFile);
 	while (fgets(line, sizeof(line), meshFile)) {
 		if (strstr(line, "Edges")) {
 			fgets(line, sizeof(line), meshFile);
@@ -997,9 +1005,9 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		if (tmp != 0) {
 			long tmp0, tmp1, tmp2;
 			sscanf(line, "%ld %ld %ld", &tmp0, &tmp1, &tmp2);
-			tmpEdges[iEdge][0] = tmp0;
-			tmpEdges[iEdge][1] = tmp1;
-			tmpEdges[iEdge][2] = tmp2;
+			tmpEdges[*nBCedges][0] = tmp0;
+			tmpEdges[*nBCedges][1] = tmp1;
+			tmpEdges[*nBCedges][2] = tmp2;
 			(*nBCedges)++;
 		}
 	}
@@ -1015,6 +1023,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 	/* read number of triangles */
 	nTrias = 0;
+	rewind(meshFile);
 	while (fgets(line, sizeof(line), meshFile)) {
 		if (strstr(line, "Triangles")) {
 			fgets(line, sizeof(line), meshFile);
@@ -1041,6 +1050,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 	/* read number of quadrangles */
 	nQuads = 0;
+	rewind(meshFile);
 	while (fgets(line, sizeof(line), meshFile)) {
 		if (strstr(line, "Quadrangles")) {
 			fgets(line, sizeof(line), meshFile);
@@ -1051,7 +1061,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		}
 	}
 
-	/* read in triangles */
+	/* read in quadrangles */
 	if (nQuads > 0) {
 		*quad = dyn2DintArray(nQuads, 5);
 		for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
