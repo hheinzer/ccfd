@@ -21,7 +21,7 @@ int nVarGrad;
  * limiter after Barth & Jespersen
  * 2D, unstructured limiter
  */
-void limiterBarthJespersen(elem_t *aElem)
+inline void limiterBarthJespersen(elem_t *aElem)
 {
 	/* determine uMin and uMax */
 	double uMin[NVAR], uMax[NVAR];
@@ -98,7 +98,7 @@ void limiterBarthJespersen(elem_t *aElem)
  * limiter Venkatakrishnan, with additional limiting parameter k
  * 2D, unstructured limiter
  */
-void limiterVenkatakrishnan(elem_t *aElem)
+inline void limiterVenkatakrishnan(elem_t *aElem)
 {
 	/* determine uMin and uMax */
 	double uMin[NVAR], uMax[NVAR];
@@ -225,7 +225,6 @@ void spatialReconstruction(double time)
 		}
 	} else {
 		/* reconstruction of values at side GPs */
-		/* zero out all derivatives */
 		#pragma omp parallel for
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
