@@ -7,8 +7,8 @@
 # 'make allclean' : remove executable and libraries
 
 ### Equation system:
-#EQNSYS = euler
-EQNSYS = navierstokes
+EQNSYS = euler
+#EQNSYS = navierstokes
 
 ### Build options:
 TARGET = ccfd
