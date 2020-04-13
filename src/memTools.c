@@ -15,6 +15,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "cgnslib.h"
+
 /*
  * allocate a dynamic 2D array of integers
  */
@@ -27,6 +29,27 @@ long **dyn2DintArray(long I, long J)
 	}
 
 	long *ptr = (long *)(arr + I);
+	for (long i = 0; i < I; ++i) {
+		arr[i] = ptr + J * i;
+		for (long j = 0; j < J; ++j) {
+			arr[i][j] = 0;
+		}
+	}
+	return arr;
+}
+
+/*
+ * allocate a dynamic 2D array of integers
+ */
+cgsize_t **dyn2DcgsizeArray(long I, long J)
+{
+	cgsize_t **arr = malloc(sizeof(cgsize_t *) * I + sizeof(cgsize_t) * I * J);
+	if (!arr) {
+		printf("| ERROR: could not allocate arr\n");
+		exit(1);
+	}
+
+	cgsize_t *ptr = (cgsize_t *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
 		for (long j = 0; j < J; ++j) {

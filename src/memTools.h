@@ -8,7 +8,10 @@
 #ifndef MEMTOOLS_H
 #define MEMTOOLS_H
 
+#include "cgnslib.h"
+
 long **dyn2DintArray(long I, long J);
+cgsize_t **dyn2DcgsizeArray(long I, long J);
 double **dyn2DdblArray(long I, long J);
 long ***dyn3DintArray(long I, long J, long K);
 double ***dyn3DdblArray(long I, long J, long K);
