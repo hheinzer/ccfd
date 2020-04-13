@@ -737,7 +737,7 @@ void convectiveFlux(double rhoL, double rhoR,
 void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		double f[NVAR], double g[NVAR])
 {
-	f[RHO] = 0.0;
+	//f[RHO] = 0.0;
 	f[MX]  = (4.0 / 3.0 * gradX[MX] - 2.0 / 3.0 * gradY[MY]) * mu;
 	f[MY]  = (gradY[MX] + gradX[MY]) * mu;
 	f[E]   = (4.0 / 3.0 * state[MX] * gradX[MX] - 2.0 / 3.0 * state[MX] * gradY[MY]
@@ -745,7 +745,7 @@ void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		+ gamma / (gamma1 * Pr * state[RHO] * state[RHO])
 		* (state[RHO] * gradX[P] - state[P] * gradX[RHO])) * mu;
 
-	g[RHO] = 0.0;
+	//g[RHO] = 0.0;
 	g[MX]  = (gradY[MX] + gradX[MY]) * mu;
 	g[MY]  = (4.0 / 3.0 * gradY[MY] - 2.0 / 3.0 * gradX[MX]) * mu;
 	g[E]   = (4.0 / 3.0 * state[MY] * gradY[MY] - 2.0 / 3.0 * state[MY] * gradX[MX]
@@ -835,24 +835,21 @@ void fluxCalculation(void)
 		};
 
 		/* calculate flux */
-		double fluxConv[4];
+		double fluxConv[4] = {0.0};
 		convectiveFlux(pVarL[RHO], pVarR[RHO],
 			       pVarL[VX],  pVarR[VX],
 			       pVarL[VY],  pVarR[VY],
 			       pVarL[P],   pVarR[P],
 			       fluxConv);
 
-		double fluxLoc[4] = {
-			fluxConv[0], fluxConv[1], fluxConv[2], fluxConv[3]};
-
-		double fluxDiffX[4], fluxDiffY[4];
+		double fluxDiffX[4] = {0.0}, fluxDiffY[4] = {0.0};
 		diffusionFlux(stateMean, gradUx, gradUy, fluxDiffX, fluxDiffY);
 
 		/* rotate flux into global coordinate system and update residual */
-		aSide->flux[RHO] = fluxLoc[RHO];
-		aSide->flux[MX]  = aSide->n[X] * fluxLoc[MX] - aSide->n[Y] * fluxLoc[MY];
-		aSide->flux[MY]  = aSide->n[Y] * fluxLoc[MX] + aSide->n[X] * fluxLoc[MY];
-		aSide->flux[E]   = fluxLoc[E];
+		aSide->flux[RHO] = fluxConv[RHO];
+		aSide->flux[MX]  = aSide->n[X] * fluxConv[MX] - aSide->n[Y] * fluxConv[MY];
+		aSide->flux[MY]  = aSide->n[Y] * fluxConv[MX] + aSide->n[X] * fluxConv[MY];
+		aSide->flux[E]   = fluxConv[E];
 
 		/* sum up diffusion part of the fluxes */
 		aSide->flux[RHO] -= (fluxDiffX[RHO] * aSide->n[X] + fluxDiffY[RHO] * aSide->n[Y]);

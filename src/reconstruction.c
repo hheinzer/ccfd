@@ -21,7 +21,7 @@ int nVarGrad;
  * limiter after Barth & Jespersen
  * 2D, unstructured limiter
  */
-inline void limiterBarthJespersen(elem_t *aElem)
+void limiterBarthJespersen(elem_t *aElem)
 {
 	/* determine uMin and uMax */
 	double uMin[NVAR], uMax[NVAR];
@@ -98,7 +98,7 @@ inline void limiterBarthJespersen(elem_t *aElem)
  * limiter Venkatakrishnan, with additional limiting parameter k
  * 2D, unstructured limiter
  */
-inline void limiterVenkatakrishnan(elem_t *aElem)
+void limiterVenkatakrishnan(elem_t *aElem)
 {
 	/* determine uMin and uMax */
 	double uMin[NVAR], uMax[NVAR];
