@@ -439,12 +439,10 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	double norm2_F_X0 = vectorDotProduct(F_X0, F_X0);
 
 	/* preparation for matrix vector multiplication */
-	double norm2_F_XK;
-	if (norm2_F_X0 <= (1e-8) * (1e-8) * nElems) {
-		norm2_F_XK = DBL_MIN;
-	} else {
-		norm2_F_XK = norm2_F_X0;
-	}
+	double eps2newtonLoc =
+		fmax(1e-8 * 1e-8 * nElems * eps2newton / norm2_F_X0,
+		     eps2newton);
+	double norm2_F_XK_sq = sqrt(norm2_F_X0);
 
 	nInnerNewton = 0;
 
@@ -453,15 +451,15 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	}
 
 	/* Newton iterations */
-	double abortCritGMRES, norm2_F_XK_old = norm2_F_XK;
-	while ((norm2_F_XK > eps2newton * norm2_F_X0) && (nInnerNewton < nNewtonIter)) {
+	double abortCritGMRES, norm2_F_XK_old_sq = norm2_F_XK_sq, gammaA, gammaB;
+	while ((norm2_F_XK_sq * norm2_F_XK_sq > eps2newtonLoc * norm2_F_X0)
+			&& (nInnerNewton < nNewtonIter)) {
 		if (nInnerNewton == 0) {
 			abortCritGMRES = 0.999;
-			norm2_F_XK_old = norm2_F_XK;
+			norm2_F_XK_old_sq = norm2_F_XK_sq;
 		} else {
-			double gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
+			gammaA = gammaEW * norm2_F_XK_sq / norm2_F_XK_old_sq;
 
-			double gammaB;
 			if (gammaEW * abortCritGMRES * abortCritGMRES < 0.1) {
 				gammaB = fmin(0.999, gammaA);
 			} else {
@@ -470,26 +468,30 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 			}
 
 			abortCritGMRES = fmin(0.999, fmax(gammaB,
-					0.5 * sqrt(eps2newton) / sqrt(norm2_F_XK)));
+					0.5 * eps2newton_sq / norm2_F_XK_sq));
 
-			norm2_F_XK_old = norm2_F_XK;
+			norm2_F_XK_old_sq = norm2_F_XK_sq;
 		}
 
 		nInnerNewton++;
 
 		double deltaX[NVAR][nElems];
-		GMRES_M(time, dt, alpha, beta, F_XK, sqrt(norm2_F_XK),
+		GMRES_M(time, dt, alpha, beta, F_XK, norm2_F_XK_sq,
 				&abortCritGMRES, deltaX);
 
 		#pragma omp parallel for
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
 
-			for (int iVar = 0; iVar < NVAR; ++iVar) {
-				XK[iVar][iElem] += deltaX[iVar][iElem];
+			XK[RHO][iElem] += deltaX[RHO][iElem];
+			XK[MX][iElem]  += deltaX[MX][iElem];
+			XK[MY][iElem]  += deltaX[MY][iElem];
+			XK[E][iElem]   += deltaX[E][iElem];
 
-				aElem->cVar[iVar] = XK[iVar][iElem];
-			}
+			aElem->cVar[RHO] = XK[RHO][iElem];
+			aElem->cVar[MX]  = XK[MX][iElem];
+			aElem->cVar[MY]  = XK[MY][iElem];
+			aElem->cVar[E]   = XK[E][iElem];
 
 			consPrim(aElem->cVar, aElem->pVar);
 		}
@@ -500,14 +502,18 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
 
-			for (int iVar = 0; iVar < NVAR; ++iVar) {
-				R_XK[iVar][iElem] = aElem->u_t[iVar];
-				F_XK[iVar][iElem] = aElem->cVar[iVar] - Q[iVar][iElem]
-					- alpha * dt * aElem->u_t[iVar];
-			}
+			R_XK[RHO][iElem] = aElem->u_t[RHO];
+			R_XK[MX][iElem]  = aElem->u_t[MX];
+			R_XK[MY][iElem]  = aElem->u_t[MY];
+			R_XK[E][iElem]   = aElem->u_t[E];
+
+			F_XK[RHO][iElem] = aElem->cVar[RHO] - Q[RHO][iElem] - alpha * dt * aElem->u_t[RHO];
+			F_XK[MX][iElem]  = aElem->cVar[MX]  - Q[MX][iElem]  - alpha * dt * aElem->u_t[MX];
+			F_XK[MY][iElem]  = aElem->cVar[MY]  - Q[MY][iElem]  - alpha * dt * aElem->u_t[MY];
+			F_XK[E][iElem]   = aElem->cVar[E]   - Q[E][iElem]   - alpha * dt * aElem->u_t[E];
 		}
 
-		norm2_F_XK = vectorDotProduct(F_XK, F_XK);
+		norm2_F_XK_sq = sqrt(vectorDotProduct(F_XK, F_XK));
 	}
 
 	nNewtonIterGlobal += nInnerNewton;
@@ -515,7 +521,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	if (nInnerNewton == nNewtonIter) {
 		printf("| %g\n", eps2newton);
 		printf("| Newton NOT converged with %d Newton iteraions\n", nInnerNewton);
-		printf("| Norm / Norm_R0 = %g\n", norm2_F_XK / norm2_F_X0);
+		printf("| Norm / Norm_R0 = %g\n", norm2_F_XK_sq / sqrt(norm2_F_X0));
 		exit(1);
 	}
 
@@ -726,7 +732,7 @@ void timeDisc(void)
 		printf("| GMRES Iterations : %d\n", nGMRESiterGlobal);
 	}
 
-	/* close files */
+	/* close all open files */
 	if (isStationary) {
 		fclose(resFile);
 	}
