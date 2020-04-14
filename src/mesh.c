@@ -995,6 +995,7 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	}
 
 	/* read edge information, sort out edges with ID 0 */
+	(*nBCedges) = 0;
 	long **tmpEdges = dyn2DintArray(nEdges, 3);
 	for (long iEdge = 0; iEdge < nEdges; ++iEdge) {
 		fgets(line, sizeof(line), meshFile);
