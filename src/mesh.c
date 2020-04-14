@@ -1422,11 +1422,7 @@ void createMesh(void)
 	free(vertex);
 
 	/* elements and side pointers */
-	sideList_t *sideList = malloc(2 * nSides * sizeof(sideList_t));
-	if (!sideList) {
-		printf("| ERROR: could not allocate sideList\n");
-		exit(1);
-	}
+	sideList_t sideList[2 * nSides];
 
 	firstElem = NULL;
 	long iElem = 0, iSidePtr = 0;
@@ -1441,8 +1437,8 @@ void createMesh(void)
 		}
 
 		aElem->id = iElem++;
-		aElem->domain = tria[iTria][3];
 		aElem->elemType = 3;
+		aElem->domain = tria[iTria][aElem->elemType];
 
 		if (!firstElem) {
 			firstElem = aElem;
@@ -1453,25 +1449,25 @@ void createMesh(void)
 		}
 		aElem->next = NULL;
 
-		aElem->node = malloc(3 * sizeof(node_t *));
+		aElem->node = malloc(aElem->elemType * sizeof(node_t *));
 		if (!aElem->node) {
 			printf("| ERROR: could not allocate aElem->node\n");
 			exit(1);
 		}
 
-		for (int iNode = 0; iNode < 3; ++iNode) {
+		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
 			aElem->node[iNode] = vertexPtr[tria[iTria][iNode]];
 		}
 
 		aElem->bary[X] = aElem->bary[Y] = 0;
-		for (int iNode = 0; iNode < 3; ++iNode) {
+		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
 			for (int i = 0; i < NDIM; ++i) {
-				aElem->bary[i] += aElem->node[iNode]->x[i] / 3;
+				aElem->bary[i] += aElem->node[iNode]->x[i] / aElem->elemType;
 			}
 		}
 
 		aElem->firstSide = NULL;
-		for (int iSide = 0; iSide < 3; ++iSide) {
+		for (int iSide = 0; iSide < aElem->elemType; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
 			if (!aSide) {
 				printf("| ERROR: could not allocate aSide\n");
@@ -1484,14 +1480,14 @@ void createMesh(void)
 			aSide->next = NULL;
 			aSide->BC = NULL;
 			aSide->node[0] = aElem->node[iSide];
-			aSide->node[1] = aElem->node[(iSide + 1) % 3];
+			aSide->node[1] = aElem->node[(iSide + 1) % aElem->elemType];
 			aSide->elem = aElem;
 
 			aSide->nextElemSide = aElem->firstSide;
 			aElem->firstSide = aSide;
 
 			long iNode1 = aElem->node[iSide]->id;
-			long iNode2 = aElem->node[(iSide + 1) % 3]->id;
+			long iNode2 = aElem->node[(iSide + 1) % aElem->elemType]->id;
 
 			sideList[iSidePtr].node[0] = fmin(iNode1, iNode2);
 			sideList[iSidePtr].node[1] = fmax(iNode1, iNode2);
@@ -1519,8 +1515,8 @@ void createMesh(void)
 		}
 
 		aElem->id = iElem++;
-		aElem->domain = quad[iQuad][4];
 		aElem->elemType = 4;
+		aElem->domain = quad[iQuad][aElem->elemType];
 
 		if (!firstElem) {
 			firstElem = aElem;
@@ -1531,25 +1527,25 @@ void createMesh(void)
 		}
 		aElem->next = NULL;
 
-		aElem->node = malloc(4 * sizeof(node_t *));
+		aElem->node = malloc(aElem->elemType * sizeof(node_t *));
 		if (!aElem->node) {
 			printf("| ERROR: could not allocate aElem->node\n");
 			exit(0);
 		}
 
-		for (int iNode = 0; iNode < 4; ++iNode) {
+		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
 			aElem->node[iNode] = vertexPtr[quad[iQuad][iNode]];
 		}
 
 		aElem->bary[X] = aElem->bary[Y] = 0;
-		for (int iNode = 0; iNode < 4; ++iNode) {
+		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
 			for (int i = 0; i < NDIM; ++i) {
-				aElem->bary[i] += aElem->node[iNode]->x[i] / 4;
+				aElem->bary[i] += aElem->node[iNode]->x[i] / aElem->elemType;
 			}
 		}
 
 		aElem->firstSide = NULL;
-		for (int iSide = 0; iSide < 4; ++iSide) {
+		for (int iSide = 0; iSide < aElem->elemType; ++iSide) {
 			side_t *aSide = malloc(sizeof(side_t));
 			if (!aSide) {
 				printf("| ERROR: could not allocate aSide\n");
@@ -1562,14 +1558,14 @@ void createMesh(void)
 			aSide->next = NULL;
 			aSide->BC = NULL;
 			aSide->node[0] = aElem->node[iSide];
-			aSide->node[1] = aElem->node[(iSide + 1) % 4];
+			aSide->node[1] = aElem->node[(iSide + 1) % aElem->elemType];
 			aSide->elem = aElem;
 
 			aSide->nextElemSide = aElem->firstSide;
 			aElem->firstSide = aSide;
 
 			long iNode1 = aElem->node[iSide]->id;
-			long iNode2 = aElem->node[(iSide + 1) % 4]->id;
+			long iNode2 = aElem->node[(iSide + 1) % aElem->elemType]->id;
 
 			sideList[iSidePtr].node[0] = fmin(iNode1, iNode2);
 			sideList[iSidePtr].node[1] = fmax(iNode1, iNode2);
@@ -1722,13 +1718,16 @@ void createMesh(void)
 	sidePtr_t *aBCside = firstBCside;
 	while (aBCside) {
 		side_t *aSide = aBCside->side;
+
 		double tmp = 2.0 *
 			fabs(aSide->connection->GP[X] * aSide->connection->n[X] +
 			     aSide->connection->GP[Y] * aSide->connection->n[Y]);
+
 		aSide->elem->bary[X] = aSide->connection->elem->bary[X] + tmp +
 			aSide->connection->n[X];
 		aSide->elem->bary[Y] = aSide->connection->elem->bary[Y] + tmp +
 			aSide->connection->n[Y];
+
 		aBCside = aBCside->next;
 	}
 
@@ -1769,7 +1768,6 @@ void createMesh(void)
 		exit(1);
 	}
 
-
 	aElem = firstElem;
 	iElem = 0;
 	while (aElem) {
@@ -1806,11 +1804,15 @@ void readMesh(void)
 	case UNSTRUCTURED:
 		printf("| Mesh Type is UNSTRUCTURED\n");
 
-		strcpy(strMeshFormat, getStr("meshFormat", NULL));
+		char *tmp = getStr("meshFormat", NULL);
+		strcpy(strMeshFormat, tmp);
 		printf("| Mesh File Format is %s\n", strMeshFormat);
+		free(tmp);
 
-		strcpy(strMeshFile, getStr("meshFile", NULL));
+		tmp = getStr("meshFile", NULL);
+		strcpy(strMeshFile, tmp);
 		printf("| Mesh File: %s%s\n", strMeshFile, strMeshFormat);
+		free(tmp);
 
 		strcat(strMeshFile, strMeshFormat);
 		break;
@@ -1854,7 +1856,7 @@ void readMesh(void)
 }
 
 /*
- * Initalize the mesh and call read mesh
+ * initalize the mesh and call read mesh
  */
 void initMesh(void)
 {
@@ -1866,4 +1868,64 @@ void initMesh(void)
 		cgnsWriteMesh();
 	}
 	dxRef = sqrt(1.0 / (totalArea_q * nElems));
+}
+
+/*
+ * free all allocated memory of the mesh
+ */
+void freeMesh(void)
+{
+	/* free all nodes */
+	node_t *aNode = firstNode;
+	while (aNode) {
+		if (aNode->next) {
+			node_t *tmp = aNode;
+			aNode = aNode->next;
+			free(tmp);
+		} else {
+			free(aNode);
+			break;
+		}
+	}
+
+	/* free all elements and their corresponding sides */
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		free(aElem->xGP);
+		free(aElem->wGP);
+		free(aElem->node);
+
+		side_t *aSide = aElem->firstSide;
+		while (aSide) {
+			if (aSide->nextElemSide) {
+				side_t *tmp = aSide;
+				aSide = aSide->nextElemSide;
+				free(tmp);
+			} else {
+				free(aSide);
+				break;
+			}
+		}
+
+		free(aElem);
+	}
+	free(elem);
+	free(side);
+
+	/* free all BC sides */
+	sidePtr_t *aBCside = firstBCside;
+	while (aBCside) {
+		if (aBCside->next) {
+			sidePtr_t *tmp = aBCside;
+			aBCside = aBCside->next;
+			free(tmp->side->elem);
+			free(tmp->side);
+			free(tmp);
+		} else {
+			free(aBCside->side->elem);
+			free(aBCside->side);
+			free(aBCside);
+			break;
+		}
+	}
 }

@@ -530,3 +530,35 @@ void globalResidual(double dt, double resIter[NVAR + 2])
 	resIter[2] = sqrt(resIter[2] * totalArea_q);
 	resIter[3] = sqrt(resIter[3] * totalArea_q);
 }
+
+/*
+ * free all memory that was allocated for the wing evaluation
+ */
+void freeAnalyze(void)
+{
+	if (doCalcWing) {
+		sidePtr_t *aSidePtr = wing.firstSuctionSide;
+		while (aSidePtr) {
+			if (aSidePtr->next) {
+				sidePtr_t *tmp = aSidePtr;
+				aSidePtr = aSidePtr->next;
+				free(tmp);
+			} else {
+				free(aSidePtr);
+				break;
+			}
+		}
+
+		aSidePtr = wing.firstPressureSide;
+		while (aSidePtr) {
+			if (aSidePtr->next) {
+				sidePtr_t *tmp = aSidePtr;
+				aSidePtr = aSidePtr->next;
+				free(tmp);
+			} else {
+				free(aSidePtr);
+				break;
+			}
+		}
+	}
+}

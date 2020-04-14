@@ -53,5 +53,6 @@ void initAnalyze(void);
 void analyze(double time, long iter, double *resIter);
 void calcErrors(double time);
 void globalResidual(double dt, double resIter[NVAR + 2]);
+void freeAnalyze(void);
 
 #endif

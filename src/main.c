@@ -65,23 +65,12 @@ int main(int argc, char *argv[])
 		fclose(restartFile);
 
 		/* get restart time */
-		char *string = malloc(strlen(restartFileName));
-		if (!string) {
-			printf("| ERROR: could not allocate string\n");
-			exit(1);
-		}
-
-		strcpy(string, restartFileName);
-		while (strstr(string, "_") != NULL)
+		char *string = strstr(restartFileName, "_") + 1;
+		while (strstr(string, "_")) {
 			string = strstr(string, "_") + 1;
+		}
 		double timeStamp = strtod(string, NULL);
-		/* allocated memory can only be deallocated at the beginning
-		 * of the memory block, but the pointer 'string' was incremented
-		 * (see for yourself with 'printf("%p\n", string);')
-		 *	--> Move back to beginning of memory block via pointer
-		 *	    arithmetic
-		 */
-		free(string - (strlen(restartFileName) - strlen(string)));
+		printf("%g\n", timeStamp);
 
 		if (isStationary) {
 			iniIterationNumber = (int)timeStamp;
@@ -119,4 +108,11 @@ int main(int argc, char *argv[])
 
 	/* start time stepping routine */
 	timeDisc();
+
+	/* clean that memory, like you should */
+	freeMesh();
+	freeBoundary();
+	freeOutputTimes();
+	freeInitialCondition();
+	freeAnalyze();
 }

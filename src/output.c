@@ -36,7 +36,11 @@ outputTime_t *outputTimes;
 void initOutput(void)
 {
 	printf("\nInitializing IO:\n");
-	strcpy(strOutFile, getStr("fileName", NULL));
+
+	char *tmp = getStr("fileName", NULL);
+	strcpy(strOutFile, tmp);
+	free(tmp);
+
 	IOtimeInterval = getDbl("IOtimeInterval", NULL);
 	IOiterInterval = getDbl("IOiterInterval", NULL);
 	iVisuProg = getInt("outputFormat", "1");
@@ -316,7 +320,7 @@ void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 void dataOutput(double time, long iter)
 {
 	/* output times */
-	outputTime_t *outputTime = malloc(sizeof(outputTime_t));
+	outputTime_t *outputTime = calloc(1, sizeof(outputTime_t));
 	if (!outputTime) {
 		printf("| ERROR: could not allocate outputTime\n");
 		exit(1);
@@ -397,13 +401,17 @@ void cgnsFinalizeOutput(void)
 	long iters[nOutputs];
 	char solutionNames[nOutputs][32];
 
-	long iOutput = nOutputs - 1;
+	memset(times, 0, nOutputs * sizeof(double));
+	memset(iters, 0, nOutputs * sizeof(long));
+	memset(solutionNames, 0, nOutputs * 32 * sizeof(char));
+
+	long iOutput = nOutputs;
 	outputTime = outputTimes;
 	while (outputTime) {
+		iOutput--;
 		times[iOutput] = outputTime->time;
 		iters[iOutput] = outputTime->iter;
 		sprintf(solutionNames[iOutput], "FlowSolution%09ld", iters[iOutput]);
-		iOutput--;
 		outputTime = outputTime->next;
 	}
 
@@ -474,7 +482,7 @@ void cgnsFinalizeOutput(void)
 	if (cg_array_write("TimeValues", RealDouble, 1, tmp1, times))
 		cg_error_exit();
 
-	if (cg_array_write("IterationValues", Integer, 1, tmp1, iters))
+	if (cg_array_write("IterationValues", LongInteger, 1, tmp1, iters))
 		cg_error_exit();
 
 	/* create ZoneIter node */
@@ -653,4 +661,22 @@ void cgnsWriteMesh(void)
 	free(trias);
 	free(quads);
 	free(BCsides);
+}
+
+/*
+ * free all memory that was allocated for the output times
+ */
+void freeOutputTimes(void)
+{
+	outputTime_t *outputTime = outputTimes;
+	while (outputTime) {
+		if (outputTime->next) {
+			outputTime_t *tmp = outputTime;
+			outputTime = outputTime->next;
+			free(tmp);
+		} else {
+			free(outputTime);
+			break;
+		}
+	}
 }

@@ -15,8 +15,8 @@
 
 typedef struct cmd_t cmd_t;
 struct cmd_t {
-	char *key;
-	char *value;
+	char key[STRLEN];
+	char value[STRLEN];
 	cmd_t *next, *prev;
 };
 
@@ -40,12 +40,6 @@ void fillCmds(char iniFileName[STRLEN])
 	char line[2 * STRLEN], tmp[STRLEN];
 	cmd_t *currCmd = NULL;
 	while (fgets(line, sizeof(line), iniFile)) {
-		cmd_t *aCmd = malloc(sizeof(cmd_t));
-		if (!aCmd) {
-			printf("| ERROR: could not allocate command\n");
-			exit(1);
-		}
-
 		/* read key and make it lowercase */
 		j = 0;
 		for (i = 0; i < strlen(line); ++i) {
@@ -58,15 +52,15 @@ void fillCmds(char iniFileName[STRLEN])
 		}
 		tmp[j] = '\0';
 
-		/* continue and read value if key was read, else free aCmd */
+		/* continue and read value if key was read */
 		if (strlen(tmp) > 0) {
-			/* store the key */
-			aCmd->key = malloc(strlen(tmp) + 1);
-			if (!aCmd->key) {
-				printf("| ERROR: could not allocate key\n");
+			cmd_t *aCmd = malloc(sizeof(cmd_t));
+			if (!aCmd) {
+				printf("| ERROR: could not allocate command\n");
 				exit(1);
 			}
 
+			/* store the key */
 			strcpy(aCmd->key, tmp);
 			aCmd->next = NULL;
 
@@ -84,12 +78,6 @@ void fillCmds(char iniFileName[STRLEN])
 			tmp[j] = '\0';
 
 			/* store value */
-			aCmd->value = malloc(strlen(tmp) + 1);
-			if (!aCmd->value) {
-				printf("| ERROR: could not allocate value\n");
-				exit(1);
-			}
-
 			strcpy(aCmd->value, tmp);
 
 			/* complete the chain links */
@@ -101,9 +89,6 @@ void fillCmds(char iniFileName[STRLEN])
 				currCmd->next->prev = currCmd;
 				currCmd = currCmd->next;
 			}
-
-		} else {
-			free(aCmd);
 		}
 	}
 
@@ -115,10 +100,6 @@ void fillCmds(char iniFileName[STRLEN])
  */
 void deleteCmd(cmd_t *aCmd)
 {
-	/* remove the key and the value from memory */
-	free(aCmd->key);
-	free(aCmd->value);
-
 	/* link up the previous command to the next, if it exists. Otherwise
 	 * we are at the beginning of the list and need to move the first
 	 * command one over. */
@@ -132,6 +113,9 @@ void deleteCmd(cmd_t *aCmd)
 	if (aCmd->next) {
 		aCmd->next->prev = aCmd->prev;
 	}
+
+	/* free the memory of the command */
+	free(aCmd);
 }
 
 /*
@@ -141,11 +125,7 @@ void deleteCmd(cmd_t *aCmd)
 char *findCmd(const char *key, char defMsg[8], const char *proposal)
 {
 	/* create a lowercase copy of the key */
-	char *keyLower = malloc(strlen(key) + 1);
-	if (!keyLower) {
-		printf("| ERROR: could not allocate keyLower\n");
-		exit(1);
-	}
+	char keyLower[strlen(key) + 1];
 
 	strcpy(keyLower, key);
 	for (int i = 0; i < strlen(keyLower); ++i) {
@@ -190,7 +170,6 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 			strcpy(defMsg, "DEFAULT");
 		}
 	}
-	free(keyLower);
 
 	return value;
 }
@@ -216,11 +195,7 @@ char *getStr(const char *key, const char *proposal)
 int countKeys(const char *key, const int proposal)
 {
 	/* make lowercase copy of the key */
-	char *keyLower = malloc(strlen(key) + 1);
-	if (!keyLower) {
-		printf("| ERROR: could not allocate keyLower\n");
-		exit(1);
-	}
+	char keyLower[strlen(key) + 1];
 
 	strcpy(keyLower, key);
 	for (int i = 0; i < strlen(keyLower); ++i) {
@@ -259,6 +234,7 @@ int getInt(const char *key, const char *proposal)
 	char *valueStr = findCmd(key, defMsg, proposal);
 	int value = strtol(valueStr, NULL, 10);
 	printf("| %19s = %27d (%s)\n", key, value, defMsg);
+	free(valueStr);
 	return value;
 }
 
@@ -273,6 +249,7 @@ double getDbl(const char *key, const char *proposal)
 	char *valueStr = findCmd(key, defMsg, proposal);
 	double value = strtod(valueStr, NULL);
 	printf("| %19s = %27g (%s)\n", key, value, defMsg);
+	free(valueStr);
 	return value;
 }
 
@@ -294,6 +271,7 @@ bool getBool(const char *key, const char *proposal)
 		value = false;
 	}
 	printf("| %19s = %27s (%s)\n", key, (value ? "true" : "false"), defMsg);
+	free(valueStr);
 	return value;
 }
 
@@ -327,6 +305,7 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 	sprintf(line + strlen(line), "}");
 
 	printf("| %16s[%d] = %27s (%s)\n", key, N, line, defMsg);
+	free(valueStr);
 	return value;
 }
 
@@ -360,6 +339,7 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 	sprintf(line + strlen(line), "}");
 
 	printf("| %16s[%d] = %27s (%s)\n", key, N, line, defMsg);
+	free(valueStr);
 	return value;
 }
 
@@ -370,16 +350,14 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 void freeCmds(void)
 {
 	cmd_t *currCmd = firstCmd;
-	while (currCmd && currCmd->next) {
-		currCmd = currCmd->next;
-		free(currCmd->prev->key);
-		free(currCmd->prev->value);
-		free(currCmd->prev);
-	}
-	if (currCmd) {
-		free(currCmd->key);
-		free(currCmd->value);
-		free(currCmd);
+	while (currCmd) {
+		if (currCmd->next) {
+			currCmd = currCmd->next;
+			free(currCmd->prev);
+		} else {
+			free(currCmd);
+			break;
+		}
 	}
 }
 

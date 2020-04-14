@@ -22,7 +22,7 @@
  */
 long **dyn2DintArray(long I, long J)
 {
-	long **arr = malloc(sizeof(long *) * I + sizeof(long) * I * J);
+	long **arr = calloc(1, sizeof(long *) * I + sizeof(long) * I * J);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -31,9 +31,6 @@ long **dyn2DintArray(long I, long J)
 	long *ptr = (long *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
-		for (long j = 0; j < J; ++j) {
-			arr[i][j] = 0;
-		}
 	}
 	return arr;
 }
@@ -43,7 +40,7 @@ long **dyn2DintArray(long I, long J)
  */
 cgsize_t **dyn2DcgsizeArray(long I, long J)
 {
-	cgsize_t **arr = malloc(sizeof(cgsize_t *) * I + sizeof(cgsize_t) * I * J);
+	cgsize_t **arr = calloc(1, sizeof(cgsize_t *) * I + sizeof(cgsize_t) * I * J);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -52,9 +49,6 @@ cgsize_t **dyn2DcgsizeArray(long I, long J)
 	cgsize_t *ptr = (cgsize_t *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
-		for (long j = 0; j < J; ++j) {
-			arr[i][j] = 0;
-		}
 	}
 	return arr;
 }
@@ -64,7 +58,7 @@ cgsize_t **dyn2DcgsizeArray(long I, long J)
  */
 double **dyn2DdblArray(long I, long J)
 {
-	double **arr = malloc(sizeof(double *) * I + sizeof(double) * I * J);
+	double **arr = calloc(1, sizeof(double *) * I + sizeof(double) * I * J);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -73,9 +67,6 @@ double **dyn2DdblArray(long I, long J)
 	double *ptr = (double *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
-		for (long j = 0; j < J; ++j) {
-			arr[i][j] = 0.0;
-		}
 	}
 	return arr;
 }
@@ -85,7 +76,7 @@ double **dyn2DdblArray(long I, long J)
  */
 long ***dyn3DintArray(long I, long J, long K)
 {
-	long ***arr = malloc(sizeof(long *) * I + sizeof(long **) * I * J + sizeof(long) * I * J * K);
+	long ***arr = calloc(1, sizeof(long *) * I + sizeof(long **) * I * J + sizeof(long) * I * J * K);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -97,9 +88,6 @@ long ***dyn3DintArray(long I, long J, long K)
 		arr[i] = ptrI + J * i;
 		for (long j = 0; j < J; ++j) {
 			arr[i][j] = ptrJ + J * K * i + K * j;
-			for (long k = 0; k < K; ++k) {
-				arr[i][j][k] = 0.0;
-			}
 		}
 	}
 	return arr;
@@ -110,7 +98,7 @@ long ***dyn3DintArray(long I, long J, long K)
  */
 double ***dyn3DdblArray(long I, long J, long K)
 {
-	double ***arr = malloc(sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double) * I * J * K);
+	double ***arr = calloc(1, sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double) * I * J * K);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -122,9 +110,6 @@ double ***dyn3DdblArray(long I, long J, long K)
 		arr[i] = ptrI + J * i;
 		for (long j = 0; j < J; ++j) {
 			arr[i][j] = ptrJ + J * K * i + K * j;
-			for (long k = 0; k < K; ++k) {
-				arr[i][j][k] = 0.0;
-			}
 		}
 	}
 	return arr;
@@ -135,7 +120,7 @@ double ***dyn3DdblArray(long I, long J, long K)
  */
 double ****dyn4DdblArray(long I, long J, long K, long L)
 {
-	double ****arr = malloc(sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double ***) * I * J * K + sizeof(double) * I * J * K * L);
+	double ****arr = calloc(1, sizeof(double *) * I + sizeof(double **) * I * J + sizeof(double ***) * I * J * K + sizeof(double) * I * J * K * L);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -150,9 +135,6 @@ double ****dyn4DdblArray(long I, long J, long K, long L)
 			arr[i][j] = ptrJ + J * K * i + K * j;
 			for (long k = 0; k < K; ++k) {
 				arr[i][j][k] = ptrK + J * K * L * i + K * L * j + L * k;
-				for (long l = 0; l < L; ++l) {
-					arr[i][j][k][l] = 0.0;
-				}
 			}
 		}
 	}
@@ -164,7 +146,7 @@ double ****dyn4DdblArray(long I, long J, long K, long L)
  */
 char **dynStringArray(long I, long J)
 {
-	char **arr = malloc(sizeof(char *) * I + sizeof(char) * I * J);
+	char **arr = calloc(1, sizeof(char *) * I + sizeof(char) * I * J);
 	if (!arr) {
 		printf("| ERROR: could not allocate arr\n");
 		exit(1);
@@ -173,7 +155,6 @@ char **dynStringArray(long I, long J)
 	char *ptr = (char *)(arr + I);
 	for (long i = 0; i < I; ++i) {
 		arr[i] = ptr + J * i;
-		strcpy(arr[i], "");
 	}
 	return arr;
 }

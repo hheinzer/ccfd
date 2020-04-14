@@ -317,3 +317,22 @@ void setBCatBarys(double time)
 		boundary(gSide, time, aElem->pVar, gElem->pVar, gElem->bary);
 	}
 }
+
+/*
+ * free all memory that was allocated for the boundary conditions
+ */
+void freeBoundary(void)
+{
+	boundary_t *aBC = firstBC;
+	while (aBC) {
+		if (aBC->next) {
+			boundary_t *tmp = aBC;
+			aBC = aBC->next;
+			free(tmp);
+		} else {
+			free(aBC);
+			break;
+		}
+	}
+	free(BCside);
+}

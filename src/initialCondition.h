@@ -17,5 +17,6 @@ extern double **refState;
 
 void initInitialCondition(void);
 void setInitialCondition(void);
+void freeInitialCondition(void);
 
 #endif

@@ -119,5 +119,6 @@ extern side_t *firstSide;
 extern sidePtr_t *firstBCside;
 
 void initMesh(void);
+void freeMesh(void);
 
 #endif

@@ -49,5 +49,6 @@ void setBCatSides(double time);
 void setBCatBarys(double time);
 void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		double ghost_pVar[NVAR], double x[NDIM]);
+void freeBoundary(void);
 
 #endif

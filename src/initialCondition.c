@@ -64,6 +64,8 @@ void initInitialCondition(void)
 			refState[i][VX] = v * cos(alpha * pi / 180.0);
 			refState[i][VY] = v * sin(alpha * pi / 180.0);
 		}
+
+		free(domainID);
 		break;
 	case 2:
 		intExactFunc = getInt("exactFunc", NULL);
@@ -125,6 +127,7 @@ void cgnsReadSolution(void)
 	if (cg_descriptor_read(1, descriptorName, &text))
 		cg_error_exit();
 	sscanf(text, "%lg %lg", &t, &timeOverall);
+	cg_free(text);
 
 	/* close CGNS file */
 	if (cg_close(indexFile))
@@ -211,4 +214,14 @@ void setInitialCondition(void)
 	}
 
 	printf("| Done.\n");
+}
+
+/*
+ * free all memory that was allocated for the reference state
+ */
+void freeInitialCondition(void)
+{
+	if (refState) {
+		free(refState);
+	}
 }
