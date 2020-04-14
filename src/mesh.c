@@ -1341,10 +1341,10 @@ void createMesh(void)
 	nTrias = nQuads = 0;
 
 	/* create cartesian mesh or read unstructured mesh from file */
-	double **vertex;
+	double **vertex = NULL;
 	long **tria, **quad, **BCedge;
 	tria = quad = BCedge = NULL;
-	long nVertices, nBCedges;
+	long nVertices = 0, nBCedges = 0;
 	switch (meshType) {
 	case CARTESIAN:
 		createCartMesh(&vertex, &nVertices, &BCedge, &nBCedges, &quad);
