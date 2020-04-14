@@ -1345,7 +1345,7 @@ void createMesh(void)
 	double **vertex = NULL;
 	long **tria, **quad, **BCedge;
 	tria = quad = BCedge = NULL;
-	long nVertices = 0, nBCedges = 0;
+	long nVertices, nBCedges;
 	switch (meshType) {
 	case CARTESIAN:
 		createCartMesh(&vertex, &nVertices, &BCedge, &nBCedges, &quad);
