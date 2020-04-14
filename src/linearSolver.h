@@ -29,6 +29,7 @@ extern bool usePrecond;
 extern double rEps0, srEps0;
 
 extern double eps2newton;
+extern double eps2newton_sq;
 
 extern double epsGMRES;
 extern double gammaEW;

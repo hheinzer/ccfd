@@ -39,6 +39,7 @@ bool usePrecond;
 double rEps0, srEps0;
 
 double eps2newton;
+double eps2newton_sq;
 
 double epsGMRES;
 double gammaEW;
@@ -47,6 +48,9 @@ double **XK, **R_XK;
 double ***Dinv;
 double ****lowerUpper;
 long ***elemToElem;
+
+double ***V;
+double ***Z;
 
 /*
  * initialize linear solver
@@ -58,6 +62,7 @@ void initLinearSolver(void)
 
 		eps2newton = getDbl("epsNewton", "0.001");
 		eps2newton *= eps2newton;
+		eps2newton_sq = sqrt(eps2newton);
 
 		epsGMRES = getDbl("epsGMRES", "0.001");
 
@@ -106,6 +111,10 @@ void initLinearSolver(void)
 				}
 			}
 		}
+
+		V = dyn3DdblArray(nKdim, NVAR, nElems);
+		Z = dyn3DdblArray(nKdim, NVAR, nElems);
+
 	}
 }
 
@@ -204,16 +213,16 @@ void buildMatrix(double time, double dt)
 					long NBsideId = elemToElem[1][iSide][iElem];
 
 					lowerUpper[RHO][iVar][NBsideId][NBelemId]
-						+= aSide->connection->elem->u_t[RHO];
+						-= aSide->connection->elem->u_t[RHO] * dt;
 
 					lowerUpper[MX][iVar][NBsideId][NBelemId]
-						+= aSide->connection->elem->u_t[MX];
+						-= aSide->connection->elem->u_t[MX] * dt;
 
 					lowerUpper[MY][iVar][NBsideId][NBelemId]
-						+= aSide->connection->elem->u_t[MY];
+						-= aSide->connection->elem->u_t[MY] * dt;
 
 					lowerUpper[E][iVar][NBsideId][NBelemId]
-						+= aSide->connection->elem->u_t[E];
+						-= aSide->connection->elem->u_t[E] * dt;
 				}
 
 				aSide = aSide->nextElemSide;
@@ -237,17 +246,19 @@ void buildMatrix(double time, double dt)
 		}
 	}
 
-	for (int i = 0; i < NVAR; ++i) {
-		for (int j = 0; j < NVAR; ++j) {
-			for (int k = 0; k < 4; ++k) {
-				for (int l = 0; l < nElems; ++l) {
-					lowerUpper[i][j][k][l] *= - dt;
-				}
-			}
-		}
-	}
-
 	free(D);
+
+	/* TODO: get rid of */
+	//for (int i = 0; i < NVAR; ++i) {
+	//	for (int j = 0; j < NVAR; ++j) {
+	//		for (int k = 0; k < 4; ++k) {
+	//			for (int l = 0; l < nElems; ++l) {
+	//				lowerUpper[i][j][k][l] *= - dt;
+	//			}
+	//		}
+	//	}
+	//}
+
 }
 
 /*
@@ -396,28 +407,31 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 	*abortCrit = epsGMRES * normB;
 
 	double R0[NVAR][nElems];
-	for (int iVar = 0; iVar < NVAR; ++iVar) {
-		for (long iElem = 0; iElem < nElems; ++iElem) {
-			R0[iVar][iElem] = - B[iVar][iElem];
-		}
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		R0[RHO][iElem] = - B[RHO][iElem];
+		R0[MX][iElem]  = - B[MX][iElem];
+		R0[MY][iElem]  = - B[MY][iElem];
+		R0[E][iElem]   = - B[E][iElem];
 	}
 
-	double normR0 = normB;
-
 	memset(deltaX, 0, NVAR * nElems * sizeof(double));
+
+	double normR0 = normB;
 
 	nInnerGMRES = 0;
 
 	/* GMRES(m) */
-	double ***V = dyn3DdblArray(nKdim, NVAR, nElems);
-	for (int iVar = 0; iVar < NVAR; ++iVar) {
-		for (long iElem = 0; iElem < nElems; ++iElem) {
-			V[0][iVar][iElem] = R0[iVar][iElem] / normR0;
-		}
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		V[0][RHO][iElem] = R0[RHO][iElem] / normR0;
+		V[0][MX][iElem]  = R0[MX][iElem]  / normR0;
+		V[0][MY][iElem]  = R0[MY][iElem]  / normR0;
+		V[0][E][iElem]   = R0[E][iElem]   / normR0;
 	}
 
 
-	double gam[nKdim + 1], ***Z = dyn3DdblArray(nKdim, NVAR, nElems);
+	double gam[nKdim + 1];
 	gam[0] = normR0;
 
 	int m;
@@ -447,10 +461,12 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 			}
 			H[nn][m] = res;
 
-			for (int iVar = 0; iVar < 4; ++iVar) {
-				for (int iElem = 0; iElem < nElems; ++iElem) {
-					W[iVar][iElem] -= H[nn][m] * V[nn][iVar][iElem];
-				}
+			#pragma omp parallel for
+			for (int iElem = 0; iElem < nElems; ++iElem) {
+				W[RHO][iElem] -= H[nn][m] * V[nn][RHO][iElem];
+				W[MX][iElem]  -= H[nn][m] * V[nn][MX][iElem];
+				W[MY][iElem]  -= H[nn][m] * V[nn][MY][iElem];
+				W[E][iElem]   -= H[nn][m] * V[nn][E][iElem];
 			}
 		}
 
@@ -460,9 +476,9 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 
 		/* Givens rotation */
 		for (int nn = 0; nn <= m - 1; ++nn) {
-			double tmp = C[nn] * H[nn][m] + S[nn] * H[nn + 1][m];
+			double tmp   = C[nn] * H[nn][m] + S[nn] * H[nn + 1][m];
 			H[nn + 1][m] = - S[nn] * H[nn][m] + C[nn] * H[nn + 1][m];
-			H[nn][m] = tmp;
+			H[nn][m]     = tmp;
 		}
 
 		double bet = sqrt(H[m][m] * H[m][m] + H[m + 1][m] * H[m + 1][m]);
@@ -485,6 +501,7 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 			}
 
 			for (int nn = 0; nn <= m; ++nn) {
+				#pragma omp parallel for
 				for (long iElem = 0; iElem < nElems; ++iElem) {
 					deltaX[RHO][iElem] += alp[nn] * Z[nn][RHO][iElem];
 					deltaX[MX][iElem]  += alp[nn] * Z[nn][MX][iElem];
@@ -493,17 +510,22 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 				}
 			}
 			nGMRESiterGlobal += nInnerGMRES;
+
 			return;
 		} else {
 			/* no convergence, next iteration */
-			for (int iVar = 0; iVar < NVAR; ++iVar) {
-				for (long iElem = 0; iElem < nElems; ++iElem) {
-					V[m + 1][iVar][iElem] =
-						W[iVar][iElem] / H[m + 1][m];
-				}
+			#pragma omp parallel for
+			for (long iElem = 0; iElem < nElems; ++iElem) {
+				V[m + 1][RHO][iElem] = W[RHO][iElem] / H[m + 1][m];
+				V[m + 1][MX][iElem]  = W[MX][iElem]  / H[m + 1][m];
+				V[m + 1][MY][iElem]  = W[MY][iElem]  / H[m + 1][m];
+				V[m + 1][E][iElem]   = W[E][iElem]   / H[m + 1][m];
 			}
 		}
 	}
+
+	free(V);
+	free(Z);
 
 	printf("| GMRES not converged with %d iterations:\n", nInnerGMRES);
 	printf("| Norm_R0: %g\n", fabs(gam[0]));
