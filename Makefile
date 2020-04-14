@@ -105,4 +105,4 @@ clean:
 	-rm -rf $(BINDIR)
 
 allclean: clean
-	-rm -rf $(CGNS_DIR)
+	-rm -rf $(LIBDIR)/CGNS-*/
