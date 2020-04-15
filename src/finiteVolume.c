@@ -66,7 +66,7 @@ void initFV(void)
  * calling all subroutines to perform the spacial operator of the FV scheme
  * Result: residual vecto
  */
-void fvTimeDerivative(double time, long iter)
+void fvTimeDerivative(double time)
 {
 	/* set dt for boundary condition calculation */
 	#pragma omp parallel for

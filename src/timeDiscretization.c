@@ -326,7 +326,7 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
  */
 void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
 {
-	fvTimeDerivative(time, iter);
+	fvTimeDerivative(time);
 
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -359,7 +359,7 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
 	/* loop over the RK stages */
 	for (int iStage = 1; iStage <= nRKstages; ++iStage) {
 		double dtStage = RKcoeff[iStage - 1] * dt;
-		fvTimeDerivative(time + dtStage, iter);
+		fvTimeDerivative(time + dtStage);
 
 		/* time update of conservative variables */
 		#pragma omp parallel for
@@ -412,7 +412,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	/* Newton */
 	time = t + beta * dt;
 
-	fvTimeDerivative(time, iter);
+	fvTimeDerivative(time);
 
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -501,7 +501,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 			consPrim(aElem->cVar, aElem->pVar);
 		}
 
-		fvTimeDerivative(time, iter);
+		fvTimeDerivative(time);
 
 		#pragma omp parallel for
 		for (long iElem = 0; iElem < nElems; ++iElem) {

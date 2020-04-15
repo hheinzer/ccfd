@@ -177,20 +177,17 @@ void buildMatrix(double time, double dt)
 		}
 	}
 
-	long s = 0;
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
 
 		for (int iVar = 0; iVar < NVAR; ++iVar) {
 			aElem->pVar[iVar] += rEps0;
-			fvTimeDerivative(t, 0);
+			fvTimeDerivative(time);
 			aElem->pVar[iVar] -= rEps0;
 
-			long r = iElem * NVAR;
 			for (int jVar = 0; jVar < NVAR; ++jVar) {
-				dRdU[r++][s] += (aElem->u_t[jVar]
-						- R_XK[jVar][iElem]) * srEps0;
-
+				dRdU[iElem * NVAR + jVar][iVar + iElem * NVAR]
+					+= (aElem->u_t[jVar] - R_XK[jVar][iElem]) * srEps0;
 			}
 
 			side_t *aSide = aElem->firstSide;
@@ -200,18 +197,14 @@ void buildMatrix(double time, double dt)
 					long jElem = aSide->connection->elem->id;
 					elem_t *bElem = elem[jElem];
 
-					r = jElem * NVAR;
 					for (int jVar = 0; jVar < NVAR; ++jVar) {
-						dRdU[r++][s] += (bElem->u_t[jVar]
-								- R_XK[jVar][jElem]) * srEps0;
-
+						dRdU[jElem * NVAR + jVar][iVar + iElem * NVAR]
+							+= (bElem->u_t[jVar] - R_XK[jVar][jElem]) * srEps0;
 					}
 				}
 
 				aSide = aSide->nextElemSide;
 			}
-
-			++s;
 		}
 	}
 
@@ -343,7 +336,7 @@ void matrixVector(double time, double dt, double alpha, double beta, double **v,
 		consPrim(aElem->cVar, aElem->pVar);
 	}
 
-	fvTimeDerivative(time, iterGlobal);
+	fvTimeDerivative(time);
 
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
