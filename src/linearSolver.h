@@ -44,5 +44,6 @@ double vectorDotProduct(double A[NVAR][nElems], double B[NVAR][nElems]);
 void buildMatrix(double time, double dt);
 void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][nElems],
 		double normB, double *abortCrit, double deltaX[NVAR][nElems]);
+void freeLinearSolver(void);
 
 #endif

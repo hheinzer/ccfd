@@ -524,11 +524,28 @@ void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][n
 		}
 	}
 
-	free(V);
-	free(Z);
-
 	printf("| GMRES not converged with %d iterations:\n", nInnerGMRES);
 	printf("| Norm_R0: %g\n", fabs(gam[0]));
 	printf("| Norm_R : %g\n", fabs(gam[m]));
 	exit(1);
+}
+
+/*
+ * free all memory that was allocated for
+ */
+void freeLinearSolver(void)
+{
+	if (isImplicit) {
+		free(XK);
+		free(R_XK);
+		free(V);
+		free(Z);
+
+
+		if (usePrecond) {
+			free(Dinv);
+			free(lowerUpper);
+			free(elemToElem);
+		}
+	}
 }
