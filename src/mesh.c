@@ -448,6 +448,8 @@ void createCartMesh(
 			k++;
 		}
 	}
+
+	free(cartMesh.nBC);
 }
 
 /*
@@ -1386,10 +1388,7 @@ void createMesh(void)
 	nNodes = 0;
 
 	/* create nodes */
-	node_t *vertexPtr[nVertices];
-	for (long iNode = 0; iNode < nVertices; ++iNode) {
-		vertexPtr[iNode] = NULL;
-	}
+	node_t **vertexPtr = calloc(nVertices, sizeof(node_t *));
 
 	xMin = vertex[0][X];
 	xMax = vertex[0][X];
@@ -1423,7 +1422,7 @@ void createMesh(void)
 	free(vertex);
 
 	/* elements and side pointers */
-	sideList_t sideList[2 * nSides];
+	sideList_t *sideList = calloc(2 * nSides, sizeof(sideList_t));
 
 	firstElem = NULL;
 	long iElem = 0, iSidePtr = 0;
@@ -1462,9 +1461,8 @@ void createMesh(void)
 
 		aElem->bary[X] = aElem->bary[Y] = 0;
 		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
-			for (int i = 0; i < NDIM; ++i) {
-				aElem->bary[i] += aElem->node[iNode]->x[i] / aElem->elemType;
-			}
+			aElem->bary[X] += aElem->node[iNode]->x[X] / aElem->elemType;
+			aElem->bary[Y] += aElem->node[iNode]->x[Y] / aElem->elemType;
 		}
 
 		aElem->firstSide = NULL;
@@ -1540,9 +1538,8 @@ void createMesh(void)
 
 		aElem->bary[X] = aElem->bary[Y] = 0;
 		for (int iNode = 0; iNode < aElem->elemType; ++iNode) {
-			for (int i = 0; i < NDIM; ++i) {
-				aElem->bary[i] += aElem->node[iNode]->x[i] / aElem->elemType;
-			}
+			aElem->bary[X] += aElem->node[iNode]->x[X] / aElem->elemType;
+			aElem->bary[Y] += aElem->node[iNode]->x[Y] / aElem->elemType;
 		}
 
 		aElem->firstSide = NULL;
@@ -1644,6 +1641,7 @@ void createMesh(void)
 		iSidePtr++;
 	}
 	free(BCedge);
+	free(vertexPtr);
 
 	/*
 	 * Sort sideList array in order to retreive the connectivity info more
@@ -1706,6 +1704,7 @@ void createMesh(void)
 		aSide->connection = bSide;
 		bSide->connection = aSide;
 	}
+	free(sideList);
 
 	/* extend element info: area and projection of cell onto axes */
 	totalArea_q = 0.0;
@@ -1826,9 +1825,13 @@ void readMesh(void)
 		double *X0 = getDblArray("X0", NDIM, NULL);
 		xMin = X0[0];
 		yMin = X0[1];
+		free(X0);
+
 		double *DX = getDblArray("Xmax", NDIM, NULL);
 		xMax = DX[0];
 		yMax = DX[1];
+
+		free(DX);
 
 		/* read boundary conditions */
 		cartMesh.nBC = getIntArray("nBCsegments", 2 * NDIM, NULL);
