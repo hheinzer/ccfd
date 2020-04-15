@@ -40,10 +40,9 @@ extern double ****lowerUpper;
 extern long ***elemToElem;
 
 void initLinearSolver(void);
-double vectorDotProduct(double A[NVAR][nElems], double B[NVAR][nElems]);
-void buildMatrix(double time, double dt);
-void GMRES_M(double time, double dt, double alpha, double beta, double B[NVAR][nElems],
-		double normB, double *abortCrit, double deltaX[NVAR][nElems]);
+double vectorDotProduct(double **A, double **B);
+void GMRES_M(double time, double dt, double alpha, double beta, double **B,
+		double normB, double *abortCrit, double **deltaX);
 void freeLinearSolver(void);
 
 #endif

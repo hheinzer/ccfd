@@ -72,8 +72,14 @@ void initInitialCondition(void)
 		if (intExactFunc == 5) {
 			refState = dyn2DdblArray(2, NVAR);
 			rp1Dinterface = getDbl("RP_1D_interface", "0.5");
-			memcpy(refState[0], getDblArray("StateLeft", 4, NULL), 4 * sizeof(double));
-			memcpy(refState[1], getDblArray("StateRight", 4, NULL), 4 * sizeof(double));
+
+			double *tmp = getDblArray("StateLeft", 4, NULL);
+			memcpy(refState[0], tmp, 4 * sizeof(double));
+			free(tmp);
+
+			tmp = getDblArray("StateRight", 4, NULL);
+			memcpy(refState[1], tmp, 4 * sizeof(double));
+			free(tmp);
 		}
 		break;
 	default:

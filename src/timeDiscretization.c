@@ -55,6 +55,12 @@ int	nRKstages;
 double	RKcoeff[6] = {0.0};
 bool	isImplicit;
 
+/* local variables */
+double **deltaX;
+double **Q;
+double **F_X0;
+double **F_XK;
+
 /*
  * Initialize the time discretization
  */
@@ -71,6 +77,12 @@ void initTimeDisc(void)
 	}
 
 	isImplicit = getBool("implicit", "F");
+	if (isImplicit) {
+		deltaX = dyn2DdblArray(NVAR, nElems);
+		Q = dyn2DdblArray(NVAR, nElems);
+		F_X0 = dyn2DdblArray(NVAR, nElems);
+		F_XK = dyn2DdblArray(NVAR, nElems);
+	}
 
 	nRKstages = getInt("nRKstages", "1");
 	if (nRKstages > 5) {
@@ -385,10 +397,10 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	double alpha = 1.0;
 	double beta = 1.0;
 
-	double Q[NVAR][nElems];
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
+
 		Q[RHO][iElem] = aElem->cVar[RHO];
 		Q[MX][iElem]  = aElem->cVar[MX];
 		Q[MY][iElem]  = aElem->cVar[MY];
@@ -402,7 +414,6 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 
 	fvTimeDerivative(time, iter);
 
-	double F_X0[NVAR][nElems], F_XK[NVAR][nElems];
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
@@ -442,23 +453,18 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	double eps2newtonLoc =
 		fmax(1e-8 * 1e-8 * nElems * eps2newton / norm2_F_X0,
 		     eps2newton);
-	double norm2_F_XK_sq = sqrt(norm2_F_X0);
+	double norm2_F_XK = norm2_F_X0;
 
 	nInnerNewton = 0;
 
-	if (usePrecond) {
-		buildMatrix(t, dt);
-	}
-
 	/* Newton iterations */
-	double abortCritGMRES, norm2_F_XK_old_sq = norm2_F_XK_sq, gammaA, gammaB;
-	while ((norm2_F_XK_sq * norm2_F_XK_sq > eps2newtonLoc * norm2_F_X0)
-			&& (nInnerNewton < nNewtonIter)) {
+	double abortCritGMRES, norm2_F_XK_old = norm2_F_XK, gammaA, gammaB;
+	while ((norm2_F_XK > eps2newtonLoc * norm2_F_X0) && (nInnerNewton < nNewtonIter)) {
 		if (nInnerNewton == 0) {
 			abortCritGMRES = 0.999;
-			norm2_F_XK_old_sq = norm2_F_XK_sq;
+			norm2_F_XK_old = norm2_F_XK;
 		} else {
-			gammaA = gammaEW * norm2_F_XK_sq / norm2_F_XK_old_sq;
+			gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
 
 			if (gammaEW * abortCritGMRES * abortCritGMRES < 0.1) {
 				gammaB = fmin(0.999, gammaA);
@@ -468,15 +474,14 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 			}
 
 			abortCritGMRES = fmin(0.999, fmax(gammaB,
-					0.5 * eps2newton_sq / norm2_F_XK_sq));
+					0.5 * eps2newton_sq / sqrt(norm2_F_XK)));
 
-			norm2_F_XK_old_sq = norm2_F_XK_sq;
+			norm2_F_XK_old = norm2_F_XK;
 		}
 
 		nInnerNewton++;
 
-		double deltaX[NVAR][nElems];
-		GMRES_M(time, dt, alpha, beta, F_XK, norm2_F_XK_sq,
+		GMRES_M(time, dt, alpha, beta, F_XK, sqrt(norm2_F_XK),
 				&abortCritGMRES, deltaX);
 
 		#pragma omp parallel for
@@ -513,7 +518,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 			F_XK[E][iElem]   = aElem->cVar[E]   - Q[E][iElem]   - alpha * dt * aElem->u_t[E];
 		}
 
-		norm2_F_XK_sq = sqrt(vectorDotProduct(F_XK, F_XK));
+		norm2_F_XK = vectorDotProduct(F_XK, F_XK);
 	}
 
 	nNewtonIterGlobal += nInnerNewton;
@@ -521,7 +526,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	if (nInnerNewton == nNewtonIter) {
 		printf("| %g\n", eps2newton);
 		printf("| Newton NOT converged with %d Newton iteraions\n", nInnerNewton);
-		printf("| Norm / Norm_R0 = %g\n", norm2_F_XK_sq / sqrt(norm2_F_X0));
+		printf("| Norm / Norm_R0 = %g\n", norm2_F_XK / norm2_F_X0);
 		exit(1);
 	}
 
@@ -741,5 +746,13 @@ void timeDisc(void)
 		for (int iPt = 0; iPt < recordPoint.nPoints; ++iPt) {
 			fclose(recordPoint.ioFile[iPt]);
 		}
+	}
+
+	/* free memory that is allocated for implicit calculation */
+	if (isImplicit) {
+		free(deltaX);
+		free(Q);
+		free(F_X0);
+		free(F_XK);
 	}
 }
