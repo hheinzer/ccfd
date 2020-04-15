@@ -401,10 +401,6 @@ void cgnsFinalizeOutput(void)
 	long iters[nOutputs];
 	char solutionNames[nOutputs][32];
 
-	memset(times, 0, nOutputs * sizeof(double));
-	memset(iters, 0, nOutputs * sizeof(long));
-	memset(solutionNames, 0, nOutputs * 32 * sizeof(char));
-
 	long iOutput = nOutputs;
 	outputTime = outputTimes;
 	while (outputTime) {
