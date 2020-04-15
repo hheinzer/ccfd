@@ -104,18 +104,18 @@ void flux_roe(double rhoL, double rhoR,
 	double fL[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
 
 	/* entropy fix */
-	//double cL = sqrt(gamma * pL / rhoL);
-	//double cR = sqrt(gamma * pR / rhoR);
-	//double al[4] = {vxL - cL, vxL, vxL, vxL + cL};
-	//double ar[4] = {vxR - cR, vxR, vxR, vxR + cR};
-	//for (int i = 0; i < 4; ++i) {
-	//	double da = fmax(fmax(0.0, a[i] - al[i]), ar[i] - a[i]);
-	//	if (fabs(a[i]) < da) {
-	//		a[i] = 0.5 * (a[i] * a[i] / da + da);
-	//	} else {
-	//		a[i] = fabs(a[i]);
-	//	}
-	//}
+	double cL = sqrt(gamma * pL / rhoL);
+	double cR = sqrt(gamma * pR / rhoR);
+	double al[4] = {vxL - cL, vxL, vxL, vxL + cL};
+	double ar[4] = {vxR - cR, vxR, vxR, vxR + cR};
+	for (int i = 0; i < 4; ++i) {
+		double da = fmax(fmax(0.0, a[i] - al[i]), ar[i] - a[i]);
+		if (fabs(a[i]) < da) {
+			a[i] = 0.5 * (a[i] * a[i] / da + da);
+		} else {
+			a[i] = fabs(a[i]);
+		}
+	}
 
 	/* calculate Row flux */
 	for (int i = 0; i < 4; ++i) {
