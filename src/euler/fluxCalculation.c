@@ -733,8 +733,7 @@ void convectiveFlux(double rhoL, double rhoR,
 
 /*
  * calculation of left and right state, the velocity vector is transformed into
- * the normal system of the cell interfaces
- * finishes with backrotation
+ * the normal system of the cell interfaces, finishes with backrotation
  */
 void fluxCalculation(void)
 {
@@ -795,89 +794,4 @@ void fluxCalculation(void)
 		aSide->connection->flux[MY]  = - aSide->flux[MY];
 		aSide->connection->flux[E]   = - aSide->flux[E];
 	}
-}
-
-/*
- * calculation of left and right state, the velocity vector is transformed into
- * the normal system of the cell interfaces, finishes with backrotation
- */
-void fluxJacobianFD(double time, elem_t *aElem, int iVar)
-{
-	aElem->u_t[RHO] = 0.0;
-	aElem->u_t[VX]  = 0.0;
-	aElem->u_t[VY]  = 0.0;
-	aElem->u_t[P]   = 0.0;
-
-	side_t *aSide = aElem->firstSide;
-	while (aSide) {
-		double pVar[NVAR];
-		pVar[RHO] = aElem->pVar[RHO];
-		pVar[VX]  = aElem->pVar[VX];
-		pVar[VY]  = aElem->pVar[VY];
-		pVar[P]   = aElem->pVar[P];
-
-		pVar[iVar] = aElem->pVar[iVar] + rEps0;
-
-		double pVarDummy[NVAR];
-		if (aSide->connection->BC) {
-			side_t *gSide = aSide->connection;
-			elem_t *gElem = gSide->elem;
-			boundary(gSide, time, pVar, pVarDummy, gElem->bary);
-		} else {
-			pVarDummy[RHO] = aSide->connection->elem->pVar[RHO];
-			pVarDummy[VX]  = aSide->connection->elem->pVar[VX];
-			pVarDummy[VY]  = aSide->connection->elem->pVar[VY];
-			pVarDummy[P]   = aSide->connection->elem->pVar[P];
-		}
-
-		double n[NDIM] = {aSide->n[X], aSide->n[Y]};
-
-		/* rotate element state into normal direction */
-		double pVarL[NVAR], pVarR[NVAR];
-		pVarL[RHO] = pVar[RHO];
-		pVarL[VX]  =   n[X] * pVar[VX] + n[Y] * pVar[VY];
-		pVarL[VY]  = - n[Y] * pVar[VX] + n[X] * pVar[VY];
-		pVarL[P]   = pVar[P];
-
-		pVarR[RHO] = pVarDummy[RHO];
-		pVarR[VX]  =   n[X] * pVarDummy[VX] + n[Y] * pVarDummy[VY];
-		pVarR[VY]  = - n[Y] * pVarDummy[VX] + n[X] * pVarDummy[VY];
-		pVarR[P]   = pVarDummy[P];
-
-		double fluxLoc[NVAR];
-		convectiveFlux(pVarL[RHO], pVarR[RHO],
-			       pVarL[VX],  pVarR[VX],
-			       pVarL[VY],  pVarR[VY],
-			       pVarL[P],   pVarR[P],
-			       fluxLoc);
-
-		/* rotate flux into global coordinate system, build difference
-		 * to old flux and integrate flux over edge using midpoint rule */
-		double fluxDiff[NVAR];
-		fluxDiff[RHO] = - aSide->flux[RHO] + aSide->len * fluxLoc[RHO];
-		fluxDiff[MX]  = - aSide->flux[MX]  + aSide->len * (n[X] * fluxLoc[MX] - n[Y] * fluxLoc[MY]);
-		fluxDiff[MY]  = - aSide->flux[MY]  + aSide->len * (n[Y] * fluxLoc[MX] + n[X] * fluxLoc[MY]);
-		fluxDiff[E]   = - aSide->flux[E]   + aSide->len * fluxLoc[E];
-
-		aElem->u_t[RHO] += fluxDiff[RHO];
-		aElem->u_t[MX]  += fluxDiff[MX];
-		aElem->u_t[MY]  += fluxDiff[MY];
-		aElem->u_t[E]   += fluxDiff[E];
-
-		/* add contributions to neighbor element */
-		long NBelemId = aSide->connection->elem->id;
-		if ((NBelemId >= 0) && (NBelemId < nElems)) {
-			aSide->connection->elem->u_t[RHO] = aSide->connection->elem->areaq * fluxDiff[RHO] * srEps0;
-			aSide->connection->elem->u_t[MX]  = aSide->connection->elem->areaq * fluxDiff[MX]  * srEps0;
-			aSide->connection->elem->u_t[MY]  = aSide->connection->elem->areaq * fluxDiff[MY]  * srEps0;
-			aSide->connection->elem->u_t[E]   = aSide->connection->elem->areaq * fluxDiff[E]   * srEps0;
-		}
-
-		aSide = aSide->nextElemSide;
-	}
-
-	aElem->u_t[RHO] = - aElem->u_t[RHO] * aElem->areaq * srEps0;
-	aElem->u_t[MX]  = - aElem->u_t[MX]  * aElem->areaq * srEps0;
-	aElem->u_t[MY]  = - aElem->u_t[MY]  * aElem->areaq * srEps0;
-	aElem->u_t[E]   = - aElem->u_t[E]   * aElem->areaq * srEps0;
 }
