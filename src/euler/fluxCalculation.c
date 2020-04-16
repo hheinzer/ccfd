@@ -23,8 +23,8 @@ void flux_god(double rhoL, double rhoR,
 	      double pL,   double pR,
 	      double fluxLoc[4])
 {
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 
 	double rho, vx, p;
 	exactRiemann(rhoL, rhoR, &rho, vxL, vxR, &vx, pL, pR, &p, cL, cR, 0.0);
@@ -39,7 +39,7 @@ void flux_god(double rhoL, double rhoR,
 	fluxLoc[0] = rho * vx;
 	fluxLoc[1] = rho * vx * vx + p;
 	fluxLoc[2] = rho * vx * vy;
-	fluxLoc[3] = vx * (gamma / gamma1 * p + 0.5 * rho * (vx * vx + vy * vy));
+	fluxLoc[3] = vx * (gam / gam1 * p + 0.5 * rho * (vx * vx + vy * vy));
 }
 
 /*
@@ -57,8 +57,8 @@ void flux_roe(double rhoL, double rhoR,
 	double myL = rhoL * vyL;
 	double myR = rhoR * vyR;
 
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
 	/* calculate left/right enthalpy */
 	double HR = (eR + pR) / rhoR;
@@ -73,7 +73,7 @@ void flux_roe(double rhoL, double rhoR,
 	double vxBar = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
 	double vyBar = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
 	double Hbar  = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
-	double cBar  = sqrt(gamma1 * (Hbar - 0.5 * (vxBar * vxBar + vyBar * vyBar)));
+	double cBar  = sqrt(gam1 * (Hbar - 0.5 * (vxBar * vxBar + vyBar * vyBar)));
 
 	/* calculate mean Eigenvalues */
 	double a[4] = {vxBar - cBar, vxBar, vxBar, vxBar + cBar};
@@ -93,7 +93,7 @@ void flux_roe(double rhoL, double rhoR,
 
 	/* calculate wave strenght */
 	double cBarQ = 1.0 / cBar;
-	double gam2 = - gamma1 * cBarQ * cBarQ * (delRho * (vxBar * vxBar - Hbar)
+	double gam2 = - gam1 * cBarQ * cBarQ * (delRho * (vxBar * vxBar - Hbar)
 			+ delEq - delMx * vxBar);
 	double gam1 = - 0.5 * cBarQ * (delMx - delRho * (vxBar + cBar)) - 0.5 * gam2;
 	double gam4 = delRho - gam1 - gam2;
@@ -104,8 +104,8 @@ void flux_roe(double rhoL, double rhoR,
 	double fL[4] = {mxL, mxL * vxL + pL, mxL * vyL, vxL * (eL + pL)};
 
 	/* entropy fix */
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 	double al[4] = {vxL - cL, vxL, vxL, vxL + cL};
 	double ar[4] = {vxR - cR, vxR, vxR, vxR + cR};
 	for (int i = 0; i < 4; ++i) {
@@ -144,8 +144,8 @@ void flux_hll(double rhoL, double rhoR,
 	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
 
 	/* calculate energies */
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
 	/* calculate left/right conservative state vector */
 	double uL[NVAR] = {rhoL, rhoL * vxL, rhoL * vyL, eL};
@@ -156,8 +156,8 @@ void flux_hll(double rhoL, double rhoR,
 	double fR[NVAR] = {uR[MX], uR[MX] * vxR + pR, uR[MX] * vyR, vxR * (eR + pR)};
 
 	/* calculation of speed of sounds */
-	double cL = sqrt(gamma * pL * rhoLq);
-	double cR = sqrt(gamma * pR * rhoRq);
+	double cL = sqrt(gam * pL * rhoLq);
+	double cR = sqrt(gam * pR * rhoRq);
 
 	/* calculation of left/right enthalpy */
 	double HL = (eL + pL) * rhoLq;
@@ -167,7 +167,7 @@ void flux_hll(double rhoL, double rhoR,
 	double uM = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
 	double vM = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
 	double HM = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
-	double cM = sqrt(gamma1 * (HM - 0.5 * (uM * uM + vM * vM)));
+	double cM = sqrt(gam1 * (HM - 0.5 * (uM * uM + vM * vM)));
 
 	/* calculation signal speeds */
 	double arp = fmax(vxR + cR, uM + cM);
@@ -214,8 +214,8 @@ void flux_hlle(double rhoL, double rhoR,
 	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
 
 	/* calculate energies */
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
 	/* calculate left/right conservative state vector */
 	double uL[NVAR] = {rhoL, rhoL * vxL, rhoL * vyL, eL};
@@ -226,8 +226,8 @@ void flux_hlle(double rhoL, double rhoR,
 	double fR[NVAR] = {uR[MX], uR[MX] * vxR + pR, uR[MX] * vyR, vxR * (eR + pR)};
 
 	/* calculation of speed of sounds */
-	double cL = sqrt(gamma * pL * rhoLq);
-	double cR = sqrt(gamma * pR * rhoRq);
+	double cL = sqrt(gam * pL * rhoLq);
+	double cR = sqrt(gam * pR * rhoRq);
 
 	/* calculation Row mean values */
 	double uM = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
@@ -280,8 +280,8 @@ void flux_hllc(double rhoL, double rhoR,
 	double rhoSqQsum = 1.0 / (rhoSqL + rhoSqR);
 
 	/* calculate energies */
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
 
 	/* calculate left/right conservative state vector */
 	double uL[NVAR] = {rhoL, rhoL * vxL, rhoL * vyL, eL};
@@ -292,8 +292,8 @@ void flux_hllc(double rhoL, double rhoR,
 	double fR[NVAR] = {uR[MX], uR[MX] * vxR + pR, uR[MX] * vyR, vxR * (eR + pR)};
 
 	/* calculation of speed of sounds */
-	double cL = sqrt(gamma * pL * rhoLq);
-	double cR = sqrt(gamma * pR * rhoRq);
+	double cL = sqrt(gam * pL * rhoLq);
+	double cR = sqrt(gam * pR * rhoRq);
 
 	/* calculation of left/right enthalpy */
 	double HL = (eL + pL) * rhoLq;
@@ -303,7 +303,7 @@ void flux_hllc(double rhoL, double rhoR,
 	double uM = (rhoSqR * vxR + rhoSqL * vxL) * rhoSqQsum;
 	double vM = (rhoSqR * vyR + rhoSqL * vyL) * rhoSqQsum;
 	double HM = (rhoSqR *  HR + rhoSqL *  HL) * rhoSqQsum;
-	double cM = sqrt(gamma1 * (HM - 0.5 * (uM * uM + vM * vM)));
+	double cM = sqrt(gam1 * (HM - 0.5 * (uM * uM + vM * vM)));
 
 	/* calculation signal speeds */
 	double arp = fmax(vxR + cR, uM + cM);
@@ -359,13 +359,13 @@ void flux_lxf(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* compute maximum Eigenvalue */
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 	double a  = fmax(fabs(vxR) + cR, fabs(vxL) + cL);
 
 	/* calculate left/right energy and enthalpy */
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	/* calculate the differences of the conservative variables */
 	double delU[NVAR] = {rhoR       - rhoL,
@@ -400,11 +400,11 @@ void flux_stw(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculation of speed of sound */
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 
 	/* auxiliary values */
-	double gamma2q = 0.5 / gamma;
+	double gam2q = 0.5 / gam;
 
 	/* calculation of eigenvalues */
 	double aL[4] = {vxL - cL, vxL, vxL, vxL + cL};
@@ -422,21 +422,21 @@ void flux_stw(double rhoL, double rhoR,
 
 	/* calculate positve flux from left and right */
 	double fp[4];
-	fp[0] =	rhoL * gamma2q * (2.0 * gamma1 * ap[1] + ap[0] + ap[3]);
-	fp[1] = fp[0] * vxL + (ap[3] - ap[0])* rhoL * cL * gamma2q;
+	fp[0] =	rhoL * gam2q * (2.0 * gam1 * ap[1] + ap[0] + ap[3]);
+	fp[1] = fp[0] * vxL + (ap[3] - ap[0])* rhoL * cL * gam2q;
 	fp[2] = fp[0] * vyL;
 	fp[3] = fp[0] * 0.5 * (vxL * vxL + vyL * vyL) + (ap[3] - ap[0])*
-			rhoL * cL * vxL * gamma2q + (ap[3] + ap[0]) *
-			rhoL * cL * cL * gamma2q * gamma1q;
+			rhoL * cL * vxL * gam2q + (ap[3] + ap[0]) *
+			rhoL * cL * cL * gam2q * gam1q;
 
 	/* calculate negative flux from right and left */
 	double fm[4];
-	fm[0] =	rhoR * gamma2q * (2.0 * gamma1 * am[1] + am[0] + am[3]);
-	fm[1] = fm[0] * vxR + (am[3] - am[0])* rhoR * cR * gamma2q;
+	fm[0] =	rhoR * gam2q * (2.0 * gam1 * am[1] + am[0] + am[3]);
+	fm[1] = fm[0] * vxR + (am[3] - am[0])* rhoR * cR * gam2q;
 	fm[2] = fm[0] * vyR;
 	fm[3] = fm[0] * 0.5 * (vxR * vxR + vyR * vyR) + (am[3] - am[0])*
-			rhoR * cR * vxR * gamma2q + (am[3] + am[0]) *
-			rhoR * cR * cR * gamma2q * gamma1q;
+			rhoR * cR * vxR * gam2q + (am[3] + am[0]) *
+			rhoR * cR * cR * gam2q * gam1q;
 	/* calculate  Steger-Warming flux */
 	fluxLoc[0] = fp[0] + fm[0];
 	fluxLoc[1] = fp[1] + fm[1];
@@ -454,8 +454,8 @@ void flux_cen(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate energies */
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	/* calculate the physical fluxes */
 	double fL[4], fR[4];
@@ -486,14 +486,14 @@ void flux_ausmd(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	double HL = (eL + pL) / rhoL;
 	double HR = (eR + pR) / rhoR;
 
 	/* maximum speed of sound */
-	double cm = fmax(sqrt(gamma * pL / rhoL), sqrt(gamma * pR / rhoR));
+	double cm = fmax(sqrt(gam * pL / rhoL), sqrt(gam * pR / rhoR));
 
 	double alphaL = 2.0 * pL / rhoL / (pL / rhoL + pR / rhoR);
 	double alphaR = 2.0 * pR / rhoR / (pL / rhoL + pR / rhoR);
@@ -537,15 +537,15 @@ void flux_ausmdv(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	double HL = (eL + pL) / rhoL;
 	double HR = (eR + pR) / rhoR;
 
 	/* maximum speed of sound */
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 	double cm = fmax(cL, cR);
 
 	double alphaL = 2.0 * pL / rhoL / (pL / rhoL + pR / rhoR);
@@ -628,12 +628,12 @@ void flux_vanleer(double rhoL, double rhoR,
 	      double fluxLoc[4])
 {
 	/* calculate speed of sound */
-	double cL = sqrt(gamma * pL / rhoL);
-	double cR = sqrt(gamma * pR / rhoR);
+	double cL = sqrt(gam * pL / rhoL);
+	double cR = sqrt(gam * pR / rhoR);
 
 	/* calculate left/right energy and enthalpy */
-	double eL = gamma1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
-	double eR = gamma1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
+	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
+	double eR = gam1q * pR + 0.5 * rhoR * (vxR * vxR + vyR * vyR);
 
 	double HL = (eL + pL) / rhoL;
 	double HR = (eR + pR) / rhoR;
@@ -646,11 +646,11 @@ void flux_vanleer(double rhoL, double rhoR,
 		fp[2] = fp[0] * vyL;
 		fp[3] = fp[0] * HL;
 	} else if ((ML < 1.0) && (ML > - 1.0)) {
-		double cx = gamma1 * vxL + 2.0 * cL;
+		double cx = gam1 * vxL + 2.0 * cL;
 		fp[0] = 0.25 * rhoL * cL * (ML + 1.0) * (ML + 1.0);
-		fp[1] = fp[0] * cx / gamma;
+		fp[1] = fp[0] * cx / gam;
 		fp[2] = fp[0] * vyL;
-		fp[3] = 0.5 * (fp[1] * cx * gamma / (gamma * gamma - 1.0) + fp[2] * vyL);
+		fp[3] = 0.5 * (fp[1] * cx * gam / (gam * gam - 1.0) + fp[2] * vyL);
 	} else {
 		fp[0] = 0.0;
 		fp[1] = 0.0;
@@ -666,11 +666,11 @@ void flux_vanleer(double rhoL, double rhoR,
 		fm[2] = fm[0] * vyR;
 		fm[3] = fm[0] * HR;
 	} else if ((MR < 1.0) && (MR > - 1.0)) {
-		double cx = gamma1 * vxR - 2.0 * cR;
+		double cx = gam1 * vxR - 2.0 * cR;
 		fm[0] = - 0.25 * rhoR * cR * (1.0 - MR) * (1.0 - MR);
-		fm[1] = fm[0] * cx / gamma;
+		fm[1] = fm[0] * cx / gam;
 		fm[2] = fm[0] * vyR;
-		fm[3] = 0.5 * (fm[1] * cx * gamma / (gamma * gamma - 1.0) + fm[2] * vyR);
+		fm[3] = 0.5 * (fm[1] * cx * gam / (gam * gam - 1.0) + fm[2] * vyR);
 	} else {
 		fm[0] = 0.0;
 		fm[1] = 0.0;

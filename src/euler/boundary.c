@@ -63,7 +63,7 @@ void initBoundary(void)
 
 			aBC->pVar[P] = getDbl("pressure", NULL);
 
-			c = sqrt(gamma * aBC->pVar[P] / aBC->pVar[RHO]);
+			c = sqrt(gam * aBC->pVar[P] / aBC->pVar[RHO]);
 			v = Ma * c;
 			aBC->pVar[VX] = v * cos(alpha * pi / 180.0);
 			aBC->pVar[VY] = v * sin(alpha * pi / 180.0);
@@ -79,7 +79,7 @@ void initBoundary(void)
 
 			aBC->pVar[P] = getDbl("pressure", NULL);
 
-			c = sqrt(gamma * aBC->pVar[P] / aBC->pVar[RHO]);
+			c = sqrt(gam * aBC->pVar[P] / aBC->pVar[RHO]);
 			v = Ma * c;
 			aBC->pVar[VX] = v * cos(alpha * pi / 180.0);
 			aBC->pVar[VY] = v * sin(alpha * pi / 180.0);
@@ -158,7 +158,7 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		break;
 	case CHARACTERISTIC: {
 		/* compute Eigenvalues of ghost cell */
-		double c = sqrt(gamma * aSide->BC->pVar[P] / aSide->BC->pVar[RHO]);
+		double c = sqrt(gam * aSide->BC->pVar[P] / aSide->BC->pVar[RHO]);
 		double v = n[X] * aSide->BC->pVar[VX] + n[Y] * aSide->BC->pVar[VY];
 
 		/* rotate primitive state into local coordinate system */
@@ -215,7 +215,7 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		exactFunc(aSide->BC->exactFunc, x, time, ghost_pVar);
 		break;
 	case PRESSURE_OUT: {
-		double c = sqrt(gamma * int_pVar[P] / int_pVar[RHO]);
+		double c = sqrt(gam * int_pVar[P] / int_pVar[RHO]);
 		double v = n[X] * int_pVar[VX] + n[Y] * int_pVar[VY];
 
 		double p;

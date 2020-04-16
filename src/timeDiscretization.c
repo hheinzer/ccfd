@@ -248,7 +248,7 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 		#pragma omp parallel for reduction(min:dtMax)
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
-			double a = sqrt(gamma * aElem->pVar[P] / aElem->pVar[RHO]);
+			double a = sqrt(gam * aElem->pVar[P] / aElem->pVar[RHO]);
 			double dtConv = cfl * aElem->sy / (fabs(aElem->pVar[VX]) + a);
 			if (!isfinite(dtConv)) {
 				printf("| Convective Time Step NaN\n");
@@ -263,13 +263,13 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 
 		*dt = dtMax;
 	} else {
-		double gammaPrMax = fmax(4.0 / 3.0, gamma / Pr);
+		double gamPrMax = fmax(4.0 / 3.0, gam / Pr);
 		double dtConvMax = 1e150;
 		#pragma omp parallel for reduction(min:dtConvMax)
 		for (long iElem = 0; iElem < nElems; ++iElem) {
 			elem_t *aElem = elem[iElem];
 			/* convective time step */
-			double a = sqrt(gamma * aElem->pVar[P] / aElem->pVar[RHO]);
+			double a = sqrt(gam * aElem->pVar[P] / aElem->pVar[RHO]);
 			double sumSpectralRadii = (fabs(aElem->pVar[VX]) + a) * aElem->sx
 						+ (fabs(aElem->pVar[VY]) + a) * aElem->sy;
 			double dtConv = cfl * aElem->area / sumSpectralRadii;
@@ -287,8 +287,8 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 			for (long iElem = 0; iElem < nElems; ++iElem) {
 				elem_t *aElem = elem[iElem];
 				double sumSpectralRadii
-					= gammaPrMax * mu * aElem->sx * aElem->sx
-					+ gammaPrMax * mu * aElem->sy * aElem->sy;
+					= gamPrMax * mu * aElem->sx * aElem->sx
+					+ gamPrMax * mu * aElem->sy * aElem->sy;
 				double dtVisc = dfl * aElem->pVar[RHO] * aElem->pVar[RHO]
 					* aElem->area * aElem->area
 					/ (4.0 * sumSpectralRadii);
@@ -460,22 +460,22 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	nInnerNewton = 0;
 
 	/* Newton iterations */
-	double abortCritGMRES, norm2_F_XK_old = norm2_F_XK, gammaA, gammaB;
+	double abortCritGMRES, norm2_F_XK_old = norm2_F_XK, gamA, gamB;
 	while ((norm2_F_XK > eps2newtonLoc * norm2_F_X0) && (nInnerNewton < nNewtonIter)) {
 		if (nInnerNewton == 0) {
 			abortCritGMRES = 0.999;
 			norm2_F_XK_old = norm2_F_XK;
 		} else {
-			gammaA = gammaEW * norm2_F_XK / norm2_F_XK_old;
+			gamA = gamEW * norm2_F_XK / norm2_F_XK_old;
 
-			if (gammaEW * abortCritGMRES * abortCritGMRES < 0.1) {
-				gammaB = fmin(0.999, gammaA);
+			if (gamEW * abortCritGMRES * abortCritGMRES < 0.1) {
+				gamB = fmin(0.999, gamA);
 			} else {
-				gammaB = fmin(0.999, fmax(gammaA,
-					gammaEW * abortCritGMRES * abortCritGMRES));
+				gamB = fmin(0.999, fmax(gamA,
+					gamEW * abortCritGMRES * abortCritGMRES));
 			}
 
-			abortCritGMRES = fmin(0.999, fmax(gammaB,
+			abortCritGMRES = fmin(0.999, fmax(gamB,
 					0.5 * eps2newton_sq / sqrt(norm2_F_XK)));
 
 			norm2_F_XK_old = norm2_F_XK;

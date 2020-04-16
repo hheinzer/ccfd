@@ -32,7 +32,7 @@ extern double eps2newton;
 extern double eps2newton_sq;
 
 extern double epsGMRES;
-extern double gammaEW;
+extern double gamEW;
 
 extern double **XK, **R_XK;
 extern double ***Dinv;

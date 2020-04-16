@@ -19,7 +19,7 @@ void primCons(const double pVar[NVAR], double cVar[NVAR])
 	cVar[RHO] = pVar[RHO];
 	cVar[MX]  = pVar[VX] * pVar[RHO];
 	cVar[MY]  = pVar[VY] * pVar[RHO];
-	cVar[E]   = gamma1q * pVar[P]
+	cVar[E]   = gam1q * pVar[P]
 		+ 0.5 * (cVar[MX] * pVar[VX] + cVar[MY] * pVar[VY]);
 }
 
@@ -31,7 +31,7 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
 	pVar[RHO] = cVar[RHO];
 	pVar[VX]  = cVar[MX] / cVar[RHO];
 	pVar[VY]  = cVar[MY] / cVar[RHO];
-	pVar[P]   = gamma1 *
+	pVar[P]   = gam1 *
 		(cVar[E] - 0.5 * (cVar[MX] * pVar[VX] + cVar[MY] * pVar[VY]));
 
 	/* check if density or pressure are negative */
@@ -48,9 +48,9 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
  */
 void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {
-	double c = sqrt(gamma * pVarRef[P] / pVarRef[RHO]);
+	double c = sqrt(gam * pVarRef[P] / pVarRef[RHO]);
 	double u = pVarRef[VX];
-	double H = gamma1q * c * c + 0.5 * u * u;
+	double H = gam1q * c * c + 0.5 * u * u;
 	double phi = u * u - 2.0 * H;
 	double a1 = 1.0 / (2.0 * c * phi);
 	double a2 = 1.0 / phi;
@@ -76,8 +76,8 @@ void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 void charCons(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {
 	double u = pVarRef[VX];
-	double c = sqrt(gamma * pVarRef[P] / pVarRef[RHO]);
-	double H = gamma1q * c * c + 0.5 * u * u;
+	double c = sqrt(gam * pVarRef[P] / pVarRef[RHO]);
+	double H = gam1q * c * c + 0.5 * u * u;
 	double K[3][3] = {
 		{1.0, 1.0, 1.0},
 		{u - c, u, u + c},

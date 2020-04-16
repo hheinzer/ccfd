@@ -95,7 +95,7 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		pVar[0] = cVar[0];
 		pVar[1] = cVar[1] / cVar[0];
 		pVar[2] = cVar[2] / cVar[0];
-		pVar[3] = gamma1 * (cVar[3] - 0.5 * (cVar[1] * cVar[1] + cVar[2] * cVar[2]) / cVar[0]);
+		pVar[3] = gam1 * (cVar[3] - 0.5 * (cVar[1] * cVar[1] + cVar[2] * cVar[2]) / cVar[0]);
 		break;
 	}
 	case 5: {
@@ -104,13 +104,13 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		rho_l = refState[0][RHO];
 		u_l = refState[0][VX];
 		p_l = refState[0][P];
-		c_l = sqrt(gamma * p_l / rho_l);
+		c_l = sqrt(gam * p_l / rho_l);
 
 		double rho_r, u_r, p_r, c_r;
 		rho_r = refState[1][RHO];
 		u_r = refState[1][VX];
 		p_r = refState[1][P];
-		c_r = sqrt(gamma * p_r / rho_r);
+		c_r = sqrt(gam * p_r / rho_r);
 
 		if (time == 0.0) {
 			if (x[X] <= rp1Dinterface) {
@@ -140,7 +140,7 @@ void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 		double cons0[NVAR] = {1.0, 0.1, 0.0, 1.0};
 		double prims0[NVAR];
 		consPrim(cons0, prims0);
-		double c0 = sqrt(gamma * prims0[P] / prims0[RHO]);
+		double c0 = sqrt(gam * prims0[P] / prims0[RHO]);
 		double H0 = (cons0[E] + prims0[P]) / prims0[RHO];
 		double R[NVAR][NVAR] = {
 			{1.0, 1.0, 0.0, 1.0},

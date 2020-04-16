@@ -42,15 +42,15 @@ void exactRiemann(double rhol, double rhor, double *rho,
 		  double al, double ar, double s)
 {
 	/* fill G matrix */
-	G[0] = (gamma - 1.0) / (2.0 * gamma);
-	G[1] = (gamma + 1.0) / (2.0 * gamma);
-	G[2] = 2.0 * gamma / (gamma - 1.0);
-	G[3] = 2.0 / (gamma - 1.0);
-	G[4] = 2.0 / (gamma + 1.0);
-	G[5] = (gamma - 1.0) / (gamma + 1.0);
-	G[6] = 0.5 * (gamma - 1.0);
-	G[7] = 1.0 / gamma;
-	G[8] = gamma - 1.0;
+	G[0] = (gam - 1.0) / (2.0 * gam);
+	G[1] = (gam + 1.0) / (2.0 * gam);
+	G[2] = 2.0 * gam / (gam - 1.0);
+	G[3] = 2.0 / (gam - 1.0);
+	G[4] = 2.0 / (gam + 1.0);
+	G[5] = (gam - 1.0) / (gam + 1.0);
+	G[6] = 0.5 * (gam - 1.0);
+	G[7] = 1.0 / gam;
+	G[8] = gam - 1.0;
 
 	double du = ur - ul;
 	double duCrit = G[3] * (al + ar) - du;

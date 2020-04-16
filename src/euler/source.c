@@ -26,11 +26,11 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 		double tmp1 = cos(om * (x[X] + x[Y]) - a * time);
 		double tmp2 = sin(2.0 * (om * (x[X] + x[Y]) - a * time));
 		source[RHO] = (- a + 2.0 * om) * tmp1;
-		source[VX]  = (- a + om * (gamma * 3.0 - 1.0)) * tmp1
-			+ amp * om * gamma1 * tmp2;
+		source[VX]  = (- a + om * (gam * 3.0 - 1.0)) * tmp1
+			+ amp * om * gam1 * tmp2;
 		source[VY]  = source[VX];
-		source[E]   = ((2.0 + gamma * 6.0) * om - 4.0 * a) * tmp1
-			+ amp * (2.0 * om * gamma - a) * tmp2;
+		source[E]   = ((2.0 + gam * 6.0) * om - 4.0 * a) * tmp1
+			+ amp * (2.0 * om * gam - a) * tmp2;
 
 		source[RHO] *= amp;
 		source[VX]  *= amp;

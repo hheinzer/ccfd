@@ -42,7 +42,7 @@ double eps2newton;
 double eps2newton_sq;
 
 double epsGMRES;
-double gammaEW;
+double gamEW;
 
 double **XK, **R_XK;
 double ***D;
@@ -79,7 +79,7 @@ void initLinearSolver(void)
 		nInnerNewton = 0;
 		nInnerGMRES = 0;
 
-		gammaEW = getDbl("gammaEW", "0.9");
+		gamEW = getDbl("gamEW", "0.9");
 
 		XK = dyn2DdblArray(NVAR, nElems);
 		R_XK = dyn2DdblArray(NVAR, nElems);

@@ -14,10 +14,10 @@ extern double pi;
 
 extern bool doCalcSource;
 extern double R;	/* gas constant */
-extern double gamma;	/* ratio of specific heat */
-extern double gamma1;	/* gamma - 1 */
-extern double gamma2;	/* gamma - 2 */
-extern double gamma1q;	/* 1 / (gamma - 1) */
+extern double gam;	/* ratio of specific heat */
+extern double gam1;	/* gam - 1 */
+extern double gam2;	/* gam - 2 */
+extern double gam1q;	/* 1 / (gam - 1) */
 extern double cp;	/* specific heat capacity */
 extern double Pr;	/* Prandtl number */
 extern double mu;	/* viscosity */

@@ -17,10 +17,10 @@ double pi;
 
 bool doCalcSource;
 double R;
-double gamma;
-double gamma1;
-double gamma2;
-double gamma1q;
+double gam;
+double gam1;
+double gam2;
+double gam1q;
 double cp;
 double Pr;
 double mu;
@@ -39,7 +39,7 @@ void initEquation(void)
 	printf("\nInitializing Constants:\n");
 	printf("| Using NAVIER-STOKES equations\n");
 
-	gamma = getDbl("gamma", "1.4");
+	gam = getDbl("gamma", "1.4");
 	R = getDbl("R", "287");
 
 	mu = getDbl("mu", "0.0");
@@ -98,9 +98,9 @@ void initEquation(void)
 	}
 
 	pi = acos(-1.0);
-	gamma1 = gamma - 1.0;
-	gamma2 = gamma - 2.0;
-	gamma1q = 1.0 / gamma1;
+	gam1 = gam - 1.0;
+	gam2 = gam - 2.0;
+	gam1q = 1.0 / gam1;
 	sqrt2 = sqrt(2.0);
 	sqrt3 = sqrt(3.0);
 	sqrt3q = 1 / sqrt3;

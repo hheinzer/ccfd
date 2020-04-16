@@ -59,7 +59,7 @@ void initInitialCondition(void)
 
 			refState[i][P] = getDbl("pressure", NULL);
 
-			double c = sqrt(gamma * refState[i][P] / refState[i][RHO]);
+			double c = sqrt(gam * refState[i][P] / refState[i][RHO]);
 			double v = Ma * c;
 			refState[i][VX] = v * cos(alpha * pi / 180.0);
 			refState[i][VY] = v * sin(alpha * pi / 180.0);
