@@ -46,9 +46,9 @@ SRC        = $(SRC_CORE) $(SRC_EQNSYS)
 OBJ        = $(OBJ_CORE) $(OBJ_EQNSYS)
 TGT        = $(BINDIR)/$(TARGET)
 
-default: cgns $(OBJDIR) $(BINDIR) $(TGT)
+default: libs $(OBJDIR) $(BINDIR) $(TGT)
 all: default
-libs: cgns
+libs: $(CGNS_LIB)
 
 $(OBJDIR):
 	-mkdir -p $(OBJDIR)
@@ -64,8 +64,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
 
 $(TGT): $(OBJ)
 	$(CC) $(LFLAGS) $^ -o $@ $(LIBS)
-
-cgns: $(CGNS_LIB)
 
 $(CGNS_LIB) : $(CGNS_DIR)
 	@mkdir $(CGNS_DIR)/BUILD && \
