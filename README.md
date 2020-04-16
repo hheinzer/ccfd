@@ -11,9 +11,9 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 # Dependencies
 
 - `git`
+- `gcc`
 - `make`
 - `cmake`
-- `gcc`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
 - `gmsh` (optional, for mesh generation, available [here](http://gmsh.info/))
 - `paraview` (optional, for post-processing the results, available [here](https://www.paraview.org/))
@@ -30,7 +30,7 @@ First make sure that all necessary dependencies are all installed. These can usu
 ```
 For an Ubuntu based system the following command should be enough
 ```
-# apt-get install git cmake build-essential
+# apt-get install git build-essential cmake libomp-dev
 ```
 
 Next, navigate to the directory where you want to keep `ccfd`, clone the git repository and compile the code
@@ -46,7 +46,21 @@ Continue with [Usage](#usage).
 
 ## MacOS
 
-It should work basically the same as with Linux, but detailed instructions will follow soon...
+I only had access to MacOS High Sierra, so some things might have changed, but the general procedure should still be the same on any MacOS version. First, install a package manager that can install all the necessary software for you. I suggest [Homebrew](https://brew.sh/). Head on over to their website and follow the installation instructions. Once you're done, install the necessary software to compile `ccfd`
+```
+$ brew update
+$ brew upgrade
+$ brew install git gcc make cmake libomp
+```
+
+Next, navigate to the directory where you want to keep `ccfd`, clone the git repository and compile the code
+```
+$ cd path/to/directory
+$ git clone https://github.com/hhh95/ccfd.git
+$ cd ccfd
+$ make
+```
+
 
 ## Windows
 
@@ -54,7 +68,7 @@ I am still working on installing it on Windows directly, but have not yet manage
 ```
 # apt update
 # apt upgrade
-# apt install git cmake build-essential libomp-dev
+# apt install git build-essential cmake libomp-dev
 ```
 
 Now change to your desired working directory
