@@ -136,4 +136,4 @@ For more information on the theory, maybe have a look at [Wikipedia](https://en.
 
 The procedure for running the other cases is the same. However, if the solution data is 2D, then you do not need to switch to *Line Chart View*. The 2D CGNS output files will usually have more than just the solution file. You can load everything at once by selecting the file that has `_Master` in its name. After loading the file, select all *Cell Arrays* in the *Pipeline Browser* and click on *Apply*. Then you can look at the different fields of the solution, by selecting them in the top bar (where it first says *Solid Color*).
 
-Some files can only be run with the Navier-Stokes equations. In order the switch between Euler and Navie-Stokes equations, open the `Makefile` and change the `EQNSYS` parameter.
+Some files can only be run with the Navier-Stokes equations. In order the switch between Euler and Navier-Stokes equations, open the `Makefile` and change the `EQNSYS` parameter.
