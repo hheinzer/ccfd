@@ -52,6 +52,14 @@ $ brew update
 $ brew upgrade
 $ brew install git gcc make cmake libomp
 ```
+Due to the fact, that on MacOS `gcc` is linked to `clang` per default, which does not work well with OpenMP, you will have to make a minor edit to the `Makefile`. Open the file with your favorite editor and find the line that defines the C compiler to be used
+```
+CC     = gcc
+```
+Replace `gcc` with the version that you have installed, most likely it is `gcc-9`. To find out which version you have, do the following
+```
+$ ls /usr/local/bin/gcc*
+```
 
 Next, navigate to the directory where you want to keep `ccfd`, clone the git repository and compile the code
 ```
@@ -60,7 +68,11 @@ $ git clone https://github.com/hhh95/ccfd.git
 $ cd ccfd
 $ make
 ```
+There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
 
+Continue with [Usage](#usage). When installing ParaView, do not choose the Linux version, but the MacOS version.
+
+When using `ccfd` it is very handy to have the ability to open a terminal in a folder from Finder. This is possible, but has to be activated first. Go to *System-settings*->*Keyboard*->*Services* and then check the box in front of the option *New Terminal at Folder*. Now, you can right click a folder in Finder and open a terminal in that folder.
 
 ## Windows
 

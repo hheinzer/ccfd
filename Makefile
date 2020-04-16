@@ -66,7 +66,7 @@ $(TGT): $(OBJ)
 	$(CC) $(LFLAGS) $^ -o $@ $(LIBS)
 
 $(CGNS_LIB) : $(CGNS_DIR)
-	@mkdir $(CGNS_DIR)/BUILD && \
+	-@mkdir $(CGNS_DIR)/BUILD && \
 	cd $(CGNS_DIR)/BUILD && \
 	cmake \
 		-Wno-dev \
