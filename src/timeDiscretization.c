@@ -91,7 +91,7 @@ void initTimeDisc(void)
 	}
 	if ((nRKstages == 1) && (timeOrder == 1)) {
 		printf("| Time Stepping Scheme: Euler Time Stepping\n");
-		RKcoeff[0] = 1.0;
+		RKcoeff[1] = 1.0;
 	} else {
 		printf("| Time Stepping Scheme: RK Time Stepping\n");
 		switch (nRKstages) {
@@ -331,10 +331,12 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
+
 		aElem->cVar[RHO] += dt * aElem->u_t[RHO];
 		aElem->cVar[MX]  += dt * aElem->u_t[MX];
 		aElem->cVar[MY]  += dt * aElem->u_t[MY];
 		aElem->cVar[E]   += dt * aElem->u_t[E];
+
 		consPrim(aElem->cVar, aElem->pVar);
 	}
 

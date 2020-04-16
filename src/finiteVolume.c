@@ -16,6 +16,7 @@
 #include "reconstruction.h"
 #include "timeDiscretization.h"
 #include "fluxCalculation.h"
+#include "equation.h"
 #include "source.h"
 
 /* extern variables */
@@ -56,8 +57,8 @@ void initFV(void)
 	}
 
 	for (long iElem = 0; iElem < nElems; ++iElem) {
-		for (int i = 0; i < NVAR; ++i) {
-			elem[iElem]->source[i] = 0.0;
+		for (int iVar = 0; iVar < NVAR; ++iVar) {
+			elem[iElem]->source[iVar] = 0.0;
 		}
 	}
 }
@@ -78,17 +79,22 @@ void fvTimeDerivative(double time)
 	spatialReconstruction(time);
 	setBCatSides(time);
 	fluxCalculation();
-	calcSource(time);
+
+	if (doCalcSource) {
+		calcSource(time);
+	}
 
 	/* time update of the conservative variables */
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
 		side_t *aSide = aElem->firstSide;
+
 		aElem->u_t[RHO] = 0.0;
 		aElem->u_t[VX]  = 0.0;
 		aElem->u_t[VY]  = 0.0;
 		aElem->u_t[E]   = 0.0;
+
 		while (aSide) {
 			aElem->u_t[RHO] += aSide->flux[RHO];
 			aElem->u_t[VX]  += aSide->flux[VX];

@@ -718,6 +718,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 		/* read curve entity tags */
 		int pTag[nCEntities];
+		int iCentitiy = 0;
 		char *token, sep[] = " ";
 		for (int l = 0; l < nPEntities; l++) {
 			/* skip point tags */
@@ -725,11 +726,17 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		}
 		for (int l = 0; l < nCEntities; l++) {
 			fgets(line, sizeof(line), meshFile);
+
 			token = strtok(line, sep);
-			for (int k = 0; k < 8; ++k) {
+			for (int k = 0; k < 7; ++k) {
 				token = strtok(NULL, sep);
 			}
-			pTag[l] = strtol(token, NULL, 10);
+			int numPtags = strtol(token, NULL, 10);
+
+			if (numPtags) {
+				token = strtok(NULL, sep);
+				pTag[iCentitiy++] = strtol(token, NULL, 10);
+			}
 		}
 
 		/* read in number of entity block and number of nordes */
@@ -809,39 +816,37 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 		}
 
 		/* read in elements */
-		int type, tag;
+		int type;
 		for (int e = 0; e < nEblocks; ++e) {
 			fgets(line, sizeof(line), meshFile);
 
-			/* read element tag, type, and number of elements in block */
-			sscanf(line, "%*d %d %d %ld", &tag, &type, &nNinB);
+			/* read element type and number of elements in block */
+			sscanf(line, "%*d %*d %d %ld", &type, &nNinB);
 
 			/* handle different element types */
 			switch (type) {
 			case 1:
 				/* line */
 				for (long i = 0; i < nNinB; ++i) {
-					if (pTag[tag - 1] > 100) {
-						/* boundary condition */
-						BCedgeTmp[*nBCedges][2] = pTag[tag - 1];
+					/* boundary condition */
+					BCedgeTmp[*nBCedges][2] = pTag[e];
 
-						/* read two nodes */
-						fgets(line, sizeof(line), meshFile);
-						sscanf(line, "%*d %ld %ld",
-								&BCedgeTmp[*nBCedges][0],
-								&BCedgeTmp[*nBCedges][1]);
+					/* read two nodes */
+					fgets(line, sizeof(line), meshFile);
+					sscanf(line, "%*d %ld %ld",
+							&BCedgeTmp[*nBCedges][0],
+							&BCedgeTmp[*nBCedges][1]);
 
-						BCedgeTmp[*nBCedges][0]--;
-						BCedgeTmp[*nBCedges][1]--;
+					BCedgeTmp[*nBCedges][0]--;
+					BCedgeTmp[*nBCedges][1]--;
 
-						(*nBCedges)++;
-					}
+					(*nBCedges)++;
 				}
 				break;
 			case 2:
 				/* triangle */
 				for (long i = 0; i < nNinB; ++i) {
-					triaTmp[nTrias][3] = tag;
+					triaTmp[nTrias][3] = 1;
 
 					/* read three nodes */
 					fgets(line, sizeof(line), meshFile);
@@ -861,7 +866,7 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 			case 3:
 				/* quadrilateral */
 				for (long i = 0; i < nNinB; ++i) {
-					quadTmp[nQuads][4] = tag;
+					quadTmp[nQuads][4] = 1;
 
 					/* read three nodes */
 					fgets(line, sizeof(line), meshFile);
@@ -1397,7 +1402,7 @@ void createMesh(void)
 
 	firstNode = NULL;
 	for (long iNode = nVertices - 1; iNode >= 0; --iNode) {
-		node_t *aNode = malloc(sizeof(node_t));
+		node_t *aNode = calloc(1, sizeof(node_t));
 		if (!aNode) {
 			printf("| ERROR: could not allocate aNode\n");
 			exit(1);
@@ -1430,7 +1435,7 @@ void createMesh(void)
 	/* loop over all triangles */
 	elem_t *prevElem = NULL;
 	for (long iTria = 0; iTria < nTrias; ++iTria) {
-		elem_t *aElem = malloc(sizeof(elem_t));
+		elem_t *aElem = calloc(1, sizeof(elem_t));
 		if (!aElem) {
 			printf("| ERROR: could not allocate aElem\n");
 			exit(1);
@@ -1449,7 +1454,7 @@ void createMesh(void)
 		}
 		aElem->next = NULL;
 
-		aElem->node = malloc(aElem->elemType * sizeof(node_t *));
+		aElem->node = calloc(aElem->elemType, sizeof(node_t *));
 		if (!aElem->node) {
 			printf("| ERROR: could not allocate aElem->node\n");
 			exit(1);
@@ -1467,7 +1472,7 @@ void createMesh(void)
 
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < aElem->elemType; ++iSide) {
-			side_t *aSide = malloc(sizeof(side_t));
+			side_t *aSide = calloc(1, sizeof(side_t));
 			if (!aSide) {
 				printf("| ERROR: could not allocate aSide\n");
 				exit(1);
@@ -1507,7 +1512,7 @@ void createMesh(void)
 
 	/* loop over all quadrilaterals */
 	for (long iQuad = 0; iQuad < nQuads; ++iQuad) {
-		elem_t *aElem = malloc(sizeof(elem_t));
+		elem_t *aElem = calloc(1, sizeof(elem_t));
 		if (!aElem) {
 			printf("| ERROR: could not allocate aElem\n");
 			exit(0);
@@ -1526,7 +1531,7 @@ void createMesh(void)
 		}
 		aElem->next = NULL;
 
-		aElem->node = malloc(aElem->elemType * sizeof(node_t *));
+		aElem->node = calloc(aElem->elemType, sizeof(node_t *));
 		if (!aElem->node) {
 			printf("| ERROR: could not allocate aElem->node\n");
 			exit(0);
@@ -1544,7 +1549,7 @@ void createMesh(void)
 
 		aElem->firstSide = NULL;
 		for (int iSide = 0; iSide < aElem->elemType; ++iSide) {
-			side_t *aSide = malloc(sizeof(side_t));
+			side_t *aSide = calloc(1, sizeof(side_t));
 			if (!aSide) {
 				printf("| ERROR: could not allocate aSide\n");
 				exit(0);
@@ -1586,7 +1591,7 @@ void createMesh(void)
 	/* sides and connectivity */
 	/* save all BCedges into the sideList array */
 	for (long iSide = 0; iSide < nBCsides; ++iSide) {
-		side_t *aSide = malloc(sizeof(side_t));
+		side_t *aSide = calloc(1, sizeof(side_t));
 		if (!aSide) {
 			printf("| ERROR: could not allocate aSide\n");
 			exit(0);
@@ -1599,7 +1604,7 @@ void createMesh(void)
 		aSide->node[0] = vertexPtr[BCedge[iSide][0]];
 		aSide->node[1] = vertexPtr[BCedge[iSide][1]];
 
-		elem_t *aElem = malloc(sizeof(elem_t));
+		elem_t *aElem = calloc(1, sizeof(elem_t));
 		if (!aElem) {
 			printf("| ERROR: could not allocate aElem\n");
 			exit(0);
@@ -1687,7 +1692,7 @@ void createMesh(void)
 			}
 
 			/* save boundary side (bSide) into boundary side list */
-			sidePtr_t *aBCside = malloc(sizeof(sidePtr_t));
+			sidePtr_t *aBCside = calloc(1, sizeof(sidePtr_t));
 			if (!aBCside) {
 				printf("| ERROR: could not allocate aBCside\n");
 				exit(1);
@@ -1750,19 +1755,19 @@ void createMesh(void)
 	}
 
 	/* element and side lists */
-	side = malloc(nSides * sizeof(side_t *));
+	side = calloc(nSides, sizeof(side_t *));
 	if (!side) {
 		printf("| ERROR: could not allocate side\n");
 		exit(1);
 	}
 
-	elem = malloc(nElems * sizeof(elem_t *));
+	elem = calloc(nElems, sizeof(elem_t *));
 	if (!elem) {
 		printf("| ERROR: could not allocate elem\n");
 		exit(1);
 	}
 
-	BCside = malloc(nBCsides * sizeof(side_t *));
+	BCside = calloc(nBCsides, sizeof(side_t *));
 	if (!BCside) {
 		printf("| ERROR: could not allocate BCside\n");
 		exit(1);

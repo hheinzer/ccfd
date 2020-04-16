@@ -39,11 +39,6 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 
 		break;
 	}
-	default:
-		source[RHO] = 0.0;
-		source[VX]  = 0.0;
-		source[VY]  = 0.0;
-		source[E]   = 0.0;
 	}
 }
 
@@ -52,23 +47,21 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
  */
 void calcSource(double time)
 {
-	if (doCalcSource) {
-		#pragma omp parallel for
-		for (long iElem = 0; iElem < nElems; ++iElem) {
-			elem_t *aElem = elem[iElem];
-			aElem->source[RHO] = 0.0;
-			aElem->source[VX]  = 0.0;
-			aElem->source[VY]  = 0.0;
-			aElem->source[E]   = 0.0;
+	#pragma omp parallel for
+	for (long iElem = 0; iElem < nElems; ++iElem) {
+		elem_t *aElem = elem[iElem];
+		aElem->source[RHO] = 0.0;
+		aElem->source[VX]  = 0.0;
+		aElem->source[VY]  = 0.0;
+		aElem->source[E]   = 0.0;
 
-			double src[NVAR];
-			for (int iGP = 0; iGP < aElem->nGP; ++iGP) {
-				evalSource(sourceFunc, aElem->xGP[iGP], time, src);
-				aElem->source[RHO] += src[RHO] * aElem->wGP[iGP];
-				aElem->source[VX]  += src[VX]  * aElem->wGP[iGP];
-				aElem->source[VY]  += src[VY]  * aElem->wGP[iGP];
-				aElem->source[E]   += src[E]   * aElem->wGP[iGP];
-			}
+		double source[NVAR] = {0.0};
+		for (int iGP = 0; iGP < aElem->nGP; ++iGP) {
+			evalSource(sourceFunc, aElem->xGP[iGP], time, source);
+			aElem->source[RHO] += source[RHO] * aElem->wGP[iGP];
+			aElem->source[VX]  += source[VX]  * aElem->wGP[iGP];
+			aElem->source[VY]  += source[VY]  * aElem->wGP[iGP];
+			aElem->source[E]   += source[E]   * aElem->wGP[iGP];
 		}
 	}
 }
