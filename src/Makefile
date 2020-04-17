@@ -5,8 +5,9 @@
 # 'make libs' 	  : build only libraries
 # 'make clean' 	  : remove executable
 # 'make allclean' : remove executable and libraries
+# 'make doc'      : create the documentation with doxygen
 
-.PHONY: default all clean allclean
+.PHONY: clean allclean doc
 
 default:
 	@cd .. && $(MAKE) default --no-print-directory
@@ -21,6 +22,9 @@ clean:
 
 allclean:
 	@cd .. && $(MAKE) allclean --no-print-directory
+
+doc:
+	@cd .. && $(MAKE) doc --no-print-directory
 
 run:
 	@cd .. && $(MAKE) run --no-print-directory
