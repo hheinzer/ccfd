@@ -1,8 +1,9 @@
-/*
- * main.c
+/** \file
  *
- * Created: Sat 21 Mar 2020 10:41:51 AM CET
- * Author : hhh
+ * Contains the main function of `ccfd`
+ *
+ * \author hhh
+ * \date Sat 21 Mar 2020 10:41:51 AM CET
  */
 
 #include <stdio.h>
@@ -21,6 +22,16 @@
 #include "linearSolver.h"
 #include "analyze.h"
 
+/** \brief Main function
+ *
+ * This function starts the program by initializing all the necessary global
+ * variables and initializing the time discretization loop. The function
+ * finishes be deallocating all the allocated memory.
+ *
+ * \param[in] argc The number of command line arguments passed to `main`
+ * \param[in] argv The argument vector containing the command line arguments
+ * \return 0 = Success, 1 = Error during execution
+ */
 int main(int argc, char *argv[])
 {
 	printf("=============================================================\n");
@@ -103,7 +114,7 @@ int main(int argc, char *argv[])
 	/* initialize c_a, c_w, and c_p calculation as well as record points */
 	initAnalyze();
 
-	/* print ignored comands */
+	/* print ignored commands */
 	ignoredCmds();
 
 	/* start time stepping routine */
