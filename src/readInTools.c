@@ -1,8 +1,9 @@
-/*
- * readInTools.c
+/** \file
  *
- * Created: Sat 21 Mar 2020 10:46:32 AM CET
- * Author : hhh
+ * \brief Provides functions for reading data from the `.ini` parameter file
+ *
+ * \author hhh
+ * \date Sat 21 Mar 2020 10:46:32 AM CET
  */
 
 #include <stdio.h>
@@ -11,20 +12,28 @@
 #include <ctype.h>
 #include <stdbool.h>
 
+typedef struct cmd_t cmd_t;
+
 #include "main.h"
 
-typedef struct cmd_t cmd_t;
+/**
+ * \brief A structure used to store the commands, read in from the parameter file
+ */
 struct cmd_t {
-	char key[STRLEN];
-	char value[STRLEN];
-	cmd_t *next, *prev;
+	char key[STRLEN];		/**< the key word of the command */
+	char value[STRLEN];		/**< the vale of the command */
+	cmd_t *next;			/**< next command */
+	cmd_t *prev;			/**< previous command */
 };
 
-cmd_t *firstCmd;
+cmd_t *firstCmd;			/**< first command of the list */
 
-/*
- * Read .ini file and parse each line into a cmd_t object. All cmd_t
- * objects are connected to a list of commands starting with "firstCmd".
+/** \brief Read parameter file and create commands list
+ *
+ * Read `.ini` file and parse each line into a `cmd_t` object. All `cmd_t`
+ * objects are connected in a list of commands starting with `firstCmd`.
+ *
+ * \param[in] iniFileName The name of the parameter file
  */
 void fillCmds(char iniFileName[STRLEN])
 {
@@ -95,8 +104,12 @@ void fillCmds(char iniFileName[STRLEN])
 	fclose(iniFile);
 }
 
-/*
- * Delete a single node of the command list.
+/** \brief Delete a single node of the command list.
+ *
+ * Before deleting the command, the previous command is connected to the next
+ * command and vice versa.
+ *
+ * \param[in] *aCmd A pointer to the command that is to be deleted
  */
 void deleteCmd(cmd_t *aCmd)
 {
@@ -118,9 +131,18 @@ void deleteCmd(cmd_t *aCmd)
 	free(aCmd);
 }
 
-/*
+/** \brief Find a command in the commands list
+ *
  * Find the provided key in the list of commands, and return the address of
- * the corresponding value string. Return NULL if key was not found.
+ * the corresponding value string. Return NULL if key was not found. Once a
+ * key was read from the commands list, it is deleted from the list.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[out] defMsg[8] String, that indicates if an actual value or the
+ *	proposal was returned
+ * \param[in] *proposal The default value that is used if the key was not
+ *	specified
+ * \return Pointer to the `value` string, or `NULL`
  */
 char *findCmd(const char *key, char defMsg[8], const char *proposal)
 {
@@ -174,10 +196,16 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 	return value;
 }
 
-/*
+/** \brief Get a string from the commands list
+ *
  * Find the key in the command list and return the corresponding value. If the
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return Pointer to the `value` string, containing the parameter, or the
+ *	default value, if the parameter was not specified
  */
 char *getStr(const char *key, const char *proposal)
 {
@@ -187,10 +215,15 @@ char *getStr(const char *key, const char *proposal)
 	return value;
 }
 
-/*
- * Count all occourance of key in .ini file and return them. If the
+/** \brief Count how often a key appears
+ *
+ * Count all occurrences of key in parameter file and return them. If the
  * key is not specified, the proposal will be returned. If the proposal is -1,
  * but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] proposal The default value that is used if the key was not
+ * \return How often the `key` appeared in the command list
  */
 int countKeys(const char *key, const int proposal)
 {
@@ -223,10 +256,15 @@ int countKeys(const char *key, const int proposal)
 	}
 }
 
-/*
+/** \brief Get an integer from the commands list
+ *
  * Find the key in the command list and return the corresponding value. If the
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return The value of the parameter, or the default value
  */
 int getInt(const char *key, const char *proposal)
 {
@@ -238,10 +276,15 @@ int getInt(const char *key, const char *proposal)
 	return value;
 }
 
-/*
+/** \brief Get a double from the commands list
+ *
  * Find the key in the command list and return the corresponding value. If the
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return The value of the parameter, or the default value
  */
 double getDbl(const char *key, const char *proposal)
 {
@@ -253,11 +296,17 @@ double getDbl(const char *key, const char *proposal)
 	return value;
 }
 
-/*
+/** \brief Get a boolean from the commands list
+ *
  * Find the key in the command list and return the corresponding value. If the
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown. The value in
- * the ini file is accepted as True, if it is a 'T', otherwise it is false.
+ * the parameter file is accepted as true, if it is a 'T', 't', 'True', or
+ * 'true', otherwise it is false.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return The value of the parameter, or the default value
  */
 bool getBool(const char *key, const char *proposal)
 {
@@ -275,11 +324,17 @@ bool getBool(const char *key, const char *proposal)
 	return value;
 }
 
-/*
+/** \brief Get an integer array from the commands list
+ *
  * Find the key in the command list and return the corresponding integer array.
  * If the key is not specified, the proposal will be returned. If the proposal
- * is NULL, but the key is not in the list, an error will be thrown. The value
- * in the ini file is accepted as True, if it is a 'T', otherwise it is false.
+ * is NULL, but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] N Length of the array that is to be read in
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return A pointer to the value array of the parameter, or the default value
+ *	array
  */
 int *getIntArray(const char *key, const int N, const char *proposal)
 {
@@ -309,11 +364,17 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 	return value;
 }
 
-/*
- * Find the key in the command list and return the corresponding double array.
+/** \brief Get a double array from the commands list
+ *
+ * Find the key in the command list and return the corresponding integer array.
  * If the key is not specified, the proposal will be returned. If the proposal
- * is NULL, but the key is not in the list, an error will be thrown. The value
- * in the ini file is accepted as True, if it is a 'T', otherwise it is false.
+ * is NULL, but the key is not in the list, an error will be thrown.
+ *
+ * \param[in] *key Key string of the command to be found
+ * \param[in] N Length of the array that is to be read in
+ * \param[in] *proposal The default value that is used if the key was not
+ * \return A pointer to the value array of the parameter, or the default value
+ *	array
  */
 double *getDblArray(const char *key, const int N, const char *proposal)
 {
@@ -343,9 +404,8 @@ double *getDblArray(const char *key, const int N, const char *proposal)
 	return value;
 }
 
-/*
- * Savely delete all the elements in the list. The key and value strings need
- * be freeed seperately, because cmd_t only holds the pointers to those strings.
+/**
+ * \brief Delete all commands in the commands list
  */
 void freeCmds(void)
 {
@@ -361,8 +421,8 @@ void freeCmds(void)
 	}
 }
 
-/*
- * Print out all remaining commands in the list.
+/**
+ * \brief Print out all remaining commands in the list.
  */
 void ignoredCmds(void)
 {

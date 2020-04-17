@@ -1,6 +1,6 @@
 /** \file
  *
- * Contains the main function of `ccfd`
+ * \brief Contains the main function of `ccfd`
  *
  * \author hhh
  * \date Sat 21 Mar 2020 10:41:51 AM CET

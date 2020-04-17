@@ -1,6 +1,6 @@
 /** \file
  *
- * Contains the global constants and definitions
+ * \brief Contains the global constants and definitions
  *
  * \author hhh
  * \date Sat 21 Mar 2020 10:44:50 AM CET
@@ -12,7 +12,7 @@
 #define STRLEN 256		/**< string length */
 
 /**
- * Index aliases for the conservative variables vector
+ * \brief Index aliases for the conservative variables vector
  */
 enum conservativeVariables {
 	RHO,			/**< density */
@@ -22,7 +22,7 @@ enum conservativeVariables {
 };
 
 /**
- * Index aliases for the primitive variables vector
+ * \brief Index aliases for the primitive variables vector
  */
 enum primitiveVariables {
 	VX = 1,			/**< velocity in x-direction */
@@ -31,7 +31,7 @@ enum primitiveVariables {
 };
 
 /**
- * Index aliases for the x- and y-components of a vector
+ * \brief Index aliases for the x- and y-components of a vector
  */
 enum directions {
 	X,			/**< x-direction */
@@ -39,7 +39,7 @@ enum directions {
 };
 
 /**
- * Aliases for the different boundary condition types
+ * \brief Aliases for the different boundary condition types
  */
 enum boundaryConditionType {
 	SLIPWALL = 1,		/**< slip wall, or Euler wall */
@@ -53,7 +53,7 @@ enum boundaryConditionType {
 };
 
 /**
- * Aliases for the sides of a cartesian mesh
+ * \brief Aliases for the sides of a cartesian mesh
  */
 enum cartesianMeshSides {
 	BOTTOM,			/**< bottom side */
@@ -63,7 +63,7 @@ enum cartesianMeshSides {
 };
 
 /**
- * Flag for the mesh type
+ * \brief Flag for the mesh type
  */
 enum meshType {
 	UNSTRUCTURED,		/**< unstructured */
@@ -71,7 +71,7 @@ enum meshType {
 };
 
 /**
- * Aliases for the different flux functions
+ * \brief Aliases for the different flux functions
  */
 enum fluxFunction {
 	GOD = 1,		/**< Godunov flux function */
@@ -88,7 +88,7 @@ enum fluxFunction {
 };
 
 /**
- * Flag for the limiter function
+ * \brief Flag for the limiter function
  */
 enum limiterFunction {
 	BARTHJESPERSEN = 1,	/**< Barth & Jespersen limiter */
@@ -96,7 +96,7 @@ enum limiterFunction {
 };
 
 /**
- * General parameters for the Program
+ * \brief General parameters for the Program
  */
 enum generalParameters {
 	NDIM = 2,		/**< number of dimensions, cannot be changed */
@@ -105,7 +105,7 @@ enum generalParameters {
 };
 
 /**
- * Output format for the results
+ * \brief Output format for the results
  */
 enum ioFormat {
 	CGNS = 1,		/**< .CGNS file format */
@@ -114,7 +114,7 @@ enum ioFormat {
 };
 
 /**
- * Index aliases for the residual vector
+ * \brief Index aliases for the residual vector
  */
 enum clcdResiduals {
 	CL = 4,			/**< lift coefficient */
