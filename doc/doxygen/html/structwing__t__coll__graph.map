@@ -1,8 +1,0 @@
-<map id="wing_t" name="wing_t">
-<area shape="rect" id="node1" title=" " alt="" coords="233,305,293,332"/>
-<area shape="rect" id="node2" href="$structsidePtr__t.html" title=" " alt="" coords="161,201,236,228"/>
-<area shape="rect" id="node3" href="$structside__t.html" title=" " alt="" coords="87,103,145,130"/>
-<area shape="rect" id="node4" href="$structelem__t.html" title=" " alt="" coords="21,201,83,228"/>
-<area shape="rect" id="node5" href="$structnode__t.html" title=" " alt="" coords="5,5,67,32"/>
-<area shape="rect" id="node6" href="$structboundary__t.html" title=" " alt="" coords="203,5,290,32"/>
-</map>
