@@ -347,7 +347,7 @@ void dataOutput(double time, long iter)
 		strcat(fileName, ".curve");
 		curveOutput(fileName, time, iter, false);
 		break;
-	case DAT:
+	case CSV:
 		strcat(fileName, ".csv");
 		csvOutput(fileName, time, iter, false);
 		break;
@@ -372,7 +372,7 @@ void dataOutput(double time, long iter)
 			strcat(fileName, ".curve");
 			curveOutput(fileName, time, iter, true);
 			break;
-		case DAT:
+		case CSV:
 			strcat(fileName, ".csv");
 			csvOutput(fileName, time, iter, true);
 			break;
