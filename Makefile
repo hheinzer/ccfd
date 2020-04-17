@@ -5,6 +5,7 @@
 # 'make libs' 	  : build only libraries
 # 'make clean' 	  : remove executable
 # 'make allclean' : remove executable and libraries
+# 'make doc'      : create the documentation with doxygen
 
 ### Equation system:
 EQNSYS = euler
@@ -36,7 +37,7 @@ CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
-.PHONY: default all clean allclean
+.PHONY: clean allclean doc
 
 SRC_CORE   = $(wildcard $(SRCDIR)/*.c)
 OBJ_CORE   = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC_CORE))
@@ -97,6 +98,9 @@ $(CGNS_LIB) : $(CGNS_DIR)
 
 $(CGNS_DIR):
 	-tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
+
+doc:
+	doxygen doc/doxygen/Doxyfile
 
 clean:
 	-rm -rf $(OBJDIR)
