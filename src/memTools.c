@@ -1,14 +1,18 @@
-/*
- * memTools.c
+/** \file
  *
- * Created: Fri 27 Mar 2020 02:38:03 PM CET
- * Author : hhh
+ * \brief Memory management functions
  *
- * Manual Memory Management:
+ * \author hhh
+ * \date Fri 27 Mar 2020 02:38:03 PM CET
  *
- * " The manual type involves malloc and free, and is where most of your segfaults
- * happen. This memory model is why Jesus weeps when he has to code in C. "
- *	- Ben Klemens
+ * \note
+ * > Manual Memory Management:
+ * >
+ * > "The manual type involves malloc and free, and is where most of your
+ * > segfaults happen. This memory model is why Jesus weeps when he has to
+ * > code in C."
+ * >
+ * > \- Ben Klemens
  */
 
 #include <stdio.h>
@@ -17,8 +21,10 @@
 
 #include "cgnslib.h"
 
-/*
- * allocate a dynamic 2D array of integers
+/** \brief Allocate a dynamic 2D array of integers
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \return Pointer to a 2D integer array
  */
 long **dyn2DintArray(long I, long J)
 {
@@ -35,8 +41,10 @@ long **dyn2DintArray(long I, long J)
 	return arr;
 }
 
-/*
- * allocate a dynamic 2D array of integers
+/** \brief Allocate a dynamic 2D array of cgsize_t
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \return Pointer to a 2D cgsize_t array
  */
 cgsize_t **dyn2DcgsizeArray(long I, long J)
 {
@@ -53,8 +61,10 @@ cgsize_t **dyn2DcgsizeArray(long I, long J)
 	return arr;
 }
 
-/*
- * allocate a dynamic 2D array of doubles
+/** \brief Allocate a dynamic 2D array of doubles
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \return Pointer to a 2D double array
  */
 double **dyn2DdblArray(long I, long J)
 {
@@ -71,8 +81,11 @@ double **dyn2DdblArray(long I, long J)
 	return arr;
 }
 
-/*
- * allocate a dynamic 3D array of integers
+/** \brief Allocate a dynamic 3D array of integers
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \param[in] K Number of elements in the third dimension
+ * \return Pointer to a 3D integer array
  */
 long ***dyn3DintArray(long I, long J, long K)
 {
@@ -93,8 +106,11 @@ long ***dyn3DintArray(long I, long J, long K)
 	return arr;
 }
 
-/*
- * allocate a dynamic 3D array of doubles
+/** \brief Allocate a dynamic 3D array of doubles
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \param[in] K Number of elements in the third dimension
+ * \return Pointer to a 3D double array
  */
 double ***dyn3DdblArray(long I, long J, long K)
 {
@@ -115,8 +131,12 @@ double ***dyn3DdblArray(long I, long J, long K)
 	return arr;
 }
 
-/*
- * allocate a dynamic 4D array of doubles
+/** \brief Allocate a dynamic 4D array of doubles
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J Number of elements in the second dimension
+ * \param[in] K Number of elements in the third dimension
+ * \param[in] L Number of elements in the fourth dimension
+ * \return Pointer to a 4D double array
  */
 double ****dyn4DdblArray(long I, long J, long K, long L)
 {
@@ -141,8 +161,10 @@ double ****dyn4DdblArray(long I, long J, long K, long L)
 	return arr;
 }
 
-/*
- * allocate a dynamic array of strings
+/** \brief Allocate a dynamic array of strings
+ * \param[in] I Number of elements in the first dimension
+ * \param[in] J String length of each element
+ * \return Pointer to a string array
  */
 char **dynStringArray(long I, long J)
 {

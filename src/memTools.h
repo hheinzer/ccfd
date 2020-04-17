@@ -1,8 +1,7 @@
-/*
- * memTools.h
+/** \file
  *
- * Created: Fri 27 Mar 2020 02:38:45 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Fri 27 Mar 2020 02:38:45 PM CET
  */
 
 #ifndef MEMTOOLS_H
