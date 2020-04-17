@@ -5,3 +5,5 @@ test/*
 *.cgns
 *.dem
 *.csv
+doc/doxygen/html/*
+doc/doxygen/latex/*
