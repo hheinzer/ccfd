@@ -1,5 +1,4 @@
-/*
- * readInTools.h
+/** \file
  *
  * Created: Sat 21 Mar 2020 10:51:13 AM CET
  * Author : hhh

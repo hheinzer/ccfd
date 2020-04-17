@@ -6,13 +6,13 @@
  * \date Sat 21 Mar 2020 10:46:32 AM CET
  */
 
+typedef struct cmd_t cmd_t;
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
-
-typedef struct cmd_t cmd_t;
 
 #include "main.h"
 
