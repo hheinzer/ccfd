@@ -1,8 +1,7 @@
-/*
- * finiteVolume.h
+/** \file
  *
- * Created: Fri 27 Mar 2020 05:09:57 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Fri 27 Mar 2020 05:09:57 PM CET
  */
 
 #ifndef FINITEVOLUME_H

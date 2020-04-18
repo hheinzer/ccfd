@@ -1,8 +1,9 @@
-/*
- * finiteVolume.c
+/** \file
  *
- * Created: Fri 27 Mar 2020 05:10:43 PM CET
- * Author : hhh
+ * \brief Finite volume time derivative functions
+ *
+ * \author hhh
+ * \date Fri 27 Mar 2020 05:10:43 PM CET
  */
 
 #include <stdio.h>
@@ -20,11 +21,11 @@
 #include "source.h"
 
 /* extern variables */
-int spatialOrder;
-int fluxFunction;
+int spatialOrder;			/**< the spacial order to be used */
+int fluxFunction;			/**< the flux function to be used */
 
-/*
- * initialize the finite volume method
+/**
+ * \brief Initialize the finite volume method
  */
 void initFV(void)
 {
@@ -63,9 +64,16 @@ void initFV(void)
 	}
 }
 
-/*
- * calling all subroutines to perform the spacial operator of the FV scheme
- * Result: residual vecto
+/**
+ * \brief Perform the spacial operator of the finite volume scheme
+ *
+ * First, the local time step is calculated, then spacial gradients inside of
+ * the cells are reconstructed. Following that, the boundary conditions at the
+ * sides are applied and the numerical flux is calculated, using the specified
+ * flux function. Finally, the source term is evaluated and the time derivatives
+ * of all the elements are calculated.
+ *
+ * \param[in] time Calculation time at which to perform the finite volume differentiation
  */
 void fvTimeDerivative(double time)
 {
@@ -100,10 +108,11 @@ void fvTimeDerivative(double time)
 			aElem->u_t[VX]  += aSide->flux[VX];
 			aElem->u_t[VY]  += aSide->flux[VY];
 			aElem->u_t[E]   += aSide->flux[E];
+
 			aSide = aSide->nextElemSide;
 		}
 
-		/* source term */
+		/* source term contribution */
 		aElem->u_t[RHO] = (aElem->source[RHO] - aElem->u_t[RHO]) * aElem->areaq;
 		aElem->u_t[VX]  = (aElem->source[VX]  - aElem->u_t[VX])  * aElem->areaq;
 		aElem->u_t[VY]  = (aElem->source[VY]  - aElem->u_t[VY])  * aElem->areaq;
