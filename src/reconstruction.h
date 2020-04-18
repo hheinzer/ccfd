@@ -9,7 +9,6 @@
 
 extern int limiter;
 extern double venk_k;
-extern int nVarGrad;
 
 void spatialReconstruction(double time);
 

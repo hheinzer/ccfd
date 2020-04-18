@@ -1,8 +1,9 @@
-/*
- * reconstruction.c
+/** \file
  *
- * Created: Sat 28 Mar 2020 10:17:02 AM CET
- * Author : hhh
+ * \brief Contains the reconstruction and limiter functions
+ *
+ * \author hhh
+ * \date Sat 28 Mar 2020 10:17:02 AM CET
  */
 
 #include <math.h>
@@ -13,13 +14,13 @@
 #include "mesh.h"
 
 /* extern variables */
-int limiter;
-double venk_k;
-int nVarGrad;
+int limiter;				/**< limiter selection */
+double venk_k;				/**< constant for Venkatakrishnan limiter */
 
-/*
- * limiter after Barth & Jespersen
- * 2D, unstructured limiter
+/**
+ * \brief Limiter after Barth & Jespersen
+ * \note 2D, unstructured limiter
+ * \param[in] *aElem Pointer to an element
  */
 void limiterBarthJespersen(elem_t *aElem)
 {
@@ -94,9 +95,10 @@ void limiterBarthJespersen(elem_t *aElem)
 	aElem->u_y[P]   *= phi[P];
 }
 
-/*
- * limiter Venkatakrishnan, with additional limiting parameter k
- * 2D, unstructured limiter
+/**
+ * \brief Limiter after Venkatakrishnan, with additional limiting parameter k
+ * \note 2D, unstructured limiter
+ * \param[in] *aElem Pointer to an element
  */
 void limiterVenkatakrishnan(elem_t *aElem)
 {
@@ -189,8 +191,9 @@ void limiterVenkatakrishnan(elem_t *aElem)
 	aElem->u_y[P]   *= phi[P];
 }
 
-/*
- * compute the gradients of dU/dx
+/**
+ * \brief Compute the gradients of dU/dx
+ * \param[in] time Calculation time at which to perform the spatial reconstruction
  */
 void spatialReconstruction(double time)
 {
