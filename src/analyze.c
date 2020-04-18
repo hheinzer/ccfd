@@ -1,8 +1,9 @@
-/*
- * analyze.c
+/** \file
  *
- * Created: Sun 29 Mar 2020 06:29:36 PM CEST
- * Author : hhh
+ * \brief Contains functions for analyzing flow results
+ *
+ * \author hhh
+ * \date Sun 29 Mar 2020 06:29:36 PM CEST
  */
 
 #include <stdio.h>
@@ -22,13 +23,13 @@
 #include "initialCondition.h"
 
 /* extern variables */
-bool doCalcWing;
-wing_t wing;
-recordPoint_t recordPoint;
-bool hasExactSolution;
+bool doCalcWing;			/**< calculate CL CD flag */
+wing_t wing;				/**< holds data for coefficient calculation */
+recordPoint_t recordPoint;		/**< record flow field at a specific point */
+bool hasExactSolution;			/**< exact solution existence flag */
 
-/*
- * initialize recording points
+/**
+ * \brief Initialize recording points
  */
 void initRecordPoints(void)
 {
@@ -88,8 +89,8 @@ void initRecordPoints(void)
 	}
 }
 
-/*
- * initialize required data for calculation of cl and cd
+/**
+ * \brief Initialize required data for calculation of CL and CD
  */
 void initWing(void)
 {
@@ -182,8 +183,8 @@ void initWing(void)
 	}
 }
 
-/*
- * get wing parameters
+/**
+ * \brief Get parameters for calculating aerodynamic coefficients
  */
 void readWing(void)
 {
@@ -192,8 +193,8 @@ void readWing(void)
 	wing.wallId = getInt("wall_id", NULL);
 }
 
-/*
- * initialize analyze
+/**
+ * \brief Initialize the analysis function
  */
 void initAnalyze(void)
 {
@@ -285,10 +286,10 @@ void initAnalyze(void)
 	}
 }
 
-/*
- * calculate CL and CD
+/**
+ * \brief Calculate CL and CD around the specified wall
  */
-void calcCoef(long iter)
+void calcCoef(void)
 {
 	/* initialize values */
 	double cl = 0.0, cd = 0.0;
@@ -385,8 +386,9 @@ void calcCoef(long iter)
 	fclose(demFile);
 }
 
-/*
- * evaluation of RPs
+/**
+ * \brief Evaluation of recording points
+ * \param[in] time Calculation time at output
  */
 void evalRecordPoints(double time)
 {
@@ -399,8 +401,12 @@ void evalRecordPoints(double time)
 	}
 }
 
-/*
- * compute aerodynamic coefficients and extract values at record points
+/**
+ * \brief Compute aerodynamic coefficients and extract values at record points
+ * \param[in] time Calculation time at output
+ * \param[in] iter Iteration count at output
+ * \param[in/out] resIter[NVAR + 2] The residual vector containing the CL and CD
+ *	residuals at 4th and 5th index position
  */
 void analyze(double time, long iter, double resIter[NVAR + 2])
 {
@@ -414,7 +420,7 @@ void analyze(double time, long iter, double resIter[NVAR + 2])
 		resIter[4] = wing.cl;
 		resIter[5] = wing.cd;
 
-		calcCoef(iter);
+		calcCoef();
 
 		resIter[4] = fabs(resIter[4] - wing.cl) / firstElem->dt;
 		resIter[5] = fabs(resIter[5] - wing.cd) / firstElem->dt;
@@ -431,8 +437,10 @@ void analyze(double time, long iter, double resIter[NVAR + 2])
 	}
 }
 
-/*
- * calculate L1, L2, and Linf error norms
+/**
+ * \brief Calculate L1, L2, and Linf error norms, between the flow solution and
+ *	the exact solution
+ * \param[in] time Calculation time at output
  */
 void calcErrors(double time)
 {
@@ -505,34 +513,33 @@ void calcErrors(double time)
 	printf("| Linf:  %7.5e  %7.5e  %7.5e  %7.5e\n", Linf[RHO], Linf[VX], Linf[VY], Linf[P]);
 }
 
-/*
- * calculate the global residual
+/**
+ * \brief Calculate the global residual of the conservative variables
+ * \param[in/out] resIter[NVAR + 2] The residual vector containing the residuals
+ *	of the conservative variables at the first four positions
  */
-void globalResidual(double dt, double resIter[NVAR + 2])
+void globalResidual(double resIter[NVAR + 2])
 {
-	resIter[0] = 0.0;
-	resIter[1] = 0.0;
-	resIter[2] = 0.0;
-	resIter[3] = 0.0;
+	memset(resIter, 0, (NVAR + 2) * sizeof(double));
 
-	#pragma omp parallel for reduction(+:resIter[:4])
+	#pragma omp parallel for reduction(+:resIter[:NVAR + 2])
 	for (long iElem = 0; iElem < nElems; ++iElem) {
 		elem_t *aElem = elem[iElem];
-		resIter[0] += aElem->area * aElem->u_t[0] * aElem->u_t[0];
-		resIter[1] += aElem->area * aElem->u_t[1] * aElem->u_t[1];
-		resIter[2] += aElem->area * aElem->u_t[2] * aElem->u_t[2];
-		resIter[3] += aElem->area * aElem->u_t[3] * aElem->u_t[3];
+		resIter[RHO] += aElem->area * aElem->u_t[RHO] * aElem->u_t[RHO];
+		resIter[MX]  += aElem->area * aElem->u_t[MX]  * aElem->u_t[MX];
+		resIter[MY]  += aElem->area * aElem->u_t[MY]  * aElem->u_t[MY];
+		resIter[E]   += aElem->area * aElem->u_t[E]   * aElem->u_t[E];
 	}
 
 	/* compute 2-Norm of the residual */
-	resIter[0] = sqrt(resIter[0] * totalArea_q);
-	resIter[1] = sqrt(resIter[1] * totalArea_q);
-	resIter[2] = sqrt(resIter[2] * totalArea_q);
-	resIter[3] = sqrt(resIter[3] * totalArea_q);
+	resIter[RHO] = sqrt(resIter[RHO] * totalArea_q);
+	resIter[MX]  = sqrt(resIter[MX]  * totalArea_q);
+	resIter[MY]  = sqrt(resIter[MY]  * totalArea_q);
+	resIter[E]   = sqrt(resIter[E]   * totalArea_q);
 }
 
-/*
- * free all memory that was allocated for the wing evaluation
+/**
+ * \brief Free all memory that was allocated for the wing evaluation
  */
 void freeAnalyze(void)
 {

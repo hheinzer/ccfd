@@ -1,14 +1,14 @@
-/*
- * analyze.h
+/** \file
  *
- * Created: Sun 29 Mar 2020 05:51:23 PM CEST
- * Author : hhh
+ * \brief Contains the structure definitions of `wing_t` and `recordPoint_t`
+ *
+ * \author hhh
+ * \date Sun 29 Mar 2020 05:51:23 PM CEST
  */
 
 #ifndef ANALYZE_H
 #define ANALYZE_H
 
-typedef struct times_t times_t;
 typedef struct wing_t wing_t;
 typedef struct recordPoint_t recordPoint_t;
 
@@ -19,29 +19,27 @@ typedef struct recordPoint_t recordPoint_t;
 #include "boundary.h"
 #include "mesh.h"
 
-struct times_t {
-	double overall;
-	double io;
-	double flux;
-	double spaceRec;
-	double ck;
-	double timeInt;
-};
-
+/**
+ * \brief Collection of all necessary values for the calculation of CL and CD
+ */
 struct wing_t {
-	double refLength;
-	int wallId;
-	double cl, cd;
-	boundary_t *wingBC;
-	sidePtr_t *firstPressureSide;
-	sidePtr_t *firstSuctionSide;
+	double refLength;		/**< reference length */
+	int wallId;			/**< BCid of the wall that represents the wing */
+	double cl;			/**< lift coefficient */
+	double cd;			/**< drag coefficient */
+	boundary_t *wingBC;		/**< pointer to the BC of the wing */
+	sidePtr_t *firstPressureSide;	/**< pointer to the first pressure side */
+	sidePtr_t *firstSuctionSide;	/**< pointer to the first suction side */
 };
 
+/**
+ * \brief Recording point structure, used to output flow field at specific points
+ */
 struct recordPoint_t {
-	int nPoints;
-	double **x;
-	elem_t **elem;
-	FILE **ioFile;
+	int nPoints;			/**< number of recording points */
+	double **x;			/**< `nPoints`x`NDIM` array of RP coordinates */
+	elem_t **elem;			/**< array of elements that contain a RP */
+	FILE **ioFile;			/**< array of output file pointers */
 };
 
 extern bool doCalcWing;
@@ -52,7 +50,7 @@ extern bool hasExactSolution;
 void initAnalyze(void);
 void analyze(double time, long iter, double *resIter);
 void calcErrors(double time);
-void globalResidual(double dt, double resIter[NVAR + 2]);
+void globalResidual(double resIter[NVAR + 2]);
 void freeAnalyze(void);
 
 #endif

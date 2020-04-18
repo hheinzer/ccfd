@@ -340,7 +340,7 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
 		consPrim(aElem->cVar, aElem->pVar);
 	}
 
-	globalResidual(dt, resIter);
+	globalResidual(resIter);
 }
 
 /*
@@ -384,7 +384,7 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
 		}
 	}
 
-	globalResidual(dt, resIter);
+	globalResidual(resIter);
 }
 
 /*
@@ -532,7 +532,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 		exit(1);
 	}
 
-	globalResidual(dt, resIter);
+	globalResidual(resIter);
 }
 
 /*
