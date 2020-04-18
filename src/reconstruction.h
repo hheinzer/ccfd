@@ -1,8 +1,7 @@
-/*
- * reconstruction.h
+/** \file
  *
- * Created: Sat 28 Mar 2020 10:16:16 AM CET
- * Author : hhh
+ * \author hhh
+ * \date Sat 28 Mar 2020 10:16:16 AM CET
  */
 
 #ifndef RECONSTRUCTION_H
