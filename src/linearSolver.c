@@ -1,8 +1,10 @@
-/*
- * linearSolver.c
+/** \file
  *
- * Created: Sat 28 Mar 2020 03:41:56 PM CET
- * Author : hhh
+ * \brief Contains the functions for solving the linear system of equations
+ *	during implicit calculations
+ *
+ * \author hhh
+ * \date Sat 28 Mar 2020 03:41:56 PM CET
  */
 
 #include <stdio.h>
@@ -23,28 +25,33 @@
 #include "finiteVolume.h"
 
 /* extern variables */
-int nKdim;
-int nNewtonIter;
-int nNewtonIterGlobal;
+int nKdim;			/**< number Krylov spaces */
+int nNewtonIter;		/**< maximum number of Newton iterations */
+int nNewtonIterGlobal;		/**< global number of Newton iterations */
 
-int nGMRESiterGlobal;
+int nGMRESiterGlobal;		/**< global number of GMRES iterations */
 
-int nInnerNewton;
+int nInnerNewton;		/**< maximum number of Newton iterations for
+					one stage */
 
-int nInnerGMRES;
+int nInnerGMRES;		/**< maximum number of GMRES iterations for
+					one stage */
 
-int iterGlobal;
-bool usePrecond;
+bool usePrecond;		/**< use LUSGS preconditioner flag */
 
-double rEps0, srEps0;
+double rEps0;			/**< DBL_EPSILON */
+double srEps0;			/**< sqrt(DBL_EPSILON) */
 
-double eps2newton;
-double eps2newton_sq;
+double eps2newton;		/**< square of newton relative epsilon */
+double eps2newton_sq;		/**< newton relative epsilon */
 
-double epsGMRES;
-double gamEW;
+double epsGMRES;		/**< GMRES relative epsilon */
+double gamEW;			/**< gamma parameter for Eisenstat Walker */
 
-double **XK, **R_XK;
+double **XK;
+double **R_XK;
+
+/* local variables */
 double ***D;
 double ***Dinv;
 double **dRdU;
@@ -55,8 +62,8 @@ double **R0;
 double **W;
 double **deltaXstar;
 
-/*
- * initialize linear solver
+/**
+ * \brief Initialize linear solver
  */
 void initLinearSolver(void)
 {
@@ -99,8 +106,11 @@ void initLinearSolver(void)
 	}
 }
 
-/*
- * compute dot product for vectors a and b: result = a * b
+/**
+ * \brief Compute dot product for two state vectors A and B for every element
+ * \param[in] **A First state vector for every element
+ * \param[in] **B Second state vector for every element
+ * \return sum(sum(A_ij * B_ij, i = RHO,MX,MY,E), i = 1..nElems)
  */
 double vectorDotProduct(double **A, double **B)
 {
@@ -117,8 +127,11 @@ double vectorDotProduct(double **A, double **B)
 	return res;
 }
 
-/*
- * compute inverse of a 4x4 matrix
+/**
+ * \brief Compute inverse of a 4x4 matrix
+ * \param[in] **A The 4x4 matrix to be inverted
+ * \param[out] **Ainv The 4x4 inverse matrix of A
+ * \return 0 = Inverse does not exist, 1 = Inverse computed
  */
 bool calcDinv(double **A, double **Ainv)
 {
@@ -133,7 +146,7 @@ bool calcDinv(double **A, double **Ainv)
 		*(A[2][2]*A[3][0]-A[2][0]*A[3][2])+A[1][2]*(A[2][0]*A[3][1]
 		-A[2][1]*A[3][0]));
 
-	if (fabs(det) <= 1e-10) {
+	if (fabs(det) <= DBL_EPSILON) {
 		return false;
 	}
 
@@ -165,8 +178,10 @@ bool calcDinv(double **A, double **Ainv)
 	return true;
 }
 
-/*
- * compute the global jacobian matrix by use of finite differences
+/**
+ * \brief Compute the global Jacobian matrix by use of finite differences
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
  */
 void buildMatrix(double time, double dt)
 {
@@ -236,8 +251,14 @@ void buildMatrix(double time, double dt)
 	}
 }
 
-/*
- * LUSGS preconditioner
+/**
+ * \brief LUSGS preconditioner
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] **B Old vector, to be preconditioned
+ * \param[out] **delX Preconditioned vector
+ * \note This function is slow to execute, it might be possible to speed it up
+ *	via the use of omp locks for every element
  */
 void LUSGS(double time, double dt, double **B, double **delX)
 {
@@ -313,9 +334,14 @@ void LUSGS(double time, double dt, double **B, double **delX)
 	}
 }
 
-/*
- * computes matrix vector product using spatial operator and finite difference
- * approach, A is operator at linearization state xk (Newton iteration)
+/**
+ * \brief Computes matrix vector product using spatial operator and finite differences
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] alpha Relaxation parameter
+ * \param[in] beta Relaxation parameter
+ * \param[in] **v Input vector for the matrix vector product
+ * \param[out] **res Resulting vector of the matrix vector product
  */
 void matrixVector(double time, double dt, double alpha, double beta, double **v,
 		double **res)
@@ -349,9 +375,16 @@ void matrixVector(double time, double dt, double alpha, double beta, double **v,
 	}
 }
 
-/*
- * uses matrix free to solve the linear system, deltaX=0 is the initial guess
- * X0 is already stored in U
+/**
+ * \brief Uses matrix free to solve the linear system
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] alpha Relaxation parameter
+ * \param[in] beta Relaxation parameter
+ * \param[in] **B Right hand side
+ * \param[in] normB Norm of right hand side
+ * \param[in/out] *abortCrit GMRES abort criterium
+ * \param[out] **delX Resulting x vector of the linear system
  */
 void GMRES_M(double time, double dt, double alpha, double beta, double **B,
 		double normB, double *abortCrit, double **delX)
@@ -480,8 +513,8 @@ void GMRES_M(double time, double dt, double alpha, double beta, double **B,
 	exit(1);
 }
 
-/*
- * free all memory that was allocated for
+/**
+ * \brief Free all memory that was allocated for
  */
 void freeLinearSolver(void)
 {

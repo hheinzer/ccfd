@@ -1,8 +1,7 @@
-/*
- * linearSolver.h
+/** \file
  *
- * Created: Sat 28 Mar 2020 03:09:46 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Sat 28 Mar 2020 03:09:46 PM CET
  */
 
 #ifndef LINEARSOLVER_H
@@ -23,10 +22,10 @@ extern int nInnerNewton;
 
 extern int nInnerGMRES;
 
-extern int iterGlobal;
 extern bool usePrecond;
 
-extern double rEps0, srEps0;
+extern double rEps0;
+extern double srEps0;
 
 extern double eps2newton;
 extern double eps2newton_sq;
@@ -34,10 +33,8 @@ extern double eps2newton_sq;
 extern double epsGMRES;
 extern double gamEW;
 
-extern double **XK, **R_XK;
-extern double ***Dinv;
-extern double ****lowerUpper;
-extern long ***elemToElem;
+extern double **XK;
+extern double **R_XK;
 
 void initLinearSolver(void);
 double vectorDotProduct(double **A, double **B);
