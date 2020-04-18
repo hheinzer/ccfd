@@ -1,8 +1,9 @@
-/*
- * timeDiscretization.c
+/** \file
  *
- * Created: Sat 21 Mar 2020 07:52:42 PM CET
- * Author : hhh
+ * \brief Contains the functions for performing the time stepping process
+ *
+ * \author hhh
+ * \date Sat 21 Mar 2020 07:52:42 PM CET
  */
 
 #include <stdio.h>
@@ -25,35 +26,36 @@
 #include "memTools.h"
 
 /* extern variables */
-double	cfl;
-double	dfl;
-double	t;
+double	cfl;				/**< Courant-Friedrichs-Lewy number */
+double	dfl;				/**< diffusive Courant-Friedrichs-Lewy number */
+double	t;				/**< global calculation time */
 
-double	timeOverall;
+double	timeOverall;			/**< overall time */
 
-int	timeOrder;
-bool	isTimeStep1D;
+int	timeOrder;			/**< order of the time integration */
+bool	isTimeStep1D;			/**< flag for 1D problem */
 
-bool	isStationary;
-long	maxIter;
-double	stopTime;
-long	iniIterationNumber;
-double	startTime;
-double	abortResidual;
-int	abortVariable;
-char	abortVariableName[4];
-double	clAbortResidual, cdAbortResidual;
-bool	doAbortOnClResidual, doAbortOnCdResidual;
-bool	isRestart;
-double	restartTime;
+bool	isStationary;			/**< flag for stationary problem */
+long	maxIter;			/**< maximum number of iterations */
+double	stopTime;			/**< simulation end time */
+long	iniIterationNumber;		/**< initial iteration number */
+double	startTime;			/**< starting time */
+double	abortResidual;			/**< residual at which to abort the calculation */
+int	abortVariable;			/**< abort variable */
+char	abortVariableName[4];		/**< string of the abort variable */
+double	clAbortResidual;		/**< CL abort residual */
+double  cdAbortResidual;		/**< CD abort residual */
+bool	doAbortOnClResidual;		/**< CL abort flag */
+bool	doAbortOnCdResidual;		/**< CD abort flag */
+bool	isRestart;			/**< restart flag */
+double	restartTime;			/**< calculation time for restart */
 
-int	printIter;
-double	printTime;
+int	printIter;			/**< iterations after which to output */
+double	printTime;			/**< calculation time after which to output */
 
-bool	isRK;
-int	nRKstages;
-double	RKcoeff[6] = {0.0};
-bool	isImplicit;
+int	nRKstages;			/**< number of Runge-Kutta stages */
+double	RKcoeff[6] = {0.0};		/**< array of Runge-Kutta coefficients */
+bool	isImplicit;			/**< implicit calculation flag */
 
 /* local variables */
 double **deltaX;
@@ -61,8 +63,8 @@ double **Q;
 double **F_X0;
 double **F_XK;
 
-/*
- * Initialize the time discretization
+/**
+ * \brief Initialize the time discretization
  */
 void initTimeDisc(void)
 {
@@ -236,8 +238,12 @@ void initTimeDisc(void)
 	printTime = (floor(t / IOtimeInterval) + 1) * IOtimeInterval;
 }
 
-/*
- * compute the time step
+/**
+ * \brief Compute the time step
+ * \param[in] pTime The print time interval
+ * \param[out] *dt The resulting time step
+ * \param[out] *viscousTimeStepDominates Flag for if the viscous time step is
+ *	dominating
  */
 void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 {
@@ -321,8 +327,12 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
 	}
 }
 
-/*
- * performing explicit time step using Euler scheme
+/**
+ * \brief Performs explicit time step using Euler scheme
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] iter Iteration number at calculation
+ * \param[out] resIter[NVAR + 2] Residual vector for time step
  */
 void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
 {
@@ -343,8 +353,12 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
 	globalResidual(resIter);
 }
 
-/*
- * performing explicit time step using RK nstage scheme
+/**
+ * \brief Performs explicit time step using Runge-Kutta scheme `nRKstages` stages
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] iter Iteration number at calculation
+ * \param[out] resIter[NVAR + 2] Residual vector for time step
  */
 void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR + 2])
 {
@@ -387,10 +401,15 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
 	globalResidual(resIter);
 }
 
-/*
- * Euler implicit time integration
- * non-linear equations require the use of a Newton method with internal
- * subiteration, using a GMRES method
+/** \brief Euler implicit time integration
+ *
+ * The non-linear equations require the use of a Newton method with internal
+ * sub-iteration, using a GMRES method.
+ *
+ * \param[in] time Computation time at calculation
+ * \param[in] dt Time step at calculation
+ * \param[in] iter Iteration number at calculation
+ * \param[out] resIter[NVAR + 2] Residual vector for time step
  */
 void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2])
 {
@@ -535,9 +554,10 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 	globalResidual(resIter);
 }
 
-/*
- * selection of temporal integration method, as well as management of data
- * output and analysis tools
+/** \brief Main time discretization loop
+ *
+ * Selection of temporal integration method, as well as management of data
+ * output and analysis tools.
  */
 void timeDisc(void)
 {

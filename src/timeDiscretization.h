@@ -1,8 +1,7 @@
-/*
- * timeDiscretization.h
+/** \file
  *
- * Created: Sat 21 Mar 2020 07:48:34 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Sat 21 Mar 2020 07:48:34 PM CET
  */
 
 #ifndef TIMEDISCRETIZATION_H
@@ -22,7 +21,6 @@ extern double	dfl;
 extern double	t;
 
 extern double	timeOverall;
-//extern double	ioTime;
 
 extern int	timeOrder;
 extern bool	isTimeStep1D;
@@ -35,15 +33,16 @@ extern double	startTime;
 extern double	abortResidual;
 extern int	abortVariable;
 extern char	abortVariableName[4];
-extern double	clAbortResidual, cdAbortResidual;
-extern bool	doAbortOnClResidual, doAbortOnCdResidual;
+extern double	clAbortResidual;
+extern double	cdAbortResidual;
+extern bool	doAbortOnClResidual;
+extern bool	doAbortOnCdResidual;
 extern bool	isRestart;
 extern double	restartTime;
 
 extern int	printIter;
 extern double	printTime;
 
-extern bool	isRK;
 extern int	nRKstages;
 extern double	RKcoeff[6];
 extern bool	isImplicit;
