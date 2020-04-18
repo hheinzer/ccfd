@@ -92,23 +92,19 @@ $(document).ready(function(){initNavTree('linearSolver_8h.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh_8h_source.html">mesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="main_8h.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh_8h.html">mesh.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for linearSolver.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="linearSolver_8h__incl.svg" width="266" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="linearSolver_8h__incl.svg" width="266" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="linearSolver_8h__dep__incl.svg" width="240" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="linearSolver_8h__dep__incl.svg" width="240" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div>
-</div>
-<p><a href="linearSolver_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae169561793e8ff5ed9b88eb5eb7a0326"><td class="memItemLeft" align="right" valign="top"><a id="ae169561793e8ff5ed9b88eb5eb7a0326"></a>
@@ -244,6 +240,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
   </dd>
 </dl>
 
+<p class="reference">References <a class="el" href="linearSolver_8c.html#a842f385c4b1df56339ee2bd6c220bdf0">epsGMRES</a>.</p>
+
 </div>
 </div>
 <a id="ad8c72a0c1caceac1554d2a014545442f"></a>
@@ -282,6 +280,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sum(sum(A_ij * B_ij, i = RHO,MX,MY,E), i = 1..nElems) </dd></dl>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">matrixVector()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -298,6 +298,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>square of newton relative epsilon </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
+
 </div>
 </div>
 <a id="ad0251ae2ddee799f670b4e5fc6474e6a"></a>
@@ -312,6 +314,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>newton relative epsilon </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -328,6 +332,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>GMRES relative epsilon </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#a260f703e4187362df18336aef06d9646">GMRES_M()</a>, and <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
+
 </div>
 </div>
 <a id="ae924a03f59827f55c3c5b474c89d07d6"></a>
@@ -342,6 +348,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>gamma parameter for Eisenstat Walker </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -373,6 +381,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>global number of GMRES iterations </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
+
 </div>
 </div>
 <a id="a944cd45a741f9dea609b4c5cfa1ffd4f"></a>
@@ -387,6 +397,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>maximum number of GMRES iterations for one stage </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -403,6 +415,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>maximum number of Newton iterations for one stage </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
+
 </div>
 </div>
 <a id="a32be4c35332a5236db05a707a422a711"></a>
@@ -417,6 +431,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>number Krylov spaces </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -433,6 +449,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>maximum number of Newton iterations </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
+
 </div>
 </div>
 <a id="ae136204fc2205a21023230d7580c1c36"></a>
@@ -447,6 +465,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>global number of Newton iterations </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -463,6 +483,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 </div><div class="memdoc">
 <p>DBL_EPSILON </p>
 
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>, and <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">matrixVector()</a>.</p>
+
 </div>
 </div>
 <a id="a448267f322e74a68c1159206d4b14b94"></a>
@@ -477,6 +499,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
       </table>
 </div><div class="memdoc">
 <p>sqrt(DBL_EPSILON) </p>
+
+<p class="reference">Referenced by <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -501,7 +525,7 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>R_XK</b></td></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="linearSolver_8h.html">linearSolver.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

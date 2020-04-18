@@ -1,7 +1,5 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
-    [ "euler", "dir_6eb891dcdcec41b30c3f04338d2e6f13.html", "dir_6eb891dcdcec41b30c3f04338d2e6f13" ],
-    [ "navierstokes", "dir_c933898259c305152a09d430ff280f46.html", "dir_c933898259c305152a09d430ff280f46" ],
     [ "analyze.c", "analyze_8c.html", "analyze_8c" ],
     [ "analyze.h", "analyze_8h.html", "analyze_8h" ],
     [ "finiteVolume.c", "finiteVolume_8c.html", "finiteVolume_8c" ],
@@ -18,7 +16,5 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "output.c", "output_8c.html", "output_8c" ],
     [ "output.h", "output_8h.html", "output_8h" ],
     [ "readInTools.c", "readInTools_8c.html", "readInTools_8c" ],
-    [ "readInTools.h", "readInTools_8h.html", "readInTools_8h" ],
-    [ "reconstruction.h", "reconstruction_8h_source.html", null ],
-    [ "timeDiscretization.h", "timeDiscretization_8h_source.html", null ]
+    [ "readInTools.h", "readInTools_8h.html", "readInTools_8h" ]
 ];

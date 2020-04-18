@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('readInTools_8h.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="main_8h.html">main.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for readInTools.h:</div>
 <div class="dyncontent">
@@ -100,12 +100,9 @@ Include dependency graph for readInTools.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="readInTools_8h__dep__incl.svg" width="794" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="readInTools_8h__dep__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div>
-</div>
-<p><a href="readInTools_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aae07b562b487646845b24aa277a191f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readInTools_8h.html#aae07b562b487646845b24aa277a191f3">fillCmds</a> (char iniFileName[<a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>])</td></tr>
@@ -178,6 +175,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>How often the <code>key</code> appeared in the command list </dd></dl>
 
+<p class="reference">References <a class="el" href="readInTools_8c.html#a1b1632dea78543c0c98501926b4cf5be">firstCmd</a>, and <a class="el" href="structcmd__t.html#a35706fa71e30bb009a7ec9a36d7ec2cd">cmd_t::next</a>.</p>
+
 </div>
 </div>
 <a id="aae07b562b487646845b24aa277a191f3"></a>
@@ -204,6 +203,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
   </table>
   </dd>
 </dl>
+
+<p class="reference">References <a class="el" href="readInTools_8c.html#a1b1632dea78543c0c98501926b4cf5be">firstCmd</a>, <a class="el" href="structcmd__t.html#a34509c1a5d5129fd40b68ea54608ca0d">cmd_t::key</a>, <a class="el" href="structcmd__t.html#a35706fa71e30bb009a7ec9a36d7ec2cd">cmd_t::next</a>, <a class="el" href="structcmd__t.html#a51bcce03f74b6456f98430ab2421f91f">cmd_t::prev</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, and <a class="el" href="structcmd__t.html#a124bb00c5bcae276868b450c1a4bcfdb">cmd_t::value</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -244,6 +247,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the parameter, or the default value </dd></dl>
 
+<p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, and <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
 </div>
 </div>
 <a id="a21afe1e7fa3e486a19cf7678b53f1782"></a>
@@ -282,6 +289,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the parameter, or the default value </dd></dl>
+
+<p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>, <a class="el" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initInitialCondition()</a>, <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>, <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>, and <a class="el" href="analyze_8c.html#adc6a4d68efba10058fc17a0d51fd1e12">readWing()</a>.</p>
 
 </div>
 </div>
@@ -329,6 +340,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the value array of the parameter, or the default value array </dd></dl>
 
+<p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>, and <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initInitialCondition()</a>, and <a class="el" href="analyze_8c.html#a8dfb9a6f986ddcade64d191141b9c324">initRecordPoints()</a>.</p>
+
 </div>
 </div>
 <a id="ad920bf2e8d08267c632f9d48f6932d43"></a>
@@ -367,6 +382,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the parameter, or the default value </dd></dl>
+
+<p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>, <a class="el" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initInitialCondition()</a>, <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>, <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>, and <a class="el" href="analyze_8c.html#adc6a4d68efba10058fc17a0d51fd1e12">readWing()</a>.</p>
 
 </div>
 </div>
@@ -414,6 +433,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the value array of the parameter, or the default value array </dd></dl>
 
+<p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>, and <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -422,7 +443,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="read
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="readInTools_8h.html">readInTools.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
