@@ -70,27 +70,92 @@ $(function() {
 <div class="title">recordPoint_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Recording point structure, used to output flow field at specific points.  
+ <a href="structrecordPoint__t.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="analyze_8h_source.html">analyze.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for recordPoint_t:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structrecordPoint__t__coll__graph.svg" width="460" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structrecordPoint__t__coll__graph.svg" width="460" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a5e61f8bd2eedbbcc371378a4ba1ae9c0"><td class="memItemLeft" align="right" valign="top"><a id="a5e61f8bd2eedbbcc371378a4ba1ae9c0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>nPoints</b></td></tr>
+<tr class="memitem:a5e61f8bd2eedbbcc371378a4ba1ae9c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrecordPoint__t.html#a5e61f8bd2eedbbcc371378a4ba1ae9c0">nPoints</a></td></tr>
 <tr class="separator:a5e61f8bd2eedbbcc371378a4ba1ae9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562a864411bea4a81b9f72a9786ef137"><td class="memItemLeft" align="right" valign="top"><a id="a562a864411bea4a81b9f72a9786ef137"></a>
-double **&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
+<tr class="memitem:a562a864411bea4a81b9f72a9786ef137"><td class="memItemLeft" align="right" valign="top">double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrecordPoint__t.html#a562a864411bea4a81b9f72a9786ef137">x</a></td></tr>
 <tr class="separator:a562a864411bea4a81b9f72a9786ef137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8e9e8fc16167744fcff67c38b5912c"><td class="memItemLeft" align="right" valign="top"><a id="a4f8e9e8fc16167744fcff67c38b5912c"></a>
-<a class="el" href="structelem__t.html">elem_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>elem</b></td></tr>
+<tr class="memitem:a4f8e9e8fc16167744fcff67c38b5912c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structelem__t.html">elem_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrecordPoint__t.html#a4f8e9e8fc16167744fcff67c38b5912c">elem</a></td></tr>
 <tr class="separator:a4f8e9e8fc16167744fcff67c38b5912c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21fd61667516ed07df7e3b0c461126b1"><td class="memItemLeft" align="right" valign="top"><a id="a21fd61667516ed07df7e3b0c461126b1"></a>
-FILE **&#160;</td><td class="memItemRight" valign="bottom"><b>ioFile</b></td></tr>
+<tr class="memitem:a21fd61667516ed07df7e3b0c461126b1"><td class="memItemLeft" align="right" valign="top">FILE **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrecordPoint__t.html#a21fd61667516ed07df7e3b0c461126b1">ioFile</a></td></tr>
 <tr class="separator:a21fd61667516ed07df7e3b0c461126b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Recording point structure, used to output flow field at specific points. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a4f8e9e8fc16167744fcff67c38b5912c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f8e9e8fc16167744fcff67c38b5912c">&#9670;&nbsp;</a></span>elem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structelem__t.html">elem_t</a>** recordPoint_t::elem</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>array of elements that contain a RP </p>
+
+</div>
+</div>
+<a id="a21fd61667516ed07df7e3b0c461126b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21fd61667516ed07df7e3b0c461126b1">&#9670;&nbsp;</a></span>ioFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE** recordPoint_t::ioFile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>array of output file pointers </p>
+
+</div>
+</div>
+<a id="a5e61f8bd2eedbbcc371378a4ba1ae9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e61f8bd2eedbbcc371378a4ba1ae9c0">&#9670;&nbsp;</a></span>nPoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int recordPoint_t::nPoints</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>number of recording points </p>
+
+</div>
+</div>
+<a id="a562a864411bea4a81b9f72a9786ef137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562a864411bea4a81b9f72a9786ef137">&#9670;&nbsp;</a></span>x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double** recordPoint_t::x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><code>nPoints</code>x<code>NDIM</code> array of RP coordinates </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="analyze_8h_source.html">analyze.h</a></li>
 </ul>

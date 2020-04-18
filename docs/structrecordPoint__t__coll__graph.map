@@ -1,5 +1,5 @@
 <map id="recordPoint_t" name="recordPoint_t">
-<area shape="rect" id="node1" title=" " alt="" coords="5,193,104,219"/>
+<area shape="rect" id="node1" title="Recording point structure, used to output flow field at specific points." alt="" coords="5,193,104,219"/>
 <area shape="rect" id="node2" href="$structelem__t.html" title=" " alt="" coords="91,95,152,121"/>
 <area shape="rect" id="node4" href="$structside__t.html" title=" " alt="" coords="190,193,247,219"/>
 <area shape="rect" id="node3" href="$structnode__t.html" title=" " alt="" coords="160,5,221,32"/>

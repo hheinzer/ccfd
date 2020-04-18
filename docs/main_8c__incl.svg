@@ -216,7 +216,7 @@
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
-<g id="a_node17"><a xlink:href="analyze_8h_source.html" target="_top" xlink:title=" ">
+<g id="a_node17"><a xlink:href="analyze_8h.html" target="_top" xlink:title="Contains the structure definitions of wing_t and recordPoint_t">
 <polygon fill="white" stroke="black" points="518,-112.5 518,-131.5 576,-131.5 576,-112.5 518,-112.5"/>
 <text text-anchor="middle" x="547" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">analyze.h</text>
 </a>
