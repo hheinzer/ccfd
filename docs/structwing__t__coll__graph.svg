@@ -45,7 +45,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structside__t.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structside__t.html" target="_top" xlink:title="Structure for a single side in the global side list.">
 <polygon fill="white" stroke="black" points="61.5,-152 61.5,-171 104.5,-171 104.5,-152 61.5,-152"/>
 <text text-anchor="middle" x="83" y="-159" font-family="Helvetica,sans-Serif" font-size="10.00">side_t</text>
 </a>
@@ -100,7 +100,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structnode__t.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="structnode__t.html" target="_top" xlink:title="Structure for a single node in a linked list of nodes.">
 <polygon fill="white" stroke="black" points="0,-225.5 0,-244.5 46,-244.5 46,-225.5 0,-225.5"/>
 <text text-anchor="middle" x="23" y="-232.5" font-family="Helvetica,sans-Serif" font-size="10.00">node_t</text>
 </a>

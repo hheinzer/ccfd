@@ -41,7 +41,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
@@ -55,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "analyze_8c.html",
-"structcartMesh__t.html#ad50119c30a0c863bade8ddef161d8091"
+"mesh_8h.html#a21f372ef64234addfe8453786e3580e6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['docalcwing_233',['doCalcWing',['../analyze_8c.html#a91a35913b246573eee26879e04d0404e',1,'doCalcWing():&#160;analyze.c'],['../analyze_8h.html#a91a35913b246573eee26879e04d0404e',1,'doCalcWing():&#160;analyze.c']]],
-  ['doerroroutput_234',['doErrorOutput',['../output_8c.html#a99da6d219a27bf67fadbe53a6bab0bfd',1,'doErrorOutput():&#160;output.c'],['../output_8h.html#a99da6d219a27bf67fadbe53a6bab0bfd',1,'doErrorOutput():&#160;output.c']]],
-  ['domainid_235',['domainID',['../initialCondition_8c.html#ad867b89571b0bf6049fa6bc21132e1a0',1,'domainID():&#160;initialCondition.c'],['../initialCondition_8h.html#ad867b89571b0bf6049fa6bc21132e1a0',1,'domainID():&#160;initialCondition.c']]]
+  ['cd_287',['cd',['../structwing__t.html#a054e995574e6779b477d45ce36ff8e80',1,'wing_t']]],
+  ['cl_288',['cl',['../structwing__t.html#abbc7232152809bd0e53028a98db65c15',1,'wing_t']]],
+  ['connection_289',['connection',['../structside__t.html#abd0ddb5755094a7ba4257b3f35d26eba',1,'side_t']]]
 ];

@@ -96,7 +96,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="mesh_8h_source.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="mesh_8h.html" target="_top" xlink:title="Contains the definitions of all structs for the mesh handling.">
 <polygon fill="white" stroke="black" points="195.5,-56.5 195.5,-75.5 244.5,-75.5 244.5,-56.5 195.5,-56.5"/>
 <text text-anchor="middle" x="220" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">mesh.h</text>
 </a>

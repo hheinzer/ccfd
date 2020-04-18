@@ -1,8 +1,9 @@
-/*
- * mesh.h
+/** \file
  *
- * Created: Tue 24 Mar 2020 12:45:49 PM CET
- * Author : hhh
+ * \brief Contains the definitions of all structs for the mesh handling
+ *
+ * \author hhh
+ * \date Tue 24 Mar 2020 12:45:49 PM CET
  */
 
 #ifndef MESH_H
@@ -17,30 +18,41 @@ typedef struct cartMesh_t cartMesh_t;
 #include "main.h"
 #include "boundary.h"
 
+/**
+ * \brief Structure for a single node in a linked list of nodes
+ */
 struct node_t {
-	long id;
-	node_t *next;
-	double x[NDIM];
+	long id;			/**< unique node ID */
+	double x[NDIM];			/**< coordinates of the node */
+	node_t *next;			/**< next node in the list */
 };
 
+/**
+ * \brief Structure for a single side in the global side list
+ */
 struct side_t {
-	long id;
-	int BCtype;
-	int BCid;
-	boundary_t *BC;
-	double pVar[NVAR];
-	double n[NDIM];
-	double len;
-	double baryBaryVec[NDIM];
-	double baryBaryDist;
-	double GP[NDIM];
-	double w[NDIM];
-	double flux[NVAR];
-	side_t *connection;
-	side_t *nextElemSide;
-	side_t *next;
-	node_t *node[2];
-	elem_t *elem;
+	long id;			/**< unique side ID */
+	int BCtype;			/**< boundary condition type */
+	int BCid;			/**< boundary condition Sub-ID */
+	boundary_t *BC;			/**< pointer to the boundary condition */
+	double pVar[NVAR];		/**< primitive variables state at side */
+	double n[NDIM];			/**< normal vector of side */
+	double len;			/**< length of the side */
+	double baryBaryVec[NDIM];	/**< vector from element barycenter to
+						barycenter of neighbor element */
+	double baryBaryDist;		/**< length of `baryBaryVec` */
+	double GP[NDIM];		/**< vector from element barycenter to
+						the Gaussian point of the side */
+	double w[NDIM];			/**< omegaX and omegaY entries for 2nd
+						order gradient reconstruction */
+	double flux[NVAR];		/**< numerical flux of the side */
+	side_t *connection;		/**< neighbor side */
+	side_t *nextElemSide;		/**< pointer to the next side of the
+						element */
+	side_t *next;			/**< point to the next side in the global
+						side list */
+	node_t *node[2];		/**< pointer array to the nodes of the side */
+	elem_t *elem;			/**< pointer to the element of the side */
 };
 
 struct sidePtr_t {
