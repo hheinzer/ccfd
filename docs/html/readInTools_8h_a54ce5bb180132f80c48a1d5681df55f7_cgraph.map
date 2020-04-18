@@ -1,0 +1,5 @@
+<map id="getBool" name="getBool">
+<area shape="rect" id="node1" title="Get a boolean from the commands list." alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node2" href="$readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1" title="Find a command in the commands list." alt="" coords="120,5,191,32"/>
+<area shape="rect" id="node3" href="$readInTools_8c.html#ad5d64c5886e695aa1141d1b8b0e117d9" title="Delete a single node of the command list." alt="" coords="239,5,324,32"/>
+</map>
