@@ -1,8 +1,6 @@
 bin/*
 obj/*
 **/CGNS-*/
-test/*
 *.cgns
 *.dem
 *.csv
-docs/latex/*
