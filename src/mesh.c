@@ -1,9 +1,12 @@
-/*
- * mesh.c
+/** \file
  *
- * Created: Tue 24 Mar 2020 12:45:57 PM CET
- * Author : hhh
+ * \brief Contains all the functions for reading and creating meshes
+ *
+ * \author hhh
+ * \date Tue 24 Mar 2020 12:45:57 PM CET
  */
+
+typedef struct sideList_t sideList_t;
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,51 +25,58 @@
 #include "cgnslib.h"
 
 /* extern variables */
-char parameterFile[STRLEN],
-     strMeshFormat[STRLEN],
-     strMeshFile[STRLEN],
-     strIniCondFile[STRLEN];
+char parameterFile[STRLEN];		/**< parameter file name */
+char strMeshFormat[STRLEN];		/**< mesh format string */
+char strMeshFile[STRLEN];		/**< mesh file base name */
+char strIniCondFile[STRLEN];		/**< file name of the initial
+						conditions file */
 
-cartMesh_t cartMesh;
-char gridFile[STRLEN];
+cartMesh_t cartMesh;			/**< cartesian mesh structure */
+char gridFile[STRLEN];			/**< complete name of the output mesh file */
 
-int meshType;
-int meshFormat;
+int meshType;				/**< code for the mesh type */
+int meshFormat;				/**< code for the mesh format */
 
-long nNodes;
+long nNodes;				/**< global number of nodes */
 
-long nElems;
-long nTrias;
-long nQuads;
+long nElems;				/**< global number of elements */
+long nTrias;				/**< global number of triangles */
+long nQuads;				/**< global number of quadrangles */
 
-long nSides;
-long nBCsides;
-long nInnerSides;
+long nSides;				/**< global number of sides */
+long nBCsides;				/**< global number of BC sides */
+long nInnerSides;			/**< global number of non BC sides */
 
-double totalArea_q;
-double xMin, xMax;
-double yMin, yMax;
+double totalArea_q;			/**< inverse of the global area of the mesh */
+double xMin;				/**< maximum x-direction extension */
+double xMax;				/**< minimum x-direction extension */
+double yMin;				/**< maximum y-direction extension */
+double yMax;				/**< minimum y-direction extension */
 double dxRef;
 
-elem_t **elem;
-side_t **side;
-side_t **BCside;
+elem_t **elem;				/**< global element pointer array */
+side_t **side;				/**< global side pointer array */
+side_t **BCside;			/**< global BC side pointer array */
 
-elem_t *firstElem;
-node_t *firstNode;
-side_t *firstSide;
-sidePtr_t *firstBCside;
+elem_t *firstElem;			/**< pointer to first element */
+node_t *firstNode;			/**< pointer to first node */
+side_t *firstSide;			/**< pointer to first side */
+sidePtr_t *firstBCside;			/**< pointer to first BC side */
 
-typedef struct sideList_t sideList_t;
+/**
+ * \brief Helper structure for reading in the sides and deviding them into
+ *	BC sides and non-BC sides
+ */
 struct sideList_t {
-	long node[2];
-	bool BC;
-	side_t *side;
-	bool isRotated;
+	long node[2];			/**< node ID array of the side */
+	bool BC;			/**< flag for if the side is a BC side */
+	side_t *side;			/**< pointer to the side */
+	bool isRotated;			/**< flag for if the side is rotated */
 };
 
-/*
- * compute required vectors for reconstruction
+/**
+ * \brief Compute required vectors for reconstruction
+ * \param[in] *aElem A pointer to an element
  */
 void createReconstructionInfo(elem_t *aElem)
 {
@@ -157,8 +167,8 @@ void createReconstructionInfo(elem_t *aElem)
 	}
 }
 
-/*
- * create connection for periodic BCs
+/**
+ * \brief Create connection for periodic BCs
  */
 void connectPeriodicBC(void)
 {
@@ -234,8 +244,9 @@ void connectPeriodicBC(void)
 	}
 }
 
-/*
- * create side info: normal vector, side length, ghost cells, ...
+/**
+ * \brief Create side info: normal vector, side length, and ghost cells
+ * \param[in] *aSide A pointer to a side
  */
 void createSideInfo(side_t *aSide)
 {
@@ -278,8 +289,10 @@ void createSideInfo(side_t *aSide)
 	aSide->connection->len   = aSide->len;
 }
 
-/*
- * compute the cell specific values: barycenter, area, projection length of cell
+/**
+ * \brief Compute the cell specific values: barycenter, area, projection length
+ *	of an element
+ * \param[in] *aElem A pointer to an element
  */
 void createElemInfo(elem_t *aElem)
 {
@@ -328,8 +341,24 @@ void createElemInfo(elem_t *aElem)
 	}
 }
 
-/*
- * compare two elements of sideList
+/** \brief Compare two elements of the `sideList` list, used for sorting the list
+ *
+ * Sort sideList array in order to retrieve the connectivity info more
+ * efficiently. Basically we want to sort the sides on three different levels:
+ * first, by their first node ID, secondly, by their second node ID, and thirdly
+ * by if they are a boundary condition side. The result might look something
+ * like this:
+ * 3 3 1       1 2 0
+ * 2 1 1       1 3 0
+ * 1 2 0  -->  2 1 1
+ * 3 1 0       2 2 1
+ * 2 2 1       3 3 0
+ * 3 3 0       3 3 1
+ *
+ * \param[in] *a Pointer an element of the side list
+ * \param[in] *b Pointer an element of the side list
+ * \return The difference of a and b, if the values are the same, the move to
+ *	next sorting metric
  */
 int compare(const void *a, const void *b)
 {
@@ -346,8 +375,13 @@ int compare(const void *a, const void *b)
 	}
 }
 
-/*
- * create a cartesian mesh
+/**
+ * \brief Create a cartesian mesh
+ * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
+ * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
+ * \param[in/out] *nBCedges Pointer to the number of total BC edges
+ * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
  */
 void createCartMesh(
 	double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***quad)
@@ -452,8 +486,15 @@ void createCartMesh(
 	free(cartMesh.nBC);
 }
 
-/*
- * read in gmsh mesh file
+/**
+ * \brief Read in a gmsh mesh file
+ * \param[in] fileName[STRLEN] Name of the mesh file
+ * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
+ * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
+ * \param[in/out] *nBCedges Pointer to the number of total BC edges
+ * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
+ * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
  */
 void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -951,8 +992,15 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
-/*
- * read in EMC2 mesh file
+/**
+ * \brief Read in EMC2 mesh file
+ * \param[in] fileName[STRLEN] Name of the mesh file
+ * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
+ * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
+ * \param[in/out] *nBCedges Pointer to the number of total BC edges
+ * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
+ * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
  */
 void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -1093,8 +1141,15 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
-/*
- * read CGNS mesh
+/**
+ * \brief Read in a CGNS mesh
+ * \param[in] fileName[STRLEN] Name of the mesh file
+ * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
+ * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
+ * \param[in/out] *nBCedges Pointer to the number of total BC edges
+ * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
+ * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
  */
 void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -1339,10 +1394,14 @@ void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 	printf("| %7ld Boundary Edges read\n", *nBCedges);
 }
 
-/*
- * create a cartesian, structured mesh
- * read in of all supported mesh types:
- * *.msh, *.msh2, *.msh4 *.emc2, *.cgns
+/** \brief Create a cartesian or structured mesh
+ *
+ * Read in of all supported mesh types:
+ *	- *.msh
+ *	- *.msh2
+ *	- *.msh4
+ *	- *.emc2
+ *	- *.cgns
  */
 void createMesh(void)
 {
@@ -1648,21 +1707,7 @@ void createMesh(void)
 	free(BCedge);
 	free(vertexPtr);
 
-	/*
-	 * Sort sideList array in order to retreive the connectivity info more
-	 * efficiently: basically we want to sort a 2D array, the first column
-	 * is the first node of every side (sideList[i].node[0]) and the second
-	 * column is the second node of every side (sideList[i].node[1]). The
-	 * first column should be ordered in ascending order and for all the
-	 * that are the same, the second column should be ordered in ascending
-	 * order:
-	 * 1 3       1 2
-	 * 2 1       1 3
-	 * 1 2  -->  2 1
-	 * 3 1       2 2
-	 * 2 2       3 1
-	 * 3 3       3 3
-	 */
+	/* sort sideList */
 	qsort(sideList, 2 * nSides, sizeof(sideList[0]), compare);
 
 	/* initialize side lists in mesh */
@@ -1799,8 +1844,8 @@ void createMesh(void)
 	nBCsides = iSide;
 }
 
-/*
- * read in and store the mesh parameters from parameter file
+/**
+ * \brief Read in and store the mesh parameters from the parameter file
  */
 void readMesh(void)
 {
@@ -1864,8 +1909,8 @@ void readMesh(void)
 	}
 }
 
-/*
- * initalize the mesh and call read mesh
+/**
+ * \brief Initialize the mesh and call `readMesh`
  */
 void initMesh(void)
 {
@@ -1879,8 +1924,8 @@ void initMesh(void)
 	dxRef = sqrt(1.0 / (totalArea_q * nElems));
 }
 
-/*
- * free all allocated memory of the mesh
+/**
+ * \brief Free all allocated memory of the mesh
  */
 void freeMesh(void)
 {

@@ -55,50 +55,65 @@ struct side_t {
 	elem_t *elem;			/**< pointer to the element of the side */
 };
 
+/**
+ * \brief Secondary side lists used for various things
+ */
 struct sidePtr_t {
-	side_t *side;
-	sidePtr_t *next;
+	side_t *side;			/**< pointer to a side */
+	sidePtr_t *next;		/**< pointer to the next side in the
+						secondary list */
 };
 
+/**
+ * \brief Structure for a single element in the global element list
+ */
 struct elem_t {
-	int elemType;
-	long id;
-	int domain;
-	double bary[NDIM];
-	double sx;
-	double sy;
-	double area;
-	double areaq;
-	double pVar[NVAR];
-	double cVar[NVAR];
-	double cVarStage[NVAR];
-	double u_x[NVAR];
-	double u_y[NVAR];
-	double u_t[NVAR];
-	double source[NVAR];
-	double dt;
-	double dtLoc;
-	double venkEps_sq;
-	int innerSides;
-	int nGP;
-	double **xGP;
-	double *wGP;
-	side_t *firstSide;
-	elem_t *next;
-	node_t **node;
+	int elemType;			/**< element type: triangle (3) or
+						quadrangle (4) */
+	long id;			/**< unique element Id */
+	int domain;			/**< flow domain number */
+	double bary[NDIM];		/**< coordinates ob element barycenter */
+	double sx;			/**< cell extension in x-direction */
+	double sy;			/**< cell extension in y-direction */
+	double area;			/**< area of the element */
+	double areaq;			/**< inverse of element area */
+	double pVar[NVAR];		/**< primitive variables of element */
+	double cVar[NVAR];		/**< conservative variables of element */
+	double cVarStage[NVAR];		/**< conservative variables at initial
+						Runge-Kutta stage */
+	double u_x[NVAR];		/**< x-gradient of primitive variables */
+	double u_y[NVAR];		/**< y-gradient of primitive variables */
+	double u_t[NVAR];		/**< t-gradient of primitive variables */
+	double source[NVAR];		/**< source term */
+	double dt;			/**< element time step */
+	double dtLoc;			/**< local element time step */
+	double venkEps_sq;		/**< Venkatakrishnan limiter constant
+						for element */
+	int innerSides;			/**< number of non-BC sides of element */
+	int nGP;			/**< number of Gaussian integration points */
+	double **xGP;			/**< Gaussian points for volume integral */
+	double *wGP;			/**< Gaussian weights */
+	side_t *firstSide;		/**< pointer to the first side of the element */
+	elem_t *next;			/**< pointer to the next element in
+						global element list */
+	node_t **node;			/**< pointer array of the element's nodes */
 };
 
+/**
+ * \brief Structure holding the information for a cartesian mesh
+ */
 struct cartMesh_t {
-	int iMax, jMax;
-	int *nBC;
-	int BCtype[2 * NDIM][NBC];
-	int BCrange[2 * NDIM][NBC][2];
+	int iMax;			/**< number of cells in x-direction */
+	int jMax;			/**< number of cells in y-direction */
+	int *nBC;			/**< number of different BC per side */
+	int BCtype[2 * NDIM][NBC];	/**< list of BC types per side */
+	int BCrange[2 * NDIM][NBC][2];	/**< list of BC ranges per side */
 };
 
-extern char parameterFile[STRLEN],
-	    strMeshFormat[STRLEN],
-	    strMeshFile[STRLEN],
-	    strIniCondFile[STRLEN];
+extern char parameterFile[STRLEN];
+extern char strMeshFormat[STRLEN];
+extern char strMeshFile[STRLEN];
+extern char strIniCondFile[STRLEN];
 
 extern cartMesh_t cartMesh;
 extern char gridFile[STRLEN];
@@ -117,8 +132,10 @@ extern long nBCsides;
 extern long nInnerSides;
 
 extern double totalArea_q;
-extern double xMin, xMax;
-extern double yMin, yMax;
+extern double xMin;
+extern double xMax;
+extern double yMin;
+extern double yMax;
 extern double dxRef;
 
 extern elem_t **elem;
