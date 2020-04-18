@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structsidePtr__t.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structsidePtr__t.html" target="_top" xlink:title="Secondary side lists used for various things.">
 <polygon fill="white" stroke="black" points="117,-78.5 117,-97.5 173,-97.5 173,-78.5 117,-78.5"/>
 <text text-anchor="middle" x="145" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">sidePtr_t</text>
 </a>
@@ -70,7 +70,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structelem__t.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="structelem__t.html" target="_top" xlink:title="Structure for a single element in the global element list.">
 <polygon fill="white" stroke="black" points="12,-78.5 12,-97.5 58,-97.5 58,-78.5 12,-78.5"/>
 <text text-anchor="middle" x="35" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">elem_t</text>
 </a>

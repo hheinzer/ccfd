@@ -90,29 +90,100 @@ $(document).ready(function(){initNavTree('structsideList__t.html',''); initResiz
 <div class="title">sideList_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Helper structure for reading in the sides and deviding them into BC sides and non-BC sides.  
+ <a href="structsideList__t.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for sideList_t:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsideList__t__coll__graph.svg" width="308" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsideList__t__coll__graph.svg" width="308" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a7510937465f5c93123561b22511117c0"><td class="memItemLeft" align="right" valign="top"><a id="a7510937465f5c93123561b22511117c0"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>node</b> [2]</td></tr>
+<tr class="memitem:a7510937465f5c93123561b22511117c0"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsideList__t.html#a7510937465f5c93123561b22511117c0">node</a> [2]</td></tr>
 <tr class="separator:a7510937465f5c93123561b22511117c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d83b1aa3572b5a4d1c3cc14dd815c4d"><td class="memItemLeft" align="right" valign="top"><a id="a8d83b1aa3572b5a4d1c3cc14dd815c4d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>BC</b></td></tr>
+<tr class="memitem:a8d83b1aa3572b5a4d1c3cc14dd815c4d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsideList__t.html#a8d83b1aa3572b5a4d1c3cc14dd815c4d">BC</a></td></tr>
 <tr class="separator:a8d83b1aa3572b5a4d1c3cc14dd815c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab03f607a00cb4abee5b6ac01e9f073f1"><td class="memItemLeft" align="right" valign="top"><a id="ab03f607a00cb4abee5b6ac01e9f073f1"></a>
-<a class="el" href="structside__t.html">side_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>side</b></td></tr>
+<tr class="memitem:ab03f607a00cb4abee5b6ac01e9f073f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structside__t.html">side_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsideList__t.html#ab03f607a00cb4abee5b6ac01e9f073f1">side</a></td></tr>
 <tr class="separator:ab03f607a00cb4abee5b6ac01e9f073f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2675db408417e31e3c394ba81f1d73b"><td class="memItemLeft" align="right" valign="top"><a id="af2675db408417e31e3c394ba81f1d73b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRotated</b></td></tr>
+<tr class="memitem:af2675db408417e31e3c394ba81f1d73b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsideList__t.html#af2675db408417e31e3c394ba81f1d73b">isRotated</a></td></tr>
 <tr class="separator:af2675db408417e31e3c394ba81f1d73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Helper structure for reading in the sides and deviding them into BC sides and non-BC sides. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a8d83b1aa3572b5a4d1c3cc14dd815c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d83b1aa3572b5a4d1c3cc14dd815c4d">&#9670;&nbsp;</a></span>BC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sideList_t::BC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>flag for if the side is a BC side </p>
+
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#ac70138609ef6aa6fabca57aca8681e83">compare()</a>, and <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>.</p>
+
+</div>
+</div>
+<a id="af2675db408417e31e3c394ba81f1d73b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2675db408417e31e3c394ba81f1d73b">&#9670;&nbsp;</a></span>isRotated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sideList_t::isRotated</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>flag for if the side is rotated </p>
+
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>.</p>
+
+</div>
+</div>
+<a id="a7510937465f5c93123561b22511117c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7510937465f5c93123561b22511117c0">&#9670;&nbsp;</a></span>node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long sideList_t::node[2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>node ID array of the side </p>
+
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#ac70138609ef6aa6fabca57aca8681e83">compare()</a>, and <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>.</p>
+
+</div>
+</div>
+<a id="ab03f607a00cb4abee5b6ac01e9f073f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab03f607a00cb4abee5b6ac01e9f073f1">&#9670;&nbsp;</a></span>side</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structside__t.html">side_t</a>* sideList_t::side</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>pointer to the side </p>
+
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/mesh.c</li>
+<li>src/<a class="el" href="mesh_8c.html">mesh.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -120,7 +191,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRotated</b></td></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structsideList__t.html">sideList_t</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
+    <li class="footer">Generated on Sat Apr 18 2020 17:36:36 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

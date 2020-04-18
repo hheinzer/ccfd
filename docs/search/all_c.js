@@ -1,19 +1,15 @@
 var searchData=
 [
-  ['n_131',['n',['../structside__t.html#a681553e1f4d5ecada55c7efe70ffc6cf',1,'side_t']]],
-  ['nbc_132',['NBC',['../main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a483f4f131f6a3732aea122a7437478df',1,'main.h']]],
-  ['ndim_133',['NDIM',['../main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c',1,'main.h']]],
-  ['ndomains_134',['nDomains',['../initialCondition_8c.html#af21e421b07a4356a65f4c4cf5c0bc879',1,'nDomains():&#160;initialCondition.c'],['../initialCondition_8h.html#af21e421b07a4356a65f4c4cf5c0bc879',1,'nDomains():&#160;initialCondition.c']]],
-  ['next_135',['next',['../structnode__t.html#a3eaaa938f4adef906b28c0afcaf511d6',1,'node_t::next()'],['../structside__t.html#a9519a3d15c3f8d19cb53faee3e8057e3',1,'side_t::next()'],['../structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795',1,'outputTime_t::next()'],['../structcmd__t.html#a35706fa71e30bb009a7ec9a36d7ec2cd',1,'cmd_t::next()']]],
-  ['nextelemside_136',['nextElemSide',['../structside__t.html#af9ea3a8abd427e9545645451cf6ae735',1,'side_t']]],
-  ['ngmresiterglobal_137',['nGMRESiterGlobal',['../linearSolver_8c.html#aa276912d8778a829131220de9d7e9844',1,'nGMRESiterGlobal():&#160;linearSolver.c'],['../linearSolver_8h.html#aa276912d8778a829131220de9d7e9844',1,'nGMRESiterGlobal():&#160;linearSolver.c']]],
-  ['ninnergmres_138',['nInnerGMRES',['../linearSolver_8c.html#a944cd45a741f9dea609b4c5cfa1ffd4f',1,'nInnerGMRES():&#160;linearSolver.c'],['../linearSolver_8h.html#a944cd45a741f9dea609b4c5cfa1ffd4f',1,'nInnerGMRES():&#160;linearSolver.c']]],
-  ['ninnernewton_139',['nInnerNewton',['../linearSolver_8c.html#af98da90358e76525add3839c61fdbd2d',1,'nInnerNewton():&#160;linearSolver.c'],['../linearSolver_8h.html#af98da90358e76525add3839c61fdbd2d',1,'nInnerNewton():&#160;linearSolver.c']]],
-  ['nkdim_140',['nKdim',['../linearSolver_8c.html#a32be4c35332a5236db05a707a422a711',1,'nKdim():&#160;linearSolver.c'],['../linearSolver_8h.html#a32be4c35332a5236db05a707a422a711',1,'nKdim():&#160;linearSolver.c']]],
-  ['nnewtoniter_141',['nNewtonIter',['../linearSolver_8c.html#a9e698a12f1405edd0b14d5e70d4a890f',1,'nNewtonIter():&#160;linearSolver.c'],['../linearSolver_8h.html#a9e698a12f1405edd0b14d5e70d4a890f',1,'nNewtonIter():&#160;linearSolver.c']]],
-  ['nnewtoniterglobal_142',['nNewtonIterGlobal',['../linearSolver_8c.html#ae136204fc2205a21023230d7580c1c36',1,'nNewtonIterGlobal():&#160;linearSolver.c'],['../linearSolver_8h.html#ae136204fc2205a21023230d7580c1c36',1,'nNewtonIterGlobal():&#160;linearSolver.c']]],
-  ['node_143',['node',['../structside__t.html#a9cc5a57e92366ae16be380f2f6d7d538',1,'side_t']]],
-  ['node_5ft_144',['node_t',['../structnode__t.html',1,'']]],
-  ['npoints_145',['nPoints',['../structrecordPoint__t.html#a5e61f8bd2eedbbcc371378a4ba1ae9c0',1,'recordPoint_t']]],
-  ['nvar_146',['NVAR',['../main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388',1,'main.h']]]
+  ['main_151',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
+  ['main_2ec_152',['main.c',['../main_8c.html',1,'']]],
+  ['main_2eh_153',['main.h',['../main_8h.html',1,'']]],
+  ['matrixvector_154',['matrixVector',['../linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31',1,'linearSolver.c']]],
+  ['memtools_2ec_155',['memTools.c',['../memTools_8c.html',1,'']]],
+  ['memtools_2eh_156',['memTools.h',['../memTools_8h.html',1,'']]],
+  ['mesh_2ec_157',['mesh.c',['../mesh_8c.html',1,'']]],
+  ['mesh_2eh_158',['mesh.h',['../mesh_8h.html',1,'']]],
+  ['meshformat_159',['meshFormat',['../mesh_8c.html#a9ac2822101f0d49db6a8b039b20c10af',1,'meshFormat():&#160;mesh.c'],['../mesh_8h.html#a9ac2822101f0d49db6a8b039b20c10af',1,'meshFormat():&#160;mesh.c']]],
+  ['meshtype_160',['meshType',['../main_8h.html#ae4fb69053e3169f00e40c379de9b18ce',1,'meshType():&#160;main.h'],['../mesh_8c.html#a1f0bd89a33eeef71b7b643a305ee864d',1,'meshType():&#160;mesh.c'],['../mesh_8h.html#a1f0bd89a33eeef71b7b643a305ee864d',1,'meshType():&#160;mesh.c']]],
+  ['mx_161',['MX',['../main_8h.html#ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90',1,'main.h']]],
+  ['my_162',['MY',['../main_8h.html#ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71',1,'main.h']]]
 ];

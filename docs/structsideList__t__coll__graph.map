@@ -1,7 +1,7 @@
 <map id="sideList_t" name="sideList_t">
-<area shape="rect" id="node1" title=" " alt="" coords="189,201,267,228"/>
+<area shape="rect" id="node1" title="Helper structure for reading in the sides and deviding them into BC sides and non&#45;BC sides." alt="" coords="189,201,267,228"/>
 <area shape="rect" id="node2" href="$structside__t.html" title="Structure for a single side in the global side list." alt="" coords="135,103,193,130"/>
-<area shape="rect" id="node3" href="$structelem__t.html" title=" " alt="" coords="49,201,111,228"/>
+<area shape="rect" id="node3" href="$structelem__t.html" title="Structure for a single element in the global element list." alt="" coords="49,201,111,228"/>
 <area shape="rect" id="node4" href="$structnode__t.html" title="Structure for a single node in a linked list of nodes." alt="" coords="5,5,67,32"/>
 <area shape="rect" id="node5" href="$structboundary__t.html" title=" " alt="" coords="145,5,231,32"/>
 </map>

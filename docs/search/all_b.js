@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['main_121',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
-  ['main_2ec_122',['main.c',['../main_8c.html',1,'']]],
-  ['main_2eh_123',['main.h',['../main_8h.html',1,'']]],
-  ['matrixvector_124',['matrixVector',['../linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31',1,'linearSolver.c']]],
-  ['memtools_2ec_125',['memTools.c',['../memTools_8c.html',1,'']]],
-  ['memtools_2eh_126',['memTools.h',['../memTools_8h.html',1,'']]],
-  ['mesh_2eh_127',['mesh.h',['../mesh_8h.html',1,'']]],
-  ['meshtype_128',['meshType',['../main_8h.html#ae4fb69053e3169f00e40c379de9b18ce',1,'main.h']]],
-  ['mx_129',['MX',['../main_8h.html#ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90',1,'main.h']]],
-  ['my_130',['MY',['../main_8h.html#ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71',1,'main.h']]]
+  ['left_144',['LEFT',['../main_8h.html#ae6b96a2ce33f76a4efff45bb6d232f5dadb45120aafd37a973140edee24708065',1,'main.h']]],
+  ['len_145',['len',['../structside__t.html#a1e113105b88ab0a04d9037b4c1c6d7e0',1,'side_t']]],
+  ['limiterfunction_146',['limiterFunction',['../main_8h.html#afc24914f856d5e48e6bc515ff76bce08',1,'main.h']]],
+  ['linearsolver_2ec_147',['linearSolver.c',['../linearSolver_8c.html',1,'']]],
+  ['linearsolver_2eh_148',['linearSolver.h',['../linearSolver_8h.html',1,'']]],
+  ['lusgs_149',['LUSGS',['../linearSolver_8c.html#a1b162be2d8a14fc0072ae09b7ad89f3c',1,'linearSolver.c']]],
+  ['lxf_150',['LXF',['../main_8h.html#a0c24cfd6551e3a329e6c3218633efe1ca896ba57a36980bb39a7b474c379c4cde',1,'main.h']]]
 ];

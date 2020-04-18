@@ -1,14 +1,15 @@
 <map id="src/main.h" name="src/main.h">
-<area shape="rect" id="node1" title="Contains the global constants and definitions." alt="" coords="556,5,639,32"/>
-<area shape="rect" id="node2" href="$analyze_8h.html" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="203,155,301,181"/>
-<area shape="rect" id="node5" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="812,229,903,256"/>
-<area shape="rect" id="node6" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="295,80,382,107"/>
-<area shape="rect" id="node7" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="377,155,503,181"/>
-<area shape="rect" id="node8" href="$initialCondition_8c.html" title="Functions involving the initialization and application of initial conditions." alt="" coords="527,155,667,181"/>
-<area shape="rect" id="node9" href="$linearSolver_8h.html" title=" " alt="" coords="5,155,128,181"/>
-<area shape="rect" id="node10" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="599,229,721,256"/>
-<area shape="rect" id="node11" href="$readInTools_8h.html" title=" " alt="" coords="645,80,766,107"/>
-<area shape="rect" id="node12" href="$readInTools_8c.html" title="Provides functions for reading data from the .ini parameter file." alt="" coords="997,80,1118,107"/>
-<area shape="rect" id="node3" href="$analyze_8c.html" title="Contains functions for analyzing flow results." alt="" coords="343,229,441,256"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="168,229,251,256"/>
+<area shape="rect" id="node1" title="Contains the global constants and definitions." alt="" coords="603,5,685,32"/>
+<area shape="rect" id="node2" href="$analyze_8h.html" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="88,155,187,181"/>
+<area shape="rect" id="node5" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="5,229,96,256"/>
+<area shape="rect" id="node6" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="635,80,722,107"/>
+<area shape="rect" id="node7" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="363,155,490,181"/>
+<area shape="rect" id="node8" href="$initialCondition_8c.html" title="Functions involving the initialization and application of initial conditions." alt="" coords="514,155,654,181"/>
+<area shape="rect" id="node9" href="$linearSolver_8h.html" title=" " alt="" coords="892,155,1015,181"/>
+<area shape="rect" id="node10" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="787,229,909,256"/>
+<area shape="rect" id="node11" href="$mesh_8c.html" title="Contains all the functions for reading and creating meshes." alt="" coords="781,155,867,181"/>
+<area shape="rect" id="node12" href="$readInTools_8h.html" title=" " alt="" coords="315,80,437,107"/>
+<area shape="rect" id="node13" href="$readInTools_8c.html" title="Provides functions for reading data from the .ini parameter file." alt="" coords="1090,80,1211,107"/>
+<area shape="rect" id="node3" href="$analyze_8c.html" title="Contains functions for analyzing flow results." alt="" coords="148,229,247,256"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="528,229,611,256"/>
 </map>

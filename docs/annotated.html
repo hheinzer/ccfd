@@ -91,15 +91,15 @@ $(document).ready(function(){initNavTree('annotated.html',''); initResizable(); 
 <div class="textblock">Here are the data structures with brief descriptions:</div><div class="directory">
 <table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboundary__t.html" target="_self">boundary_t</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structcartMesh__t.html" target="_self">cartMesh_t</a></td><td class="desc"></td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structcartMesh__t.html" target="_self">cartMesh_t</a></td><td class="desc">Structure holding the information for a cartesian mesh </td></tr>
 <tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structcmd__t.html" target="_self">cmd_t</a></td><td class="desc">A structure used to store the commands, read in from the parameter file </td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structelem__t.html" target="_self">elem_t</a></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structelem__t.html" target="_self">elem_t</a></td><td class="desc">Structure for a single element in the global element list </td></tr>
 <tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structnode__t.html" target="_self">node_t</a></td><td class="desc">Structure for a single node in a linked list of nodes </td></tr>
 <tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structoutputTime__t.html" target="_self">outputTime_t</a></td><td class="desc">Output times linked list </td></tr>
 <tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrecordPoint__t.html" target="_self">recordPoint_t</a></td><td class="desc">Recording point structure, used to output flow field at specific points </td></tr>
 <tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structside__t.html" target="_self">side_t</a></td><td class="desc">Structure for a single side in the global side list </td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsideList__t.html" target="_self">sideList_t</a></td><td class="desc"></td></tr>
-<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsidePtr__t.html" target="_self">sidePtr_t</a></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsideList__t.html" target="_self">sideList_t</a></td><td class="desc">Helper structure for reading in the sides and deviding them into BC sides and non-BC sides </td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsidePtr__t.html" target="_self">sidePtr_t</a></td><td class="desc">Secondary side lists used for various things </td></tr>
 <tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structwing__t.html" target="_self">wing_t</a></td><td class="desc">Collection of all necessary values for the calculation of CL and CD </td></tr>
 </table>
 </div><!-- directory -->
@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('annotated.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
+    <li class="footer">Generated on Sat Apr 18 2020 17:36:36 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

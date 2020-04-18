@@ -245,7 +245,7 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>.</p>
+<p class="reference">References <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, and <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>.</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="linearSolver_8c.html#a842f385c4b1df56339ee2bd6c220bdf0">epsGMRES</a>.</p>
+<p class="reference">References <a class="el" href="linearSolver_8c.html#a842f385c4b1df56339ee2bd6c220bdf0">epsGMRES</a>, and <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>.</p>
 
 </div>
 </div>
@@ -417,6 +417,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This function is slow to execute, it might be possible to speed it up via the use of omp locks for every element </dd></dl>
+
+<p class="reference">References <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, and <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>.</p>
 
 </div>
 </div>
@@ -483,7 +485,7 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="linearSolver_8c.html#a834b3496fc26d27d58b1f45789babe66">rEps0</a>, and <a class="el" href="linearSolver_8c.html#ad8c72a0c1caceac1554d2a014545442f">vectorDotProduct()</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#af6241380d3869a260d9e8a7a6f9d79ee">elem_t::cVar</a>, <a class="el" href="mesh_8c.html#a6e0032342c22164db03323d0119d843e">elem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="linearSolver_8c.html#a834b3496fc26d27d58b1f45789babe66">rEps0</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, and <a class="el" href="linearSolver_8c.html#ad8c72a0c1caceac1554d2a014545442f">vectorDotProduct()</a>.</p>
 
 </div>
 </div>
@@ -522,6 +524,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sum(sum(A_ij * B_ij, i = RHO,MX,MY,E), i = 1..nElems) </dd></dl>
+
+<p class="reference">References <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb">E</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90">MX</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71">MY</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, and <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">matrixVector()</a>.</p>
 
@@ -768,7 +772,7 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><b>deltaXstar</b></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="linearSolver_8c.html">linearSolver.c</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
+    <li class="footer">Generated on Sat Apr 18 2020 17:36:36 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

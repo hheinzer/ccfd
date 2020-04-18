@@ -90,21 +90,62 @@ $(document).ready(function(){initNavTree('structsidePtr__t.html',''); initResiza
 <div class="title">sidePtr_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Secondary side lists used for various things.  
+ <a href="structsidePtr__t.html#details">More...</a></p>
+
+<p><code>#include &lt;mesh.h&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for sidePtr_t:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsidePtr__t__coll__graph.svg" width="324" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsidePtr__t__coll__graph.svg" width="324" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ab625c071458f8de30c9192922fd368df"><td class="memItemLeft" align="right" valign="top"><a id="ab625c071458f8de30c9192922fd368df"></a>
-<a class="el" href="structside__t.html">side_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>side</b></td></tr>
+<tr class="memitem:ab625c071458f8de30c9192922fd368df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structside__t.html">side_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsidePtr__t.html#ab625c071458f8de30c9192922fd368df">side</a></td></tr>
 <tr class="separator:ab625c071458f8de30c9192922fd368df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e583b0bc2894098dc1cd0994d3a904"><td class="memItemLeft" align="right" valign="top"><a id="a07e583b0bc2894098dc1cd0994d3a904"></a>
-<a class="el" href="structsidePtr__t.html">sidePtr_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>next</b></td></tr>
+<tr class="memitem:a07e583b0bc2894098dc1cd0994d3a904"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsidePtr__t.html">sidePtr_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsidePtr__t.html#a07e583b0bc2894098dc1cd0994d3a904">next</a></td></tr>
 <tr class="separator:a07e583b0bc2894098dc1cd0994d3a904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Secondary side lists used for various things. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a07e583b0bc2894098dc1cd0994d3a904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e583b0bc2894098dc1cd0994d3a904">&#9670;&nbsp;</a></span>next</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsidePtr__t.html">sidePtr_t</a>* sidePtr_t::next</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>pointer to the next side in the secondary list </p>
+
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="output_8h.html#aafd430315c490e75d714c542eb4142c1">cgnsWriteMesh()</a>, <a class="el" href="mesh_8c.html#ad5a4d789376204fda1983e3ef50fd4f3">connectPeriodicBC()</a>, <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="analyze_8h.html#a0b874bfa16c481db6ff3bedb28a832b7">freeAnalyze()</a>, <a class="el" href="mesh_8h.html#ae33bfb3c739903927db7f7a54278638e">freeMesh()</a>, and <a class="el" href="analyze_8c.html#a33fc83926ae2b8bae07e7177f9569c6c">initWing()</a>.</p>
+
+</div>
+</div>
+<a id="ab625c071458f8de30c9192922fd368df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab625c071458f8de30c9192922fd368df">&#9670;&nbsp;</a></span>side</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structside__t.html">side_t</a>* sidePtr_t::side</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>pointer to a side </p>
+
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="output_8h.html#aafd430315c490e75d714c542eb4142c1">cgnsWriteMesh()</a>, <a class="el" href="mesh_8c.html#ad5a4d789376204fda1983e3ef50fd4f3">connectPeriodicBC()</a>, <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="mesh_8h.html#ae33bfb3c739903927db7f7a54278638e">freeMesh()</a>, and <a class="el" href="analyze_8c.html#a33fc83926ae2b8bae07e7177f9569c6c">initWing()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="mesh_8h.html">mesh.h</a></li>
 </ul>
@@ -114,7 +155,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structsidePtr__t.html">sidePtr_t</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
+    <li class="footer">Generated on Sat Apr 18 2020 17:36:36 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -190,7 +190,7 @@ Variables</h2></td></tr>
 <p>Finalize CGNS output. </p>
 <p>This function creates a <code>&lt;case&gt;_Master.cgns</code> file that has links to all the output times of previous flow solutions. This makes it easier to load an entire case into ParaView. </p>
 
-<p class="reference">References <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
+<p class="reference">References <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#aa4a67d4bf2b31b54e968a7dc81ebe962">finalizeDataOutput()</a>.</p>
 
@@ -245,6 +245,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="analyze_8c.html#a4d708c137e2f1020d088555f63416228">hasExactSolution</a>, <a class="el" href="structelem__t.html#aed7c0b9caae53e6a8ee5fed26d3f8343">elem_t::id</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951">VY</a>.</p>
+
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
 </div>
@@ -298,7 +300,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
@@ -353,7 +355,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
@@ -461,7 +463,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>output format code </p>
 
-<p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, <a class="el" href="output_8h.html#aa4a67d4bf2b31b54e968a7dc81ebe962">finalizeDataOutput()</a>, and <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, <a class="el" href="output_8h.html#aa4a67d4bf2b31b54e968a7dc81ebe962">finalizeDataOutput()</a>, <a class="el" href="mesh_8h.html#a17d950e582eb77dc42fc1f6799573462">initMesh()</a>, and <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>.</p>
 
 </div>
 </div>
@@ -478,7 +480,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>the first output time object </p>
 
-<p class="reference">Referenced by <a class="el" href="output_8c.html#a1c6863c83597ce8aa090f76ae3c955d1">cgnsFinalizeOutput()</a>, <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, and <a class="el" href="output_8h.html#ae15c0a360681de8b69dc6c3af87f00d4">freeOutputTimes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="output_8c.html#a1c6863c83597ce8aa090f76ae3c955d1">cgnsFinalizeOutput()</a>, <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, <a class="el" href="output_8h.html#ae15c0a360681de8b69dc6c3af87f00d4">freeOutputTimes()</a>, and <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -510,7 +512,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>residual file pointer </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a5bc9f64ac7233292ac4fd9fb6a5fe52a">analyze()</a>, and <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>.</p>
 
 </div>
 </div>
@@ -527,7 +529,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>name of the output file </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="output_8c.html#a1c6863c83597ce8aa090f76ae3c955d1">cgnsFinalizeOutput()</a>, <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, and <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="output_8c.html#a1c6863c83597ce8aa090f76ae3c955d1">cgnsFinalizeOutput()</a>, <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>, <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, <a class="el" href="mesh_8h.html#a17d950e582eb77dc42fc1f6799573462">initMesh()</a>, <a class="el" href="output_8h.html#adfc0a8bf3db752ff6b5b12d190835705">initOutput()</a>, and <a class="el" href="analyze_8c.html#a8dfb9a6f986ddcade64d191141b9c324">initRecordPoints()</a>.</p>
 
 </div>
 </div>
@@ -537,7 +539,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="output_8c.html">output.c</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 15:43:11 for ccfd by
+    <li class="footer">Generated on Sat Apr 18 2020 17:36:36 for ccfd by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
