@@ -1,10 +1,13 @@
 <map id="src/readInTools.h" name="src/readInTools.h">
-<area shape="rect" id="node1" title=" " alt="" coords="445,5,566,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="691,5,813,32"/>
 <area shape="rect" id="node2" href="$analyze_8c.html" title="Contains functions for analyzing flow results." alt="" coords="5,80,104,107"/>
-<area shape="rect" id="node3" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="129,80,255,107"/>
-<area shape="rect" id="node4" href="$initialCondition_8c.html" title="Functions involving the initialization and application of initial conditions." alt="" coords="279,80,419,107"/>
-<area shape="rect" id="node5" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="444,80,567,107"/>
-<area shape="rect" id="node6" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="591,80,673,107"/>
-<area shape="rect" id="node7" href="$mesh_8c.html" title="Contains all the functions for reading and creating meshes." alt="" coords="698,80,785,107"/>
-<area shape="rect" id="node8" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="809,80,900,107"/>
+<area shape="rect" id="node3" href="$euler_2boundary_8c.html" title="Contains the functions for initializing and applying boundary conditions." alt="" coords="129,80,269,107"/>
+<area shape="rect" id="node4" href="$euler_2equation_8c.html" title="Contains the function for initializing the physical constants." alt="" coords="293,80,429,107"/>
+<area shape="rect" id="node5" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="454,80,581,107"/>
+<area shape="rect" id="node6" href="$initialCondition_8c.html" title="Functions involving the initialization and application of initial conditions." alt="" coords="605,80,745,107"/>
+<area shape="rect" id="node7" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="769,80,892,107"/>
+<area shape="rect" id="node8" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="916,80,999,107"/>
+<area shape="rect" id="node9" href="$mesh_8c.html" title="Contains all the functions for reading and creating meshes." alt="" coords="1023,80,1110,107"/>
+<area shape="rect" id="node10" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="1135,80,1225,107"/>
+<area shape="rect" id="node11" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="1249,80,1409,107"/>
 </map>

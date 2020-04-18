@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -52,23 +48,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('output_8c.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,6 +62,11 @@ $(document).ready(function(){initNavTree('output_8c.html',''); initResizable(); 
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -101,7 +85,7 @@ $(document).ready(function(){initNavTree('output_8c.html',''); initResizable(); 
 <code>#include &quot;<a class="el" href="main_8h.html">main.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="output_8h.html">output.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="readInTools_8h.html">readInTools.h</a>&quot;</code><br />
-<code>#include &quot;timeDiscretization.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="timeDiscretization_8h.html">timeDiscretization.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="analyze_8h.html">analyze.h</a>&quot;</code><br />
 <code>#include &quot;equation.h&quot;</code><br />
 <code>#include &quot;exactFunction.h&quot;</code><br />
@@ -110,7 +94,8 @@ $(document).ready(function(){initNavTree('output_8c.html',''); initResizable(); 
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for output.c:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="output_8c__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="output_8c__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -190,7 +175,7 @@ Variables</h2></td></tr>
 <p>Finalize CGNS output. </p>
 <p>This function creates a <code>&lt;case&gt;_Master.cgns</code> file that has links to all the output times of previous flow solutions. This makes it easier to load an entire case into ParaView. </p>
 
-<p class="reference">References <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
+<p class="reference">References <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="timeDiscretization_8c.html#a5353791aec73a539197da84bce53d009">isStationary</a>, <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#aa4a67d4bf2b31b54e968a7dc81ebe962">finalizeDataOutput()</a>.</p>
 
@@ -245,7 +230,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="analyze_8c.html#a4d708c137e2f1020d088555f63416228">hasExactSolution</a>, <a class="el" href="structelem__t.html#aed7c0b9caae53e6a8ee5fed26d3f8343">elem_t::id</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951">VY</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="euler_2exactFunction_8c.html#a56466b31b0f75744aed6345b4b68e8f2">exactFunc()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#a81c60aff0b3e98cafc32108efc25be9d">gridFile</a>, <a class="el" href="analyze_8c.html#a4d708c137e2f1020d088555f63416228">hasExactSolution</a>, <a class="el" href="structelem__t.html#aed7c0b9caae53e6a8ee5fed26d3f8343">elem_t::id</a>, <a class="el" href="euler_2equation_8c.html#a9d043fa680da2f216f05af6c09975a96">intExactFunc</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">nNodes</a>, <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">nQuads</a>, <a class="el" href="mesh_8c.html#ad5d7eb9d50e79640a8723471bc5374a4">nTrias</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="timeDiscretization_8c.html#a12439b3d8d0b98ef24a67fbaf6904842">timeOverall</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951">VY</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
@@ -300,7 +285,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="euler_2exactFunction_8c.html#a56466b31b0f75744aed6345b4b68e8f2">exactFunc()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="euler_2equation_8c.html#a9d043fa680da2f216f05af6c09975a96">intExactFunc</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
@@ -355,7 +340,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#ae92890231cbc4a099d684b3eac028439">elem_t::bary</a>, <a class="el" href="memTools_8c.html#a230dd2ee695db7c9c83a91bf83b83628">dyn2DdblArray()</a>, <a class="el" href="euler_2exactFunction_8c.html#a56466b31b0f75744aed6345b4b68e8f2">exactFunc()</a>, <a class="el" href="mesh_8c.html#a70e56414c0c1dbf47a7748ebe790a0de">firstElem</a>, <a class="el" href="euler_2equation_8c.html#a9d043fa680da2f216f05af6c09975a96">intExactFunc</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structelem__t.html#afe12992efeaa0cc851697ad442765e71">elem_t::next</a>, <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388">NVAR</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6">P</a>, <a class="el" href="structelem__t.html#a40ec4ebc32ce10b77a002d79fb320925">elem_t::pVar</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4">X</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="output_8h.html#ae87e520489695393cd37eed3274555ba">dataOutput()</a>.</p>
 
@@ -396,7 +381,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821">CGNS</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a2b10dde645e767164fc3de2ddbf14399">CSV</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a2267c8aab80fd31714c264f251e343cf">CURVE</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a4d708c137e2f1020d088555f63416228">hasExactSolution</a>, <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="output_8c.html#ad03b08ac896405ca97227fefdaecf86e">iVisuProg</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
+<p class="reference">References <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821">CGNS</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a2b10dde645e767164fc3de2ddbf14399">CSV</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="main_8h.html#a8351b0355736eb927c468918a1c88755a2267c8aab80fd31714c264f251e343cf">CURVE</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a4d708c137e2f1020d088555f63416228">hasExactSolution</a>, <a class="el" href="timeDiscretization_8c.html#a5353791aec73a539197da84bce53d009">isStationary</a>, <a class="el" href="structoutputTime__t.html#adaccfbd26f9aa631ee0c8d62aa1dc838">outputTime_t::iter</a>, <a class="el" href="output_8c.html#ad03b08ac896405ca97227fefdaecf86e">iVisuProg</a>, <a class="el" href="structoutputTime__t.html#a4bde0a6d21407629692810b9bb057795">outputTime_t::next</a>, <a class="el" href="output_8c.html#aef18fcacea58b72323dada137e2657e1">outputTimes</a>, <a class="el" href="main_8h.html#a278cf415676752815cfb411cb0b32802">STRLEN</a>, <a class="el" href="output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9">strOutFile</a>, and <a class="el" href="structoutputTime__t.html#a582a8e9c33e61425339cf329f546ec1a">outputTime_t::time</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8h.html#af1ed0288ac4a53f6a6420ff34799197b">timeDisc()</a>.</p>
 
 </div>
 </div>
@@ -534,15 +521,11 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="output_8c.html">output.c</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:52 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

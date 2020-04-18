@@ -3,5 +3,5 @@
 <area shape="rect" id="node2" href="$structelem__t.html" title="Structure for a single element in the global element list." alt="" coords="91,95,152,121"/>
 <area shape="rect" id="node4" href="$structside__t.html" title="Structure for a single side in the global side list." alt="" coords="190,193,247,219"/>
 <area shape="rect" id="node3" href="$structnode__t.html" title="Structure for a single node in a linked list of nodes." alt="" coords="160,5,221,32"/>
-<area shape="rect" id="node5" href="$structboundary__t.html" title=" " alt="" coords="314,95,401,121"/>
+<area shape="rect" id="node5" href="$structboundary__t.html" title="Structure that holds the information of a boundary condition." alt="" coords="314,95,401,121"/>
 </map>

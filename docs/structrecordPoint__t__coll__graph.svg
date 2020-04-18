@@ -106,7 +106,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structboundary__t.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="structboundary__t.html" target="_top" xlink:title="Structure that holds the information of a boundary condition.">
 <polygon fill="white" stroke="black" points="231.5,-80.5 231.5,-99.5 296.5,-99.5 296.5,-80.5 231.5,-80.5"/>
 <text text-anchor="middle" x="264" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">boundary_t</text>
 </a>

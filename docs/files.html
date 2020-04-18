@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -53,22 +49,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,37 +69,51 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="toggleFolder('0_')">&#160;</span><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" target="_self">src</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="analyze_8c.html" target="_self">analyze.c</a></td><td class="desc">Contains functions for analyzing flow results </td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="analyze_8h.html" target="_self">analyze.h</a></td><td class="desc">Contains the structure definitions of <code><a class="el" href="structwing__t.html" title="Collection of all necessary values for the calculation of CL and CD.">wing_t</a></code> and <code><a class="el" href="structrecordPoint__t.html" title="Recording point structure, used to output flow field at specific points.">recordPoint_t</a></code> </td></tr>
-<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="finiteVolume_8c.html" target="_self">finiteVolume.c</a></td><td class="desc">Finite volume time derivative functions </td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="finiteVolume_8h.html" target="_self">finiteVolume.h</a></td><td class="desc"></td></tr>
-<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="initialCondition_8c.html" target="_self">initialCondition.c</a></td><td class="desc">Functions involving the initialization and application of initial conditions </td></tr>
-<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="initialCondition_8h.html" target="_self">initialCondition.h</a></td><td class="desc"></td></tr>
-<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="linearSolver_8c.html" target="_self">linearSolver.c</a></td><td class="desc">Contains the functions for solving the linear system of equations during implicit calculations </td></tr>
-<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="linearSolver_8h.html" target="_self">linearSolver.h</a></td><td class="desc"></td></tr>
-<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8c.html" target="_self">main.c</a></td><td class="desc">Contains the main function of <code>ccfd</code> </td></tr>
-<tr id="row_0_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8h.html" target="_self">main.h</a></td><td class="desc">Contains the global constants and definitions </td></tr>
-<tr id="row_0_10_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="memTools_8c.html" target="_self">memTools.c</a></td><td class="desc">Memory management functions </td></tr>
-<tr id="row_0_11_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="memTools_8h.html" target="_self">memTools.h</a></td><td class="desc"></td></tr>
-<tr id="row_0_12_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="mesh_8c.html" target="_self">mesh.c</a></td><td class="desc">Contains all the functions for reading and creating meshes </td></tr>
-<tr id="row_0_13_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="mesh_8h.html" target="_self">mesh.h</a></td><td class="desc">Contains the definitions of all structs for the mesh handling </td></tr>
-<tr id="row_0_14_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="output_8c.html" target="_self">output.c</a></td><td class="desc">Contains all functions used for writing flow solutions </td></tr>
-<tr id="row_0_15_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="output_8h.html" target="_self">output.h</a></td><td class="desc">Contains <code><a class="el" href="structoutputTime__t.html" title="Output times linked list.">outputTime_t</a></code> struct definition </td></tr>
-<tr id="row_0_16_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="readInTools_8c.html" target="_self">readInTools.c</a></td><td class="desc">Provides functions for reading data from the <code>.ini</code> parameter file </td></tr>
-<tr id="row_0_17_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="readInTools_8h.html" target="_self">readInTools.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_0_" class="arrow" onclick="toggleFolder('0_0_')">&#9660;</span><span id="img_0_0_" class="iconfopen" onclick="toggleFolder('0_0_')">&#160;</span><a class="el" href="dir_6eb891dcdcec41b30c3f04338d2e6f13.html" target="_self">euler</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2boundary_8c.html" target="_self">boundary.c</a></td><td class="desc">Contains the functions for initializing and applying boundary conditions </td></tr>
+<tr id="row_0_0_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2boundary_8h.html" target="_self">boundary.h</a></td><td class="desc">Contains the structure definition of a boundary </td></tr>
+<tr id="row_0_0_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2equation_8c.html" target="_self">equation.c</a></td><td class="desc">Contains the function for initializing the physical constants </td></tr>
+<tr id="row_0_0_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2equation_8h.html" target="_self">equation.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_4_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2equationOfState_8c.html" target="_self">equationOfState.c</a></td><td class="desc">Contains conversion functions between the different variable types </td></tr>
+<tr id="row_0_0_5_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2equationOfState_8h.html" target="_self">equationOfState.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_6_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2exactFunction_8c.html" target="_self">exactFunction.c</a></td><td class="desc">Contains the exact function evaluation function </td></tr>
+<tr id="row_0_0_7_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2exactFunction_8h.html" target="_self">exactFunction.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_8_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2exactRiemann_8c.html" target="_self">exactRiemann.c</a></td><td class="desc">Contains the function to calculate the exact Riemann flux </td></tr>
+<tr id="row_0_0_9_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2exactRiemann_8h.html" target="_self">exactRiemann.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_10_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2fluxCalculation_8c.html" target="_self">fluxCalculation.c</a></td><td class="desc">Contains the flux calculation functions </td></tr>
+<tr id="row_0_0_11_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="euler_2fluxCalculation_8h.html" target="_self">fluxCalculation.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="analyze_8c.html" target="_self">analyze.c</a></td><td class="desc">Contains functions for analyzing flow results </td></tr>
+<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="analyze_8h.html" target="_self">analyze.h</a></td><td class="desc">Contains the structure definitions of <code><a class="el" href="structwing__t.html" title="Collection of all necessary values for the calculation of CL and CD.">wing_t</a></code> and <code><a class="el" href="structrecordPoint__t.html" title="Recording point structure, used to output flow field at specific points.">recordPoint_t</a></code> </td></tr>
+<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="finiteVolume_8c.html" target="_self">finiteVolume.c</a></td><td class="desc">Finite volume time derivative functions </td></tr>
+<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="finiteVolume_8h.html" target="_self">finiteVolume.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="initialCondition_8c.html" target="_self">initialCondition.c</a></td><td class="desc">Functions involving the initialization and application of initial conditions </td></tr>
+<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="initialCondition_8h.html" target="_self">initialCondition.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="linearSolver_8c.html" target="_self">linearSolver.c</a></td><td class="desc">Contains the functions for solving the linear system of equations during implicit calculations </td></tr>
+<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="linearSolver_8h.html" target="_self">linearSolver.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8c.html" target="_self">main.c</a></td><td class="desc">Contains the main function of <code>ccfd</code> </td></tr>
+<tr id="row_0_10_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8h.html" target="_self">main.h</a></td><td class="desc">Contains the global constants and definitions </td></tr>
+<tr id="row_0_11_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="memTools_8c.html" target="_self">memTools.c</a></td><td class="desc">Memory management functions </td></tr>
+<tr id="row_0_12_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="memTools_8h.html" target="_self">memTools.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_13_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="mesh_8c.html" target="_self">mesh.c</a></td><td class="desc">Contains all the functions for reading and creating meshes </td></tr>
+<tr id="row_0_14_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="mesh_8h.html" target="_self">mesh.h</a></td><td class="desc">Contains the definitions of all structs for the mesh handling </td></tr>
+<tr id="row_0_15_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="output_8c.html" target="_self">output.c</a></td><td class="desc">Contains all functions used for writing flow solutions </td></tr>
+<tr id="row_0_16_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="output_8h.html" target="_self">output.h</a></td><td class="desc">Contains <code><a class="el" href="structoutputTime__t.html" title="Output times linked list.">outputTime_t</a></code> struct definition </td></tr>
+<tr id="row_0_17_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="readInTools_8c.html" target="_self">readInTools.c</a></td><td class="desc">Provides functions for reading data from the <code>.ini</code> parameter file </td></tr>
+<tr id="row_0_18_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="readInTools_8h.html" target="_self">readInTools.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_19_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="reconstruction_8c.html" target="_self">reconstruction.c</a></td><td class="desc">Contains the reconstruction and limiter functions </td></tr>
+<tr id="row_0_20_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="reconstruction_8h.html" target="_self">reconstruction.h</a></td><td class="desc"></td></tr>
+<tr id="row_0_21_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="timeDiscretization_8c.html" target="_self">timeDiscretization.c</a></td><td class="desc">Contains the functions for performing the time stepping process </td></tr>
+<tr id="row_0_22_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="timeDiscretization_8h.html" target="_self">timeDiscretization.h</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:52 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <map id="src/linearSolver.h" name="src/linearSolver.h">
-<area shape="rect" id="node1" title=" " alt="" coords="68,5,191,32"/>
-<area shape="rect" id="node2" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="5,80,128,107"/>
-<area shape="rect" id="node3" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="152,80,235,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="265,5,387,32"/>
+<area shape="rect" id="node2" href="$euler_2fluxCalculation_8c.html" title="Contains the flux calculation functions." alt="" coords="5,80,177,107"/>
+<area shape="rect" id="node3" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="202,80,325,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="349,80,431,107"/>
+<area shape="rect" id="node5" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="455,80,615,107"/>
 </map>

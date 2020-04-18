@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -53,22 +49,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,6 +67,10 @@ $(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); 
 <div class="textblock">Here is a list of all documented functions, variables, defines, enums, and typedefs with links to the documentation:</div>
 
 <h3><a id="index_n"></a>- n -</h3><ul>
+<li>nBC
+: <a class="el" href="euler_2boundary_8c.html#ac55cda497e2daf9060d1e76e82acfbaf">boundary.c</a>
+, <a class="el" href="euler_2boundary_8h.html#ac55cda497e2daf9060d1e76e82acfbaf">boundary.h</a>
+</li>
 <li>NBC
 : <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a483f4f131f6a3732aea122a7437478df">main.h</a>
 </li>
@@ -98,12 +82,12 @@ $(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); 
 : <a class="el" href="main_8h.html#a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c">main.h</a>
 </li>
 <li>nDomains
-: <a class="el" href="initialCondition_8c.html#af21e421b07a4356a65f4c4cf5c0bc879">initialCondition.c</a>
-, <a class="el" href="initialCondition_8h.html#af21e421b07a4356a65f4c4cf5c0bc879">initialCondition.h</a>
+: <a class="el" href="initialCondition_8h.html#af21e421b07a4356a65f4c4cf5c0bc879">initialCondition.h</a>
+, <a class="el" href="initialCondition_8c.html#af21e421b07a4356a65f4c4cf5c0bc879">initialCondition.c</a>
 </li>
 <li>nElems
-: <a class="el" href="mesh_8h.html#aa564af0cb1a4e3d22c2ccb63761cb60c">mesh.h</a>
-, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">mesh.c</a>
+: <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">mesh.c</a>
+, <a class="el" href="mesh_8h.html#aa564af0cb1a4e3d22c2ccb63761cb60c">mesh.h</a>
 </li>
 <li>nGMRESiterGlobal
 : <a class="el" href="linearSolver_8c.html#aa276912d8778a829131220de9d7e9844">linearSolver.c</a>
@@ -114,12 +98,15 @@ $(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); 
 , <a class="el" href="linearSolver_8h.html#a944cd45a741f9dea609b4c5cfa1ffd4f">linearSolver.h</a>
 </li>
 <li>nInnerNewton
-: <a class="el" href="linearSolver_8c.html#af98da90358e76525add3839c61fdbd2d">linearSolver.c</a>
-, <a class="el" href="linearSolver_8h.html#af98da90358e76525add3839c61fdbd2d">linearSolver.h</a>
+: <a class="el" href="linearSolver_8h.html#af98da90358e76525add3839c61fdbd2d">linearSolver.h</a>
+, <a class="el" href="linearSolver_8c.html#af98da90358e76525add3839c61fdbd2d">linearSolver.c</a>
 </li>
 <li>nInnerSides
-: <a class="el" href="mesh_8h.html#a8fdbb3d298b293e79aca09b41475dce5">mesh.h</a>
-, <a class="el" href="mesh_8c.html#a8fdbb3d298b293e79aca09b41475dce5">mesh.c</a>
+: <a class="el" href="mesh_8c.html#a8fdbb3d298b293e79aca09b41475dce5">mesh.c</a>
+, <a class="el" href="mesh_8h.html#a8fdbb3d298b293e79aca09b41475dce5">mesh.h</a>
+</li>
+<li>nIter
+: <a class="el" href="euler_2exactRiemann_8c.html#ab80060e98a402fc1deab459cdb6476b7">exactRiemann.c</a>
 </li>
 <li>nKdim
 : <a class="el" href="linearSolver_8c.html#a32be4c35332a5236db05a707a422a711">linearSolver.c</a>
@@ -134,16 +121,20 @@ $(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); 
 , <a class="el" href="linearSolver_8h.html#ae136204fc2205a21023230d7580c1c36">linearSolver.h</a>
 </li>
 <li>nNodes
-: <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">mesh.c</a>
-, <a class="el" href="mesh_8h.html#aecf0b7c7b75557debb63e881d01279f3">mesh.h</a>
+: <a class="el" href="mesh_8h.html#aecf0b7c7b75557debb63e881d01279f3">mesh.h</a>
+, <a class="el" href="mesh_8c.html#aecf0b7c7b75557debb63e881d01279f3">mesh.c</a>
 </li>
 <li>nQuads
 : <a class="el" href="mesh_8h.html#ad275c3f0ea13662bcdcab5c6d71bbe22">mesh.h</a>
 , <a class="el" href="mesh_8c.html#ad275c3f0ea13662bcdcab5c6d71bbe22">mesh.c</a>
 </li>
+<li>nRKstages
+: <a class="el" href="timeDiscretization_8c.html#a0b2ffb008b64af75b3f1d2a904c5de15">timeDiscretization.c</a>
+, <a class="el" href="timeDiscretization_8h.html#a0b2ffb008b64af75b3f1d2a904c5de15">timeDiscretization.h</a>
+</li>
 <li>nSides
-: <a class="el" href="mesh_8h.html#afbd57a358fb19f827a5776af788d1c75">mesh.h</a>
-, <a class="el" href="mesh_8c.html#afbd57a358fb19f827a5776af788d1c75">mesh.c</a>
+: <a class="el" href="mesh_8c.html#afbd57a358fb19f827a5776af788d1c75">mesh.c</a>
+, <a class="el" href="mesh_8h.html#afbd57a358fb19f827a5776af788d1c75">mesh.h</a>
 </li>
 <li>nTrias
 : <a class="el" href="mesh_8h.html#ad5d7eb9d50e79640a8723471bc5374a4">mesh.h</a>
@@ -154,14 +145,11 @@ $(document).ready(function(){initNavTree('globals_n.html',''); initResizable(); 
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:53 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

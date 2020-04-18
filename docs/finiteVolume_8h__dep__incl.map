@@ -1,6 +1,8 @@
 <map id="src/finiteVolume.h" name="src/finiteVolume.h">
-<area shape="rect" id="node1" title=" " alt="" coords="155,5,281,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="281,5,408,32"/>
 <area shape="rect" id="node2" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="5,80,132,107"/>
 <area shape="rect" id="node3" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="157,80,279,107"/>
 <area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="303,80,386,107"/>
+<area shape="rect" id="node5" href="$reconstruction_8c.html" title="Contains the reconstruction and limiter functions." alt="" coords="411,80,548,107"/>
+<area shape="rect" id="node6" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="573,80,733,107"/>
 </map>

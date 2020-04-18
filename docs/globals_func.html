@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -53,22 +49,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('globals_func.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -94,6 +74,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
+<li>boundary()
+: <a class="el" href="euler_2boundary_8c.html#afe0c3f2f1f7519970db0276c98a359a4">boundary.c</a>
+, <a class="el" href="euler_2boundary_8h.html#afe0c3f2f1f7519970db0276c98a359a4">boundary.h</a>
+</li>
 <li>buildMatrix()
 : <a class="el" href="linearSolver_8c.html#ade5704ee53f1a9798c63caac1288bd29">linearSolver.c</a>
 </li>
@@ -111,6 +95,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">analyze.h</a>
 , <a class="el" href="analyze_8c.html#aaf09b15337fc9b045b31f8af6ad8ba9c">analyze.c</a>
 </li>
+<li>calcTimeStep()
+: <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">timeDiscretization.c</a>
+</li>
 <li>cgnsFinalizeOutput()
 : <a class="el" href="output_8c.html#a1c6863c83597ce8aa090f76ae3c955d1">output.c</a>
 </li>
@@ -124,11 +111,23 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="output_8c.html#aafd430315c490e75d714c542eb4142c1">output.c</a>
 , <a class="el" href="output_8h.html#aafd430315c490e75d714c542eb4142c1">output.h</a>
 </li>
+<li>charCons()
+: <a class="el" href="euler_2equationOfState_8c.html#aec15deabd7578d99a317f9a047dd0889">equationOfState.c</a>
+, <a class="el" href="euler_2equationOfState_8h.html#aec15deabd7578d99a317f9a047dd0889">equationOfState.h</a>
+</li>
 <li>compare()
 : <a class="el" href="mesh_8c.html#ac70138609ef6aa6fabca57aca8681e83">mesh.c</a>
 </li>
 <li>connectPeriodicBC()
 : <a class="el" href="mesh_8c.html#ad5a4d789376204fda1983e3ef50fd4f3">mesh.c</a>
+</li>
+<li>consChar()
+: <a class="el" href="euler_2equationOfState_8h.html#a242c6f1a32e57dae899498a74020c63b">equationOfState.h</a>
+, <a class="el" href="euler_2equationOfState_8c.html#a242c6f1a32e57dae899498a74020c63b">equationOfState.c</a>
+</li>
+<li>consPrim()
+: <a class="el" href="euler_2equationOfState_8c.html#ae21deaa1a13e49c5e17fff0b44634908">equationOfState.c</a>
+, <a class="el" href="euler_2equationOfState_8h.html#ae21deaa1a13e49c5e17fff0b44634908">equationOfState.h</a>
 </li>
 <li>countKeys()
 : <a class="el" href="readInTools_8c.html#a23080316e46aa5122dbb60d2f1e69562">readInTools.c</a>
@@ -201,6 +200,19 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>evalRecordPoints()
 : <a class="el" href="analyze_8c.html#a8f154d5a219b094c9718fc43a452d0f8">analyze.c</a>
 </li>
+<li>exactFunc()
+: <a class="el" href="euler_2exactFunction_8c.html#a56466b31b0f75744aed6345b4b68e8f2">exactFunction.c</a>
+</li>
+<li>exactRiemann()
+: <a class="el" href="euler_2exactRiemann_8h.html#a94ff84b8b790fcc55b90a207197da347">exactRiemann.h</a>
+, <a class="el" href="euler_2exactRiemann_8c.html#a94ff84b8b790fcc55b90a207197da347">exactRiemann.c</a>
+</li>
+<li>explicitTimeStepEuler()
+: <a class="el" href="timeDiscretization_8c.html#a8a89a37042821b46c31c68cd54d769c9">timeDiscretization.c</a>
+</li>
+<li>explicitTimeStepRK()
+: <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">timeDiscretization.c</a>
+</li>
 </ul>
 
 
@@ -220,6 +232,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="analyze_8c.html#a0b874bfa16c481db6ff3bedb28a832b7">analyze.c</a>
 , <a class="el" href="analyze_8h.html#a0b874bfa16c481db6ff3bedb28a832b7">analyze.h</a>
 </li>
+<li>freeBoundary()
+: <a class="el" href="euler_2boundary_8c.html#a9a28f864619366666b36443f7ca92f06">boundary.c</a>
+, <a class="el" href="euler_2boundary_8h.html#a9a28f864619366666b36443f7ca92f06">boundary.h</a>
+</li>
 <li>freeCmds()
 : <a class="el" href="readInTools_8c.html#a7e438b29fd04b468dade4655578868c3">readInTools.c</a>
 </li>
@@ -236,12 +252,12 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 , <a class="el" href="mesh_8c.html#ae33bfb3c739903927db7f7a54278638e">mesh.c</a>
 </li>
 <li>freeOutputTimes()
-: <a class="el" href="output_8c.html#ae15c0a360681de8b69dc6c3af87f00d4">output.c</a>
-, <a class="el" href="output_8h.html#ae15c0a360681de8b69dc6c3af87f00d4">output.h</a>
+: <a class="el" href="output_8h.html#ae15c0a360681de8b69dc6c3af87f00d4">output.h</a>
+, <a class="el" href="output_8c.html#ae15c0a360681de8b69dc6c3af87f00d4">output.c</a>
 </li>
 <li>fvTimeDerivative()
-: <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">finiteVolume.h</a>
-, <a class="el" href="finiteVolume_8c.html#a57129f56e03554698dd5f7e506d456ee">finiteVolume.c</a>
+: <a class="el" href="finiteVolume_8c.html#a57129f56e03554698dd5f7e506d456ee">finiteVolume.c</a>
+, <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">finiteVolume.h</a>
 </li>
 </ul>
 
@@ -286,25 +302,36 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="readInTools_8c.html#a6480fc1fe754a2408323da4b1bc42bfe">readInTools.c</a>
 , <a class="el" href="readInTools_8h.html#a6480fc1fe754a2408323da4b1bc42bfe">readInTools.h</a>
 </li>
+<li>implicitTimeStep()
+: <a class="el" href="timeDiscretization_8c.html#a2bb23ea444814dac92545c3cd2cc7f96">timeDiscretization.c</a>
+</li>
 <li>initAnalyze()
-: <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">analyze.h</a>
-, <a class="el" href="analyze_8c.html#a70b9012501fad23336c48db84f69c94c">analyze.c</a>
+: <a class="el" href="analyze_8c.html#a70b9012501fad23336c48db84f69c94c">analyze.c</a>
+, <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">analyze.h</a>
+</li>
+<li>initBoundary()
+: <a class="el" href="euler_2boundary_8c.html#a05d101d1f79d7e1bda2a9822c0675773">boundary.c</a>
+, <a class="el" href="euler_2boundary_8h.html#a05d101d1f79d7e1bda2a9822c0675773">boundary.h</a>
+</li>
+<li>initEquation()
+: <a class="el" href="euler_2equation_8c.html#a5feb950469f92203675668c9eba7971f">equation.c</a>
+, <a class="el" href="euler_2equation_8h.html#a5feb950469f92203675668c9eba7971f">equation.h</a>
 </li>
 <li>initFV()
 : <a class="el" href="finiteVolume_8c.html#a3644be35d3862389f10d328e14cbedb9">finiteVolume.c</a>
 , <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">finiteVolume.h</a>
 </li>
 <li>initInitialCondition()
-: <a class="el" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initialCondition.h</a>
-, <a class="el" href="initialCondition_8c.html#ab7e12a17a6a542477391bedb279eacbd">initialCondition.c</a>
+: <a class="el" href="initialCondition_8c.html#ab7e12a17a6a542477391bedb279eacbd">initialCondition.c</a>
+, <a class="el" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initialCondition.h</a>
 </li>
 <li>initLinearSolver()
-: <a class="el" href="linearSolver_8c.html#ae169561793e8ff5ed9b88eb5eb7a0326">linearSolver.c</a>
-, <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">linearSolver.h</a>
+: <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">linearSolver.h</a>
+, <a class="el" href="linearSolver_8c.html#ae169561793e8ff5ed9b88eb5eb7a0326">linearSolver.c</a>
 </li>
 <li>initMesh()
-: <a class="el" href="mesh_8c.html#a17d950e582eb77dc42fc1f6799573462">mesh.c</a>
-, <a class="el" href="mesh_8h.html#a17d950e582eb77dc42fc1f6799573462">mesh.h</a>
+: <a class="el" href="mesh_8h.html#a17d950e582eb77dc42fc1f6799573462">mesh.h</a>
+, <a class="el" href="mesh_8c.html#a17d950e582eb77dc42fc1f6799573462">mesh.c</a>
 </li>
 <li>initOutput()
 : <a class="el" href="output_8c.html#adfc0a8bf3db752ff6b5b12d190835705">output.c</a>
@@ -313,6 +340,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>initRecordPoints()
 : <a class="el" href="analyze_8c.html#a8dfb9a6f986ddcade64d191141b9c324">analyze.c</a>
 </li>
+<li>initTimeDisc()
+: <a class="el" href="timeDiscretization_8c.html#ae237d741e17c1bb7084a26b374ac28e4">timeDiscretization.c</a>
+, <a class="el" href="timeDiscretization_8h.html#ae237d741e17c1bb7084a26b374ac28e4">timeDiscretization.h</a>
+</li>
 <li>initWing()
 : <a class="el" href="analyze_8c.html#a33fc83926ae2b8bae07e7177f9569c6c">analyze.c</a>
 </li>
@@ -320,6 +351,12 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>limiterBarthJespersen()
+: <a class="el" href="reconstruction_8c.html#acdf3762da7599d1ddf35ffa9554438fb">reconstruction.c</a>
+</li>
+<li>limiterVenkatakrishnan()
+: <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">reconstruction.c</a>
+</li>
 <li>LUSGS()
 : <a class="el" href="linearSolver_8c.html#a1b162be2d8a14fc0072ae09b7ad89f3c">linearSolver.c</a>
 </li>
@@ -332,6 +369,17 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>matrixVector()
 : <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">linearSolver.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>preFun()
+: <a class="el" href="euler_2exactRiemann_8c.html#a18a65e2164b05a2195dbd3b9bfe16e14">exactRiemann.c</a>
+</li>
+<li>primCons()
+: <a class="el" href="euler_2equationOfState_8h.html#abc7d4bb92eab7aec2fb1d979f0df080c">equationOfState.h</a>
+, <a class="el" href="euler_2equationOfState_8c.html#abc7d4bb92eab7aec2fb1d979f0df080c">equationOfState.c</a>
 </li>
 </ul>
 
@@ -356,9 +404,29 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>setBCatBarys()
+: <a class="el" href="euler_2boundary_8c.html#a10ed132aacb524ddf08fb63254798079">boundary.c</a>
+, <a class="el" href="euler_2boundary_8h.html#a10ed132aacb524ddf08fb63254798079">boundary.h</a>
+</li>
+<li>setBCatSides()
+: <a class="el" href="euler_2boundary_8h.html#aa822e937f3fa5ec4a2cd96cb9a39d254">boundary.h</a>
+, <a class="el" href="euler_2boundary_8c.html#aa822e937f3fa5ec4a2cd96cb9a39d254">boundary.c</a>
+</li>
 <li>setInitialCondition()
 : <a class="el" href="initialCondition_8c.html#a6990d5d35ba28636de1ce0e12c379288">initialCondition.c</a>
 , <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">initialCondition.h</a>
+</li>
+<li>spatialReconstruction()
+: <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">reconstruction.h</a>
+, <a class="el" href="reconstruction_8c.html#ad0c0d7c8c348368409a8320007c55d10">reconstruction.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>timeDisc()
+: <a class="el" href="timeDiscretization_8c.html#af1ed0288ac4a53f6a6420ff34799197b">timeDiscretization.c</a>
+, <a class="el" href="timeDiscretization_8h.html#af1ed0288ac4a53f6a6420ff34799197b">timeDiscretization.h</a>
 </li>
 </ul>
 
@@ -370,14 +438,11 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:53 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

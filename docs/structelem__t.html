@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -52,23 +48,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('structelem__t.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,6 +62,7 @@ $(document).ready(function(){initNavTree('structelem__t.html',''); initResizable
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
@@ -98,8 +78,9 @@ $(document).ready(function(){initNavTree('structelem__t.html',''); initResizable
 <div class="dynheader">
 Collaboration diagram for elem_t:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structelem__t__coll__graph.svg" width="372" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structelem__t__coll__graph.svg" width="372" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -170,7 +151,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>area of the element </p>
 
-<p class="reference">Referenced by <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, and <a class="el" href="analyze_8h.html#acf15c3da2b4a14c1d2b700303bf0d875">globalResidual()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">calcTimeStep()</a>, <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, and <a class="el" href="analyze_8h.html#acf15c3da2b4a14c1d2b700303bf0d875">globalResidual()</a>.</p>
 
 </div>
 </div>
@@ -187,7 +168,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>inverse of element area </p>
 
-<p class="reference">Referenced by <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>, and <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>.</p>
 
 </div>
 </div>
@@ -204,7 +185,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>coordinates ob element barycenter </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="mesh_8c.html#ad5a4d789376204fda1983e3ef50fd4f3">connectPeriodicBC()</a>, <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>, <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, <a class="el" href="mesh_8c.html#ae0f2379a3df28f3f7efd2c992248b514">createSideInfo()</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a33fc83926ae2b8bae07e7177f9569c6c">initWing()</a>, and <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a57b9e2f519e234a9b6a526a4e61b38b8">calcCoef()</a>, <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="mesh_8c.html#ad5a4d789376204fda1983e3ef50fd4f3">connectPeriodicBC()</a>, <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>, <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, <a class="el" href="mesh_8c.html#ae0f2379a3df28f3f7efd2c992248b514">createSideInfo()</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a33fc83926ae2b8bae07e7177f9569c6c">initWing()</a>, <a class="el" href="euler_2boundary_8h.html#a10ed132aacb524ddf08fb63254798079">setBCatBarys()</a>, <a class="el" href="euler_2boundary_8h.html#aa822e937f3fa5ec4a2cd96cb9a39d254">setBCatSides()</a>, and <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>.</p>
 
 </div>
 </div>
@@ -221,7 +202,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>conservative variables of element </p>
 
-<p class="reference">Referenced by <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">matrixVector()</a>, and <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a8a89a37042821b46c31c68cd54d769c9">explicitTimeStepEuler()</a>, <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">explicitTimeStepRK()</a>, <a class="el" href="linearSolver_8c.html#ab4b7890a021fa725f281253451d20c31">matrixVector()</a>, and <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>.</p>
 
 </div>
 </div>
@@ -237,6 +218,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>conservative variables at initial Runge-Kutta stage </p>
+
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">explicitTimeStepRK()</a>.</p>
 
 </div>
 </div>
@@ -270,7 +253,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>element time step </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a5bc9f64ac7233292ac4fd9fb6a5fe52a">analyze()</a>, <a class="el" href="analyze_8c.html#a8f154d5a219b094c9718fc43a452d0f8">evalRecordPoints()</a>, and <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8c.html#a5bc9f64ac7233292ac4fd9fb6a5fe52a">analyze()</a>, <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">calcTimeStep()</a>, <a class="el" href="analyze_8c.html#a8f154d5a219b094c9718fc43a452d0f8">evalRecordPoints()</a>, and <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>.</p>
 
 </div>
 </div>
@@ -321,7 +304,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>pointer to the first side of the element </p>
 
-<p class="reference">Referenced by <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, <a class="el" href="mesh_8h.html#ae33bfb3c739903927db7f7a54278638e">freeMesh()</a>, and <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="mesh_8c.html#abc057bb065a186a8daec25f127cd387d">createMesh()</a>, <a class="el" href="mesh_8c.html#aaf5acbd6699a85740df1aa3912c32c31">createReconstructionInfo()</a>, <a class="el" href="mesh_8h.html#ae33bfb3c739903927db7f7a54278638e">freeMesh()</a>, <a class="el" href="reconstruction_8c.html#acdf3762da7599d1ddf35ffa9554438fb">limiterBarthJespersen()</a>, <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">limiterVenkatakrishnan()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
@@ -421,7 +404,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>primitive variables of element </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="initialCondition_8c.html#ab3e7d324199c05dcc7b0abee82288666">cgnsReadSolution()</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a8f154d5a219b094c9718fc43a452d0f8">evalRecordPoints()</a>, and <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">calcTimeStep()</a>, <a class="el" href="output_8c.html#a80cb598c53b94acc7303a0a3b5e7ab26">cgnsOutput()</a>, <a class="el" href="initialCondition_8c.html#ab3e7d324199c05dcc7b0abee82288666">cgnsReadSolution()</a>, <a class="el" href="output_8c.html#a7265ebed08d72389bfa04530feaf577f">csvOutput()</a>, <a class="el" href="output_8c.html#afe6417bdb8b04364e1805825390f9015">curveOutput()</a>, <a class="el" href="analyze_8c.html#a8f154d5a219b094c9718fc43a452d0f8">evalRecordPoints()</a>, <a class="el" href="timeDiscretization_8c.html#a8a89a37042821b46c31c68cd54d769c9">explicitTimeStepEuler()</a>, <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">explicitTimeStepRK()</a>, <a class="el" href="reconstruction_8c.html#acdf3762da7599d1ddf35ffa9554438fb">limiterBarthJespersen()</a>, <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">limiterVenkatakrishnan()</a>, <a class="el" href="euler_2boundary_8h.html#a10ed132aacb524ddf08fb63254798079">setBCatBarys()</a>, <a class="el" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
@@ -438,7 +421,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>source term </p>
 
-<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>, and <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>.</p>
 
 </div>
 </div>
@@ -455,7 +438,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>cell extension in x-direction </p>
 
-<p class="reference">Referenced by <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">calcTimeStep()</a>, and <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>.</p>
 
 </div>
 </div>
@@ -472,7 +455,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>cell extension in y-direction </p>
 
-<p class="reference">Referenced by <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a7f7d183a3fbda3e49a1f7dee3f9a56e1">calcTimeStep()</a>, and <a class="el" href="mesh_8c.html#a0e98f94da0dae7a75990f53900c18c2b">createElemInfo()</a>.</p>
 
 </div>
 </div>
@@ -489,7 +472,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>t-gradient of primitive variables </p>
 
-<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a57129f56e03554698dd5f7e506d456ee">fvTimeDerivative()</a>, and <a class="el" href="analyze_8h.html#acf15c3da2b4a14c1d2b700303bf0d875">globalResidual()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a8a89a37042821b46c31c68cd54d769c9">explicitTimeStepEuler()</a>, <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">explicitTimeStepRK()</a>, <a class="el" href="analyze_8h.html#acf15c3da2b4a14c1d2b700303bf0d875">globalResidual()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
@@ -506,7 +489,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>x-gradient of primitive variables </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="reconstruction_8c.html#acdf3762da7599d1ddf35ffa9554438fb">limiterBarthJespersen()</a>, <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">limiterVenkatakrishnan()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
@@ -523,7 +506,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>y-gradient of primitive variables </p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#aaf09b15337fc9b045b31f8af6ad8ba9c">calcErrors()</a>, <a class="el" href="reconstruction_8c.html#acdf3762da7599d1ddf35ffa9554438fb">limiterBarthJespersen()</a>, <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">limiterVenkatakrishnan()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
@@ -540,7 +523,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Venkatakrishnan limiter constant for element </p>
 
-<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>, and <a class="el" href="reconstruction_8c.html#ad3a6ae234ee81e1f208ae2aa0842cf6c">limiterVenkatakrishnan()</a>.</p>
 
 </div>
 </div>
@@ -582,15 +565,11 @@ Data Fields</h2></td></tr>
 <li>src/<a class="el" href="mesh_8h.html">mesh.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="structelem__t.html">elem_t</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:52 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -52,23 +48,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('finiteVolume_8c.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,6 +62,11 @@ $(document).ready(function(){initNavTree('finiteVolume_8c.html',''); initResizab
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -101,15 +85,16 @@ $(document).ready(function(){initNavTree('finiteVolume_8c.html',''); initResizab
 <code>#include &quot;<a class="el" href="finiteVolume_8h.html">finiteVolume.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mesh_8h.html">mesh.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="readInTools_8h.html">readInTools.h</a>&quot;</code><br />
-<code>#include &quot;reconstruction.h&quot;</code><br />
-<code>#include &quot;timeDiscretization.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="reconstruction_8h.html">reconstruction.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timeDiscretization_8h.html">timeDiscretization.h</a>&quot;</code><br />
 <code>#include &quot;fluxCalculation.h&quot;</code><br />
 <code>#include &quot;equation.h&quot;</code><br />
 <code>#include &quot;source.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for finiteVolume.c:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="finiteVolume_8c__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="finiteVolume_8c__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -159,7 +144,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="structelem__t.html#a962cffa62d6b94376d5f615753f91630">elem_t::areaq</a>, <a class="el" href="structelem__t.html#a7dfdeda10649182fdcf85c12afe493f5">elem_t::dt</a>, <a class="el" href="structelem__t.html#a20d1cd80102ef6fa85644e09e5b2d880">elem_t::dtLoc</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb">E</a>, <a class="el" href="mesh_8c.html#a6e0032342c22164db03323d0119d843e">elem</a>, <a class="el" href="structelem__t.html#a3e94a79a5b58bd0b0a21528b641cd56d">elem_t::firstSide</a>, <a class="el" href="structside__t.html#a226ad839495e85685c5b4f91a8470a8a">side_t::flux</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="structside__t.html#af9ea3a8abd427e9545645451cf6ae735">side_t::nextElemSide</a>, <a class="el" href="main_8h.html#ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583">RHO</a>, <a class="el" href="structelem__t.html#a94ba2b931f4d5d24bcc947cb846e64c7">elem_t::source</a>, <a class="el" href="structelem__t.html#acabc83b271c0a47c78784c27c8679ff3">elem_t::u_t</a>, <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5">VX</a>, and <a class="el" href="main_8h.html#adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951">VY</a>.</p>
+<p class="reference">References <a class="el" href="structelem__t.html#a7dfdeda10649182fdcf85c12afe493f5">elem_t::dt</a>, <a class="el" href="structelem__t.html#a20d1cd80102ef6fa85644e09e5b2d880">elem_t::dtLoc</a>, <a class="el" href="mesh_8c.html#a6e0032342c22164db03323d0119d843e">elem</a>, <a class="el" href="mesh_8c.html#aa564af0cb1a4e3d22c2ccb63761cb60c">nElems</a>, <a class="el" href="euler_2boundary_8c.html#aa822e937f3fa5ec4a2cd96cb9a39d254">setBCatSides()</a>, <a class="el" href="reconstruction_8c.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>, and <a class="el" href="timeDiscretization_8c.html#a53f383d4521a7587259696a23ab73ef7">timeOrder</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="timeDiscretization_8c.html#a8a89a37042821b46c31c68cd54d769c9">explicitTimeStepEuler()</a>, and <a class="el" href="timeDiscretization_8c.html#ac6991d8194b3be6bc963c6894d3cba9e">explicitTimeStepRK()</a>.</p>
 
 </div>
 </div>
@@ -192,20 +179,16 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>the spacial order to be used </p>
 
-<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="finiteVolume_8h.html#a3644be35d3862389f10d328e14cbedb9">initFV()</a>, and <a class="el" href="reconstruction_8h.html#ad0c0d7c8c348368409a8320007c55d10">spatialReconstruction()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="finiteVolume_8c.html">finiteVolume.c</a></li>
-    <li class="footer">Generated on Sat Apr 18 2020 17:42:52 for ccfd by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Sat Apr 18 2020 22:00:07 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>
