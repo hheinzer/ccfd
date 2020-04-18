@@ -1,5 +1,0 @@
-<map id="getInt" name="getInt">
-<area shape="rect" id="node1" title="Get an integer from the commands list." alt="" coords="5,5,60,32"/>
-<area shape="rect" id="node2" href="$readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1" title="Find a command in the commands list." alt="" coords="108,5,179,32"/>
-<area shape="rect" id="node3" href="$readInTools_8c.html#ad5d64c5886e695aa1141d1b8b0e117d9" title="Delete a single node of the command list." alt="" coords="227,5,312,32"/>
-</map>

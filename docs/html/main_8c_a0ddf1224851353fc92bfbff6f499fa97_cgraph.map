@@ -1,9 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node1" title="Main function." alt="" coords="5,56,56,83"/>
-<area shape="rect" id="node2" href="$readInTools_8c.html#aae07b562b487646845b24aa277a191f3" title="Read parameter file and create commands list." alt="" coords="118,5,189,32"/>
-<area shape="rect" id="node3" href="$readInTools_8c.html#a54ce5bb180132f80c48a1d5681df55f7" title="Get a boolean from the commands list." alt="" coords="120,56,187,83"/>
-<area shape="rect" id="node6" href="$readInTools_8c.html#a6480fc1fe754a2408323da4b1bc42bfe" title="Print out all remaining commands in the list." alt="" coords="104,107,203,133"/>
-<area shape="rect" id="node4" href="$readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1" title="Find a command in the commands list." alt="" coords="255,56,325,83"/>
-<area shape="rect" id="node5" href="$readInTools_8c.html#ad5d64c5886e695aa1141d1b8b0e117d9" title="Delete a single node of the command list." alt="" coords="377,56,463,83"/>
-<area shape="rect" id="node7" href="$readInTools_8c.html#a7e438b29fd04b468dade4655578868c3" title="Delete all commands in the commands list." alt="" coords="251,107,329,133"/>
-</map>
