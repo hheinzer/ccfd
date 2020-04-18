@@ -1,8 +1,9 @@
-/*
- * output.c
+/** \file
  *
- * Created: Mon 23 Mar 2020 10:42:06 PM CET
- * Author : hhh
+ * \brief Contains all functions used for writing flow solutions
+ *
+ * \author hhh
+ * \date Mon 23 Mar 2020 10:42:06 PM CET
  */
 
 #include <stdio.h>
@@ -21,17 +22,17 @@
 #include "memTools.h"
 
 /* extern variables */
-char strOutFile[STRLEN];
-double IOtimeInterval;
-int IOiterInterval;
-int iVisuProg;
-char parameterFile[STRLEN];
-FILE *resFile;
-bool doErrorOutput;
-outputTime_t *outputTimes;
+char strOutFile[STRLEN];		/**< name of the output file */
+double IOtimeInterval;			/**< time interval for data output */
+int IOiterInterval;			/**< iteration interval for data output */
+int iVisuProg;				/**< output format code */
+char parameterFile[STRLEN];		/**< name of the parameter file */
+FILE *resFile;				/**< residual file pointer */
+bool doErrorOutput;			/**< error output flag */
+outputTime_t *outputTimes;		/**< the first output time object */
 
-/*
- * Initialize output
+/**
+ * \brief Initialize output
  */
 void initOutput(void)
 {
@@ -46,8 +47,13 @@ void initOutput(void)
 	iVisuProg = getInt("outputFormat", "1");
 }
 
-/*
- * tabular CSV output, only for 1D data
+/**
+ * \brief Tabular CSV output, only for 1D data
+ * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] time The computational time of the output result
+ * \param[in] iter The iteration number of the output result
+ * \param[in] doExact If the exact exact solution should be written, instead
+ *	of the computed flow results
  */
 void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
@@ -108,8 +114,13 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	free(flowData);
 }
 
-/*
- * write solution to CGNS file
+/**
+ * \brief Write solution to CGNS file
+ * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] time The computational time of the output result
+ * \param[in] iter The iteration number of the output result
+ * \param[in] doExact If the exact exact solution should be written, instead
+ *	of the computed flow results
  */
 void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
@@ -235,8 +246,13 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	free(pArr);
 }
 
-/*
- * curved data output, only for 1D data
+/**
+ * \brief Curve data output, only for 1D data
+ * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] time The computational time of the output result
+ * \param[in] iter The iteration number of the output result
+ * \param[in] doExact If the exact exact solution should be written, instead
+ *	of the computed flow results
  */
 void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 {
@@ -314,8 +330,10 @@ void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 	free(flowData);
 }
 
-/*
- * data output in different formats
+/**
+ * \brief Perform a data output, dependent on the output format
+ * \param[in] time The computational time of the output result
+ * \param[in] iter The iteration number of the output result
  */
 void dataOutput(double time, long iter)
 {
@@ -383,8 +401,12 @@ void dataOutput(double time, long iter)
 	}
 }
 
-/*
- * finalize CGNS output
+/**
+ * \brief Finalize CGNS output
+ *
+ * This function creates a `<case>_Master.cgns` file that has links to all the
+ * output times of previous flow solutions. This makes it easier to load an
+ * entire case into ParaView.
  */
 void cgnsFinalizeOutput(void)
 {
@@ -498,8 +520,8 @@ void cgnsFinalizeOutput(void)
 		cg_error_exit();
 }
 
-/*
- * finalize data output
+/**
+ * \brief Finalize the data output, if necessary
  */
 void finalizeDataOutput(void)
 {
@@ -508,8 +530,8 @@ void finalizeDataOutput(void)
 	}
 }
 
-/*
- * write CGNS mesh
+/**
+ * \brief Write the generated mesh to a CGNS mesh file
  */
 void cgnsWriteMesh(void)
 {
@@ -659,8 +681,8 @@ void cgnsWriteMesh(void)
 	free(BCsides);
 }
 
-/*
- * free all memory that was allocated for the output times
+/**
+ * \brief Free all memory that was allocated for the output times
  */
 void freeOutputTimes(void)
 {
