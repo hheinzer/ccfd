@@ -1,8 +1,7 @@
-/*
- * initialCondition.h
+/** \file
  *
- * Created: Fri 27 Mar 2020 02:28:25 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Fri 27 Mar 2020 02:28:25 PM CET
  */
 
 #ifndef INITIALCONDITION_H

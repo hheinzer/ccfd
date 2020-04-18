@@ -1,8 +1,9 @@
-/*
- * initialCondition.c
+/** \file
  *
- * Created: Fri 27 Mar 2020 02:31:24 PM CET
- * Author : hhh
+ * \brief Functions involving the initialization and application of initial conditions
+ *
+ * \author hhh
+ * \date Fri 27 Mar 2020 02:31:24 PM CET
  */
 
 #include <stdio.h>
@@ -22,15 +23,16 @@
 #include "cgnslib.h"
 
 /* extern variables */
-int icType;
-int nDomains;
-int *domainID;
-double rp1Dinterface;
-double alpha;
-double **refState;
+int icType;			/**< type of initial condition */
+int nDomains;			/**< number of domains where initial conditions
+					are applied */
+int *domainID;			/**< domain ID vecotor, from 1 to `nDomains` */
+double rp1Dinterface;		/**< interface for a Riemann problem */
+double alpha;			/**< incident angle of the flow */
+double **refState;		/**< primitive variable state in domain */
 
-/*
- * get initial flow conditions from init file
+/**
+ * \brief Get initial flow conditions from the parameter file
  */
 void initInitialCondition(void)
 {
@@ -88,8 +90,8 @@ void initInitialCondition(void)
 	}
 }
 
-/*
- * read solution from CGNS file (for restart)
+/**
+ * \brief Read a solution from a CGNS file, used at restart
  */
 void cgnsReadSolution(void)
 {
@@ -157,8 +159,8 @@ void cgnsReadSolution(void)
 	free(pArr);
 }
 
-/*
- * set initial flow in all cells
+/**
+ * \brief Set initial flow field in all cells
  */
 void setInitialCondition(void)
 {
@@ -222,8 +224,8 @@ void setInitialCondition(void)
 	printf("| Done.\n");
 }
 
-/*
- * free all memory that was allocated for the reference state
+/**
+ * \brief Free all memory that was allocated for the reference state
  */
 void freeInitialCondition(void)
 {
