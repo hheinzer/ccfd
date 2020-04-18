@@ -88,34 +88,37 @@ $(document).ready(function(){initNavTree('initialCondition_8h_source.html',''); 
 <div class="title">initialCondition.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * initialCondition.h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Created: Fri 27 Mar 2020 02:28:25 PM CET</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * Author : hhh</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef INITIALCONDITION_H</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define INITIALCONDITION_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> icType;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> nDomains;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> *domainID;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> rp1Dinterface;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> alpha;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> **refState;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> initInitialCondition(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> setInitialCondition(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> freeInitialCondition(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="initialCondition_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef INITIALCONDITION_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define INITIALCONDITION_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="initialCondition_8h.html#ae42c2888ea03b27e3cdf021612b4850c">icType</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="initialCondition_8h.html#af21e421b07a4356a65f4c4cf5c0bc879">nDomains</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> *<a class="code" href="initialCondition_8h.html#ad867b89571b0bf6049fa6bc21132e1a0">domainID</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> <a class="code" href="initialCondition_8h.html#ab665c8733e05cb0695e0185968557a4b">rp1Dinterface</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> <a class="code" href="initialCondition_8h.html#a20f4c4490bc8ecbdd1ffcb79acce6035">alpha</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> **<a class="code" href="initialCondition_8h.html#a50f7da2cd33787648fdd3fa492aade19">refState</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initInitialCondition</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="initialCondition_8h.html#a534f3cde02c24d15dc0ac3d71344409e">freeInitialCondition</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainitialCondition_8h_html_a20f4c4490bc8ecbdd1ffcb79acce6035"><div class="ttname"><a href="initialCondition_8h.html#a20f4c4490bc8ecbdd1ffcb79acce6035">alpha</a></div><div class="ttdeci">double alpha</div><div class="ttdef"><b>Definition:</b> initialCondition.c:31</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_ae42c2888ea03b27e3cdf021612b4850c"><div class="ttname"><a href="initialCondition_8h.html#ae42c2888ea03b27e3cdf021612b4850c">icType</a></div><div class="ttdeci">int icType</div><div class="ttdef"><b>Definition:</b> initialCondition.c:26</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_ad867b89571b0bf6049fa6bc21132e1a0"><div class="ttname"><a href="initialCondition_8h.html#ad867b89571b0bf6049fa6bc21132e1a0">domainID</a></div><div class="ttdeci">int * domainID</div><div class="ttdef"><b>Definition:</b> initialCondition.c:29</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_ab665c8733e05cb0695e0185968557a4b"><div class="ttname"><a href="initialCondition_8h.html#ab665c8733e05cb0695e0185968557a4b">rp1Dinterface</a></div><div class="ttdeci">double rp1Dinterface</div><div class="ttdef"><b>Definition:</b> initialCondition.c:30</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_a50f7da2cd33787648fdd3fa492aade19"><div class="ttname"><a href="initialCondition_8h.html#a50f7da2cd33787648fdd3fa492aade19">refState</a></div><div class="ttdeci">double ** refState</div><div class="ttdef"><b>Definition:</b> initialCondition.c:32</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_af21e421b07a4356a65f4c4cf5c0bc879"><div class="ttname"><a href="initialCondition_8h.html#af21e421b07a4356a65f4c4cf5c0bc879">nDomains</a></div><div class="ttdeci">int nDomains</div><div class="ttdef"><b>Definition:</b> initialCondition.c:27</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_a534f3cde02c24d15dc0ac3d71344409e"><div class="ttname"><a href="initialCondition_8h.html#a534f3cde02c24d15dc0ac3d71344409e">freeInitialCondition</a></div><div class="ttdeci">void freeInitialCondition(void)</div><div class="ttdoc">Free all memory that was allocated for the reference state.</div><div class="ttdef"><b>Definition:</b> initialCondition.c:230</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_ab7e12a17a6a542477391bedb279eacbd"><div class="ttname"><a href="initialCondition_8h.html#ab7e12a17a6a542477391bedb279eacbd">initInitialCondition</a></div><div class="ttdeci">void initInitialCondition(void)</div><div class="ttdoc">Get initial flow conditions from the parameter file.</div><div class="ttdef"><b>Definition:</b> initialCondition.c:37</div></div>
+<div class="ttc" id="ainitialCondition_8h_html_a6990d5d35ba28636de1ce0e12c379288"><div class="ttname"><a href="initialCondition_8h.html#a6990d5d35ba28636de1ce0e12c379288">setInitialCondition</a></div><div class="ttdeci">void setInitialCondition(void)</div><div class="ttdoc">Set initial flow field in all cells.</div><div class="ttdef"><b>Definition:</b> initialCondition.c:165</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>initialCondition.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="initialCondition_8h.html">initialCondition.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

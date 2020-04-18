@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['cd_203',['cd',['../structwing__t.html#a054e995574e6779b477d45ce36ff8e80',1,'wing_t']]],
-  ['cl_204',['cl',['../structwing__t.html#abbc7232152809bd0e53028a98db65c15',1,'wing_t']]]
+  ['alpha_230',['alpha',['../initialCondition_8c.html#a20f4c4490bc8ecbdd1ffcb79acce6035',1,'alpha():&#160;initialCondition.c'],['../initialCondition_8h.html#a20f4c4490bc8ecbdd1ffcb79acce6035',1,'alpha():&#160;initialCondition.c']]]
 ];
