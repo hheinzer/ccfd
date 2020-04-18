@@ -37,6 +37,7 @@ int nInnerNewton;		/**< maximum number of Newton iterations for
 int nInnerGMRES;		/**< maximum number of GMRES iterations for
 					one stage */
 
+long iterGlobal;		/**< global iteration number */
 bool usePrecond;		/**< use LUSGS preconditioner flag */
 
 double rEps0;			/**< DBL_EPSILON */

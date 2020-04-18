@@ -22,6 +22,7 @@ extern int nInnerNewton;
 
 extern int nInnerGMRES;
 
+extern long iterGlobal;
 extern bool usePrecond;
 
 extern double rEps0;
