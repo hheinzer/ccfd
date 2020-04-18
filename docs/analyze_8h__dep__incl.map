@@ -1,0 +1,6 @@
+<map id="src/analyze.h" name="src/analyze.h">
+<area shape="rect" id="node1" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="120,5,219,32"/>
+<area shape="rect" id="node2" href="$analyze_8c.html" title="Contains functions for analyzing flow results." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="128,80,211,107"/>
+<area shape="rect" id="node4" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="235,80,325,107"/>
+</map>
