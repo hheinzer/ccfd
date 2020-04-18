@@ -1,8 +1,7 @@
-/*
- * exactFunction.h
+/** \file
  *
- * Created: Sat 28 Mar 2020 05:55:25 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Sat 28 Mar 2020 05:55:25 PM CET
  */
 
 #ifndef EXACTFUNCTION_H

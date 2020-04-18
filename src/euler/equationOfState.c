@@ -1,8 +1,9 @@
-/*
- * equationOfState.c
+/** \file
  *
- * Created: Sat 28 Mar 2020 09:45:30 PM CET
- * Author : hhh
+ * \brief Contains conversion functions between the different variable types
+ *
+ * \author hhh
+ * \date Sat 28 Mar 2020 09:45:30 PM CET
  */
 
 #include <math.h>
@@ -11,8 +12,10 @@
 #include "main.h"
 #include "equation.h"
 
-/*
- * convert primitive variables into conservative
+/**
+ * \brief Convert primitive variables into conservative variables
+ * \param[in] pVar[NVAR] Primitive variable vector
+ * \param[out] cVar[NVAR] Conservative variable vector
  */
 void primCons(const double pVar[NVAR], double cVar[NVAR])
 {
@@ -23,8 +26,14 @@ void primCons(const double pVar[NVAR], double cVar[NVAR])
 		+ 0.5 * (cVar[MX] * pVar[VX] + cVar[MY] * pVar[VY]);
 }
 
-/*
- * convert conservative variables into primitive
+/** \brief Convert conservative variables into primitive variables
+ *
+ * This function is used during reconstruction, therefore it has to be checked
+ * if the resulting primitive variables are negative. It that is the case, they
+ * are set to zero.
+ *
+ * \param[in] cVar[NVAR] Conservative variable vector
+ * \param[out] pVar[NVAR] Primitive variable vector
  */
 void consPrim(const double cVar[NVAR], double pVar[NVAR])
 {
@@ -43,10 +52,13 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
 	}
 }
 
-/*
- * convert conservative variables to characteristic
+/**
+ * \brief Convert conservative variables to characteristic variables
+ * \param[in] cVar[NVAR] Conservative variable vector
+ * \param[out] charac[3] Characteristic variable vector
+ * \param[in] pVarRef[NVAR] Reference primitive variable vector
  */
-void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
+void consChar(double cVar[NVAR], double charac[3], double pVarRef[NVAR])
 {
 	double c = sqrt(gam * pVarRef[P] / pVarRef[RHO]);
 	double u = pVarRef[VX];
@@ -70,8 +82,11 @@ void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 	}
 }
 
-/*
- * convert characteristic variables to conservative
+/**
+ * \brief Convert characteristic variables to conservative variables
+ * \param[in] charac[3] Characteristic variable vector
+ * \param[out] cVar[NVAR] Conservative variable vector
+ * \param[in] pVarRef[NVAR] Reference primitive variable vector
  */
 void charCons(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {

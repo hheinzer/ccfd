@@ -46,7 +46,7 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
 /*
  * convert conservative variables to characteristic
  */
-void consChar(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
+void consChar(double cVar[NVAR], double charac[3], double pVarRef[NVAR])
 {
 	double c = sqrt(gam * pVarRef[P] / pVarRef[RHO]);
 	double u = pVarRef[VX];

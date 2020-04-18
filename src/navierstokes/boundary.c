@@ -228,8 +228,8 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 
 		/* compute characteristic variables of inner and ghost cell */
 		double int_charVar[3], ghost_charVar[3];
-		consChar(int_charVar, int_cVar, int_pVar);
-		consChar(ghost_charVar, ghost_cVar, int_pVar);
+		consChar(int_cVar, int_charVar, int_pVar);
+		consChar(ghost_cVar, ghost_charVar, int_pVar);
 
 		/* determine characteristic state at boundary */
 		if (v + c > 0.0) {
