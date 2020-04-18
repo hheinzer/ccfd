@@ -100,7 +100,7 @@ $(CGNS_DIR):
 	-tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
 
 doc:
-	doxygen doc/doxygen/Doxyfile
+	doxygen Doxyfile
 
 clean:
 	-rm -rf $(OBJDIR)
