@@ -5,5 +5,5 @@ test/*
 *.cgns
 *.dem
 *.csv
-doc/html/*
-doc/latex/*
+docs/html/*
+docs/latex/*
