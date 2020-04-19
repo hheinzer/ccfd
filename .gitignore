@@ -7,3 +7,4 @@ obj/*
 docs/latex/*
 **.pdf
 **.log
+!check/targetOutput/*.csv

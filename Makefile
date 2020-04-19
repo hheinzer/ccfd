@@ -104,10 +104,11 @@ docclean:
 clean:
 	-rm -rf $(OBJDIR)
 	-rm -rf $(BINDIR)
+	-rm -f check/*.csv check/*.log
 
 allclean: clean
 	-rm -rf $(LIBDIR)/CGNS-*/
 
 check:
-	@cd check && ./check.py $(TGT) $(EQNSYS)
+	@cd check && ./check.py ../$(TGT) $(EQNSYS)
 
