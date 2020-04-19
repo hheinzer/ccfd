@@ -6,6 +6,7 @@
 # 'make clean' 	  : remove executable
 # 'make allclean' : remove executable and libraries
 # 'make doc'      : create the documentation with doxygen
+# 'make check'    : check implementation
 
 ### Equation system:
 EQNSYS = EULER
@@ -36,7 +37,7 @@ CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
-.PHONY: clean allclean doc latex docclean
+.PHONY: clean allclean doc latex docclean check
 
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
@@ -106,3 +107,15 @@ clean:
 
 allclean: clean
 	-rm -rf $(LIBDIR)/CGNS-*/
+
+check:
+	printf "Running checks with $(TGT), compiled with $(EQNSYS) equations:\n"; \
+		cd check; \
+		for ini in *.ini; \
+		do \
+		../$(TGT) "$ini" > "${ini%%.*}.log" && \
+			printf "$ini \t good run\n" || \
+			printf "$ini \t bad  run\n"; \
+		done
+
+

@@ -1,0 +1,17 @@
+=============================================================
+                            C C F D                          
+=============================================================
+   Solution of the two-dimensional Euler and Navier-Stokes   
+     equations using an unstructured finite volume solver    
+                                                             
+   This program may be used under the conditions of the GPL  
+                                                             
+  Created at the Institute of Aerodynamics and Gas Dynamics  
+           at the University of Stuttgart, Germany           
+               http://www.iag.uni-stuttgart.de               
+                                                             
+           Recreated in C by Heinz Heinrich Heinzer          
+=============================================================
+
+Reading Parameter File: ''
+Abort! Could not find specified file.
