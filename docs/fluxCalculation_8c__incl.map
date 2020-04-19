@@ -1,0 +1,11 @@
+<map id="src/fluxCalculation.c" name="src/fluxCalculation.c">
+<area shape="rect" id="node1" title="Contains the flux calculation functions." alt="" coords="221,5,361,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,68,107"/>
+<area shape="rect" id="node3" href="$main_8h.html" title="Contains the global constants and definitions." alt="" coords="151,304,213,331"/>
+<area shape="rect" id="node4" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="225,155,291,181"/>
+<area shape="rect" id="node5" href="$boundary_8h.html" title="Contains the structure definition of a boundary." alt="" coords="245,229,332,256"/>
+<area shape="rect" id="node7" href="$equation_8h.html" title=" " alt="" coords="473,155,555,181"/>
+<area shape="rect" id="node8" href="$exactRiemann_8h.html" title=" " alt="" coords="417,80,533,107"/>
+<area shape="rect" id="node9" href="$linearSolver_8h.html" title=" " alt="" coords="241,80,341,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="333,304,407,331"/>
+</map>

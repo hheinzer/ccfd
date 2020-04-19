@@ -1,0 +1,9 @@
+<map id="src/source.c" name="src/source.c">
+<area shape="rect" id="node1" title="Contains the functions for initializing and evaluating the source term." alt="" coords="124,5,219,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,68,107"/>
+<area shape="rect" id="node3" href="$main_8h.html" title="Contains the global constants and definitions." alt="" coords="126,229,187,256"/>
+<area shape="rect" id="node4" href="$equation_8h.html" title=" " alt="" coords="306,155,389,181"/>
+<area shape="rect" id="node6" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="175,80,240,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="261,229,335,256"/>
+<area shape="rect" id="node7" href="$boundary_8h.html" title="Contains the structure definition of a boundary." alt="" coords="195,155,281,181"/>
+</map>

@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['equation_2ec_386',['equation.c',['../euler_2equation_8c.html',1,'(Global Namespace)'],['../navierstokes_2equation_8c.html',1,'(Global Namespace)']]],
-  ['equation_2eh_387',['equation.h',['../euler_2equation_8h.html',1,'(Global Namespace)'],['../navierstokes_2equation_8h.html',1,'(Global Namespace)']]],
-  ['equationofstate_2ec_388',['equationOfState.c',['../euler_2equationOfState_8c.html',1,'(Global Namespace)'],['../navierstokes_2equationOfState_8c.html',1,'(Global Namespace)']]],
-  ['equationofstate_2eh_389',['equationOfState.h',['../euler_2equationOfState_8h.html',1,'(Global Namespace)'],['../navierstokes_2equationOfState_8h.html',1,'(Global Namespace)']]],
-  ['exactfunction_2ec_390',['exactFunction.c',['../euler_2exactFunction_8c.html',1,'(Global Namespace)'],['../navierstokes_2exactFunction_8c.html',1,'(Global Namespace)']]],
-  ['exactfunction_2eh_391',['exactFunction.h',['../euler_2exactFunction_8h.html',1,'(Global Namespace)'],['../navierstokes_2exactFunction_8h.html',1,'(Global Namespace)']]],
-  ['exactriemann_2ec_392',['exactRiemann.c',['../euler_2exactRiemann_8c.html',1,'(Global Namespace)'],['../navierstokes_2exactRiemann_8c.html',1,'(Global Namespace)']]],
-  ['exactriemann_2eh_393',['exactRiemann.h',['../euler_2exactRiemann_8h.html',1,'(Global Namespace)'],['../navierstokes_2exactRiemann_8h.html',1,'(Global Namespace)']]]
+  ['equation_2ec_385',['equation.c',['../equation_8c.html',1,'']]],
+  ['equation_2eh_386',['equation.h',['../equation_8h.html',1,'']]],
+  ['equationofstate_2ec_387',['equationOfState.c',['../equationOfState_8c.html',1,'']]],
+  ['equationofstate_2eh_388',['equationOfState.h',['../equationOfState_8h.html',1,'']]],
+  ['exactfunction_2ec_389',['exactFunction.c',['../exactFunction_8c.html',1,'']]],
+  ['exactfunction_2eh_390',['exactFunction.h',['../exactFunction_8h.html',1,'']]],
+  ['exactriemann_2ec_391',['exactRiemann.c',['../exactRiemann_8c.html',1,'']]],
+  ['exactriemann_2eh_392',['exactRiemann.h',['../exactRiemann_8h.html',1,'']]]
 ];

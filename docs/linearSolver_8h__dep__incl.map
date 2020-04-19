@@ -1,8 +1,7 @@
 <map id="src/linearSolver.h" name="src/linearSolver.h">
-<area shape="rect" id="node1" title=" " alt="" coords="329,5,451,32"/>
-<area shape="rect" id="node2" href="$euler_2fluxCalculation_8c.html" title="Contains the flux calculation functions." alt="" coords="5,80,177,107"/>
-<area shape="rect" id="node3" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="202,80,325,107"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="349,80,431,107"/>
-<area shape="rect" id="node5" href="$navierstokes_2fluxCalculation_8c.html" title="Contains the flux calculation functions." alt="" coords="455,80,674,107"/>
-<area shape="rect" id="node6" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="698,80,858,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="233,5,355,32"/>
+<area shape="rect" id="node2" href="$fluxCalculation_8c.html" title="Contains the flux calculation functions." alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node3" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="170,80,293,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="317,80,399,107"/>
+<area shape="rect" id="node5" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="423,80,583,107"/>
 </map>

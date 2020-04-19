@@ -1,8 +1,8 @@
 <map id="src/analyze.h" name="src/analyze.h">
-<area shape="rect" id="node1" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="156,5,255,32"/>
+<area shape="rect" id="node1" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="139,5,237,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,69,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="93,80,168,107"/>
-<area shape="rect" id="node4" href="$main_8h.html" title="Contains the global constants and definitions." alt="" coords="196,155,257,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="293,155,379,181"/>
-<area shape="rect" id="node6" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="243,80,309,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="69,155,144,181"/>
+<area shape="rect" id="node4" href="$main_8h.html" title="Contains the global constants and definitions." alt="" coords="221,229,283,256"/>
+<area shape="rect" id="node5" href="$boundary_8h.html" title="Contains the structure definition of a boundary." alt="" coords="145,80,231,107"/>
+<area shape="rect" id="node6" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="219,155,285,181"/>
 </map>
