@@ -1,8 +1,7 @@
-/*
- * source.h
+/** \file
  *
- * Created: Wed 01 Apr 2020 12:25:19 PM CEST
- * Author : hhh
+ * \author hhh
+ * \date Wed 01 Apr 2020 12:25:19 PM CEST
  */
 
 #ifndef SOURCE_H
