@@ -8,8 +8,8 @@
 # 'make doc'      : create the documentation with doxygen
 
 ### Equation system:
-EQNSYS = euler
-#EQNSYS = navierstokes
+EQNSYS = EULER
+#EQNSYS = NAVIERSTOKES
 
 ### Build options:
 TARGET = ccfd
@@ -31,21 +31,16 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS = -std=c99 -Wall -pedantic -Wno-unknown-pragmas -march=native -g -O3 -fopenmp
-INCDIR += -I $(SRCDIR) -I $(SRCDIR)/$(EQNSYS)
+FLAGS  = -std=c99 -Wall -pedantic -Wno-unknown-pragmas -march=native -g -O3 -fopenmp
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
 .PHONY: clean allclean doc
 
-SRC_CORE   = $(wildcard $(SRCDIR)/*.c)
-OBJ_CORE   = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC_CORE))
-SRC_EQNSYS = $(wildcard $(SRCDIR)/$(EQNSYS)/*.c)
-OBJ_EQNSYS = $(patsubst $(SRCDIR)/$(EQNSYS)/%.c, $(OBJDIR)/%.o, $(SRC_EQNSYS))
-SRC        = $(SRC_CORE) $(SRC_EQNSYS)
-OBJ        = $(OBJ_CORE) $(OBJ_EQNSYS)
-TGT        = $(BINDIR)/$(TARGET)
+SRC = $(wildcard $(SRCDIR)/*.c)
+OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+TGT = $(BINDIR)/$(TARGET)
 
 default: libs $(OBJDIR) $(BINDIR) $(TGT)
 all: default
@@ -58,9 +53,6 @@ $(BINDIR):
 	-mkdir -p $(BINDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJDIR)/%.o: $(SRCDIR)/$(EQNSYS)/%.c $(SRCDIR)/$(EQNSYS)/%.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)
