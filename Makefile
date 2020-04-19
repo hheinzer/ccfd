@@ -111,4 +111,4 @@ allclean: clean
 	-rm -rf $(LIBDIR)/CGNS-*/
 
 check:
-	@cd check && ./check.py ../$(TGT) $(EQNSYS)
+	@cd check && python3 check.py ../$(TGT) $(EQNSYS)
