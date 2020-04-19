@@ -37,5 +37,7 @@ for ini in inis:
 
     if diff == 0.0:
         print("good (%.4e)"%(diff))
+    elif diff < 1e-5:
+        print("ok   (%.4e)"%(diff))
     else:
         print("bad  (%.4e)"%(diff))
