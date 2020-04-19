@@ -4,3 +4,4 @@ obj/*
 *.cgns
 *.dem
 *.csv
+docs/latex/*
