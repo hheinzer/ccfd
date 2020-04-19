@@ -6,6 +6,7 @@
 # 'make clean' 	  : remove executable
 # 'make allclean' : remove executable and libraries
 # 'make doc'      : create the documentation with doxygen
+# 'make latex'    : create latex document with doxygen
 # 'make check'    : check implementation
 
 ### Equation system:
@@ -96,7 +97,7 @@ doc:
 	-@doxygen Doxyfile
 
 latex: doc
-	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../ccfd.pdf
+	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../ccfdRefMan.pdf
 
 docclean:
 	-rm -rf docs/*
@@ -111,4 +112,3 @@ allclean: clean
 
 check:
 	@cd check && ./check.py ../$(TGT) $(EQNSYS)
-
