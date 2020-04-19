@@ -42,6 +42,12 @@ $ make
 ```
 There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
 
+You can test the compiled binary file, by executing the following command
+```
+$ make check
+```
+This will execute `ccfd` in the directory `check` on some small cases that test specific functions of the program.
+
 Continue with [Usage](#usage).
 
 ## MacOS
@@ -70,6 +76,12 @@ $ make
 ```
 There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
 
+You can test the compiled binary file, by executing the following command
+```
+$ make check
+```
+This will execute `ccfd` in the directory `check` on some small cases that test specific functions of the program.
+
 Continue with [Usage](#usage). When installing ParaView, do not choose the Linux version, but the MacOS version.
 
 When using `ccfd` it is very handy to have the ability to open a terminal in a folder from Finder. This is possible, but has to be activated first. Go to *System-settings*->*Keyboard*->*Services* and then check the box in front of the option *New Terminal at Folder*. Now, you can right click a folder in Finder and open a terminal in that folder.
@@ -90,6 +102,12 @@ $ cd ccfd
 $ make
 ```
 There should now be two new folders, `obj` and `bin`, the last one containing the `ccfd` executable.
+
+You can test the compiled binary file, by executing the following command
+```
+$ make check
+```
+This will execute `ccfd` in the directory `check` on some small cases that test specific functions of the program.
 
 After everything is set up, continue with [Usage](#usage). However, when installing ParaView, do not install it in the Ubuntu shell, but rather install it normally for [Windows](https://www.paraview.org/download/). When you want to access the files created by `ccfd` from Windows, just type the following into the Ubuntu shell
 ```
