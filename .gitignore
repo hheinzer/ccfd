@@ -5,6 +5,5 @@ obj/*
 *.dem
 *.csv
 docs/latex/*
-**.pdf
 **.log
 !check/targetOutput/*.csv
