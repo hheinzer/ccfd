@@ -20,7 +20,6 @@ inis = sorted(glob("*.ini"))
 
 # run the executable and compare the output with the target output
 for ini in inis:
-    print(" - %-18s: "%(ini), end="")
     os.system("%s %s > %s.log 2>/dev/null"%(exe, ini, ini.rpartition('.')[0]))
 
     # read target output
@@ -36,9 +35,9 @@ for ini in inis:
     diff = np.sqrt(sum(diff**2))
 
     if diff == 0.0:
-        print("good (%.4e)"%(diff))
+        print(" - %-18s: good (%.4e)"%(ini,diff))
     elif diff < 1e-5:
-        print("ok   (%.4e)"%(diff))
+        print(" - %-18s: ok   (%.4e)"%(ini,diff))
     else:
-        print("bad  (%.4e)"%(diff))
+        print(" - %-18s: bad  (%.4e)"%(ini,diff))
         sys.exit(1)
