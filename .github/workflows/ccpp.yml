@@ -25,3 +25,5 @@ jobs:
       run: make libs
     - name: make
       run: make
+    - name: check
+      run: make check
