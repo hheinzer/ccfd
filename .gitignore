@@ -6,3 +6,4 @@ obj/*
 *.csv
 docs/latex/*
 **.pdf
+**.log
