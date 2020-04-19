@@ -7,12 +7,14 @@ on:
       - '**.c'
       - '**.h'
       - '**Makefile'
+      - '**ccpp.yml'
   pull_request:
     branches: [ master ]
     paths: 
       - '**.c'
       - '**.h'
       - '**Makefile'
+      - '**ccpp.yml' 
 
 jobs:
   build:
@@ -27,5 +29,5 @@ jobs:
       run: make
     - name: check
       run: |
-        pip install numpy
+        pip3 install numpy
         make check
