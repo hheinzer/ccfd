@@ -116,7 +116,7 @@ void exactRiemann(double rhol, double rhor, double *rho,
 	double p0 = *p;
 	double cha = 2.0 * tol;
 	int KK = 0;
-	double fr = 0.0, fl = 0.0, frd, fld;
+	double fr = 0.0, fl = 0.0, frd = 0.0, fld = 0.0;
 	while ((cha > tol) && (KK < nIter)) {
 		preFun(&fl, &fld, *p, rhol, pl, al);
 		preFun(&fr, &frd, *p, rhor, pr, ar);

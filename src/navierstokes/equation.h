@@ -12,20 +12,22 @@
 extern double pi;
 
 extern bool doCalcSource;
-extern double R;	/* gas constant */
-extern double gam;	/* ratio of specific heat */
-extern double gam1;	/* gam - 1 */
-extern double gam2;	/* gam - 2 */
-extern double gam1q;	/* 1 / (gam - 1) */
-extern double cp;	/* specific heat capacity */
-extern double Pr;	/* Prandtl number */
-extern double mu;	/* viscosity */
+extern double R;
+extern double gam;
+extern double gam1;
+extern double gam2;
+extern double gam1q;
+extern double cp;
+extern double Pr;
+extern double mu;
 
 extern int iFlux;
 
 extern int intExactFunc;
 extern int sourceFunc;
-extern double sqrt3q, sqrt3, sqrt2;
+extern double sqrt2;
+extern double sqrt3;
+extern double sqrt3q;
 
 void initEquation(void);
 

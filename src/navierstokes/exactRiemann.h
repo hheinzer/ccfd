@@ -8,8 +8,8 @@
 #define EXACTRIEMANN_H
 
 void exactRiemann(double rhol, double rhor, double *rho,
-		  double ul, double ur, double *u,
-		  double pl, double pr, double *p,
-		  double al, double ar, double s);
+		  double ul,   double ur,   double *u,
+		  double pl,   double pr,   double *p,
+		  double al,   double ar,   double s);
 
 #endif

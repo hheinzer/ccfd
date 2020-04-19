@@ -883,7 +883,7 @@ void fluxCalculation(void)
 		pVarR[P]   = pVar[P];
 
 		/* calculate flux */
-		double fluxLoc[4];
+		double fluxLoc[4] = {0.0};
 		convectiveFlux(pVarL[RHO], pVarR[RHO],
 			       pVarL[VX],  pVarR[VX],
 			       pVarL[VY],  pVarR[VY],

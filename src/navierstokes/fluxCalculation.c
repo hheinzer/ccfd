@@ -238,10 +238,10 @@ void flux_hll(double rhoL, double rhoR,
  * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_hlle(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	       double vxL,  double vxR,
+	       double vyL,  double vyR,
+	       double pL,   double pR,
+	       double fluxLoc[4])
 {
 	/* calculation of auxiliary values */
 	double rhoLq = 1.0 / rhoL;
@@ -313,10 +313,10 @@ void flux_hlle(double rhoL, double rhoR,
  * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_hllc(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	       double vxL,  double vxR,
+	       double vyL,  double vyR,
+	       double pL,   double pR,
+	       double fluxLoc[4])
 {
 	/* calculation of auxiliary values */
 	double rhoLq = 1.0 / rhoL;
@@ -563,10 +563,10 @@ void flux_cen(double rhoL, double rhoR,
  * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_ausmd(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	        double vxL,  double vxR,
+	        double vyL,  double vyR,
+	        double pL,   double pR,
+	        double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
 	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
@@ -625,10 +625,10 @@ void flux_ausmd(double rhoL, double rhoR,
  * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_ausmdv(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	         double vxL,  double vxR,
+	         double vyL,  double vyR,
+	         double pL,   double pR,
+	         double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
 	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
@@ -725,10 +725,10 @@ void flux_ausmdv(double rhoL, double rhoR,
  * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_vanleer(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	          double vxL,  double vxR,
+	          double vyL,  double vyR,
+	          double pL,   double pR,
+	          double fluxLoc[4])
 {
 	/* calculate speed of sound */
 	double cL = sqrt(gam * pL / rhoL);
