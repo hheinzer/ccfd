@@ -36,7 +36,7 @@ CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
-.PHONY: clean allclean doc
+.PHONY: clean allclean doc latex docclean
 
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
@@ -92,7 +92,13 @@ $(CGNS_DIR):
 	-tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
 
 doc:
-	doxygen Doxyfile
+	-@doxygen Doxyfile
+
+latex: doc
+	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../ccfd.pdf
+
+docclean:
+	-rm -rf docs/*
 
 clean:
 	-rm -rf $(OBJDIR)

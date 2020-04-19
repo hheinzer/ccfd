@@ -5,3 +5,4 @@ obj/*
 *.dem
 *.csv
 docs/latex/*
+**.pdf
