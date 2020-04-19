@@ -1,8 +1,9 @@
-/*
- * fluxCalculation.c
+/** \file
  *
- * Created: Tue 31 Mar 2020 05:18:40 PM CEST
- * Author : hhh
+ * \brief Contains the flux calculation functions
+ *
+ * \author hhh
+ * \date Tue 31 Mar 2020 05:18:40 PM CEST
  */
 
 #include <math.h>
@@ -14,8 +15,17 @@
 #include "boundary.h"
 #include "linearSolver.h"
 
-/*
- * Godunov flux, which is the exact flux
+/**
+ * \brief Godunov flux, which is the exact flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_god(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -42,8 +52,17 @@ void flux_god(double rhoL, double rhoR,
 	fluxLoc[3] = vx * (gam / gam1 * p + 0.5 * rho * (vx * vx + vy * vy));
 }
 
-/*
- * Roe flux
+/**
+ * \brief Roe flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_roe(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -127,8 +146,17 @@ void flux_roe(double rhoL, double rhoR,
 	}
 }
 
-/*
- * HLL flux
+/**
+ * \brief HLL flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_hll(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -197,14 +225,23 @@ void flux_hll(double rhoL, double rhoR,
 	}
 }
 
-/*
- * HLLE flux
+/**
+ * \brief HLLE flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_hlle(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	       double vxL,  double vxR,
+	       double vyL,  double vyR,
+	       double pL,   double pR,
+	       double fluxLoc[4])
 {
 	/* calculation of auxiliary values */
 	double rhoLq = 1.0 / rhoL;
@@ -263,14 +300,23 @@ void flux_hlle(double rhoL, double rhoR,
 	}
 }
 
-/*
- * HLLC flux
+/**
+ * \brief HLLC flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_hllc(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	       double vxL,  double vxR,
+	       double vyL,  double vyR,
+	       double pL,   double pR,
+	       double fluxLoc[4])
 {
 	/* calculation of auxiliary values */
 	double rhoLq = 1.0 / rhoL;
@@ -349,8 +395,17 @@ void flux_hllc(double rhoL, double rhoR,
 	}
 }
 
-/*
- * Lax-Friedrichs flux
+/**
+ * \brief Lax-Friedrichs flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_lxf(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -390,8 +445,17 @@ void flux_lxf(double rhoL, double rhoR,
 	fluxLoc[3] = 0.5 * (fR[3] + fL[3]) - 0.5 * a * delU[3];
 }
 
-/*
- * Steger-Warming flux
+/**
+ * \brief Steger-Warming flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_stw(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -444,8 +508,18 @@ void flux_stw(double rhoL, double rhoR,
 	fluxLoc[3] = fp[3] + fm[3];
 }
 
-/*
- * Central flux
+/**
+ * \brief Central flux
+ * \note This flux is unconditionally unstable, it can be stabilized by adding artificial viscosity (Jameson method). This is not implemented, however.
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_cen(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -476,14 +550,23 @@ void flux_cen(double rhoL, double rhoR,
 	fluxLoc[3] = 0.5 * (fL[3] + fR[3]);
 }
 
-/*
- * AUSMD flux
+/**
+ * \brief AUSMD flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_ausmd(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	        double vxL,  double vxR,
+	        double vyL,  double vyR,
+	        double pL,   double pR,
+	        double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
 	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
@@ -527,14 +610,25 @@ void flux_ausmd(double rhoL, double rhoR,
 	fluxLoc[3] = 0.5 * (rhoU * (HR + HL) - fabs(rhoU) * (HR - HL));
 }
 
-/*
- * AUSMDV flux
+/**
+ * \brief AUSMDV flux
+ * \bug This function produces incorrect output, refrain from using it for the
+ *	time being
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_ausmdv(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	         double vxL,  double vxR,
+	         double vyL,  double vyR,
+	         double pL,   double pR,
+	         double fluxLoc[4])
 {
 	/* calculate left/right energy and enthalpy */
 	double eL = gam1q * pL + 0.5 * rhoL * (vxL * vxL + vyL * vyL);
@@ -618,14 +712,23 @@ void flux_ausmdv(double rhoL, double rhoR,
 	}
 }
 
-/*
- * Van Leer flux
+/**
+ * \brief Van Leer flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void flux_vanleer(double rhoL, double rhoR,
-	      double vxL,  double vxR,
-	      double vyL,  double vyR,
-	      double pL,   double pR,
-	      double fluxLoc[4])
+	          double vxL,  double vxR,
+	          double vyL,  double vyR,
+	          double pL,   double pR,
+	          double fluxLoc[4])
 {
 	/* calculate speed of sound */
 	double cL = sqrt(gam * pL / rhoL);
@@ -685,8 +788,17 @@ void flux_vanleer(double rhoL, double rhoR,
 	fluxLoc[3] = fp[3] + fm[3];
 }
 
-/*
- * select the convective flux
+/**
+ * \brief Select the convective flux
+ * \param[in] rhoL Left side density
+ * \param[in] rhoR Right side density
+ * \param[in] vxL Left side x-velocity
+ * \param[in] vxR Right side x-velocity
+ * \param[in] vyL Left side y-velocity
+ * \param[in] vyR Right side y-velocity
+ * \param[in] pL Left side pressure
+ * \param[in] pR Right side pressure
+ * \param[out] fluxLoc[4] The local numeric flux
  */
 void convectiveFlux(double rhoL, double rhoR,
 		    double vxL,  double vxR,
@@ -731,9 +843,11 @@ void convectiveFlux(double rhoL, double rhoR,
 	}
 }
 
-/*
- * calculation of left and right state, the velocity vector is transformed into
- * the normal system of the cell interfaces, finishes with backrotation
+/** \brief Perform the flux calculation
+ *
+ * Calculation of left and right state, the velocity vector is transformed into
+ * the normal system of the cell interfaces. The function finishes with a
+ * back rotation of the velocity vector into global coordinate system.
  */
 void fluxCalculation(void)
 {
