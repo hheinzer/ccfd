@@ -843,6 +843,7 @@ void convectiveFlux(double rhoL, double rhoR,
 	}
 }
 
+#ifdef NAVIERSTOKES
 /**
  * \brief Calculate the diffusive flux
  * \param[in] state[NVAR] Mean conservative state of the two cells
@@ -870,6 +871,7 @@ void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		+ gam / (gam1 * Pr * state[RHO] * state[RHO])
 		* (state[RHO] * gradY[P] - state[P] * gradY[RHO])) * mu;
 }
+#endif
 
 /** \brief Perform the flux calculation
  *
@@ -910,6 +912,7 @@ void fluxCalculation(void)
 		pVarR[VY]  = - aSide->n[Y] * pVar[VX] + aSide->n[X] * pVar[VY];
 		pVarR[P]   = pVar[P];
 
+		#ifdef NAVIERSTOKES
 		/* extract left and right gradients */
 		double stateMean[NVAR] = {
 			0.5 * (aSide->connection->pVar[RHO] + aSide->pVar[RHO]),
@@ -951,6 +954,7 @@ void fluxCalculation(void)
 			gradUyMean[VY]  - correction[VY]  * baryBary[Y],
 			gradUyMean[P]   - correction[P]   * baryBary[Y]
 		};
+		#endif
 
 		/* calculate flux */
 		double fluxConv[4] = {0.0};
@@ -960,8 +964,10 @@ void fluxCalculation(void)
 			       pVarL[P],   pVarR[P],
 			       fluxConv);
 
+		#ifdef NAVIERSTOKES
 		double fluxDiffX[4] = {0.0}, fluxDiffY[4] = {0.0};
 		diffusionFlux(stateMean, gradUx, gradUy, fluxDiffX, fluxDiffY);
+		#endif
 
 		/* rotate flux into global coordinate system and update residual */
 		aSide->flux[RHO] = fluxConv[RHO];
@@ -969,11 +975,13 @@ void fluxCalculation(void)
 		aSide->flux[MY]  = aSide->n[Y] * fluxConv[MX] + aSide->n[X] * fluxConv[MY];
 		aSide->flux[E]   = fluxConv[E];
 
+		#ifdef NAVIERSTOKES
 		/* sum up diffusion part of the fluxes */
 		aSide->flux[RHO] -= (fluxDiffX[RHO] * aSide->n[X] + fluxDiffY[RHO] * aSide->n[Y]);
 		aSide->flux[MX]  -= (fluxDiffX[MX]  * aSide->n[X] + fluxDiffY[MX]  * aSide->n[Y]);
 		aSide->flux[MY]  -= (fluxDiffX[MY]  * aSide->n[X] + fluxDiffY[MY]  * aSide->n[Y]);
 		aSide->flux[E]   -= (fluxDiffX[E]   * aSide->n[X] + fluxDiffY[E]   * aSide->n[Y]);
+		#endif
 
 		/* integrate flux over edge using the midpoint rule */
 		aSide->flux[RHO] *= aSide->len;

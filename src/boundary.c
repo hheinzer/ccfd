@@ -53,6 +53,32 @@ void initBoundary(void)
 		case SLIPWALL:
 			printf("| BC Type: Slip Wall\n");
 			break;
+		#ifdef NAVIERSTOKES
+		case WALL: {
+			printf("| BC Type: No Slip Wall\n");
+
+			bool isAdiabatic = getBool("adiabaticWall", NULL);
+			if (isAdiabatic) {
+				aBC->isAdiabatic = true;
+				printf("| Adiabatic Wall\n");
+			} else {
+				aBC->isAdiabatic = false;
+
+				/* temperature or heat flux prescibed ? */
+				if (countKeys("wallTemperature", -1) > 1) {
+					aBC->isTemperaturePrescribed = true;
+					aBC->temperature = getDbl("wallTemperature", NULL);
+				} else if (countKeys("wallHeatFlux", -1) > 1) {
+					aBC->isTemperaturePrescribed = false;
+					aBC->temperature = getDbl("wallHeatFlux", NULL);
+				} else {
+					printf("| ERROR: Not possible to prescirbe Wall Heat Flux and Wall Temperature\n");
+					exit(1);
+				}
+			}
+			break;
+		}
+		#endif
 		case INFLOW:
 			printf("| BC Type: Inflow\n");
 
@@ -148,6 +174,32 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 
 		break;
 	}
+	#ifdef NAVIERSTOKES
+	case WALL: {
+		double VXloc[NDIM], VYloc[NDIM];
+		/* rotate into local coordinate system */
+		VXloc[X] =   n[X] * int_pVar[VX] + n[Y] * int_pVar[VY];
+		VYloc[X] = - n[Y] * int_pVar[VX] + n[X] * int_pVar[VY];
+
+		/* mirror VX and extrapolate VY */
+		VXloc[Y] = - VXloc[X];
+		if (mu > 0.0) {
+			VYloc[Y] = - VYloc[X];
+		} else {
+			VYloc[Y] =   VYloc[X];
+		}
+
+		/* backrotate into global coordinate system */
+		ghost_pVar[VX] = n[X] * VXloc[Y] - n[Y] * VYloc[Y];
+		ghost_pVar[VY] = n[Y] * VXloc[Y] + n[X] * VYloc[Y];
+
+		/* scalar and derived conservative variables */
+		ghost_pVar[RHO] = int_pVar[RHO];
+		ghost_pVar[P]   = int_pVar[P];
+
+		break;
+	}
+	#endif
 	case INFLOW:
 		ghost_pVar[RHO] = aSide->BC->pVar[RHO];
 		ghost_pVar[VX]  = aSide->BC->pVar[VX];

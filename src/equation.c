@@ -40,14 +40,27 @@ double sqrt3q;				/**< 1.0 / sqrt(3.0) */
 void initEquation(void)
 {
 	printf("\nInitializing Constants:\n");
+
+	#ifdef NAVIERSTOKES
 	printf("| Using NAVIER-STOKES equations\n");
+	#endif
+
+	#ifdef EULER
+	printf("| Using EULER equations\n");
+	#endif
 
 	gam = getDbl("gamma", "1.4");
 	R = getDbl("R", "287");
 
+	#ifdef NAVIERSTOKES
 	mu = getDbl("mu", "0.0");
-
 	Pr = getDbl("Pr", "0.72");
+	#endif
+
+	#ifdef EULER
+	mu = 0.0;
+	Pr = 0.72;
+	#endif
 
 	iFlux = getInt("fluxFunction", NULL);
 	switch (iFlux) {
