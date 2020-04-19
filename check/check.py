@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
 # get executable name and equation system
 exe = sys.argv[1]
 eqn = sys.argv[2]
-print("Checking ")
+print("Checking %s, compiled with %s equation system"%(exe, eqn))
 
 # get all ini files in the directory, sorted alphabetically
 inis = sorted(glob("*.ini"))
