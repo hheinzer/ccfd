@@ -26,4 +26,6 @@ jobs:
     - name: make
       run: make
     - name: check
-      run: make check
+      run: |
+        pip install numpy
+        make check
