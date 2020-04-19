@@ -1,0 +1,965 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="linearSolver_8c" kind="file" language="C++">
+    <compoundname>linearSolver.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">float.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="linearSolver_8h" local="yes">linearSolver.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="timeDiscretization_8h" local="yes">timeDiscretization.h</includes>
+    <includes refid="memTools_8h" local="yes">memTools.h</includes>
+    <includes refid="fluxCalculation_8h" local="yes">fluxCalculation.h</includes>
+    <includes refid="equationOfState_8h" local="yes">equationOfState.h</includes>
+    <includes refid="finiteVolume_8h" local="yes">finiteVolume.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>src/linearSolver.c</label>
+        <link refid="linearSolver_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>linearSolver.h</label>
+        <link refid="linearSolver_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>float.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="18">
+        <label>equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cgnslib.h</label>
+      </node>
+      <node id="10">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>timeDiscretization.h</label>
+        <link refid="timeDiscretization_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>finiteVolume.h</label>
+        <link refid="finiteVolume_8h"/>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
+      <node id="17">
+        <label>fluxCalculation.h</label>
+        <link refid="fluxCalculation_8h"/>
+      </node>
+      <node id="15">
+        <label>memTools.h</label>
+        <link refid="memTools_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="12">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="linearSolver_8c_1a32be4c35332a5236db05a707a422a711" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nKdim</definition>
+        <argsstring></argsstring>
+        <name>nKdim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number Krylov spaces </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="28" column="5" bodyfile="src/linearSolver.c" bodystart="28" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a9e698a12f1405edd0b14d5e70d4a890f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nNewtonIter</definition>
+        <argsstring></argsstring>
+        <name>nNewtonIter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum number of Newton iterations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="29" column="5" bodyfile="src/linearSolver.c" bodystart="29" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1ae136204fc2205a21023230d7580c1c36" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nNewtonIterGlobal</definition>
+        <argsstring></argsstring>
+        <name>nNewtonIterGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of Newton iterations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="30" column="5" bodyfile="src/linearSolver.c" bodystart="30" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1aa276912d8778a829131220de9d7e9844" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nGMRESiterGlobal</definition>
+        <argsstring></argsstring>
+        <name>nGMRESiterGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of GMRES iterations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="32" column="5" bodyfile="src/linearSolver.c" bodystart="32" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1af98da90358e76525add3839c61fdbd2d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nInnerNewton</definition>
+        <argsstring></argsstring>
+        <name>nInnerNewton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum number of Newton iterations for one stage </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="34" column="5" bodyfile="src/linearSolver.c" bodystart="34" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a944cd45a741f9dea609b4c5cfa1ffd4f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nInnerGMRES</definition>
+        <argsstring></argsstring>
+        <name>nInnerGMRES</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum number of GMRES iterations for one stage </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="37" column="5" bodyfile="src/linearSolver.c" bodystart="37" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a4f0be82c26cdcfe045e4d4e6a8ecf616" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long iterGlobal</definition>
+        <argsstring></argsstring>
+        <name>iterGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global iteration number </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="40" column="6" bodyfile="src/linearSolver.c" bodystart="40" bodyend="-1"/>
+        <referencedby refid="timeDiscretization_8c_1a2bb23ea444814dac92545c3cd2cc7f96" compoundref="timeDiscretization_8c" startline="414" endline="555">implicitTimeStep</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1afb497e8766ebb2549198f4a1ed0115a0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool usePrecond</definition>
+        <argsstring></argsstring>
+        <name>usePrecond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>use LUSGS preconditioner flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="41" column="6" bodyfile="src/linearSolver.c" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a834b3496fc26d27d58b1f45789babe66" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double rEps0</definition>
+        <argsstring></argsstring>
+        <name>rEps0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>DBL_EPSILON </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="43" column="8" bodyfile="src/linearSolver.c" bodystart="43" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+        <referencedby refid="linearSolver_8c_1ab4b7890a021fa725f281253451d20c31" compoundref="linearSolver_8c" startline="347" endline="377">matrixVector</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a448267f322e74a68c1159206d4b14b94" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double srEps0</definition>
+        <argsstring></argsstring>
+        <name>srEps0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sqrt(DBL_EPSILON) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="44" column="8" bodyfile="src/linearSolver.c" bodystart="44" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a95bfe70fb475978b534a64e3acf2040e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double eps2newton</definition>
+        <argsstring></argsstring>
+        <name>eps2newton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>square of newton relative epsilon </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="46" column="8" bodyfile="src/linearSolver.c" bodystart="46" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1ad0251ae2ddee799f670b4e5fc6474e6a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double eps2newton_sq</definition>
+        <argsstring></argsstring>
+        <name>eps2newton_sq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>newton relative epsilon </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="47" column="8" bodyfile="src/linearSolver.c" bodystart="47" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a842f385c4b1df56339ee2bd6c220bdf0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double epsGMRES</definition>
+        <argsstring></argsstring>
+        <name>epsGMRES</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>GMRES relative epsilon </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="49" column="8" bodyfile="src/linearSolver.c" bodystart="49" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1a260f703e4187362df18336aef06d9646" compoundref="linearSolver_8c" startline="390" endline="515">GMRES_M</referencedby>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1ae924a03f59827f55c3c5b474c89d07d6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gamEW</definition>
+        <argsstring></argsstring>
+        <name>gamEW</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gamma parameter for Eisenstat Walker </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="50" column="8" bodyfile="src/linearSolver.c" bodystart="50" bodyend="-1"/>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a2512c967317cac30177521b81511d2d6" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** XK</definition>
+        <argsstring></argsstring>
+        <name>XK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="52" column="8" bodyfile="src/linearSolver.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1afcc6752617c005ff4974f7b68378ca67" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** R_XK</definition>
+        <argsstring></argsstring>
+        <name>R_XK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="53" column="8" bodyfile="src/linearSolver.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a715970c36d8aed85986213e3922785a3" prot="public" static="no" mutable="no">
+        <type>double ***</type>
+        <definition>double*** D</definition>
+        <argsstring></argsstring>
+        <name>D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="56" column="8" bodyfile="src/linearSolver.c" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a3d5b2861ff459127ca8b8db315227632" prot="public" static="no" mutable="no">
+        <type>double ***</type>
+        <definition>double*** Dinv</definition>
+        <argsstring></argsstring>
+        <name>Dinv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="57" column="8" bodyfile="src/linearSolver.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a4af285a038418585fb46bb7e1d7eea18" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** dRdU</definition>
+        <argsstring></argsstring>
+        <name>dRdU</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="58" column="8" bodyfile="src/linearSolver.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1aaae2b5d73f13359484d46126865d82ef" prot="public" static="no" mutable="no">
+        <type>double ***</type>
+        <definition>double*** V</definition>
+        <argsstring></argsstring>
+        <name>V</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="60" column="8" bodyfile="src/linearSolver.c" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a3801ea93d607bb1fa5b1e26118b0762a" prot="public" static="no" mutable="no">
+        <type>double ***</type>
+        <definition>double*** Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="61" column="8" bodyfile="src/linearSolver.c" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a8ef5c6cc0b25fb149daa7a822ec9400f" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** R0</definition>
+        <argsstring></argsstring>
+        <name>R0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="62" column="8" bodyfile="src/linearSolver.c" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1adfb8b7216d10d0672f8116483ef116cb" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** W</definition>
+        <argsstring></argsstring>
+        <name>W</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="63" column="8" bodyfile="src/linearSolver.c" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linearSolver_8c_1a095f89bf950e66ad30efcd8af17ac911" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** deltaXstar</definition>
+        <argsstring></argsstring>
+        <name>deltaXstar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="64" column="8" bodyfile="src/linearSolver.c" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="linearSolver_8c_1ae169561793e8ff5ed9b88eb5eb7a0326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initLinearSolver</definition>
+        <argsstring>(void)</argsstring>
+        <name>initLinearSolver</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize linear solver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="69" column="6" bodyfile="src/linearSolver.c" bodystart="69" bodyend="108"/>
+        <references refid="timeDiscretization_8c_1a3a085d46709989d19d5c36f6af969029" compoundref="timeDiscretization_8c" startline="58">isImplicit</references>
+        <references refid="linearSolver_8c_1a32be4c35332a5236db05a707a422a711" compoundref="linearSolver_8c" startline="28">nKdim</references>
+        <references refid="readInTools_8c_1ad920bf2e8d08267c632f9d48f6932d43" compoundref="readInTools_8c" startline="269" endline="277">getInt</references>
+        <references refid="linearSolver_8c_1a95bfe70fb475978b534a64e3acf2040e" compoundref="linearSolver_8c" startline="46">eps2newton</references>
+        <references refid="readInTools_8c_1a21afe1e7fa3e486a19cf7678b53f1782" compoundref="readInTools_8c" startline="289" endline="297">getDbl</references>
+        <references refid="linearSolver_8c_1ad0251ae2ddee799f670b4e5fc6474e6a" compoundref="linearSolver_8c" startline="47">eps2newton_sq</references>
+        <references refid="linearSolver_8c_1a842f385c4b1df56339ee2bd6c220bdf0" compoundref="linearSolver_8c" startline="49">epsGMRES</references>
+        <references refid="linearSolver_8c_1a834b3496fc26d27d58b1f45789babe66" compoundref="linearSolver_8c" startline="43">rEps0</references>
+        <references refid="linearSolver_8c_1a448267f322e74a68c1159206d4b14b94" compoundref="linearSolver_8c" startline="44">srEps0</references>
+        <references refid="linearSolver_8c_1a9e698a12f1405edd0b14d5e70d4a890f" compoundref="linearSolver_8c" startline="29">nNewtonIter</references>
+        <references refid="linearSolver_8c_1ae136204fc2205a21023230d7580c1c36" compoundref="linearSolver_8c" startline="30">nNewtonIterGlobal</references>
+        <references refid="linearSolver_8c_1aa276912d8778a829131220de9d7e9844" compoundref="linearSolver_8c" startline="32">nGMRESiterGlobal</references>
+        <references refid="linearSolver_8c_1af98da90358e76525add3839c61fdbd2d" compoundref="linearSolver_8c" startline="34">nInnerNewton</references>
+        <references refid="linearSolver_8c_1a944cd45a741f9dea609b4c5cfa1ffd4f" compoundref="linearSolver_8c" startline="37">nInnerGMRES</references>
+        <references refid="linearSolver_8c_1ae924a03f59827f55c3c5b474c89d07d6" compoundref="linearSolver_8c" startline="50">gamEW</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1ad8c72a0c1caceac1554d2a014545442f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double vectorDotProduct</definition>
+        <argsstring>(double **A, double **B)</argsstring>
+        <name>vectorDotProduct</name>
+        <param>
+          <type>double **</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>B</declname>
+        </param>
+        <briefdescription>
+<para>Compute dot product for two state vectors A and B for every element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">**A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First state vector for every element </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">**B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second state vector for every element </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sum(sum(A_ij * B_ij, i = RHO,MX,MY,E), i = 1..nElems) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="116" column="8" bodyfile="src/linearSolver.c" bodystart="116" bodyend="129"/>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <referencedby refid="linearSolver_8c_1ab4b7890a021fa725f281253451d20c31" compoundref="linearSolver_8c" startline="347" endline="377">matrixVector</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1ad302ce54b164928564a97815b0668060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool calcDinv</definition>
+        <argsstring>(double **A, double **Ainv)</argsstring>
+        <name>calcDinv</name>
+        <param>
+          <type>double **</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>Ainv</declname>
+        </param>
+        <briefdescription>
+<para>Compute inverse of a 4x4 matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">**A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 4x4 matrix to be inverted </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">**Ainv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 4x4 inverse matrix of A </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 = Inverse does not exist, 1 = Inverse computed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="137" column="6" bodyfile="src/linearSolver.c" bodystart="137" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1ade5704ee53f1a9798c63caac1288bd29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void buildMatrix</definition>
+        <argsstring>(double time, double dt)</argsstring>
+        <name>buildMatrix</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Compute the global Jacobian matrix by use of finite differences. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step at calculation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="187" column="6" bodyfile="src/linearSolver.c" bodystart="187" bodyend="253"/>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1a1b162be2d8a14fc0072ae09b7ad89f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LUSGS</definition>
+        <argsstring>(double time, double dt, double **B, double **delX)</argsstring>
+        <name>LUSGS</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>delX</declname>
+        </param>
+        <briefdescription>
+<para>LUSGS preconditioner. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">**B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Old vector, to be preconditioned </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">**delX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Preconditioned vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This function is slow to execute, it might be possible to speed it up via the use of omp locks for every element </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="264" column="6" bodyfile="src/linearSolver.c" bodystart="264" bodyend="336"/>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1ab4b7890a021fa725f281253451d20c31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void matrixVector</definition>
+        <argsstring>(double time, double dt, double alpha, double beta, double **v, double **res)</argsstring>
+        <name>matrixVector</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Computes matrix vector product using spatial operator and finite differences. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relaxation parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">beta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relaxation parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">**v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input vector for the matrix vector product </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">**res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resulting vector of the matrix vector product </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="347" column="6" bodyfile="src/linearSolver.c" bodystart="347" bodyend="377"/>
+        <references refid="structelem__t_1af6241380d3869a260d9e8a7a6f9d79ee" compoundref="mesh_8h" startline="81">elem_t::cVar</references>
+        <references refid="mesh_8c_1a6e0032342c22164db03323d0119d843e" compoundref="mesh_8c" startline="57">elem</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="linearSolver_8c_1a834b3496fc26d27d58b1f45789babe66" compoundref="linearSolver_8c" startline="43">rEps0</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="linearSolver_8c_1ad8c72a0c1caceac1554d2a014545442f" compoundref="linearSolver_8c" startline="116" endline="129">vectorDotProduct</references>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1a86f4fcd282bb67ea258af1d9ee5f947e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMRES_M</definition>
+        <argsstring>(double time, double dt, double alpha, double beta, double **B, double normB, double *abortCrit, double **delX)</argsstring>
+        <name>GMRES_M</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>normB</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>abortCrit</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>delX</declname>
+        </param>
+        <briefdescription>
+<para>Uses matrix free to solve the linear system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relaxation parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">beta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relaxation parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">**B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right hand side </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">normB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Norm of right hand side </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*abortCrit GMRES abort criterium </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">**delX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resulting x vector of the linear system </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="390" column="6" bodyfile="src/linearSolver.c" bodystart="390" bodyend="515"/>
+        <references refid="linearSolver_8c_1a842f385c4b1df56339ee2bd6c220bdf0" compoundref="linearSolver_8c" startline="49">epsGMRES</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+      </memberdef>
+      <memberdef kind="function" id="linearSolver_8c_1ab49b5b210a947acdec5ca4ff058d9ba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeLinearSolver</definition>
+        <argsstring>(void)</argsstring>
+        <name>freeLinearSolver</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free all memory that was allocated for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/linearSolver.c" line="520" column="6" bodyfile="src/linearSolver.c" bodystart="520" bodyend="537"/>
+        <references refid="timeDiscretization_8c_1a3a085d46709989d19d5c36f6af969029" compoundref="timeDiscretization_8c" startline="58">isImplicit</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the functions for solving the linear system of equations during implicit calculations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 28 Mar 2020 03:41:56 PM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/linearSolver.c"/>
+  </compounddef>
+</doxygen>

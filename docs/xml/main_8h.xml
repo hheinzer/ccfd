@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="main_8h" kind="file" language="C++">
+    <compoundname>main.h</compoundname>
+    <includedby refid="analyze_8h" local="yes">src/analyze.h</includedby>
+    <includedby refid="boundary_8h" local="yes">src/boundary.h</includedby>
+    <includedby refid="mesh_8h" local="yes">src/mesh.h</includedby>
+    <includedby refid="readInTools_8h" local="yes">src/readInTools.h</includedby>
+    <includedby refid="boundary_8c" local="yes">src/boundary.c</includedby>
+    <includedby refid="equationOfState_8h" local="yes">src/equationOfState.h</includedby>
+    <includedby refid="equationOfState_8c" local="yes">src/equationOfState.c</includedby>
+    <includedby refid="exactFunction_8c" local="yes">src/exactFunction.c</includedby>
+    <includedby refid="finiteVolume_8c" local="yes">src/finiteVolume.c</includedby>
+    <includedby refid="fluxCalculation_8c" local="yes">src/fluxCalculation.c</includedby>
+    <includedby refid="linearSolver_8h" local="yes">src/linearSolver.h</includedby>
+    <includedby refid="initialCondition_8c" local="yes">src/initialCondition.c</includedby>
+    <includedby refid="linearSolver_8c" local="yes">src/linearSolver.c</includedby>
+    <includedby refid="mesh_8c" local="yes">src/mesh.c</includedby>
+    <includedby refid="output_8c" local="yes">src/output.c</includedby>
+    <includedby refid="readInTools_8c" local="yes">src/readInTools.c</includedby>
+    <includedby refid="reconstruction_8c" local="yes">src/reconstruction.c</includedby>
+    <includedby refid="source_8c" local="yes">src/source.c</includedby>
+    <includedby refid="timeDiscretization_8c" local="yes">src/timeDiscretization.c</includedby>
+    <invincdepgraph>
+      <node id="17">
+        <label>src/reconstruction.c</label>
+        <link refid="reconstruction_8c"/>
+      </node>
+      <node id="3">
+        <label>src/analyze.c</label>
+        <link refid="analyze_8c"/>
+      </node>
+      <node id="2">
+        <label>src/analyze.h</label>
+        <link refid="analyze_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/linearSolver.c</label>
+        <link refid="linearSolver_8c"/>
+      </node>
+      <node id="13">
+        <label>src/linearSolver.h</label>
+        <link refid="linearSolver_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/exactFunction.c</label>
+        <link refid="exactFunction_8c"/>
+      </node>
+      <node id="5">
+        <label>src/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+      <node id="18">
+        <label>src/source.c</label>
+        <link refid="source_8c"/>
+      </node>
+      <node id="22">
+        <label>src/equationOfState.c</label>
+        <link refid="equationOfState_8c"/>
+      </node>
+      <node id="21">
+        <label>src/equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>src/mesh.c</label>
+        <link refid="mesh_8c"/>
+      </node>
+      <node id="8">
+        <label>src/mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/timeDiscretization.c</label>
+        <link refid="timeDiscretization_8c"/>
+      </node>
+      <node id="11">
+        <label>src/finiteVolume.c</label>
+        <link refid="finiteVolume_8c"/>
+      </node>
+      <node id="15">
+        <label>src/initialCondition.c</label>
+        <link refid="initialCondition_8c"/>
+      </node>
+      <node id="12">
+        <label>src/fluxCalculation.c</label>
+        <link refid="fluxCalculation_8c"/>
+      </node>
+      <node id="9">
+        <label>src/boundary.c</label>
+        <link refid="boundary_8c"/>
+      </node>
+      <node id="7">
+        <label>src/boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/equation.c</label>
+        <link refid="equation_8c"/>
+      </node>
+      <node id="23">
+        <label>src/readInTools.c</label>
+        <link refid="readInTools_8c"/>
+      </node>
+      <node id="19">
+        <label>src/readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="1">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="main_8h_1a278cf415676752815cfb411cb0b32802" prot="public" static="no">
+        <name>STRLEN</name>
+        <initializer>256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>string length </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="12" column="9" bodyfile="src/main.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="main_8h_1ac6129dae676eed304cd749482f612549" prot="public" static="no" strong="no">
+        <type></type>
+        <name>conservativeVariables</name>
+        <enumvalue id="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" prot="public">
+          <name>RHO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>density </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" prot="public">
+          <name>MX</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>momentum in x-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" prot="public">
+          <name>MY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>momentum in y-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" prot="public">
+          <name>E</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>energy </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Index aliases for the conservative variables vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="17" column="27" bodyfile="src/main.h" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1adb3795d462d7ec5efdf732e5f3bec19f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>primitiveVariables</name>
+        <enumvalue id="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" prot="public">
+          <name>VX</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>velocity in x-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" prot="public">
+          <name>VY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>velocity in y-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" prot="public">
+          <name>P</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>pressure </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Index aliases for the primitive variables vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="27" column="24" bodyfile="src/main.h" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a94c73cf6934fd835103f0f2794071ee9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>directions</name>
+        <enumvalue id="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" prot="public">
+          <name>X</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>x-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" prot="public">
+          <name>Y</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>y-direction </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Index aliases for the x- and y-components of a vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="36" column="16" bodyfile="src/main.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>boundaryConditionType</name>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a5ea5cf51ed533562fa79b91a5045575d" prot="public">
+          <name>SLIPWALL</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>slip wall, or Euler wall </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5afca2faad41310c7e71ec303ef789c53a" prot="public">
+          <name>WALL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>no slip wall, or Navier-Stokes wall </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a8c7e97da6bd5c3568ccc5ee6cd958c87" prot="public">
+          <name>INFLOW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>supersonic inflow </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abfcb976304836f3d329c3b7c8b7dbb63" prot="public">
+          <name>OUTFLOW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>supersonic outflow </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a6c3942bdcff33ec5d356c6fd0dfb4285" prot="public">
+          <name>CHARACTERISTIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>characteristic BC, or subsonic inflow </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abe5befc6c54a3c5afc92f009bcc8fe97" prot="public">
+          <name>EXACTSOL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>exact solution </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5ae4379d044711537d9ce3b3b58c575c58" prot="public">
+          <name>PERIODIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>periodic BC </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5af73965df94261f7a1f258f168e2557cd" prot="public">
+          <name>PRESSURE_OUT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>subsonic pressure outflow </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Aliases for the different boundary condition types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="44" column="27" bodyfile="src/main.h" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>cartesianMeshSides</name>
+        <enumvalue id="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5da8c371f4e766fb2c49c219bbc88989461" prot="public">
+          <name>BOTTOM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>bottom side </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5daec8379af7490bb9eaaf579cf17876f38" prot="public">
+          <name>RIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>right side </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5da0ad44897a70fba309c24a5b6007de3e3" prot="public">
+          <name>TOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>top side </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5dadb45120aafd37a973140edee24708065" prot="public">
+          <name>LEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>left side </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Aliases for the sides of a cartesian mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="58" column="24" bodyfile="src/main.h" bodystart="58" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1ae4fb69053e3169f00e40c379de9b18ce" prot="public" static="no" strong="no">
+        <type></type>
+        <name>meshType</name>
+        <enumvalue id="main_8h_1ae4fb69053e3169f00e40c379de9b18ceac89ce62fe1fa4f8e316031d7754f478a" prot="public">
+          <name>UNSTRUCTURED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>unstructured </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1ae4fb69053e3169f00e40c379de9b18cead0f64430e58c5010eddd5289ab519800" prot="public">
+          <name>CARTESIAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>cartesian </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Flag for the mesh type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="68" column="14" bodyfile="src/main.h" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>fluxFunction</name>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca34fed1daeb2422887d826d127e6ad488" prot="public">
+          <name>GOD</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Godunov flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca93529177c2934ca4f60d82a6b1c85c67" prot="public">
+          <name>ROE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Roe flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca869ac60899d53b5b34dc4128d6a9642c" prot="public">
+          <name>HLL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>HLL flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca36fc4b7710303f6beb3272c99f612677" prot="public">
+          <name>HLLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>HLLE flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cae330c80066d71065301805b61b28e63c" prot="public">
+          <name>HLLC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>HLLC flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca896ba57a36980bb39a7b474c379c4cde" prot="public">
+          <name>LXF</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Lax-Friedrichs flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca9fdf33845f89076ce47d016f5955e9ac" prot="public">
+          <name>STW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Steger-Warming flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca29757d88a0a273e1fc4e390867deceb3" prot="public">
+          <name>CEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>central flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cacdc35db71d69ad8f91f57fb0758f25fb" prot="public">
+          <name>AUSMD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUSMD flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cab4d3e1a40c84c67485366c8f798149d9" prot="public">
+          <name>AUSMDV</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUSMDV flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cafce5814f0e3af94a462c86ae8859d0c0" prot="public">
+          <name>VANLEER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Van Leer flux function </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Aliases for the different flux functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="76" column="18" bodyfile="src/main.h" bodystart="76" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1afc24914f856d5e48e6bc515ff76bce08" prot="public" static="no" strong="no">
+        <type></type>
+        <name>limiterFunction</name>
+        <enumvalue id="main_8h_1afc24914f856d5e48e6bc515ff76bce08adc98e31be955e138cd7a8661f80f3624" prot="public">
+          <name>BARTHJESPERSEN</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Barth &amp; Jespersen limiter </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1afc24914f856d5e48e6bc515ff76bce08a19061662be9d5cb9af7bcf8d56a51cb5" prot="public">
+          <name>VENKATAKRISHNAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Venkatakrishnan limiter </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Flag for the limiter function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="93" column="21" bodyfile="src/main.h" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a7772fe70d27d49dc06a86ad6cf706174" prot="public" static="no" strong="no">
+        <type></type>
+        <name>generalParameters</name>
+        <enumvalue id="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" prot="public">
+          <name>NDIM</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>number of dimensions, cannot be changed </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" prot="public">
+          <name>NVAR</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>number of variables, primitive or conservative </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a483f4f131f6a3732aea122a7437478df" prot="public">
+          <name>NBC</name>
+          <initializer>= 20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>maximum number of boundary conditions </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>General parameters for the Program. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="101" column="23" bodyfile="src/main.h" bodystart="101" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a8351b0355736eb927c468918a1c88755" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ioFormat</name>
+        <enumvalue id="main_8h_1a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821" prot="public">
+          <name>CGNS</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>.CGNS file format </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a8351b0355736eb927c468918a1c88755a2267c8aab80fd31714c264f251e343cf" prot="public">
+          <name>CURVE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>.curve file format </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a8351b0355736eb927c468918a1c88755a2b10dde645e767164fc3de2ddbf14399" prot="public">
+          <name>CSV</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>.csv file format </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Output format for the results. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="110" column="14" bodyfile="src/main.h" bodystart="110" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="enum" id="main_8h_1a31f208a24d09f9f37055db04d25df1d3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>clcdResiduals</name>
+        <enumvalue id="main_8h_1a31f208a24d09f9f37055db04d25df1d3a2db5ec1b76e29df53109967f82c5b581" prot="public">
+          <name>CL</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>lift coefficient </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="main_8h_1a31f208a24d09f9f37055db04d25df1d3a9aea9e501fa935b114b235e8e9754267" prot="public">
+          <name>CD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>drag coefficient </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Index aliases for the residual vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="119" column="19" bodyfile="src/main.h" bodystart="119" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the global constants and definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 21 Mar 2020 10:44:50 AM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/main.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsideList__t" kind="struct" language="C++" prot="public">
+    <compoundname>sideList_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsideList__t_1a7510937465f5c93123561b22511117c0" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long sideList_t::node[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>node ID array of the side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="71" column="6" bodyfile="src/mesh.c" bodystart="71" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1ac70138609ef6aa6fabca57aca8681e83" compoundref="mesh_8c" startline="363" endline="376">compare</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsideList__t_1a8d83b1aa3572b5a4d1c3cc14dd815c4d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sideList_t::BC</definition>
+        <argsstring></argsstring>
+        <name>BC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>flag for if the side is a BC side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="72" column="6" bodyfile="src/mesh.c" bodystart="72" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1ac70138609ef6aa6fabca57aca8681e83" compoundref="mesh_8c" startline="363" endline="376">compare</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsideList__t_1ab03f607a00cb4abee5b6ac01e9f073f1" prot="public" static="no" mutable="no">
+        <type><ref refid="structside__t" kindref="compound">side_t</ref> *</type>
+        <definition>side_t* sideList_t::side</definition>
+        <argsstring></argsstring>
+        <name>side</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="73" column="8" bodyfile="src/mesh.c" bodystart="73" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsideList__t_1af2675db408417e31e3c394ba81f1d73b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sideList_t::isRotated</definition>
+        <argsstring></argsstring>
+        <name>isRotated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>flag for if the side is rotated </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="74" column="6" bodyfile="src/mesh.c" bodystart="74" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Helper structure for reading in the sides and deviding them into BC sides and non-BC sides. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sideList_t</label>
+        <link refid="structsideList__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>side</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>boundary_t</label>
+        <link refid="structboundary__t"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>node_t</label>
+        <link refid="structnode__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>elem_t</label>
+        <link refid="structelem__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>firstSide</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>side_t</label>
+        <link refid="structside__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elem</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>BC</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>nextElemSide</edgelabel>
+          <edgelabel>next</edgelabel>
+          <edgelabel>connection</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/mesh.c" line="70" column="17" bodyfile="src/mesh.c" bodystart="70" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structsideList__t_1a8d83b1aa3572b5a4d1c3cc14dd815c4d" prot="public" virt="non-virtual"><scope>sideList_t</scope><name>BC</name></member>
+      <member refid="structsideList__t_1af2675db408417e31e3c394ba81f1d73b" prot="public" virt="non-virtual"><scope>sideList_t</scope><name>isRotated</name></member>
+      <member refid="structsideList__t_1a7510937465f5c93123561b22511117c0" prot="public" virt="non-virtual"><scope>sideList_t</scope><name>node</name></member>
+      <member refid="structsideList__t_1ab03f607a00cb4abee5b6ac01e9f073f1" prot="public" virt="non-virtual"><scope>sideList_t</scope><name>side</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

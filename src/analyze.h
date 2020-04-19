@@ -48,7 +48,7 @@ extern recordPoint_t recordPoint;
 extern bool hasExactSolution;
 
 void initAnalyze(void);
-void analyze(double time, long iter, double *resIter);
+void analyze(double time, long iter, double resIter[NVAR + 2]);
 void calcErrors(double time);
 void globalResidual(double resIter[NVAR + 2]);
 void freeAnalyze(void);

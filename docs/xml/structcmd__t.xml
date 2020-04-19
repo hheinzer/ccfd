@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structcmd__t" kind="struct" language="C++" prot="public">
+    <compoundname>cmd_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcmd__t_1a34509c1a5d5129fd40b68ea54608ca0d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char cmd_t::key[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the key word of the command </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.c" line="23" column="6" bodyfile="src/readInTools.c" bodystart="23" bodyend="-1"/>
+        <referencedby refid="readInTools_8h_1aae07b562b487646845b24aa277a191f3" compoundref="readInTools_8c" startline="38" endline="105">fillCmds</referencedby>
+        <referencedby refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__t_1a124bb00c5bcae276868b450c1a4bcfdb" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char cmd_t::value[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the vale of the command </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.c" line="24" column="6" bodyfile="src/readInTools.c" bodystart="24" bodyend="-1"/>
+        <referencedby refid="readInTools_8h_1aae07b562b487646845b24aa277a191f3" compoundref="readInTools_8c" startline="38" endline="105">fillCmds</referencedby>
+        <referencedby refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__t_1a35706fa71e30bb009a7ec9a36d7ec2cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structcmd__t" kindref="compound">cmd_t</ref> *</type>
+        <definition>cmd_t* cmd_t::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>next command </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.c" line="25" column="7" bodyfile="src/readInTools.c" bodystart="25" bodyend="-1"/>
+        <referencedby refid="readInTools_8h_1a23080316e46aa5122dbb60d2f1e69562" compoundref="readInTools_8c" startline="228" endline="257">countKeys</referencedby>
+        <referencedby refid="readInTools_8c_1ad5d64c5886e695aa1141d1b8b0e117d9" compoundref="readInTools_8c" startline="114" endline="132">deleteCmd</referencedby>
+        <referencedby refid="readInTools_8h_1aae07b562b487646845b24aa277a191f3" compoundref="readInTools_8c" startline="38" endline="105">fillCmds</referencedby>
+        <referencedby refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</referencedby>
+        <referencedby refid="readInTools_8c_1a7e438b29fd04b468dade4655578868c3" compoundref="readInTools_8c" startline="410" endline="422">freeCmds</referencedby>
+        <referencedby refid="readInTools_8h_1a6480fc1fe754a2408323da4b1bc42bfe" compoundref="readInTools_8c" startline="427" endline="436">ignoredCmds</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__t_1a51bcce03f74b6456f98430ab2421f91f" prot="public" static="no" mutable="no">
+        <type><ref refid="structcmd__t" kindref="compound">cmd_t</ref> *</type>
+        <definition>cmd_t* cmd_t::prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>previous command </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.c" line="26" column="7" bodyfile="src/readInTools.c" bodystart="26" bodyend="-1"/>
+        <referencedby refid="readInTools_8c_1ad5d64c5886e695aa1141d1b8b0e117d9" compoundref="readInTools_8c" startline="114" endline="132">deleteCmd</referencedby>
+        <referencedby refid="readInTools_8h_1aae07b562b487646845b24aa277a191f3" compoundref="readInTools_8c" startline="38" endline="105">fillCmds</referencedby>
+        <referencedby refid="readInTools_8c_1a7e438b29fd04b468dade4655578868c3" compoundref="readInTools_8c" startline="410" endline="422">freeCmds</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A structure used to store the commands, read in from the parameter file. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>cmd_t</label>
+        <link refid="structcmd__t"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/readInTools.c" line="22" column="12" bodyfile="src/readInTools.c" bodystart="22" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structcmd__t_1a34509c1a5d5129fd40b68ea54608ca0d" prot="public" virt="non-virtual"><scope>cmd_t</scope><name>key</name></member>
+      <member refid="structcmd__t_1a35706fa71e30bb009a7ec9a36d7ec2cd" prot="public" virt="non-virtual"><scope>cmd_t</scope><name>next</name></member>
+      <member refid="structcmd__t_1a51bcce03f74b6456f98430ab2421f91f" prot="public" virt="non-virtual"><scope>cmd_t</scope><name>prev</name></member>
+      <member refid="structcmd__t_1a124bb00c5bcae276868b450c1a4bcfdb" prot="public" virt="non-virtual"><scope>cmd_t</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

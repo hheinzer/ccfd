@@ -1,0 +1,1482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="mesh_8c" kind="file" language="C++">
+    <compoundname>mesh.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">float.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="output_8h" local="yes">output.h</includes>
+    <includes refid="timeDiscretization_8h" local="yes">timeDiscretization.h</includes>
+    <includes refid="memTools_8h" local="yes">memTools.h</includes>
+    <includes refid="initialCondition_8h" local="yes">initialCondition.h</includes>
+    <includes local="yes">cgnslib.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>float.h</label>
+      </node>
+      <node id="12">
+        <label>output.h</label>
+        <link refid="output_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="16">
+        <label>cgnslib.h</label>
+      </node>
+      <node id="1">
+        <label>src/mesh.c</label>
+        <link refid="mesh_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>timeDiscretization.h</label>
+        <link refid="timeDiscretization_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>initialCondition.h</label>
+        <link refid="initialCondition_8h"/>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="15">
+        <label>memTools.h</label>
+        <link refid="memTools_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="11">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structsideList__t" prot="public">sideList_t</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="mesh_8c_1aad3cc448dc2ebf66ff33a66195cfbebc" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char parameterFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>parameterFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>parameter file name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="28" column="6" bodyfile="src/mesh.c" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a24161a93b14d1764d58c30d83d059b1f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char strMeshFormat[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>strMeshFormat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>mesh format string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="29" column="6" bodyfile="src/mesh.c" bodystart="29" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a248d8abe20644d580d9eaeab709e6f24" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char strMeshFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>strMeshFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>mesh file base name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="30" column="6" bodyfile="src/mesh.c" bodystart="30" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a394fda7463f47da523cd1efd5c59aeaf" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char strIniCondFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>strIniCondFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>file name of the initial conditions file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="31" column="6" bodyfile="src/mesh.c" bodystart="31" bodyend="-1"/>
+        <referencedby refid="initialCondition_8c_1ab3e7d324199c05dcc7b0abee82288666" compoundref="initialCondition_8c" startline="96" endline="160">cgnsReadSolution</referencedby>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a1b67b6ba30cbf11958dca44a8b7a73e7" prot="public" static="no" mutable="no">
+        <type><ref refid="structcartMesh__t" kindref="compound">cartMesh_t</ref></type>
+        <definition>cartMesh_t cartMesh</definition>
+        <argsstring></argsstring>
+        <name>cartMesh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cartesian mesh structure </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="34" column="12" bodyfile="src/mesh.c" bodystart="34" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a81c60aff0b3e98cafc32108efc25be9d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char gridFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>gridFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>complete name of the output mesh file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="35" column="6" bodyfile="src/mesh.c" bodystart="35" bodyend="-1"/>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a1f0bd89a33eeef71b7b643a305ee864d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int meshType</definition>
+        <argsstring></argsstring>
+        <name>meshType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>code for the mesh type </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="37" column="5" bodyfile="src/mesh.c" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a9ac2822101f0d49db6a8b039b20c10af" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int meshFormat</definition>
+        <argsstring></argsstring>
+        <name>meshFormat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>code for the mesh format </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="38" column="5" bodyfile="src/mesh.c" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1aecf0b7c7b75557debb63e881d01279f3" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nNodes</definition>
+        <argsstring></argsstring>
+        <name>nNodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of nodes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="40" column="6" bodyfile="src/mesh.c" bodystart="40" bodyend="-1"/>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nElems</definition>
+        <argsstring></argsstring>
+        <name>nElems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of elements </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="42" column="6" bodyfile="src/mesh.c" bodystart="42" bodyend="-1"/>
+        <referencedby refid="linearSolver_8c_1ade5704ee53f1a9798c63caac1288bd29" compoundref="linearSolver_8c" startline="187" endline="253">buildMatrix</referencedby>
+        <referencedby refid="analyze_8h_1aaf09b15337fc9b045b31f8af6ad8ba9c" compoundref="analyze_8c" startline="445" endline="514">calcErrors</referencedby>
+        <referencedby refid="source_8h_1adb8cf5bda5a8dc85cd2117153f050f45" compoundref="source_8c" startline="68" endline="87">calcSource</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a7f7d183a3fbda3e49a1f7dee3f9a56e1" compoundref="timeDiscretization_8c" startline="248" endline="328">calcTimeStep</referencedby>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="initialCondition_8c_1ab3e7d324199c05dcc7b0abee82288666" compoundref="initialCondition_8c" startline="96" endline="160">cgnsReadSolution</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="output_8c_1a7265ebed08d72389bfa04530feaf577f" compoundref="output_8c" startline="58" endline="115">csvOutput</referencedby>
+        <referencedby refid="output_8c_1afe6417bdb8b04364e1805825390f9015" compoundref="output_8c" startline="257" endline="331">curveOutput</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a8a89a37042821b46c31c68cd54d769c9" compoundref="timeDiscretization_8c" startline="337" endline="354">explicitTimeStepEuler</referencedby>
+        <referencedby refid="timeDiscretization_8c_1ac6991d8194b3be6bc963c6894d3cba9e" compoundref="timeDiscretization_8c" startline="363" endline="402">explicitTimeStepRK</referencedby>
+        <referencedby refid="mesh_8h_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</referencedby>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+        <referencedby refid="analyze_8h_1acf15c3da2b4a14c1d2b700303bf0d875" compoundref="analyze_8c" startline="521" endline="539">globalResidual</referencedby>
+        <referencedby refid="linearSolver_8h_1a260f703e4187362df18336aef06d9646" compoundref="linearSolver_8c" startline="390" endline="515">GMRES_M</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a2bb23ea444814dac92545c3cd2cc7f96" compoundref="timeDiscretization_8c" startline="414" endline="555">implicitTimeStep</referencedby>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+        <referencedby refid="linearSolver_8c_1a1b162be2d8a14fc0072ae09b7ad89f3c" compoundref="linearSolver_8c" startline="264" endline="336">LUSGS</referencedby>
+        <referencedby refid="linearSolver_8c_1ab4b7890a021fa725f281253451d20c31" compoundref="linearSolver_8c" startline="347" endline="377">matrixVector</referencedby>
+        <referencedby refid="mesh_8c_1acd435aee1299f3cc3c9f5f41c721ba41" compoundref="mesh_8c" startline="1154" endline="1395">readCGNS</referencedby>
+        <referencedby refid="reconstruction_8h_1ad0c0d7c8c348368409a8320007c55d10" compoundref="reconstruction_8c" startline="198" endline="314">spatialReconstruction</referencedby>
+        <referencedby refid="linearSolver_8h_1ad8c72a0c1caceac1554d2a014545442f" compoundref="linearSolver_8c" startline="116" endline="129">vectorDotProduct</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nTrias</definition>
+        <argsstring></argsstring>
+        <name>nTrias</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of triangles </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="43" column="6" bodyfile="src/mesh.c" bodystart="43" bodyend="-1"/>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8c_1acd435aee1299f3cc3c9f5f41c721ba41" compoundref="mesh_8c" startline="1154" endline="1395">readCGNS</referencedby>
+        <referencedby refid="mesh_8c_1ad115561a58316b60d3e496de01cba336" compoundref="mesh_8c" startline="1005" endline="1142">readEMC2</referencedby>
+        <referencedby refid="mesh_8c_1a185ef55c6ea96a0e1cb71dcea2e289b3" compoundref="mesh_8c" startline="499" endline="993">readGmsh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nQuads</definition>
+        <argsstring></argsstring>
+        <name>nQuads</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of quadrangles </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="44" column="6" bodyfile="src/mesh.c" bodystart="44" bodyend="-1"/>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8c_1acd435aee1299f3cc3c9f5f41c721ba41" compoundref="mesh_8c" startline="1154" endline="1395">readCGNS</referencedby>
+        <referencedby refid="mesh_8c_1ad115561a58316b60d3e496de01cba336" compoundref="mesh_8c" startline="1005" endline="1142">readEMC2</referencedby>
+        <referencedby refid="mesh_8c_1a185ef55c6ea96a0e1cb71dcea2e289b3" compoundref="mesh_8c" startline="499" endline="993">readGmsh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1afbd57a358fb19f827a5776af788d1c75" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nSides</definition>
+        <argsstring></argsstring>
+        <name>nSides</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of sides </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="46" column="6" bodyfile="src/mesh.c" bodystart="46" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" compoundref="mesh_8c" startline="173" endline="245">connectPeriodicBC</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="fluxCalculation_8h_1a5537734044975e3108fc1acefae6b94c" compoundref="fluxCalculation_8c" startline="882" endline="998">fluxCalculation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1af4105a479c40a7a38d0e65d7a9fd31e3" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nBCsides</definition>
+        <argsstring></argsstring>
+        <name>nBCsides</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of BC sides </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="47" column="6" bodyfile="src/mesh.c" bodystart="47" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="boundary_8h_1a10ed132aacb524ddf08fb63254798079" compoundref="boundary_8c" startline="320" endline="331">setBCatBarys</referencedby>
+        <referencedby refid="boundary_8h_1aa822e937f3fa5ec4a2cd96cb9a39d254" compoundref="boundary_8c" startline="300" endline="314">setBCatSides</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a8fdbb3d298b293e79aca09b41475dce5" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long nInnerSides</definition>
+        <argsstring></argsstring>
+        <name>nInnerSides</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global number of non BC sides </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="48" column="6" bodyfile="src/mesh.c" bodystart="48" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a5ed9f100fb09214d4712feb0a30012be" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double totalArea_q</definition>
+        <argsstring></argsstring>
+        <name>totalArea_q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>inverse of the global area of the mesh </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="50" column="8" bodyfile="src/mesh.c" bodystart="50" bodyend="-1"/>
+        <referencedby refid="analyze_8h_1aaf09b15337fc9b045b31f8af6ad8ba9c" compoundref="analyze_8c" startline="445" endline="514">calcErrors</referencedby>
+        <referencedby refid="mesh_8c_1a0e98f94da0dae7a75990f53900c18c2b" compoundref="mesh_8c" startline="297" endline="342">createElemInfo</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="analyze_8h_1acf15c3da2b4a14c1d2b700303bf0d875" compoundref="analyze_8c" startline="521" endline="539">globalResidual</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a0da3ee9d9cd0abef10c10e090a94f069" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double xMin</definition>
+        <argsstring></argsstring>
+        <name>xMin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum x-direction extension </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="51" column="8" bodyfile="src/mesh.c" bodystart="51" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a1bb980dbe87946bc22572d65feeede5c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double xMax</definition>
+        <argsstring></argsstring>
+        <name>xMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>minimum x-direction extension </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="52" column="8" bodyfile="src/mesh.c" bodystart="52" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a20d4c5d114c7d71b216de17d8351b407" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double yMin</definition>
+        <argsstring></argsstring>
+        <name>yMin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum y-direction extension </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="53" column="8" bodyfile="src/mesh.c" bodystart="53" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a0d6c1993983b373f049cf11435200fb7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double yMax</definition>
+        <argsstring></argsstring>
+        <name>yMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>minimum y-direction extension </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="54" column="8" bodyfile="src/mesh.c" bodystart="54" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a21f372ef64234addfe8453786e3580e6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double dxRef</definition>
+        <argsstring></argsstring>
+        <name>dxRef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="55" column="8" bodyfile="src/mesh.c" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a6e0032342c22164db03323d0119d843e" prot="public" static="no" mutable="no">
+        <type><ref refid="structelem__t" kindref="compound">elem_t</ref> **</type>
+        <definition>elem_t** elem</definition>
+        <argsstring></argsstring>
+        <name>elem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global element pointer array </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="57" column="8" bodyfile="src/mesh.c" bodystart="57" bodyend="-1"/>
+        <referencedby refid="analyze_8h_1aaf09b15337fc9b045b31f8af6ad8ba9c" compoundref="analyze_8c" startline="445" endline="514">calcErrors</referencedby>
+        <referencedby refid="source_8h_1adb8cf5bda5a8dc85cd2117153f050f45" compoundref="source_8c" startline="68" endline="87">calcSource</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a7f7d183a3fbda3e49a1f7dee3f9a56e1" compoundref="timeDiscretization_8c" startline="248" endline="328">calcTimeStep</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a8a89a37042821b46c31c68cd54d769c9" compoundref="timeDiscretization_8c" startline="337" endline="354">explicitTimeStepEuler</referencedby>
+        <referencedby refid="timeDiscretization_8c_1ac6991d8194b3be6bc963c6894d3cba9e" compoundref="timeDiscretization_8c" startline="363" endline="402">explicitTimeStepRK</referencedby>
+        <referencedby refid="mesh_8h_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</referencedby>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+        <referencedby refid="analyze_8h_1acf15c3da2b4a14c1d2b700303bf0d875" compoundref="analyze_8c" startline="521" endline="539">globalResidual</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a2bb23ea444814dac92545c3cd2cc7f96" compoundref="timeDiscretization_8c" startline="414" endline="555">implicitTimeStep</referencedby>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+        <referencedby refid="linearSolver_8c_1ab4b7890a021fa725f281253451d20c31" compoundref="linearSolver_8c" startline="347" endline="377">matrixVector</referencedby>
+        <referencedby refid="reconstruction_8h_1ad0c0d7c8c348368409a8320007c55d10" compoundref="reconstruction_8c" startline="198" endline="314">spatialReconstruction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a12ab5a8a3e4999ba4d8c26798740ce7f" prot="public" static="no" mutable="no">
+        <type><ref refid="structside__t" kindref="compound">side_t</ref> **</type>
+        <definition>side_t** side</definition>
+        <argsstring></argsstring>
+        <name>side</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global side pointer array </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="58" column="8" bodyfile="src/mesh.c" bodystart="58" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="fluxCalculation_8h_1a5537734044975e3108fc1acefae6b94c" compoundref="fluxCalculation_8c" startline="882" endline="998">fluxCalculation</referencedby>
+        <referencedby refid="mesh_8h_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a508eb58346877a73cd49cdd8d0af5538" prot="public" static="no" mutable="no">
+        <type><ref refid="structside__t" kindref="compound">side_t</ref> **</type>
+        <definition>side_t** BCside</definition>
+        <argsstring></argsstring>
+        <name>BCside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global BC side pointer array </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="59" column="8" bodyfile="src/mesh.c" bodystart="59" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="boundary_8h_1a9a28f864619366666b36443f7ca92f06" compoundref="boundary_8c" startline="336" endline="350">freeBoundary</referencedby>
+        <referencedby refid="boundary_8h_1a10ed132aacb524ddf08fb63254798079" compoundref="boundary_8c" startline="320" endline="331">setBCatBarys</referencedby>
+        <referencedby refid="boundary_8h_1aa822e937f3fa5ec4a2cd96cb9a39d254" compoundref="boundary_8c" startline="300" endline="314">setBCatSides</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" prot="public" static="no" mutable="no">
+        <type><ref refid="structelem__t" kindref="compound">elem_t</ref> *</type>
+        <definition>elem_t* firstElem</definition>
+        <argsstring></argsstring>
+        <name>firstElem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to first element </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="61" column="8" bodyfile="src/mesh.c" bodystart="61" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a5bc9f64ac7233292ac4fd9fb6a5fe52a" compoundref="analyze_8c" startline="411" endline="438">analyze</referencedby>
+        <referencedby refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</referencedby>
+        <referencedby refid="initialCondition_8c_1ab3e7d324199c05dcc7b0abee82288666" compoundref="initialCondition_8c" startline="96" endline="160">cgnsReadSolution</referencedby>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="output_8c_1a7265ebed08d72389bfa04530feaf577f" compoundref="output_8c" startline="58" endline="115">csvOutput</referencedby>
+        <referencedby refid="output_8c_1afe6417bdb8b04364e1805825390f9015" compoundref="output_8c" startline="257" endline="331">curveOutput</referencedby>
+        <referencedby refid="analyze_8c_1a8dfb9a6f986ddcade64d191141b9c324" compoundref="analyze_8c" startline="34" endline="90">initRecordPoints</referencedby>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a668f64e970a10189e66050633799a1e5" prot="public" static="no" mutable="no">
+        <type><ref refid="structnode__t" kindref="compound">node_t</ref> *</type>
+        <definition>node_t* firstNode</definition>
+        <argsstring></argsstring>
+        <name>firstNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to first node </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="62" column="8" bodyfile="src/mesh.c" bodystart="62" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8h_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a8a95c5ed7761a0366d8f61aeeb7184a4" prot="public" static="no" mutable="no">
+        <type><ref refid="structside__t" kindref="compound">side_t</ref> *</type>
+        <definition>side_t* firstSide</definition>
+        <argsstring></argsstring>
+        <name>firstSide</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to first side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="63" column="8" bodyfile="src/mesh.c" bodystart="63" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" compoundref="mesh_8c" startline="173" endline="245">connectPeriodicBC</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="mesh_8c_1a71f662759be11886778b12b0b996fd5a" prot="public" static="no" mutable="no">
+        <type><ref refid="structsidePtr__t" kindref="compound">sidePtr_t</ref> *</type>
+        <definition>sidePtr_t* firstBCside</definition>
+        <argsstring></argsstring>
+        <name>firstBCside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to first BC side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="64" column="11" bodyfile="src/mesh.c" bodystart="64" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" compoundref="mesh_8c" startline="173" endline="245">connectPeriodicBC</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="mesh_8h_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</referencedby>
+        <referencedby refid="analyze_8c_1a33fc83926ae2b8bae07e7177f9569c6c" compoundref="analyze_8c" startline="95" endline="184">initWing</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="mesh_8c_1aaf5acbd6699a85740df1aa3912c32c31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createReconstructionInfo</definition>
+        <argsstring>(elem_t *aElem)</argsstring>
+        <name>createReconstructionInfo</name>
+        <param>
+          <type><ref refid="structelem__t" kindref="compound">elem_t</ref> *</type>
+          <declname>aElem</declname>
+        </param>
+        <briefdescription>
+<para>Compute required vectors for reconstruction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*aElem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an element </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="81" column="6" bodyfile="src/mesh.c" bodystart="81" bodyend="168"/>
+        <references refid="structelem__t_1a9b26bb1938c73d5d21752acd70e93347" compoundref="mesh_8h" startline="78">elem_t::area</references>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="structside__t_1a31ab5541163a146fe3d29f5d7c157485" compoundref="mesh_8h" startline="43">side_t::baryBaryDist</references>
+        <references refid="structside__t_1ae8b94afda06339d391d50c144570c019" compoundref="mesh_8h" startline="41">side_t::baryBaryVec</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="structelem__t_1a6b03b73d1b8d280dabd1245c2f9b1226" compoundref="mesh_8h" startline="71">elem_t::elemType</references>
+        <references refid="structelem__t_1a3e94a79a5b58bd0b0a21528b641cd56d" compoundref="mesh_8h" startline="96">elem_t::firstSide</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="structside__t_1af9ea3a8abd427e9545645451cf6ae735" compoundref="mesh_8h" startline="50">side_t::nextElemSide</references>
+        <references refid="structelem__t_1aa1845ce1b478e54160226e547bbf0d0e" compoundref="mesh_8h" startline="93">elem_t::nGP</references>
+        <references refid="structelem__t_1a7cfe47e10959ed23ba2fa2f9be7dd6e0" compoundref="mesh_8h" startline="99">elem_t::node</references>
+        <references refid="structside__t_1a3217b72c2217ca8fe5c94176cd8e66d7" compoundref="mesh_8h" startline="46">side_t::w</references>
+        <references refid="structelem__t_1a53dd518b1120e64d5071661890a87187" compoundref="mesh_8h" startline="95">elem_t::wGP</references>
+        <references refid="structnode__t_1ac9c68656cac6474e37d0107198b51d5f" compoundref="mesh_8h" startline="26">node_t::x</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="structelem__t_1ab70512e8993ec15290013e2463714db8" compoundref="mesh_8h" startline="94">elem_t::xGP</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void connectPeriodicBC</definition>
+        <argsstring>(void)</argsstring>
+        <name>connectPeriodicBC</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Create connection for periodic BCs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="173" column="6" bodyfile="src/mesh.c" bodystart="173" bodyend="245"/>
+        <references refid="boundary_8c_1a2a3bc5f300e558c74fb465fed8302a3e" compoundref="boundary_8c" startline="24">isPeriodic</references>
+        <references refid="mesh_8c_1a71f662759be11886778b12b0b996fd5a" compoundref="mesh_8c" startline="64">firstBCside</references>
+        <references refid="structsidePtr__t_1ab625c071458f8de30c9192922fd368df" compoundref="mesh_8h" startline="62">sidePtr_t::side</references>
+        <references refid="structside__t_1a139dc5b219477299c80ebed6f99e1f1f" compoundref="mesh_8h" startline="37">side_t::BC</references>
+        <references refid="structboundary__t_1ab4df5ad3a5ce485cf87755f498ce60cf" compoundref="boundary_8h" startline="23">boundary_t::BCtype</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5ae4379d044711537d9ce3b3b58c575c58" compoundref="main_8h" startline="51">PERIODIC</references>
+        <references refid="structboundary__t_1ab12159c6b757bdf0490adfe836693398" compoundref="boundary_8h" startline="32">boundary_t::BCid</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <references refid="structboundary__t_1ab1d56584b46dcda1e032bb997a542d41" compoundref="boundary_8h" startline="43">boundary_t::connection</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="mesh_8c_1afbd57a358fb19f827a5776af788d1c75" compoundref="mesh_8c" startline="46">nSides</references>
+        <references refid="mesh_8c_1a8a95c5ed7761a0366d8f61aeeb7184a4" compoundref="mesh_8c" startline="63">firstSide</references>
+        <references refid="structside__t_1a9519a3d15c3f8d19cb53faee3e8057e3" compoundref="mesh_8h" startline="52">side_t::next</references>
+        <references refid="structsidePtr__t_1a07e583b0bc2894098dc1cd0994d3a904" compoundref="mesh_8h" startline="63">sidePtr_t::next</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1ae0f2379a3df28f3f7efd2c992248b514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createSideInfo</definition>
+        <argsstring>(side_t *aSide)</argsstring>
+        <name>createSideInfo</name>
+        <param>
+          <type><ref refid="structside__t" kindref="compound">side_t</ref> *</type>
+          <declname>aSide</declname>
+        </param>
+        <briefdescription>
+<para>Create side info: normal vector, side length, and ghost cells. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*aSide</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a side </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="251" column="6" bodyfile="src/mesh.c" bodystart="251" bodyend="290"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="structside__t_1a139dc5b219477299c80ebed6f99e1f1f" compoundref="mesh_8h" startline="37">side_t::BC</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="structside__t_1a1e113105b88ab0a04d9037b4c1c6d7e0" compoundref="mesh_8h" startline="40">side_t::len</references>
+        <references refid="structside__t_1a681553e1f4d5ecada55c7efe70ffc6cf" compoundref="mesh_8h" startline="39">side_t::n</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="structside__t_1a9cc5a57e92366ae16be380f2f6d7d538" compoundref="mesh_8h" startline="54">side_t::node</references>
+        <references refid="structnode__t_1ac9c68656cac6474e37d0107198b51d5f" compoundref="mesh_8h" startline="26">node_t::x</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1a0e98f94da0dae7a75990f53900c18c2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createElemInfo</definition>
+        <argsstring>(elem_t *aElem)</argsstring>
+        <name>createElemInfo</name>
+        <param>
+          <type><ref refid="structelem__t" kindref="compound">elem_t</ref> *</type>
+          <declname>aElem</declname>
+        </param>
+        <briefdescription>
+<para>Compute the cell specific values: barycenter, area, projection length of an element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*aElem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an element </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="297" column="6" bodyfile="src/mesh.c" bodystart="297" bodyend="342"/>
+        <references refid="structelem__t_1a9b26bb1938c73d5d21752acd70e93347" compoundref="mesh_8h" startline="78">elem_t::area</references>
+        <references refid="structelem__t_1a962cffa62d6b94376d5f615753f91630" compoundref="mesh_8h" startline="79">elem_t::areaq</references>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="structelem__t_1a6b03b73d1b8d280dabd1245c2f9b1226" compoundref="mesh_8h" startline="71">elem_t::elemType</references>
+        <references refid="structelem__t_1a7cfe47e10959ed23ba2fa2f9be7dd6e0" compoundref="mesh_8h" startline="99">elem_t::node</references>
+        <references refid="structelem__t_1aab30a44e86d9d65d7fed1f0bb96e6bf3" compoundref="mesh_8h" startline="76">elem_t::sx</references>
+        <references refid="structelem__t_1a349c47f8d72e43a437b818d438d59671" compoundref="mesh_8h" startline="77">elem_t::sy</references>
+        <references refid="mesh_8c_1a5ed9f100fb09214d4712feb0a30012be" compoundref="mesh_8c" startline="50">totalArea_q</references>
+        <references refid="structnode__t_1ac9c68656cac6474e37d0107198b51d5f" compoundref="mesh_8h" startline="26">node_t::x</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1ac70138609ef6aa6fabca57aca8681e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int compare</definition>
+        <argsstring>(const void *a, const void *b)</argsstring>
+        <name>compare</name>
+        <param>
+          <type>const void *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Compare two elements of the <computeroutput>sideList</computeroutput> list, used for sorting the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sort sideList array in order to retrieve the connectivity info more efficiently. Basically we want to sort the sides on three different levels: first, by their first node ID, secondly, by their second node ID, and thirdly by if they are a boundary condition side. The result might look something like this: 3 3 1 1 2 0 2 1 1 1 3 0 1 2 0 --&gt; 2 1 1 3 1 0 2 2 1 2 2 1 3 3 0 3 3 0 3 3 1</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer an element of the side list </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer an element of the side list </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The difference of a and b, if the values are the same, the move to next sorting metric </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="363" column="5" bodyfile="src/mesh.c" bodystart="363" bodyend="376"/>
+        <references refid="structsideList__t_1a8d83b1aa3572b5a4d1c3cc14dd815c4d" compoundref="mesh_8c" startline="72">sideList_t::BC</references>
+        <references refid="structsideList__t_1a7510937465f5c93123561b22511117c0" compoundref="mesh_8c" startline="71">sideList_t::node</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createCartMesh</definition>
+        <argsstring>(double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***quad)</argsstring>
+        <name>createCartMesh</name>
+        <param>
+          <type>double ***</type>
+          <declname>vertex</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nVertices</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>BCedge</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nBCedges</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>quad</declname>
+        </param>
+        <briefdescription>
+<para>Create a cartesian mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***vertex Pointer to 2D array, used for the vertices </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nVertices Pointer to the number of total vertices in <computeroutput>vertex</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***BCedge Pointer to 2D array, used for the BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nBCedges Pointer to the number of total BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***quad Pointer to a 2D array, used for the quadrangles </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="386" column="6" bodyfile="src/mesh.c" bodystart="386" bodyend="487"/>
+        <references refid="structcartMesh__t_1a6d6f8744aec8cb02732787db0fc60243" compoundref="mesh_8h" startline="110">cartMesh_t::BCrange</references>
+        <references refid="structcartMesh__t_1a1af03ea8cb289e3214b00b9f22cb0426" compoundref="mesh_8h" startline="109">cartMesh_t::BCtype</references>
+        <references refid="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5da8c371f4e766fb2c49c219bbc88989461" compoundref="main_8h" startline="59">BOTTOM</references>
+        <references refid="mesh_8c_1a1b67b6ba30cbf11958dca44a8b7a73e7" compoundref="mesh_8c" startline="34">cartMesh</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="memTools_8c_1affba4a70bb0eda63de9e58e0658f1627" compoundref="memTools_8c" startline="29" endline="42">dyn2DintArray</references>
+        <references refid="structcartMesh__t_1aad2326d1e4a4b34e1a29ca1d2cdf6025" compoundref="mesh_8h" startline="106">cartMesh_t::iMax</references>
+        <references refid="structcartMesh__t_1ad50119c30a0c863bade8ddef161d8091" compoundref="mesh_8h" startline="107">cartMesh_t::jMax</references>
+        <references refid="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5dadb45120aafd37a973140edee24708065" compoundref="main_8h" startline="62">LEFT</references>
+        <references refid="structcartMesh__t_1a9920a4f1771e8abc08dc06a2ab4383de" compoundref="mesh_8h" startline="108">cartMesh_t::nBC</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5daec8379af7490bb9eaaf579cf17876f38" compoundref="main_8h" startline="60">RIGHT</references>
+        <references refid="main_8h_1ae6b96a2ce33f76a4efff45bb6d232f5da0ad44897a70fba309c24a5b6007de3e3" compoundref="main_8h" startline="61">TOP</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="mesh_8c_1a1bb980dbe87946bc22572d65feeede5c" compoundref="mesh_8c" startline="52">xMax</references>
+        <references refid="mesh_8c_1a0da3ee9d9cd0abef10c10e090a94f069" compoundref="mesh_8c" startline="51">xMin</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <references refid="mesh_8c_1a0d6c1993983b373f049cf11435200fb7" compoundref="mesh_8c" startline="54">yMax</references>
+        <references refid="mesh_8c_1a20d4c5d114c7d71b216de17d8351b407" compoundref="mesh_8c" startline="53">yMin</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1a185ef55c6ea96a0e1cb71dcea2e289b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readGmsh</definition>
+        <argsstring>(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***tria, long ***quad)</argsstring>
+        <name>readGmsh</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double ***</type>
+          <declname>vertex</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nVertices</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>BCedge</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nBCedges</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>tria</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>quad</declname>
+        </param>
+        <briefdescription>
+<para>Read in a gmsh mesh file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the mesh file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***vertex Pointer to 2D array, used for the vertices </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nVertices Pointer to the number of total vertices in <computeroutput>vertex</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***BCedge Pointer to 2D array, used for the BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nBCedges Pointer to the number of total BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***tria Pointer to a 2D array, used for the triangles </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***quad Pointer to a 2D array, used for the quadrangles </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="499" column="6" bodyfile="src/mesh.c" bodystart="499" bodyend="993"/>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="memTools_8c_1affba4a70bb0eda63de9e58e0658f1627" compoundref="memTools_8c" startline="29" endline="42">dyn2DintArray</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1ad115561a58316b60d3e496de01cba336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readEMC2</definition>
+        <argsstring>(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***tria, long ***quad)</argsstring>
+        <name>readEMC2</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double ***</type>
+          <declname>vertex</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nVertices</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>BCedge</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nBCedges</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>tria</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>quad</declname>
+        </param>
+        <briefdescription>
+<para>Read in EMC2 mesh file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the mesh file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***vertex Pointer to 2D array, used for the vertices </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nVertices Pointer to the number of total vertices in <computeroutput>vertex</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***BCedge Pointer to 2D array, used for the BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nBCedges Pointer to the number of total BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***tria Pointer to a 2D array, used for the triangles </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***quad Pointer to a 2D array, used for the quadrangles </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1005" column="6" bodyfile="src/mesh.c" bodystart="1005" bodyend="1142"/>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="memTools_8c_1affba4a70bb0eda63de9e58e0658f1627" compoundref="memTools_8c" startline="29" endline="42">dyn2DintArray</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1acd435aee1299f3cc3c9f5f41c721ba41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readCGNS</definition>
+        <argsstring>(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***tria, long ***quad)</argsstring>
+        <name>readCGNS</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double ***</type>
+          <declname>vertex</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nVertices</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>BCedge</declname>
+        </param>
+        <param>
+          <type>long *</type>
+          <declname>nBCedges</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>tria</declname>
+        </param>
+        <param>
+          <type>long ***</type>
+          <declname>quad</declname>
+        </param>
+        <briefdescription>
+<para>Read in a CGNS mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the mesh file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***vertex Pointer to 2D array, used for the vertices </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nVertices Pointer to the number of total vertices in <computeroutput>vertex</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***BCedge Pointer to 2D array, used for the BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*nBCedges Pointer to the number of total BC edges </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***tria Pointer to a 2D array, used for the triangles </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>***quad Pointer to a 2D array, used for the quadrangles </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1154" column="6" bodyfile="src/mesh.c" bodystart="1154" bodyend="1395"/>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="memTools_8c_1affba4a70bb0eda63de9e58e0658f1627" compoundref="memTools_8c" startline="29" endline="42">dyn2DintArray</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1abc057bb065a186a8daec25f127cd387d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createMesh</definition>
+        <argsstring>(void)</argsstring>
+        <name>createMesh</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Create a cartesian or structured mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Read in of all supported mesh types:<itemizedlist>
+<listitem><para>*.msh</para>
+</listitem><listitem><para>*.msh2</para>
+</listitem><listitem><para>*.msh4</para>
+</listitem><listitem><para>*.emc2</para>
+</listitem><listitem><para>*.cgns </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1406" column="6" bodyfile="src/mesh.c" bodystart="1406" bodyend="1845"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="structside__t_1a139dc5b219477299c80ebed6f99e1f1f" compoundref="mesh_8h" startline="37">side_t::BC</references>
+        <references refid="structsideList__t_1a8d83b1aa3572b5a4d1c3cc14dd815c4d" compoundref="mesh_8c" startline="72">sideList_t::BC</references>
+        <references refid="structboundary__t_1ab12159c6b757bdf0490adfe836693398" compoundref="boundary_8h" startline="32">boundary_t::BCid</references>
+        <references refid="mesh_8c_1a508eb58346877a73cd49cdd8d0af5538" compoundref="mesh_8c" startline="59">BCside</references>
+        <references refid="structboundary__t_1ab4df5ad3a5ce485cf87755f498ce60cf" compoundref="boundary_8h" startline="23">boundary_t::BCtype</references>
+        <references refid="main_8h_1ae4fb69053e3169f00e40c379de9b18cead0f64430e58c5010eddd5289ab519800" compoundref="main_8h" startline="70">CARTESIAN</references>
+        <references refid="mesh_8c_1ac70138609ef6aa6fabca57aca8681e83" compoundref="mesh_8c" startline="363" endline="376">compare</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" compoundref="mesh_8c" startline="173" endline="245">connectPeriodicBC</references>
+        <references refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</references>
+        <references refid="mesh_8c_1a0e98f94da0dae7a75990f53900c18c2b" compoundref="mesh_8c" startline="297" endline="342">createElemInfo</references>
+        <references refid="mesh_8c_1aaf5acbd6699a85740df1aa3912c32c31" compoundref="mesh_8c" startline="81" endline="168">createReconstructionInfo</references>
+        <references refid="mesh_8c_1ae0f2379a3df28f3f7efd2c992248b514" compoundref="mesh_8c" startline="251" endline="290">createSideInfo</references>
+        <references refid="structelem__t_1ada040725ae293b120c7918fd3331bca6" compoundref="mesh_8h" startline="74">elem_t::domain</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="mesh_8c_1a6e0032342c22164db03323d0119d843e" compoundref="mesh_8c" startline="57">elem</references>
+        <references refid="structelem__t_1a6b03b73d1b8d280dabd1245c2f9b1226" compoundref="mesh_8h" startline="71">elem_t::elemType</references>
+        <references refid="boundary_8c_1a1924efe793f0519fdc672e20188a93fa" compoundref="boundary_8c" startline="22">firstBC</references>
+        <references refid="mesh_8c_1a71f662759be11886778b12b0b996fd5a" compoundref="mesh_8c" startline="64">firstBCside</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="mesh_8c_1a668f64e970a10189e66050633799a1e5" compoundref="mesh_8c" startline="62">firstNode</references>
+        <references refid="mesh_8c_1a8a95c5ed7761a0366d8f61aeeb7184a4" compoundref="mesh_8c" startline="63">firstSide</references>
+        <references refid="structelem__t_1a3e94a79a5b58bd0b0a21528b641cd56d" compoundref="mesh_8h" startline="96">elem_t::firstSide</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="structnode__t_1a70b0d0d3e99ecf59dea25268ea4d7a96" compoundref="mesh_8h" startline="25">node_t::id</references>
+        <references refid="structside__t_1a01b2f885754e6f9dd6cb9891f4f1a7ac" compoundref="mesh_8h" startline="34">side_t::id</references>
+        <references refid="structelem__t_1aed7c0b9caae53e6a8ee5fed26d3f8343" compoundref="mesh_8h" startline="73">elem_t::id</references>
+        <references refid="structsideList__t_1af2675db408417e31e3c394ba81f1d73b" compoundref="mesh_8c" startline="74">sideList_t::isRotated</references>
+        <references refid="structside__t_1a681553e1f4d5ecada55c7efe70ffc6cf" compoundref="mesh_8h" startline="39">side_t::n</references>
+        <references refid="mesh_8c_1af4105a479c40a7a38d0e65d7a9fd31e3" compoundref="mesh_8c" startline="47">nBCsides</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structnode__t_1a3eaaa938f4adef906b28c0afcaf511d6" compoundref="mesh_8h" startline="27">node_t::next</references>
+        <references refid="structboundary__t_1ab8a5ed24e3899dd05b5620d5c246e4f4" compoundref="boundary_8h" startline="45">boundary_t::next</references>
+        <references refid="structside__t_1a9519a3d15c3f8d19cb53faee3e8057e3" compoundref="mesh_8h" startline="52">side_t::next</references>
+        <references refid="structsidePtr__t_1a07e583b0bc2894098dc1cd0994d3a904" compoundref="mesh_8h" startline="63">sidePtr_t::next</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="structside__t_1af9ea3a8abd427e9545645451cf6ae735" compoundref="mesh_8h" startline="50">side_t::nextElemSide</references>
+        <references refid="mesh_8c_1a8fdbb3d298b293e79aca09b41475dce5" compoundref="mesh_8c" startline="48">nInnerSides</references>
+        <references refid="mesh_8c_1aecf0b7c7b75557debb63e881d01279f3" compoundref="mesh_8c" startline="40">nNodes</references>
+        <references refid="structside__t_1a9cc5a57e92366ae16be380f2f6d7d538" compoundref="mesh_8h" startline="54">side_t::node</references>
+        <references refid="structsideList__t_1a7510937465f5c93123561b22511117c0" compoundref="mesh_8c" startline="71">sideList_t::node</references>
+        <references refid="structelem__t_1a7cfe47e10959ed23ba2fa2f9be7dd6e0" compoundref="mesh_8h" startline="99">elem_t::node</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1afbd57a358fb19f827a5776af788d1c75" compoundref="mesh_8c" startline="46">nSides</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5ae4379d044711537d9ce3b3b58c575c58" compoundref="main_8h" startline="51">PERIODIC</references>
+        <references refid="mesh_8c_1acd435aee1299f3cc3c9f5f41c721ba41" compoundref="mesh_8c" startline="1154" endline="1395">readCGNS</references>
+        <references refid="mesh_8c_1ad115561a58316b60d3e496de01cba336" compoundref="mesh_8c" startline="1005" endline="1142">readEMC2</references>
+        <references refid="mesh_8c_1a185ef55c6ea96a0e1cb71dcea2e289b3" compoundref="mesh_8c" startline="499" endline="993">readGmsh</references>
+        <references refid="mesh_8c_1a12ab5a8a3e4999ba4d8c26798740ce7f" compoundref="mesh_8c" startline="58">side</references>
+        <references refid="structsidePtr__t_1ab625c071458f8de30c9192922fd368df" compoundref="mesh_8h" startline="62">sidePtr_t::side</references>
+        <references refid="structsideList__t_1ab03f607a00cb4abee5b6ac01e9f073f1" compoundref="mesh_8c" startline="73">sideList_t::side</references>
+        <references refid="mesh_8c_1a248d8abe20644d580d9eaeab709e6f24" compoundref="mesh_8c" startline="30">strMeshFile</references>
+        <references refid="mesh_8c_1a24161a93b14d1764d58c30d83d059b1f" compoundref="mesh_8c" startline="29">strMeshFormat</references>
+        <references refid="mesh_8c_1a5ed9f100fb09214d4712feb0a30012be" compoundref="mesh_8c" startline="50">totalArea_q</references>
+        <references refid="main_8h_1ae4fb69053e3169f00e40c379de9b18ceac89ce62fe1fa4f8e316031d7754f478a" compoundref="main_8h" startline="69">UNSTRUCTURED</references>
+        <references refid="structnode__t_1ac9c68656cac6474e37d0107198b51d5f" compoundref="mesh_8h" startline="26">node_t::x</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="mesh_8c_1a1bb980dbe87946bc22572d65feeede5c" compoundref="mesh_8c" startline="52">xMax</references>
+        <references refid="mesh_8c_1a0da3ee9d9cd0abef10c10e090a94f069" compoundref="mesh_8c" startline="51">xMin</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <references refid="mesh_8c_1a0d6c1993983b373f049cf11435200fb7" compoundref="mesh_8c" startline="54">yMax</references>
+        <references refid="mesh_8c_1a20d4c5d114c7d71b216de17d8351b407" compoundref="mesh_8c" startline="53">yMin</references>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1a64836def5d6de80737e6da8210065f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readMesh</definition>
+        <argsstring>(void)</argsstring>
+        <name>readMesh</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Read in and store the mesh parameters from the parameter file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1850" column="6" bodyfile="src/mesh.c" bodystart="1850" bodyend="1910"/>
+        <references refid="readInTools_8c_1ad920bf2e8d08267c632f9d48f6932d43" compoundref="readInTools_8c" startline="269" endline="277">getInt</references>
+        <references refid="main_8h_1ae4fb69053e3169f00e40c379de9b18ceac89ce62fe1fa4f8e316031d7754f478a" compoundref="main_8h" startline="69">UNSTRUCTURED</references>
+        <references refid="readInTools_8c_1ad1537cf7beba1f694aaeab670b9a4afd" compoundref="readInTools_8c" startline="210" endline="216">getStr</references>
+        <references refid="mesh_8c_1a24161a93b14d1764d58c30d83d059b1f" compoundref="mesh_8c" startline="29">strMeshFormat</references>
+        <references refid="mesh_8c_1a248d8abe20644d580d9eaeab709e6f24" compoundref="mesh_8c" startline="30">strMeshFile</references>
+        <references refid="main_8h_1ae4fb69053e3169f00e40c379de9b18cead0f64430e58c5010eddd5289ab519800" compoundref="main_8h" startline="70">CARTESIAN</references>
+        <references refid="mesh_8c_1a1b67b6ba30cbf11958dca44a8b7a73e7" compoundref="mesh_8c" startline="34">cartMesh</references>
+        <references refid="structcartMesh__t_1aad2326d1e4a4b34e1a29ca1d2cdf6025" compoundref="mesh_8h" startline="106">cartMesh_t::iMax</references>
+        <references refid="structcartMesh__t_1ad50119c30a0c863bade8ddef161d8091" compoundref="mesh_8h" startline="107">cartMesh_t::jMax</references>
+        <references refid="readInTools_8c_1ae70140bbdb2b646ee2b5814a4eeec25d" compoundref="readInTools_8c" startline="379" endline="405">getDblArray</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="mesh_8c_1a0da3ee9d9cd0abef10c10e090a94f069" compoundref="mesh_8c" startline="51">xMin</references>
+        <references refid="mesh_8c_1a20d4c5d114c7d71b216de17d8351b407" compoundref="mesh_8c" startline="53">yMin</references>
+        <references refid="mesh_8c_1a1bb980dbe87946bc22572d65feeede5c" compoundref="mesh_8c" startline="52">xMax</references>
+        <references refid="mesh_8c_1a0d6c1993983b373f049cf11435200fb7" compoundref="mesh_8c" startline="54">yMax</references>
+        <references refid="structcartMesh__t_1a9920a4f1771e8abc08dc06a2ab4383de" compoundref="mesh_8h" startline="108">cartMesh_t::nBC</references>
+        <references refid="readInTools_8c_1aa17bbb9b3a07995ce15ba872ba3298c4" compoundref="readInTools_8c" startline="339" endline="365">getIntArray</references>
+        <references refid="structcartMesh__t_1a1af03ea8cb289e3214b00b9f22cb0426" compoundref="mesh_8h" startline="109">cartMesh_t::BCtype</references>
+        <references refid="structcartMesh__t_1a6d6f8744aec8cb02732787db0fc60243" compoundref="mesh_8h" startline="110">cartMesh_t::BCrange</references>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1a17d950e582eb77dc42fc1f6799573462" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initMesh</definition>
+        <argsstring>(void)</argsstring>
+        <name>initMesh</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the mesh and call <computeroutput>readMesh</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1915" column="6" bodyfile="src/mesh.c" bodystart="1915" bodyend="1925"/>
+        <references refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</references>
+        <references refid="mesh_8c_1a81c60aff0b3e98cafc32108efc25be9d" compoundref="mesh_8c" startline="35">gridFile</references>
+        <references refid="output_8c_1a4216b320947c90fd5bf3dfa416ddc2f9" compoundref="output_8c" startline="25">strOutFile</references>
+        <references refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</references>
+        <references refid="output_8c_1ad03b08ac896405ca97227fefdaecf86e" compoundref="output_8c" startline="28">iVisuProg</references>
+        <references refid="main_8h_1a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821" compoundref="main_8h" startline="111">CGNS</references>
+        <references refid="timeDiscretization_8c_1a1dec7d02ca38afdc0387769a6a941b4d" compoundref="timeDiscretization_8c" startline="50">isRestart</references>
+        <references refid="output_8c_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="mesh_8c_1ae33bfb3c739903927db7f7a54278638e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeMesh</definition>
+        <argsstring>(void)</argsstring>
+        <name>freeMesh</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free all allocated memory of the mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.c" line="1930" column="6" bodyfile="src/mesh.c" bodystart="1930" bodyend="1985"/>
+        <references refid="mesh_8c_1a668f64e970a10189e66050633799a1e5" compoundref="mesh_8c" startline="62">firstNode</references>
+        <references refid="structnode__t_1a3eaaa938f4adef906b28c0afcaf511d6" compoundref="mesh_8h" startline="27">node_t::next</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="mesh_8c_1a6e0032342c22164db03323d0119d843e" compoundref="mesh_8c" startline="57">elem</references>
+        <references refid="structelem__t_1ab70512e8993ec15290013e2463714db8" compoundref="mesh_8h" startline="94">elem_t::xGP</references>
+        <references refid="structelem__t_1a53dd518b1120e64d5071661890a87187" compoundref="mesh_8h" startline="95">elem_t::wGP</references>
+        <references refid="structelem__t_1a7cfe47e10959ed23ba2fa2f9be7dd6e0" compoundref="mesh_8h" startline="99">elem_t::node</references>
+        <references refid="structelem__t_1a3e94a79a5b58bd0b0a21528b641cd56d" compoundref="mesh_8h" startline="96">elem_t::firstSide</references>
+        <references refid="structside__t_1af9ea3a8abd427e9545645451cf6ae735" compoundref="mesh_8h" startline="50">side_t::nextElemSide</references>
+        <references refid="mesh_8c_1a12ab5a8a3e4999ba4d8c26798740ce7f" compoundref="mesh_8c" startline="58">side</references>
+        <references refid="mesh_8c_1a71f662759be11886778b12b0b996fd5a" compoundref="mesh_8c" startline="64">firstBCside</references>
+        <references refid="structsidePtr__t_1a07e583b0bc2894098dc1cd0994d3a904" compoundref="mesh_8h" startline="63">sidePtr_t::next</references>
+        <references refid="structsidePtr__t_1ab625c071458f8de30c9192922fd368df" compoundref="mesh_8h" startline="62">sidePtr_t::side</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains all the functions for reading and creating meshes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Tue 24 Mar 2020 12:45:57 PM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/mesh.c"/>
+  </compounddef>
+</doxygen>

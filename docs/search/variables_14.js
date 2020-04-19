@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['value_676',['value',['../structcmd__t.html#a124bb00c5bcae276868b450c1a4bcfdb',1,'cmd_t']]],
-  ['venk_5fk_677',['venk_k',['../reconstruction_8c.html#a8ae8a27510ada32e9a17cd0dbc4570f4',1,'venk_k():&#160;reconstruction.c'],['../reconstruction_8h.html#a8ae8a27510ada32e9a17cd0dbc4570f4',1,'venk_k():&#160;reconstruction.c']]],
-  ['venkeps_5fsq_678',['venkEps_sq',['../structelem__t.html#a994a15be74995aadab86fcadfe854879',1,'elem_t']]]
+  ['u_5ft_698',['u_t',['../structelem__t.html#acabc83b271c0a47c78784c27c8679ff3',1,'elem_t']]],
+  ['u_5fx_699',['u_x',['../structelem__t.html#a4cfe2b97df89f4e932e66313e41c34c5',1,'elem_t']]],
+  ['u_5fy_700',['u_y',['../structelem__t.html#ac34bf18319993ccd9502b5af3a9904be',1,'elem_t']]],
+  ['useprecond_701',['usePrecond',['../linearSolver_8c.html#afb497e8766ebb2549198f4a1ed0115a0',1,'usePrecond():&#160;linearSolver.c'],['../linearSolver_8h.html#afb497e8766ebb2549198f4a1ed0115a0',1,'usePrecond():&#160;linearSolver.c']]]
 ];

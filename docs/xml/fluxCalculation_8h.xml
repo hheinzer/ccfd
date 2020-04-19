@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="fluxCalculation_8h" kind="file" language="C++">
+    <compoundname>fluxCalculation.h</compoundname>
+    <includedby refid="finiteVolume_8c" local="yes">src/finiteVolume.c</includedby>
+    <includedby refid="linearSolver_8c" local="yes">src/linearSolver.c</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/linearSolver.c</label>
+        <link refid="linearSolver_8c"/>
+      </node>
+      <node id="2">
+        <label>src/finiteVolume.c</label>
+        <link refid="finiteVolume_8c"/>
+      </node>
+      <node id="1">
+        <label>src/fluxCalculation.h</label>
+        <link refid="fluxCalculation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fluxCalculation_8h_1a5537734044975e3108fc1acefae6b94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fluxCalculation</definition>
+        <argsstring>(void)</argsstring>
+        <name>fluxCalculation</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Perform the flux calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculation of left and right state, the velocity vector is transformed into the normal system of the cell interfaces. The function finishes with a back rotation of the velocity vector into global coordinate system. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.h" line="10" column="6" bodyfile="src/fluxCalculation.c" bodystart="882" bodyend="998" declfile="src/fluxCalculation.h" declline="10" declcolumn="6"/>
+        <references refid="structside__t_1a31ab5541163a146fe3d29f5d7c157485" compoundref="mesh_8h" startline="43">side_t::baryBaryDist</references>
+        <references refid="structside__t_1ae8b94afda06339d391d50c144570c019" compoundref="mesh_8h" startline="41">side_t::baryBaryVec</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="structside__t_1a226ad839495e85685c5b4f91a8470a8a" compoundref="mesh_8h" startline="48">side_t::flux</references>
+        <references refid="structside__t_1a1e113105b88ab0a04d9037b4c1c6d7e0" compoundref="mesh_8h" startline="40">side_t::len</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="structside__t_1a681553e1f4d5ecada55c7efe70ffc6cf" compoundref="mesh_8h" startline="39">side_t::n</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="mesh_8c_1afbd57a358fb19f827a5776af788d1c75" compoundref="mesh_8c" startline="46">nSides</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structside__t_1a608efb712ac8c943cf63ccce2ea97f7a" compoundref="mesh_8h" startline="38">side_t::pVar</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="mesh_8c_1a12ab5a8a3e4999ba4d8c26798740ce7f" compoundref="mesh_8c" startline="58">side</references>
+        <references refid="structelem__t_1a4cfe2b97df89f4e932e66313e41c34c5" compoundref="mesh_8h" startline="84">elem_t::u_x</references>
+        <references refid="structelem__t_1ac34bf18319993ccd9502b5af3a9904be" compoundref="mesh_8h" startline="85">elem_t::u_y</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Tue 31 Mar 2020 05:18:46 PM CEST </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/fluxCalculation.h"/>
+  </compounddef>
+</doxygen>

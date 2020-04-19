@@ -1,0 +1,742 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="output_8c" kind="file" language="C++">
+    <compoundname>output.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">omp.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="output_8h" local="yes">output.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="timeDiscretization_8h" local="yes">timeDiscretization.h</includes>
+    <includes refid="analyze_8h" local="yes">analyze.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <includes refid="exactFunction_8h" local="yes">exactFunction.h</includes>
+    <includes local="yes">cgnslib.h</includes>
+    <includes refid="memTools_8h" local="yes">memTools.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="13">
+        <label>analyze.h</label>
+        <link refid="analyze_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>exactFunction.h</label>
+        <link refid="exactFunction_8h"/>
+      </node>
+      <node id="1">
+        <label>src/output.c</label>
+        <link refid="output_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>output.h</label>
+        <link refid="output_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="18">
+        <label>cgnslib.h</label>
+      </node>
+      <node id="4">
+        <label>omp.h</label>
+      </node>
+      <node id="15">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>timeDiscretization.h</label>
+        <link refid="timeDiscretization_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="19">
+        <label>memTools.h</label>
+        <link refid="memTools_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="10">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="output_8c_1a4216b320947c90fd5bf3dfa416ddc2f9" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char strOutFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>strOutFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>name of the output file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="25" column="6" bodyfile="src/output.c" bodystart="25" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+        <referencedby refid="analyze_8h_1a70b9012501fad23336c48db84f69c94c" compoundref="analyze_8c" startline="199" endline="287">initAnalyze</referencedby>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+        <referencedby refid="analyze_8c_1a8dfb9a6f986ddcade64d191141b9c324" compoundref="analyze_8c" startline="34" endline="90">initRecordPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1a161a7d1b735a467afa626d76858f5cf1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double IOtimeInterval</definition>
+        <argsstring></argsstring>
+        <name>IOtimeInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>time interval for data output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="26" column="8" bodyfile="src/output.c" bodystart="26" bodyend="-1"/>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1a721d34ce99600a072eaaa5a434205f3b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int IOiterInterval</definition>
+        <argsstring></argsstring>
+        <name>IOiterInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>iteration interval for data output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="27" column="5" bodyfile="src/output.c" bodystart="27" bodyend="-1"/>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1ad03b08ac896405ca97227fefdaecf86e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int iVisuProg</definition>
+        <argsstring></argsstring>
+        <name>iVisuProg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output format code </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="28" column="5" bodyfile="src/output.c" bodystart="28" bodyend="-1"/>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+        <referencedby refid="output_8h_1aa4a67d4bf2b31b54e968a7dc81ebe962" compoundref="output_8c" startline="526" endline="531">finalizeDataOutput</referencedby>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1aad3cc448dc2ebf66ff33a66195cfbebc" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char parameterFile[STRLEN]</definition>
+        <argsstring>[STRLEN]</argsstring>
+        <name>parameterFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>name of the parameter file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="29" column="6" bodyfile="src/output.c" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1ada9bcfe5cfbb7ef3c5a2f9db1041b49d" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* resFile</definition>
+        <argsstring></argsstring>
+        <name>resFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>residual file pointer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="30" column="6" bodyfile="src/output.c" bodystart="30" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a5bc9f64ac7233292ac4fd9fb6a5fe52a" compoundref="analyze_8c" startline="411" endline="438">analyze</referencedby>
+        <referencedby refid="analyze_8h_1a70b9012501fad23336c48db84f69c94c" compoundref="analyze_8c" startline="199" endline="287">initAnalyze</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1a99da6d219a27bf67fadbe53a6bab0bfd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool doErrorOutput</definition>
+        <argsstring></argsstring>
+        <name>doErrorOutput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>error output flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="31" column="6" bodyfile="src/output.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="output_8c_1aef18fcacea58b72323dada137e2657e1" prot="public" static="no" mutable="no">
+        <type><ref refid="structoutputTime__t" kindref="compound">outputTime_t</ref> *</type>
+        <definition>outputTime_t* outputTimes</definition>
+        <argsstring></argsstring>
+        <name>outputTimes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the first output time object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="32" column="14" bodyfile="src/output.c" bodystart="32" bodyend="-1"/>
+        <referencedby refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</referencedby>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+        <referencedby refid="output_8h_1ae15c0a360681de8b69dc6c3af87f00d4" compoundref="output_8c" startline="687" endline="700">freeOutputTimes</referencedby>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="output_8c_1adfc0a8bf3db752ff6b5b12d190835705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initOutput</definition>
+        <argsstring>(void)</argsstring>
+        <name>initOutput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="37" column="6" bodyfile="src/output.c" bodystart="37" bodyend="48"/>
+        <references refid="readInTools_8c_1ad1537cf7beba1f694aaeab670b9a4afd" compoundref="readInTools_8c" startline="210" endline="216">getStr</references>
+        <references refid="output_8c_1a4216b320947c90fd5bf3dfa416ddc2f9" compoundref="output_8c" startline="25">strOutFile</references>
+        <references refid="output_8c_1a161a7d1b735a467afa626d76858f5cf1" compoundref="output_8c" startline="26">IOtimeInterval</references>
+        <references refid="readInTools_8c_1a21afe1e7fa3e486a19cf7678b53f1782" compoundref="readInTools_8c" startline="289" endline="297">getDbl</references>
+        <references refid="output_8c_1a721d34ce99600a072eaaa5a434205f3b" compoundref="output_8c" startline="27">IOiterInterval</references>
+        <references refid="output_8c_1ad03b08ac896405ca97227fefdaecf86e" compoundref="output_8c" startline="28">iVisuProg</references>
+        <references refid="readInTools_8c_1ad920bf2e8d08267c632f9d48f6932d43" compoundref="readInTools_8c" startline="269" endline="277">getInt</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1a7265ebed08d72389bfa04530feaf577f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void csvOutput</definition>
+        <argsstring>(char fileName[STRLEN], double time, long iter, bool doExact)</argsstring>
+        <name>csvOutput</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>doExact</declname>
+        </param>
+        <briefdescription>
+<para>Tabular CSV output, only for 1D data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the output file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The computational time of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">iter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The iteration number of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">doExact</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the exact exact solution should be written, instead of the computed flow results </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="58" column="6" bodyfile="src/output.c" bodystart="58" bodyend="115"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="equation_8c_1a9d043fa680da2f216f05af6c09975a96" compoundref="equation_8c" startline="31">intExactFunc</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cgnsOutput</definition>
+        <argsstring>(char fileName[STRLEN], double time, long iter, bool doExact)</argsstring>
+        <name>cgnsOutput</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>doExact</declname>
+        </param>
+        <briefdescription>
+<para>Write solution to CGNS file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the output file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The computational time of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">iter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The iteration number of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">doExact</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the exact exact solution should be written, instead of the computed flow results </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="125" column="6" bodyfile="src/output.c" bodystart="125" bodyend="247"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="mesh_8c_1a81c60aff0b3e98cafc32108efc25be9d" compoundref="mesh_8c" startline="35">gridFile</references>
+        <references refid="analyze_8c_1a4d708c137e2f1020d088555f63416228" compoundref="analyze_8c" startline="29">hasExactSolution</references>
+        <references refid="structelem__t_1aed7c0b9caae53e6a8ee5fed26d3f8343" compoundref="mesh_8h" startline="73">elem_t::id</references>
+        <references refid="equation_8c_1a9d043fa680da2f216f05af6c09975a96" compoundref="equation_8c" startline="31">intExactFunc</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="mesh_8c_1aecf0b7c7b75557debb63e881d01279f3" compoundref="mesh_8c" startline="40">nNodes</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="timeDiscretization_8c_1a12439b3d8d0b98ef24a67fbaf6904842" compoundref="timeDiscretization_8c" startline="33">timeOverall</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1afe6417bdb8b04364e1805825390f9015" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void curveOutput</definition>
+        <argsstring>(char fileName[STRLEN], double time, long iter, bool doExact)</argsstring>
+        <name>curveOutput</name>
+        <param>
+          <type>char</type>
+          <declname>fileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>doExact</declname>
+        </param>
+        <briefdescription>
+<para>Curve data output, only for 1D data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fileName[STRLEN]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the output file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The computational time of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">iter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The iteration number of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">doExact</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the exact exact solution should be written, instead of the computed flow results </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="257" column="6" bodyfile="src/output.c" bodystart="257" bodyend="331"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="equation_8c_1a9d043fa680da2f216f05af6c09975a96" compoundref="equation_8c" startline="31">intExactFunc</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <referencedby refid="output_8h_1ae87e520489695393cd37eed3274555ba" compoundref="output_8c" startline="338" endline="402">dataOutput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1ae87e520489695393cd37eed3274555ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dataOutput</definition>
+        <argsstring>(double time, long iter)</argsstring>
+        <name>dataOutput</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>iter</declname>
+        </param>
+        <briefdescription>
+<para>Perform a data output, dependent on the output format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The computational time of the output result </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">iter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The iteration number of the output result </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="338" column="6" bodyfile="src/output.c" bodystart="338" bodyend="402"/>
+        <references refid="main_8h_1a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821" compoundref="main_8h" startline="111">CGNS</references>
+        <references refid="output_8c_1a80cb598c53b94acc7303a0a3b5e7ab26" compoundref="output_8c" startline="125" endline="247">cgnsOutput</references>
+        <references refid="main_8h_1a8351b0355736eb927c468918a1c88755a2b10dde645e767164fc3de2ddbf14399" compoundref="main_8h" startline="113">CSV</references>
+        <references refid="output_8c_1a7265ebed08d72389bfa04530feaf577f" compoundref="output_8c" startline="58" endline="115">csvOutput</references>
+        <references refid="main_8h_1a8351b0355736eb927c468918a1c88755a2267c8aab80fd31714c264f251e343cf" compoundref="main_8h" startline="112">CURVE</references>
+        <references refid="output_8c_1afe6417bdb8b04364e1805825390f9015" compoundref="output_8c" startline="257" endline="331">curveOutput</references>
+        <references refid="analyze_8c_1a4d708c137e2f1020d088555f63416228" compoundref="analyze_8c" startline="29">hasExactSolution</references>
+        <references refid="timeDiscretization_8c_1a5353791aec73a539197da84bce53d009" compoundref="timeDiscretization_8c" startline="38">isStationary</references>
+        <references refid="structoutputTime__t_1adaccfbd26f9aa631ee0c8d62aa1dc838" compoundref="output_8h" startline="21">outputTime_t::iter</references>
+        <references refid="output_8c_1ad03b08ac896405ca97227fefdaecf86e" compoundref="output_8c" startline="28">iVisuProg</references>
+        <references refid="structoutputTime__t_1a4bde0a6d21407629692810b9bb057795" compoundref="output_8h" startline="23">outputTime_t::next</references>
+        <references refid="output_8c_1aef18fcacea58b72323dada137e2657e1" compoundref="output_8c" startline="32">outputTimes</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="output_8c_1a4216b320947c90fd5bf3dfa416ddc2f9" compoundref="output_8c" startline="25">strOutFile</references>
+        <references refid="structoutputTime__t_1a582a8e9c33e61425339cf329f546ec1a" compoundref="output_8h" startline="22">outputTime_t::time</references>
+        <referencedby refid="timeDiscretization_8h_1af1ed0288ac4a53f6a6420ff34799197b" compoundref="timeDiscretization_8c" startline="562" endline="780">timeDisc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cgnsFinalizeOutput</definition>
+        <argsstring>(void)</argsstring>
+        <name>cgnsFinalizeOutput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Finalize CGNS output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function creates a <computeroutput>&lt;case&gt;_Master.cgns</computeroutput> file that has links to all the output times of previous flow solutions. This makes it easier to load an entire case into ParaView. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="411" column="6" bodyfile="src/output.c" bodystart="411" bodyend="521"/>
+        <references refid="mesh_8c_1a81c60aff0b3e98cafc32108efc25be9d" compoundref="mesh_8c" startline="35">gridFile</references>
+        <references refid="timeDiscretization_8c_1a5353791aec73a539197da84bce53d009" compoundref="timeDiscretization_8c" startline="38">isStationary</references>
+        <references refid="structoutputTime__t_1adaccfbd26f9aa631ee0c8d62aa1dc838" compoundref="output_8h" startline="21">outputTime_t::iter</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structoutputTime__t_1a4bde0a6d21407629692810b9bb057795" compoundref="output_8h" startline="23">outputTime_t::next</references>
+        <references refid="mesh_8c_1aecf0b7c7b75557debb63e881d01279f3" compoundref="mesh_8c" startline="40">nNodes</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="output_8c_1aef18fcacea58b72323dada137e2657e1" compoundref="output_8c" startline="32">outputTimes</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="output_8c_1a4216b320947c90fd5bf3dfa416ddc2f9" compoundref="output_8c" startline="25">strOutFile</references>
+        <references refid="structoutputTime__t_1a582a8e9c33e61425339cf329f546ec1a" compoundref="output_8h" startline="22">outputTime_t::time</references>
+        <referencedby refid="output_8h_1aa4a67d4bf2b31b54e968a7dc81ebe962" compoundref="output_8c" startline="526" endline="531">finalizeDataOutput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1aa4a67d4bf2b31b54e968a7dc81ebe962" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void finalizeDataOutput</definition>
+        <argsstring>(void)</argsstring>
+        <name>finalizeDataOutput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Finalize the data output, if necessary. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="526" column="6" bodyfile="src/output.c" bodystart="526" bodyend="531"/>
+        <references refid="output_8c_1ad03b08ac896405ca97227fefdaecf86e" compoundref="output_8c" startline="28">iVisuProg</references>
+        <references refid="main_8h_1a8351b0355736eb927c468918a1c88755a13cc14817e40c7a9acc18a09acbd9821" compoundref="main_8h" startline="111">CGNS</references>
+        <references refid="output_8c_1a1c6863c83597ce8aa090f76ae3c955d1" compoundref="output_8c" startline="411" endline="521">cgnsFinalizeOutput</references>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1aafd430315c490e75d714c542eb4142c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cgnsWriteMesh</definition>
+        <argsstring>(void)</argsstring>
+        <name>cgnsWriteMesh</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Write the generated mesh to a CGNS mesh file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="536" column="6" bodyfile="src/output.c" bodystart="536" bodyend="682"/>
+        <references refid="mesh_8c_1aecf0b7c7b75557debb63e881d01279f3" compoundref="mesh_8c" startline="40">nNodes</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="memTools_8c_1a555f8aaab3eb85069f3e566aa6a90305" compoundref="memTools_8c" startline="49" endline="62">dyn2DcgsizeArray</references>
+        <references refid="mesh_8c_1ad5d7eb9d50e79640a8723471bc5374a4" compoundref="mesh_8c" startline="43">nTrias</references>
+        <references refid="mesh_8c_1ad275c3f0ea13662bcdcab5c6d71bbe22" compoundref="mesh_8c" startline="44">nQuads</references>
+        <references refid="mesh_8c_1af4105a479c40a7a38d0e65d7a9fd31e3" compoundref="mesh_8c" startline="47">nBCsides</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="mesh_8c_1a668f64e970a10189e66050633799a1e5" compoundref="mesh_8c" startline="62">firstNode</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="structnode__t_1ac9c68656cac6474e37d0107198b51d5f" compoundref="mesh_8h" startline="26">node_t::x</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <references refid="structnode__t_1a70b0d0d3e99ecf59dea25268ea4d7a96" compoundref="mesh_8h" startline="25">node_t::id</references>
+        <references refid="structnode__t_1a3eaaa938f4adef906b28c0afcaf511d6" compoundref="mesh_8h" startline="27">node_t::next</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="structelem__t_1a6b03b73d1b8d280dabd1245c2f9b1226" compoundref="mesh_8h" startline="71">elem_t::elemType</references>
+        <references refid="structelem__t_1a7cfe47e10959ed23ba2fa2f9be7dd6e0" compoundref="mesh_8h" startline="99">elem_t::node</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="boundary_8c_1ac55cda497e2daf9060d1e76e82acfbaf" compoundref="boundary_8c" startline="23">nBC</references>
+        <references refid="boundary_8c_1a2a3bc5f300e558c74fb465fed8302a3e" compoundref="boundary_8c" startline="24">isPeriodic</references>
+        <references refid="boundary_8c_1a1924efe793f0519fdc672e20188a93fa" compoundref="boundary_8c" startline="22">firstBC</references>
+        <references refid="mesh_8c_1a71f662759be11886778b12b0b996fd5a" compoundref="mesh_8c" startline="64">firstBCside</references>
+        <references refid="structsidePtr__t_1ab625c071458f8de30c9192922fd368df" compoundref="mesh_8h" startline="62">sidePtr_t::side</references>
+        <references refid="structside__t_1a139dc5b219477299c80ebed6f99e1f1f" compoundref="mesh_8h" startline="37">side_t::BC</references>
+        <references refid="structside__t_1a9cc5a57e92366ae16be380f2f6d7d538" compoundref="mesh_8h" startline="54">side_t::node</references>
+        <references refid="structsidePtr__t_1a07e583b0bc2894098dc1cd0994d3a904" compoundref="mesh_8h" startline="63">sidePtr_t::next</references>
+        <references refid="structboundary__t_1ab8a5ed24e3899dd05b5620d5c246e4f4" compoundref="boundary_8h" startline="45">boundary_t::next</references>
+        <references refid="mesh_8c_1a81c60aff0b3e98cafc32108efc25be9d" compoundref="mesh_8c" startline="35">gridFile</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="structboundary__t_1ab4df5ad3a5ce485cf87755f498ce60cf" compoundref="boundary_8h" startline="23">boundary_t::BCtype</references>
+        <references refid="structboundary__t_1ab12159c6b757bdf0490adfe836693398" compoundref="boundary_8h" startline="32">boundary_t::BCid</references>
+        <referencedby refid="mesh_8h_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="output_8c_1ae15c0a360681de8b69dc6c3af87f00d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeOutputTimes</definition>
+        <argsstring>(void)</argsstring>
+        <name>freeOutputTimes</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free all memory that was allocated for the output times. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/output.c" line="687" column="6" bodyfile="src/output.c" bodystart="687" bodyend="700"/>
+        <references refid="output_8c_1aef18fcacea58b72323dada137e2657e1" compoundref="output_8c" startline="32">outputTimes</references>
+        <references refid="structoutputTime__t_1a4bde0a6d21407629692810b9bb057795" compoundref="output_8h" startline="23">outputTime_t::next</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains all functions used for writing flow solutions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Mon 23 Mar 2020 10:42:06 PM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/output.c"/>
+  </compounddef>
+</doxygen>

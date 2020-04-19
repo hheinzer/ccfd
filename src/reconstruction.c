@@ -20,7 +20,7 @@ double venk_k;				/**< constant for Venkatakrishnan limiter */
 /**
  * \brief Limiter after Barth & Jespersen
  * \note 2D, unstructured limiter
- * \param[in] *aElem Pointer to an element
+ * \param[in] aElem Pointer to an element
  */
 void limiterBarthJespersen(elem_t *aElem)
 {
@@ -98,7 +98,7 @@ void limiterBarthJespersen(elem_t *aElem)
 /**
  * \brief Limiter after Venkatakrishnan, with additional limiting parameter k
  * \note 2D, unstructured limiter
- * \param[in] *aElem Pointer to an element
+ * \param[in] aElem Pointer to an element
  */
 void limiterVenkatakrishnan(elem_t *aElem)
 {

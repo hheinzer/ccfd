@@ -43,9 +43,7 @@ void initEquation(void)
 
 	#ifdef NAVIERSTOKES
 	printf("| Using NAVIER-STOKES equations\n");
-	#endif
-
-	#ifdef EULER
+	#else
 	printf("| Using EULER equations\n");
 	#endif
 
@@ -55,9 +53,7 @@ void initEquation(void)
 	#ifdef NAVIERSTOKES
 	mu = getDbl("mu", "0.0");
 	Pr = getDbl("Pr", "0.72");
-	#endif
-
-	#ifdef EULER
+	#else
 	mu = 0.0;
 	Pr = 0.72;
 	#endif

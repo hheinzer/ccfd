@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="main_8c" kind="file" language="C++">
+    <compoundname>main.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="timeDiscretization_8h" local="yes">timeDiscretization.h</includes>
+    <includes refid="output_8h" local="yes">output.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <includes refid="boundary_8h" local="yes">boundary.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="initialCondition_8h" local="yes">initialCondition.h</includes>
+    <includes refid="finiteVolume_8h" local="yes">finiteVolume.h</includes>
+    <includes refid="linearSolver_8h" local="yes">linearSolver.h</includes>
+    <includes refid="analyze_8h" local="yes">analyze.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="17">
+        <label>analyze.h</label>
+        <link refid="analyze_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>linearSolver.h</label>
+        <link refid="linearSolver_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>output.h</label>
+        <link refid="output_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="13">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>timeDiscretization.h</label>
+        <link refid="timeDiscretization_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>finiteVolume.h</label>
+        <link refid="finiteVolume_8h"/>
+      </node>
+      <node id="14">
+        <label>initialCondition.h</label>
+        <link refid="initialCondition_8h"/>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="12">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>time.h</label>
+      </node>
+      <node id="6">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Main function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function starts the program by initializing all the necessary global variables and initializing the time discretization loop. The function finishes be deallocating all the allocated memory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of command line arguments passed to <computeroutput>main</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">argv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The argument vector containing the command line arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 = Success, 1 = Error during execution </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.c" line="35" column="5" bodyfile="src/main.c" bodystart="35" bodyend="130"/>
+        <references refid="readInTools_8c_1aae07b562b487646845b24aa277a191f3" compoundref="readInTools_8c" startline="38" endline="105">fillCmds</references>
+        <references refid="analyze_8c_1a0b874bfa16c481db6ff3bedb28a832b7" compoundref="analyze_8c" startline="544" endline="571">freeAnalyze</references>
+        <references refid="boundary_8c_1a9a28f864619366666b36443f7ca92f06" compoundref="boundary_8c" startline="336" endline="350">freeBoundary</references>
+        <references refid="initialCondition_8c_1a534f3cde02c24d15dc0ac3d71344409e" compoundref="initialCondition_8c" startline="230" endline="235">freeInitialCondition</references>
+        <references refid="linearSolver_8c_1ab49b5b210a947acdec5ca4ff058d9ba4" compoundref="linearSolver_8c" startline="520" endline="537">freeLinearSolver</references>
+        <references refid="mesh_8c_1ae33bfb3c739903927db7f7a54278638e" compoundref="mesh_8c" startline="1930" endline="1985">freeMesh</references>
+        <references refid="output_8c_1ae15c0a360681de8b69dc6c3af87f00d4" compoundref="output_8c" startline="687" endline="700">freeOutputTimes</references>
+        <references refid="readInTools_8c_1a54ce5bb180132f80c48a1d5681df55f7" compoundref="readInTools_8c" startline="311" endline="325">getBool</references>
+        <references refid="readInTools_8c_1a6480fc1fe754a2408323da4b1bc42bfe" compoundref="readInTools_8c" startline="427" endline="436">ignoredCmds</references>
+        <references refid="timeDiscretization_8c_1aac62ef39deb7e49dc5f8ee689e6a9074" compoundref="timeDiscretization_8c" startline="41">iniIterationNumber</references>
+        <references refid="analyze_8c_1a70b9012501fad23336c48db84f69c94c" compoundref="analyze_8c" startline="199" endline="287">initAnalyze</references>
+        <references refid="boundary_8c_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</references>
+        <references refid="equation_8c_1a5feb950469f92203675668c9eba7971f" compoundref="equation_8c" startline="40" endline="128">initEquation</references>
+        <references refid="finiteVolume_8c_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</references>
+        <references refid="initialCondition_8c_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</references>
+        <references refid="linearSolver_8c_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</references>
+        <references refid="mesh_8c_1a17d950e582eb77dc42fc1f6799573462" compoundref="mesh_8c" startline="1915" endline="1925">initMesh</references>
+        <references refid="output_8c_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</references>
+        <references refid="timeDiscretization_8c_1ae237d741e17c1bb7084a26b374ac28e4" compoundref="timeDiscretization_8c" startline="69" endline="239">initTimeDisc</references>
+        <references refid="timeDiscretization_8c_1a1dec7d02ca38afdc0387769a6a941b4d" compoundref="timeDiscretization_8c" startline="50">isRestart</references>
+        <references refid="timeDiscretization_8c_1a5353791aec73a539197da84bce53d009" compoundref="timeDiscretization_8c" startline="38">isStationary</references>
+        <references refid="output_8c_1aef18fcacea58b72323dada137e2657e1" compoundref="output_8c" startline="32">outputTimes</references>
+        <references refid="timeDiscretization_8c_1ae69ad85dc74e3d38fcb455343d91d7d6" compoundref="timeDiscretization_8c" startline="51">restartTime</references>
+        <references refid="initialCondition_8c_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</references>
+        <references refid="timeDiscretization_8c_1a0a07a521d3525b9b7dc70c0a625adea0" compoundref="timeDiscretization_8c" startline="42">startTime</references>
+        <references refid="mesh_8c_1a394fda7463f47da523cd1efd5c59aeaf" compoundref="mesh_8c" startline="31">strIniCondFile</references>
+        <references refid="timeDiscretization_8c_1af1ed0288ac4a53f6a6420ff34799197b" compoundref="timeDiscretization_8c" startline="562" endline="780">timeDisc</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the main function of <computeroutput>ccfd</computeroutput> </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 21 Mar 2020 10:41:51 AM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/main.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1711 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="fluxCalculation_8c" kind="file" language="C++">
+    <compoundname>fluxCalculation.c</compoundname>
+    <includes local="no">math.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <includes refid="exactRiemann_8h" local="yes">exactRiemann.h</includes>
+    <includes refid="boundary_8h" local="yes">boundary.h</includes>
+    <includes refid="linearSolver_8h" local="yes">linearSolver.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>linearSolver.h</label>
+        <link refid="linearSolver_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>exactRiemann.h</label>
+        <link refid="exactRiemann_8h"/>
+      </node>
+      <node id="4">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/fluxCalculation.c</label>
+        <link refid="fluxCalculation_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math.h</label>
+      </node>
+      <node id="3">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fluxCalculation_8c_1a8b46ee8328797fe0d1c3a7a67a37393b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_god</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_god</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Godunov flux, which is the exact flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="30" column="6" bodyfile="src/fluxCalculation.c" bodystart="30" bodyend="53"/>
+        <references refid="exactRiemann_8c_1a94ff84b8b790fcc55b90a207197da347" compoundref="exactRiemann_8c" startline="59" endline="214">exactRiemann</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a82ec899dde881f02bd76e20a30705dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_roe</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_roe</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Roe flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="67" column="6" bodyfile="src/fluxCalculation.c" bodystart="67" bodyend="147"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="equation_8c_1a1a9c33d65ae37d8b1a72f6f63e4c81c9" compoundref="equation_8c" startline="23">gam2</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1adf19be98e07effde8ec64671b562daef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_hll</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_hll</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>HLL flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="161" column="6" bodyfile="src/fluxCalculation.c" bodystart="161" bodyend="226"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a6b74a07d29347f7db696dead0e621bc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_hlle</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_hlle</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>HLLE flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="240" column="6" bodyfile="src/fluxCalculation.c" bodystart="240" bodyend="301"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a4441c2b103408119024926dd388a2e89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_hllc</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_hllc</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>HLLC flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="315" column="6" bodyfile="src/fluxCalculation.c" bodystart="315" bodyend="396"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a71260814e9fd4b58340179fe4414f162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_lxf</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_lxf</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Lax-Friedrichs flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="410" column="6" bodyfile="src/fluxCalculation.c" bodystart="410" bodyend="446"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a504455e1e89b2b15b43cd88315eba42a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_stw</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_stw</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Steger-Warming flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="460" column="6" bodyfile="src/fluxCalculation.c" bodystart="460" bodyend="509"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1ac92afb904e9d16738e9edbf18861b158" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_cen</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_cen</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Central flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This flux is unconditionally unstable, it can be stabilized by adding artificial viscosity (Jameson method). This is not implemented, however. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="524" column="6" bodyfile="src/fluxCalculation.c" bodystart="524" bodyend="551"/>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a9b872c969055acce42ba72a13c879824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_ausmd</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_ausmd</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>AUSMD flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="565" column="6" bodyfile="src/fluxCalculation.c" bodystart="565" bodyend="611"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1ac1ab4c281fdf823d688c993c0c8e8afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_ausmdv</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_ausmdv</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>AUSMDV flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="bug_1_bug000001"><xreftitle>Bug</xreftitle><xrefdescription><para>This function produces incorrect output, refrain from using it for the time being </para>
+</xrefdescription></xrefsect><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="627" column="6" bodyfile="src/fluxCalculation.c" bodystart="627" bodyend="713"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a713a90c01c2da02c3b54a7fae9ca6cba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flux_vanleer</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>flux_vanleer</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Van Leer flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="727" column="6" bodyfile="src/fluxCalculation.c" bodystart="727" bodyend="789"/>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <referencedby refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void convectiveFlux</definition>
+        <argsstring>(double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</argsstring>
+        <name>convectiveFlux</name>
+        <param>
+          <type>double</type>
+          <declname>rhoL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhoR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vxR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vyR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pL</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pR</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluxLoc</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Select the convective flux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhoR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vxR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side x-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">vyR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side y-velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">fluxLoc[4]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local numeric flux </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="803" column="6" bodyfile="src/fluxCalculation.c" bodystart="803" bodyend="844"/>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cacdc35db71d69ad8f91f57fb0758f25fb" compoundref="main_8h" startline="85">AUSMD</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cab4d3e1a40c84c67485366c8f798149d9" compoundref="main_8h" startline="86">AUSMDV</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca29757d88a0a273e1fc4e390867deceb3" compoundref="main_8h" startline="84">CEN</references>
+        <references refid="fluxCalculation_8c_1a9b872c969055acce42ba72a13c879824" compoundref="fluxCalculation_8c" startline="565" endline="611">flux_ausmd</references>
+        <references refid="fluxCalculation_8c_1ac1ab4c281fdf823d688c993c0c8e8afe" compoundref="fluxCalculation_8c" startline="627" endline="713">flux_ausmdv</references>
+        <references refid="fluxCalculation_8c_1ac92afb904e9d16738e9edbf18861b158" compoundref="fluxCalculation_8c" startline="524" endline="551">flux_cen</references>
+        <references refid="fluxCalculation_8c_1a8b46ee8328797fe0d1c3a7a67a37393b" compoundref="fluxCalculation_8c" startline="30" endline="53">flux_god</references>
+        <references refid="fluxCalculation_8c_1adf19be98e07effde8ec64671b562daef" compoundref="fluxCalculation_8c" startline="161" endline="226">flux_hll</references>
+        <references refid="fluxCalculation_8c_1a4441c2b103408119024926dd388a2e89" compoundref="fluxCalculation_8c" startline="315" endline="396">flux_hllc</references>
+        <references refid="fluxCalculation_8c_1a6b74a07d29347f7db696dead0e621bc7" compoundref="fluxCalculation_8c" startline="240" endline="301">flux_hlle</references>
+        <references refid="fluxCalculation_8c_1a71260814e9fd4b58340179fe4414f162" compoundref="fluxCalculation_8c" startline="410" endline="446">flux_lxf</references>
+        <references refid="fluxCalculation_8c_1a82ec899dde881f02bd76e20a30705dac" compoundref="fluxCalculation_8c" startline="67" endline="147">flux_roe</references>
+        <references refid="fluxCalculation_8c_1a504455e1e89b2b15b43cd88315eba42a" compoundref="fluxCalculation_8c" startline="460" endline="509">flux_stw</references>
+        <references refid="fluxCalculation_8c_1a713a90c01c2da02c3b54a7fae9ca6cba" compoundref="fluxCalculation_8c" startline="727" endline="789">flux_vanleer</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca34fed1daeb2422887d826d127e6ad488" compoundref="main_8h" startline="77">GOD</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca869ac60899d53b5b34dc4128d6a9642c" compoundref="main_8h" startline="79">HLL</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cae330c80066d71065301805b61b28e63c" compoundref="main_8h" startline="81">HLLC</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca36fc4b7710303f6beb3272c99f612677" compoundref="main_8h" startline="80">HLLE</references>
+        <references refid="equation_8c_1a2322b0454ab77116d4528e277ae45889" compoundref="equation_8c" startline="29">iFlux</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca896ba57a36980bb39a7b474c379c4cde" compoundref="main_8h" startline="82">LXF</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca93529177c2934ca4f60d82a6b1c85c67" compoundref="main_8h" startline="78">ROE</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1ca9fdf33845f89076ce47d016f5955e9ac" compoundref="main_8h" startline="83">STW</references>
+        <references refid="main_8h_1a0c24cfd6551e3a329e6c3218633efe1cafce5814f0e3af94a462c86ae8859d0c0" compoundref="main_8h" startline="87">VANLEER</references>
+        <referencedby refid="fluxCalculation_8h_1a5537734044975e3108fc1acefae6b94c" compoundref="fluxCalculation_8c" startline="882" endline="998">fluxCalculation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="fluxCalculation_8c_1a5537734044975e3108fc1acefae6b94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fluxCalculation</definition>
+        <argsstring>(void)</argsstring>
+        <name>fluxCalculation</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Perform the flux calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculation of left and right state, the velocity vector is transformed into the normal system of the cell interfaces. The function finishes with a back rotation of the velocity vector into global coordinate system. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fluxCalculation.c" line="882" column="6" bodyfile="src/fluxCalculation.c" bodystart="882" bodyend="998"/>
+        <references refid="structside__t_1a31ab5541163a146fe3d29f5d7c157485" compoundref="mesh_8h" startline="43">side_t::baryBaryDist</references>
+        <references refid="structside__t_1ae8b94afda06339d391d50c144570c019" compoundref="mesh_8h" startline="41">side_t::baryBaryVec</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="fluxCalculation_8c_1ace705178b5d10394576035f5fda21b80" compoundref="fluxCalculation_8c" startline="803" endline="844">convectiveFlux</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="structside__t_1a226ad839495e85685c5b4f91a8470a8a" compoundref="mesh_8h" startline="48">side_t::flux</references>
+        <references refid="structside__t_1a1e113105b88ab0a04d9037b4c1c6d7e0" compoundref="mesh_8h" startline="40">side_t::len</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="structside__t_1a681553e1f4d5ecada55c7efe70ffc6cf" compoundref="mesh_8h" startline="39">side_t::n</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="mesh_8c_1afbd57a358fb19f827a5776af788d1c75" compoundref="mesh_8c" startline="46">nSides</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structside__t_1a608efb712ac8c943cf63ccce2ea97f7a" compoundref="mesh_8h" startline="38">side_t::pVar</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="mesh_8c_1a12ab5a8a3e4999ba4d8c26798740ce7f" compoundref="mesh_8c" startline="58">side</references>
+        <references refid="structelem__t_1a4cfe2b97df89f4e932e66313e41c34c5" compoundref="mesh_8h" startline="84">elem_t::u_x</references>
+        <references refid="structelem__t_1ac34bf18319993ccd9502b5af3a9904be" compoundref="mesh_8h" startline="85">elem_t::u_y</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the flux calculation functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Tue 31 Mar 2020 05:18:40 PM CEST </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/fluxCalculation.c"/>
+  </compounddef>
+</doxygen>

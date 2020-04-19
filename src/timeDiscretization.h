@@ -11,8 +11,14 @@
 #include <time.h>
 
 #ifdef _OPENMP
+/**
+ * \brief Get the CPU time for a parallel program
+ */
 #	define CPU_TIME() (omp_get_wtime())
 #else
+/**
+ * \brief Get the CPU time for a serial program
+ */
 #	define CPU_TIME() ((double)clock() / (double)CLOCKS_PER_SEC)
 #endif
 

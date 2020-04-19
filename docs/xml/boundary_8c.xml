@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="boundary_8c" kind="file" language="C++">
+    <compoundname>boundary.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="boundary_8h" local="yes">boundary.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="equationOfState_8h" local="yes">equationOfState.h</includes>
+    <includes refid="exactFunction_8h" local="yes">exactFunction.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="12">
+        <label>exactFunction.h</label>
+        <link refid="exactFunction_8h"/>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="11">
+        <label>equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/boundary.c</label>
+        <link refid="boundary_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="boundary_8c_1a1924efe793f0519fdc672e20188a93fa" prot="public" static="no" mutable="no">
+        <type><ref refid="structboundary__t" kindref="compound">boundary_t</ref> *</type>
+        <definition>boundary_t* firstBC</definition>
+        <argsstring></argsstring>
+        <name>firstBC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the first boundary condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="22" column="12" bodyfile="src/boundary.c" bodystart="22" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1abc057bb065a186a8daec25f127cd387d" compoundref="mesh_8c" startline="1406" endline="1845">createMesh</referencedby>
+        <referencedby refid="boundary_8h_1a9a28f864619366666b36443f7ca92f06" compoundref="boundary_8c" startline="336" endline="350">freeBoundary</referencedby>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="analyze_8c_1a33fc83926ae2b8bae07e7177f9569c6c" compoundref="analyze_8c" startline="95" endline="184">initWing</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="boundary_8c_1ac55cda497e2daf9060d1e76e82acfbaf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nBC</definition>
+        <argsstring></argsstring>
+        <name>nBC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="23" column="5" bodyfile="src/boundary.c" bodystart="23" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="boundary_8c_1a2a3bc5f300e558c74fb465fed8302a3e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool isPeriodic</definition>
+        <argsstring></argsstring>
+        <name>isPeriodic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>periodic boundary condition flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="24" column="6" bodyfile="src/boundary.c" bodystart="24" bodyend="-1"/>
+        <referencedby refid="output_8h_1aafd430315c490e75d714c542eb4142c1" compoundref="output_8c" startline="536" endline="682">cgnsWriteMesh</referencedby>
+        <referencedby refid="mesh_8c_1ad5a4d789376204fda1983e3ef50fd4f3" compoundref="mesh_8c" startline="173" endline="245">connectPeriodicBC</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="boundary_8c_1a05d101d1f79d7e1bda2a9822c0675773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initBoundary</definition>
+        <argsstring>(void)</argsstring>
+        <name>initBoundary</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize boundary conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="29" column="6" bodyfile="src/boundary.c" bodystart="29" bodyend="137"/>
+        <references refid="boundary_8c_1ac55cda497e2daf9060d1e76e82acfbaf" compoundref="boundary_8c" startline="23">nBC</references>
+        <references refid="readInTools_8c_1ad920bf2e8d08267c632f9d48f6932d43" compoundref="readInTools_8c" startline="269" endline="277">getInt</references>
+        <references refid="boundary_8c_1a1924efe793f0519fdc672e20188a93fa" compoundref="boundary_8c" startline="22">firstBC</references>
+        <references refid="structboundary__t_1ab8a5ed24e3899dd05b5620d5c246e4f4" compoundref="boundary_8h" startline="45">boundary_t::next</references>
+        <references refid="structboundary__t_1ab4df5ad3a5ce485cf87755f498ce60cf" compoundref="boundary_8h" startline="23">boundary_t::BCtype</references>
+        <references refid="structboundary__t_1ab12159c6b757bdf0490adfe836693398" compoundref="boundary_8h" startline="32">boundary_t::BCid</references>
+        <references refid="initialCondition_8c_1a20f4c4490bc8ecbdd1ffcb79acce6035" compoundref="initialCondition_8c" startline="31">alpha</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a5ea5cf51ed533562fa79b91a5045575d" compoundref="main_8h" startline="45">SLIPWALL</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5afca2faad41310c7e71ec303ef789c53a" compoundref="main_8h" startline="46">WALL</references>
+        <references refid="readInTools_8c_1a54ce5bb180132f80c48a1d5681df55f7" compoundref="readInTools_8c" startline="311" endline="325">getBool</references>
+        <references refid="structboundary__t_1a7ba52ca7598af5e6f89cc6b131089a8d" compoundref="boundary_8h" startline="38">boundary_t::isAdiabatic</references>
+        <references refid="readInTools_8c_1a23080316e46aa5122dbb60d2f1e69562" compoundref="readInTools_8c" startline="228" endline="257">countKeys</references>
+        <references refid="structboundary__t_1a140f718920482c723241b3958f8f3938" compoundref="boundary_8h" startline="39">boundary_t::isTemperaturePrescribed</references>
+        <references refid="structboundary__t_1ade7e50066f809e8b99e9a1390a6bb718" compoundref="boundary_8h" startline="40">boundary_t::temperature</references>
+        <references refid="readInTools_8c_1a21afe1e7fa3e486a19cf7678b53f1782" compoundref="readInTools_8c" startline="289" endline="297">getDbl</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a8c7e97da6bd5c3568ccc5ee6cd958c87" compoundref="main_8h" startline="47">INFLOW</references>
+        <references refid="structboundary__t_1a4859dd02f6eecef78b4b1798181902e6" compoundref="boundary_8h" startline="36">boundary_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="equation_8c_1a31c17cc321db72d5ab448b71ea92792f" compoundref="equation_8c" startline="17">pi</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a6c3942bdcff33ec5d356c6fd0dfb4285" compoundref="main_8h" startline="49">CHARACTERISTIC</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abfcb976304836f3d329c3b7c8b7dbb63" compoundref="main_8h" startline="48">OUTFLOW</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abe5befc6c54a3c5afc92f009bcc8fe97" compoundref="main_8h" startline="50">EXACTSOL</references>
+        <references refid="structboundary__t_1ad7f4763eea81e2ad0e0a36bbf212f062" compoundref="boundary_8h" startline="34">boundary_t::exactFunc</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5ae4379d044711537d9ce3b3b58c575c58" compoundref="main_8h" startline="51">PERIODIC</references>
+        <references refid="structboundary__t_1ab1d56584b46dcda1e032bb997a542d41" compoundref="boundary_8h" startline="43">boundary_t::connection</references>
+        <references refid="readInTools_8c_1ae70140bbdb2b646ee2b5814a4eeec25d" compoundref="readInTools_8c" startline="379" endline="405">getDblArray</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5af73965df94261f7a1f258f168e2557cd" compoundref="main_8h" startline="52">PRESSURE_OUT</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="boundary_8c_1afe0c3f2f1f7519970db0276c98a359a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void boundary</definition>
+        <argsstring>(side_t *aSide, double time, double int_pVar[NVAR], double ghost_pVar[NVAR], double x[NDIM])</argsstring>
+        <name>boundary</name>
+        <param>
+          <type><ref refid="structside__t" kindref="compound">side_t</ref> *</type>
+          <declname>aSide</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>int_pVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ghost_pVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+          <array>[NDIM]</array>
+        </param>
+        <briefdescription>
+<para>Set boundary condition value at x. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*aSide</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pinter to a boundary side </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">int_pVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Internal cell primitive variables state </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">ghost_pVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ghost cell primitive variables state </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x[NDIM]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Barycenter coordinates of the ghost cell </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="147" column="6" bodyfile="src/boundary.c" bodystart="147" bodyend="294"/>
+        <references refid="structside__t_1a139dc5b219477299c80ebed6f99e1f1f" compoundref="mesh_8h" startline="37">side_t::BC</references>
+        <references refid="structboundary__t_1ab4df5ad3a5ce485cf87755f498ce60cf" compoundref="boundary_8h" startline="23">boundary_t::BCtype</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a6c3942bdcff33ec5d356c6fd0dfb4285" compoundref="main_8h" startline="49">CHARACTERISTIC</references>
+        <references refid="equationOfState_8c_1aec15deabd7578d99a317f9a047dd0889" compoundref="equationOfState_8c" startline="91" endline="111">charCons</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="equationOfState_8c_1a242c6f1a32e57dae899498a74020c63b" compoundref="equationOfState_8c" startline="61" endline="83">consChar</references>
+        <references refid="equationOfState_8c_1ae21deaa1a13e49c5e17fff0b44634908" compoundref="equationOfState_8c" startline="38" endline="53">consPrim</references>
+        <references refid="structboundary__t_1ad7f4763eea81e2ad0e0a36bbf212f062" compoundref="boundary_8h" startline="34">boundary_t::exactFunc</references>
+        <references refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abe5befc6c54a3c5afc92f009bcc8fe97" compoundref="main_8h" startline="50">EXACTSOL</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a8c7e97da6bd5c3568ccc5ee6cd958c87" compoundref="main_8h" startline="47">INFLOW</references>
+        <references refid="equation_8c_1a74577585cf12d1712ab9c57616d49205" compoundref="equation_8c" startline="27">mu</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="structside__t_1a681553e1f4d5ecada55c7efe70ffc6cf" compoundref="mesh_8h" startline="39">side_t::n</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5abfcb976304836f3d329c3b7c8b7dbb63" compoundref="main_8h" startline="48">OUTFLOW</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5af73965df94261f7a1f258f168e2557cd" compoundref="main_8h" startline="52">PRESSURE_OUT</references>
+        <references refid="equationOfState_8c_1abc7d4bb92eab7aec2fb1d979f0df080c" compoundref="equationOfState_8c" startline="20" endline="27">primCons</references>
+        <references refid="structboundary__t_1a4859dd02f6eecef78b4b1798181902e6" compoundref="boundary_8h" startline="36">boundary_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5a5ea5cf51ed533562fa79b91a5045575d" compoundref="main_8h" startline="45">SLIPWALL</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1a44bd231ea2df6d8169d6e5c7f44986b5afca2faad41310c7e71ec303ef789c53a" compoundref="main_8h" startline="46">WALL</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="boundary_8h_1a10ed132aacb524ddf08fb63254798079" compoundref="boundary_8c" startline="320" endline="331">setBCatBarys</referencedby>
+        <referencedby refid="boundary_8h_1aa822e937f3fa5ec4a2cd96cb9a39d254" compoundref="boundary_8c" startline="300" endline="314">setBCatSides</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="boundary_8c_1aa822e937f3fa5ec4a2cd96cb9a39d254" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setBCatSides</definition>
+        <argsstring>(double time)</argsstring>
+        <name>setBCatSides</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Set the ghost values at sides. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="300" column="6" bodyfile="src/boundary.c" bodystart="300" bodyend="314"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="mesh_8c_1a508eb58346877a73cd49cdd8d0af5538" compoundref="mesh_8c" startline="59">BCside</references>
+        <references refid="boundary_8c_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="mesh_8c_1af4105a479c40a7a38d0e65d7a9fd31e3" compoundref="mesh_8c" startline="47">nBCsides</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c" compoundref="main_8h" startline="102">NDIM</references>
+        <references refid="structside__t_1a608efb712ac8c943cf63ccce2ea97f7a" compoundref="mesh_8h" startline="38">side_t::pVar</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="boundary_8c_1a10ed132aacb524ddf08fb63254798079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setBCatBarys</definition>
+        <argsstring>(double time)</argsstring>
+        <name>setBCatBarys</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Set the ghost values at elements. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Computation time at calculation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="320" column="6" bodyfile="src/boundary.c" bodystart="320" bodyend="331"/>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="mesh_8c_1a508eb58346877a73cd49cdd8d0af5538" compoundref="mesh_8c" startline="59">BCside</references>
+        <references refid="boundary_8c_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="mesh_8c_1af4105a479c40a7a38d0e65d7a9fd31e3" compoundref="mesh_8c" startline="47">nBCsides</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <referencedby refid="reconstruction_8h_1ad0c0d7c8c348368409a8320007c55d10" compoundref="reconstruction_8c" startline="198" endline="314">spatialReconstruction</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="boundary_8c_1a9a28f864619366666b36443f7ca92f06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeBoundary</definition>
+        <argsstring>(void)</argsstring>
+        <name>freeBoundary</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free all memory that was allocated for the boundary conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/boundary.c" line="336" column="6" bodyfile="src/boundary.c" bodystart="336" bodyend="350"/>
+        <references refid="boundary_8c_1a1924efe793f0519fdc672e20188a93fa" compoundref="boundary_8c" startline="22">firstBC</references>
+        <references refid="structboundary__t_1ab8a5ed24e3899dd05b5620d5c246e4f4" compoundref="boundary_8h" startline="45">boundary_t::next</references>
+        <references refid="mesh_8c_1a508eb58346877a73cd49cdd8d0af5538" compoundref="mesh_8c" startline="59">BCside</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the functions for initializing and applying boundary conditions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Tue 24 Mar 2020 10:10:51 AM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/boundary.c"/>
+  </compounddef>
+</doxygen>

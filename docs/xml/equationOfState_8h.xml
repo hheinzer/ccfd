@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="equationOfState_8h" kind="file" language="C++">
+    <compoundname>equationOfState.h</compoundname>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includedby refid="boundary_8c" local="yes">src/boundary.c</includedby>
+    <includedby refid="exactFunction_8c" local="yes">src/exactFunction.c</includedby>
+    <includedby refid="initialCondition_8c" local="yes">src/initialCondition.c</includedby>
+    <includedby refid="linearSolver_8c" local="yes">src/linearSolver.c</includedby>
+    <includedby refid="timeDiscretization_8c" local="yes">src/timeDiscretization.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>src/linearSolver.c</label>
+        <link refid="linearSolver_8c"/>
+      </node>
+      <node id="3">
+        <label>src/exactFunction.c</label>
+        <link refid="exactFunction_8c"/>
+      </node>
+      <node id="1">
+        <label>src/equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/timeDiscretization.c</label>
+        <link refid="timeDiscretization_8c"/>
+      </node>
+      <node id="4">
+        <label>src/initialCondition.c</label>
+        <link refid="initialCondition_8c"/>
+      </node>
+      <node id="2">
+        <label>src/boundary.c</label>
+        <link refid="boundary_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="equationOfState_8h_1abc7d4bb92eab7aec2fb1d979f0df080c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void primCons</definition>
+        <argsstring>(const double pVar[NVAR], double cVar[NVAR])</argsstring>
+        <name>primCons</name>
+        <param>
+          <type>const double</type>
+          <declname>pVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <briefdescription>
+<para>Convert primitive variables into conservative variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">cVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conservative variable vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/equationOfState.h" line="12" column="6" bodyfile="src/equationOfState.c" bodystart="20" bodyend="27" declfile="src/equationOfState.h" declline="12" declcolumn="6"/>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <referencedby refid="boundary_8h_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</referencedby>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="equationOfState_8h_1ae21deaa1a13e49c5e17fff0b44634908" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void consPrim</definition>
+        <argsstring>(const double cVar[NVAR], double pVar[NVAR])</argsstring>
+        <name>consPrim</name>
+        <param>
+          <type>const double</type>
+          <declname>cVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <briefdescription>
+<para>Convert conservative variables into primitive variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used during reconstruction, therefore it has to be checked if the resulting primitive variables are negative. It that is the case, they are set to zero.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conservative variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive variable vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/equationOfState.h" line="13" column="6" bodyfile="src/equationOfState.c" bodystart="38" bodyend="53" declfile="src/equationOfState.h" declline="13" declcolumn="6"/>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="equation_8c_1a0ab71a8b3e1894bd20ccefc5ecc072b3" compoundref="equation_8c" startline="22">gam1</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a31a3c0d9026afbda6ef5fba380655f71" compoundref="main_8h" startline="20">MY</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <referencedby refid="boundary_8h_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</referencedby>
+        <referencedby refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a8a89a37042821b46c31c68cd54d769c9" compoundref="timeDiscretization_8c" startline="337" endline="354">explicitTimeStepEuler</referencedby>
+        <referencedby refid="timeDiscretization_8c_1ac6991d8194b3be6bc963c6894d3cba9e" compoundref="timeDiscretization_8c" startline="363" endline="402">explicitTimeStepRK</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="equationOfState_8h_1a242c6f1a32e57dae899498a74020c63b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void consChar</definition>
+        <argsstring>(double cVar[NVAR], double charac[3], double pVarRef[NVAR])</argsstring>
+        <name>consChar</name>
+        <param>
+          <type>double</type>
+          <declname>cVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>charac</declname>
+          <array>[3]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pVarRef</declname>
+          <array>[NVAR]</array>
+        </param>
+        <briefdescription>
+<para>Convert conservative variables to characteristic variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conservative variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">charac[3]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Characteristic variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pVarRef[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference primitive variable vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/equationOfState.h" line="14" column="6" bodyfile="src/equationOfState.c" bodystart="61" bodyend="83" declfile="src/equationOfState.h" declline="14" declcolumn="6"/>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <referencedby refid="boundary_8h_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="equationOfState_8h_1aec15deabd7578d99a317f9a047dd0889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void charCons</definition>
+        <argsstring>(double charac[3], double cVar[NVAR], double pVarRef[NVAR])</argsstring>
+        <name>charCons</name>
+        <param>
+          <type>double</type>
+          <declname>charac</declname>
+          <array>[3]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cVar</declname>
+          <array>[NVAR]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pVarRef</declname>
+          <array>[NVAR]</array>
+        </param>
+        <briefdescription>
+<para>Convert characteristic variables to conservative variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">charac[3]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Characteristic variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">cVar[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conservative variable vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pVarRef[NVAR]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference primitive variable vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/equationOfState.h" line="15" column="6" bodyfile="src/equationOfState.c" bodystart="91" bodyend="111" declfile="src/equationOfState.h" declline="15" declcolumn="6"/>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549ab199e021998d49b1f09338d8b9b18ecb" compoundref="main_8h" startline="21">E</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="equation_8c_1aa75ce24a0ddcc106d053ee4d2c541410" compoundref="equation_8c" startline="24">gam1q</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a355dc38ddfab08ae95e93a3948d22b90" compoundref="main_8h" startline="19">MX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <referencedby refid="boundary_8h_1afe0c3f2f1f7519970db0276c98a359a4" compoundref="boundary_8c" startline="147" endline="294">boundary</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 28 Mar 2020 09:45:50 PM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/equationOfState.h"/>
+  </compounddef>
+</doxygen>

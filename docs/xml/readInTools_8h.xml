@@ -1,0 +1,512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="readInTools_8h" kind="file" language="C++">
+    <compoundname>readInTools.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includedby refid="analyze_8c" local="yes">src/analyze.c</includedby>
+    <includedby refid="boundary_8c" local="yes">src/boundary.c</includedby>
+    <includedby refid="equation_8c" local="yes">src/equation.c</includedby>
+    <includedby refid="finiteVolume_8c" local="yes">src/finiteVolume.c</includedby>
+    <includedby refid="initialCondition_8c" local="yes">src/initialCondition.c</includedby>
+    <includedby refid="linearSolver_8c" local="yes">src/linearSolver.c</includedby>
+    <includedby refid="main_8c" local="yes">src/main.c</includedby>
+    <includedby refid="mesh_8c" local="yes">src/mesh.c</includedby>
+    <includedby refid="output_8c" local="yes">src/output.c</includedby>
+    <includedby refid="timeDiscretization_8c" local="yes">src/timeDiscretization.c</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>src/readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/analyze.c</label>
+        <link refid="analyze_8c"/>
+      </node>
+      <node id="7">
+        <label>src/linearSolver.c</label>
+        <link refid="linearSolver_8c"/>
+      </node>
+      <node id="10">
+        <label>src/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+      <node id="9">
+        <label>src/mesh.c</label>
+        <link refid="mesh_8c"/>
+      </node>
+      <node id="11">
+        <label>src/timeDiscretization.c</label>
+        <link refid="timeDiscretization_8c"/>
+      </node>
+      <node id="5">
+        <label>src/finiteVolume.c</label>
+        <link refid="finiteVolume_8c"/>
+      </node>
+      <node id="6">
+        <label>src/initialCondition.c</label>
+        <link refid="initialCondition_8c"/>
+      </node>
+      <node id="3">
+        <label>src/boundary.c</label>
+        <link refid="boundary_8c"/>
+      </node>
+      <node id="4">
+        <label>src/equation.c</label>
+        <link refid="equation_8c"/>
+      </node>
+      <node id="1">
+        <label>src/readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="readInTools_8h_1aae07b562b487646845b24aa277a191f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fillCmds</definition>
+        <argsstring>(char iniFileName[STRLEN])</argsstring>
+        <name>fillCmds</name>
+        <param>
+          <type>char</type>
+          <declname>iniFileName</declname>
+          <array>[STRLEN]</array>
+        </param>
+        <briefdescription>
+<para>Read parameter file and create commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Read <computeroutput>.ini</computeroutput> file and parse each line into a <computeroutput><ref refid="structcmd__t" kindref="compound">cmd_t</ref></computeroutput> object. All <computeroutput><ref refid="structcmd__t" kindref="compound">cmd_t</ref></computeroutput> objects are connected in a list of commands starting with <computeroutput>firstCmd</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">iniFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the parameter file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="14" column="6" bodyfile="src/readInTools.c" bodystart="38" bodyend="105" declfile="src/readInTools.h" declline="14" declcolumn="6"/>
+        <references refid="readInTools_8c_1a1b1632dea78543c0c98501926b4cf5be" compoundref="readInTools_8c" startline="29">firstCmd</references>
+        <references refid="structcmd__t_1a34509c1a5d5129fd40b68ea54608ca0d" compoundref="readInTools_8c" startline="23">cmd_t::key</references>
+        <references refid="structcmd__t_1a35706fa71e30bb009a7ec9a36d7ec2cd" compoundref="readInTools_8c" startline="25">cmd_t::next</references>
+        <references refid="structcmd__t_1a51bcce03f74b6456f98430ab2421f91f" compoundref="readInTools_8c" startline="26">cmd_t::prev</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <references refid="structcmd__t_1a124bb00c5bcae276868b450c1a4bcfdb" compoundref="readInTools_8c" startline="24">cmd_t::value</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1af81ad36f8a5b114c9881f3ad70d096d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* getStr</definition>
+        <argsstring>(char *key, char *proposal)</argsstring>
+        <name>getStr</name>
+        <param>
+          <type>char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="15" column="6" declfile="src/readInTools.h" declline="15" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1a23080316e46aa5122dbb60d2f1e69562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int countKeys</definition>
+        <argsstring>(const char *key, const int proposal)</argsstring>
+        <name>countKeys</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Count how often a key appears. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Count all occurrences of key in parameter file and return them. If the key is not specified, the proposal will be returned. If the proposal is -1, but the key is not in the list, an error will be thrown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>How often the <computeroutput>key</computeroutput> appeared in the command list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="16" column="5" bodyfile="src/readInTools.c" bodystart="228" bodyend="257" declfile="src/readInTools.h" declline="16" declcolumn="5"/>
+        <references refid="readInTools_8c_1a1b1632dea78543c0c98501926b4cf5be" compoundref="readInTools_8c" startline="29">firstCmd</references>
+        <references refid="structcmd__t_1a35706fa71e30bb009a7ec9a36d7ec2cd" compoundref="readInTools_8c" startline="25">cmd_t::next</references>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1ad920bf2e8d08267c632f9d48f6932d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getInt</definition>
+        <argsstring>(const char *key, const char *proposal)</argsstring>
+        <name>getInt</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Get an integer from the commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the parameter, or the default value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="17" column="5" bodyfile="src/readInTools.c" bodystart="269" bodyend="277" declfile="src/readInTools.h" declline="17" declcolumn="5"/>
+        <references refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</references>
+        <referencedby refid="analyze_8h_1a70b9012501fad23336c48db84f69c94c" compoundref="analyze_8c" startline="199" endline="287">initAnalyze</referencedby>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="equation_8h_1a5feb950469f92203675668c9eba7971f" compoundref="equation_8c" startline="40" endline="128">initEquation</referencedby>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+        <referencedby refid="timeDiscretization_8h_1ae237d741e17c1bb7084a26b374ac28e4" compoundref="timeDiscretization_8c" startline="69" endline="239">initTimeDisc</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+        <referencedby refid="analyze_8c_1adc6a4d68efba10058fc17a0d51fd1e12" compoundref="analyze_8c" startline="189" endline="194">readWing</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1a21afe1e7fa3e486a19cf7678b53f1782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double getDbl</definition>
+        <argsstring>(const char *key, const char *proposal)</argsstring>
+        <name>getDbl</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Get a double from the commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the parameter, or the default value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="18" column="8" bodyfile="src/readInTools.c" bodystart="289" bodyend="297" declfile="src/readInTools.h" declline="18" declcolumn="8"/>
+        <references refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</references>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="equation_8h_1a5feb950469f92203675668c9eba7971f" compoundref="equation_8c" startline="40" endline="128">initEquation</referencedby>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="linearSolver_8h_1ae169561793e8ff5ed9b88eb5eb7a0326" compoundref="linearSolver_8c" startline="69" endline="108">initLinearSolver</referencedby>
+        <referencedby refid="output_8h_1adfc0a8bf3db752ff6b5b12d190835705" compoundref="output_8c" startline="37" endline="48">initOutput</referencedby>
+        <referencedby refid="timeDiscretization_8h_1ae237d741e17c1bb7084a26b374ac28e4" compoundref="timeDiscretization_8c" startline="69" endline="239">initTimeDisc</referencedby>
+        <referencedby refid="analyze_8c_1adc6a4d68efba10058fc17a0d51fd1e12" compoundref="analyze_8c" startline="189" endline="194">readWing</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1a54ce5bb180132f80c48a1d5681df55f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool getBool</definition>
+        <argsstring>(const char *key, const char *proposal)</argsstring>
+        <name>getBool</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Get a boolean from the commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown. The value in the parameter file is accepted as true, if it is a &apos;T&apos;, &apos;t&apos;, &apos;True&apos;, or &apos;true&apos;, otherwise it is false.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the parameter, or the default value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="19" column="6" bodyfile="src/readInTools.c" bodystart="311" bodyend="325" declfile="src/readInTools.h" declline="19" declcolumn="6"/>
+        <references refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</references>
+        <referencedby refid="analyze_8h_1a70b9012501fad23336c48db84f69c94c" compoundref="analyze_8c" startline="199" endline="287">initAnalyze</referencedby>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="equation_8h_1a5feb950469f92203675668c9eba7971f" compoundref="equation_8c" startline="40" endline="128">initEquation</referencedby>
+        <referencedby refid="timeDiscretization_8h_1ae237d741e17c1bb7084a26b374ac28e4" compoundref="timeDiscretization_8c" startline="69" endline="239">initTimeDisc</referencedby>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1aa17bbb9b3a07995ce15ba872ba3298c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* getIntArray</definition>
+        <argsstring>(const char *key, const int N, const char *proposal)</argsstring>
+        <name>getIntArray</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Get an integer array from the commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the key in the command list and return the corresponding integer array. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the array that is to be read in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the value array of the parameter, or the default value array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="20" column="5" bodyfile="src/readInTools.c" bodystart="339" bodyend="365" declfile="src/readInTools.h" declline="20" declcolumn="5"/>
+        <references refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1ae70140bbdb2b646ee2b5814a4eeec25d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double *</type>
+        <definition>double* getDblArray</definition>
+        <argsstring>(const char *key, const int N, const char *proposal)</argsstring>
+        <name>getDblArray</name>
+        <param>
+          <type>const char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>proposal</declname>
+        </param>
+        <briefdescription>
+<para>Get a double array from the commands list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the key in the command list and return the corresponding integer array. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key string of the command to be found </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the array that is to be read in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">*proposal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value that is used if the key was not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the value array of the parameter, or the default value array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="21" column="8" bodyfile="src/readInTools.c" bodystart="379" bodyend="405" declfile="src/readInTools.h" declline="21" declcolumn="8"/>
+        <references refid="readInTools_8c_1a86a2f0407995fa7f2e7bb06f1849f7c1" compoundref="readInTools_8c" startline="147" endline="197">findCmd</references>
+        <references refid="main_8h_1a278cf415676752815cfb411cb0b32802" compoundref="main_8h" startline="12">STRLEN</references>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="analyze_8c_1a8dfb9a6f986ddcade64d191141b9c324" compoundref="analyze_8c" startline="34" endline="90">initRecordPoints</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="readInTools_8h_1a6480fc1fe754a2408323da4b1bc42bfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ignoredCmds</definition>
+        <argsstring>(void)</argsstring>
+        <name>ignoredCmds</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Print out all remaining commands in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/readInTools.h" line="22" column="6" bodyfile="src/readInTools.c" bodystart="427" bodyend="436" declfile="src/readInTools.h" declline="22" declcolumn="6"/>
+        <references refid="readInTools_8c_1a1b1632dea78543c0c98501926b4cf5be" compoundref="readInTools_8c" startline="29">firstCmd</references>
+        <references refid="structcmd__t_1a35706fa71e30bb009a7ec9a36d7ec2cd" compoundref="readInTools_8c" startline="25">cmd_t::next</references>
+        <references refid="readInTools_8c_1a7e438b29fd04b468dade4655578868c3" compoundref="readInTools_8c" startline="410" endline="422">freeCmds</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 21 Mar 2020 10:51:13 AM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/readInTools.h"/>
+  </compounddef>
+</doxygen>

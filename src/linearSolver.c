@@ -49,19 +49,19 @@ double eps2newton_sq;		/**< newton relative epsilon */
 double epsGMRES;		/**< GMRES relative epsilon */
 double gamEW;			/**< gamma parameter for Eisenstat Walker */
 
-double **XK;
-double **R_XK;
+double **XK;			/**< kth X vector array */
+double **R_XK;			/**< residual of kth vector array */
 
 /* local variables */
-double ***D;
-double ***Dinv;
-double **dRdU;
+double ***D;			/**< D-Matrix of LUSGS procedure */
+double ***Dinv;			/**< inverse of D-Matrix */
+double **dRdU;			/**< dR / dU */
 
-double ***V;
-double ***Z;
-double **R0;
-double **W;
-double **deltaXstar;
+double ***V;			/**< temporary array, used in GMRES */
+double ***Z;			/**< temporary array, used in GMRES */
+double **R0;			/**< temporary array, used in GMRES */
+double **W;			/**< temporary array, used in GMRES */
+double **deltaXstar;		/**< temporary array, used in LUSGS */
 
 /**
  * \brief Initialize linear solver
@@ -109,8 +109,8 @@ void initLinearSolver(void)
 
 /**
  * \brief Compute dot product for two state vectors A and B for every element
- * \param[in] **A First state vector for every element
- * \param[in] **B Second state vector for every element
+ * \param[in] A First state vector for every element
+ * \param[in] B Second state vector for every element
  * \return sum(sum(A_ij * B_ij, i = RHO,MX,MY,E), i = 1..nElems)
  */
 double vectorDotProduct(double **A, double **B)
@@ -130,8 +130,8 @@ double vectorDotProduct(double **A, double **B)
 
 /**
  * \brief Compute inverse of a 4x4 matrix
- * \param[in] **A The 4x4 matrix to be inverted
- * \param[out] **Ainv The 4x4 inverse matrix of A
+ * \param[in] A The 4x4 matrix to be inverted
+ * \param[out] Ainv The 4x4 inverse matrix of A
  * \return 0 = Inverse does not exist, 1 = Inverse computed
  */
 bool calcDinv(double **A, double **Ainv)
@@ -256,8 +256,8 @@ void buildMatrix(double time, double dt)
  * \brief LUSGS preconditioner
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
- * \param[in] **B Old vector, to be preconditioned
- * \param[out] **delX Preconditioned vector
+ * \param[in] B Old vector, to be preconditioned
+ * \param[out] delX Preconditioned vector
  * \note This function is slow to execute, it might be possible to speed it up
  *	via the use of omp locks for every element
  */
@@ -341,8 +341,8 @@ void LUSGS(double time, double dt, double **B, double **delX)
  * \param[in] dt Time step at calculation
  * \param[in] alpha Relaxation parameter
  * \param[in] beta Relaxation parameter
- * \param[in] **v Input vector for the matrix vector product
- * \param[out] **res Resulting vector of the matrix vector product
+ * \param[in] v Input vector for the matrix vector product
+ * \param[out] res Resulting vector of the matrix vector product
  */
 void matrixVector(double time, double dt, double alpha, double beta, double **v,
 		double **res)
@@ -382,10 +382,10 @@ void matrixVector(double time, double dt, double alpha, double beta, double **v,
  * \param[in] dt Time step at calculation
  * \param[in] alpha Relaxation parameter
  * \param[in] beta Relaxation parameter
- * \param[in] **B Right hand side
+ * \param[in] B Right hand side
  * \param[in] normB Norm of right hand side
- * \param[in/out] *abortCrit GMRES abort criterium
- * \param[out] **delX Resulting x vector of the linear system
+ * \param[in,out] abortCrit GMRES abort criterium
+ * \param[out] delX Resulting x vector of the linear system
  */
 void GMRES_M(double time, double dt, double alpha, double beta, double **B,
 		double normB, double *abortCrit, double **delX)

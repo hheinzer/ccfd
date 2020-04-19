@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="analyze_8c">analyze.c</innerfile>
+    <innerfile refid="analyze_8h">analyze.h</innerfile>
+    <innerfile refid="boundary_8c">boundary.c</innerfile>
+    <innerfile refid="boundary_8h">boundary.h</innerfile>
+    <innerfile refid="equation_8c">equation.c</innerfile>
+    <innerfile refid="equation_8h">equation.h</innerfile>
+    <innerfile refid="equationOfState_8c">equationOfState.c</innerfile>
+    <innerfile refid="equationOfState_8h">equationOfState.h</innerfile>
+    <innerfile refid="exactFunction_8c">exactFunction.c</innerfile>
+    <innerfile refid="exactFunction_8h">exactFunction.h</innerfile>
+    <innerfile refid="exactRiemann_8c">exactRiemann.c</innerfile>
+    <innerfile refid="exactRiemann_8h">exactRiemann.h</innerfile>
+    <innerfile refid="finiteVolume_8c">finiteVolume.c</innerfile>
+    <innerfile refid="finiteVolume_8h">finiteVolume.h</innerfile>
+    <innerfile refid="fluxCalculation_8c">fluxCalculation.c</innerfile>
+    <innerfile refid="fluxCalculation_8h">fluxCalculation.h</innerfile>
+    <innerfile refid="initialCondition_8c">initialCondition.c</innerfile>
+    <innerfile refid="initialCondition_8h">initialCondition.h</innerfile>
+    <innerfile refid="linearSolver_8c">linearSolver.c</innerfile>
+    <innerfile refid="linearSolver_8h">linearSolver.h</innerfile>
+    <innerfile refid="main_8c">main.c</innerfile>
+    <innerfile refid="main_8h">main.h</innerfile>
+    <innerfile refid="memTools_8c">memTools.c</innerfile>
+    <innerfile refid="memTools_8h">memTools.h</innerfile>
+    <innerfile refid="mesh_8c">mesh.c</innerfile>
+    <innerfile refid="mesh_8h">mesh.h</innerfile>
+    <innerfile refid="output_8c">output.c</innerfile>
+    <innerfile refid="output_8h">output.h</innerfile>
+    <innerfile refid="readInTools_8c">readInTools.c</innerfile>
+    <innerfile refid="readInTools_8h">readInTools.h</innerfile>
+    <innerfile refid="reconstruction_8c">reconstruction.c</innerfile>
+    <innerfile refid="reconstruction_8h">reconstruction.h</innerfile>
+    <innerfile refid="source_8c">source.c</innerfile>
+    <innerfile refid="source_8h">source.h</innerfile>
+    <innerfile refid="timeDiscretization_8c">timeDiscretization.c</innerfile>
+    <innerfile refid="timeDiscretization_8h">timeDiscretization.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

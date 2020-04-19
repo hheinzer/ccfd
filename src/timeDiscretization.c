@@ -58,10 +58,10 @@ double	RKcoeff[6] = {0.0};		/**< array of Runge-Kutta coefficients */
 bool	isImplicit;			/**< implicit calculation flag */
 
 /* local variables */
-double **deltaX;
-double **Q;
-double **F_X0;
-double **F_XK;
+double **deltaX;			/**< variable used in implicit calculation */
+double **Q;				/**< variable used in implicit calculation */
+double **F_X0;				/**< variable used in implicit calculation */
+double **F_XK;				/**< variable used in implicit calculation */
 
 /**
  * \brief Initialize the time discretization
@@ -241,8 +241,8 @@ void initTimeDisc(void)
 /**
  * \brief Compute the time step
  * \param[in] pTime The print time interval
- * \param[out] *dt The resulting time step
- * \param[out] *viscousTimeStepDominates Flag for if the viscous time step is
+ * \param[out] dt The resulting time step
+ * \param[out] viscousTimeStepDominates Flag for if the viscous time step is
  *	dominating
  */
 void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
@@ -332,7 +332,7 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
  * \param[in] iter Iteration number at calculation
- * \param[out] resIter[NVAR + 2] Residual vector for time step
+ * \param[out] resIter Residual vector for time step
  */
 void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
 {
@@ -358,7 +358,7 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
  * \param[in] iter Iteration number at calculation
- * \param[out] resIter[NVAR + 2] Residual vector for time step
+ * \param[out] resIter Residual vector for time step
  */
 void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR + 2])
 {
@@ -409,7 +409,7 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
  * \param[in] iter Iteration number at calculation
- * \param[out] resIter[NVAR + 2] Residual vector for time step
+ * \param[out] resIter Residual vector for time step
  */
 void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2])
 {

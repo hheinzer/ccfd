@@ -7,6 +7,6 @@
 #ifndef EXACTFUNCTION_H
 #define EXACTFUNCTION_H
 
-void exactFunc(int iExactFunc, double x[2], double time, double pVar[NVAR]);
+void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR]);
 
 #endif

@@ -138,11 +138,11 @@ void initBoundary(void)
 
 /**
  * \brief Set boundary condition value at x
- * \param[in] *aSide Pinter to a boundary side
+ * \param[in] aSide Pinter to a boundary side
  * \param[in] time Computation time at calculation
- * \param[in] int_pVar[NVAR] Internal cell primitive variables state
- * \param[out] ghost_pVar[NVAR] Ghost cell primitive variables state
- * \param[in] x[NDIM] Barycenter coordinates of the ghost cell
+ * \param[in] int_pVar Internal cell primitive variables state
+ * \param[out] ghost_pVar Ghost cell primitive variables state
+ * \param[in] x Barycenter coordinates of the ghost cell
  */
 void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		double ghost_pVar[NVAR], double x[NDIM])

@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="exactRiemann_8c" kind="file" language="C++">
+    <compoundname>exactRiemann.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>src/exactRiemann.c</label>
+        <link refid="exactRiemann_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="exactRiemann_8c_1a8708d32740199d357c988de3d53c1597" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double G[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>G</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gamma vector </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/exactRiemann.c" line="16" column="8" bodyfile="src/exactRiemann.c" bodystart="16" bodyend="-1"/>
+        <referencedby refid="exactRiemann_8h_1a94ff84b8b790fcc55b90a207197da347" compoundref="exactRiemann_8c" startline="59" endline="214">exactRiemann</referencedby>
+        <referencedby refid="exactRiemann_8c_1a18a65e2164b05a2195dbd3b9bfe16e14" compoundref="exactRiemann_8c" startline="29" endline="42">preFun</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="exactRiemann_8c_1a2687e4b3cb5da7dbd00e565343f66c6c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double tol</definition>
+        <argsstring></argsstring>
+        <name>tol</name>
+        <initializer>= 1e-6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>tolerance for the iteration </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/exactRiemann.c" line="17" column="8" bodyfile="src/exactRiemann.c" bodystart="17" bodyend="-1"/>
+        <referencedby refid="exactRiemann_8h_1a94ff84b8b790fcc55b90a207197da347" compoundref="exactRiemann_8c" startline="59" endline="214">exactRiemann</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="exactRiemann_8c_1ab80060e98a402fc1deab459cdb6476b7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nIter</definition>
+        <argsstring></argsstring>
+        <name>nIter</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>maximum number of iterations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/exactRiemann.c" line="18" column="5" bodyfile="src/exactRiemann.c" bodystart="18" bodyend="-1"/>
+        <referencedby refid="exactRiemann_8h_1a94ff84b8b790fcc55b90a207197da347" compoundref="exactRiemann_8c" startline="59" endline="214">exactRiemann</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="exactRiemann_8c_1a18a65e2164b05a2195dbd3b9bfe16e14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void preFun</definition>
+        <argsstring>(double *f, double *fd, double p, double rhok, double pk, double ck)</argsstring>
+        <name>preFun</name>
+        <param>
+          <type>double *</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhok</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pk</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ck</declname>
+        </param>
+        <briefdescription>
+<para>Helper function for <computeroutput>exactRiemann</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">*f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flux </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">*fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flux difference </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhok</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Critical density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Critical pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Critical speed of sound </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/exactRiemann.c" line="29" column="6" bodyfile="src/exactRiemann.c" bodystart="29" bodyend="42"/>
+        <references refid="exactRiemann_8c_1a8708d32740199d357c988de3d53c1597" compoundref="exactRiemann_8c" startline="16">G</references>
+        <referencedby refid="exactRiemann_8h_1a94ff84b8b790fcc55b90a207197da347" compoundref="exactRiemann_8c" startline="59" endline="214">exactRiemann</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="exactRiemann_8c_1a94ff84b8b790fcc55b90a207197da347" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void exactRiemann</definition>
+        <argsstring>(double rhol, double rhor, double *rho, double ul, double ur, double *u, double pl, double pr, double *p, double al, double ar, double s)</argsstring>
+        <name>exactRiemann</name>
+        <param>
+          <type>double</type>
+          <declname>rhol</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rhor</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>rho</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ul</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ur</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pl</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pr</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>al</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ar</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the exact solution to the Riemann problem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rhol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">*rho</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resulting density </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ul</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">*u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resulting velocity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">*p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resulting pressure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">al</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left side speed of sound </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right side speed of sound </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Speed of the discontinuity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/exactRiemann.c" line="59" column="6" bodyfile="src/exactRiemann.c" bodystart="59" bodyend="214"/>
+        <references refid="exactRiemann_8c_1a8708d32740199d357c988de3d53c1597" compoundref="exactRiemann_8c" startline="16">G</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="exactRiemann_8c_1ab80060e98a402fc1deab459cdb6476b7" compoundref="exactRiemann_8c" startline="18">nIter</references>
+        <references refid="exactRiemann_8c_1a18a65e2164b05a2195dbd3b9bfe16e14" compoundref="exactRiemann_8c" startline="29" endline="42">preFun</references>
+        <references refid="exactRiemann_8c_1a2687e4b3cb5da7dbd00e565343f66c6c" compoundref="exactRiemann_8c" startline="17">tol</references>
+        <referencedby refid="fluxCalculation_8c_1a8b46ee8328797fe0d1c3a7a67a37393b" compoundref="fluxCalculation_8c" startline="30" endline="53">flux_god</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains the function to calculate the exact Riemann flux. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sun 29 Mar 2020 12:35:17 PM CEST </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/exactRiemann.c"/>
+  </compounddef>
+</doxygen>

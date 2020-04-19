@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structcartMesh__t" kind="struct" language="C++" prot="public">
+    <compoundname>cartMesh_t</compoundname>
+    <includes local="no">mesh.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcartMesh__t_1aad2326d1e4a4b34e1a29ca1d2cdf6025" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cartMesh_t::iMax</definition>
+        <argsstring></argsstring>
+        <name>iMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of cells in x-direction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.h" line="106" column="5" bodyfile="src/mesh.h" bodystart="106" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcartMesh__t_1ad50119c30a0c863bade8ddef161d8091" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cartMesh_t::jMax</definition>
+        <argsstring></argsstring>
+        <name>jMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of cells in y-direction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.h" line="107" column="5" bodyfile="src/mesh.h" bodystart="107" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcartMesh__t_1a9920a4f1771e8abc08dc06a2ab4383de" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* cartMesh_t::nBC</definition>
+        <argsstring></argsstring>
+        <name>nBC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of different BC per side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.h" line="108" column="5" bodyfile="src/mesh.h" bodystart="108" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcartMesh__t_1a1af03ea8cb289e3214b00b9f22cb0426" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cartMesh_t::BCtype[2 *NDIM][NBC]</definition>
+        <argsstring>[2 *NDIM][NBC]</argsstring>
+        <name>BCtype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>list of BC types per side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.h" line="109" column="5" bodyfile="src/mesh.h" bodystart="109" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcartMesh__t_1a6d6f8744aec8cb02732787db0fc60243" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cartMesh_t::BCrange[2 *NDIM][NBC][2]</definition>
+        <argsstring>[2 *NDIM][NBC][2]</argsstring>
+        <name>BCrange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>list of BC ranges per side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/mesh.h" line="110" column="5" bodyfile="src/mesh.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="mesh_8c_1af2733b5552da4d9968d1f3968b58082f" compoundref="mesh_8c" startline="386" endline="487">createCartMesh</referencedby>
+        <referencedby refid="mesh_8c_1a64836def5d6de80737e6da8210065f05" compoundref="mesh_8c" startline="1850" endline="1910">readMesh</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure holding the information for a cartesian mesh. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/mesh.h" line="105" column="17" bodyfile="src/mesh.h" bodystart="105" bodyend="111"/>
+    <listofallmembers>
+      <member refid="structcartMesh__t_1a6d6f8744aec8cb02732787db0fc60243" prot="public" virt="non-virtual"><scope>cartMesh_t</scope><name>BCrange</name></member>
+      <member refid="structcartMesh__t_1a1af03ea8cb289e3214b00b9f22cb0426" prot="public" virt="non-virtual"><scope>cartMesh_t</scope><name>BCtype</name></member>
+      <member refid="structcartMesh__t_1aad2326d1e4a4b34e1a29ca1d2cdf6025" prot="public" virt="non-virtual"><scope>cartMesh_t</scope><name>iMax</name></member>
+      <member refid="structcartMesh__t_1ad50119c30a0c863bade8ddef161d8091" prot="public" virt="non-virtual"><scope>cartMesh_t</scope><name>jMax</name></member>
+      <member refid="structcartMesh__t_1a9920a4f1771e8abc08dc06a2ab4383de" prot="public" virt="non-virtual"><scope>cartMesh_t</scope><name>nBC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

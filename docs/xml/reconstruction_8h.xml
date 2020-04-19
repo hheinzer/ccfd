@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="reconstruction_8h" kind="file" language="C++">
+    <compoundname>reconstruction.h</compoundname>
+    <includedby refid="analyze_8c" local="yes">src/analyze.c</includedby>
+    <includedby refid="finiteVolume_8c" local="yes">src/finiteVolume.c</includedby>
+    <includedby refid="reconstruction_8c" local="yes">src/reconstruction.c</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>src/reconstruction.c</label>
+        <link refid="reconstruction_8c"/>
+      </node>
+      <node id="2">
+        <label>src/analyze.c</label>
+        <link refid="analyze_8c"/>
+      </node>
+      <node id="1">
+        <label>src/reconstruction.h</label>
+        <link refid="reconstruction_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/finiteVolume.c</label>
+        <link refid="finiteVolume_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="reconstruction_8h_1abd7cbe920d19ba1034df6da5b662c9f5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int limiter</definition>
+        <argsstring></argsstring>
+        <name>limiter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>limiter selection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/reconstruction.h" line="10" column="12" bodyfile="src/reconstruction.c" bodystart="17" bodyend="-1" declfile="src/reconstruction.h" declline="10" declcolumn="12"/>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+        <referencedby refid="reconstruction_8h_1ad0c0d7c8c348368409a8320007c55d10" compoundref="reconstruction_8c" startline="198" endline="314">spatialReconstruction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="reconstruction_8h_1a8ae8a27510ada32e9a17cd0dbc4570f4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double venk_k</definition>
+        <argsstring></argsstring>
+        <name>venk_k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>constant for Venkatakrishnan limiter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/reconstruction.h" line="11" column="15" bodyfile="src/reconstruction.c" bodystart="18" bodyend="-1" declfile="src/reconstruction.h" declline="11" declcolumn="15"/>
+        <referencedby refid="finiteVolume_8h_1a3644be35d3862389f10d328e14cbedb9" compoundref="finiteVolume_8c" startline="30" endline="65">initFV</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="reconstruction_8h_1ad0c0d7c8c348368409a8320007c55d10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void spatialReconstruction</definition>
+        <argsstring>(double time)</argsstring>
+        <name>spatialReconstruction</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Compute the gradients of dU/dx. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Calculation time at which to perform the spatial reconstruction </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/reconstruction.h" line="13" column="6" bodyfile="src/reconstruction.c" bodystart="198" bodyend="314" declfile="src/reconstruction.h" declline="13" declcolumn="6"/>
+        <references refid="main_8h_1afc24914f856d5e48e6bc515ff76bce08adc98e31be955e138cd7a8661f80f3624" compoundref="main_8h" startline="94">BARTHJESPERSEN</references>
+        <references refid="structside__t_1abd0ddb5755094a7ba4257b3f35d26eba" compoundref="mesh_8h" startline="49">side_t::connection</references>
+        <references refid="structside__t_1aba22d3b5dd9f9372c60e1fd862c75974" compoundref="mesh_8h" startline="55">side_t::elem</references>
+        <references refid="mesh_8c_1a6e0032342c22164db03323d0119d843e" compoundref="mesh_8c" startline="57">elem</references>
+        <references refid="structelem__t_1a3e94a79a5b58bd0b0a21528b641cd56d" compoundref="mesh_8h" startline="96">elem_t::firstSide</references>
+        <references refid="structside__t_1ae806f3a2d38436c03016a41764d37920" compoundref="mesh_8h" startline="44">side_t::GP</references>
+        <references refid="reconstruction_8c_1abd7cbe920d19ba1034df6da5b662c9f5" compoundref="reconstruction_8c" startline="17">limiter</references>
+        <references refid="reconstruction_8c_1acdf3762da7599d1ddf35ffa9554438fb" compoundref="reconstruction_8c" startline="25" endline="96">limiterBarthJespersen</references>
+        <references refid="reconstruction_8c_1ad3a6ae234ee81e1f208ae2aa0842cf6c" compoundref="reconstruction_8c" startline="103" endline="192">limiterVenkatakrishnan</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="structside__t_1af9ea3a8abd427e9545645451cf6ae735" compoundref="mesh_8h" startline="50">side_t::nextElemSide</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structside__t_1a608efb712ac8c943cf63ccce2ea97f7a" compoundref="mesh_8h" startline="38">side_t::pVar</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="boundary_8c_1a10ed132aacb524ddf08fb63254798079" compoundref="boundary_8c" startline="320" endline="331">setBCatBarys</references>
+        <references refid="finiteVolume_8c_1a50d190509434bd34e6fb16935620bb18" compoundref="finiteVolume_8c" startline="24">spatialOrder</references>
+        <references refid="structelem__t_1acabc83b271c0a47c78784c27c8679ff3" compoundref="mesh_8h" startline="86">elem_t::u_t</references>
+        <references refid="structelem__t_1a4cfe2b97df89f4e932e66313e41c34c5" compoundref="mesh_8h" startline="84">elem_t::u_x</references>
+        <references refid="structelem__t_1ac34bf18319993ccd9502b5af3a9904be" compoundref="mesh_8h" startline="85">elem_t::u_y</references>
+        <references refid="main_8h_1afc24914f856d5e48e6bc515ff76bce08a19061662be9d5cb9af7bcf8d56a51cb5" compoundref="main_8h" startline="95">VENKATAKRISHNAN</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="structside__t_1a3217b72c2217ca8fe5c94176cd8e66d7" compoundref="mesh_8h" startline="46">side_t::w</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a58833a3110c570fb05130d40c365d1e4" compoundref="main_8h" startline="37">X</references>
+        <references refid="main_8h_1a94c73cf6934fd835103f0f2794071ee9a5596231eabd6cf29050967d5ac83ad84" compoundref="main_8h" startline="38">Y</references>
+        <referencedby refid="analyze_8h_1aaf09b15337fc9b045b31f8af6ad8ba9c" compoundref="analyze_8c" startline="445" endline="514">calcErrors</referencedby>
+        <referencedby refid="finiteVolume_8h_1a57129f56e03554698dd5f7e506d456ee" compoundref="finiteVolume_8c" startline="78" endline="121">fvTimeDerivative</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Sat 28 Mar 2020 10:16:16 AM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/reconstruction.h"/>
+  </compounddef>
+</doxygen>

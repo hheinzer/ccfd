@@ -49,7 +49,7 @@ void initOutput(void)
 
 /**
  * \brief Tabular CSV output, only for 1D data
- * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
  * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead
@@ -116,7 +116,7 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 
 /**
  * \brief Write solution to CGNS file
- * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
  * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead
@@ -248,7 +248,7 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 
 /**
  * \brief Curve data output, only for 1D data
- * \param[in] fileName[STRLEN] The name of the output file
+ * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
  * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead

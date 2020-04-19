@@ -19,8 +19,8 @@ int nIter = 1000;			/**< maximum number of iterations */
 
 /**
  * \brief Helper function for `exactRiemann`
- * \param[out] *f Flux
- * \param[out] *fd Flux difference
+ * \param[out] f Flux
+ * \param[out] fd Flux difference
  * \param[in] p Pressure
  * \param[in] rhok Critical density
  * \param[in] pk Critical pressure
@@ -45,13 +45,13 @@ void preFun(double *f, double *fd, double p, double rhok, double pk, double ck)
  * \brief Calculate the exact solution to the Riemann problem
  * \param[in] rhol Left side density
  * \param[in] rhor Right side density
- * \param[out] *rho The resulting density
+ * \param[out] rho The resulting density
  * \param[in] ul Left side velocity
  * \param[in] ur Right side velocity
- * \param[out] *u Resulting velocity
+ * \param[out] u Resulting velocity
  * \param[in] pl Left side pressure
  * \param[in] pr Right side pressure
- * \param[out] *p Resulting pressure
+ * \param[out] p Resulting pressure
  * \param[in] al Left side speed of sound
  * \param[in] ar Right side speed of sound
  * \param[in] s	Speed of the discontinuity

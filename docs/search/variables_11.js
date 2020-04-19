@@ -1,19 +1,14 @@
 var searchData=
 [
-  ['side_649',['side',['../structsideList__t.html#ab03f607a00cb4abee5b6ac01e9f073f1',1,'sideList_t::side()'],['../structsidePtr__t.html#ab625c071458f8de30c9192922fd368df',1,'sidePtr_t::side()'],['../mesh_8c.html#a12ab5a8a3e4999ba4d8c26798740ce7f',1,'side():&#160;mesh.c'],['../mesh_8h.html#a12ab5a8a3e4999ba4d8c26798740ce7f',1,'side():&#160;mesh.c']]],
-  ['source_650',['source',['../structelem__t.html#a94ba2b931f4d5d24bcc947cb846e64c7',1,'elem_t']]],
-  ['sourcefunc_651',['sourceFunc',['../equation_8c.html#aeef0a9749cb83651e7bbd578f4d50554',1,'sourceFunc():&#160;equation.c'],['../equation_8h.html#aeef0a9749cb83651e7bbd578f4d50554',1,'sourceFunc():&#160;equation.c']]],
-  ['spatialorder_652',['spatialOrder',['../finiteVolume_8c.html#a50d190509434bd34e6fb16935620bb18',1,'spatialOrder():&#160;finiteVolume.c'],['../finiteVolume_8h.html#a50d190509434bd34e6fb16935620bb18',1,'spatialOrder():&#160;finiteVolume.c']]],
-  ['sqrt2_653',['sqrt2',['../equation_8c.html#a517048f752dfd7a2d0a22da40366ef3c',1,'sqrt2():&#160;equation.c'],['../equation_8h.html#a517048f752dfd7a2d0a22da40366ef3c',1,'sqrt2():&#160;equation.c']]],
-  ['sqrt3_654',['sqrt3',['../equation_8c.html#a0940f819da27e6418edf4fb8cdc8e478',1,'sqrt3():&#160;equation.c'],['../equation_8h.html#a0940f819da27e6418edf4fb8cdc8e478',1,'sqrt3():&#160;equation.c']]],
-  ['sqrt3q_655',['sqrt3q',['../equation_8c.html#a4660a259fff1acb395f3d79b11cf5eea',1,'sqrt3q():&#160;equation.c'],['../equation_8h.html#a4660a259fff1acb395f3d79b11cf5eea',1,'sqrt3q():&#160;equation.c']]],
-  ['sreps0_656',['srEps0',['../linearSolver_8c.html#a448267f322e74a68c1159206d4b14b94',1,'srEps0():&#160;linearSolver.c'],['../linearSolver_8h.html#a448267f322e74a68c1159206d4b14b94',1,'srEps0():&#160;linearSolver.c']]],
-  ['starttime_657',['startTime',['../timeDiscretization_8c.html#a0a07a521d3525b9b7dc70c0a625adea0',1,'startTime():&#160;timeDiscretization.c'],['../timeDiscretization_8h.html#a0a07a521d3525b9b7dc70c0a625adea0',1,'startTime():&#160;timeDiscretization.c']]],
-  ['stoptime_658',['stopTime',['../timeDiscretization_8c.html#a182e750ff0bddf3ac2bc3b7f236b9851',1,'stopTime():&#160;timeDiscretization.c'],['../timeDiscretization_8h.html#a182e750ff0bddf3ac2bc3b7f236b9851',1,'stopTime():&#160;timeDiscretization.c']]],
-  ['strinicondfile_659',['strIniCondFile',['../mesh_8c.html#a394fda7463f47da523cd1efd5c59aeaf',1,'strIniCondFile():&#160;mesh.c'],['../mesh_8h.html#a394fda7463f47da523cd1efd5c59aeaf',1,'strIniCondFile():&#160;mesh.c']]],
-  ['strmeshfile_660',['strMeshFile',['../mesh_8c.html#a248d8abe20644d580d9eaeab709e6f24',1,'strMeshFile():&#160;mesh.c'],['../mesh_8h.html#a248d8abe20644d580d9eaeab709e6f24',1,'strMeshFile():&#160;mesh.c']]],
-  ['strmeshformat_661',['strMeshFormat',['../mesh_8c.html#a24161a93b14d1764d58c30d83d059b1f',1,'strMeshFormat():&#160;mesh.c'],['../mesh_8h.html#a24161a93b14d1764d58c30d83d059b1f',1,'strMeshFormat():&#160;mesh.c']]],
-  ['stroutfile_662',['strOutFile',['../output_8c.html#a4216b320947c90fd5bf3dfa416ddc2f9',1,'strOutFile():&#160;output.c'],['../output_8h.html#a4216b320947c90fd5bf3dfa416ddc2f9',1,'strOutFile():&#160;output.c']]],
-  ['sx_663',['sx',['../structelem__t.html#aab30a44e86d9d65d7fed1f0bb96e6bf3',1,'elem_t']]],
-  ['sy_664',['sy',['../structelem__t.html#a349c47f8d72e43a437b818d438d59671',1,'elem_t']]]
+  ['r_664',['R',['../equation_8c.html#a228eb5e837a644887ac6e7bab3f42485',1,'R():&#160;equation.c'],['../equation_8h.html#a228eb5e837a644887ac6e7bab3f42485',1,'R():&#160;equation.c']]],
+  ['r0_665',['R0',['../linearSolver_8c.html#a8ef5c6cc0b25fb149daa7a822ec9400f',1,'linearSolver.c']]],
+  ['r_5fxk_666',['R_XK',['../linearSolver_8c.html#afcc6752617c005ff4974f7b68378ca67',1,'R_XK():&#160;linearSolver.c'],['../linearSolver_8h.html#afcc6752617c005ff4974f7b68378ca67',1,'R_XK():&#160;linearSolver.c']]],
+  ['recordpoint_667',['recordPoint',['../analyze_8c.html#a0a7cddda39a51eafadd8ca930e5e07d2',1,'recordPoint():&#160;analyze.c'],['../analyze_8h.html#a0a7cddda39a51eafadd8ca930e5e07d2',1,'recordPoint():&#160;analyze.c']]],
+  ['reflength_668',['refLength',['../structwing__t.html#a0d2e5181a34af01adec014cdc56ed544',1,'wing_t']]],
+  ['refstate_669',['refState',['../initialCondition_8c.html#a50f7da2cd33787648fdd3fa492aade19',1,'refState():&#160;initialCondition.c'],['../initialCondition_8h.html#a50f7da2cd33787648fdd3fa492aade19',1,'refState():&#160;initialCondition.c']]],
+  ['reps0_670',['rEps0',['../linearSolver_8c.html#a834b3496fc26d27d58b1f45789babe66',1,'rEps0():&#160;linearSolver.c'],['../linearSolver_8h.html#a834b3496fc26d27d58b1f45789babe66',1,'rEps0():&#160;linearSolver.c']]],
+  ['resfile_671',['resFile',['../output_8c.html#ada9bcfe5cfbb7ef3c5a2f9db1041b49d',1,'resFile():&#160;output.c'],['../output_8h.html#ada9bcfe5cfbb7ef3c5a2f9db1041b49d',1,'resFile():&#160;output.c']]],
+  ['restarttime_672',['restartTime',['../timeDiscretization_8c.html#ae69ad85dc74e3d38fcb455343d91d7d6',1,'restartTime():&#160;timeDiscretization.c'],['../timeDiscretization_8h.html#ae69ad85dc74e3d38fcb455343d91d7d6',1,'restartTime():&#160;timeDiscretization.c']]],
+  ['rkcoeff_673',['RKcoeff',['../timeDiscretization_8c.html#a763c08fe134b29369fd69e1072bece49',1,'RKcoeff():&#160;timeDiscretization.c'],['../timeDiscretization_8h.html#a763c08fe134b29369fd69e1072bece49',1,'RKcoeff():&#160;timeDiscretization.c']]],
+  ['rp1dinterface_674',['rp1Dinterface',['../initialCondition_8c.html#ab665c8733e05cb0695e0185968557a4b',1,'rp1Dinterface():&#160;initialCondition.c'],['../initialCondition_8h.html#ab665c8733e05cb0695e0185968557a4b',1,'rp1Dinterface():&#160;initialCondition.c']]]
 ];

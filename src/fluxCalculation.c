@@ -25,7 +25,7 @@
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_god(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -62,7 +62,7 @@ void flux_god(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_roe(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -156,7 +156,7 @@ void flux_roe(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_hll(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -235,7 +235,7 @@ void flux_hll(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_hlle(double rhoL, double rhoR,
 	       double vxL,  double vxR,
@@ -310,7 +310,7 @@ void flux_hlle(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_hllc(double rhoL, double rhoR,
 	       double vxL,  double vxR,
@@ -405,7 +405,7 @@ void flux_hllc(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_lxf(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -455,7 +455,7 @@ void flux_lxf(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_stw(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -519,7 +519,7 @@ void flux_stw(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_cen(double rhoL, double rhoR,
 	      double vxL,  double vxR,
@@ -560,7 +560,7 @@ void flux_cen(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_ausmd(double rhoL, double rhoR,
 	        double vxL,  double vxR,
@@ -622,7 +622,7 @@ void flux_ausmd(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_ausmdv(double rhoL, double rhoR,
 	         double vxL,  double vxR,
@@ -722,7 +722,7 @@ void flux_ausmdv(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void flux_vanleer(double rhoL, double rhoR,
 	          double vxL,  double vxR,
@@ -798,7 +798,7 @@ void flux_vanleer(double rhoL, double rhoR,
  * \param[in] vyR Right side y-velocity
  * \param[in] pL Left side pressure
  * \param[in] pR Right side pressure
- * \param[out] fluxLoc[4] The local numeric flux
+ * \param[out] fluxLoc The local numeric flux
  */
 void convectiveFlux(double rhoL, double rhoR,
 		    double vxL,  double vxR,
@@ -846,16 +846,16 @@ void convectiveFlux(double rhoL, double rhoR,
 #ifdef NAVIERSTOKES
 /**
  * \brief Calculate the diffusive flux
- * \param[in] state[NVAR] Mean conservative state of the two cells
- * \param[in] gradX[NVAR] The x-gradient at the side
- * \param[in] gradY[NVAR] The y-gradient at the side
- * \param[out] f[NVAR] Diffusive flux in x-direction
- * \param[out] g[NVAR] Diffusive flux in y-direction
+ * \param[in] state Mean conservative state of the two cells
+ * \param[in] gradX The x-gradient at the side
+ * \param[in] gradY The y-gradient at the side
+ * \param[out] f Diffusive flux in x-direction
+ * \param[out] g Diffusive flux in y-direction
  */
 void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		double f[NVAR], double g[NVAR])
 {
-	//f[RHO] = 0.0;
+	/* f[RHO] = 0.0; */
 	f[MX]  = (4.0 / 3.0 * gradX[MX] - 2.0 / 3.0 * gradY[MY]) * mu;
 	f[MY]  = (gradY[MX] + gradX[MY]) * mu;
 	f[E]   = (4.0 / 3.0 * state[MX] * gradX[MX] - 2.0 / 3.0 * state[MX] * gradY[MY]
@@ -863,7 +863,7 @@ void diffusionFlux(double state[NVAR], double gradX[NVAR], double gradY[NVAR],
 		+ gam / (gam1 * Pr * state[RHO] * state[RHO])
 		* (state[RHO] * gradX[P] - state[P] * gradX[RHO])) * mu;
 
-	//g[RHO] = 0.0;
+	/* g[RHO] = 0.0; */
 	g[MX]  = (gradY[MX] + gradX[MY]) * mu;
 	g[MY]  = (4.0 / 3.0 * gradY[MY] - 2.0 / 3.0 * gradX[MX]) * mu;
 	g[E]   = (4.0 / 3.0 * state[MY] * gradY[MY] - 2.0 / 3.0 * state[MY] * gradX[MX]

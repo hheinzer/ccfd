@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="bug" kind="page">
+    <compoundname>bug</compoundname>
+    <title>Bug List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Global <ref refid="fluxCalculation_8c_1ac1ab4c281fdf823d688c993c0c8e8afe" kindref="member">flux_ausmdv</ref>  (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double fluxLoc[4])</term></varlistentry>
+<listitem><para><anchor id="bug_1_bug000001"/>This function produces incorrect output, refrain from using it for the time being </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

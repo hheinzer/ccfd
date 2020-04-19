@@ -52,7 +52,7 @@ double xMin;				/**< maximum x-direction extension */
 double xMax;				/**< minimum x-direction extension */
 double yMin;				/**< maximum y-direction extension */
 double yMax;				/**< minimum y-direction extension */
-double dxRef;
+double dxRef;				/**< reference x length */
 
 elem_t **elem;				/**< global element pointer array */
 side_t **side;				/**< global side pointer array */
@@ -76,7 +76,7 @@ struct sideList_t {
 
 /**
  * \brief Compute required vectors for reconstruction
- * \param[in] *aElem A pointer to an element
+ * \param[in] aElem A pointer to an element
  */
 void createReconstructionInfo(elem_t *aElem)
 {
@@ -246,7 +246,7 @@ void connectPeriodicBC(void)
 
 /**
  * \brief Create side info: normal vector, side length, and ghost cells
- * \param[in] *aSide A pointer to a side
+ * \param[in] aSide A pointer to a side
  */
 void createSideInfo(side_t *aSide)
 {
@@ -292,7 +292,7 @@ void createSideInfo(side_t *aSide)
 /**
  * \brief Compute the cell specific values: barycenter, area, projection length
  *	of an element
- * \param[in] *aElem A pointer to an element
+ * \param[in] aElem A pointer to an element
  */
 void createElemInfo(elem_t *aElem)
 {
@@ -355,8 +355,8 @@ void createElemInfo(elem_t *aElem)
  * 2 2 1       3 3 0
  * 3 3 0       3 3 1
  *
- * \param[in] *a Pointer an element of the side list
- * \param[in] *b Pointer an element of the side list
+ * \param[in] a Pointer an element of the side list
+ * \param[in] b Pointer an element of the side list
  * \return The difference of a and b, if the values are the same, the move to
  *	next sorting metric
  */
@@ -377,11 +377,11 @@ int compare(const void *a, const void *b)
 
 /**
  * \brief Create a cartesian mesh
- * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
- * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
- * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
- * \param[in/out] *nBCedges Pointer to the number of total BC edges
- * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
+ * \param[in,out] vertex Pointer to 2D array, used for the vertices
+ * \param[in,out] nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in,out] BCedge Pointer to 2D array, used for the BC edges
+ * \param[in,out] nBCedges Pointer to the number of total BC edges
+ * \param[in,out] quad Pointer to a 2D array, used for the quadrangles
  */
 void createCartMesh(
 	double ***vertex, long *nVertices, long ***BCedge, long *nBCedges, long ***quad)
@@ -488,13 +488,13 @@ void createCartMesh(
 
 /**
  * \brief Read in a gmsh mesh file
- * \param[in] fileName[STRLEN] Name of the mesh file
- * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
- * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
- * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
- * \param[in/out] *nBCedges Pointer to the number of total BC edges
- * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
- * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
+ * \param[in] fileName Name of the mesh file
+ * \param[in,out] vertex Pointer to 2D array, used for the vertices
+ * \param[in,out] nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in,out] BCedge Pointer to 2D array, used for the BC edges
+ * \param[in,out] nBCedges Pointer to the number of total BC edges
+ * \param[in,out] tria Pointer to a 2D array, used for the triangles
+ * \param[in,out] quad Pointer to a 2D array, used for the quadrangles
  */
 void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -994,13 +994,13 @@ void readGmsh(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 /**
  * \brief Read in EMC2 mesh file
- * \param[in] fileName[STRLEN] Name of the mesh file
- * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
- * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
- * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
- * \param[in/out] *nBCedges Pointer to the number of total BC edges
- * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
- * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
+ * \param[in] fileName Name of the mesh file
+ * \param[in,out] vertex Pointer to 2D array, used for the vertices
+ * \param[in,out] nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in,out] BCedge Pointer to 2D array, used for the BC edges
+ * \param[in,out] nBCedges Pointer to the number of total BC edges
+ * \param[in,out] tria Pointer to a 2D array, used for the triangles
+ * \param[in,out] quad Pointer to a 2D array, used for the quadrangles
  */
 void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)
@@ -1143,13 +1143,13 @@ void readEMC2(char fileName[STRLEN], double ***vertex, long *nVertices, long ***
 
 /**
  * \brief Read in a CGNS mesh
- * \param[in] fileName[STRLEN] Name of the mesh file
- * \param[in/out] ***vertex Pointer to 2D array, used for the vertices
- * \param[in/out] *nVertices Pointer to the number of total vertices in `vertex`
- * \param[in/out] ***BCedge Pointer to 2D array, used for the BC edges
- * \param[in/out] *nBCedges Pointer to the number of total BC edges
- * \param[in/out] ***tria Pointer to a 2D array, used for the triangles
- * \param[in/out] ***quad Pointer to a 2D array, used for the quadrangles
+ * \param[in] fileName Name of the mesh file
+ * \param[in,out] vertex Pointer to 2D array, used for the vertices
+ * \param[in,out] nVertices Pointer to the number of total vertices in `vertex`
+ * \param[in,out] BCedge Pointer to 2D array, used for the BC edges
+ * \param[in,out] nBCedges Pointer to the number of total BC edges
+ * \param[in,out] tria Pointer to a 2D array, used for the triangles
+ * \param[in,out] quad Pointer to a 2D array, used for the quadrangles
  */
 void readCGNS(char fileName[STRLEN], double ***vertex, long *nVertices, long ***BCedge,
 		long *nBCedges, long ***tria, long ***quad)

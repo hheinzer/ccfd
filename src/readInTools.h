@@ -12,7 +12,7 @@
 #include "main.h"
 
 void fillCmds(char iniFileName[STRLEN]);
-char *getStr(char *key, char *proposal);
+char *getStr(const char *key, const char *proposal);
 int countKeys(const char *key, const int proposal);
 int getInt(const char *key, const char *proposal);
 double getDbl(const char *key, const char *proposal);

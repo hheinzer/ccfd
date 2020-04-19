@@ -405,7 +405,7 @@ void evalRecordPoints(double time)
  * \brief Compute aerodynamic coefficients and extract values at record points
  * \param[in] time Calculation time at output
  * \param[in] iter Iteration count at output
- * \param[in/out] resIter[NVAR + 2] The residual vector containing the CL and CD
+ * \param[in,out] resIter The residual vector containing the CL and CD
  *	residuals at 4th and 5th index position
  */
 void analyze(double time, long iter, double resIter[NVAR + 2])
@@ -515,7 +515,7 @@ void calcErrors(double time)
 
 /**
  * \brief Calculate the global residual of the conservative variables
- * \param[in/out] resIter[NVAR + 2] The residual vector containing the residuals
+ * \param[in,out] resIter The residual vector containing the residuals
  *	of the conservative variables at the first four positions
  */
 void globalResidual(double resIter[NVAR + 2])

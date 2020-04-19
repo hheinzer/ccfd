@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="initialCondition_8c" kind="file" language="C++">
+    <compoundname>initialCondition.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <includes refid="readInTools_8h" local="yes">readInTools.h</includes>
+    <includes refid="initialCondition_8h" local="yes">initialCondition.h</includes>
+    <includes refid="equation_8h" local="yes">equation.h</includes>
+    <includes refid="memTools_8h" local="yes">memTools.h</includes>
+    <includes refid="timeDiscretization_8h" local="yes">timeDiscretization.h</includes>
+    <includes refid="mesh_8h" local="yes">mesh.h</includes>
+    <includes refid="exactFunction_8h" local="yes">exactFunction.h</includes>
+    <includes refid="equationOfState_8h" local="yes">equationOfState.h</includes>
+    <includes local="yes">cgnslib.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="17">
+        <label>exactFunction.h</label>
+        <link refid="exactFunction_8h"/>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="18">
+        <label>equationOfState.h</label>
+        <link refid="equationOfState_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>cgnslib.h</label>
+      </node>
+      <node id="15">
+        <label>mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>timeDiscretization.h</label>
+        <link refid="timeDiscretization_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/initialCondition.c</label>
+        <link refid="initialCondition_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>initialCondition.h</label>
+        <link refid="initialCondition_8h"/>
+      </node>
+      <node id="5">
+        <label>string.h</label>
+      </node>
+      <node id="11">
+        <label>memTools.h</label>
+        <link refid="memTools_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>boundary.h</label>
+        <link refid="boundary_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>equation.h</label>
+        <link refid="equation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>time.h</label>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="7">
+        <label>readInTools.h</label>
+        <link refid="readInTools_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="initialCondition_8c_1ae42c2888ea03b27e3cdf021612b4850c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int icType</definition>
+        <argsstring></argsstring>
+        <name>icType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>type of initial condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="26" column="5" bodyfile="src/initialCondition.c" bodystart="26" bodyend="-1"/>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="initialCondition_8c_1af21e421b07a4356a65f4c4cf5c0bc879" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nDomains</definition>
+        <argsstring></argsstring>
+        <name>nDomains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of domains where initial conditions are applied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="27" column="5" bodyfile="src/initialCondition.c" bodystart="27" bodyend="-1"/>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="initialCondition_8c_1ad867b89571b0bf6049fa6bc21132e1a0" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* domainID</definition>
+        <argsstring></argsstring>
+        <name>domainID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>domain ID vecotor, from 1 to <computeroutput>nDomains</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="29" column="5" bodyfile="src/initialCondition.c" bodystart="29" bodyend="-1"/>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="initialCondition_8c_1ab665c8733e05cb0695e0185968557a4b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double rp1Dinterface</definition>
+        <argsstring></argsstring>
+        <name>rp1Dinterface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>interface for a Riemann problem </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="30" column="8" bodyfile="src/initialCondition.c" bodystart="30" bodyend="-1"/>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="initialCondition_8c_1a20f4c4490bc8ecbdd1ffcb79acce6035" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>incident angle of the flow </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="31" column="8" bodyfile="src/initialCondition.c" bodystart="31" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="timeDiscretization_8c_1a2bb23ea444814dac92545c3cd2cc7f96" compoundref="timeDiscretization_8c" startline="414" endline="555">implicitTimeStep</referencedby>
+        <referencedby refid="boundary_8h_1a05d101d1f79d7e1bda2a9822c0675773" compoundref="boundary_8c" startline="29" endline="137">initBoundary</referencedby>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="initialCondition_8c_1a50f7da2cd33787648fdd3fa492aade19" prot="public" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** refState</definition>
+        <argsstring></argsstring>
+        <name>refState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>primitive variable state in domain </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="32" column="8" bodyfile="src/initialCondition.c" bodystart="32" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="initialCondition_8h_1a534f3cde02c24d15dc0ac3d71344409e" compoundref="initialCondition_8c" startline="230" endline="235">freeInitialCondition</referencedby>
+        <referencedby refid="initialCondition_8h_1ab7e12a17a6a542477391bedb279eacbd" compoundref="initialCondition_8c" startline="37" endline="91">initInitialCondition</referencedby>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="initialCondition_8c_1ab7e12a17a6a542477391bedb279eacbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initInitialCondition</definition>
+        <argsstring>(void)</argsstring>
+        <name>initInitialCondition</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get initial flow conditions from the parameter file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="37" column="6" bodyfile="src/initialCondition.c" bodystart="37" bodyend="91"/>
+        <references refid="initialCondition_8c_1ae42c2888ea03b27e3cdf021612b4850c" compoundref="initialCondition_8c" startline="26">icType</references>
+        <references refid="readInTools_8c_1ad920bf2e8d08267c632f9d48f6932d43" compoundref="readInTools_8c" startline="269" endline="277">getInt</references>
+        <references refid="initialCondition_8c_1af21e421b07a4356a65f4c4cf5c0bc879" compoundref="initialCondition_8c" startline="27">nDomains</references>
+        <references refid="initialCondition_8c_1ad867b89571b0bf6049fa6bc21132e1a0" compoundref="initialCondition_8c" startline="29">domainID</references>
+        <references refid="initialCondition_8c_1a50f7da2cd33787648fdd3fa492aade19" compoundref="initialCondition_8c" startline="32">refState</references>
+        <references refid="memTools_8c_1a230dd2ee695db7c9c83a91bf83b83628" compoundref="memTools_8c" startline="69" endline="82">dyn2DdblArray</references>
+        <references refid="main_8h_1a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388" compoundref="main_8h" startline="103">NVAR</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="readInTools_8c_1a21afe1e7fa3e486a19cf7678b53f1782" compoundref="readInTools_8c" startline="289" endline="297">getDbl</references>
+        <references refid="initialCondition_8c_1a20f4c4490bc8ecbdd1ffcb79acce6035" compoundref="initialCondition_8c" startline="31">alpha</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="equation_8c_1a45d60151fb0572200ad00231c304aaf0" compoundref="equation_8c" startline="21">gam</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="equation_8c_1a31c17cc321db72d5ab448b71ea92792f" compoundref="equation_8c" startline="17">pi</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="equation_8c_1a9d043fa680da2f216f05af6c09975a96" compoundref="equation_8c" startline="31">intExactFunc</references>
+        <references refid="initialCondition_8c_1ab665c8733e05cb0695e0185968557a4b" compoundref="initialCondition_8c" startline="30">rp1Dinterface</references>
+        <references refid="readInTools_8c_1ae70140bbdb2b646ee2b5814a4eeec25d" compoundref="readInTools_8c" startline="379" endline="405">getDblArray</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="initialCondition_8c_1ab3e7d324199c05dcc7b0abee82288666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cgnsReadSolution</definition>
+        <argsstring>(void)</argsstring>
+        <name>cgnsReadSolution</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Read a solution from a CGNS file, used at restart. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="96" column="6" bodyfile="src/initialCondition.c" bodystart="96" bodyend="160"/>
+        <references refid="mesh_8c_1a394fda7463f47da523cd1efd5c59aeaf" compoundref="mesh_8c" startline="31">strIniCondFile</references>
+        <references refid="mesh_8c_1aa564af0cb1a4e3d22c2ccb63761cb60c" compoundref="mesh_8c" startline="42">nElems</references>
+        <references refid="timeDiscretization_8c_1a87accd1af8e0aff4b818d891374f7cec" compoundref="timeDiscretization_8c" startline="31">t</references>
+        <references refid="timeDiscretization_8c_1a12439b3d8d0b98ef24a67fbaf6904842" compoundref="timeDiscretization_8c" startline="33">timeOverall</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="structelem__t_1aed7c0b9caae53e6a8ee5fed26d3f8343" compoundref="mesh_8h" startline="73">elem_t::id</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <referencedby refid="initialCondition_8h_1a6990d5d35ba28636de1ce0e12c379288" compoundref="initialCondition_8c" startline="165" endline="225">setInitialCondition</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="initialCondition_8c_1a6990d5d35ba28636de1ce0e12c379288" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setInitialCondition</definition>
+        <argsstring>(void)</argsstring>
+        <name>setInitialCondition</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set initial flow field in all cells. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="165" column="6" bodyfile="src/initialCondition.c" bodystart="165" bodyend="225"/>
+        <references refid="timeDiscretization_8c_1a1dec7d02ca38afdc0387769a6a941b4d" compoundref="timeDiscretization_8c" startline="50">isRestart</references>
+        <references refid="initialCondition_8c_1ab3e7d324199c05dcc7b0abee82288666" compoundref="initialCondition_8c" startline="96" endline="160">cgnsReadSolution</references>
+        <references refid="initialCondition_8c_1ae42c2888ea03b27e3cdf021612b4850c" compoundref="initialCondition_8c" startline="26">icType</references>
+        <references refid="mesh_8c_1a70e56414c0c1dbf47a7748ebe790a0de" compoundref="mesh_8c" startline="61">firstElem</references>
+        <references refid="structelem__t_1a40ec4ebc32ce10b77a002d79fb320925" compoundref="mesh_8h" startline="80">elem_t::pVar</references>
+        <references refid="main_8h_1ac6129dae676eed304cd749482f612549a76cd220ddca9eb0056c1b87b495ec583" compoundref="main_8h" startline="18">RHO</references>
+        <references refid="structelem__t_1aed7c0b9caae53e6a8ee5fed26d3f8343" compoundref="mesh_8h" startline="73">elem_t::id</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa1bfa0eb190f2841c15a7d724bbfe63e5" compoundref="main_8h" startline="28">VX</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa6558f68edc58c07ee2d79f9fa869d951" compoundref="main_8h" startline="29">VY</references>
+        <references refid="main_8h_1adb3795d462d7ec5efdf732e5f3bec19fa82f05f38f6a17b117cdd2b83227912c6" compoundref="main_8h" startline="30">P</references>
+        <references refid="structelem__t_1afe12992efeaa0cc851697ad442765e71" compoundref="mesh_8h" startline="97">elem_t::next</references>
+        <references refid="initialCondition_8c_1af21e421b07a4356a65f4c4cf5c0bc879" compoundref="initialCondition_8c" startline="27">nDomains</references>
+        <references refid="initialCondition_8c_1a50f7da2cd33787648fdd3fa492aade19" compoundref="initialCondition_8c" startline="32">refState</references>
+        <references refid="structelem__t_1ada040725ae293b120c7918fd3331bca6" compoundref="mesh_8h" startline="74">elem_t::domain</references>
+        <references refid="exactFunction_8c_1a56466b31b0f75744aed6345b4b68e8f2" compoundref="exactFunction_8c" startline="35" endline="183">exactFunc</references>
+        <references refid="equation_8c_1a9d043fa680da2f216f05af6c09975a96" compoundref="equation_8c" startline="31">intExactFunc</references>
+        <references refid="structelem__t_1ae92890231cbc4a099d684b3eac028439" compoundref="mesh_8h" startline="75">elem_t::bary</references>
+        <references refid="equationOfState_8c_1abc7d4bb92eab7aec2fb1d979f0df080c" compoundref="equationOfState_8c" startline="20" endline="27">primCons</references>
+        <references refid="structelem__t_1af6241380d3869a260d9e8a7a6f9d79ee" compoundref="mesh_8h" startline="81">elem_t::cVar</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="initialCondition_8c_1a534f3cde02c24d15dc0ac3d71344409e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeInitialCondition</definition>
+        <argsstring>(void)</argsstring>
+        <name>freeInitialCondition</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free all memory that was allocated for the reference state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/initialCondition.c" line="230" column="6" bodyfile="src/initialCondition.c" bodystart="230" bodyend="235"/>
+        <references refid="initialCondition_8c_1a50f7da2cd33787648fdd3fa492aade19" compoundref="initialCondition_8c" startline="32">refState</references>
+        <referencedby refid="main_8c_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8c" startline="35" endline="130">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions involving the initialization and application of initial conditions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>hhh </para>
+</simplesect>
+<simplesect kind="date"><para>Fri 27 Mar 2020 02:31:24 PM CET </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/initialCondition.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structwing__t" kind="struct" language="C++" prot="public">
+    <compoundname>wing_t</compoundname>
+    <includes local="no">analyze.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structwing__t_1a0d2e5181a34af01adec014cdc56ed544" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double wing_t::refLength</definition>
+        <argsstring></argsstring>
+        <name>refLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reference length </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="26" column="8" bodyfile="src/analyze.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="analyze_8c_1adc6a4d68efba10058fc17a0d51fd1e12" compoundref="analyze_8c" startline="189" endline="194">readWing</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1a06c636a3c64274b3967a87189fe3774c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int wing_t::wallId</definition>
+        <argsstring></argsstring>
+        <name>wallId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>BCid of the wall that represents the wing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="27" column="5" bodyfile="src/analyze.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a33fc83926ae2b8bae07e7177f9569c6c" compoundref="analyze_8c" startline="95" endline="184">initWing</referencedby>
+        <referencedby refid="analyze_8c_1adc6a4d68efba10058fc17a0d51fd1e12" compoundref="analyze_8c" startline="189" endline="194">readWing</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1abbc7232152809bd0e53028a98db65c15" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double wing_t::cl</definition>
+        <argsstring></argsstring>
+        <name>cl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>lift coefficient </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="28" column="8" bodyfile="src/analyze.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a5bc9f64ac7233292ac4fd9fb6a5fe52a" compoundref="analyze_8c" startline="411" endline="438">analyze</referencedby>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1a054e995574e6779b477d45ce36ff8e80" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double wing_t::cd</definition>
+        <argsstring></argsstring>
+        <name>cd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>drag coefficient </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="29" column="8" bodyfile="src/analyze.h" bodystart="29" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a5bc9f64ac7233292ac4fd9fb6a5fe52a" compoundref="analyze_8c" startline="411" endline="438">analyze</referencedby>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1a6a550f0458260fc0d848bb31683b04fc" prot="public" static="no" mutable="no">
+        <type><ref refid="structboundary__t" kindref="compound">boundary_t</ref> *</type>
+        <definition>boundary_t* wing_t::wingBC</definition>
+        <argsstring></argsstring>
+        <name>wingBC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the BC of the wing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="30" column="12" bodyfile="src/analyze.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1aa1b666748269222901ecc713380abc9b" prot="public" static="no" mutable="no">
+        <type><ref refid="structsidePtr__t" kindref="compound">sidePtr_t</ref> *</type>
+        <definition>sidePtr_t* wing_t::firstPressureSide</definition>
+        <argsstring></argsstring>
+        <name>firstPressureSide</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the first pressure side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="31" column="11" bodyfile="src/analyze.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="analyze_8h_1a0b874bfa16c481db6ff3bedb28a832b7" compoundref="analyze_8c" startline="544" endline="571">freeAnalyze</referencedby>
+        <referencedby refid="analyze_8c_1a33fc83926ae2b8bae07e7177f9569c6c" compoundref="analyze_8c" startline="95" endline="184">initWing</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structwing__t_1a0bb9fcdeb27431d8071ce9f1850d483a" prot="public" static="no" mutable="no">
+        <type><ref refid="structsidePtr__t" kindref="compound">sidePtr_t</ref> *</type>
+        <definition>sidePtr_t* wing_t::firstSuctionSide</definition>
+        <argsstring></argsstring>
+        <name>firstSuctionSide</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the first suction side </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="32" column="11" bodyfile="src/analyze.h" bodystart="32" bodyend="-1"/>
+        <referencedby refid="analyze_8c_1a57b9e2f519e234a9b6a526a4e61b38b8" compoundref="analyze_8c" startline="292" endline="387">calcCoef</referencedby>
+        <referencedby refid="analyze_8h_1a0b874bfa16c481db6ff3bedb28a832b7" compoundref="analyze_8c" startline="544" endline="571">freeAnalyze</referencedby>
+        <referencedby refid="analyze_8c_1a33fc83926ae2b8bae07e7177f9569c6c" compoundref="analyze_8c" startline="95" endline="184">initWing</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Collection of all necessary values for the calculation of CL and CD. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>sidePtr_t</label>
+        <link refid="structsidePtr__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>side</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>boundary_t</label>
+        <link refid="structboundary__t"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>node_t</label>
+        <link refid="structnode__t"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>elem_t</label>
+        <link refid="structelem__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>firstSide</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>wing_t</label>
+        <link refid="structwing__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>firstSuctionSide</edgelabel>
+          <edgelabel>firstPressureSide</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>wingBC</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>side_t</label>
+        <link refid="structside__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>elem</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>BC</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>nextElemSide</edgelabel>
+          <edgelabel>next</edgelabel>
+          <edgelabel>connection</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/analyze.h" line="25" column="13" bodyfile="src/analyze.h" bodystart="25" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structwing__t_1a054e995574e6779b477d45ce36ff8e80" prot="public" virt="non-virtual"><scope>wing_t</scope><name>cd</name></member>
+      <member refid="structwing__t_1abbc7232152809bd0e53028a98db65c15" prot="public" virt="non-virtual"><scope>wing_t</scope><name>cl</name></member>
+      <member refid="structwing__t_1aa1b666748269222901ecc713380abc9b" prot="public" virt="non-virtual"><scope>wing_t</scope><name>firstPressureSide</name></member>
+      <member refid="structwing__t_1a0bb9fcdeb27431d8071ce9f1850d483a" prot="public" virt="non-virtual"><scope>wing_t</scope><name>firstSuctionSide</name></member>
+      <member refid="structwing__t_1a0d2e5181a34af01adec014cdc56ed544" prot="public" virt="non-virtual"><scope>wing_t</scope><name>refLength</name></member>
+      <member refid="structwing__t_1a06c636a3c64274b3967a87189fe3774c" prot="public" virt="non-virtual"><scope>wing_t</scope><name>wallId</name></member>
+      <member refid="structwing__t_1a6a550f0458260fc0d848bb31683b04fc" prot="public" virt="non-virtual"><scope>wing_t</scope><name>wingBC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

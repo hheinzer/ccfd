@@ -28,9 +28,9 @@
  *	- 6: 1D sine wave
  *
  * \param[in] iExactFunc The exact function control
- * \param[in] x[NDIM] The coordinates for which to calculate the exact function
+ * \param[in] x The coordinates for which to calculate the exact function
  * \param[in] time The time for which to compute the exact value
- * \param[out] pVar[NVAR] The resulting vector of primitive variables
+ * \param[out] pVar The resulting vector of primitive variables
  */
 void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 {

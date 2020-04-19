@@ -109,7 +109,7 @@ void fillCmds(char iniFileName[STRLEN])
  * Before deleting the command, the previous command is connected to the next
  * command and vice versa.
  *
- * \param[in] *aCmd A pointer to the command that is to be deleted
+ * \param[in] aCmd A pointer to the command that is to be deleted
  */
 void deleteCmd(cmd_t *aCmd)
 {
@@ -137,10 +137,10 @@ void deleteCmd(cmd_t *aCmd)
  * the corresponding value string. Return NULL if key was not found. Once a
  * key was read from the commands list, it is deleted from the list.
  *
- * \param[in] *key Key string of the command to be found
- * \param[out] defMsg[8] String, that indicates if an actual value or the
+ * \param[in] key Key string of the command to be found
+ * \param[out] defMsg String, that indicates if an actual value or the
  *	proposal was returned
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] proposal The default value that is used if the key was not
  *	specified
  * \return Pointer to the `value` string, or `NULL`
  */
@@ -202,8 +202,8 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] key Key string of the command to be found
+ * \param[in] proposal The default value that is used if the key was not
  * \return Pointer to the `value` string, containing the parameter, or the
  *	default value, if the parameter was not specified
  */
@@ -221,7 +221,7 @@ char *getStr(const char *key, const char *proposal)
  * key is not specified, the proposal will be returned. If the proposal is -1,
  * but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
+ * \param[in] key Key string of the command to be found
  * \param[in] proposal The default value that is used if the key was not
  * \return How often the `key` appeared in the command list
  */
@@ -262,8 +262,8 @@ int countKeys(const char *key, const int proposal)
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] key Key string of the command to be found
+ * \param[in] proposal The default value that is used if the key was not
  * \return The value of the parameter, or the default value
  */
 int getInt(const char *key, const char *proposal)
@@ -282,8 +282,8 @@ int getInt(const char *key, const char *proposal)
  * key is not specified, the proposal will be returned. If the proposal is
  * NULL, but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] key Key string of the command to be found
+ * \param[in] proposal The default value that is used if the key was not
  * \return The value of the parameter, or the default value
  */
 double getDbl(const char *key, const char *proposal)
@@ -304,8 +304,8 @@ double getDbl(const char *key, const char *proposal)
  * the parameter file is accepted as true, if it is a 'T', 't', 'True', or
  * 'true', otherwise it is false.
  *
- * \param[in] *key Key string of the command to be found
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] key Key string of the command to be found
+ * \param[in] proposal The default value that is used if the key was not
  * \return The value of the parameter, or the default value
  */
 bool getBool(const char *key, const char *proposal)
@@ -330,9 +330,9 @@ bool getBool(const char *key, const char *proposal)
  * If the key is not specified, the proposal will be returned. If the proposal
  * is NULL, but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
+ * \param[in] key Key string of the command to be found
  * \param[in] N Length of the array that is to be read in
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] proposal The default value that is used if the key was not
  * \return A pointer to the value array of the parameter, or the default value
  *	array
  */
@@ -370,9 +370,9 @@ int *getIntArray(const char *key, const int N, const char *proposal)
  * If the key is not specified, the proposal will be returned. If the proposal
  * is NULL, but the key is not in the list, an error will be thrown.
  *
- * \param[in] *key Key string of the command to be found
+ * \param[in] key Key string of the command to be found
  * \param[in] N Length of the array that is to be read in
- * \param[in] *proposal The default value that is used if the key was not
+ * \param[in] proposal The default value that is used if the key was not
  * \return A pointer to the value array of the parameter, or the default value
  *	array
  */

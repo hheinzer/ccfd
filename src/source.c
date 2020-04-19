@@ -15,9 +15,9 @@
 /**
  * \brief Evaluate the source term
  * \param[in] iSource The source control integer
- * \param[in] x[NDIM] The coordinates at which to evaluate the source term
+ * \param[in] x The coordinates at which to evaluate the source term
  * \param[in] time The computation time at which the evaluate the source term
- * \param[out] source[NVAR] The source term contribution
+ * \param[out] source The source term contribution
  */
 void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 {
@@ -44,9 +44,7 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 		source[E]   = ((2.0 + gam * 6.0) * om - 4.0 * a) * tmp1
 			+ amp * (2.0 * om * gam - a) * tmp2
 			+ 2.0 * mu * gam * om * om / Pr * tmp3;
-		#endif
-
-		#ifdef EULER
+		#else
 		source[E]   = ((2.0 + gam * 6.0) * om - 4.0 * a) * tmp1
 			+ amp * (2.0 * om * gam - a) * tmp2;
 		#endif

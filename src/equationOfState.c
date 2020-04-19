@@ -14,8 +14,8 @@
 
 /**
  * \brief Convert primitive variables into conservative variables
- * \param[in] pVar[NVAR] Primitive variable vector
- * \param[out] cVar[NVAR] Conservative variable vector
+ * \param[in] pVar Primitive variable vector
+ * \param[out] cVar Conservative variable vector
  */
 void primCons(const double pVar[NVAR], double cVar[NVAR])
 {
@@ -32,8 +32,8 @@ void primCons(const double pVar[NVAR], double cVar[NVAR])
  * if the resulting primitive variables are negative. It that is the case, they
  * are set to zero.
  *
- * \param[in] cVar[NVAR] Conservative variable vector
- * \param[out] pVar[NVAR] Primitive variable vector
+ * \param[in] cVar Conservative variable vector
+ * \param[out] pVar Primitive variable vector
  */
 void consPrim(const double cVar[NVAR], double pVar[NVAR])
 {
@@ -54,9 +54,9 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
 
 /**
  * \brief Convert conservative variables to characteristic variables
- * \param[in] cVar[NVAR] Conservative variable vector
- * \param[out] charac[3] Characteristic variable vector
- * \param[in] pVarRef[NVAR] Reference primitive variable vector
+ * \param[in] cVar Conservative variable vector
+ * \param[out] charac Characteristic variable vector
+ * \param[in] pVarRef Reference primitive variable vector
  */
 void consChar(double cVar[NVAR], double charac[3], double pVarRef[NVAR])
 {
@@ -84,9 +84,9 @@ void consChar(double cVar[NVAR], double charac[3], double pVarRef[NVAR])
 
 /**
  * \brief Convert characteristic variables to conservative variables
- * \param[in] charac[3] Characteristic variable vector
- * \param[out] cVar[NVAR] Conservative variable vector
- * \param[in] pVarRef[NVAR] Reference primitive variable vector
+ * \param[in] charac Characteristic variable vector
+ * \param[out] cVar Conservative variable vector
+ * \param[in] pVarRef Reference primitive variable vector
  */
 void charCons(double charac[3], double cVar[NVAR], double pVarRef[NVAR])
 {

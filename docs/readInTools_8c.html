@@ -178,7 +178,7 @@ Variables</h2></td></tr>
 <p>Count all occurrences of key in parameter file and return them. If the key is not specified, the proposal will be returned. If the proposal is -1, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
@@ -211,7 +211,7 @@ Variables</h2></td></tr>
 <p>Before deleting the command, the previous command is connected to the next command and vice versa.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*aCmd</td><td>A pointer to the command that is to be deleted </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">aCmd</td><td>A pointer to the command that is to be deleted </td></tr>
   </table>
   </dd>
 </dl>
@@ -289,9 +289,9 @@ Variables</h2></td></tr>
 <p>Find the provided key in the list of commands, and return the address of the corresponding value string. Return NULL if key was not found. Once a key was read from the commands list, it is deleted from the list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">defMsg[8]</td><td>String, that indicates if an actual value or the proposal was returned </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not specified </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">defMsg</td><td>String, that indicates if an actual value or the proposal was returned </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not specified </td></tr>
   </table>
   </dd>
 </dl>
@@ -299,7 +299,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="readInTools_8c.html#ad5d64c5886e695aa1141d1b8b0e117d9">deleteCmd()</a>, <a class="el" href="readInTools_8c.html#a1b1632dea78543c0c98501926b4cf5be">firstCmd</a>, <a class="el" href="structcmd__t.html#a34509c1a5d5129fd40b68ea54608ca0d">cmd_t::key</a>, <a class="el" href="structcmd__t.html#a35706fa71e30bb009a7ec9a36d7ec2cd">cmd_t::next</a>, and <a class="el" href="structcmd__t.html#a124bb00c5bcae276868b450c1a4bcfdb">cmd_t::value</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="readInTools_8h.html#a54ce5bb180132f80c48a1d5681df55f7">getBool()</a>, <a class="el" href="readInTools_8h.html#a21afe1e7fa3e486a19cf7678b53f1782">getDbl()</a>, <a class="el" href="readInTools_8h.html#ae70140bbdb2b646ee2b5814a4eeec25d">getDblArray()</a>, <a class="el" href="readInTools_8h.html#ad920bf2e8d08267c632f9d48f6932d43">getInt()</a>, <a class="el" href="readInTools_8h.html#aa17bbb9b3a07995ce15ba872ba3298c4">getIntArray()</a>, and <a class="el" href="readInTools_8c.html#ad1537cf7beba1f694aaeab670b9a4afd">getStr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="readInTools_8h.html#a54ce5bb180132f80c48a1d5681df55f7">getBool()</a>, <a class="el" href="readInTools_8h.html#a21afe1e7fa3e486a19cf7678b53f1782">getDbl()</a>, <a class="el" href="readInTools_8h.html#ae70140bbdb2b646ee2b5814a4eeec25d">getDblArray()</a>, <a class="el" href="readInTools_8h.html#ad920bf2e8d08267c632f9d48f6932d43">getInt()</a>, <a class="el" href="readInTools_8h.html#aa17bbb9b3a07995ce15ba872ba3298c4">getIntArray()</a>, and <a class="el" href="readInTools_8h.html#ad1537cf7beba1f694aaeab670b9a4afd">getStr()</a>.</p>
 
 </div>
 </div>
@@ -333,8 +333,8 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown. The value in the parameter file is accepted as true, if it is a 'T', 't', 'True', or 'true', otherwise it is false.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -342,7 +342,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="readInTools_8c.html#a86a2f0407995fa7f2e7bb06f1849f7c1">findCmd()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, <a class="el" href="boundary_8h.html#a05d101d1f79d7e1bda2a9822c0675773">initBoundary()</a>, <a class="el" href="equation_8h.html#a5feb950469f92203675668c9eba7971f">initEquation()</a>, <a class="el" href="timeDiscretization_8h.html#ae237d741e17c1bb7084a26b374ac28e4">initTimeDisc()</a>, and <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="analyze_8h.html#a70b9012501fad23336c48db84f69c94c">initAnalyze()</a>, <a class="el" href="boundary_8h.html#a05d101d1f79d7e1bda2a9822c0675773">initBoundary()</a>, <a class="el" href="equation_8h.html#a5feb950469f92203675668c9eba7971f">initEquation()</a>, <a class="el" href="linearSolver_8h.html#ae169561793e8ff5ed9b88eb5eb7a0326">initLinearSolver()</a>, <a class="el" href="timeDiscretization_8h.html#ae237d741e17c1bb7084a26b374ac28e4">initTimeDisc()</a>, and <a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
 
 </div>
 </div>
@@ -376,8 +376,8 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -425,9 +425,9 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding integer array. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Length of the array that is to be read in </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -469,8 +469,8 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -518,9 +518,9 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding integer array. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Length of the array that is to be read in </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -562,8 +562,8 @@ Variables</h2></td></tr>
 <p>Find the key in the command list and return the corresponding value. If the key is not specified, the proposal will be returned. If the proposal is NULL, but the key is not in the list, an error will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*key</td><td>Key string of the command to be found </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*proposal</td><td>The default value that is used if the key was not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Key string of the command to be found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">proposal</td><td>The default value that is used if the key was not </td></tr>
   </table>
   </dd>
 </dl>
@@ -596,7 +596,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 19 2020 11:51:56 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 19 2020 14:02:14 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
