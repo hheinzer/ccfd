@@ -26,7 +26,7 @@
  *
  * This function starts the program by initializing all the necessary global
  * variables and initializing the time discretization loop. The function
- * finishes be deallocating all the allocated memory.
+ * finishes by deallocating all the allocated memory.
  *
  * \param[in] argc The number of command line arguments passed to `main`
  * \param[in] argv The argument vector containing the command line arguments
