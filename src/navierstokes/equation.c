@@ -1,8 +1,9 @@
-/*
- * equation.c
+/** \file
  *
- * Created: Tue 24 Mar 2020 08:30:28 AM CET
- * Author : hhh
+ * \brief Contains the function for initializing the physical constants
+ *
+ * \date Tue 24 Mar 2020 08:30:28 AM CET
+ * \author hhh
  */
 
 #include <stdio.h>
@@ -13,26 +14,28 @@
 #include "readInTools.h"
 
 /* extern variables */
-double pi;
+double pi;				/**< pi */
 
-bool doCalcSource;
-double R;
-double gam;
-double gam1;
-double gam2;
-double gam1q;
-double cp;
-double Pr;
-double mu;
+bool doCalcSource;			/**< calculate source flag */
+double R;				/**< specific gas constant */
+double gam;				/**< specific heat ratio */
+double gam1;				/**< `gam` - 1 */
+double gam2;				/**< `gam` - 2 */
+double gam1q;				/**< 1.0 / (`gam` - 1) */
+double cp;				/**< specific heat capacity */
+double Pr;				/**< Prandtl number */
+double mu;				/**< dynamic viscosity */
 
-int iFlux;
+int iFlux;				/**< flux function control */
 
-int intExactFunc;
-int sourceFunc;
-double sqrt3q, sqrt3, sqrt2;
+int intExactFunc;			/**< exact function control */
+int sourceFunc;				/**< source function control */
+double sqrt2;				/**< sqrt(2.0) */
+double sqrt3;				/**< sqrt(3.0) */
+double sqrt3q;				/**< 1.0 / sqrt(3.0) */
 
-/*
- * Initialize equations
+/**
+ * \brief Initialize equations
  */
 void initEquation(void)
 {

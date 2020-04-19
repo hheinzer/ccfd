@@ -1,8 +1,9 @@
-/*
- * boundary.c
+/** \file
  *
- * Created: Tue 24 Mar 2020 10:10:51 AM CET
- * Author : hhh
+ * \brief Contains the functions for initializing and applying boundary conditions
+ *
+ * \author hhh
+ * \date Tue 24 Mar 2020 10:10:51 AM CET
  */
 
 #include <stdio.h>
@@ -18,12 +19,12 @@
 #include "exactFunction.h"
 
 /* extern variables */
-boundary_t *firstBC;
-int nBC;
-bool isPeriodic;
+boundary_t *firstBC;			/**< pointer to the first boundary condition */
+int nBC;				/**< number of boundary conditions */
+bool isPeriodic;			/**< periodic boundary condition flag */
 
-/*
- * initialize boundary conditions
+/**
+ * \brief Initialize boundary conditions
  */
 void initBoundary(void)
 {
@@ -133,8 +134,13 @@ void initBoundary(void)
 	}
 }
 
-/*
- * set boundary value at x
+/**
+ * \brief Set boundary condition value at x
+ * \param[in] *aSide Pinter to a boundary side
+ * \param[in] time Computation time at calculation
+ * \param[in] int_pVar[NVAR] Internal cell primitive variables state
+ * \param[out] ghost_pVar[NVAR] Ghost cell primitive variables state
+ * \param[in] x[NDIM] Barycenter coordinates of the ghost cell
  */
 void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 		double ghost_pVar[NVAR], double x[NDIM])
@@ -283,8 +289,9 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 	}
 }
 
-/*
- * set the ghost values at sides
+/**
+ * \brief Set the ghost values at sides
+ * \param[in] time Computation time at calculation
  */
 void setBCatSides(double time)
 {
@@ -302,8 +309,9 @@ void setBCatSides(double time)
 	}
 }
 
-/*
- * set the ghost values at elements
+/**
+ * \brief Set the ghost values at elements
+ * \param[in] time Computation time at calculation
  */
 void setBCatBarys(double time)
 {
@@ -318,8 +326,8 @@ void setBCatBarys(double time)
 	}
 }
 
-/*
- * free all memory that was allocated for the boundary conditions
+/**
+ * \brief Free all memory that was allocated for the boundary conditions
  */
 void freeBoundary(void)
 {

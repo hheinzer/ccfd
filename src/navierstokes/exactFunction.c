@@ -1,8 +1,9 @@
-/*
- * exactFunction.c
+/** \file
  *
- * Created: Sat 28 Mar 2020 05:31:15 PM CET
- * Author : hhh
+ * \brief Contains the exact function evaluation function
+ *
+ * \author hhh
+ * \date Sat 28 Mar 2020 05:31:15 PM CET
  */
 
 #include <stdio.h>
@@ -16,6 +17,21 @@
 #include "equationOfState.h"
 #include "exactRiemann.h"
 
+/** \brief Calculate an exact function
+ *
+ * This function contains the following exact functions:
+ *	- 1: Richtmyer-Meshkov
+ *	- 2: Gaussian pressure pulse
+ *	- 3: Sinewave
+ *	- 4: Double mach reflection
+ *	- 5: 1D Riemann problem
+ *	- 6: 1D sine wave
+ *
+ * \param[in] iExactFunc The exact function control
+ * \param[in] x[NDIM] The coordinates for which to calculate the exact function
+ * \param[in] time The time for which to compute the exact value
+ * \param[out] pVar[NVAR] The resulting vector of primitive variables
+ */
 void exactFunc(int iExactFunc, double x[NDIM], double time, double pVar[NVAR])
 {
 	switch (iExactFunc) {

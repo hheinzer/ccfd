@@ -1,8 +1,9 @@
-/*
- * source.c
+/** \file
  *
- * Created: Wed 01 Apr 2020 12:25:11 PM CEST
- * Author : hhh
+ * \brief Contains the functions for initializing and evaluating the source term
+ *
+ * \author hhh
+ * \date Wed 01 Apr 2020 12:25:11 PM CEST
  */
 
 #include <math.h>
@@ -11,8 +12,12 @@
 #include "equation.h"
 #include "mesh.h"
 
-/*
- * evaluate source
+/**
+ * \brief Evaluate the source term
+ * \param[in] iSource The source control integer
+ * \param[in] x[NDIM] The coordinates at which to evaluate the source term
+ * \param[in] time The computation time at which the evaluate the source term
+ * \param[out] source[NVAR] The source term contribution
  */
 void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 {
@@ -44,8 +49,9 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 	}
 }
 
-/*
- * source terms
+/**
+ * \brief Calculate the contribution of the source terms
+ * \param[in] time The computation time at which the evaluate the source term
  */
 void calcSource(double time)
 {

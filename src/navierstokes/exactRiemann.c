@@ -1,8 +1,9 @@
-/*
- * exactRiemann.c
+/** \file
  *
- * Created: Sun 29 Mar 2020 12:35:17 PM CEST
- * Author : hhh
+ * \brief Contains the function to calculate the exact Riemann flux
+ *
+ * \author hhh
+ * \date Sun 29 Mar 2020 12:35:17 PM CEST
  */
 
 #include <stdio.h>
@@ -11,12 +12,19 @@
 
 #include "equation.h"
 
-double G[9];
-double tol = 1e-6;
-int nIter = 1000;
+/* local variables */
+double G[9];				/**< gamma vector */
+double tol = 1e-6;			/**< tolerance for the iteration */
+int nIter = 1000;			/**< maximum number of iterations */
 
-/*
- * helper function
+/**
+ * \brief Helper function for `exactRiemann`
+ * \param[out] *f Flux
+ * \param[out] *fd Flux difference
+ * \param[in] p Pressure
+ * \param[in] rhok Critical density
+ * \param[in] pk Critical pressure
+ * \param[in] ck Critical speed of sound
  */
 void preFun(double *f, double *fd, double p, double rhok, double pk, double ck)
 {
@@ -33,13 +41,25 @@ void preFun(double *f, double *fd, double p, double rhok, double pk, double ck)
 	}
 }
 
-/*
- * calculate the exact solution to the Riemann problem
+/**
+ * \brief Calculate the exact solution to the Riemann problem
+ * \param[in] rhol Left side density
+ * \param[in] rhor Right side density
+ * \param[out] *rho The resulting density
+ * \param[in] ul Left side velocity
+ * \param[in] ur Right side velocity
+ * \param[out] *u Resulting velocity
+ * \param[in] pl Left side pressure
+ * \param[in] pr Right side pressure
+ * \param[out] *p Resulting pressure
+ * \param[in] al Left side speed of sound
+ * \param[in] ar Right side speed of sound
+ * \param[in] s	Speed of the discontinuity
  */
 void exactRiemann(double rhol, double rhor, double *rho,
-		  double ul, double ur, double *u,
-		  double pl, double pr, double *p,
-		  double al, double ar, double s)
+		  double ul,   double ur,   double *u,
+		  double pl,   double pr,   double *p,
+		  double al,   double ar,   double s)
 {
 	/* fill G matrix */
 	G[0] = (gam - 1.0) / (2.0 * gam);

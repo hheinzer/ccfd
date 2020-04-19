@@ -1,8 +1,7 @@
-/*
- * exactRiemann.h
+/** \file
  *
- * Created: Sun 29 Mar 2020 12:35:26 PM CEST
- * Author : hhh
+ * \date Sun 29 Mar 2020 12:35:26 PM CEST
+ * \author hhh
  */
 
 #ifndef EXACTRIEMANN_H

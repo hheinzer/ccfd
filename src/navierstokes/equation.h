@@ -1,8 +1,7 @@
-/*
- * equation.h
+/** \file
  *
- * Created: Tue 24 Mar 2020 08:23:21 AM CET
- * Author : hhh
+ * \author hhh
+ * \date Tue 24 Mar 2020 08:23:21 AM CET
  */
 
 #ifndef EQUATION_H

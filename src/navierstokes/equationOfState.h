@@ -1,8 +1,7 @@
-/*
- * equationOfState.h
+/** \file
  *
- * Created: Sat 28 Mar 2020 09:45:50 PM CET
- * Author : hhh
+ * \author hhh
+ * \date Sat 28 Mar 2020 09:45:50 PM CET
  */
 
 #ifndef EQUATIONOFSTATE_H
