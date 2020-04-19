@@ -109,13 +109,5 @@ allclean: clean
 	-rm -rf $(LIBDIR)/CGNS-*/
 
 check:
-	printf "Running checks with $(TGT), compiled with $(EQNSYS) equations:\n"; \
-		cd check; \
-		for ini in *.ini; \
-		do \
-		../$(TGT) "$ini" > "${ini%%.*}.log" && \
-			printf "$ini \t good run\n" || \
-			printf "$ini \t bad  run\n"; \
-		done
-
+	@cd check && ./check.py $(TGT) $(EQNSYS)
 
