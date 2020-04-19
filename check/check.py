@@ -8,7 +8,7 @@ import numpy as np
 # check if there are two command line arguments
 if len(sys.argv) < 2:
     print("ERROR: Not enough arguments!")
-    sys.exit()
+    sys.exit(1)
 
 # get executable name and equation system
 exe = sys.argv[1]
@@ -41,3 +41,4 @@ for ini in inis:
         print("ok   (%.4e)"%(diff))
     else:
         print("bad  (%.4e)"%(diff))
+        sys.exit(1)
