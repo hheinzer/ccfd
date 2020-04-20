@@ -134,6 +134,6 @@ Transfinite Line{57} = NX4 Using Progression 1/RX4 ;
 
 Physical Surface(14) = {1,2,3,4,5,6,7,8,24,29,34,38,42,46,50,54};
 Physical Line(201) = {3,4,5,36,39,43};
-Physical Line(301) = {14,15,28,33};
-Physical Line(401) = {20,21,52,56};
+Physical Line(501) = {14,15,28,33};
+Physical Line(801) = {20,21,52,56};
 Physical Line(101) = {11,12,13,32,49,57};
