@@ -8,8 +8,6 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 
 ![](img/comparison.png)
 
-![](img/karman.png)
-
 # Dependencies
 
 - `git`
