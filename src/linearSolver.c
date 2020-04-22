@@ -87,7 +87,7 @@ void initLinearSolver(void)
 		nInnerNewton = 0;
 		nInnerGMRES = 0;
 
-		gamEW = getDbl("gamEW", "0.9");
+		gamEW = getDbl("gammaEW", "0.9");
 
 		XK = dyn2DdblArray(NVAR, nElems);
 		R_XK = dyn2DdblArray(NVAR, nElems);
