@@ -7,7 +7,6 @@
  */
 
 #include <math.h>
-#include <float.h>
 
 #include "main.h"
 #include "equation.h"
@@ -44,11 +43,11 @@ void consPrim(const double cVar[NVAR], double pVar[NVAR])
 		(cVar[E] - 0.5 * (cVar[MX] * pVar[VX] + cVar[MY] * pVar[VY]));
 
 	/* check if density or pressure are negative */
-	if (pVar[RHO] < DBL_EPSILON) {
-		pVar[RHO] = 0.0;
+	if (pVar[RHO] < 1e-19) {
+		pVar[RHO] = 1e-10;
 	}
-	if (pVar[P] < DBL_EPSILON) {
-		pVar[P] = 0.0;
+	if (pVar[P] < 1e-19) {
+		pVar[P] = 1e-10;
 	}
 }
 
