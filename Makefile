@@ -38,7 +38,7 @@ CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
-.PHONY: clean allclean doc latex docclean check
+.PHONY: clean allclean doc latex docclean check cleancheck
 
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
@@ -105,9 +105,11 @@ docclean:
 clean:
 	-rm -rf $(OBJDIR)
 	-rm -rf $(BINDIR)
+
+cleancheck:
 	-rm -f check/*.csv check/*.log
 
-allclean: clean
+allclean: clean cleancheck
 	-rm -rf $(LIBDIR)/CGNS-*/
 
 check:
