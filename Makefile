@@ -97,7 +97,7 @@ doc:
 	-@doxygen Doxyfile
 
 latex: doc
-	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../ccfdRefMan.pdf
+	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../refman.pdf
 
 docclean:
 	-rm -rf docs/*
