@@ -26,7 +26,7 @@
 int icType;			/**< type of initial condition */
 int nDomains;			/**< number of domains where initial conditions
 					are applied */
-int *domainID;			/**< domain ID vecotor, from 1 to `nDomains` */
+int *domainID;			/**< domain ID vector, from 1 to `nDomains` */
 double rp1Dinterface;		/**< interface for a Riemann problem */
 double alpha;			/**< incident angle of the flow */
 double **refState;		/**< primitive variable state in domain */
@@ -49,8 +49,6 @@ void initInitialCondition(void)
 
 		refState = dyn2DdblArray(nDomains, NVAR);
 		for (int i = 0; i < nDomains; ++i) {
-			printf("| Domain No.%d:\n", i);
-
 			domainID[i] = getInt("domainID", NULL);
 			printf("|   Domain ID: %d\n", domainID[i]);
 
@@ -183,8 +181,8 @@ void setInitialCondition(void)
 			}
 			break;
 		case 1:
-			/* 1: mult-domain homogenous initial condition
-			 * 2: homogenous initial condition over all domains */
+			/* 1: multi-domain homogeneous initial condition
+			 * 2: homogeneous initial condition over all domains */
 			aElem = firstElem;
 			while (aElem) {
 				if (nDomains == 1) {
