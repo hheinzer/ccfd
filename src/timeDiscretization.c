@@ -204,7 +204,8 @@ void initTimeDisc(void)
 
 		printf("| Stationary Problem\n");
 		if ((clAbortResidual == 0.0) && (cdAbortResidual == 0)) {
-			printf("| Abort Residual: %g\n", abortResidual);
+			printf("| Abort Residual '%s': %g\n",
+					abortVariableName, abortResidual);
 		} else if (clAbortResidual > 0.0) {
 			printf("| Cl Abort Residual: %g\n", clAbortResidual);
 			doAbortOnClResidual = true;

@@ -500,7 +500,7 @@ void cgnsFinalizeOutput(void)
 	if (cg_array_write("TimeValues", RealDouble, 1, tmp1, times))
 		cg_error_exit();
 
-	if (cg_array_write("IterationValues", LongInteger, 1, tmp1, iters))
+	if (cg_array_write("IterationValues", Integer, 1, tmp1, iters))
 		cg_error_exit();
 
 	/* create ZoneIter node */
