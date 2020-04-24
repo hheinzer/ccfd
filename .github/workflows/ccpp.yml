@@ -3,18 +3,18 @@ name: C/C++ CI
 on:
   push:
     branches: [ master ]
-    paths: 
+    paths:
       - '**.c'
       - '**.h'
       - '**Makefile'
       - '**ccpp.yml'
   pull_request:
     branches: [ master ]
-    paths: 
+    paths:
       - '**.c'
       - '**.h'
       - '**Makefile'
-      - '**ccpp.yml' 
+      - '**ccpp.yml'
 
 jobs:
   build:
