@@ -36,7 +36,8 @@ LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 FLAGS  = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
 FLAGS += -Ofast -flto -march=native -fopenmp
 #FLAGS += -pg
-#FLAGS += -ggdb -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
+FLAGS += -ggdb
+FLAGS += -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
