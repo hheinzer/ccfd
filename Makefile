@@ -33,7 +33,9 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS  = -std=c99 -Wall -pedantic -Wno-unknown-pragmas -march=native -g -O3 -fopenmp
+FLAGS  = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
+FLAGS += -Ofast -flto -march=native -fopenmp
+FLAGS += -ggdb -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
 CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
