@@ -27,7 +27,3 @@ jobs:
       run: make libs
     - name: make
       run: make
-    - name: make check
-      run: |
-        pip3 install numpy
-        make check
