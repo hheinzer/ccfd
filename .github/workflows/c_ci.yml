@@ -7,14 +7,14 @@ on:
       - '**.c'
       - '**.h'
       - '**Makefile'
-      - '**ccpp.yml'
+      - '**c_ci.yml'
   pull_request:
     branches: [ master ]
     paths:
       - '**.c'
       - '**.h'
       - '**Makefile'
-      - '**ccpp.yml'
+      - '**c_ci.yml'
 
 jobs:
   build:
