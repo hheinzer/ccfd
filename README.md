@@ -4,10 +4,7 @@
 ![C CI](https://github.com/hhh95/ccfd/workflows/C%20CI/badge.svg?branch=master)
 
 The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD code written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it features a similar code structure to [FLEXI](https://www.flexi-project.org/).
-
 The program uses [CGNS](https://cgns.github.io/), for storing the calculation results.
-
-The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
 
 ![](img/comparison.png)
 
