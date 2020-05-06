@@ -1,8 +1,5 @@
 ![](img/ccfd.png)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/hhh95/ccfd/badge)](https://www.codefactor.io/repository/github/hhh95/ccfd)
-![C CI](https://github.com/hhh95/ccfd/workflows/C%20CI/badge.svg?branch=master)
-
 The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD code written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it features a similar code structure to [FLEXI](https://www.flexi-project.org/).
 The program uses [CGNS](https://cgns.github.io/), for storing the calculation results.
 
