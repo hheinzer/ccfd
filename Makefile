@@ -33,8 +33,8 @@ INCDIR       = -I $(CGNS_DIR)/BUILD/include
 LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
-FLAGS  = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
-FLAGS += -Ofast -flto -march=native -fopenmp
+ FLAGS  = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
+ FLAGS += -Ofast -flto -march=native -fopenmp
 #FLAGS += -ggdb -O0
 #FLAGS += -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
 #FLAGS += -pg
@@ -48,8 +48,7 @@ SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 TGT = $(BINDIR)/$(TARGET)
 
-default: libs $(OBJDIR) $(BINDIR) $(TGT)
-all: default
+all: libs $(OBJDIR) $(BINDIR) $(TGT)
 libs: $(CGNS_LIB)
 
 $(OBJDIR):
