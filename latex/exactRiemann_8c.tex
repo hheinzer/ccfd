@@ -1,0 +1,160 @@
+\hypertarget{exactRiemann_8c}{}\doxysection{ccfd/src/exact\+Riemann.c File Reference}
+\label{exactRiemann_8c}\index{ccfd/src/exactRiemann.c@{ccfd/src/exactRiemann.c}}
+
+
+Contains the function to calculate the exact Riemann flux.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
+Include dependency graph for exact\+Riemann.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{exactRiemann_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{exactRiemann_8c_a18a65e2164b05a2195dbd3b9bfe16e14}{pre\+Fun}} (double $\ast$f, double $\ast$fd, double p, double rhok, double pk, double ck)
+\begin{DoxyCompactList}\small\item\em Helper function for {\ttfamily exact\+Riemann} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exactRiemann_8c_a94ff84b8b790fcc55b90a207197da347}{exact\+Riemann}} (double rhol, double rhor, double $\ast$rho, double ul, double ur, double $\ast$u, double pl, double pr, double $\ast$p, double al, double ar, double s)
+\begin{DoxyCompactList}\small\item\em Calculate the exact solution to the Riemann problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{exactRiemann_8c_a8708d32740199d357c988de3d53c1597}{G}} \mbox{[}9\mbox{]}
+\item 
+double \mbox{\hyperlink{exactRiemann_8c_a2687e4b3cb5da7dbd00e565343f66c6c}{tol}} = 1e-\/6
+\item 
+int \mbox{\hyperlink{exactRiemann_8c_ab80060e98a402fc1deab459cdb6476b7}{n\+Iter}} = 1000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the function to calculate the exact Riemann flux. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Sun 29 Mar 2020 12\+:35\+:17 PM C\+E\+ST 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{exactRiemann_8c_a94ff84b8b790fcc55b90a207197da347}\label{exactRiemann_8c_a94ff84b8b790fcc55b90a207197da347}} 
+\index{exactRiemann.c@{exactRiemann.c}!exactRiemann@{exactRiemann}}
+\index{exactRiemann@{exactRiemann}!exactRiemann.c@{exactRiemann.c}}
+\doxysubsubsection{\texorpdfstring{exactRiemann()}{exactRiemann()}}
+{\footnotesize\ttfamily void exact\+Riemann (\begin{DoxyParamCaption}\item[{double}]{rhol,  }\item[{double}]{rhor,  }\item[{double $\ast$}]{rho,  }\item[{double}]{ul,  }\item[{double}]{ur,  }\item[{double $\ast$}]{u,  }\item[{double}]{pl,  }\item[{double}]{pr,  }\item[{double $\ast$}]{p,  }\item[{double}]{al,  }\item[{double}]{ar,  }\item[{double}]{s }\end{DoxyParamCaption})}
+
+
+
+Calculate the exact solution to the Riemann problem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhol} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhor} & Right side density \\
+\hline
+\mbox{\texttt{ out}}  & {\em rho} & The resulting density \\
+\hline
+\mbox{\texttt{ in}}  & {\em ul} & Left side velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em ur} & Right side velocity \\
+\hline
+\mbox{\texttt{ out}}  & {\em u} & Resulting velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pl} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pr} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em p} & Resulting pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em al} & Left side speed of sound \\
+\hline
+\mbox{\texttt{ in}}  & {\em ar} & Right side speed of sound \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & Speed of the discontinuity \\
+\hline
+\end{DoxyParams}
+
+
+References G, gam, n\+Iter, pre\+Fun(), and tol.
+
+
+
+Referenced by exact\+Func(), and flux\+\_\+god().
+
+\mbox{\Hypertarget{exactRiemann_8c_a18a65e2164b05a2195dbd3b9bfe16e14}\label{exactRiemann_8c_a18a65e2164b05a2195dbd3b9bfe16e14}} 
+\index{exactRiemann.c@{exactRiemann.c}!preFun@{preFun}}
+\index{preFun@{preFun}!exactRiemann.c@{exactRiemann.c}}
+\doxysubsubsection{\texorpdfstring{preFun()}{preFun()}}
+{\footnotesize\ttfamily void pre\+Fun (\begin{DoxyParamCaption}\item[{double $\ast$}]{f,  }\item[{double $\ast$}]{fd,  }\item[{double}]{p,  }\item[{double}]{rhok,  }\item[{double}]{pk,  }\item[{double}]{ck }\end{DoxyParamCaption})}
+
+
+
+Helper function for {\ttfamily exact\+Riemann} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em f} & Flux \\
+\hline
+\mbox{\texttt{ out}}  & {\em fd} & Flux difference \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & Pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhok} & Critical density \\
+\hline
+\mbox{\texttt{ in}}  & {\em pk} & Critical pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em ck} & Critical speed of sound \\
+\hline
+\end{DoxyParams}
+
+
+References G.
+
+
+
+Referenced by exact\+Riemann().
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{exactRiemann_8c_a8708d32740199d357c988de3d53c1597}\label{exactRiemann_8c_a8708d32740199d357c988de3d53c1597}} 
+\index{exactRiemann.c@{exactRiemann.c}!G@{G}}
+\index{G@{G}!exactRiemann.c@{exactRiemann.c}}
+\doxysubsubsection{\texorpdfstring{G}{G}}
+{\footnotesize\ttfamily double G\mbox{[}9\mbox{]}}
+
+gamma vector 
+
+Referenced by exact\+Riemann(), and pre\+Fun().
+
+\mbox{\Hypertarget{exactRiemann_8c_ab80060e98a402fc1deab459cdb6476b7}\label{exactRiemann_8c_ab80060e98a402fc1deab459cdb6476b7}} 
+\index{exactRiemann.c@{exactRiemann.c}!nIter@{nIter}}
+\index{nIter@{nIter}!exactRiemann.c@{exactRiemann.c}}
+\doxysubsubsection{\texorpdfstring{nIter}{nIter}}
+{\footnotesize\ttfamily int n\+Iter = 1000}
+
+maximum number of iterations 
+
+Referenced by exact\+Riemann().
+
+\mbox{\Hypertarget{exactRiemann_8c_a2687e4b3cb5da7dbd00e565343f66c6c}\label{exactRiemann_8c_a2687e4b3cb5da7dbd00e565343f66c6c}} 
+\index{exactRiemann.c@{exactRiemann.c}!tol@{tol}}
+\index{tol@{tol}!exactRiemann.c@{exactRiemann.c}}
+\doxysubsubsection{\texorpdfstring{tol}{tol}}
+{\footnotesize\ttfamily double tol = 1e-\/6}
+
+tolerance for the iteration 
+
+Referenced by exact\+Riemann().
+

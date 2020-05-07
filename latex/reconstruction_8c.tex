@@ -1,0 +1,148 @@
+\hypertarget{reconstruction_8c}{}\doxysection{ccfd/src/reconstruction.c File Reference}
+\label{reconstruction_8c}\index{ccfd/src/reconstruction.c@{ccfd/src/reconstruction.c}}
+
+
+Contains the reconstruction and limiter functions.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reconstruction.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}finite\+Volume.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
+Include dependency graph for reconstruction.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reconstruction_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{reconstruction_8c_acdf3762da7599d1ddf35ffa9554438fb}{limiter\+Barth\+Jespersen}} (\mbox{\hyperlink{structelem__t}{elem\+\_\+t}} $\ast$a\+Elem)
+\begin{DoxyCompactList}\small\item\em Limiter after Barth \& Jespersen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reconstruction_8c_ad3a6ae234ee81e1f208ae2aa0842cf6c}{limiter\+Venkatakrishnan}} (\mbox{\hyperlink{structelem__t}{elem\+\_\+t}} $\ast$a\+Elem)
+\begin{DoxyCompactList}\small\item\em Limiter after Venkatakrishnan, with additional limiting parameter k. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reconstruction_8c_ad0c0d7c8c348368409a8320007c55d10}{spatial\+Reconstruction}} (double time)
+\begin{DoxyCompactList}\small\item\em Compute the gradients of d\+U/dx. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{reconstruction_8c_abd7cbe920d19ba1034df6da5b662c9f5}{limiter}}
+\item 
+double \mbox{\hyperlink{reconstruction_8c_a8ae8a27510ada32e9a17cd0dbc4570f4}{venk\+\_\+k}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the reconstruction and limiter functions. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Sat 28 Mar 2020 10\+:17\+:02 AM C\+ET 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{reconstruction_8c_acdf3762da7599d1ddf35ffa9554438fb}\label{reconstruction_8c_acdf3762da7599d1ddf35ffa9554438fb}} 
+\index{reconstruction.c@{reconstruction.c}!limiterBarthJespersen@{limiterBarthJespersen}}
+\index{limiterBarthJespersen@{limiterBarthJespersen}!reconstruction.c@{reconstruction.c}}
+\doxysubsubsection{\texorpdfstring{limiterBarthJespersen()}{limiterBarthJespersen()}}
+{\footnotesize\ttfamily void limiter\+Barth\+Jespersen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structelem__t}{elem\+\_\+t}} $\ast$}]{a\+Elem }\end{DoxyParamCaption})}
+
+
+
+Limiter after Barth \& Jespersen. 
+
+\begin{DoxyNote}{Note}
+2D, unstructured limiter 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a\+Elem} & Pointer to an element \\
+\hline
+\end{DoxyParams}
+
+
+References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
+
+
+
+Referenced by spatial\+Reconstruction().
+
+\mbox{\Hypertarget{reconstruction_8c_ad3a6ae234ee81e1f208ae2aa0842cf6c}\label{reconstruction_8c_ad3a6ae234ee81e1f208ae2aa0842cf6c}} 
+\index{reconstruction.c@{reconstruction.c}!limiterVenkatakrishnan@{limiterVenkatakrishnan}}
+\index{limiterVenkatakrishnan@{limiterVenkatakrishnan}!reconstruction.c@{reconstruction.c}}
+\doxysubsubsection{\texorpdfstring{limiterVenkatakrishnan()}{limiterVenkatakrishnan()}}
+{\footnotesize\ttfamily void limiter\+Venkatakrishnan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structelem__t}{elem\+\_\+t}} $\ast$}]{a\+Elem }\end{DoxyParamCaption})}
+
+
+
+Limiter after Venkatakrishnan, with additional limiting parameter k. 
+
+\begin{DoxyNote}{Note}
+2D, unstructured limiter 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a\+Elem} & Pointer to an element \\
+\hline
+\end{DoxyParams}
+
+
+References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, elem\+\_\+t\+::venk\+Eps\+\_\+sq, VX, VY, X, and Y.
+
+
+
+Referenced by spatial\+Reconstruction().
+
+\mbox{\Hypertarget{reconstruction_8c_ad0c0d7c8c348368409a8320007c55d10}\label{reconstruction_8c_ad0c0d7c8c348368409a8320007c55d10}} 
+\index{reconstruction.c@{reconstruction.c}!spatialReconstruction@{spatialReconstruction}}
+\index{spatialReconstruction@{spatialReconstruction}!reconstruction.c@{reconstruction.c}}
+\doxysubsubsection{\texorpdfstring{spatialReconstruction()}{spatialReconstruction()}}
+{\footnotesize\ttfamily void spatial\+Reconstruction (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Compute the gradients of d\+U/dx. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & Calculation time at which to perform the spatial reconstruction \\
+\hline
+\end{DoxyParams}
+
+
+References B\+A\+R\+T\+H\+J\+E\+S\+P\+E\+R\+S\+EN, side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, limiter, limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, R\+HO, set\+B\+Cat\+Barys(), spatial\+Order, elem\+\_\+t\+::u\+\_\+t, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, V\+E\+N\+K\+A\+T\+A\+K\+R\+I\+S\+H\+N\+AN, VX, VY, side\+\_\+t\+::w, X, and Y.
+
+
+
+Referenced by calc\+Errors(), and fv\+Time\+Derivative().
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{reconstruction_8c_abd7cbe920d19ba1034df6da5b662c9f5}\label{reconstruction_8c_abd7cbe920d19ba1034df6da5b662c9f5}} 
+\index{reconstruction.c@{reconstruction.c}!limiter@{limiter}}
+\index{limiter@{limiter}!reconstruction.c@{reconstruction.c}}
+\doxysubsubsection{\texorpdfstring{limiter}{limiter}}
+{\footnotesize\ttfamily int limiter}
+
+limiter selection 
+
+Referenced by init\+F\+V(), and spatial\+Reconstruction().
+
+\mbox{\Hypertarget{reconstruction_8c_a8ae8a27510ada32e9a17cd0dbc4570f4}\label{reconstruction_8c_a8ae8a27510ada32e9a17cd0dbc4570f4}} 
+\index{reconstruction.c@{reconstruction.c}!venk\_k@{venk\_k}}
+\index{venk\_k@{venk\_k}!reconstruction.c@{reconstruction.c}}
+\doxysubsubsection{\texorpdfstring{venk\_k}{venk\_k}}
+{\footnotesize\ttfamily double venk\+\_\+k}
+
+constant for Venkatakrishnan limiter 
+
+Referenced by init\+F\+V().
+

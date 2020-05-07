@@ -6,17 +6,15 @@
 
 .PHONY: doc latex docclean
 
-all: doc latex
+all: doc
 
-ccfd:
-	-@git clone https://github.com/hhh95/ccfd.git
-
-doc: ccfd
+doc:
 	-@cd ccfd && git pull
 	-@doxygen Doxyfile
 
 latex: doc
-	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../refman.pdf
+	-@cd latex && $(MAKE) && mv refman.pdf ../refman.pdf
 
 docclean:
 	-rm -rf html/*
+	-rm -rf latex/*

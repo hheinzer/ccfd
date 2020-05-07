@@ -1,0 +1,133 @@
+\hypertarget{initialCondition_8c}{}\doxysection{ccfd/src/initial\+Condition.c File Reference}
+\label{initialCondition_8c}\index{ccfd/src/initialCondition.c@{ccfd/src/initialCondition.c}}
+
+
+Functions involving the initialization and application of initial conditions.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}read\+In\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}initial\+Condition.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mem\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time\+Discretization.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}exact\+Function.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}equation\+Of\+State.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cgnslib.\+h\char`\"{}}\newline
+Include dependency graph for initial\+Condition.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{initialCondition_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{initialCondition_8c_ab7e12a17a6a542477391bedb279eacbd}\label{initialCondition_8c_ab7e12a17a6a542477391bedb279eacbd}} 
+void \mbox{\hyperlink{initialCondition_8c_ab7e12a17a6a542477391bedb279eacbd}{init\+Initial\+Condition}} (void)
+\begin{DoxyCompactList}\small\item\em Get initial flow conditions from the parameter file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{initialCondition_8c_ab3e7d324199c05dcc7b0abee82288666}\label{initialCondition_8c_ab3e7d324199c05dcc7b0abee82288666}} 
+void \mbox{\hyperlink{initialCondition_8c_ab3e7d324199c05dcc7b0abee82288666}{cgns\+Read\+Solution}} (void)
+\begin{DoxyCompactList}\small\item\em Read a solution from a C\+G\+NS file, used at restart. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{initialCondition_8c_a6990d5d35ba28636de1ce0e12c379288}\label{initialCondition_8c_a6990d5d35ba28636de1ce0e12c379288}} 
+void \mbox{\hyperlink{initialCondition_8c_a6990d5d35ba28636de1ce0e12c379288}{set\+Initial\+Condition}} (void)
+\begin{DoxyCompactList}\small\item\em Set initial flow field in all cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{initialCondition_8c_a534f3cde02c24d15dc0ac3d71344409e}\label{initialCondition_8c_a534f3cde02c24d15dc0ac3d71344409e}} 
+void \mbox{\hyperlink{initialCondition_8c_a534f3cde02c24d15dc0ac3d71344409e}{free\+Initial\+Condition}} (void)
+\begin{DoxyCompactList}\small\item\em Free all memory that was allocated for the reference state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{initialCondition_8c_ae42c2888ea03b27e3cdf021612b4850c}{ic\+Type}}
+\item 
+int \mbox{\hyperlink{initialCondition_8c_af21e421b07a4356a65f4c4cf5c0bc879}{n\+Domains}}
+\item 
+int $\ast$ \mbox{\hyperlink{initialCondition_8c_ad867b89571b0bf6049fa6bc21132e1a0}{domain\+ID}}
+\item 
+double \mbox{\hyperlink{initialCondition_8c_ab665c8733e05cb0695e0185968557a4b}{rp1\+Dinterface}}
+\item 
+double \mbox{\hyperlink{initialCondition_8c_a20f4c4490bc8ecbdd1ffcb79acce6035}{alpha}}
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{initialCondition_8c_a50f7da2cd33787648fdd3fa492aade19}{ref\+State}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions involving the initialization and application of initial conditions. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fri 27 Mar 2020 02\+:31\+:24 PM C\+ET 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{initialCondition_8c_a20f4c4490bc8ecbdd1ffcb79acce6035}\label{initialCondition_8c_a20f4c4490bc8ecbdd1ffcb79acce6035}} 
+\index{initialCondition.c@{initialCondition.c}!alpha@{alpha}}
+\index{alpha@{alpha}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily double alpha}
+
+incident angle of the flow 
+
+Referenced by calc\+Coef(), G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), init\+Boundary(), init\+Initial\+Condition(), and matrix\+Vector().
+
+\mbox{\Hypertarget{initialCondition_8c_ad867b89571b0bf6049fa6bc21132e1a0}\label{initialCondition_8c_ad867b89571b0bf6049fa6bc21132e1a0}} 
+\index{initialCondition.c@{initialCondition.c}!domainID@{domainID}}
+\index{domainID@{domainID}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{domainID}{domainID}}
+{\footnotesize\ttfamily int$\ast$ domain\+ID}
+
+domain ID vector, from 1 to {\ttfamily n\+Domains} 
+
+Referenced by init\+Initial\+Condition().
+
+\mbox{\Hypertarget{initialCondition_8c_ae42c2888ea03b27e3cdf021612b4850c}\label{initialCondition_8c_ae42c2888ea03b27e3cdf021612b4850c}} 
+\index{initialCondition.c@{initialCondition.c}!icType@{icType}}
+\index{icType@{icType}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{icType}{icType}}
+{\footnotesize\ttfamily int ic\+Type}
+
+type of initial condition 
+
+Referenced by init\+Initial\+Condition(), and set\+Initial\+Condition().
+
+\mbox{\Hypertarget{initialCondition_8c_af21e421b07a4356a65f4c4cf5c0bc879}\label{initialCondition_8c_af21e421b07a4356a65f4c4cf5c0bc879}} 
+\index{initialCondition.c@{initialCondition.c}!nDomains@{nDomains}}
+\index{nDomains@{nDomains}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{nDomains}{nDomains}}
+{\footnotesize\ttfamily int n\+Domains}
+
+number of domains where initial conditions are applied 
+
+Referenced by init\+Initial\+Condition(), and set\+Initial\+Condition().
+
+\mbox{\Hypertarget{initialCondition_8c_a50f7da2cd33787648fdd3fa492aade19}\label{initialCondition_8c_a50f7da2cd33787648fdd3fa492aade19}} 
+\index{initialCondition.c@{initialCondition.c}!refState@{refState}}
+\index{refState@{refState}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{refState}{refState}}
+{\footnotesize\ttfamily double$\ast$$\ast$ ref\+State}
+
+primitive variable state in domain 
+
+Referenced by calc\+Coef(), exact\+Func(), free\+Initial\+Condition(), init\+Initial\+Condition(), and set\+Initial\+Condition().
+
+\mbox{\Hypertarget{initialCondition_8c_ab665c8733e05cb0695e0185968557a4b}\label{initialCondition_8c_ab665c8733e05cb0695e0185968557a4b}} 
+\index{initialCondition.c@{initialCondition.c}!rp1Dinterface@{rp1Dinterface}}
+\index{rp1Dinterface@{rp1Dinterface}!initialCondition.c@{initialCondition.c}}
+\doxysubsubsection{\texorpdfstring{rp1Dinterface}{rp1Dinterface}}
+{\footnotesize\ttfamily double rp1\+Dinterface}
+
+interface for a Riemann problem 
+
+Referenced by exact\+Func(), and init\+Initial\+Condition().
+
