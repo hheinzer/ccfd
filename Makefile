@@ -15,7 +15,7 @@ EQNSYS = EULER
 
 ### Build options:
 TARGET = ccfd
-CC     = gcc
+CC     = cc
 BINDIR = bin
 OBJDIR = obj
 SRCDIR = src
@@ -57,7 +57,7 @@ $(OBJDIR):
 $(BINDIR):
 	-mkdir -p $(BINDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile libs
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)

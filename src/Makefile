@@ -9,10 +9,8 @@
 
 .PHONY: clean allclean doc
 
-default:
-	@cd .. && $(MAKE) default --no-print-directory
-
-all: default
+all:
+	@cd .. && $(MAKE) all --no-print-directory
 
 libs:
 	@cd .. && $(MAKE) libs --no-print-directory

@@ -37,7 +37,6 @@ int nInnerNewton;		/**< maximum number of Newton iterations for
 int nInnerGMRES;		/**< maximum number of GMRES iterations for
 					one stage */
 
-long iterGlobal;		/**< global iteration number */
 bool usePrecond;		/**< use LUSGS preconditioner flag */
 
 double rEps0;			/**< DBL_EPSILON */
@@ -254,14 +253,12 @@ void buildMatrix(double time, double dt)
 
 /**
  * \brief LUSGS preconditioner
- * \param[in] time Computation time at calculation
- * \param[in] dt Time step at calculation
  * \param[in] B Old vector, to be preconditioned
  * \param[out] delX Preconditioned vector
  * \note This function is slow to execute, it might be possible to speed it up
  *	via the use of omp locks for every element
  */
-void LUSGS(double time, double dt, double **B, double **delX)
+void LUSGS(double **B, double **delX)
 {
 	#pragma omp parallel for
 	for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -340,11 +337,10 @@ void LUSGS(double time, double dt, double **B, double **delX)
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
  * \param[in] alpha Relaxation parameter
- * \param[in] beta Relaxation parameter
  * \param[in] v Input vector for the matrix vector product
  * \param[out] res Resulting vector of the matrix vector product
  */
-void matrixVector(double time, double dt, double alpha, double beta, double **v,
+void matrixVector(double time, double dt, double alpha, double **v,
 		double **res)
 {
 	/* prerequisites for FD matrix vector approximation */
@@ -381,13 +377,12 @@ void matrixVector(double time, double dt, double alpha, double beta, double **v,
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
  * \param[in] alpha Relaxation parameter
- * \param[in] beta Relaxation parameter
  * \param[in] B Right hand side
  * \param[in] normB Norm of right hand side
  * \param[in,out] abortCrit GMRES abort criterium
  * \param[out] delX Resulting x vector of the linear system
  */
-void GMRES_M(double time, double dt, double alpha, double beta, double **B,
+void GMRES_M(double time, double dt, double alpha, double **B,
 		double normB, double *abortCrit, double **delX)
 {
 	*abortCrit = epsGMRES * normB;
@@ -428,7 +423,7 @@ void GMRES_M(double time, double dt, double alpha, double beta, double **B,
 		nInnerGMRES++;
 
 		if (usePrecond) {
-			LUSGS(time, dt, V[m], Z[m]);
+			LUSGS(V[m], Z[m]);
 		} else {
 			#pragma omp parallel for
 			for (long iElem = 0; iElem < nElems; ++iElem) {
@@ -439,7 +434,7 @@ void GMRES_M(double time, double dt, double alpha, double beta, double **B,
 			}
 		}
 
-		matrixVector(time, dt, alpha, beta, Z[m], W);
+		matrixVector(time, dt, alpha, Z[m], W);
 
 		/* Gram-Schmidt */
 		for (int nn = 0; nn <= m; ++nn) {

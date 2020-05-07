@@ -51,11 +51,10 @@ void initOutput(void)
  * \brief Tabular CSV output, only for 1D data
  * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
- * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead
  *	of the computed flow results
  */
-void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
+void csvOutput(char fileName[STRLEN], double time, bool doExact)
 {
 	/* prepare data (only for equidistant grids) */
 	double **flowData = dyn2DdblArray(nElems, NVAR);
@@ -118,11 +117,10 @@ void csvOutput(char fileName[STRLEN], double time, long iter, bool doExact)
  * \brief Write solution to CGNS file
  * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
- * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead
  *	of the computed flow results
  */
-void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
+void cgnsOutput(char fileName[STRLEN], double time, bool doExact)
 {
 	/* open solution file */
 	int indexFile, indexBase, indexZone, indexSolution, indexField;
@@ -173,7 +171,7 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
 
 
 	/* save solution in a CGNS compatible format */
-	if (hasExactSolution) {
+	if (doExact) {
 		elem_t *aElem = firstElem;
 
 		while (aElem) {
@@ -250,11 +248,10 @@ void cgnsOutput(char fileName[STRLEN], double time, long iter, bool doExact)
  * \brief Curve data output, only for 1D data
  * \param[in] fileName The name of the output file
  * \param[in] time The computational time of the output result
- * \param[in] iter The iteration number of the output result
  * \param[in] doExact If the exact exact solution should be written, instead
  *	of the computed flow results
  */
-void curveOutput(char fileName[STRLEN], double time, long iter, bool doExact)
+void curveOutput(char fileName[STRLEN], double time, bool doExact)
 {
 	/* prepare data */
 	double **flowData = dyn2DdblArray(nElems, NVAR);
@@ -359,15 +356,15 @@ void dataOutput(double time, long iter)
 	switch (iVisuProg) {
 	case CGNS:
 		strcat(fileName, ".cgns");
-		cgnsOutput(fileName, time, iter, false);
+		cgnsOutput(fileName, time, false);
 		break;
 	case CURVE:
 		strcat(fileName, ".curve");
-		curveOutput(fileName, time, iter, false);
+		curveOutput(fileName, time, false);
 		break;
 	case CSV:
 		strcat(fileName, ".csv");
-		csvOutput(fileName, time, iter, false);
+		csvOutput(fileName, time, false);
 		break;
 	default:
 		printf("| ERROR: Output Format unknown\n");
@@ -384,15 +381,15 @@ void dataOutput(double time, long iter)
 		switch (iVisuProg) {
 		case CGNS:
 			strcat(fileName, ".cgns");
-			cgnsOutput(fileName, time, iter, true);
+			cgnsOutput(fileName, time, true);
 			break;
 		case CURVE:
 			strcat(fileName, ".curve");
-			curveOutput(fileName, time, iter, true);
+			curveOutput(fileName, time, true);
 			break;
 		case CSV:
 			strcat(fileName, ".csv");
-			csvOutput(fileName, time, iter, true);
+			csvOutput(fileName, time, true);
 			break;
 		default:
 			printf("| ERROR: Output Format unknown\n");

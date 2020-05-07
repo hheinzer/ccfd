@@ -22,7 +22,6 @@ extern int nInnerNewton;
 
 extern int nInnerGMRES;
 
-extern long iterGlobal;
 extern bool usePrecond;
 
 extern double rEps0;
@@ -39,7 +38,7 @@ extern double **R_XK;
 
 void initLinearSolver(void);
 double vectorDotProduct(double **A, double **B);
-void GMRES_M(double time, double dt, double alpha, double beta, double **B,
+void GMRES_M(double time, double dt, double alpha, double **B,
 		double normB, double *abortCrit, double **deltaX);
 void freeLinearSolver(void);
 

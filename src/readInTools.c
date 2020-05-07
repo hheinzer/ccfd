@@ -45,7 +45,7 @@ void fillCmds(char iniFileName[STRLEN])
 		exit(1);
 	}
 
-	int i, j;
+	size_t i, j;
 	char line[2 * STRLEN], tmp[STRLEN];
 	cmd_t *currCmd = NULL;
 	while (fgets(line, sizeof(line), iniFile)) {
@@ -150,7 +150,7 @@ char *findCmd(const char *key, char defMsg[8], const char *proposal)
 	char keyLower[strlen(key) + 1];
 
 	strcpy(keyLower, key);
-	for (int i = 0; i < strlen(keyLower); ++i) {
+	for (size_t i = 0; i < strlen(keyLower); ++i) {
 		keyLower[i] = tolower(keyLower[i]);
 	}
 
@@ -231,7 +231,7 @@ int countKeys(const char *key, const int proposal)
 	char keyLower[strlen(key) + 1];
 
 	strcpy(keyLower, key);
-	for (int i = 0; i < strlen(keyLower); ++i) {
+	for (size_t i = 0; i < strlen(keyLower); ++i) {
 		keyLower[i] = tolower(keyLower[i]);
 	}
 

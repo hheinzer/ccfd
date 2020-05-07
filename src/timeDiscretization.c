@@ -332,10 +332,9 @@ void calcTimeStep(double pTime, double *dt, bool *viscousTimeStepDominates)
  * \brief Performs explicit time step using Euler scheme
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
- * \param[in] iter Iteration number at calculation
  * \param[out] resIter Residual vector for time step
  */
-void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVAR + 2])
+void explicitTimeStepEuler(double time, double dt, double resIter[NVAR + 2])
 {
 	fvTimeDerivative(time);
 
@@ -358,10 +357,9 @@ void explicitTimeStepEuler(double time, double dt, long iter, double resIter[NVA
  * \brief Performs explicit time step using Runge-Kutta scheme `nRKstages` stages
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
- * \param[in] iter Iteration number at calculation
  * \param[out] resIter Residual vector for time step
  */
-void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR + 2])
+void explicitTimeStepRK(double time, double dt, double resIter[NVAR + 2])
 {
 	/* save the initial solution as needed for the RK scheme */
 	#pragma omp parallel for
@@ -409,13 +407,11 @@ void explicitTimeStepRK(double time, double dt, long iter, double resIter[NVAR +
  *
  * \param[in] time Computation time at calculation
  * \param[in] dt Time step at calculation
- * \param[in] iter Iteration number at calculation
  * \param[out] resIter Residual vector for time step
  */
-void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2])
+void implicitTimeStep(double time, double dt, double resIter[NVAR + 2])
 {
 	/* input parameters for Newton */
-	iterGlobal = iter;
 	double alpha = 1.0;
 	double beta = 1.0;
 
@@ -503,7 +499,7 @@ void implicitTimeStep(double time, double dt, long iter, double resIter[NVAR + 2
 
 		nInnerNewton++;
 
-		GMRES_M(time, dt, alpha, beta, F_XK, sqrt(norm2_F_XK),
+		GMRES_M(time, dt, alpha, F_XK, sqrt(norm2_F_XK),
 				&abortCritGMRES, deltaX);
 
 		#pragma omp parallel for
@@ -603,12 +599,12 @@ void timeDisc(void)
 		double resIter[NVAR + 2] = {0.0};
 		if (!isImplicit) {
 			if ((timeOrder == 1) && (nRKstages == 1)) {
-				explicitTimeStepEuler(t, dt, iter, resIter);
+				explicitTimeStepEuler(t, dt, resIter);
 			} else {
-				explicitTimeStepRK(t, dt, iter, resIter);
+				explicitTimeStepRK(t, dt, resIter);
 			}
 		} else {
-			implicitTimeStep(t, dt, iter, resIter);
+			implicitTimeStep(t, dt, resIter);
 		}
 		t += dt;
 
