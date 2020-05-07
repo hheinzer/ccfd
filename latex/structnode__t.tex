@@ -1,0 +1,71 @@
+\hypertarget{structnode__t}{}\doxysection{node\+\_\+t Struct Reference}
+\label{structnode__t}\index{node\_t@{node\_t}}
+
+
+Structure for a single node in a linked list of nodes.  
+
+
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+
+
+Collaboration diagram for node\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{structnode__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{structnode__t_a70b0d0d3e99ecf59dea25268ea4d7a96}{id}}
+\item 
+double \mbox{\hyperlink{structnode__t_ac9c68656cac6474e37d0107198b51d5f}{x}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}
+\item 
+\mbox{\hyperlink{structnode__t}{node\+\_\+t}} $\ast$ \mbox{\hyperlink{structnode__t_a3eaaa938f4adef906b28c0afcaf511d6}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for a single node in a linked list of nodes. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structnode__t_a70b0d0d3e99ecf59dea25268ea4d7a96}\label{structnode__t_a70b0d0d3e99ecf59dea25268ea4d7a96}} 
+\index{node\_t@{node\_t}!id@{id}}
+\index{id@{id}!node\_t@{node\_t}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily long node\+\_\+t\+::id}
+
+unique node ID 
+
+Referenced by cgns\+Write\+Mesh(), and create\+Mesh().
+
+\mbox{\Hypertarget{structnode__t_a3eaaa938f4adef906b28c0afcaf511d6}\label{structnode__t_a3eaaa938f4adef906b28c0afcaf511d6}} 
+\index{node\_t@{node\_t}!next@{next}}
+\index{next@{next}!node\_t@{node\_t}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__t}{node\+\_\+t}}$\ast$ node\+\_\+t\+::next}
+
+next node in the list 
+
+Referenced by cgns\+Write\+Mesh(), create\+Mesh(), and free\+Mesh().
+
+\mbox{\Hypertarget{structnode__t_ac9c68656cac6474e37d0107198b51d5f}\label{structnode__t_ac9c68656cac6474e37d0107198b51d5f}} 
+\index{node\_t@{node\_t}!x@{x}}
+\index{x@{x}!node\_t@{node\_t}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily double node\+\_\+t\+::x\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}}
+
+coordinates of the node 
+
+Referenced by cgns\+Write\+Mesh(), create\+Elem\+Info(), create\+Mesh(), create\+Reconstruction\+Info(), create\+Side\+Info(), and init\+Record\+Points().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ccfd/src/\mbox{\hyperlink{mesh_8h}{mesh.\+h}}\end{DoxyCompactItemize}

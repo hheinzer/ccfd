@@ -1,0 +1,191 @@
+\hypertarget{analyze_8h}{}\doxysection{ccfd/src/analyze.h File Reference}
+\label{analyze_8h}\index{ccfd/src/analyze.h@{ccfd/src/analyze.h}}
+
+
+Contains the structure definitions of {\ttfamily \mbox{\hyperlink{structwing__t}{wing\+\_\+t}}} and {\ttfamily \mbox{\hyperlink{structrecordPoint__t}{record\+Point\+\_\+t}}}  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}boundary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
+Include dependency graph for analyze.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{analyze_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{analyze_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structwing__t}{wing\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Collection of all necessary values for the calculation of CL and CD. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structrecordPoint__t}{record\+Point\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Recording point structure, used to output flow field at specific points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{analyze_8h_a70b9012501fad23336c48db84f69c94c}\label{analyze_8h_a70b9012501fad23336c48db84f69c94c}} 
+void \mbox{\hyperlink{analyze_8h_a70b9012501fad23336c48db84f69c94c}{init\+Analyze}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the analysis function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{analyze_8h_a5bc9f64ac7233292ac4fd9fb6a5fe52a}{analyze}} (double time, long iter, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Compute aerodynamic coefficients and extract values at record points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{analyze_8h_aaf09b15337fc9b045b31f8af6ad8ba9c}{calc\+Errors}} (double time)
+\begin{DoxyCompactList}\small\item\em Calculate L1, L2, and Linf error norms, between the flow solution and the exact solution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{analyze_8h_acf15c3da2b4a14c1d2b700303bf0d875}{global\+Residual}} (double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calculate the global residual of the conservative variables. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{analyze_8h_a0b874bfa16c481db6ff3bedb28a832b7}\label{analyze_8h_a0b874bfa16c481db6ff3bedb28a832b7}} 
+void \mbox{\hyperlink{analyze_8h_a0b874bfa16c481db6ff3bedb28a832b7}{free\+Analyze}} (void)
+\begin{DoxyCompactList}\small\item\em Free all memory that was allocated for the wing evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{analyze_8h_a91a35913b246573eee26879e04d0404e}{do\+Calc\+Wing}}
+\item 
+\mbox{\hyperlink{structwing__t}{wing\+\_\+t}} \mbox{\hyperlink{analyze_8h_a4d8c05406a62b4a1937f5ce889531568}{wing}}
+\item 
+\mbox{\hyperlink{structrecordPoint__t}{record\+Point\+\_\+t}} \mbox{\hyperlink{analyze_8h_a0a7cddda39a51eafadd8ca930e5e07d2}{record\+Point}}
+\item 
+bool \mbox{\hyperlink{analyze_8h_a4d708c137e2f1020d088555f63416228}{has\+Exact\+Solution}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the structure definitions of {\ttfamily \mbox{\hyperlink{structwing__t}{wing\+\_\+t}}} and {\ttfamily \mbox{\hyperlink{structrecordPoint__t}{record\+Point\+\_\+t}}} 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Sun 29 Mar 2020 05\+:51\+:23 PM C\+E\+ST 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{analyze_8h_a5bc9f64ac7233292ac4fd9fb6a5fe52a}\label{analyze_8h_a5bc9f64ac7233292ac4fd9fb6a5fe52a}} 
+\index{analyze.h@{analyze.h}!analyze@{analyze}}
+\index{analyze@{analyze}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{analyze()}{analyze()}}
+{\footnotesize\ttfamily void analyze (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{long}]{iter,  }\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Compute aerodynamic coefficients and extract values at record points. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & Calculation time at output \\
+\hline
+\mbox{\texttt{ in}}  & {\em iter} & Iteration count at output \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em res\+Iter} & The residual vector containing the CL and CD residuals at 4th and 5th index position \\
+\hline
+\end{DoxyParams}
+
+
+References abort\+Variable, calc\+Coef(), wing\+\_\+t\+::cd, wing\+\_\+t\+::cl, do\+Calc\+Wing, elem\+\_\+t\+::dt, E, eval\+Record\+Points(), first\+Elem, is\+Stationary, record\+Point\+\_\+t\+::n\+Points, record\+Point, res\+File, R\+HO, VX, VY, and wing.
+
+
+
+Referenced by time\+Disc().
+
+\mbox{\Hypertarget{analyze_8h_aaf09b15337fc9b045b31f8af6ad8ba9c}\label{analyze_8h_aaf09b15337fc9b045b31f8af6ad8ba9c}} 
+\index{analyze.h@{analyze.h}!calcErrors@{calcErrors}}
+\index{calcErrors@{calcErrors}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{calcErrors()}{calcErrors()}}
+{\footnotesize\ttfamily void calc\+Errors (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Calculate L1, L2, and Linf error norms, between the flow solution and the exact solution. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & Calculation time at output \\
+\hline
+\end{DoxyParams}
+
+
+References elem\+\_\+t\+::bary, elem, exact\+Func(), int\+Exact\+Func, N\+D\+IM, n\+Elems, elem\+\_\+t\+::n\+GP, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, spatial\+Reconstruction(), total\+Area\+\_\+q, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, elem\+\_\+t\+::w\+GP, X, elem\+\_\+t\+::x\+GP, and Y.
+
+
+
+Referenced by time\+Disc().
+
+\mbox{\Hypertarget{analyze_8h_acf15c3da2b4a14c1d2b700303bf0d875}\label{analyze_8h_acf15c3da2b4a14c1d2b700303bf0d875}} 
+\index{analyze.h@{analyze.h}!globalResidual@{globalResidual}}
+\index{globalResidual@{globalResidual}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{globalResidual()}{globalResidual()}}
+{\footnotesize\ttfamily void global\+Residual (\begin{DoxyParamCaption}\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Calculate the global residual of the conservative variables. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em res\+Iter} & The residual vector containing the residuals of the conservative variables at the first four positions \\
+\hline
+\end{DoxyParams}
+
+
+References elem\+\_\+t\+::area, E, elem, MX, MY, n\+Elems, N\+V\+AR, R\+HO, total\+Area\+\_\+q, and elem\+\_\+t\+::u\+\_\+t.
+
+
+
+Referenced by explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), and implicit\+Time\+Step().
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{analyze_8h_a91a35913b246573eee26879e04d0404e}\label{analyze_8h_a91a35913b246573eee26879e04d0404e}} 
+\index{analyze.h@{analyze.h}!doCalcWing@{doCalcWing}}
+\index{doCalcWing@{doCalcWing}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{doCalcWing}{doCalcWing}}
+{\footnotesize\ttfamily bool do\+Calc\+Wing}
+
+calculate CL CD flag 
+
+Referenced by analyze(), free\+Analyze(), init\+Analyze(), and time\+Disc().
+
+\mbox{\Hypertarget{analyze_8h_a4d708c137e2f1020d088555f63416228}\label{analyze_8h_a4d708c137e2f1020d088555f63416228}} 
+\index{analyze.h@{analyze.h}!hasExactSolution@{hasExactSolution}}
+\index{hasExactSolution@{hasExactSolution}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{hasExactSolution}{hasExactSolution}}
+{\footnotesize\ttfamily bool has\+Exact\+Solution}
+
+exact solution existence flag 
+
+Referenced by data\+Output(), init\+Analyze(), and time\+Disc().
+
+\mbox{\Hypertarget{analyze_8h_a0a7cddda39a51eafadd8ca930e5e07d2}\label{analyze_8h_a0a7cddda39a51eafadd8ca930e5e07d2}} 
+\index{analyze.h@{analyze.h}!recordPoint@{recordPoint}}
+\index{recordPoint@{recordPoint}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{recordPoint}{recordPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrecordPoint__t}{record\+Point\+\_\+t}} record\+Point}
+
+record flow field at a specific point 
+
+Referenced by analyze(), eval\+Record\+Points(), init\+Analyze(), init\+Record\+Points(), and time\+Disc().
+
+\mbox{\Hypertarget{analyze_8h_a4d8c05406a62b4a1937f5ce889531568}\label{analyze_8h_a4d8c05406a62b4a1937f5ce889531568}} 
+\index{analyze.h@{analyze.h}!wing@{wing}}
+\index{wing@{wing}!analyze.h@{analyze.h}}
+\doxysubsubsection{\texorpdfstring{wing}{wing}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structwing__t}{wing\+\_\+t}} wing}
+
+holds data for coefficient calculation 
+
+Referenced by analyze(), calc\+Coef(), free\+Analyze(), init\+Wing(), read\+Wing(), and time\+Disc().
+

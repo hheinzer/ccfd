@@ -1,0 +1,81 @@
+\hypertarget{finiteVolume_8h}{}\doxysection{ccfd/src/finite\+Volume.h File Reference}
+\label{finiteVolume_8h}\index{ccfd/src/finiteVolume.h@{ccfd/src/finiteVolume.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{finiteVolume_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{finiteVolume_8h_a3644be35d3862389f10d328e14cbedb9}\label{finiteVolume_8h_a3644be35d3862389f10d328e14cbedb9}} 
+void \mbox{\hyperlink{finiteVolume_8h_a3644be35d3862389f10d328e14cbedb9}{init\+FV}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the finite volume method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{finiteVolume_8h_a57129f56e03554698dd5f7e506d456ee}{fv\+Time\+Derivative}} (double time)
+\begin{DoxyCompactList}\small\item\em Perform the spacial operator of the finite volume scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{finiteVolume_8h_a50d190509434bd34e6fb16935620bb18}{spatial\+Order}}
+\item 
+int \mbox{\hyperlink{finiteVolume_8h_ae17621d6565193cafdc9c4179c193d68}{flux\+Function}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fri 27 Mar 2020 05\+:09\+:57 PM C\+ET 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{finiteVolume_8h_a57129f56e03554698dd5f7e506d456ee}\label{finiteVolume_8h_a57129f56e03554698dd5f7e506d456ee}} 
+\index{finiteVolume.h@{finiteVolume.h}!fvTimeDerivative@{fvTimeDerivative}}
+\index{fvTimeDerivative@{fvTimeDerivative}!finiteVolume.h@{finiteVolume.h}}
+\doxysubsubsection{\texorpdfstring{fvTimeDerivative()}{fvTimeDerivative()}}
+{\footnotesize\ttfamily void fv\+Time\+Derivative (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Perform the spacial operator of the finite volume scheme. 
+
+First, the local time step is calculated, then spacial gradients inside of the cells are reconstructed. Following that, the boundary conditions at the sides are applied and the numerical flux is calculated, using the specified flux function. Finally, the source term is evaluated and the time derivatives of all the elements are calculated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & Calculation time at which to perform the finite volume differentiation \\
+\hline
+\end{DoxyParams}
+
+
+References elem\+\_\+t\+::areaq, calc\+Source(), do\+Calc\+Source, elem\+\_\+t\+::dt, elem\+\_\+t\+::dt\+Loc, E, elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::flux, flux\+Calculation(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, R\+HO, set\+B\+Cat\+Sides(), elem\+\_\+t\+::source, spatial\+Reconstruction(), time\+Order, elem\+\_\+t\+::u\+\_\+t, VX, and VY.
+
+
+
+Referenced by build\+Matrix(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), implicit\+Time\+Step(), and matrix\+Vector().
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{finiteVolume_8h_ae17621d6565193cafdc9c4179c193d68}\label{finiteVolume_8h_ae17621d6565193cafdc9c4179c193d68}} 
+\index{finiteVolume.h@{finiteVolume.h}!fluxFunction@{fluxFunction}}
+\index{fluxFunction@{fluxFunction}!finiteVolume.h@{finiteVolume.h}}
+\doxysubsubsection{\texorpdfstring{fluxFunction}{fluxFunction}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{main_8h_a0c24cfd6551e3a329e6c3218633efe1c}{flux\+Function}}}
+
+the flux function to be used \mbox{\Hypertarget{finiteVolume_8h_a50d190509434bd34e6fb16935620bb18}\label{finiteVolume_8h_a50d190509434bd34e6fb16935620bb18}} 
+\index{finiteVolume.h@{finiteVolume.h}!spatialOrder@{spatialOrder}}
+\index{spatialOrder@{spatialOrder}!finiteVolume.h@{finiteVolume.h}}
+\doxysubsubsection{\texorpdfstring{spatialOrder}{spatialOrder}}
+{\footnotesize\ttfamily int spatial\+Order}
+
+the spacial order to be used 
+
+Referenced by init\+F\+V(), and spatial\+Reconstruction().
+

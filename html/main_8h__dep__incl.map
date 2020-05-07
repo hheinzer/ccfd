@@ -1,0 +1,25 @@
+<map id="ccfd/src/main.h" name="ccfd/src/main.h">
+<area shape="rect" id="node1" title="Contains the global constants and definitions." alt="" coords="1199,5,1311,32"/>
+<area shape="rect" id="node2" href="$analyze_8h.html" title="Contains the structure definitions of wing_t and recordPoint_t" alt="" coords="1047,229,1175,256"/>
+<area shape="rect" id="node5" href="$output_8c.html" title="Contains all functions used for writing flow solutions." alt="" coords="2292,304,2410,331"/>
+<area shape="rect" id="node6" href="$timeDiscretization_8c.html" title="Contains the functions for performing the time stepping process." alt="" coords="876,304,1066,331"/>
+<area shape="rect" id="node7" href="$boundary_8h.html" title="Contains the structure definition of a boundary." alt="" coords="949,80,1086,107"/>
+<area shape="rect" id="node8" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="949,155,1065,181"/>
+<area shape="rect" id="node9" href="$boundary_8c.html" title="Contains the functions for initializing and applying boundary conditions." alt="" coords="1200,229,1337,256"/>
+<area shape="rect" id="node10" href="$exactFunction_8c.html" title="Contains the exact function evaluation function." alt="" coords="858,229,1023,256"/>
+<area shape="rect" id="node11" href="$finiteVolume_8c.html" title="Finite volume time derivative functions." alt="" coords="1658,229,1812,256"/>
+<area shape="rect" id="node12" href="$fluxCalculation_8c.html" title="Contains the flux calculation functions." alt="" coords="284,304,453,331"/>
+<area shape="rect" id="node13" href="$linearSolver_8h.html" title=" " alt="" coords="581,229,732,256"/>
+<area shape="rect" id="node14" href="$linearSolver_8c.html" title="Contains the functions for solving the linear system of equations during implicit calculations." alt="" coords="1350,304,1501,331"/>
+<area shape="rect" id="node15" href="$initialCondition_8c.html" title="Functions involving the initialization and application of initial conditions." alt="" coords="1464,229,1633,256"/>
+<area shape="rect" id="node16" href="$mesh_8c.html" title="Contains all the functions for reading and creating meshes." alt="" coords="1837,229,1953,256"/>
+<area shape="rect" id="node17" href="$reconstruction_8c.html" title="Contains the reconstruction and limiter functions." alt="" coords="40,229,206,256"/>
+<area shape="rect" id="node18" href="$source_8c.html" title="Contains the functions for initializing and evaluating the source term." alt="" coords="332,229,455,256"/>
+<area shape="rect" id="node19" href="$readInTools_8h.html" title=" " alt="" coords="1916,155,2066,181"/>
+<area shape="rect" id="node21" href="$equationOfState_8h.html" title=" " alt="" coords="1292,155,1471,181"/>
+<area shape="rect" id="node22" href="$equationOfState_8c.html" title="Contains conversion functions between the different variable types." alt="" coords="2490,80,2668,107"/>
+<area shape="rect" id="node23" href="$readInTools_8c.html" title="Provides functions for reading data from the .ini parameter file." alt="" coords="2693,80,2844,107"/>
+<area shape="rect" id="node3" href="$analyze_8c.html" title="Contains functions for analyzing flow results." alt="" coords="1803,304,1931,331"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Contains the main function of ccfd" alt="" coords="600,304,712,331"/>
+<area shape="rect" id="node20" href="$equation_8c.html" title="Contains the function for initializing the physical constants." alt="" coords="2180,229,2314,256"/>
+</map>

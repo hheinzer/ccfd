@@ -1,0 +1,556 @@
+\hypertarget{fluxCalculation_8c}{}\doxysection{ccfd/src/flux\+Calculation.c File Reference}
+\label{fluxCalculation_8c}\index{ccfd/src/fluxCalculation.c@{ccfd/src/fluxCalculation.c}}
+
+
+Contains the flux calculation functions.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}exact\+Riemann.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}boundary.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}linear\+Solver.\+h\char`\"{}}\newline
+Include dependency graph for flux\+Calculation.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fluxCalculation_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a8b46ee8328797fe0d1c3a7a67a37393b}{flux\+\_\+god}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Godunov flux, which is the exact flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a82ec899dde881f02bd76e20a30705dac}{flux\+\_\+roe}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Roe flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_adf19be98e07effde8ec64671b562daef}{flux\+\_\+hll}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em H\+LL flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a6b74a07d29347f7db696dead0e621bc7}{flux\+\_\+hlle}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em H\+L\+LE flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a4441c2b103408119024926dd388a2e89}{flux\+\_\+hllc}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em H\+L\+LC flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a71260814e9fd4b58340179fe4414f162}{flux\+\_\+lxf}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Lax-\/\+Friedrichs flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a504455e1e89b2b15b43cd88315eba42a}{flux\+\_\+stw}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Steger-\/\+Warming flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_ac92afb904e9d16738e9edbf18861b158}{flux\+\_\+cen}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Central flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a9b872c969055acce42ba72a13c879824}{flux\+\_\+ausmd}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em A\+U\+S\+MD flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_ac1ab4c281fdf823d688c993c0c8e8afe}{flux\+\_\+ausmdv}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em A\+U\+S\+M\+DV flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a713a90c01c2da02c3b54a7fae9ca6cba}{flux\+\_\+vanleer}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Van Leer flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_ace705178b5d10394576035f5fda21b80}{convective\+Flux}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Select the convective flux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fluxCalculation_8c_a5537734044975e3108fc1acefae6b94c}{flux\+Calculation}} (void)
+\begin{DoxyCompactList}\small\item\em Perform the flux calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the flux calculation functions. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Tue 31 Mar 2020 05\+:18\+:40 PM C\+E\+ST 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fluxCalculation_8c_ace705178b5d10394576035f5fda21b80}\label{fluxCalculation_8c_ace705178b5d10394576035f5fda21b80}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!convectiveFlux@{convectiveFlux}}
+\index{convectiveFlux@{convectiveFlux}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{convectiveFlux()}{convectiveFlux()}}
+{\footnotesize\ttfamily void convective\+Flux (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Select the convective flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References A\+U\+S\+MD, A\+U\+S\+M\+DV, C\+EN, flux\+\_\+ausmd(), flux\+\_\+ausmdv(), flux\+\_\+cen(), flux\+\_\+god(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+hlle(), flux\+\_\+lxf(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), G\+OD, H\+LL, H\+L\+LC, H\+L\+LE, i\+Flux, L\+XF, R\+OE, S\+TW, and V\+A\+N\+L\+E\+ER.
+
+
+
+Referenced by flux\+Calculation().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a9b872c969055acce42ba72a13c879824}\label{fluxCalculation_8c_a9b872c969055acce42ba72a13c879824}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_ausmd@{flux\_ausmd}}
+\index{flux\_ausmd@{flux\_ausmd}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_ausmd()}{flux\_ausmd()}}
+{\footnotesize\ttfamily void flux\+\_\+ausmd (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+A\+U\+S\+MD flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, and gam1q.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_ac1ab4c281fdf823d688c993c0c8e8afe}\label{fluxCalculation_8c_ac1ab4c281fdf823d688c993c0c8e8afe}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_ausmdv@{flux\_ausmdv}}
+\index{flux\_ausmdv@{flux\_ausmdv}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_ausmdv()}{flux\_ausmdv()}}
+{\footnotesize\ttfamily void flux\+\_\+ausmdv (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+A\+U\+S\+M\+DV flux. 
+
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]This function produces incorrect output, refrain from using it for the time being \end{DoxyRefDesc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, and gam1q.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_ac92afb904e9d16738e9edbf18861b158}\label{fluxCalculation_8c_ac92afb904e9d16738e9edbf18861b158}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_cen@{flux\_cen}}
+\index{flux\_cen@{flux\_cen}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_cen()}{flux\_cen()}}
+{\footnotesize\ttfamily void flux\+\_\+cen (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Central flux. 
+
+\begin{DoxyNote}{Note}
+This flux is unconditionally unstable, it can be stabilized by adding artificial viscosity (Jameson method). This is not implemented, however. 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam1q.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a8b46ee8328797fe0d1c3a7a67a37393b}\label{fluxCalculation_8c_a8b46ee8328797fe0d1c3a7a67a37393b}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_god@{flux\_god}}
+\index{flux\_god@{flux\_god}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_god()}{flux\_god()}}
+{\footnotesize\ttfamily void flux\+\_\+god (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Godunov flux, which is the exact flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References exact\+Riemann(), gam, and gam1.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_adf19be98e07effde8ec64671b562daef}\label{fluxCalculation_8c_adf19be98e07effde8ec64671b562daef}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_hll@{flux\_hll}}
+\index{flux\_hll@{flux\_hll}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_hll()}{flux\_hll()}}
+{\footnotesize\ttfamily void flux\+\_\+hll (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+H\+LL flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1, gam1q, MX, and N\+V\+AR.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a4441c2b103408119024926dd388a2e89}\label{fluxCalculation_8c_a4441c2b103408119024926dd388a2e89}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_hllc@{flux\_hllc}}
+\index{flux\_hllc@{flux\_hllc}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_hllc()}{flux\_hllc()}}
+{\footnotesize\ttfamily void flux\+\_\+hllc (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+H\+L\+LC flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1, gam1q, MX, and N\+V\+AR.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a6b74a07d29347f7db696dead0e621bc7}\label{fluxCalculation_8c_a6b74a07d29347f7db696dead0e621bc7}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_hlle@{flux\_hlle}}
+\index{flux\_hlle@{flux\_hlle}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_hlle()}{flux\_hlle()}}
+{\footnotesize\ttfamily void flux\+\_\+hlle (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+H\+L\+LE flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1q, MX, and N\+V\+AR.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a71260814e9fd4b58340179fe4414f162}\label{fluxCalculation_8c_a71260814e9fd4b58340179fe4414f162}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_lxf@{flux\_lxf}}
+\index{flux\_lxf@{flux\_lxf}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_lxf()}{flux\_lxf()}}
+{\footnotesize\ttfamily void flux\+\_\+lxf (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Lax-\/\+Friedrichs flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1q, and N\+V\+AR.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a82ec899dde881f02bd76e20a30705dac}\label{fluxCalculation_8c_a82ec899dde881f02bd76e20a30705dac}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_roe@{flux\_roe}}
+\index{flux\_roe@{flux\_roe}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_roe()}{flux\_roe()}}
+{\footnotesize\ttfamily void flux\+\_\+roe (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Roe flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1, gam1q, and gam2.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a504455e1e89b2b15b43cd88315eba42a}\label{fluxCalculation_8c_a504455e1e89b2b15b43cd88315eba42a}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_stw@{flux\_stw}}
+\index{flux\_stw@{flux\_stw}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_stw()}{flux\_stw()}}
+{\footnotesize\ttfamily void flux\+\_\+stw (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Steger-\/\+Warming flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1, and gam1q.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a713a90c01c2da02c3b54a7fae9ca6cba}\label{fluxCalculation_8c_a713a90c01c2da02c3b54a7fae9ca6cba}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!flux\_vanleer@{flux\_vanleer}}
+\index{flux\_vanleer@{flux\_vanleer}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{flux\_vanleer()}{flux\_vanleer()}}
+{\footnotesize\ttfamily void flux\+\_\+vanleer (\begin{DoxyParamCaption}\item[{double}]{rhoL,  }\item[{double}]{rhoR,  }\item[{double}]{vxL,  }\item[{double}]{vxR,  }\item[{double}]{vyL,  }\item[{double}]{vyR,  }\item[{double}]{pL,  }\item[{double}]{pR,  }\item[{double}]{flux\+Loc\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Van Leer flux. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rhoL} & Left side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhoR} & Right side density \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxL} & Left side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vxR} & Right side x-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyL} & Left side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em vyR} & Right side y-\/velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em pL} & Left side pressure \\
+\hline
+\mbox{\texttt{ in}}  & {\em pR} & Right side pressure \\
+\hline
+\mbox{\texttt{ out}}  & {\em flux\+Loc} & The local numeric flux \\
+\hline
+\end{DoxyParams}
+
+
+References gam, gam1, and gam1q.
+
+
+
+Referenced by convective\+Flux().
+
+\mbox{\Hypertarget{fluxCalculation_8c_a5537734044975e3108fc1acefae6b94c}\label{fluxCalculation_8c_a5537734044975e3108fc1acefae6b94c}} 
+\index{fluxCalculation.c@{fluxCalculation.c}!fluxCalculation@{fluxCalculation}}
+\index{fluxCalculation@{fluxCalculation}!fluxCalculation.c@{fluxCalculation.c}}
+\doxysubsubsection{\texorpdfstring{fluxCalculation()}{fluxCalculation()}}
+{\footnotesize\ttfamily void flux\+Calculation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform the flux calculation. 
+
+Calculation of left and right state, the velocity vector is transformed into the normal system of the cell interfaces. The function finishes with a back rotation of the velocity vector into global coordinate system. 
+
+References side\+\_\+t\+::bary\+Bary\+Dist, side\+\_\+t\+::bary\+Bary\+Vec, side\+\_\+t\+::connection, convective\+Flux(), E, side\+\_\+t\+::elem, side\+\_\+t\+::flux, side\+\_\+t\+::len, MX, MY, side\+\_\+t\+::n, N\+D\+IM, n\+Sides, N\+V\+AR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, R\+HO, side, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
+
+
+
+Referenced by fv\+Time\+Derivative().
+

@@ -1,0 +1,45 @@
+\hypertarget{fluxCalculation_8h}{}\doxysection{ccfd/src/flux\+Calculation.h File Reference}
+\label{fluxCalculation_8h}\index{ccfd/src/fluxCalculation.h@{ccfd/src/fluxCalculation.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{fluxCalculation_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fluxCalculation_8h_a5537734044975e3108fc1acefae6b94c}{flux\+Calculation}} (void)
+\begin{DoxyCompactList}\small\item\em Perform the flux calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Tue 31 Mar 2020 05\+:18\+:46 PM C\+E\+ST 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fluxCalculation_8h_a5537734044975e3108fc1acefae6b94c}\label{fluxCalculation_8h_a5537734044975e3108fc1acefae6b94c}} 
+\index{fluxCalculation.h@{fluxCalculation.h}!fluxCalculation@{fluxCalculation}}
+\index{fluxCalculation@{fluxCalculation}!fluxCalculation.h@{fluxCalculation.h}}
+\doxysubsubsection{\texorpdfstring{fluxCalculation()}{fluxCalculation()}}
+{\footnotesize\ttfamily void flux\+Calculation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform the flux calculation. 
+
+Calculation of left and right state, the velocity vector is transformed into the normal system of the cell interfaces. The function finishes with a back rotation of the velocity vector into global coordinate system. 
+
+References side\+\_\+t\+::bary\+Bary\+Dist, side\+\_\+t\+::bary\+Bary\+Vec, side\+\_\+t\+::connection, convective\+Flux(), E, side\+\_\+t\+::elem, side\+\_\+t\+::flux, side\+\_\+t\+::len, MX, MY, side\+\_\+t\+::n, N\+D\+IM, n\+Sides, N\+V\+AR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, R\+HO, side, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
+
+
+
+Referenced by fv\+Time\+Derivative().
+

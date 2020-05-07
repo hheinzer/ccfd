@@ -1,0 +1,235 @@
+\hypertarget{equation_8c}{}\doxysection{ccfd/src/equation.c File Reference}
+\label{equation_8c}\index{ccfd/src/equation.c@{ccfd/src/equation.c}}
+
+
+Contains the function for initializing the physical constants.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}read\+In\+Tools.\+h\char`\"{}}\newline
+Include dependency graph for equation.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{equation_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{equation_8c_a5feb950469f92203675668c9eba7971f}\label{equation_8c_a5feb950469f92203675668c9eba7971f}} 
+void \mbox{\hyperlink{equation_8c_a5feb950469f92203675668c9eba7971f}{init\+Equation}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize equations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{equation_8c_a31c17cc321db72d5ab448b71ea92792f}{pi}}
+\item 
+bool \mbox{\hyperlink{equation_8c_a849be9aa477021b7aa828b8cb861756a}{do\+Calc\+Source}}
+\item 
+double \mbox{\hyperlink{equation_8c_a228eb5e837a644887ac6e7bab3f42485}{R}}
+\item 
+double \mbox{\hyperlink{equation_8c_a45d60151fb0572200ad00231c304aaf0}{gam}}
+\item 
+double \mbox{\hyperlink{equation_8c_a0ab71a8b3e1894bd20ccefc5ecc072b3}{gam1}}
+\item 
+double \mbox{\hyperlink{equation_8c_a1a9c33d65ae37d8b1a72f6f63e4c81c9}{gam2}}
+\item 
+double \mbox{\hyperlink{equation_8c_aa75ce24a0ddcc106d053ee4d2c541410}{gam1q}}
+\item 
+double \mbox{\hyperlink{equation_8c_a8e48af44af5d13f132d1a3af94991ef5}{cp}}
+\item 
+double \mbox{\hyperlink{equation_8c_af0f6e03342b9eb912e25f94ce0249a2c}{Pr}}
+\item 
+double \mbox{\hyperlink{equation_8c_a74577585cf12d1712ab9c57616d49205}{mu}}
+\item 
+int \mbox{\hyperlink{equation_8c_a2322b0454ab77116d4528e277ae45889}{i\+Flux}}
+\item 
+int \mbox{\hyperlink{equation_8c_a9d043fa680da2f216f05af6c09975a96}{int\+Exact\+Func}}
+\item 
+int \mbox{\hyperlink{equation_8c_aeef0a9749cb83651e7bbd578f4d50554}{source\+Func}}
+\item 
+double \mbox{\hyperlink{equation_8c_a517048f752dfd7a2d0a22da40366ef3c}{sqrt2}}
+\item 
+double \mbox{\hyperlink{equation_8c_a0940f819da27e6418edf4fb8cdc8e478}{sqrt3}}
+\item 
+double \mbox{\hyperlink{equation_8c_a4660a259fff1acb395f3d79b11cf5eea}{sqrt3q}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the function for initializing the physical constants. 
+
+\begin{DoxyDate}{Date}
+Tue 24 Mar 2020 08\+:30\+:28 AM C\+ET 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{equation_8c_a8e48af44af5d13f132d1a3af94991ef5}\label{equation_8c_a8e48af44af5d13f132d1a3af94991ef5}} 
+\index{equation.c@{equation.c}!cp@{cp}}
+\index{cp@{cp}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{cp}{cp}}
+{\footnotesize\ttfamily double cp}
+
+specific heat capacity 
+
+Referenced by calc\+Coef().
+
+\mbox{\Hypertarget{equation_8c_a849be9aa477021b7aa828b8cb861756a}\label{equation_8c_a849be9aa477021b7aa828b8cb861756a}} 
+\index{equation.c@{equation.c}!doCalcSource@{doCalcSource}}
+\index{doCalcSource@{doCalcSource}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{doCalcSource}{doCalcSource}}
+{\footnotesize\ttfamily bool do\+Calc\+Source}
+
+calculate source flag 
+
+Referenced by fv\+Time\+Derivative(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a45d60151fb0572200ad00231c304aaf0}\label{equation_8c_a45d60151fb0572200ad00231c304aaf0}} 
+\index{equation.c@{equation.c}!gam@{gam}}
+\index{gam@{gam}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{gam}{gam}}
+{\footnotesize\ttfamily double gam}
+
+specific heat ratio 
+
+Referenced by boundary(), calc\+Time\+Step(), char\+Cons(), cons\+Char(), eval\+Source(), exact\+Func(), exact\+Riemann(), flux\+\_\+ausmd(), flux\+\_\+ausmdv(), flux\+\_\+god(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+hlle(), flux\+\_\+lxf(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), G\+M\+R\+E\+S\+\_\+\+M(), init\+Boundary(), init\+Equation(), and init\+Initial\+Condition().
+
+\mbox{\Hypertarget{equation_8c_a0ab71a8b3e1894bd20ccefc5ecc072b3}\label{equation_8c_a0ab71a8b3e1894bd20ccefc5ecc072b3}} 
+\index{equation.c@{equation.c}!gam1@{gam1}}
+\index{gam1@{gam1}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{gam1}{gam1}}
+{\footnotesize\ttfamily double gam1}
+
+{\ttfamily gam} -\/ 1 
+
+Referenced by cons\+Prim(), eval\+Source(), exact\+Func(), flux\+\_\+god(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_aa75ce24a0ddcc106d053ee4d2c541410}\label{equation_8c_aa75ce24a0ddcc106d053ee4d2c541410}} 
+\index{equation.c@{equation.c}!gam1q@{gam1q}}
+\index{gam1q@{gam1q}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{gam1q}{gam1q}}
+{\footnotesize\ttfamily double gam1q}
+
+1.\+0 / ({\ttfamily gam} -\/ 1) 
+
+Referenced by char\+Cons(), cons\+Char(), flux\+\_\+ausmd(), flux\+\_\+ausmdv(), flux\+\_\+cen(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+hlle(), flux\+\_\+lxf(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), init\+Equation(), and prim\+Cons().
+
+\mbox{\Hypertarget{equation_8c_a1a9c33d65ae37d8b1a72f6f63e4c81c9}\label{equation_8c_a1a9c33d65ae37d8b1a72f6f63e4c81c9}} 
+\index{equation.c@{equation.c}!gam2@{gam2}}
+\index{gam2@{gam2}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{gam2}{gam2}}
+{\footnotesize\ttfamily double gam2}
+
+{\ttfamily gam} -\/ 2 
+
+Referenced by flux\+\_\+roe(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a2322b0454ab77116d4528e277ae45889}\label{equation_8c_a2322b0454ab77116d4528e277ae45889}} 
+\index{equation.c@{equation.c}!iFlux@{iFlux}}
+\index{iFlux@{iFlux}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{iFlux}{iFlux}}
+{\footnotesize\ttfamily int i\+Flux}
+
+flux function control 
+
+Referenced by convective\+Flux(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a9d043fa680da2f216f05af6c09975a96}\label{equation_8c_a9d043fa680da2f216f05af6c09975a96}} 
+\index{equation.c@{equation.c}!intExactFunc@{intExactFunc}}
+\index{intExactFunc@{intExactFunc}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{intExactFunc}{intExactFunc}}
+{\footnotesize\ttfamily int int\+Exact\+Func}
+
+exact function control 
+
+Referenced by calc\+Errors(), cgns\+Output(), csv\+Output(), curve\+Output(), init\+Initial\+Condition(), and set\+Initial\+Condition().
+
+\mbox{\Hypertarget{equation_8c_a74577585cf12d1712ab9c57616d49205}\label{equation_8c_a74577585cf12d1712ab9c57616d49205}} 
+\index{equation.c@{equation.c}!mu@{mu}}
+\index{mu@{mu}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily double mu}
+
+dynamic viscosity 
+
+Referenced by boundary(), calc\+Time\+Step(), eval\+Source(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a31c17cc321db72d5ab448b71ea92792f}\label{equation_8c_a31c17cc321db72d5ab448b71ea92792f}} 
+\index{equation.c@{equation.c}!pi@{pi}}
+\index{pi@{pi}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily double pi}
+
+pi 
+
+Referenced by calc\+Coef(), eval\+Source(), exact\+Func(), init\+Boundary(), init\+Equation(), and init\+Initial\+Condition().
+
+\mbox{\Hypertarget{equation_8c_af0f6e03342b9eb912e25f94ce0249a2c}\label{equation_8c_af0f6e03342b9eb912e25f94ce0249a2c}} 
+\index{equation.c@{equation.c}!Pr@{Pr}}
+\index{Pr@{Pr}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{Pr}{Pr}}
+{\footnotesize\ttfamily double Pr}
+
+Prandtl number 
+
+Referenced by calc\+Time\+Step(), eval\+Source(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a228eb5e837a644887ac6e7bab3f42485}\label{equation_8c_a228eb5e837a644887ac6e7bab3f42485}} 
+\index{equation.c@{equation.c}!R@{R}}
+\index{R@{R}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily double R}
+
+specific gas constant 
+
+Referenced by exact\+Func(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_aeef0a9749cb83651e7bbd578f4d50554}\label{equation_8c_aeef0a9749cb83651e7bbd578f4d50554}} 
+\index{equation.c@{equation.c}!sourceFunc@{sourceFunc}}
+\index{sourceFunc@{sourceFunc}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{sourceFunc}{sourceFunc}}
+{\footnotesize\ttfamily int source\+Func}
+
+source function control 
+
+Referenced by calc\+Source(), and init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a517048f752dfd7a2d0a22da40366ef3c}\label{equation_8c_a517048f752dfd7a2d0a22da40366ef3c}} 
+\index{equation.c@{equation.c}!sqrt2@{sqrt2}}
+\index{sqrt2@{sqrt2}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{sqrt2}{sqrt2}}
+{\footnotesize\ttfamily double sqrt2}
+
+sqrt(2.\+0) 
+
+Referenced by init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a0940f819da27e6418edf4fb8cdc8e478}\label{equation_8c_a0940f819da27e6418edf4fb8cdc8e478}} 
+\index{equation.c@{equation.c}!sqrt3@{sqrt3}}
+\index{sqrt3@{sqrt3}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{sqrt3}{sqrt3}}
+{\footnotesize\ttfamily double sqrt3}
+
+sqrt(3.\+0) 
+
+Referenced by init\+Equation().
+
+\mbox{\Hypertarget{equation_8c_a4660a259fff1acb395f3d79b11cf5eea}\label{equation_8c_a4660a259fff1acb395f3d79b11cf5eea}} 
+\index{equation.c@{equation.c}!sqrt3q@{sqrt3q}}
+\index{sqrt3q@{sqrt3q}!equation.c@{equation.c}}
+\doxysubsubsection{\texorpdfstring{sqrt3q}{sqrt3q}}
+{\footnotesize\ttfamily double sqrt3q}
+
+1.\+0 / sqrt(3.\+0) 
+
+Referenced by exact\+Func(), and init\+Equation().
+

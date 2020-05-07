@@ -1,0 +1,149 @@
+\hypertarget{equationOfState_8c}{}\doxysection{ccfd/src/equation\+Of\+State.c File Reference}
+\label{equationOfState_8c}\index{ccfd/src/equationOfState.c@{ccfd/src/equationOfState.c}}
+
+
+Contains conversion functions between the different variable types.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
+Include dependency graph for equation\+Of\+State.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{equationOfState_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{equationOfState_8c_abc7d4bb92eab7aec2fb1d979f0df080c}{prim\+Cons}} (const double p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double c\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Convert primitive variables into conservative variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{equationOfState_8c_ae21deaa1a13e49c5e17fff0b44634908}{cons\+Prim}} (const double c\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Convert conservative variables into primitive variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{equationOfState_8c_a242c6f1a32e57dae899498a74020c63b}{cons\+Char}} (double c\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double charac\mbox{[}3\mbox{]}, double p\+Var\+Ref\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Convert conservative variables to characteristic variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{equationOfState_8c_aec15deabd7578d99a317f9a047dd0889}{char\+Cons}} (double charac\mbox{[}3\mbox{]}, double c\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double p\+Var\+Ref\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Convert characteristic variables to conservative variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains conversion functions between the different variable types. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Sat 28 Mar 2020 09\+:45\+:30 PM C\+ET 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{equationOfState_8c_aec15deabd7578d99a317f9a047dd0889}\label{equationOfState_8c_aec15deabd7578d99a317f9a047dd0889}} 
+\index{equationOfState.c@{equationOfState.c}!charCons@{charCons}}
+\index{charCons@{charCons}!equationOfState.c@{equationOfState.c}}
+\doxysubsubsection{\texorpdfstring{charCons()}{charCons()}}
+{\footnotesize\ttfamily void char\+Cons (\begin{DoxyParamCaption}\item[{double}]{charac\mbox{[}3\mbox{]},  }\item[{double}]{c\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{p\+Var\+Ref\mbox{[}\+N\+V\+A\+R\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Convert characteristic variables to conservative variables. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em charac} & Characteristic variable vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em c\+Var} & Conservative variable vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em p\+Var\+Ref} & Reference primitive variable vector \\
+\hline
+\end{DoxyParams}
+
+
+References E, gam, gam1q, MX, P, R\+HO, and VX.
+
+
+
+Referenced by boundary().
+
+\mbox{\Hypertarget{equationOfState_8c_a242c6f1a32e57dae899498a74020c63b}\label{equationOfState_8c_a242c6f1a32e57dae899498a74020c63b}} 
+\index{equationOfState.c@{equationOfState.c}!consChar@{consChar}}
+\index{consChar@{consChar}!equationOfState.c@{equationOfState.c}}
+\doxysubsubsection{\texorpdfstring{consChar()}{consChar()}}
+{\footnotesize\ttfamily void cons\+Char (\begin{DoxyParamCaption}\item[{double}]{c\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{charac\mbox{[}3\mbox{]},  }\item[{double}]{p\+Var\+Ref\mbox{[}\+N\+V\+A\+R\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Convert conservative variables to characteristic variables. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c\+Var} & Conservative variable vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em charac} & Characteristic variable vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em p\+Var\+Ref} & Reference primitive variable vector \\
+\hline
+\end{DoxyParams}
+
+
+References E, gam, gam1q, P, R\+HO, and VX.
+
+
+
+Referenced by boundary().
+
+\mbox{\Hypertarget{equationOfState_8c_ae21deaa1a13e49c5e17fff0b44634908}\label{equationOfState_8c_ae21deaa1a13e49c5e17fff0b44634908}} 
+\index{equationOfState.c@{equationOfState.c}!consPrim@{consPrim}}
+\index{consPrim@{consPrim}!equationOfState.c@{equationOfState.c}}
+\doxysubsubsection{\texorpdfstring{consPrim()}{consPrim()}}
+{\footnotesize\ttfamily void cons\+Prim (\begin{DoxyParamCaption}\item[{const double}]{c\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{p\+Var\mbox{[}\+N\+V\+A\+R\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Convert conservative variables into primitive variables. 
+
+This function is used during reconstruction, therefore it has to be checked if the resulting primitive variables are negative. It that is the case, they are set to zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c\+Var} & Conservative variable vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em p\+Var} & Primitive variable vector \\
+\hline
+\end{DoxyParams}
+
+
+References E, gam1, MX, MY, P, R\+HO, VX, and VY.
+
+
+
+Referenced by boundary(), exact\+Func(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), implicit\+Time\+Step(), and matrix\+Vector().
+
+\mbox{\Hypertarget{equationOfState_8c_abc7d4bb92eab7aec2fb1d979f0df080c}\label{equationOfState_8c_abc7d4bb92eab7aec2fb1d979f0df080c}} 
+\index{equationOfState.c@{equationOfState.c}!primCons@{primCons}}
+\index{primCons@{primCons}!equationOfState.c@{equationOfState.c}}
+\doxysubsubsection{\texorpdfstring{primCons()}{primCons()}}
+{\footnotesize\ttfamily void prim\+Cons (\begin{DoxyParamCaption}\item[{const double}]{p\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{c\+Var\mbox{[}\+N\+V\+A\+R\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Convert primitive variables into conservative variables. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Var} & Primitive variable vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em c\+Var} & Conservative variable vector \\
+\hline
+\end{DoxyParams}
+
+
+References E, gam1q, MX, MY, P, R\+HO, VX, and VY.
+
+
+
+Referenced by boundary(), and set\+Initial\+Condition().
+

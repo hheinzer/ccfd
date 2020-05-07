@@ -1,0 +1,182 @@
+\hypertarget{output_8h}{}\doxysection{ccfd/src/output.h File Reference}
+\label{output_8h}\index{ccfd/src/output.h@{ccfd/src/output.h}}
+
+
+Contains {\ttfamily \mbox{\hyperlink{structoutputTime__t}{output\+Time\+\_\+t}}} struct definition.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for output.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{output_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{output_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structoutputTime__t}{output\+Time\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Output times linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{output_8h_adfc0a8bf3db752ff6b5b12d190835705}\label{output_8h_adfc0a8bf3db752ff6b5b12d190835705}} 
+void \mbox{\hyperlink{output_8h_adfc0a8bf3db752ff6b5b12d190835705}{init\+Output}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{output_8h_ae87e520489695393cd37eed3274555ba}{data\+Output}} (double time, long iter)
+\begin{DoxyCompactList}\small\item\em Perform a data output, dependent on the output format. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{output_8h_aa4a67d4bf2b31b54e968a7dc81ebe962}\label{output_8h_aa4a67d4bf2b31b54e968a7dc81ebe962}} 
+void \mbox{\hyperlink{output_8h_aa4a67d4bf2b31b54e968a7dc81ebe962}{finalize\+Data\+Output}} (void)
+\begin{DoxyCompactList}\small\item\em Finalize the data output, if necessary. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{output_8h_aafd430315c490e75d714c542eb4142c1}\label{output_8h_aafd430315c490e75d714c542eb4142c1}} 
+void \mbox{\hyperlink{output_8h_aafd430315c490e75d714c542eb4142c1}{cgns\+Write\+Mesh}} (void)
+\begin{DoxyCompactList}\small\item\em Write the generated mesh to a C\+G\+NS mesh file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{output_8h_ae15c0a360681de8b69dc6c3af87f00d4}\label{output_8h_ae15c0a360681de8b69dc6c3af87f00d4}} 
+void \mbox{\hyperlink{output_8h_ae15c0a360681de8b69dc6c3af87f00d4}{free\+Output\+Times}} (void)
+\begin{DoxyCompactList}\small\item\em Free all memory that was allocated for the output times. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{output_8h_a4216b320947c90fd5bf3dfa416ddc2f9}{str\+Out\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+\item 
+double \mbox{\hyperlink{output_8h_a161a7d1b735a467afa626d76858f5cf1}{I\+Otime\+Interval}}
+\item 
+int \mbox{\hyperlink{output_8h_a721d34ce99600a072eaaa5a434205f3b}{I\+Oiter\+Interval}}
+\item 
+int \mbox{\hyperlink{output_8h_ad03b08ac896405ca97227fefdaecf86e}{i\+Visu\+Prog}}
+\item 
+char \mbox{\hyperlink{output_8h_aad3cc448dc2ebf66ff33a66195cfbebc}{parameter\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{output_8h_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}{res\+File}}
+\item 
+bool \mbox{\hyperlink{output_8h_a99da6d219a27bf67fadbe53a6bab0bfd}{do\+Error\+Output}}
+\item 
+\mbox{\hyperlink{structoutputTime__t}{output\+Time\+\_\+t}} $\ast$ \mbox{\hyperlink{output_8h_aef18fcacea58b72323dada137e2657e1}{output\+Times}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains {\ttfamily \mbox{\hyperlink{structoutputTime__t}{output\+Time\+\_\+t}}} struct definition. 
+
+\begin{DoxyAuthor}{Author}
+hhh 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Mon 23 Mar 2020 10\+:37\+:31 PM C\+ET 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{output_8h_ae87e520489695393cd37eed3274555ba}\label{output_8h_ae87e520489695393cd37eed3274555ba}} 
+\index{output.h@{output.h}!dataOutput@{dataOutput}}
+\index{dataOutput@{dataOutput}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{dataOutput()}{dataOutput()}}
+{\footnotesize\ttfamily void data\+Output (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{long}]{iter }\end{DoxyParamCaption})}
+
+
+
+Perform a data output, dependent on the output format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & The computational time of the output result \\
+\hline
+\mbox{\texttt{ in}}  & {\em iter} & The iteration number of the output result \\
+\hline
+\end{DoxyParams}
+
+
+References C\+G\+NS, cgns\+Output(), C\+SV, csv\+Output(), C\+U\+R\+VE, curve\+Output(), has\+Exact\+Solution, is\+Stationary, output\+Time\+\_\+t\+::iter, i\+Visu\+Prog, output\+Time\+\_\+t\+::next, output\+Times, S\+T\+R\+L\+EN, str\+Out\+File, and output\+Time\+\_\+t\+::time.
+
+
+
+Referenced by time\+Disc().
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{output_8h_a99da6d219a27bf67fadbe53a6bab0bfd}\label{output_8h_a99da6d219a27bf67fadbe53a6bab0bfd}} 
+\index{output.h@{output.h}!doErrorOutput@{doErrorOutput}}
+\index{doErrorOutput@{doErrorOutput}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{doErrorOutput}{doErrorOutput}}
+{\footnotesize\ttfamily bool do\+Error\+Output}
+
+error output flag \mbox{\Hypertarget{output_8h_a721d34ce99600a072eaaa5a434205f3b}\label{output_8h_a721d34ce99600a072eaaa5a434205f3b}} 
+\index{output.h@{output.h}!IOiterInterval@{IOiterInterval}}
+\index{IOiterInterval@{IOiterInterval}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{IOiterInterval}{IOiterInterval}}
+{\footnotesize\ttfamily int I\+Oiter\+Interval}
+
+iteration interval for data output 
+
+Referenced by init\+Output(), init\+Time\+Disc(), and time\+Disc().
+
+\mbox{\Hypertarget{output_8h_a161a7d1b735a467afa626d76858f5cf1}\label{output_8h_a161a7d1b735a467afa626d76858f5cf1}} 
+\index{output.h@{output.h}!IOtimeInterval@{IOtimeInterval}}
+\index{IOtimeInterval@{IOtimeInterval}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{IOtimeInterval}{IOtimeInterval}}
+{\footnotesize\ttfamily double I\+Otime\+Interval}
+
+time interval for data output 
+
+Referenced by init\+Output(), init\+Time\+Disc(), and time\+Disc().
+
+\mbox{\Hypertarget{output_8h_ad03b08ac896405ca97227fefdaecf86e}\label{output_8h_ad03b08ac896405ca97227fefdaecf86e}} 
+\index{output.h@{output.h}!iVisuProg@{iVisuProg}}
+\index{iVisuProg@{iVisuProg}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{iVisuProg}{iVisuProg}}
+{\footnotesize\ttfamily int i\+Visu\+Prog}
+
+output format code 
+
+Referenced by data\+Output(), finalize\+Data\+Output(), init\+Mesh(), and init\+Output().
+
+\mbox{\Hypertarget{output_8h_aef18fcacea58b72323dada137e2657e1}\label{output_8h_aef18fcacea58b72323dada137e2657e1}} 
+\index{output.h@{output.h}!outputTimes@{outputTimes}}
+\index{outputTimes@{outputTimes}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{outputTimes}{outputTimes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structoutputTime__t}{output\+Time\+\_\+t}}$\ast$ output\+Times}
+
+the first output time object 
+
+Referenced by cgns\+Finalize\+Output(), data\+Output(), free\+Output\+Times(), and main().
+
+\mbox{\Hypertarget{output_8h_aad3cc448dc2ebf66ff33a66195cfbebc}\label{output_8h_aad3cc448dc2ebf66ff33a66195cfbebc}} 
+\index{output.h@{output.h}!parameterFile@{parameterFile}}
+\index{parameterFile@{parameterFile}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{parameterFile}{parameterFile}}
+{\footnotesize\ttfamily char parameter\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+
+parameter file name
+
+name of the parameter file \mbox{\Hypertarget{output_8h_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}\label{output_8h_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}} 
+\index{output.h@{output.h}!resFile@{resFile}}
+\index{resFile@{resFile}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{resFile}{resFile}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ res\+File}
+
+residual file pointer 
+
+Referenced by analyze(), init\+Analyze(), and time\+Disc().
+
+\mbox{\Hypertarget{output_8h_a4216b320947c90fd5bf3dfa416ddc2f9}\label{output_8h_a4216b320947c90fd5bf3dfa416ddc2f9}} 
+\index{output.h@{output.h}!strOutFile@{strOutFile}}
+\index{strOutFile@{strOutFile}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{strOutFile}{strOutFile}}
+{\footnotesize\ttfamily char str\+Out\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+
+name of the output file 
+
+Referenced by calc\+Coef(), cgns\+Finalize\+Output(), data\+Output(), init\+Analyze(), init\+Mesh(), init\+Output(), and init\+Record\+Points().
+

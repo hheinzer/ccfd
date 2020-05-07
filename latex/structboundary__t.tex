@@ -1,0 +1,161 @@
+\hypertarget{structboundary__t}{}\doxysection{boundary\+\_\+t Struct Reference}
+\label{structboundary__t}\index{boundary\_t@{boundary\_t}}
+
+
+Structure that holds the information of a boundary condition.  
+
+
+
+
+{\ttfamily \#include $<$boundary.\+h$>$}
+
+
+
+Collaboration diagram for boundary\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{structboundary__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}{B\+Ctype}}
+\item 
+int \mbox{\hyperlink{structboundary__t_ab12159c6b757bdf0490adfe836693398}{B\+Cid}}
+\item 
+int \mbox{\hyperlink{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}{exact\+Func}}
+\item 
+double \mbox{\hyperlink{structboundary__t_a4859dd02f6eecef78b4b1798181902e6}{p\+Var}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}
+\item 
+bool \mbox{\hyperlink{structboundary__t_a7ba52ca7598af5e6f89cc6b131089a8d}{is\+Adiabatic}}
+\item 
+bool \mbox{\hyperlink{structboundary__t_a140f718920482c723241b3958f8f3938}{is\+Temperature\+Prescribed}}
+\item 
+double \mbox{\hyperlink{structboundary__t_ade7e50066f809e8b99e9a1390a6bb718}{temperature}}
+\item 
+double \mbox{\hyperlink{structboundary__t_a7bbf8ece8408740b7dcb719ca5f3b5d3}{heat\+Flux}}
+\item 
+double $\ast$ \mbox{\hyperlink{structboundary__t_ab1d56584b46dcda1e032bb997a542d41}{connection}}
+\item 
+\mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}} $\ast$ \mbox{\hyperlink{structboundary__t_ab8a5ed24e3899dd05b5620d5c246e4f4}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure that holds the information of a boundary condition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structboundary__t_ab12159c6b757bdf0490adfe836693398}\label{structboundary__t_ab12159c6b757bdf0490adfe836693398}} 
+\index{boundary\_t@{boundary\_t}!BCid@{BCid}}
+\index{BCid@{BCid}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{BCid}{BCid}}
+{\footnotesize\ttfamily int boundary\+\_\+t\+::\+B\+Cid}
+
+boundary condition ID 
+
+Referenced by cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), init\+Boundary(), and init\+Wing().
+
+\mbox{\Hypertarget{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}\label{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}} 
+\index{boundary\_t@{boundary\_t}!BCtype@{BCtype}}
+\index{BCtype@{BCtype}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{BCtype}{BCtype}}
+{\footnotesize\ttfamily int boundary\+\_\+t\+::\+B\+Ctype}
+
+boundary type\+:
+\begin{DoxyItemize}
+\item 1\+: slip wall
+\item 2\+: Navier-\/\+Stokes wall
+\item 3\+: supersonic inflow
+\item 4\+: supersonic outflow
+\item 5\+: characteristic
+\item 6\+: exact solution
+\item 7\+: periodic boundary condition
+\item 8\+: pressure outflow 
+\end{DoxyItemize}
+
+Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), init\+Boundary(), and init\+Wing().
+
+\mbox{\Hypertarget{structboundary__t_ab1d56584b46dcda1e032bb997a542d41}\label{structboundary__t_ab1d56584b46dcda1e032bb997a542d41}} 
+\index{boundary\_t@{boundary\_t}!connection@{connection}}
+\index{connection@{connection}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{connection}{connection}}
+{\footnotesize\ttfamily double$\ast$ boundary\+\_\+t\+::connection}
+
+connection coordinates for periodic BC 
+
+Referenced by connect\+Periodic\+B\+C(), and init\+Boundary().
+
+\mbox{\Hypertarget{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}\label{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}} 
+\index{boundary\_t@{boundary\_t}!exactFunc@{exactFunc}}
+\index{exactFunc@{exactFunc}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{exactFunc}{exactFunc}}
+{\footnotesize\ttfamily int boundary\+\_\+t\+::exact\+Func}
+
+exact boundary function identifier 
+
+Referenced by boundary(), and init\+Boundary().
+
+\mbox{\Hypertarget{structboundary__t_a7bbf8ece8408740b7dcb719ca5f3b5d3}\label{structboundary__t_a7bbf8ece8408740b7dcb719ca5f3b5d3}} 
+\index{boundary\_t@{boundary\_t}!heatFlux@{heatFlux}}
+\index{heatFlux@{heatFlux}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{heatFlux}{heatFlux}}
+{\footnotesize\ttfamily double boundary\+\_\+t\+::heat\+Flux}
+
+wall heat flux \mbox{\Hypertarget{structboundary__t_a7ba52ca7598af5e6f89cc6b131089a8d}\label{structboundary__t_a7ba52ca7598af5e6f89cc6b131089a8d}} 
+\index{boundary\_t@{boundary\_t}!isAdiabatic@{isAdiabatic}}
+\index{isAdiabatic@{isAdiabatic}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{isAdiabatic}{isAdiabatic}}
+{\footnotesize\ttfamily bool boundary\+\_\+t\+::is\+Adiabatic}
+
+adiabatic wall flag 
+
+Referenced by init\+Boundary().
+
+\mbox{\Hypertarget{structboundary__t_a140f718920482c723241b3958f8f3938}\label{structboundary__t_a140f718920482c723241b3958f8f3938}} 
+\index{boundary\_t@{boundary\_t}!isTemperaturePrescribed@{isTemperaturePrescribed}}
+\index{isTemperaturePrescribed@{isTemperaturePrescribed}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{isTemperaturePrescribed}{isTemperaturePrescribed}}
+{\footnotesize\ttfamily bool boundary\+\_\+t\+::is\+Temperature\+Prescribed}
+
+is the temperature prescribed flag 
+
+Referenced by init\+Boundary().
+
+\mbox{\Hypertarget{structboundary__t_ab8a5ed24e3899dd05b5620d5c246e4f4}\label{structboundary__t_ab8a5ed24e3899dd05b5620d5c246e4f4}} 
+\index{boundary\_t@{boundary\_t}!next@{next}}
+\index{next@{next}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}}$\ast$ boundary\+\_\+t\+::next}
+
+pointer to next boundary condition 
+
+Referenced by cgns\+Write\+Mesh(), create\+Mesh(), free\+Boundary(), init\+Boundary(), and init\+Wing().
+
+\mbox{\Hypertarget{structboundary__t_a4859dd02f6eecef78b4b1798181902e6}\label{structboundary__t_a4859dd02f6eecef78b4b1798181902e6}} 
+\index{boundary\_t@{boundary\_t}!pVar@{pVar}}
+\index{pVar@{pVar}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{pVar}{pVar}}
+{\footnotesize\ttfamily double boundary\+\_\+t\+::p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}}
+
+inflow state 
+
+Referenced by boundary(), and init\+Boundary().
+
+\mbox{\Hypertarget{structboundary__t_ade7e50066f809e8b99e9a1390a6bb718}\label{structboundary__t_ade7e50066f809e8b99e9a1390a6bb718}} 
+\index{boundary\_t@{boundary\_t}!temperature@{temperature}}
+\index{temperature@{temperature}!boundary\_t@{boundary\_t}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily double boundary\+\_\+t\+::temperature}
+
+wall temperature 
+
+Referenced by init\+Boundary().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ccfd/src/\mbox{\hyperlink{boundary_8h}{boundary.\+h}}\end{DoxyCompactItemize}
