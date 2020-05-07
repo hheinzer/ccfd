@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.3)  7 MAY 2020 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.3)  7 MAY 2020 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2312,7 +2312,7 @@ r/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/
 fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helv
 etic/uhvro8a.pfb></usr/share/texmf-dist/fonts/type1/public/nimbus15/zhv-Reg.pfb
 >
-Output written on refman.pdf (220 pages, 874756 bytes).
+Output written on refman.pdf (220 pages, 874716 bytes).
 PDF statistics:
  7789 PDF objects out of 8907 (max. 8388607)
  7285 compressed objects within 73 object streams
