@@ -1,7 +1,0 @@
-<map id="ccfd/src/linearSolver.h" name="ccfd/src/linearSolver.h">
-<area shape="rect" id="node1" title=" " alt="" coords="13,5,163,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,229,80,256"/>
-<area shape="rect" id="node3" href="$main_8h.html" title="Contains the global constants and definitions." alt="" coords="139,229,200,256"/>
-<area shape="rect" id="node4" href="$mesh_8h.html" title="Contains the definitions of all structs for the mesh handling." alt="" coords="55,80,121,107"/>
-<area shape="rect" id="node5" href="$boundary_8h.html" title="Contains the structure definition of a boundary." alt="" coords="45,155,131,181"/>
-</map>
