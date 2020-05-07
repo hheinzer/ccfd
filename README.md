@@ -8,7 +8,7 @@ The program uses [CGNS](https://cgns.github.io/), for storing the calculation re
 # Dependencies
 
 - `git`
-- `gcc`
+- `cc`, or any other C compiler
 - `make`
 - `cmake`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
