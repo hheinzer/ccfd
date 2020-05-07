@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ccfd: @image{inline} html img/ccfd.png &quot;ccfd&quot;</title>
+<title>ccfd: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,13 +65,13 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><img src="ccfd.png" alt="" class="inline" title="ccfd"/> </div>  </div>
+<div class="title">ccfd Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>  </p>
-<p><a class="anchor" id="md_ccfd_README"></a> The <code>ccfd</code> code is a drop-in replacement for <code>cfdfv</code>, a CFD code written in Fortran by the <a href="https://www.iag.uni-stuttgart.de/en/">Institute of Aerodynamics and Gas Dynamics</a> at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it features a similar code structure to <a href="https://www.flexi-project.org/">FLEXI</a>. The program uses <a href="https://cgns.github.io/">CGNS</a>, for storing the calculation results.</p>
+<div class="textblock"><p><a class="anchor" id="md_ccfd_README"></a><img src="ccfd.png" alt="" class="inline" title="ccfd"/>   </p>
+<p>The <code>ccfd</code> code is a drop-in replacement for <code>cfdfv</code>, a CFD code written in Fortran by the <a href="https://www.iag.uni-stuttgart.de/en/">Institute of Aerodynamics and Gas Dynamics</a> at the University of Stuttgart for a CFD programming course. This code itself is not available online, as far as I know, but it features a similar code structure to <a href="https://www.flexi-project.org/">FLEXI</a>. The program uses <a href="https://cgns.github.io/">CGNS</a>, for storing the calculation results.</p>
 <p><img src="comparison.png" alt="" class="inline"/>   </p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md0"></a>
 Dependencies</h1>
 <ul>
 <li><code>git</code></li>
@@ -82,10 +82,10 @@ Dependencies</h1>
 <li><code>gmsh</code> (optional, for mesh generation, available <a href="http://gmsh.info/">here</a>)</li>
 <li><code>paraview</code> (optional, for post-processing the results, available <a href="https://www.paraview.org/">here</a>)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Installation</h1>
 <p>The installation process is easiest on Linux, but possible on MacOS and Windows.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Linux</h2>
 <p>First make sure that all necessary dependencies are all installed. These can usually be obtained through your distributions package manager, on Arch based systems the following command should suffice </p><div class="fragment"><div class="line"># pacman -S git base-devel cmake</div>
 </div><!-- fragment --><p>For an Ubuntu based system the following command should be enough </p><div class="fragment"><div class="line"># apt-get install git build-essential cmake libomp-dev</div>
@@ -97,7 +97,7 @@ Linux</h2>
 <p>You can test the compiled binary file, by executing the following command </p><div class="fragment"><div class="line">$ make check</div>
 </div><!-- fragment --><p>This will execute <code>ccfd</code> in the directory <code>check</code> on some small cases that test specific functions of the program.</p>
 <p>Continue with <a href="#usage">Usage</a>.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 MacOS</h2>
 <p>I only had access to MacOS High Sierra, so some things might have changed, but the general procedure should still be the same on any MacOS version. First, install a package manager that can install all the necessary software for you. I suggest <a href="https://brew.sh/">Homebrew</a>. Head on over to their website and follow the installation instructions. Once you're done, install the necessary software to compile <code>ccfd</code> </p><div class="fragment"><div class="line">$ brew update</div>
 <div class="line">$ brew upgrade</div>
@@ -113,7 +113,7 @@ MacOS</h2>
 </div><!-- fragment --><p>This will execute <code>ccfd</code> in the directory <code>check</code> on some small cases that test specific functions of the program.</p>
 <p>Continue with <a href="#usage">Usage</a>. When installing ParaView, do not choose the Linux version, but the MacOS version.</p>
 <p>When using <code>ccfd</code> it is very handy to have the ability to open a terminal in a folder from Finder. This is possible, but has to be activated first. Go to <em>System-settings</em>-&gt;*Keyboard*-&gt;*Services* and then check the box in front of the option <em>New Terminal at Folder</em>. Now, you can right click a folder in Finder and open a terminal in that folder.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Windows</h2>
 <p>I am still working on installing it on Windows directly, but have not yet managed to do so. For now it only works with a <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Linux Bash shell</a>. Get the latest Ubuntu shell and complete the installation process. Next, start the Ubuntu shell and install the necessary utilities (if you have never used Linux before, <code>$</code> in front of a command means the command can be executed as a normal user and <code>#</code> in front of a command means, you need administrative rights; these can be obtained by typing <code>sudo</code> in front of the command and entering the password) </p><div class="fragment"><div class="line"># apt update</div>
 <div class="line"># apt upgrade</div>
@@ -127,7 +127,7 @@ Windows</h2>
 <p>After everything is set up, continue with <a href="#usage">Usage</a>. However, when installing ParaView, do not install it in the Ubuntu shell, but rather install it normally for <a href="https://www.paraview.org/download/">Windows</a>. When you want to access the files created by <code>ccfd</code> from Windows, just type the following into the Ubuntu shell </p><div class="fragment"><div class="line">$ explorer.exe .</div>
 </div><!-- fragment --><p>This will open the directory in the Windows explorer and you can easily access the file with ParaView.</p>
 <p>If, after trying to open ParaView, you get an error that a 'VCOMP140.DLL' library is missing, follow the explainatins of this <a href="https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/missing-vcomp140dll/afca0b6b-3ced-4e82-8ce8-8734a440d516">Forum Post</a>.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Usage</h1>
 <p>As a first step you should add the <code>ccfd</code> executable to your path. You can do so by running </p><div class="fragment"><div class="line">$ source ccfdrc</div>
 </div><!-- fragment --><p>Next, navigate to the <code>calc</code> folder. Here you will find example case files, contained in folder. First, try the Riemann problems. Navigate to the <code>riemann</code> folder with </p><div class="fragment"><div class="line">$ cd riemann</div>
@@ -147,7 +147,7 @@ Usage</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 7 2020 11:26:22 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 7 2020 11:40:53 for ccfd by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

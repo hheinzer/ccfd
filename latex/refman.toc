@@ -1,5 +1,5 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
-\contentsline {chapter}{\numberline {1}@image\{inline\} html img/ccfd.png \char `\"{}ccfd\char `\"{}}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {1}Main Page}{1}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Dependencies}{1}{section.1.1}% 
 \contentsline {section}{\numberline {1.2}Installation}{1}{section.1.2}% 
 \contentsline {subsection}{\numberline {1.2.1}Linux}{2}{subsection.1.2.1}% 
