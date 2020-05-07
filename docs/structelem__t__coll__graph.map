@@ -1,6 +1,0 @@
-<map id="elem_t" name="elem_t">
-<area shape="rect" id="node1" title="Structure for a single element in the global element list." alt="" coords="5,95,67,121"/>
-<area shape="rect" id="node3" href="$structside__t.html" title="Structure for a single side in the global side list." alt="" coords="102,193,159,219"/>
-<area shape="rect" id="node2" href="$structnode__t.html" title="Structure for a single node in a linked list of nodes." alt="" coords="72,5,133,32"/>
-<area shape="rect" id="node4" href="$structboundary__t.html" title="Structure that holds the information of a boundary condition." alt="" coords="226,95,313,121"/>
-</map>

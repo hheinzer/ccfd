@@ -5,8 +5,6 @@
 # 'make libs' 	  : build only libraries
 # 'make clean' 	  : remove executable
 # 'make allclean' : remove executable and libraries
-# 'make doc'      : create the documentation with doxygen
-# 'make latex'    : create latex document with doxygen
 # 'make check'    : check implementation
 
 ### Equation system:
@@ -42,7 +40,7 @@ CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
 LFLAGS = $(FLAGS)
 
 ### Build directions:
-.PHONY: clean allclean doc latex docclean check cleancheck
+.PHONY: clean allclean check cleancheck
 
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
@@ -95,15 +93,6 @@ $(CGNS_LIB) : $(CGNS_DIR)
 
 $(CGNS_DIR):
 	-tar -xzf $(CGNS_DIR).tar.gz -C $(LIBDIR)
-
-doc:
-	-@doxygen Doxyfile
-
-latex: doc
-	-@cd docs/latex && $(MAKE) && mv refman.pdf ../../refman.pdf
-
-docclean:
-	-rm -rf docs/*
 
 clean:
 	-rm -rf $(OBJDIR)
