@@ -4,7 +4,7 @@
 # 'make'          : create the documentation with doxygen
 # 'make latex'    : create latex document with doxygen
 
-.PHONY: doc latex clean
+.PHONY: doc latex clean cleandoc
 
 all: doc
 
@@ -15,9 +15,11 @@ doc: ccfd
 	-@doxygen Doxyfile
 
 latex: doc
-	-@cd latex && $(MAKE) && mv refman.pdf ../refman.pdf
+	-@cd latex && $(MAKE) && mv refman.pdf ../ccfd.pdf
 
 clean:
+	-rm -rf ccfd
+
+cleandoc:
 	-rm -rf html/*
 	-rm -rf latex/*
-	-rm -rf ccfd
