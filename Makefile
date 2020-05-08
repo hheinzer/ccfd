@@ -55,7 +55,7 @@ $(OBJDIR):
 $(BINDIR):
 	-mkdir -p $(BINDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile libs
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)

@@ -14,7 +14,7 @@
 void fillCmds(char iniFileName[STRLEN]);
 char *getStr(const char *key, const char *proposal);
 int countKeys(const char *key, const int proposal);
-int getInt(const char *key, const char *proposal);
+long getInt(const char *key, const char *proposal);
 double getDbl(const char *key, const char *proposal);
 bool getBool(const char *key, const char *proposal);
 int *getIntArray(const char *key, const int N, const char *proposal);

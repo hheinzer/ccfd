@@ -266,12 +266,12 @@ int countKeys(const char *key, const int proposal)
  * \param[in] proposal The default value that is used if the key was not
  * \return The value of the parameter, or the default value
  */
-int getInt(const char *key, const char *proposal)
+long getInt(const char *key, const char *proposal)
 {
 	char defMsg[8];
 	char *valueStr = findCmd(key, defMsg, proposal);
-	int value = strtol(valueStr, NULL, 10);
-	printf("| %19s = %27d (%s)\n", key, value, defMsg);
+	long value = (long)strtod(valueStr, NULL);
+	printf("| %19s = %27ld (%s)\n", key, value, defMsg);
 	free(valueStr);
 	return value;
 }
@@ -348,7 +348,7 @@ int *getIntArray(const char *key, const int N, const char *proposal)
 
 	char *tok = strtok(valueStr, ",");
 	for (int i = 0; i < N; ++i) {
-		value[i] = strtol(tok, NULL, 10);
+		value[i] = (int)strtod(tok, NULL);
 		tok = strtok(NULL, ",");
 	}
 
