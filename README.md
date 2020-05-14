@@ -9,7 +9,7 @@ The logo is heavily inspired by the software over at [suckless.org](https://suck
 # Dependencies
 
 - `git`
-- `cc`, or any other C compiler
+- `gcc`, or any other C compiler
 - `make`
 - `cmake`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
