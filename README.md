@@ -4,12 +4,14 @@ The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD code written in Fort
 The program uses [CGNS](https://cgns.github.io/), for storing the calculation results.
 The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
 
+`ccfd` is a two-dimensional finite volume solver for the Euler- or Navier-Stokes-equation systems on structured or unstructured grids. It can perform 1st or 2nd order spacial and temporal discretization, with explicit Euler or Runge-Kutta integration, or implicit Krylov subspace iteration. The code runs on multiple threads using OpenMP parallel for loops, if compiled with `-fopenmp`.    
+
 ![](img/comparison.png)
 
 # Dependencies
 
 - `git`
-- `cc`, or any other C compiler
+- `gcc`, or any other C compiler
 - `make`
 - `cmake`
 - `gnuplot` (optional, for displaying calculation residuals, available [here](http://www.gnuplot.info/))
