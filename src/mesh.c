@@ -25,7 +25,6 @@ typedef struct sideList_t sideList_t;
 #include "cgnslib.h"
 
 /* extern variables */
-char parameterFile[STRLEN];		/**< parameter file name */
 char strMeshFormat[STRLEN];		/**< mesh format string */
 char strMeshFile[STRLEN];		/**< mesh file base name */
 char strIniCondFile[STRLEN];		/**< file name of the initial

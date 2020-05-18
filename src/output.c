@@ -26,7 +26,6 @@ char strOutFile[STRLEN];		/**< name of the output file */
 double IOtimeInterval;			/**< time interval for data output */
 int IOiterInterval;			/**< iteration interval for data output */
 int iVisuProg;				/**< output format code */
-char parameterFile[STRLEN];		/**< name of the parameter file */
 FILE *resFile;				/**< residual file pointer */
 bool doErrorOutput;			/**< error output flag */
 outputTime_t *outputTimes;		/**< the first output time object */

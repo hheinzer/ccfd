@@ -27,7 +27,6 @@ extern char strOutFile[STRLEN];
 extern double IOtimeInterval;
 extern int IOiterInterval;
 extern int iVisuProg;
-extern char parameterFile[STRLEN];
 extern FILE *resFile;
 extern bool doErrorOutput;
 extern outputTime_t *outputTimes;

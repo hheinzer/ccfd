@@ -110,7 +110,6 @@ struct cartMesh_t {
 	int BCrange[2 * NDIM][NBC][2];	/**< list of BC ranges per side */
 };
 
-extern char parameterFile[STRLEN];
 extern char strMeshFormat[STRLEN];
 extern char strMeshFile[STRLEN];
 extern char strIniCondFile[STRLEN];
