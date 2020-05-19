@@ -8,8 +8,8 @@
 # 'make check'    : check implementation
 
 ### Equation system:
-EQNSYS = EULER
-#EQNSYS = NAVIERSTOKES
+#EQNSYS = EULER
+EQNSYS = NAVIERSTOKES
 
 ### Build options:
 TARGET = ccfd
@@ -61,11 +61,12 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
 $(TGT): $(OBJ)
 	$(CC) $(LFLAGS) $^ -o $@ $(LIBS)
 
-$(CGNS_LIB) : $(CGNS_DIR)
+$(CGNS_LIB): $(CGNS_DIR)
 	-@mkdir $(CGNS_DIR)/BUILD && \
 	cd $(CGNS_DIR)/BUILD && \
 	cmake \
 		-Wno-dev \
+		--no-warn-unused-cli \
 		-DCMAKE_INSTALL_PREFIX=. \
 		-DBUILD_CGNSTOOLS=OFF \
 		-DCGNS_BUILD_SHARED=OFF \
