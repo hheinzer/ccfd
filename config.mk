@@ -15,6 +15,5 @@ DEBUG = off
 # profiling flag [on, off]
 PROF = off
 
-# CGNS library setup
+# CGNS library setup [3.4.1, 4.1.1]
 CGNS_VERSION = 3.4.1
-#CGNS_VERSION = 4.1.1
