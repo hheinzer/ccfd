@@ -1,43 +1,56 @@
-#
 # CCFD Makefile
-#
-# 'make' 	  : build libraries and executable
-# 'make libs' 	  : build only libraries
-# 'make clean' 	  : remove executable
-# 'make allclean' : remove executable and libraries
-# 'make check'    : check implementation
 
-### Equation system:
-#EQNSYS = EULER
-EQNSYS = NAVIERSTOKES
+include config.mk
 
 ### Build options:
 TARGET = ccfd
-CC     = cc
 BINDIR = bin
 OBJDIR = obj
 SRCDIR = src
 LIBDIR = lib
 
 ### Library options:
-# Math
-LIBS	     = -lm
-# CGNS
-CGNS_VERSION = 3.1.4
-#CGNS_VERSION = 4.1.1
-CGNS_DIR     = $(LIBDIR)/CGNS-$(CGNS_VERSION)
-CGNS_LIB     = $(CGNS_DIR)/BUILD/src/libcgns.a
-INCDIR       = -I $(CGNS_DIR)/BUILD/include
-LIBS        += -L $(CGNS_DIR)/BUILD/lib -lcgns
+LIBS	 = -lm
+CGNS_DIR = $(LIBDIR)/CGNS-$(CGNS_VERSION)
+CGNS_LIB = $(CGNS_DIR)/BUILD/src/libcgns.a
+INCDIR   = -I $(CGNS_DIR)/BUILD/include
+LIBS    += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
- FLAGS  = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
- FLAGS += -Ofast -flto -march=native -fopenmp
-#FLAGS += -ggdb -O0
-#FLAGS += -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
-#FLAGS += -pg
-CFLAGS = $(FLAGS) $(INCDIR) -D $(EQNSYS)
-LFLAGS = $(FLAGS)
+ifeq ($(COMPILER), gnu)
+  CC    = cc
+  FLAGS = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
+  ifeq ($(DEBUG), on)
+    FLAGS += -g -O0 -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
+  else
+    FLAGS += -Ofast -flto -march=native
+  endif
+  ifeq ($(PARALLEL), on)
+    FLAGS += -fopenmp
+  endif
+  ifeq ($(PROF), on)
+    FLAGS += -pg
+  endif
+  CFLAGS = $(FLAGS) $(INCDIR) -D$(EQNSYS)
+  LFLAGS = $(FLAGS)
+endif
+ifeq ($(COMPILER), intel)
+  CC    = icc
+  FLAGS = -std=c99 -Wall -Wno-unknown-pragmas
+  ifeq ($(DEBUG), on)
+    FLAGS += -g -O0
+  else
+    FLAGS += -Ofast -xhost
+  endif
+  ifeq ($(PARALLEL), on)
+    FLAGS += -qopenmp
+  endif
+  ifeq ($(PROF), on)
+    FLAGS += -pg
+  endif
+  CFLAGS = $(FLAGS) $(INCDIR) -D$(EQNSYS)
+  LFLAGS = $(FLAGS)
+endif
 
 ### Build directions:
 .PHONY: clean allclean check cleancheck
@@ -55,7 +68,7 @@ $(OBJDIR):
 $(BINDIR):
 	-mkdir -p $(BINDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB)
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/%.h Makefile $(CGNS_LIB) config.mk
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TGT): $(OBJ)
@@ -66,20 +79,11 @@ $(CGNS_LIB): $(CGNS_DIR)
 	cd $(CGNS_DIR)/BUILD && \
 	cmake \
 		-Wno-dev \
-		--no-warn-unused-cli \
 		-DCMAKE_INSTALL_PREFIX=. \
-		-DBUILD_CGNSTOOLS=OFF \
-		-DCGNS_BUILD_SHARED=OFF \
-		-DCGNS_USE_SHARED=ON \
-		-DENABLE_64BIT=ON \
-		-DENABLE_FORTRAN=OFF \
-		-DENABLE_HDF5=OFF \
-		-DENABLE_LEGACY=OFF \
-		-DENABLE_SCOPING=OFF \
-		-DENABLE_TESTS=OFF \
 		-DCGNS_BUILD_CGNSTOOLS=OFF \
 		-DCGNS_BUILD_SHARED=OFF \
 		-DCGNS_BUILD_TESTING=OFF \
+		-DCGNS_USE_SHARED=ON \
 		-DCGNS_ENABLE_64BIT=ON \
 		-DCGNS_ENABLE_BASE_SCOPE=OFF \
 		-DCGNS_ENABLE_FORTRAN=OFF \
@@ -88,7 +92,6 @@ $(CGNS_LIB): $(CGNS_DIR)
 		-DCGNS_ENABLE_MEM_DEBUG=OFF \
 		-DCGNS_ENABLE_SCOPING=OFF \
 		-DCGNS_ENABLE_TESTS=OFF \
-		-DCGNS_USE_SHARED=ON \
 		.. && \
 	$(MAKE) install
 

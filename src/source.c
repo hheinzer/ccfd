@@ -31,7 +31,7 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 		double tmp1 = cos(om * (x[X] + x[Y]) - a * time);
 		double tmp2 = sin(2.0 * (om * (x[X] + x[Y]) - a * time));
 
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		double tmp3 = sin(om * (x[X] + x[Y]) - a * time);
 		#endif
 
@@ -40,7 +40,7 @@ void evalSource(int iSource, double x[NDIM], double time, double source[NVAR])
 			+ amp * om * gam1 * tmp2;
 		source[VY]  = source[VX];
 
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		source[E]   = ((2.0 + gam * 6.0) * om - 4.0 * a) * tmp1
 			+ amp * (2.0 * om * gam - a) * tmp2
 			+ 2.0 * mu * gam * om * om / Pr * tmp3;

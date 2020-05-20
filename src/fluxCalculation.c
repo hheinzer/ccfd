@@ -843,7 +843,7 @@ void convectiveFlux(double rhoL, double rhoR,
 	}
 }
 
-#ifdef NAVIERSTOKES
+#ifdef navierstokes
 /**
  * \brief Calculate the diffusive flux
  * \param[in] state Mean conservative state of the two cells
@@ -912,7 +912,7 @@ void fluxCalculation(void)
 		pVarR[VY]  = - aSide->n[Y] * pVar[VX] + aSide->n[X] * pVar[VY];
 		pVarR[P]   = pVar[P];
 
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		/* extract left and right gradients */
 		double stateMean[NVAR] = {
 			0.5 * (aSide->connection->pVar[RHO] + aSide->pVar[RHO]),
@@ -964,7 +964,7 @@ void fluxCalculation(void)
 			       pVarL[P],   pVarR[P],
 			       fluxConv);
 
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		double fluxDiffX[4] = {0.0}, fluxDiffY[4] = {0.0};
 		diffusionFlux(stateMean, gradUx, gradUy, fluxDiffX, fluxDiffY);
 		#endif
@@ -975,7 +975,7 @@ void fluxCalculation(void)
 		aSide->flux[MY]  = aSide->n[Y] * fluxConv[MX] + aSide->n[X] * fluxConv[MY];
 		aSide->flux[E]   = fluxConv[E];
 
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		/* sum up diffusion part of the fluxes */
 		aSide->flux[RHO] -= (fluxDiffX[RHO] * aSide->n[X] + fluxDiffY[RHO] * aSide->n[Y]);
 		aSide->flux[MX]  -= (fluxDiffX[MX]  * aSide->n[X] + fluxDiffY[MX]  * aSide->n[Y]);

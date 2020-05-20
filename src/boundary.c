@@ -53,7 +53,7 @@ void initBoundary(void)
 		case SLIPWALL:
 			printf("| BC Type: Slip Wall\n");
 			break;
-		#ifdef NAVIERSTOKES
+		#ifdef navierstokes
 		case WALL: {
 			printf("| BC Type: No Slip Wall\n");
 
@@ -174,7 +174,7 @@ void boundary(side_t *aSide, double time, double int_pVar[NVAR],
 
 		break;
 	}
-	#ifdef NAVIERSTOKES
+	#ifdef navierstokes
 	case WALL: {
 		double VXloc[NDIM], VYloc[NDIM];
 		/* rotate into local coordinate system */
