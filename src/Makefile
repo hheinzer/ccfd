@@ -1,11 +1,4 @@
-#
 # CCFD Makefile (redirect)
-#
-# 'make' 	  : build libraries and executable
-# 'make libs' 	  : build only libraries
-# 'make clean' 	  : remove executable
-# 'make allclean' : remove executable and libraries
-# 'make doc'      : create the documentation with doxygen
 
 .PHONY: clean allclean doc
 
