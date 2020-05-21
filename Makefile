@@ -4,6 +4,8 @@ include config.mk
 
 ### Build options:
 TARGET = ccfd
+GCC    = cc
+ICC    = icc
 BINDIR = bin
 OBJDIR = obj
 SRCDIR = src
@@ -18,7 +20,7 @@ LIBS    += -L $(CGNS_DIR)/BUILD/lib -lcgns
 
 ### Compile- and linkflags:
 ifeq ($(COMPILER), gnu)
-  CC    = cc
+  CC    = $(GCC)
   FLAGS = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
   ifeq ($(DEBUG), on)
     FLAGS += -g -O0 -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
@@ -35,12 +37,12 @@ ifeq ($(COMPILER), gnu)
   LFLAGS = $(FLAGS)
 endif
 ifeq ($(COMPILER), intel)
-  CC    = icc
+  CC    = $(ICC)
   FLAGS = -std=c99 -Wall -Wno-unknown-pragmas
   ifeq ($(DEBUG), on)
     FLAGS += -g -O0
   else
-    FLAGS += -Ofast -xhost
+    FLAGS += -Ofast -ipo -xHost -mtune=native
   endif
   ifeq ($(PARALLEL), on)
     FLAGS += -qopenmp
