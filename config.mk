@@ -1,7 +1,7 @@
 # CCFD build configuration file
 
 # select compiler [gnu, intel]
-COMPILER = intel
+COMPILER = gnu
 
 # select equation system [euler, navierstokes]
 EQNSYS = euler
