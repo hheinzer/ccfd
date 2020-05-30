@@ -23,9 +23,9 @@ ifeq ($(COMPILER), gnu)
   CC    = $(GCC)
   FLAGS = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
   ifeq ($(DEBUG), on)
-    FLAGS += -g -O0 -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
+    FLAGS += -ggdb3 -Og
   else
-    FLAGS += -Ofast -flto -march=native
+    FLAGS += -O3 -flto -march=native
   endif
   ifeq ($(PARALLEL), on)
     FLAGS += -fopenmp
