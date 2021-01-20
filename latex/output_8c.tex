@@ -18,52 +18,45 @@ Contains all functions used for writing flow solutions.
 {\ttfamily \#include \char`\"{}exact\+Function.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}cgnslib.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}mem\+Tools.\+h\char`\"{}}\newline
-Include dependency graph for output.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{output_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for output.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{output_8c_adfc0a8bf3db752ff6b5b12d190835705}\label{output_8c_adfc0a8bf3db752ff6b5b12d190835705}} 
 void \mbox{\hyperlink{output_8c_adfc0a8bf3db752ff6b5b12d190835705}{init\+Output}} (void)
 \begin{DoxyCompactList}\small\item\em Initialize output. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{output_8c_ac5bcf1df2751646eec587bac6cb4fa2a}{csv\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}, double time, bool do\+Exact)
-\begin{DoxyCompactList}\small\item\em Tabular C\+SV output, only for 1D data. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{output_8c_aa9e3735c9d5a6618cb17bcaa0d495c4b}{cgns\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}, double time, bool do\+Exact)
-\begin{DoxyCompactList}\small\item\em Write solution to C\+G\+NS file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{output_8c_a421b400550c72e66b57b6b6601e89316}{curve\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}, double time, bool do\+Exact)
+void \mbox{\hyperlink{output_8c_ac5bcf1df2751646eec587bac6cb4fa2a}{csv\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}, double time, bool do\+Exact)
+\begin{DoxyCompactList}\small\item\em Tabular CSV output, only for 1D data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{output_8c_aa9e3735c9d5a6618cb17bcaa0d495c4b}{cgns\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}, double time, bool do\+Exact)
+\begin{DoxyCompactList}\small\item\em Write solution to CGNS file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{output_8c_a421b400550c72e66b57b6b6601e89316}{curve\+Output}} (char file\+Name\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}, double time, bool do\+Exact)
 \begin{DoxyCompactList}\small\item\em Curve data output, only for 1D data. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{output_8c_ae87e520489695393cd37eed3274555ba}{data\+Output}} (double time, long iter)
 \begin{DoxyCompactList}\small\item\em Perform a data output, dependent on the output format. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{output_8c_a1c6863c83597ce8aa090f76ae3c955d1}{cgns\+Finalize\+Output}} (void)
-\begin{DoxyCompactList}\small\item\em Finalize C\+G\+NS output. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finalize CGNS output. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{output_8c_aa4a67d4bf2b31b54e968a7dc81ebe962}\label{output_8c_aa4a67d4bf2b31b54e968a7dc81ebe962}} 
 void \mbox{\hyperlink{output_8c_aa4a67d4bf2b31b54e968a7dc81ebe962}{finalize\+Data\+Output}} (void)
 \begin{DoxyCompactList}\small\item\em Finalize the data output, if necessary. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{output_8c_aafd430315c490e75d714c542eb4142c1}\label{output_8c_aafd430315c490e75d714c542eb4142c1}} 
 void \mbox{\hyperlink{output_8c_aafd430315c490e75d714c542eb4142c1}{cgns\+Write\+Mesh}} (void)
-\begin{DoxyCompactList}\small\item\em Write the generated mesh to a C\+G\+NS mesh file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Write the generated mesh to a CGNS mesh file. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{output_8c_ae15c0a360681de8b69dc6c3af87f00d4}\label{output_8c_ae15c0a360681de8b69dc6c3af87f00d4}} 
 void \mbox{\hyperlink{output_8c_ae15c0a360681de8b69dc6c3af87f00d4}{free\+Output\+Times}} (void)
 \begin{DoxyCompactList}\small\item\em Free all memory that was allocated for the output times. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-char \mbox{\hyperlink{output_8c_a4216b320947c90fd5bf3dfa416ddc2f9}{str\+Out\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+char \mbox{\hyperlink{output_8c_a4216b320947c90fd5bf3dfa416ddc2f9}{str\+Out\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}
 \item 
-double \mbox{\hyperlink{output_8c_a161a7d1b735a467afa626d76858f5cf1}{I\+Otime\+Interval}}
+double \mbox{\hyperlink{output_8c_a161a7d1b735a467afa626d76858f5cf1}{IOtime\+Interval}}
 \item 
-int \mbox{\hyperlink{output_8c_a721d34ce99600a072eaaa5a434205f3b}{I\+Oiter\+Interval}}
+int \mbox{\hyperlink{output_8c_a721d34ce99600a072eaaa5a434205f3b}{IOiter\+Interval}}
 \item 
 int \mbox{\hyperlink{output_8c_ad03b08ac896405ca97227fefdaecf86e}{i\+Visu\+Prog}}
 \item 
-char \mbox{\hyperlink{output_8c_aad3cc448dc2ebf66ff33a66195cfbebc}{parameter\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
-\item 
-F\+I\+LE $\ast$ \mbox{\hyperlink{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}{res\+File}}
+FILE $\ast$ \mbox{\hyperlink{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}{res\+File}}
 \item 
 bool \mbox{\hyperlink{output_8c_a99da6d219a27bf67fadbe53a6bab0bfd}{do\+Error\+Output}}
 \item 
@@ -78,7 +71,7 @@ Contains all functions used for writing flow solutions.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Mon 23 Mar 2020 10\+:42\+:06 PM C\+ET 
+Mon 23 Mar 2020 10\+:42\+:06 PM CET 
 \end{DoxyDate}
 
 
@@ -91,11 +84,11 @@ Mon 23 Mar 2020 10\+:42\+:06 PM C\+ET
 
 
 
-Finalize C\+G\+NS output. 
+Finalize CGNS output. 
 
 This function creates a {\ttfamily $<$case$>$\+\_\+\+Master.\+cgns} file that has links to all the output times of previous flow solutions. This makes it easier to load an entire case into Para\+View. 
 
-References grid\+File, is\+Stationary, output\+Time\+\_\+t\+::iter, n\+Elems, output\+Time\+\_\+t\+::next, n\+Nodes, n\+Quads, n\+Trias, output\+Times, S\+T\+R\+L\+EN, str\+Out\+File, and output\+Time\+\_\+t\+::time.
+References grid\+File, is\+Stationary, output\+Time\+\_\+t\+::iter, n\+Elems, output\+Time\+\_\+t\+::next, n\+Nodes, n\+Quads, n\+Trias, output\+Times, STRLEN, str\+Out\+File, and output\+Time\+\_\+t\+::time.
 
 
 
@@ -105,11 +98,11 @@ Referenced by finalize\+Data\+Output().
 \index{output.c@{output.c}!cgnsOutput@{cgnsOutput}}
 \index{cgnsOutput@{cgnsOutput}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{cgnsOutput()}{cgnsOutput()}}
-{\footnotesize\ttfamily void cgns\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+S\+T\+R\+L\+E\+N\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void cgns\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+STRLEN\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
 
 
 
-Write solution to C\+G\+NS file. 
+Write solution to CGNS file. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -122,7 +115,7 @@ Write solution to C\+G\+NS file.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, exact\+Func(), first\+Elem, grid\+File, elem\+\_\+t\+::id, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, n\+Nodes, n\+Quads, n\+Trias, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, S\+T\+R\+L\+EN, time\+Overall, VX, and VY.
+References elem\+\_\+t\+::bary, exact\+Func(), first\+Elem, grid\+File, elem\+\_\+t\+::id, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, n\+Nodes, n\+Quads, n\+Trias, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, STRLEN, time\+Overall, VX, and VY.
 
 
 
@@ -132,11 +125,11 @@ Referenced by data\+Output().
 \index{output.c@{output.c}!csvOutput@{csvOutput}}
 \index{csvOutput@{csvOutput}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{csvOutput()}{csvOutput()}}
-{\footnotesize\ttfamily void csv\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+S\+T\+R\+L\+E\+N\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void csv\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+STRLEN\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
 
 
 
-Tabular C\+SV output, only for 1D data. 
+Tabular CSV output, only for 1D data. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -149,7 +142,7 @@ Tabular C\+SV output, only for 1D data.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, dyn2\+Ddbl\+Array(), exact\+Func(), first\+Elem, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, VX, and X.
+References elem\+\_\+t\+::bary, dyn2\+Ddbl\+Array(), exact\+Func(), first\+Elem, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, VX, and X.
 
 
 
@@ -159,7 +152,7 @@ Referenced by data\+Output().
 \index{output.c@{output.c}!curveOutput@{curveOutput}}
 \index{curveOutput@{curveOutput}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{curveOutput()}{curveOutput()}}
-{\footnotesize\ttfamily void curve\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+S\+T\+R\+L\+E\+N\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void curve\+Output (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}\+STRLEN\mbox{]},  }\item[{double}]{time,  }\item[{bool}]{do\+Exact }\end{DoxyParamCaption})}
 
 
 
@@ -176,7 +169,7 @@ Curve data output, only for 1D data.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, dyn2\+Ddbl\+Array(), exact\+Func(), first\+Elem, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, VX, and X.
+References elem\+\_\+t\+::bary, dyn2\+Ddbl\+Array(), exact\+Func(), first\+Elem, int\+Exact\+Func, n\+Elems, elem\+\_\+t\+::next, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, VX, and X.
 
 
 
@@ -201,7 +194,7 @@ Perform a data output, dependent on the output format.
 \end{DoxyParams}
 
 
-References C\+G\+NS, cgns\+Output(), C\+SV, csv\+Output(), C\+U\+R\+VE, curve\+Output(), has\+Exact\+Solution, is\+Stationary, output\+Time\+\_\+t\+::iter, i\+Visu\+Prog, output\+Time\+\_\+t\+::next, output\+Times, S\+T\+R\+L\+EN, str\+Out\+File, and output\+Time\+\_\+t\+::time.
+References CGNS, cgns\+Output(), CSV, csv\+Output(), CURVE, curve\+Output(), has\+Exact\+Solution, is\+Stationary, output\+Time\+\_\+t\+::iter, i\+Visu\+Prog, output\+Time\+\_\+t\+::next, output\+Times, STRLEN, str\+Out\+File, and output\+Time\+\_\+t\+::time.
 
 
 
@@ -220,7 +213,7 @@ error output flag \mbox{\Hypertarget{output_8c_a721d34ce99600a072eaaa5a434205f3b
 \index{output.c@{output.c}!IOiterInterval@{IOiterInterval}}
 \index{IOiterInterval@{IOiterInterval}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{IOiterInterval}{IOiterInterval}}
-{\footnotesize\ttfamily int I\+Oiter\+Interval}
+{\footnotesize\ttfamily int IOiter\+Interval}
 
 iteration interval for data output 
 
@@ -230,7 +223,7 @@ Referenced by init\+Output(), init\+Time\+Disc(), and time\+Disc().
 \index{output.c@{output.c}!IOtimeInterval@{IOtimeInterval}}
 \index{IOtimeInterval@{IOtimeInterval}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{IOtimeInterval}{IOtimeInterval}}
-{\footnotesize\ttfamily double I\+Otime\+Interval}
+{\footnotesize\ttfamily double IOtime\+Interval}
 
 time interval for data output 
 
@@ -256,17 +249,11 @@ the first output time object
 
 Referenced by cgns\+Finalize\+Output(), data\+Output(), free\+Output\+Times(), and main().
 
-\mbox{\Hypertarget{output_8c_aad3cc448dc2ebf66ff33a66195cfbebc}\label{output_8c_aad3cc448dc2ebf66ff33a66195cfbebc}} 
-\index{output.c@{output.c}!parameterFile@{parameterFile}}
-\index{parameterFile@{parameterFile}!output.c@{output.c}}
-\doxysubsubsection{\texorpdfstring{parameterFile}{parameterFile}}
-{\footnotesize\ttfamily char parameter\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
-
-name of the parameter file \mbox{\Hypertarget{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}\label{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}} 
+\mbox{\Hypertarget{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}\label{output_8c_ada9bcfe5cfbb7ef3c5a2f9db1041b49d}} 
 \index{output.c@{output.c}!resFile@{resFile}}
 \index{resFile@{resFile}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{resFile}{resFile}}
-{\footnotesize\ttfamily F\+I\+LE$\ast$ res\+File}
+{\footnotesize\ttfamily FILE$\ast$ res\+File}
 
 residual file pointer 
 
@@ -276,7 +263,7 @@ Referenced by analyze(), init\+Analyze(), and time\+Disc().
 \index{output.c@{output.c}!strOutFile@{strOutFile}}
 \index{strOutFile@{strOutFile}!output.c@{output.c}}
 \doxysubsubsection{\texorpdfstring{strOutFile}{strOutFile}}
-{\footnotesize\ttfamily char str\+Out\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+{\footnotesize\ttfamily char str\+Out\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}}
 
 name of the output file 
 

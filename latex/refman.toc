@@ -14,603 +14,599 @@
 \contentsline {chapter}{\numberline {5}Data Structure Documentation}{11}{chapter.5}%
 \contentsline {section}{\numberline {5.1}boundary\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{11}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Detailed Description}{11}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Field Documentation}{12}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.2}Field Documentation}{11}{subsection.5.1.2}%
 \contentsline {subsubsection}{\numberline {5.1.2.1}BCid}{12}{subsubsection.5.1.2.1}%
 \contentsline {subsubsection}{\numberline {5.1.2.2}BCtype}{12}{subsubsection.5.1.2.2}%
 \contentsline {subsubsection}{\numberline {5.1.2.3}connection}{12}{subsubsection.5.1.2.3}%
-\contentsline {subsubsection}{\numberline {5.1.2.4}exactFunc}{13}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}exactFunc}{12}{subsubsection.5.1.2.4}%
 \contentsline {subsubsection}{\numberline {5.1.2.5}heatFlux}{13}{subsubsection.5.1.2.5}%
 \contentsline {subsubsection}{\numberline {5.1.2.6}isAdiabatic}{13}{subsubsection.5.1.2.6}%
 \contentsline {subsubsection}{\numberline {5.1.2.7}isTemperaturePrescribed}{13}{subsubsection.5.1.2.7}%
 \contentsline {subsubsection}{\numberline {5.1.2.8}next}{13}{subsubsection.5.1.2.8}%
-\contentsline {subsubsection}{\numberline {5.1.2.9}pVar}{14}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}pVar}{13}{subsubsection.5.1.2.9}%
 \contentsline {subsubsection}{\numberline {5.1.2.10}temperature}{14}{subsubsection.5.1.2.10}%
 \contentsline {section}{\numberline {5.2}cart\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mesh\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{14}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Detailed Description}{14}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Field Documentation}{14}{subsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}BCrange}{15}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}BCrange}{14}{subsubsection.5.2.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2.2}BCtype}{15}{subsubsection.5.2.2.2}%
 \contentsline {subsubsection}{\numberline {5.2.2.3}iMax}{15}{subsubsection.5.2.2.3}%
 \contentsline {subsubsection}{\numberline {5.2.2.4}jMax}{15}{subsubsection.5.2.2.4}%
 \contentsline {subsubsection}{\numberline {5.2.2.5}nBC}{15}{subsubsection.5.2.2.5}%
-\contentsline {section}{\numberline {5.3}cmd\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.3}cmd\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{15}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Detailed Description}{16}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Field Documentation}{16}{subsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.2.1}key}{16}{subsubsection.5.3.2.1}%
 \contentsline {subsubsection}{\numberline {5.3.2.2}next}{16}{subsubsection.5.3.2.2}%
-\contentsline {subsubsection}{\numberline {5.3.2.3}prev}{17}{subsubsection.5.3.2.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}prev}{16}{subsubsection.5.3.2.3}%
 \contentsline {subsubsection}{\numberline {5.3.2.4}value}{17}{subsubsection.5.3.2.4}%
 \contentsline {section}{\numberline {5.4}elem\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{17}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{18}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{17}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Field Documentation}{18}{subsection.5.4.2}%
 \contentsline {subsubsection}{\numberline {5.4.2.1}area}{18}{subsubsection.5.4.2.1}%
-\contentsline {subsubsection}{\numberline {5.4.2.2}areaq}{19}{subsubsection.5.4.2.2}%
-\contentsline {subsubsection}{\numberline {5.4.2.3}bary}{19}{subsubsection.5.4.2.3}%
-\contentsline {subsubsection}{\numberline {5.4.2.4}cVar}{19}{subsubsection.5.4.2.4}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}areaq}{18}{subsubsection.5.4.2.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.3}bary}{18}{subsubsection.5.4.2.3}%
+\contentsline {subsubsection}{\numberline {5.4.2.4}cVar}{18}{subsubsection.5.4.2.4}%
 \contentsline {subsubsection}{\numberline {5.4.2.5}cVarStage}{19}{subsubsection.5.4.2.5}%
 \contentsline {subsubsection}{\numberline {5.4.2.6}domain}{19}{subsubsection.5.4.2.6}%
-\contentsline {subsubsection}{\numberline {5.4.2.7}dt}{20}{subsubsection.5.4.2.7}%
-\contentsline {subsubsection}{\numberline {5.4.2.8}dtLoc}{20}{subsubsection.5.4.2.8}%
-\contentsline {subsubsection}{\numberline {5.4.2.9}elemType}{20}{subsubsection.5.4.2.9}%
+\contentsline {subsubsection}{\numberline {5.4.2.7}dt}{19}{subsubsection.5.4.2.7}%
+\contentsline {subsubsection}{\numberline {5.4.2.8}dtLoc}{19}{subsubsection.5.4.2.8}%
+\contentsline {subsubsection}{\numberline {5.4.2.9}elemType}{19}{subsubsection.5.4.2.9}%
 \contentsline {subsubsection}{\numberline {5.4.2.10}firstSide}{20}{subsubsection.5.4.2.10}%
 \contentsline {subsubsection}{\numberline {5.4.2.11}id}{20}{subsubsection.5.4.2.11}%
-\contentsline {subsubsection}{\numberline {5.4.2.12}innerSides}{21}{subsubsection.5.4.2.12}%
-\contentsline {subsubsection}{\numberline {5.4.2.13}next}{21}{subsubsection.5.4.2.13}%
-\contentsline {subsubsection}{\numberline {5.4.2.14}nGP}{21}{subsubsection.5.4.2.14}%
+\contentsline {subsubsection}{\numberline {5.4.2.12}innerSides}{20}{subsubsection.5.4.2.12}%
+\contentsline {subsubsection}{\numberline {5.4.2.13}next}{20}{subsubsection.5.4.2.13}%
+\contentsline {subsubsection}{\numberline {5.4.2.14}nGP}{20}{subsubsection.5.4.2.14}%
 \contentsline {subsubsection}{\numberline {5.4.2.15}node}{21}{subsubsection.5.4.2.15}%
 \contentsline {subsubsection}{\numberline {5.4.2.16}pVar}{21}{subsubsection.5.4.2.16}%
-\contentsline {subsubsection}{\numberline {5.4.2.17}source}{22}{subsubsection.5.4.2.17}%
-\contentsline {subsubsection}{\numberline {5.4.2.18}sx}{22}{subsubsection.5.4.2.18}%
-\contentsline {subsubsection}{\numberline {5.4.2.19}sy}{22}{subsubsection.5.4.2.19}%
+\contentsline {subsubsection}{\numberline {5.4.2.17}source}{21}{subsubsection.5.4.2.17}%
+\contentsline {subsubsection}{\numberline {5.4.2.18}sx}{21}{subsubsection.5.4.2.18}%
+\contentsline {subsubsection}{\numberline {5.4.2.19}sy}{21}{subsubsection.5.4.2.19}%
 \contentsline {subsubsection}{\numberline {5.4.2.20}u\_t}{22}{subsubsection.5.4.2.20}%
 \contentsline {subsubsection}{\numberline {5.4.2.21}u\_x}{22}{subsubsection.5.4.2.21}%
-\contentsline {subsubsection}{\numberline {5.4.2.22}u\_y}{23}{subsubsection.5.4.2.22}%
-\contentsline {subsubsection}{\numberline {5.4.2.23}venkEps\_sq}{23}{subsubsection.5.4.2.23}%
-\contentsline {subsubsection}{\numberline {5.4.2.24}wGP}{23}{subsubsection.5.4.2.24}%
+\contentsline {subsubsection}{\numberline {5.4.2.22}u\_y}{22}{subsubsection.5.4.2.22}%
+\contentsline {subsubsection}{\numberline {5.4.2.23}venkEps\_sq}{22}{subsubsection.5.4.2.23}%
+\contentsline {subsubsection}{\numberline {5.4.2.24}wGP}{22}{subsubsection.5.4.2.24}%
 \contentsline {subsubsection}{\numberline {5.4.2.25}xGP}{23}{subsubsection.5.4.2.25}%
-\contentsline {section}{\numberline {5.5}node\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{24}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{24}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Field Documentation}{24}{subsection.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.2.1}id}{24}{subsubsection.5.5.2.1}%
+\contentsline {section}{\numberline {5.5}node\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{23}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Field Documentation}{23}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}id}{23}{subsubsection.5.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.5.2.2}next}{24}{subsubsection.5.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.5.2.3}x}{25}{subsubsection.5.5.2.3}%
-\contentsline {section}{\numberline {5.6}output\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{25}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{25}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Field Documentation}{25}{subsection.5.6.2}%
-\contentsline {subsubsection}{\numberline {5.6.2.1}iter}{26}{subsubsection.5.6.2.1}%
-\contentsline {subsubsection}{\numberline {5.6.2.2}next}{26}{subsubsection.5.6.2.2}%
-\contentsline {subsubsection}{\numberline {5.6.2.3}time}{26}{subsubsection.5.6.2.3}%
-\contentsline {section}{\numberline {5.7}record\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Point\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{26}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{27}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Field Documentation}{27}{subsection.5.7.2}%
-\contentsline {subsubsection}{\numberline {5.7.2.1}elem}{27}{subsubsection.5.7.2.1}%
-\contentsline {subsubsection}{\numberline {5.7.2.2}ioFile}{27}{subsubsection.5.7.2.2}%
-\contentsline {subsubsection}{\numberline {5.7.2.3}nPoints}{27}{subsubsection.5.7.2.3}%
-\contentsline {subsubsection}{\numberline {5.7.2.4}x}{28}{subsubsection.5.7.2.4}%
-\contentsline {section}{\numberline {5.8}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{28}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{29}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Field Documentation}{29}{subsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.2.1}baryBaryDist}{29}{subsubsection.5.8.2.1}%
-\contentsline {subsubsection}{\numberline {5.8.2.2}baryBaryVec}{29}{subsubsection.5.8.2.2}%
-\contentsline {subsubsection}{\numberline {5.8.2.3}BC}{29}{subsubsection.5.8.2.3}%
-\contentsline {subsubsection}{\numberline {5.8.2.4}BCid}{30}{subsubsection.5.8.2.4}%
-\contentsline {subsubsection}{\numberline {5.8.2.5}BCtype}{30}{subsubsection.5.8.2.5}%
-\contentsline {subsubsection}{\numberline {5.8.2.6}connection}{30}{subsubsection.5.8.2.6}%
-\contentsline {subsubsection}{\numberline {5.8.2.7}elem}{30}{subsubsection.5.8.2.7}%
-\contentsline {subsubsection}{\numberline {5.8.2.8}flux}{30}{subsubsection.5.8.2.8}%
-\contentsline {subsubsection}{\numberline {5.8.2.9}GP}{31}{subsubsection.5.8.2.9}%
-\contentsline {subsubsection}{\numberline {5.8.2.10}id}{31}{subsubsection.5.8.2.10}%
-\contentsline {subsubsection}{\numberline {5.8.2.11}len}{31}{subsubsection.5.8.2.11}%
-\contentsline {subsubsection}{\numberline {5.8.2.12}n}{31}{subsubsection.5.8.2.12}%
-\contentsline {subsubsection}{\numberline {5.8.2.13}next}{31}{subsubsection.5.8.2.13}%
-\contentsline {subsubsection}{\numberline {5.8.2.14}nextElemSide}{32}{subsubsection.5.8.2.14}%
-\contentsline {subsubsection}{\numberline {5.8.2.15}node}{32}{subsubsection.5.8.2.15}%
-\contentsline {subsubsection}{\numberline {5.8.2.16}pVar}{32}{subsubsection.5.8.2.16}%
-\contentsline {subsubsection}{\numberline {5.8.2.17}w}{32}{subsubsection.5.8.2.17}%
-\contentsline {section}{\numberline {5.9}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{33}{section.5.9}%
-\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{33}{subsection.5.9.1}%
-\contentsline {subsection}{\numberline {5.9.2}Field Documentation}{33}{subsection.5.9.2}%
-\contentsline {subsubsection}{\numberline {5.9.2.1}BC}{33}{subsubsection.5.9.2.1}%
-\contentsline {subsubsection}{\numberline {5.9.2.2}isRotated}{34}{subsubsection.5.9.2.2}%
-\contentsline {subsubsection}{\numberline {5.9.2.3}node}{34}{subsubsection.5.9.2.3}%
-\contentsline {subsubsection}{\numberline {5.9.2.4}side}{34}{subsubsection.5.9.2.4}%
-\contentsline {section}{\numberline {5.10}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ptr\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{34}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{35}{subsection.5.10.1}%
-\contentsline {subsection}{\numberline {5.10.2}Field Documentation}{35}{subsection.5.10.2}%
-\contentsline {subsubsection}{\numberline {5.10.2.1}next}{35}{subsubsection.5.10.2.1}%
-\contentsline {subsubsection}{\numberline {5.10.2.2}side}{35}{subsubsection.5.10.2.2}%
-\contentsline {section}{\numberline {5.11}wing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{36}{section.5.11}%
-\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{36}{subsection.5.11.1}%
-\contentsline {subsection}{\numberline {5.11.2}Field Documentation}{36}{subsection.5.11.2}%
-\contentsline {subsubsection}{\numberline {5.11.2.1}cd}{37}{subsubsection.5.11.2.1}%
-\contentsline {subsubsection}{\numberline {5.11.2.2}cl}{37}{subsubsection.5.11.2.2}%
-\contentsline {subsubsection}{\numberline {5.11.2.3}firstPressureSide}{37}{subsubsection.5.11.2.3}%
-\contentsline {subsubsection}{\numberline {5.11.2.4}firstSuctionSide}{37}{subsubsection.5.11.2.4}%
-\contentsline {subsubsection}{\numberline {5.11.2.5}refLength}{37}{subsubsection.5.11.2.5}%
-\contentsline {subsubsection}{\numberline {5.11.2.6}wallId}{38}{subsubsection.5.11.2.6}%
-\contentsline {subsubsection}{\numberline {5.11.2.7}wingBC}{38}{subsubsection.5.11.2.7}%
-\contentsline {chapter}{\numberline {6}File Documentation}{39}{chapter.6}%
-\contentsline {section}{\numberline {6.1}ccfd/src/analyze.c File Reference}{39}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{40}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Function Documentation}{40}{subsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.1}analyze()}{40}{subsubsection.6.1.2.1}%
-\contentsline {subsubsection}{\numberline {6.1.2.2}calcErrors()}{41}{subsubsection.6.1.2.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.3}evalRecordPoints()}{41}{subsubsection.6.1.2.3}%
-\contentsline {subsubsection}{\numberline {6.1.2.4}globalResidual()}{42}{subsubsection.6.1.2.4}%
-\contentsline {subsection}{\numberline {6.1.3}Variable Documentation}{42}{subsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.3.1}doCalcWing}{42}{subsubsection.6.1.3.1}%
-\contentsline {subsubsection}{\numberline {6.1.3.2}hasExactSolution}{42}{subsubsection.6.1.3.2}%
-\contentsline {subsubsection}{\numberline {6.1.3.3}recordPoint}{42}{subsubsection.6.1.3.3}%
-\contentsline {subsubsection}{\numberline {6.1.3.4}wing}{43}{subsubsection.6.1.3.4}%
-\contentsline {section}{\numberline {6.2}ccfd/src/analyze.h File Reference}{43}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{44}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Function Documentation}{44}{subsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.2.1}analyze()}{44}{subsubsection.6.2.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2.2}calcErrors()}{45}{subsubsection.6.2.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.2.3}globalResidual()}{45}{subsubsection.6.2.2.3}%
-\contentsline {subsection}{\numberline {6.2.3}Variable Documentation}{45}{subsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.3.1}doCalcWing}{46}{subsubsection.6.2.3.1}%
-\contentsline {subsubsection}{\numberline {6.2.3.2}hasExactSolution}{46}{subsubsection.6.2.3.2}%
-\contentsline {subsubsection}{\numberline {6.2.3.3}recordPoint}{46}{subsubsection.6.2.3.3}%
-\contentsline {subsubsection}{\numberline {6.2.3.4}wing}{46}{subsubsection.6.2.3.4}%
-\contentsline {section}{\numberline {6.3}ccfd/src/boundary.c File Reference}{47}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{48}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Function Documentation}{48}{subsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.1}boundary()}{48}{subsubsection.6.3.2.1}%
-\contentsline {subsubsection}{\numberline {6.3.2.2}setBCatBarys()}{48}{subsubsection.6.3.2.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.3}setBCatSides()}{49}{subsubsection.6.3.2.3}%
-\contentsline {subsection}{\numberline {6.3.3}Variable Documentation}{49}{subsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.3.1}firstBC}{49}{subsubsection.6.3.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.3.2}isPeriodic}{49}{subsubsection.6.3.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.3.3}nBC}{50}{subsubsection.6.3.3.3}%
-\contentsline {section}{\numberline {6.4}ccfd/src/boundary.h File Reference}{50}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{51}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{51}{subsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.1}boundary()}{51}{subsubsection.6.4.2.1}%
-\contentsline {subsubsection}{\numberline {6.4.2.2}setBCatBarys()}{52}{subsubsection.6.4.2.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.3}setBCatSides()}{52}{subsubsection.6.4.2.3}%
-\contentsline {subsection}{\numberline {6.4.3}Variable Documentation}{53}{subsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.3.1}firstBC}{53}{subsubsection.6.4.3.1}%
-\contentsline {subsubsection}{\numberline {6.4.3.2}isPeriodic}{53}{subsubsection.6.4.3.2}%
-\contentsline {subsubsection}{\numberline {6.4.3.3}nBC}{53}{subsubsection.6.4.3.3}%
-\contentsline {section}{\numberline {6.5}ccfd/src/equation.c File Reference}{53}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{54}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Variable Documentation}{54}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}cp}{54}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}doCalcSource}{55}{subsubsection.6.5.2.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.3}gam}{55}{subsubsection.6.5.2.3}%
-\contentsline {subsubsection}{\numberline {6.5.2.4}gam1}{55}{subsubsection.6.5.2.4}%
-\contentsline {subsubsection}{\numberline {6.5.2.5}gam1q}{55}{subsubsection.6.5.2.5}%
-\contentsline {subsubsection}{\numberline {6.5.2.6}gam2}{55}{subsubsection.6.5.2.6}%
-\contentsline {subsubsection}{\numberline {6.5.2.7}iFlux}{56}{subsubsection.6.5.2.7}%
-\contentsline {subsubsection}{\numberline {6.5.2.8}intExactFunc}{56}{subsubsection.6.5.2.8}%
-\contentsline {subsubsection}{\numberline {6.5.2.9}mu}{56}{subsubsection.6.5.2.9}%
-\contentsline {subsubsection}{\numberline {6.5.2.10}pi}{56}{subsubsection.6.5.2.10}%
-\contentsline {subsubsection}{\numberline {6.5.2.11}Pr}{56}{subsubsection.6.5.2.11}%
-\contentsline {subsubsection}{\numberline {6.5.2.12}R}{57}{subsubsection.6.5.2.12}%
-\contentsline {subsubsection}{\numberline {6.5.2.13}sourceFunc}{57}{subsubsection.6.5.2.13}%
-\contentsline {subsubsection}{\numberline {6.5.2.14}sqrt2}{57}{subsubsection.6.5.2.14}%
-\contentsline {subsubsection}{\numberline {6.5.2.15}sqrt3}{57}{subsubsection.6.5.2.15}%
-\contentsline {subsubsection}{\numberline {6.5.2.16}sqrt3q}{57}{subsubsection.6.5.2.16}%
-\contentsline {section}{\numberline {6.6}ccfd/src/equation.h File Reference}{58}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{59}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Variable Documentation}{59}{subsection.6.6.2}%
-\contentsline {subsubsection}{\numberline {6.6.2.1}cp}{59}{subsubsection.6.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.6.2.2}doCalcSource}{59}{subsubsection.6.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.6.2.3}gam}{59}{subsubsection.6.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.6.2.4}gam1}{60}{subsubsection.6.6.2.4}%
-\contentsline {subsubsection}{\numberline {6.6.2.5}gam1q}{60}{subsubsection.6.6.2.5}%
-\contentsline {subsubsection}{\numberline {6.6.2.6}gam2}{60}{subsubsection.6.6.2.6}%
-\contentsline {subsubsection}{\numberline {6.6.2.7}iFlux}{60}{subsubsection.6.6.2.7}%
-\contentsline {subsubsection}{\numberline {6.6.2.8}intExactFunc}{60}{subsubsection.6.6.2.8}%
-\contentsline {subsubsection}{\numberline {6.6.2.9}mu}{61}{subsubsection.6.6.2.9}%
-\contentsline {subsubsection}{\numberline {6.6.2.10}pi}{61}{subsubsection.6.6.2.10}%
-\contentsline {subsubsection}{\numberline {6.6.2.11}Pr}{61}{subsubsection.6.6.2.11}%
-\contentsline {subsubsection}{\numberline {6.6.2.12}R}{61}{subsubsection.6.6.2.12}%
-\contentsline {subsubsection}{\numberline {6.6.2.13}sourceFunc}{61}{subsubsection.6.6.2.13}%
-\contentsline {subsubsection}{\numberline {6.6.2.14}sqrt2}{62}{subsubsection.6.6.2.14}%
-\contentsline {subsubsection}{\numberline {6.6.2.15}sqrt3}{62}{subsubsection.6.6.2.15}%
-\contentsline {subsubsection}{\numberline {6.6.2.16}sqrt3q}{62}{subsubsection.6.6.2.16}%
-\contentsline {section}{\numberline {6.7}ccfd/src/equation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Of\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.c File Reference}{62}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{63}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Function Documentation}{63}{subsection.6.7.2}%
-\contentsline {subsubsection}{\numberline {6.7.2.1}charCons()}{63}{subsubsection.6.7.2.1}%
-\contentsline {subsubsection}{\numberline {6.7.2.2}consChar()}{64}{subsubsection.6.7.2.2}%
-\contentsline {subsubsection}{\numberline {6.7.2.3}consPrim()}{64}{subsubsection.6.7.2.3}%
-\contentsline {subsubsection}{\numberline {6.7.2.4}primCons()}{64}{subsubsection.6.7.2.4}%
-\contentsline {section}{\numberline {6.8}ccfd/src/equation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Of\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.h File Reference}{65}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{66}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Function Documentation}{66}{subsection.6.8.2}%
-\contentsline {subsubsection}{\numberline {6.8.2.1}charCons()}{66}{subsubsection.6.8.2.1}%
-\contentsline {subsubsection}{\numberline {6.8.2.2}consChar()}{66}{subsubsection.6.8.2.2}%
-\contentsline {subsubsection}{\numberline {6.8.2.3}consPrim()}{67}{subsubsection.6.8.2.3}%
-\contentsline {subsubsection}{\numberline {6.8.2.4}primCons()}{67}{subsubsection.6.8.2.4}%
-\contentsline {section}{\numberline {6.9}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Function.c File Reference}{67}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{68}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}Function Documentation}{68}{subsection.6.9.2}%
-\contentsline {subsubsection}{\numberline {6.9.2.1}exactFunc()}{69}{subsubsection.6.9.2.1}%
-\contentsline {section}{\numberline {6.10}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Function.h File Reference}{69}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{70}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}Function Documentation}{70}{subsection.6.10.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.1}exactFunc()}{70}{subsubsection.6.10.2.1}%
-\contentsline {section}{\numberline {6.11}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Riemann.c File Reference}{71}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{71}{subsection.6.11.1}%
-\contentsline {subsection}{\numberline {6.11.2}Function Documentation}{72}{subsection.6.11.2}%
-\contentsline {subsubsection}{\numberline {6.11.2.1}exactRiemann()}{72}{subsubsection.6.11.2.1}%
-\contentsline {subsubsection}{\numberline {6.11.2.2}preFun()}{72}{subsubsection.6.11.2.2}%
-\contentsline {subsection}{\numberline {6.11.3}Variable Documentation}{74}{subsection.6.11.3}%
-\contentsline {subsubsection}{\numberline {6.11.3.1}G}{74}{subsubsection.6.11.3.1}%
-\contentsline {subsubsection}{\numberline {6.11.3.2}nIter}{74}{subsubsection.6.11.3.2}%
-\contentsline {subsubsection}{\numberline {6.11.3.3}tol}{74}{subsubsection.6.11.3.3}%
-\contentsline {section}{\numberline {6.12}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Riemann.h File Reference}{75}{section.6.12}%
-\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{75}{subsection.6.12.1}%
-\contentsline {subsection}{\numberline {6.12.2}Function Documentation}{75}{subsection.6.12.2}%
-\contentsline {subsubsection}{\numberline {6.12.2.1}exactRiemann()}{75}{subsubsection.6.12.2.1}%
-\contentsline {section}{\numberline {6.13}ccfd/src/finite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Volume.c File Reference}{76}{section.6.13}%
-\contentsline {subsection}{\numberline {6.13.1}Detailed Description}{77}{subsection.6.13.1}%
-\contentsline {subsection}{\numberline {6.13.2}Function Documentation}{77}{subsection.6.13.2}%
-\contentsline {subsubsection}{\numberline {6.13.2.1}fvTimeDerivative()}{77}{subsubsection.6.13.2.1}%
-\contentsline {subsection}{\numberline {6.13.3}Variable Documentation}{77}{subsection.6.13.3}%
-\contentsline {subsubsection}{\numberline {6.13.3.1}fluxFunction}{78}{subsubsection.6.13.3.1}%
-\contentsline {subsubsection}{\numberline {6.13.3.2}spatialOrder}{78}{subsubsection.6.13.3.2}%
-\contentsline {section}{\numberline {6.14}ccfd/src/finite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Volume.h File Reference}{78}{section.6.14}%
-\contentsline {subsection}{\numberline {6.14.1}Detailed Description}{78}{subsection.6.14.1}%
-\contentsline {subsection}{\numberline {6.14.2}Function Documentation}{79}{subsection.6.14.2}%
-\contentsline {subsubsection}{\numberline {6.14.2.1}fvTimeDerivative()}{79}{subsubsection.6.14.2.1}%
-\contentsline {subsection}{\numberline {6.14.3}Variable Documentation}{79}{subsection.6.14.3}%
-\contentsline {subsubsection}{\numberline {6.14.3.1}fluxFunction}{79}{subsubsection.6.14.3.1}%
-\contentsline {subsubsection}{\numberline {6.14.3.2}spatialOrder}{79}{subsubsection.6.14.3.2}%
-\contentsline {section}{\numberline {6.15}ccfd/src/flux\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Calculation.c File Reference}{80}{section.6.15}%
-\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{81}{subsection.6.15.1}%
-\contentsline {subsection}{\numberline {6.15.2}Function Documentation}{81}{subsection.6.15.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.1}convectiveFlux()}{81}{subsubsection.6.15.2.1}%
-\contentsline {subsubsection}{\numberline {6.15.2.2}flux\_ausmd()}{82}{subsubsection.6.15.2.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.3}flux\_ausmdv()}{83}{subsubsection.6.15.2.3}%
-\contentsline {subsubsection}{\numberline {6.15.2.4}flux\_cen()}{83}{subsubsection.6.15.2.4}%
-\contentsline {subsubsection}{\numberline {6.15.2.5}flux\_god()}{84}{subsubsection.6.15.2.5}%
-\contentsline {subsubsection}{\numberline {6.15.2.6}flux\_hll()}{85}{subsubsection.6.15.2.6}%
-\contentsline {subsubsection}{\numberline {6.15.2.7}flux\_hllc()}{85}{subsubsection.6.15.2.7}%
-\contentsline {subsubsection}{\numberline {6.15.2.8}flux\_hlle()}{86}{subsubsection.6.15.2.8}%
-\contentsline {subsubsection}{\numberline {6.15.2.9}flux\_lxf()}{86}{subsubsection.6.15.2.9}%
-\contentsline {subsubsection}{\numberline {6.15.2.10}flux\_roe()}{87}{subsubsection.6.15.2.10}%
-\contentsline {subsubsection}{\numberline {6.15.2.11}flux\_stw()}{88}{subsubsection.6.15.2.11}%
-\contentsline {subsubsection}{\numberline {6.15.2.12}flux\_vanleer()}{88}{subsubsection.6.15.2.12}%
-\contentsline {subsubsection}{\numberline {6.15.2.13}fluxCalculation()}{89}{subsubsection.6.15.2.13}%
-\contentsline {section}{\numberline {6.16}ccfd/src/flux\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Calculation.h File Reference}{89}{section.6.16}%
-\contentsline {subsection}{\numberline {6.16.1}Detailed Description}{90}{subsection.6.16.1}%
-\contentsline {subsection}{\numberline {6.16.2}Function Documentation}{90}{subsection.6.16.2}%
-\contentsline {subsubsection}{\numberline {6.16.2.1}fluxCalculation()}{90}{subsubsection.6.16.2.1}%
-\contentsline {section}{\numberline {6.17}ccfd/src/initial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition.c File Reference}{90}{section.6.17}%
-\contentsline {subsection}{\numberline {6.17.1}Detailed Description}{91}{subsection.6.17.1}%
-\contentsline {subsection}{\numberline {6.17.2}Variable Documentation}{91}{subsection.6.17.2}%
-\contentsline {subsubsection}{\numberline {6.17.2.1}alpha}{92}{subsubsection.6.17.2.1}%
-\contentsline {subsubsection}{\numberline {6.17.2.2}domainID}{92}{subsubsection.6.17.2.2}%
-\contentsline {subsubsection}{\numberline {6.17.2.3}icType}{92}{subsubsection.6.17.2.3}%
-\contentsline {subsubsection}{\numberline {6.17.2.4}nDomains}{92}{subsubsection.6.17.2.4}%
-\contentsline {subsubsection}{\numberline {6.17.2.5}refState}{92}{subsubsection.6.17.2.5}%
-\contentsline {subsubsection}{\numberline {6.17.2.6}rp1Dinterface}{93}{subsubsection.6.17.2.6}%
-\contentsline {section}{\numberline {6.18}ccfd/src/initial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition.h File Reference}{93}{section.6.18}%
-\contentsline {subsection}{\numberline {6.18.1}Detailed Description}{93}{subsection.6.18.1}%
-\contentsline {subsection}{\numberline {6.18.2}Variable Documentation}{94}{subsection.6.18.2}%
-\contentsline {subsubsection}{\numberline {6.18.2.1}alpha}{94}{subsubsection.6.18.2.1}%
-\contentsline {subsubsection}{\numberline {6.18.2.2}domainID}{94}{subsubsection.6.18.2.2}%
-\contentsline {subsubsection}{\numberline {6.18.2.3}icType}{94}{subsubsection.6.18.2.3}%
-\contentsline {subsubsection}{\numberline {6.18.2.4}nDomains}{94}{subsubsection.6.18.2.4}%
-\contentsline {subsubsection}{\numberline {6.18.2.5}refState}{94}{subsubsection.6.18.2.5}%
-\contentsline {subsubsection}{\numberline {6.18.2.6}rp1Dinterface}{95}{subsubsection.6.18.2.6}%
-\contentsline {section}{\numberline {6.19}ccfd/src/linear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.c File Reference}{95}{section.6.19}%
-\contentsline {subsection}{\numberline {6.19.1}Detailed Description}{96}{subsection.6.19.1}%
-\contentsline {subsection}{\numberline {6.19.2}Function Documentation}{96}{subsection.6.19.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.1}buildMatrix()}{96}{subsubsection.6.19.2.1}%
-\contentsline {subsubsection}{\numberline {6.19.2.2}calcDinv()}{97}{subsubsection.6.19.2.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.3}GMRES\_M()}{97}{subsubsection.6.19.2.3}%
-\contentsline {subsubsection}{\numberline {6.19.2.4}LUSGS()}{98}{subsubsection.6.19.2.4}%
-\contentsline {subsubsection}{\numberline {6.19.2.5}matrixVector()}{98}{subsubsection.6.19.2.5}%
-\contentsline {subsubsection}{\numberline {6.19.2.6}vectorDotProduct()}{99}{subsubsection.6.19.2.6}%
-\contentsline {subsection}{\numberline {6.19.3}Variable Documentation}{99}{subsection.6.19.3}%
-\contentsline {subsubsection}{\numberline {6.19.3.1}D}{99}{subsubsection.6.19.3.1}%
-\contentsline {subsubsection}{\numberline {6.19.3.2}deltaXstar}{99}{subsubsection.6.19.3.2}%
-\contentsline {subsubsection}{\numberline {6.19.3.3}Dinv}{100}{subsubsection.6.19.3.3}%
-\contentsline {subsubsection}{\numberline {6.19.3.4}dRdU}{100}{subsubsection.6.19.3.4}%
-\contentsline {subsubsection}{\numberline {6.19.3.5}eps2newton}{100}{subsubsection.6.19.3.5}%
-\contentsline {subsubsection}{\numberline {6.19.3.6}eps2newton\_sq}{100}{subsubsection.6.19.3.6}%
-\contentsline {subsubsection}{\numberline {6.19.3.7}epsGMRES}{100}{subsubsection.6.19.3.7}%
-\contentsline {subsubsection}{\numberline {6.19.3.8}gamEW}{101}{subsubsection.6.19.3.8}%
-\contentsline {subsubsection}{\numberline {6.19.3.9}nGMRESiterGlobal}{101}{subsubsection.6.19.3.9}%
-\contentsline {subsubsection}{\numberline {6.19.3.10}nInnerGMRES}{101}{subsubsection.6.19.3.10}%
-\contentsline {subsubsection}{\numberline {6.19.3.11}nInnerNewton}{101}{subsubsection.6.19.3.11}%
-\contentsline {subsubsection}{\numberline {6.19.3.12}nKdim}{101}{subsubsection.6.19.3.12}%
-\contentsline {subsubsection}{\numberline {6.19.3.13}nNewtonIter}{102}{subsubsection.6.19.3.13}%
-\contentsline {subsubsection}{\numberline {6.19.3.14}nNewtonIterGlobal}{102}{subsubsection.6.19.3.14}%
-\contentsline {subsubsection}{\numberline {6.19.3.15}R0}{102}{subsubsection.6.19.3.15}%
-\contentsline {subsubsection}{\numberline {6.19.3.16}R\_XK}{102}{subsubsection.6.19.3.16}%
-\contentsline {subsubsection}{\numberline {6.19.3.17}rEps0}{102}{subsubsection.6.19.3.17}%
-\contentsline {subsubsection}{\numberline {6.19.3.18}srEps0}{103}{subsubsection.6.19.3.18}%
-\contentsline {subsubsection}{\numberline {6.19.3.19}usePrecond}{103}{subsubsection.6.19.3.19}%
-\contentsline {subsubsection}{\numberline {6.19.3.20}V}{103}{subsubsection.6.19.3.20}%
-\contentsline {subsubsection}{\numberline {6.19.3.21}W}{103}{subsubsection.6.19.3.21}%
-\contentsline {subsubsection}{\numberline {6.19.3.22}XK}{103}{subsubsection.6.19.3.22}%
-\contentsline {subsubsection}{\numberline {6.19.3.23}Z}{104}{subsubsection.6.19.3.23}%
-\contentsline {section}{\numberline {6.20}ccfd/src/linear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.h File Reference}{104}{section.6.20}%
-\contentsline {subsection}{\numberline {6.20.1}Detailed Description}{105}{subsection.6.20.1}%
-\contentsline {subsection}{\numberline {6.20.2}Function Documentation}{105}{subsection.6.20.2}%
-\contentsline {subsubsection}{\numberline {6.20.2.1}GMRES\_M()}{105}{subsubsection.6.20.2.1}%
-\contentsline {subsubsection}{\numberline {6.20.2.2}vectorDotProduct()}{106}{subsubsection.6.20.2.2}%
-\contentsline {subsection}{\numberline {6.20.3}Variable Documentation}{106}{subsection.6.20.3}%
-\contentsline {subsubsection}{\numberline {6.20.3.1}eps2newton}{106}{subsubsection.6.20.3.1}%
-\contentsline {subsubsection}{\numberline {6.20.3.2}eps2newton\_sq}{107}{subsubsection.6.20.3.2}%
-\contentsline {subsubsection}{\numberline {6.20.3.3}epsGMRES}{107}{subsubsection.6.20.3.3}%
-\contentsline {subsubsection}{\numberline {6.20.3.4}gamEW}{107}{subsubsection.6.20.3.4}%
-\contentsline {subsubsection}{\numberline {6.20.3.5}nGMRESiterGlobal}{107}{subsubsection.6.20.3.5}%
-\contentsline {subsubsection}{\numberline {6.20.3.6}nInnerGMRES}{107}{subsubsection.6.20.3.6}%
-\contentsline {subsubsection}{\numberline {6.20.3.7}nInnerNewton}{108}{subsubsection.6.20.3.7}%
-\contentsline {subsubsection}{\numberline {6.20.3.8}nKdim}{108}{subsubsection.6.20.3.8}%
-\contentsline {subsubsection}{\numberline {6.20.3.9}nNewtonIter}{108}{subsubsection.6.20.3.9}%
-\contentsline {subsubsection}{\numberline {6.20.3.10}nNewtonIterGlobal}{108}{subsubsection.6.20.3.10}%
-\contentsline {subsubsection}{\numberline {6.20.3.11}R\_XK}{108}{subsubsection.6.20.3.11}%
-\contentsline {subsubsection}{\numberline {6.20.3.12}rEps0}{109}{subsubsection.6.20.3.12}%
-\contentsline {subsubsection}{\numberline {6.20.3.13}srEps0}{109}{subsubsection.6.20.3.13}%
-\contentsline {subsubsection}{\numberline {6.20.3.14}usePrecond}{109}{subsubsection.6.20.3.14}%
-\contentsline {subsubsection}{\numberline {6.20.3.15}XK}{109}{subsubsection.6.20.3.15}%
-\contentsline {section}{\numberline {6.21}ccfd/src/main.c File Reference}{110}{section.6.21}%
-\contentsline {subsection}{\numberline {6.21.1}Detailed Description}{110}{subsection.6.21.1}%
-\contentsline {subsection}{\numberline {6.21.2}Function Documentation}{110}{subsection.6.21.2}%
-\contentsline {subsubsection}{\numberline {6.21.2.1}main()}{111}{subsubsection.6.21.2.1}%
-\contentsline {section}{\numberline {6.22}ccfd/src/main.h File Reference}{111}{section.6.22}%
-\contentsline {subsection}{\numberline {6.22.1}Detailed Description}{113}{subsection.6.22.1}%
-\contentsline {subsection}{\numberline {6.22.2}Macro Definition Documentation}{113}{subsection.6.22.2}%
-\contentsline {subsubsection}{\numberline {6.22.2.1}STRLEN}{113}{subsubsection.6.22.2.1}%
-\contentsline {subsection}{\numberline {6.22.3}Enumeration Type Documentation}{113}{subsection.6.22.3}%
-\contentsline {subsubsection}{\numberline {6.22.3.1}boundaryConditionType}{113}{subsubsection.6.22.3.1}%
-\contentsline {subsubsection}{\numberline {6.22.3.2}cartesianMeshSides}{114}{subsubsection.6.22.3.2}%
-\contentsline {subsubsection}{\numberline {6.22.3.3}clcdResiduals}{114}{subsubsection.6.22.3.3}%
-\contentsline {subsubsection}{\numberline {6.22.3.4}conservativeVariables}{114}{subsubsection.6.22.3.4}%
-\contentsline {subsubsection}{\numberline {6.22.3.5}directions}{114}{subsubsection.6.22.3.5}%
-\contentsline {subsubsection}{\numberline {6.22.3.6}fluxFunction}{115}{subsubsection.6.22.3.6}%
-\contentsline {subsubsection}{\numberline {6.22.3.7}generalParameters}{115}{subsubsection.6.22.3.7}%
-\contentsline {subsubsection}{\numberline {6.22.3.8}ioFormat}{115}{subsubsection.6.22.3.8}%
-\contentsline {subsubsection}{\numberline {6.22.3.9}limiterFunction}{116}{subsubsection.6.22.3.9}%
-\contentsline {subsubsection}{\numberline {6.22.3.10}meshType}{116}{subsubsection.6.22.3.10}%
-\contentsline {subsubsection}{\numberline {6.22.3.11}primitiveVariables}{116}{subsubsection.6.22.3.11}%
-\contentsline {section}{\numberline {6.23}ccfd/src/mem\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.c File Reference}{117}{section.6.23}%
-\contentsline {subsection}{\numberline {6.23.1}Detailed Description}{117}{subsection.6.23.1}%
-\contentsline {subsection}{\numberline {6.23.2}Function Documentation}{118}{subsection.6.23.2}%
-\contentsline {subsubsection}{\numberline {6.23.2.1}dyn2DcgsizeArray()}{118}{subsubsection.6.23.2.1}%
-\contentsline {subsubsection}{\numberline {6.23.2.2}dyn2DdblArray()}{118}{subsubsection.6.23.2.2}%
-\contentsline {subsubsection}{\numberline {6.23.2.3}dyn2DintArray()}{119}{subsubsection.6.23.2.3}%
-\contentsline {subsubsection}{\numberline {6.23.2.4}dyn3DdblArray()}{119}{subsubsection.6.23.2.4}%
-\contentsline {subsubsection}{\numberline {6.23.2.5}dyn3DintArray()}{120}{subsubsection.6.23.2.5}%
-\contentsline {subsubsection}{\numberline {6.23.2.6}dyn4DdblArray()}{120}{subsubsection.6.23.2.6}%
-\contentsline {subsubsection}{\numberline {6.23.2.7}dynStringArray()}{120}{subsubsection.6.23.2.7}%
-\contentsline {section}{\numberline {6.24}ccfd/src/mem\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.h File Reference}{121}{section.6.24}%
-\contentsline {subsection}{\numberline {6.24.1}Detailed Description}{122}{subsection.6.24.1}%
-\contentsline {subsection}{\numberline {6.24.2}Function Documentation}{122}{subsection.6.24.2}%
-\contentsline {subsubsection}{\numberline {6.24.2.1}dyn2DcgsizeArray()}{122}{subsubsection.6.24.2.1}%
-\contentsline {subsubsection}{\numberline {6.24.2.2}dyn2DdblArray()}{122}{subsubsection.6.24.2.2}%
-\contentsline {subsubsection}{\numberline {6.24.2.3}dyn2DintArray()}{123}{subsubsection.6.24.2.3}%
-\contentsline {subsubsection}{\numberline {6.24.2.4}dyn3DdblArray()}{123}{subsubsection.6.24.2.4}%
-\contentsline {subsubsection}{\numberline {6.24.2.5}dyn3DintArray()}{124}{subsubsection.6.24.2.5}%
-\contentsline {subsubsection}{\numberline {6.24.2.6}dyn4DdblArray()}{124}{subsubsection.6.24.2.6}%
-\contentsline {subsubsection}{\numberline {6.24.2.7}dynStringArray()}{124}{subsubsection.6.24.2.7}%
-\contentsline {section}{\numberline {6.25}ccfd/src/mesh.c File Reference}{125}{section.6.25}%
-\contentsline {subsection}{\numberline {6.25.1}Detailed Description}{127}{subsection.6.25.1}%
-\contentsline {subsection}{\numberline {6.25.2}Function Documentation}{127}{subsection.6.25.2}%
-\contentsline {subsubsection}{\numberline {6.25.2.1}compare()}{127}{subsubsection.6.25.2.1}%
-\contentsline {subsubsection}{\numberline {6.25.2.2}createCartMesh()}{127}{subsubsection.6.25.2.2}%
-\contentsline {subsubsection}{\numberline {6.25.2.3}createElemInfo()}{129}{subsubsection.6.25.2.3}%
-\contentsline {subsubsection}{\numberline {6.25.2.4}createMesh()}{129}{subsubsection.6.25.2.4}%
-\contentsline {subsubsection}{\numberline {6.25.2.5}createReconstructionInfo()}{130}{subsubsection.6.25.2.5}%
-\contentsline {subsubsection}{\numberline {6.25.2.6}createSideInfo()}{130}{subsubsection.6.25.2.6}%
-\contentsline {subsubsection}{\numberline {6.25.2.7}readCGNS()}{131}{subsubsection.6.25.2.7}%
-\contentsline {subsubsection}{\numberline {6.25.2.8}readEMC2()}{131}{subsubsection.6.25.2.8}%
-\contentsline {subsubsection}{\numberline {6.25.2.9}readGmsh()}{132}{subsubsection.6.25.2.9}%
-\contentsline {subsection}{\numberline {6.25.3}Variable Documentation}{132}{subsection.6.25.3}%
-\contentsline {subsubsection}{\numberline {6.25.3.1}BCside}{132}{subsubsection.6.25.3.1}%
-\contentsline {subsubsection}{\numberline {6.25.3.2}cartMesh}{133}{subsubsection.6.25.3.2}%
-\contentsline {subsubsection}{\numberline {6.25.3.3}dxRef}{133}{subsubsection.6.25.3.3}%
-\contentsline {subsubsection}{\numberline {6.25.3.4}elem}{133}{subsubsection.6.25.3.4}%
-\contentsline {subsubsection}{\numberline {6.25.3.5}firstBCside}{133}{subsubsection.6.25.3.5}%
-\contentsline {subsubsection}{\numberline {6.25.3.6}firstElem}{133}{subsubsection.6.25.3.6}%
-\contentsline {subsubsection}{\numberline {6.25.3.7}firstNode}{134}{subsubsection.6.25.3.7}%
-\contentsline {subsubsection}{\numberline {6.25.3.8}firstSide}{134}{subsubsection.6.25.3.8}%
-\contentsline {subsubsection}{\numberline {6.25.3.9}gridFile}{134}{subsubsection.6.25.3.9}%
-\contentsline {subsubsection}{\numberline {6.25.3.10}meshFormat}{134}{subsubsection.6.25.3.10}%
-\contentsline {subsubsection}{\numberline {6.25.3.11}meshType}{134}{subsubsection.6.25.3.11}%
-\contentsline {subsubsection}{\numberline {6.25.3.12}nBCsides}{134}{subsubsection.6.25.3.12}%
-\contentsline {subsubsection}{\numberline {6.25.3.13}nElems}{135}{subsubsection.6.25.3.13}%
-\contentsline {subsubsection}{\numberline {6.25.3.14}nInnerSides}{135}{subsubsection.6.25.3.14}%
-\contentsline {subsubsection}{\numberline {6.25.3.15}nNodes}{135}{subsubsection.6.25.3.15}%
-\contentsline {subsubsection}{\numberline {6.25.3.16}nQuads}{135}{subsubsection.6.25.3.16}%
-\contentsline {subsubsection}{\numberline {6.25.3.17}nSides}{135}{subsubsection.6.25.3.17}%
-\contentsline {subsubsection}{\numberline {6.25.3.18}nTrias}{136}{subsubsection.6.25.3.18}%
-\contentsline {subsubsection}{\numberline {6.25.3.19}parameterFile}{136}{subsubsection.6.25.3.19}%
-\contentsline {subsubsection}{\numberline {6.25.3.20}side}{136}{subsubsection.6.25.3.20}%
-\contentsline {subsubsection}{\numberline {6.25.3.21}strIniCondFile}{136}{subsubsection.6.25.3.21}%
-\contentsline {subsubsection}{\numberline {6.25.3.22}strMeshFile}{136}{subsubsection.6.25.3.22}%
-\contentsline {subsubsection}{\numberline {6.25.3.23}strMeshFormat}{137}{subsubsection.6.25.3.23}%
-\contentsline {subsubsection}{\numberline {6.25.3.24}totalArea\_q}{137}{subsubsection.6.25.3.24}%
-\contentsline {subsubsection}{\numberline {6.25.3.25}xMax}{137}{subsubsection.6.25.3.25}%
-\contentsline {subsubsection}{\numberline {6.25.3.26}xMin}{137}{subsubsection.6.25.3.26}%
-\contentsline {subsubsection}{\numberline {6.25.3.27}yMax}{137}{subsubsection.6.25.3.27}%
-\contentsline {subsubsection}{\numberline {6.25.3.28}yMin}{138}{subsubsection.6.25.3.28}%
-\contentsline {section}{\numberline {6.26}ccfd/src/mesh.h File Reference}{138}{section.6.26}%
-\contentsline {subsection}{\numberline {6.26.1}Detailed Description}{139}{subsection.6.26.1}%
-\contentsline {subsection}{\numberline {6.26.2}Variable Documentation}{140}{subsection.6.26.2}%
-\contentsline {subsubsection}{\numberline {6.26.2.1}BCside}{140}{subsubsection.6.26.2.1}%
-\contentsline {subsubsection}{\numberline {6.26.2.2}cartMesh}{140}{subsubsection.6.26.2.2}%
-\contentsline {subsubsection}{\numberline {6.26.2.3}dxRef}{140}{subsubsection.6.26.2.3}%
-\contentsline {subsubsection}{\numberline {6.26.2.4}elem}{140}{subsubsection.6.26.2.4}%
-\contentsline {subsubsection}{\numberline {6.26.2.5}firstBCside}{141}{subsubsection.6.26.2.5}%
-\contentsline {subsubsection}{\numberline {6.26.2.6}firstElem}{141}{subsubsection.6.26.2.6}%
-\contentsline {subsubsection}{\numberline {6.26.2.7}firstNode}{141}{subsubsection.6.26.2.7}%
-\contentsline {subsubsection}{\numberline {6.26.2.8}firstSide}{141}{subsubsection.6.26.2.8}%
-\contentsline {subsubsection}{\numberline {6.26.2.9}gridFile}{141}{subsubsection.6.26.2.9}%
-\contentsline {subsubsection}{\numberline {6.26.2.10}meshFormat}{142}{subsubsection.6.26.2.10}%
-\contentsline {subsubsection}{\numberline {6.26.2.11}meshType}{142}{subsubsection.6.26.2.11}%
-\contentsline {subsubsection}{\numberline {6.26.2.12}nBCsides}{142}{subsubsection.6.26.2.12}%
-\contentsline {subsubsection}{\numberline {6.26.2.13}nElems}{142}{subsubsection.6.26.2.13}%
-\contentsline {subsubsection}{\numberline {6.26.2.14}nInnerSides}{142}{subsubsection.6.26.2.14}%
-\contentsline {subsubsection}{\numberline {6.26.2.15}nNodes}{143}{subsubsection.6.26.2.15}%
-\contentsline {subsubsection}{\numberline {6.26.2.16}nQuads}{143}{subsubsection.6.26.2.16}%
-\contentsline {subsubsection}{\numberline {6.26.2.17}nSides}{143}{subsubsection.6.26.2.17}%
-\contentsline {subsubsection}{\numberline {6.26.2.18}nTrias}{143}{subsubsection.6.26.2.18}%
-\contentsline {subsubsection}{\numberline {6.26.2.19}parameterFile}{143}{subsubsection.6.26.2.19}%
-\contentsline {subsubsection}{\numberline {6.26.2.20}side}{144}{subsubsection.6.26.2.20}%
-\contentsline {subsubsection}{\numberline {6.26.2.21}strIniCondFile}{144}{subsubsection.6.26.2.21}%
-\contentsline {subsubsection}{\numberline {6.26.2.22}strMeshFile}{144}{subsubsection.6.26.2.22}%
-\contentsline {subsubsection}{\numberline {6.26.2.23}strMeshFormat}{144}{subsubsection.6.26.2.23}%
-\contentsline {subsubsection}{\numberline {6.26.2.24}totalArea\_q}{144}{subsubsection.6.26.2.24}%
-\contentsline {subsubsection}{\numberline {6.26.2.25}xMax}{145}{subsubsection.6.26.2.25}%
-\contentsline {subsubsection}{\numberline {6.26.2.26}xMin}{145}{subsubsection.6.26.2.26}%
-\contentsline {subsubsection}{\numberline {6.26.2.27}yMax}{145}{subsubsection.6.26.2.27}%
-\contentsline {subsubsection}{\numberline {6.26.2.28}yMin}{145}{subsubsection.6.26.2.28}%
-\contentsline {section}{\numberline {6.27}ccfd/src/output.c File Reference}{146}{section.6.27}%
-\contentsline {subsection}{\numberline {6.27.1}Detailed Description}{147}{subsection.6.27.1}%
-\contentsline {subsection}{\numberline {6.27.2}Function Documentation}{147}{subsection.6.27.2}%
-\contentsline {subsubsection}{\numberline {6.27.2.1}cgnsFinalizeOutput()}{147}{subsubsection.6.27.2.1}%
-\contentsline {subsubsection}{\numberline {6.27.2.2}cgnsOutput()}{147}{subsubsection.6.27.2.2}%
-\contentsline {subsubsection}{\numberline {6.27.2.3}csvOutput()}{148}{subsubsection.6.27.2.3}%
-\contentsline {subsubsection}{\numberline {6.27.2.4}curveOutput()}{148}{subsubsection.6.27.2.4}%
-\contentsline {subsubsection}{\numberline {6.27.2.5}dataOutput()}{149}{subsubsection.6.27.2.5}%
-\contentsline {subsection}{\numberline {6.27.3}Variable Documentation}{149}{subsection.6.27.3}%
-\contentsline {subsubsection}{\numberline {6.27.3.1}doErrorOutput}{149}{subsubsection.6.27.3.1}%
-\contentsline {subsubsection}{\numberline {6.27.3.2}IOiterInterval}{149}{subsubsection.6.27.3.2}%
-\contentsline {subsubsection}{\numberline {6.27.3.3}IOtimeInterval}{150}{subsubsection.6.27.3.3}%
-\contentsline {subsubsection}{\numberline {6.27.3.4}iVisuProg}{150}{subsubsection.6.27.3.4}%
-\contentsline {subsubsection}{\numberline {6.27.3.5}outputTimes}{150}{subsubsection.6.27.3.5}%
-\contentsline {subsubsection}{\numberline {6.27.3.6}parameterFile}{150}{subsubsection.6.27.3.6}%
-\contentsline {subsubsection}{\numberline {6.27.3.7}resFile}{150}{subsubsection.6.27.3.7}%
-\contentsline {subsubsection}{\numberline {6.27.3.8}strOutFile}{151}{subsubsection.6.27.3.8}%
-\contentsline {section}{\numberline {6.28}ccfd/src/output.h File Reference}{151}{section.6.28}%
-\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{152}{subsection.6.28.1}%
-\contentsline {subsection}{\numberline {6.28.2}Function Documentation}{152}{subsection.6.28.2}%
-\contentsline {subsubsection}{\numberline {6.28.2.1}dataOutput()}{152}{subsubsection.6.28.2.1}%
-\contentsline {subsection}{\numberline {6.28.3}Variable Documentation}{153}{subsection.6.28.3}%
-\contentsline {subsubsection}{\numberline {6.28.3.1}doErrorOutput}{153}{subsubsection.6.28.3.1}%
-\contentsline {subsubsection}{\numberline {6.28.3.2}IOiterInterval}{153}{subsubsection.6.28.3.2}%
-\contentsline {subsubsection}{\numberline {6.28.3.3}IOtimeInterval}{153}{subsubsection.6.28.3.3}%
-\contentsline {subsubsection}{\numberline {6.28.3.4}iVisuProg}{153}{subsubsection.6.28.3.4}%
-\contentsline {subsubsection}{\numberline {6.28.3.5}outputTimes}{154}{subsubsection.6.28.3.5}%
-\contentsline {subsubsection}{\numberline {6.28.3.6}parameterFile}{154}{subsubsection.6.28.3.6}%
-\contentsline {subsubsection}{\numberline {6.28.3.7}resFile}{154}{subsubsection.6.28.3.7}%
-\contentsline {subsubsection}{\numberline {6.28.3.8}strOutFile}{154}{subsubsection.6.28.3.8}%
-\contentsline {section}{\numberline {6.29}ccfd/src/read\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.c File Reference}{154}{section.6.29}%
-\contentsline {subsection}{\numberline {6.29.1}Detailed Description}{155}{subsection.6.29.1}%
-\contentsline {subsection}{\numberline {6.29.2}Function Documentation}{156}{subsection.6.29.2}%
-\contentsline {subsubsection}{\numberline {6.29.2.1}countKeys()}{156}{subsubsection.6.29.2.1}%
-\contentsline {subsubsection}{\numberline {6.29.2.2}deleteCmd()}{156}{subsubsection.6.29.2.2}%
-\contentsline {subsubsection}{\numberline {6.29.2.3}fillCmds()}{157}{subsubsection.6.29.2.3}%
-\contentsline {subsubsection}{\numberline {6.29.2.4}findCmd()}{157}{subsubsection.6.29.2.4}%
-\contentsline {subsubsection}{\numberline {6.29.2.5}getBool()}{158}{subsubsection.6.29.2.5}%
-\contentsline {subsubsection}{\numberline {6.29.2.6}getDbl()}{158}{subsubsection.6.29.2.6}%
-\contentsline {subsubsection}{\numberline {6.29.2.7}getDblArray()}{159}{subsubsection.6.29.2.7}%
-\contentsline {subsubsection}{\numberline {6.29.2.8}getInt()}{159}{subsubsection.6.29.2.8}%
-\contentsline {subsubsection}{\numberline {6.29.2.9}getIntArray()}{160}{subsubsection.6.29.2.9}%
-\contentsline {subsubsection}{\numberline {6.29.2.10}getStr()}{160}{subsubsection.6.29.2.10}%
-\contentsline {subsection}{\numberline {6.29.3}Variable Documentation}{161}{subsection.6.29.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.1}firstCmd}{161}{subsubsection.6.29.3.1}%
-\contentsline {section}{\numberline {6.30}ccfd/src/read\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.h File Reference}{161}{section.6.30}%
-\contentsline {subsection}{\numberline {6.30.1}Detailed Description}{162}{subsection.6.30.1}%
-\contentsline {subsection}{\numberline {6.30.2}Function Documentation}{162}{subsection.6.30.2}%
-\contentsline {subsubsection}{\numberline {6.30.2.1}countKeys()}{162}{subsubsection.6.30.2.1}%
-\contentsline {subsubsection}{\numberline {6.30.2.2}fillCmds()}{163}{subsubsection.6.30.2.2}%
-\contentsline {subsubsection}{\numberline {6.30.2.3}getBool()}{163}{subsubsection.6.30.2.3}%
-\contentsline {subsubsection}{\numberline {6.30.2.4}getDbl()}{163}{subsubsection.6.30.2.4}%
-\contentsline {subsubsection}{\numberline {6.30.2.5}getDblArray()}{164}{subsubsection.6.30.2.5}%
-\contentsline {subsubsection}{\numberline {6.30.2.6}getInt()}{165}{subsubsection.6.30.2.6}%
-\contentsline {subsubsection}{\numberline {6.30.2.7}getIntArray()}{165}{subsubsection.6.30.2.7}%
-\contentsline {subsubsection}{\numberline {6.30.2.8}getStr()}{166}{subsubsection.6.30.2.8}%
-\contentsline {section}{\numberline {6.31}ccfd/src/reconstruction.c File Reference}{166}{section.6.31}%
-\contentsline {subsection}{\numberline {6.31.1}Detailed Description}{167}{subsection.6.31.1}%
-\contentsline {subsection}{\numberline {6.31.2}Function Documentation}{167}{subsection.6.31.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.1}limiterBarthJespersen()}{167}{subsubsection.6.31.2.1}%
-\contentsline {subsubsection}{\numberline {6.31.2.2}limiterVenkatakrishnan()}{168}{subsubsection.6.31.2.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.3}spatialReconstruction()}{168}{subsubsection.6.31.2.3}%
-\contentsline {subsection}{\numberline {6.31.3}Variable Documentation}{168}{subsection.6.31.3}%
-\contentsline {subsubsection}{\numberline {6.31.3.1}limiter}{169}{subsubsection.6.31.3.1}%
-\contentsline {subsubsection}{\numberline {6.31.3.2}venk\_k}{169}{subsubsection.6.31.3.2}%
-\contentsline {section}{\numberline {6.32}ccfd/src/reconstruction.h File Reference}{169}{section.6.32}%
-\contentsline {subsection}{\numberline {6.32.1}Detailed Description}{169}{subsection.6.32.1}%
-\contentsline {subsection}{\numberline {6.32.2}Function Documentation}{170}{subsection.6.32.2}%
-\contentsline {subsubsection}{\numberline {6.32.2.1}spatialReconstruction()}{170}{subsubsection.6.32.2.1}%
-\contentsline {subsection}{\numberline {6.32.3}Variable Documentation}{170}{subsection.6.32.3}%
-\contentsline {subsubsection}{\numberline {6.32.3.1}limiter}{170}{subsubsection.6.32.3.1}%
-\contentsline {subsubsection}{\numberline {6.32.3.2}venk\_k}{170}{subsubsection.6.32.3.2}%
-\contentsline {section}{\numberline {6.33}ccfd/src/source.c File Reference}{171}{section.6.33}%
-\contentsline {subsection}{\numberline {6.33.1}Detailed Description}{171}{subsection.6.33.1}%
-\contentsline {subsection}{\numberline {6.33.2}Function Documentation}{172}{subsection.6.33.2}%
-\contentsline {subsubsection}{\numberline {6.33.2.1}calcSource()}{172}{subsubsection.6.33.2.1}%
-\contentsline {subsubsection}{\numberline {6.33.2.2}evalSource()}{172}{subsubsection.6.33.2.2}%
-\contentsline {section}{\numberline {6.34}ccfd/src/source.h File Reference}{173}{section.6.34}%
-\contentsline {subsection}{\numberline {6.34.1}Detailed Description}{173}{subsection.6.34.1}%
-\contentsline {subsection}{\numberline {6.34.2}Function Documentation}{173}{subsection.6.34.2}%
-\contentsline {subsubsection}{\numberline {6.34.2.1}calcSource()}{173}{subsubsection.6.34.2.1}%
-\contentsline {section}{\numberline {6.35}ccfd/src/time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Discretization.c File Reference}{174}{section.6.35}%
-\contentsline {subsection}{\numberline {6.35.1}Detailed Description}{175}{subsection.6.35.1}%
-\contentsline {subsection}{\numberline {6.35.2}Function Documentation}{175}{subsection.6.35.2}%
-\contentsline {subsubsection}{\numberline {6.35.2.1}calcTimeStep()}{175}{subsubsection.6.35.2.1}%
-\contentsline {subsubsection}{\numberline {6.35.2.2}explicitTimeStepEuler()}{176}{subsubsection.6.35.2.2}%
-\contentsline {subsubsection}{\numberline {6.35.2.3}explicitTimeStepRK()}{176}{subsubsection.6.35.2.3}%
-\contentsline {subsubsection}{\numberline {6.35.2.4}implicitTimeStep()}{177}{subsubsection.6.35.2.4}%
-\contentsline {subsubsection}{\numberline {6.35.2.5}timeDisc()}{177}{subsubsection.6.35.2.5}%
-\contentsline {subsection}{\numberline {6.35.3}Variable Documentation}{177}{subsection.6.35.3}%
-\contentsline {subsubsection}{\numberline {6.35.3.1}abortResidual}{178}{subsubsection.6.35.3.1}%
-\contentsline {subsubsection}{\numberline {6.35.3.2}abortVariable}{178}{subsubsection.6.35.3.2}%
-\contentsline {subsubsection}{\numberline {6.35.3.3}abortVariableName}{178}{subsubsection.6.35.3.3}%
-\contentsline {subsubsection}{\numberline {6.35.3.4}cdAbortResidual}{178}{subsubsection.6.35.3.4}%
-\contentsline {subsubsection}{\numberline {6.35.3.5}cfl}{178}{subsubsection.6.35.3.5}%
-\contentsline {subsubsection}{\numberline {6.35.3.6}clAbortResidual}{179}{subsubsection.6.35.3.6}%
-\contentsline {subsubsection}{\numberline {6.35.3.7}deltaX}{179}{subsubsection.6.35.3.7}%
-\contentsline {subsubsection}{\numberline {6.35.3.8}dfl}{179}{subsubsection.6.35.3.8}%
-\contentsline {subsubsection}{\numberline {6.35.3.9}doAbortOnCdResidual}{179}{subsubsection.6.35.3.9}%
-\contentsline {subsubsection}{\numberline {6.35.3.10}doAbortOnClResidual}{179}{subsubsection.6.35.3.10}%
-\contentsline {subsubsection}{\numberline {6.35.3.11}F\_X0}{180}{subsubsection.6.35.3.11}%
-\contentsline {subsubsection}{\numberline {6.35.3.12}F\_XK}{180}{subsubsection.6.35.3.12}%
-\contentsline {subsubsection}{\numberline {6.35.3.13}iniIterationNumber}{180}{subsubsection.6.35.3.13}%
-\contentsline {subsubsection}{\numberline {6.35.3.14}isImplicit}{180}{subsubsection.6.35.3.14}%
-\contentsline {subsubsection}{\numberline {6.35.3.15}isRestart}{180}{subsubsection.6.35.3.15}%
-\contentsline {subsubsection}{\numberline {6.35.3.16}isStationary}{181}{subsubsection.6.35.3.16}%
-\contentsline {subsubsection}{\numberline {6.35.3.17}isTimeStep1D}{181}{subsubsection.6.35.3.17}%
-\contentsline {subsubsection}{\numberline {6.35.3.18}maxIter}{181}{subsubsection.6.35.3.18}%
-\contentsline {subsubsection}{\numberline {6.35.3.19}nRKstages}{181}{subsubsection.6.35.3.19}%
-\contentsline {subsubsection}{\numberline {6.35.3.20}printIter}{181}{subsubsection.6.35.3.20}%
-\contentsline {subsubsection}{\numberline {6.35.3.21}printTime}{182}{subsubsection.6.35.3.21}%
-\contentsline {subsubsection}{\numberline {6.35.3.22}Q}{182}{subsubsection.6.35.3.22}%
-\contentsline {subsubsection}{\numberline {6.35.3.23}restartTime}{182}{subsubsection.6.35.3.23}%
-\contentsline {subsubsection}{\numberline {6.35.3.24}RKcoeff}{182}{subsubsection.6.35.3.24}%
-\contentsline {subsubsection}{\numberline {6.35.3.25}startTime}{182}{subsubsection.6.35.3.25}%
-\contentsline {subsubsection}{\numberline {6.35.3.26}stopTime}{183}{subsubsection.6.35.3.26}%
-\contentsline {subsubsection}{\numberline {6.35.3.27}t}{183}{subsubsection.6.35.3.27}%
-\contentsline {subsubsection}{\numberline {6.35.3.28}timeOrder}{183}{subsubsection.6.35.3.28}%
-\contentsline {subsubsection}{\numberline {6.35.3.29}timeOverall}{183}{subsubsection.6.35.3.29}%
-\contentsline {section}{\numberline {6.36}ccfd/src/time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Discretization.h File Reference}{184}{section.6.36}%
-\contentsline {subsection}{\numberline {6.36.1}Detailed Description}{185}{subsection.6.36.1}%
-\contentsline {subsection}{\numberline {6.36.2}Function Documentation}{185}{subsection.6.36.2}%
-\contentsline {subsubsection}{\numberline {6.36.2.1}timeDisc()}{185}{subsubsection.6.36.2.1}%
-\contentsline {subsection}{\numberline {6.36.3}Variable Documentation}{186}{subsection.6.36.3}%
-\contentsline {subsubsection}{\numberline {6.36.3.1}abortResidual}{186}{subsubsection.6.36.3.1}%
-\contentsline {subsubsection}{\numberline {6.36.3.2}abortVariable}{186}{subsubsection.6.36.3.2}%
-\contentsline {subsubsection}{\numberline {6.36.3.3}abortVariableName}{186}{subsubsection.6.36.3.3}%
-\contentsline {subsubsection}{\numberline {6.36.3.4}cdAbortResidual}{186}{subsubsection.6.36.3.4}%
-\contentsline {subsubsection}{\numberline {6.36.3.5}cfl}{186}{subsubsection.6.36.3.5}%
-\contentsline {subsubsection}{\numberline {6.36.3.6}clAbortResidual}{187}{subsubsection.6.36.3.6}%
-\contentsline {subsubsection}{\numberline {6.36.3.7}dfl}{187}{subsubsection.6.36.3.7}%
-\contentsline {subsubsection}{\numberline {6.36.3.8}doAbortOnCdResidual}{187}{subsubsection.6.36.3.8}%
-\contentsline {subsubsection}{\numberline {6.36.3.9}doAbortOnClResidual}{187}{subsubsection.6.36.3.9}%
-\contentsline {subsubsection}{\numberline {6.36.3.10}iniIterationNumber}{187}{subsubsection.6.36.3.10}%
-\contentsline {subsubsection}{\numberline {6.36.3.11}isImplicit}{188}{subsubsection.6.36.3.11}%
-\contentsline {subsubsection}{\numberline {6.36.3.12}isRestart}{188}{subsubsection.6.36.3.12}%
-\contentsline {subsubsection}{\numberline {6.36.3.13}isStationary}{188}{subsubsection.6.36.3.13}%
-\contentsline {subsubsection}{\numberline {6.36.3.14}isTimeStep1D}{188}{subsubsection.6.36.3.14}%
-\contentsline {subsubsection}{\numberline {6.36.3.15}maxIter}{188}{subsubsection.6.36.3.15}%
-\contentsline {subsubsection}{\numberline {6.36.3.16}nRKstages}{189}{subsubsection.6.36.3.16}%
-\contentsline {subsubsection}{\numberline {6.36.3.17}printIter}{189}{subsubsection.6.36.3.17}%
-\contentsline {subsubsection}{\numberline {6.36.3.18}printTime}{189}{subsubsection.6.36.3.18}%
-\contentsline {subsubsection}{\numberline {6.36.3.19}restartTime}{189}{subsubsection.6.36.3.19}%
-\contentsline {subsubsection}{\numberline {6.36.3.20}RKcoeff}{189}{subsubsection.6.36.3.20}%
-\contentsline {subsubsection}{\numberline {6.36.3.21}startTime}{190}{subsubsection.6.36.3.21}%
-\contentsline {subsubsection}{\numberline {6.36.3.22}stopTime}{190}{subsubsection.6.36.3.22}%
-\contentsline {subsubsection}{\numberline {6.36.3.23}t}{190}{subsubsection.6.36.3.23}%
-\contentsline {subsubsection}{\numberline {6.36.3.24}timeOrder}{190}{subsubsection.6.36.3.24}%
-\contentsline {subsubsection}{\numberline {6.36.3.25}timeOverall}{190}{subsubsection.6.36.3.25}%
-\contentsline {chapter}{Index}{191}{section*.134}%
+\contentsline {subsubsection}{\numberline {5.5.2.3}x}{24}{subsubsection.5.5.2.3}%
+\contentsline {section}{\numberline {5.6}output\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{24}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{24}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Field Documentation}{24}{subsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.2.1}iter}{25}{subsubsection.5.6.2.1}%
+\contentsline {subsubsection}{\numberline {5.6.2.2}next}{25}{subsubsection.5.6.2.2}%
+\contentsline {subsubsection}{\numberline {5.6.2.3}time}{25}{subsubsection.5.6.2.3}%
+\contentsline {section}{\numberline {5.7}record\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Point\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{25}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{26}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Field Documentation}{26}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}elem}{26}{subsubsection.5.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.7.2.2}ioFile}{26}{subsubsection.5.7.2.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.3}nPoints}{26}{subsubsection.5.7.2.3}%
+\contentsline {subsubsection}{\numberline {5.7.2.4}x}{26}{subsubsection.5.7.2.4}%
+\contentsline {section}{\numberline {5.8}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{27}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{27}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Field Documentation}{27}{subsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.2.1}baryBaryDist}{27}{subsubsection.5.8.2.1}%
+\contentsline {subsubsection}{\numberline {5.8.2.2}baryBaryVec}{28}{subsubsection.5.8.2.2}%
+\contentsline {subsubsection}{\numberline {5.8.2.3}BC}{28}{subsubsection.5.8.2.3}%
+\contentsline {subsubsection}{\numberline {5.8.2.4}BCid}{28}{subsubsection.5.8.2.4}%
+\contentsline {subsubsection}{\numberline {5.8.2.5}BCtype}{28}{subsubsection.5.8.2.5}%
+\contentsline {subsubsection}{\numberline {5.8.2.6}connection}{28}{subsubsection.5.8.2.6}%
+\contentsline {subsubsection}{\numberline {5.8.2.7}elem}{29}{subsubsection.5.8.2.7}%
+\contentsline {subsubsection}{\numberline {5.8.2.8}flux}{29}{subsubsection.5.8.2.8}%
+\contentsline {subsubsection}{\numberline {5.8.2.9}GP}{29}{subsubsection.5.8.2.9}%
+\contentsline {subsubsection}{\numberline {5.8.2.10}id}{29}{subsubsection.5.8.2.10}%
+\contentsline {subsubsection}{\numberline {5.8.2.11}len}{29}{subsubsection.5.8.2.11}%
+\contentsline {subsubsection}{\numberline {5.8.2.12}n}{30}{subsubsection.5.8.2.12}%
+\contentsline {subsubsection}{\numberline {5.8.2.13}next}{30}{subsubsection.5.8.2.13}%
+\contentsline {subsubsection}{\numberline {5.8.2.14}nextElemSide}{30}{subsubsection.5.8.2.14}%
+\contentsline {subsubsection}{\numberline {5.8.2.15}node}{30}{subsubsection.5.8.2.15}%
+\contentsline {subsubsection}{\numberline {5.8.2.16}pVar}{30}{subsubsection.5.8.2.16}%
+\contentsline {subsubsection}{\numberline {5.8.2.17}w}{31}{subsubsection.5.8.2.17}%
+\contentsline {section}{\numberline {5.9}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{31}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{31}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Field Documentation}{31}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}BC}{31}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}isRotated}{32}{subsubsection.5.9.2.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.3}node}{32}{subsubsection.5.9.2.3}%
+\contentsline {subsubsection}{\numberline {5.9.2.4}side}{32}{subsubsection.5.9.2.4}%
+\contentsline {section}{\numberline {5.10}side\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ptr\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{32}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{32}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}Field Documentation}{33}{subsection.5.10.2}%
+\contentsline {subsubsection}{\numberline {5.10.2.1}next}{33}{subsubsection.5.10.2.1}%
+\contentsline {subsubsection}{\numberline {5.10.2.2}side}{33}{subsubsection.5.10.2.2}%
+\contentsline {section}{\numberline {5.11}wing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{33}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{33}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Field Documentation}{34}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}cd}{34}{subsubsection.5.11.2.1}%
+\contentsline {subsubsection}{\numberline {5.11.2.2}cl}{34}{subsubsection.5.11.2.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.3}firstPressureSide}{34}{subsubsection.5.11.2.3}%
+\contentsline {subsubsection}{\numberline {5.11.2.4}firstSuctionSide}{34}{subsubsection.5.11.2.4}%
+\contentsline {subsubsection}{\numberline {5.11.2.5}refLength}{34}{subsubsection.5.11.2.5}%
+\contentsline {subsubsection}{\numberline {5.11.2.6}wallId}{35}{subsubsection.5.11.2.6}%
+\contentsline {subsubsection}{\numberline {5.11.2.7}wingBC}{35}{subsubsection.5.11.2.7}%
+\contentsline {chapter}{\numberline {6}File Documentation}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}ccfd/src/analyze.c File Reference}{37}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{38}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Function Documentation}{38}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}analyze()}{38}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}calcErrors()}{39}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}evalRecordPoints()}{39}{subsubsection.6.1.2.3}%
+\contentsline {subsubsection}{\numberline {6.1.2.4}globalResidual()}{39}{subsubsection.6.1.2.4}%
+\contentsline {subsection}{\numberline {6.1.3}Variable Documentation}{40}{subsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.1}doCalcWing}{40}{subsubsection.6.1.3.1}%
+\contentsline {subsubsection}{\numberline {6.1.3.2}hasExactSolution}{40}{subsubsection.6.1.3.2}%
+\contentsline {subsubsection}{\numberline {6.1.3.3}recordPoint}{40}{subsubsection.6.1.3.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.4}wing}{40}{subsubsection.6.1.3.4}%
+\contentsline {section}{\numberline {6.2}ccfd/src/analyze.h File Reference}{41}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{41}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Function Documentation}{42}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}analyze()}{42}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}calcErrors()}{42}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}globalResidual()}{42}{subsubsection.6.2.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Variable Documentation}{43}{subsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}doCalcWing}{43}{subsubsection.6.2.3.1}%
+\contentsline {subsubsection}{\numberline {6.2.3.2}hasExactSolution}{43}{subsubsection.6.2.3.2}%
+\contentsline {subsubsection}{\numberline {6.2.3.3}recordPoint}{43}{subsubsection.6.2.3.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.4}wing}{43}{subsubsection.6.2.3.4}%
+\contentsline {section}{\numberline {6.3}ccfd/src/boundary.c File Reference}{44}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{44}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Function Documentation}{45}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}boundary()}{45}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}setBCatBarys()}{45}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.3}setBCatSides()}{46}{subsubsection.6.3.2.3}%
+\contentsline {subsection}{\numberline {6.3.3}Variable Documentation}{46}{subsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.3.1}firstBC}{46}{subsubsection.6.3.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.3.2}isPeriodic}{46}{subsubsection.6.3.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3.3}nBC}{46}{subsubsection.6.3.3.3}%
+\contentsline {section}{\numberline {6.4}ccfd/src/boundary.h File Reference}{47}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{47}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{48}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}boundary()}{48}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}setBCatBarys()}{48}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}setBCatSides()}{49}{subsubsection.6.4.2.3}%
+\contentsline {subsection}{\numberline {6.4.3}Variable Documentation}{49}{subsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.1}firstBC}{49}{subsubsection.6.4.3.1}%
+\contentsline {subsubsection}{\numberline {6.4.3.2}isPeriodic}{49}{subsubsection.6.4.3.2}%
+\contentsline {subsubsection}{\numberline {6.4.3.3}nBC}{49}{subsubsection.6.4.3.3}%
+\contentsline {section}{\numberline {6.5}ccfd/src/equation.c File Reference}{50}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{50}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Variable Documentation}{50}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}cp}{51}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}doCalcSource}{51}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}gam}{51}{subsubsection.6.5.2.3}%
+\contentsline {subsubsection}{\numberline {6.5.2.4}gam1}{51}{subsubsection.6.5.2.4}%
+\contentsline {subsubsection}{\numberline {6.5.2.5}gam1q}{51}{subsubsection.6.5.2.5}%
+\contentsline {subsubsection}{\numberline {6.5.2.6}gam2}{52}{subsubsection.6.5.2.6}%
+\contentsline {subsubsection}{\numberline {6.5.2.7}iFlux}{52}{subsubsection.6.5.2.7}%
+\contentsline {subsubsection}{\numberline {6.5.2.8}intExactFunc}{52}{subsubsection.6.5.2.8}%
+\contentsline {subsubsection}{\numberline {6.5.2.9}mu}{52}{subsubsection.6.5.2.9}%
+\contentsline {subsubsection}{\numberline {6.5.2.10}pi}{52}{subsubsection.6.5.2.10}%
+\contentsline {subsubsection}{\numberline {6.5.2.11}Pr}{53}{subsubsection.6.5.2.11}%
+\contentsline {subsubsection}{\numberline {6.5.2.12}R}{53}{subsubsection.6.5.2.12}%
+\contentsline {subsubsection}{\numberline {6.5.2.13}sourceFunc}{53}{subsubsection.6.5.2.13}%
+\contentsline {subsubsection}{\numberline {6.5.2.14}sqrt2}{53}{subsubsection.6.5.2.14}%
+\contentsline {subsubsection}{\numberline {6.5.2.15}sqrt3}{53}{subsubsection.6.5.2.15}%
+\contentsline {subsubsection}{\numberline {6.5.2.16}sqrt3q}{54}{subsubsection.6.5.2.16}%
+\contentsline {section}{\numberline {6.6}ccfd/src/equation.h File Reference}{54}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{54}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Variable Documentation}{55}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}cp}{55}{subsubsection.6.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.6.2.2}doCalcSource}{55}{subsubsection.6.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.3}gam}{55}{subsubsection.6.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.6.2.4}gam1}{55}{subsubsection.6.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.6.2.5}gam1q}{56}{subsubsection.6.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.6.2.6}gam2}{56}{subsubsection.6.6.2.6}%
+\contentsline {subsubsection}{\numberline {6.6.2.7}iFlux}{56}{subsubsection.6.6.2.7}%
+\contentsline {subsubsection}{\numberline {6.6.2.8}intExactFunc}{56}{subsubsection.6.6.2.8}%
+\contentsline {subsubsection}{\numberline {6.6.2.9}mu}{56}{subsubsection.6.6.2.9}%
+\contentsline {subsubsection}{\numberline {6.6.2.10}pi}{57}{subsubsection.6.6.2.10}%
+\contentsline {subsubsection}{\numberline {6.6.2.11}Pr}{57}{subsubsection.6.6.2.11}%
+\contentsline {subsubsection}{\numberline {6.6.2.12}R}{57}{subsubsection.6.6.2.12}%
+\contentsline {subsubsection}{\numberline {6.6.2.13}sourceFunc}{57}{subsubsection.6.6.2.13}%
+\contentsline {subsubsection}{\numberline {6.6.2.14}sqrt2}{57}{subsubsection.6.6.2.14}%
+\contentsline {subsubsection}{\numberline {6.6.2.15}sqrt3}{58}{subsubsection.6.6.2.15}%
+\contentsline {subsubsection}{\numberline {6.6.2.16}sqrt3q}{58}{subsubsection.6.6.2.16}%
+\contentsline {section}{\numberline {6.7}ccfd/src/equation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Of\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.c File Reference}{58}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{58}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Function Documentation}{59}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}charCons()}{59}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}consChar()}{59}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}consPrim()}{59}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}primCons()}{60}{subsubsection.6.7.2.4}%
+\contentsline {section}{\numberline {6.8}ccfd/src/equation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Of\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State.h File Reference}{60}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{61}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Function Documentation}{61}{subsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.1}charCons()}{61}{subsubsection.6.8.2.1}%
+\contentsline {subsubsection}{\numberline {6.8.2.2}consChar()}{61}{subsubsection.6.8.2.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.3}consPrim()}{62}{subsubsection.6.8.2.3}%
+\contentsline {subsubsection}{\numberline {6.8.2.4}primCons()}{62}{subsubsection.6.8.2.4}%
+\contentsline {section}{\numberline {6.9}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Function.c File Reference}{62}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{63}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Function Documentation}{63}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}exactFunc()}{63}{subsubsection.6.9.2.1}%
+\contentsline {section}{\numberline {6.10}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Function.h File Reference}{64}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{64}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Function Documentation}{64}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}exactFunc()}{64}{subsubsection.6.10.2.1}%
+\contentsline {section}{\numberline {6.11}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Riemann.c File Reference}{65}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{65}{subsection.6.11.1}%
+\contentsline {subsection}{\numberline {6.11.2}Function Documentation}{66}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}exactRiemann()}{66}{subsubsection.6.11.2.1}%
+\contentsline {subsubsection}{\numberline {6.11.2.2}preFun()}{66}{subsubsection.6.11.2.2}%
+\contentsline {subsection}{\numberline {6.11.3}Variable Documentation}{68}{subsection.6.11.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.1}G}{68}{subsubsection.6.11.3.1}%
+\contentsline {subsubsection}{\numberline {6.11.3.2}nIter}{68}{subsubsection.6.11.3.2}%
+\contentsline {subsubsection}{\numberline {6.11.3.3}tol}{68}{subsubsection.6.11.3.3}%
+\contentsline {section}{\numberline {6.12}ccfd/src/exact\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Riemann.h File Reference}{68}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{69}{subsection.6.12.1}%
+\contentsline {subsection}{\numberline {6.12.2}Function Documentation}{69}{subsection.6.12.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.1}exactRiemann()}{69}{subsubsection.6.12.2.1}%
+\contentsline {section}{\numberline {6.13}ccfd/src/finite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Volume.c File Reference}{70}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Detailed Description}{70}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Function Documentation}{70}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}fvTimeDerivative()}{71}{subsubsection.6.13.2.1}%
+\contentsline {subsection}{\numberline {6.13.3}Variable Documentation}{71}{subsection.6.13.3}%
+\contentsline {subsubsection}{\numberline {6.13.3.1}fluxFunction}{71}{subsubsection.6.13.3.1}%
+\contentsline {subsubsection}{\numberline {6.13.3.2}spatialOrder}{71}{subsubsection.6.13.3.2}%
+\contentsline {section}{\numberline {6.14}ccfd/src/finite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Volume.h File Reference}{71}{section.6.14}%
+\contentsline {subsection}{\numberline {6.14.1}Detailed Description}{72}{subsection.6.14.1}%
+\contentsline {subsection}{\numberline {6.14.2}Function Documentation}{72}{subsection.6.14.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.1}fvTimeDerivative()}{72}{subsubsection.6.14.2.1}%
+\contentsline {subsection}{\numberline {6.14.3}Variable Documentation}{72}{subsection.6.14.3}%
+\contentsline {subsubsection}{\numberline {6.14.3.1}fluxFunction}{72}{subsubsection.6.14.3.1}%
+\contentsline {subsubsection}{\numberline {6.14.3.2}spatialOrder}{73}{subsubsection.6.14.3.2}%
+\contentsline {section}{\numberline {6.15}ccfd/src/flux\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Calculation.c File Reference}{73}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{74}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.2}Function Documentation}{74}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}convectiveFlux()}{74}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}flux\_ausmd()}{75}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}flux\_ausmdv()}{75}{subsubsection.6.15.2.3}%
+\contentsline {subsubsection}{\numberline {6.15.2.4}flux\_cen()}{76}{subsubsection.6.15.2.4}%
+\contentsline {subsubsection}{\numberline {6.15.2.5}flux\_god()}{77}{subsubsection.6.15.2.5}%
+\contentsline {subsubsection}{\numberline {6.15.2.6}flux\_hll()}{77}{subsubsection.6.15.2.6}%
+\contentsline {subsubsection}{\numberline {6.15.2.7}flux\_hllc()}{78}{subsubsection.6.15.2.7}%
+\contentsline {subsubsection}{\numberline {6.15.2.8}flux\_hlle()}{79}{subsubsection.6.15.2.8}%
+\contentsline {subsubsection}{\numberline {6.15.2.9}flux\_lxf()}{79}{subsubsection.6.15.2.9}%
+\contentsline {subsubsection}{\numberline {6.15.2.10}flux\_roe()}{80}{subsubsection.6.15.2.10}%
+\contentsline {subsubsection}{\numberline {6.15.2.11}flux\_stw()}{80}{subsubsection.6.15.2.11}%
+\contentsline {subsubsection}{\numberline {6.15.2.12}flux\_vanleer()}{81}{subsubsection.6.15.2.12}%
+\contentsline {subsubsection}{\numberline {6.15.2.13}fluxCalculation()}{82}{subsubsection.6.15.2.13}%
+\contentsline {section}{\numberline {6.16}ccfd/src/flux\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Calculation.h File Reference}{82}{section.6.16}%
+\contentsline {subsection}{\numberline {6.16.1}Detailed Description}{82}{subsection.6.16.1}%
+\contentsline {subsection}{\numberline {6.16.2}Function Documentation}{82}{subsection.6.16.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.1}fluxCalculation()}{83}{subsubsection.6.16.2.1}%
+\contentsline {section}{\numberline {6.17}ccfd/src/initial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition.c File Reference}{83}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Detailed Description}{84}{subsection.6.17.1}%
+\contentsline {subsection}{\numberline {6.17.2}Variable Documentation}{84}{subsection.6.17.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}alpha}{84}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.2}domainID}{84}{subsubsection.6.17.2.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.3}icType}{84}{subsubsection.6.17.2.3}%
+\contentsline {subsubsection}{\numberline {6.17.2.4}nDomains}{85}{subsubsection.6.17.2.4}%
+\contentsline {subsubsection}{\numberline {6.17.2.5}refState}{85}{subsubsection.6.17.2.5}%
+\contentsline {subsubsection}{\numberline {6.17.2.6}rp1Dinterface}{85}{subsubsection.6.17.2.6}%
+\contentsline {section}{\numberline {6.18}ccfd/src/initial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition.h File Reference}{85}{section.6.18}%
+\contentsline {subsection}{\numberline {6.18.1}Detailed Description}{86}{subsection.6.18.1}%
+\contentsline {subsection}{\numberline {6.18.2}Variable Documentation}{86}{subsection.6.18.2}%
+\contentsline {subsubsection}{\numberline {6.18.2.1}alpha}{86}{subsubsection.6.18.2.1}%
+\contentsline {subsubsection}{\numberline {6.18.2.2}domainID}{86}{subsubsection.6.18.2.2}%
+\contentsline {subsubsection}{\numberline {6.18.2.3}icType}{86}{subsubsection.6.18.2.3}%
+\contentsline {subsubsection}{\numberline {6.18.2.4}nDomains}{86}{subsubsection.6.18.2.4}%
+\contentsline {subsubsection}{\numberline {6.18.2.5}refState}{87}{subsubsection.6.18.2.5}%
+\contentsline {subsubsection}{\numberline {6.18.2.6}rp1Dinterface}{87}{subsubsection.6.18.2.6}%
+\contentsline {section}{\numberline {6.19}ccfd/src/linear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.c File Reference}{87}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Detailed Description}{88}{subsection.6.19.1}%
+\contentsline {subsection}{\numberline {6.19.2}Function Documentation}{88}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}buildMatrix()}{88}{subsubsection.6.19.2.1}%
+\contentsline {subsubsection}{\numberline {6.19.2.2}calcDinv()}{89}{subsubsection.6.19.2.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.3}GMRES\_M()}{89}{subsubsection.6.19.2.3}%
+\contentsline {subsubsection}{\numberline {6.19.2.4}LUSGS()}{90}{subsubsection.6.19.2.4}%
+\contentsline {subsubsection}{\numberline {6.19.2.5}matrixVector()}{90}{subsubsection.6.19.2.5}%
+\contentsline {subsubsection}{\numberline {6.19.2.6}vectorDotProduct()}{91}{subsubsection.6.19.2.6}%
+\contentsline {subsection}{\numberline {6.19.3}Variable Documentation}{91}{subsection.6.19.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.1}D}{91}{subsubsection.6.19.3.1}%
+\contentsline {subsubsection}{\numberline {6.19.3.2}deltaXstar}{91}{subsubsection.6.19.3.2}%
+\contentsline {subsubsection}{\numberline {6.19.3.3}Dinv}{92}{subsubsection.6.19.3.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.4}dRdU}{92}{subsubsection.6.19.3.4}%
+\contentsline {subsubsection}{\numberline {6.19.3.5}eps2newton}{92}{subsubsection.6.19.3.5}%
+\contentsline {subsubsection}{\numberline {6.19.3.6}eps2newton\_sq}{92}{subsubsection.6.19.3.6}%
+\contentsline {subsubsection}{\numberline {6.19.3.7}epsGMRES}{92}{subsubsection.6.19.3.7}%
+\contentsline {subsubsection}{\numberline {6.19.3.8}gamEW}{93}{subsubsection.6.19.3.8}%
+\contentsline {subsubsection}{\numberline {6.19.3.9}nGMRESiterGlobal}{93}{subsubsection.6.19.3.9}%
+\contentsline {subsubsection}{\numberline {6.19.3.10}nInnerGMRES}{93}{subsubsection.6.19.3.10}%
+\contentsline {subsubsection}{\numberline {6.19.3.11}nInnerNewton}{93}{subsubsection.6.19.3.11}%
+\contentsline {subsubsection}{\numberline {6.19.3.12}nKdim}{93}{subsubsection.6.19.3.12}%
+\contentsline {subsubsection}{\numberline {6.19.3.13}nNewtonIter}{94}{subsubsection.6.19.3.13}%
+\contentsline {subsubsection}{\numberline {6.19.3.14}nNewtonIterGlobal}{94}{subsubsection.6.19.3.14}%
+\contentsline {subsubsection}{\numberline {6.19.3.15}R0}{94}{subsubsection.6.19.3.15}%
+\contentsline {subsubsection}{\numberline {6.19.3.16}R\_XK}{94}{subsubsection.6.19.3.16}%
+\contentsline {subsubsection}{\numberline {6.19.3.17}rEps0}{94}{subsubsection.6.19.3.17}%
+\contentsline {subsubsection}{\numberline {6.19.3.18}srEps0}{95}{subsubsection.6.19.3.18}%
+\contentsline {subsubsection}{\numberline {6.19.3.19}usePrecond}{95}{subsubsection.6.19.3.19}%
+\contentsline {subsubsection}{\numberline {6.19.3.20}V}{95}{subsubsection.6.19.3.20}%
+\contentsline {subsubsection}{\numberline {6.19.3.21}W}{95}{subsubsection.6.19.3.21}%
+\contentsline {subsubsection}{\numberline {6.19.3.22}XK}{95}{subsubsection.6.19.3.22}%
+\contentsline {subsubsection}{\numberline {6.19.3.23}Z}{96}{subsubsection.6.19.3.23}%
+\contentsline {section}{\numberline {6.20}ccfd/src/linear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.h File Reference}{96}{section.6.20}%
+\contentsline {subsection}{\numberline {6.20.1}Detailed Description}{97}{subsection.6.20.1}%
+\contentsline {subsection}{\numberline {6.20.2}Function Documentation}{97}{subsection.6.20.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.1}GMRES\_M()}{97}{subsubsection.6.20.2.1}%
+\contentsline {subsubsection}{\numberline {6.20.2.2}vectorDotProduct()}{97}{subsubsection.6.20.2.2}%
+\contentsline {subsection}{\numberline {6.20.3}Variable Documentation}{98}{subsection.6.20.3}%
+\contentsline {subsubsection}{\numberline {6.20.3.1}eps2newton}{98}{subsubsection.6.20.3.1}%
+\contentsline {subsubsection}{\numberline {6.20.3.2}eps2newton\_sq}{98}{subsubsection.6.20.3.2}%
+\contentsline {subsubsection}{\numberline {6.20.3.3}epsGMRES}{98}{subsubsection.6.20.3.3}%
+\contentsline {subsubsection}{\numberline {6.20.3.4}gamEW}{99}{subsubsection.6.20.3.4}%
+\contentsline {subsubsection}{\numberline {6.20.3.5}nGMRESiterGlobal}{99}{subsubsection.6.20.3.5}%
+\contentsline {subsubsection}{\numberline {6.20.3.6}nInnerGMRES}{99}{subsubsection.6.20.3.6}%
+\contentsline {subsubsection}{\numberline {6.20.3.7}nInnerNewton}{99}{subsubsection.6.20.3.7}%
+\contentsline {subsubsection}{\numberline {6.20.3.8}nKdim}{99}{subsubsection.6.20.3.8}%
+\contentsline {subsubsection}{\numberline {6.20.3.9}nNewtonIter}{100}{subsubsection.6.20.3.9}%
+\contentsline {subsubsection}{\numberline {6.20.3.10}nNewtonIterGlobal}{100}{subsubsection.6.20.3.10}%
+\contentsline {subsubsection}{\numberline {6.20.3.11}R\_XK}{100}{subsubsection.6.20.3.11}%
+\contentsline {subsubsection}{\numberline {6.20.3.12}rEps0}{100}{subsubsection.6.20.3.12}%
+\contentsline {subsubsection}{\numberline {6.20.3.13}srEps0}{100}{subsubsection.6.20.3.13}%
+\contentsline {subsubsection}{\numberline {6.20.3.14}usePrecond}{101}{subsubsection.6.20.3.14}%
+\contentsline {subsubsection}{\numberline {6.20.3.15}XK}{101}{subsubsection.6.20.3.15}%
+\contentsline {section}{\numberline {6.21}ccfd/src/main.c File Reference}{101}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Detailed Description}{101}{subsection.6.21.1}%
+\contentsline {subsection}{\numberline {6.21.2}Function Documentation}{102}{subsection.6.21.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.1}main()}{102}{subsubsection.6.21.2.1}%
+\contentsline {section}{\numberline {6.22}ccfd/src/main.h File Reference}{102}{section.6.22}%
+\contentsline {subsection}{\numberline {6.22.1}Detailed Description}{104}{subsection.6.22.1}%
+\contentsline {subsection}{\numberline {6.22.2}Macro Definition Documentation}{104}{subsection.6.22.2}%
+\contentsline {subsubsection}{\numberline {6.22.2.1}STRLEN}{104}{subsubsection.6.22.2.1}%
+\contentsline {subsection}{\numberline {6.22.3}Enumeration Type Documentation}{104}{subsection.6.22.3}%
+\contentsline {subsubsection}{\numberline {6.22.3.1}boundaryConditionType}{104}{subsubsection.6.22.3.1}%
+\contentsline {subsubsection}{\numberline {6.22.3.2}cartesianMeshSides}{105}{subsubsection.6.22.3.2}%
+\contentsline {subsubsection}{\numberline {6.22.3.3}clcdResiduals}{105}{subsubsection.6.22.3.3}%
+\contentsline {subsubsection}{\numberline {6.22.3.4}conservativeVariables}{105}{subsubsection.6.22.3.4}%
+\contentsline {subsubsection}{\numberline {6.22.3.5}directions}{105}{subsubsection.6.22.3.5}%
+\contentsline {subsubsection}{\numberline {6.22.3.6}fluxFunction}{106}{subsubsection.6.22.3.6}%
+\contentsline {subsubsection}{\numberline {6.22.3.7}generalParameters}{106}{subsubsection.6.22.3.7}%
+\contentsline {subsubsection}{\numberline {6.22.3.8}ioFormat}{106}{subsubsection.6.22.3.8}%
+\contentsline {subsubsection}{\numberline {6.22.3.9}limiterFunction}{107}{subsubsection.6.22.3.9}%
+\contentsline {subsubsection}{\numberline {6.22.3.10}meshType}{107}{subsubsection.6.22.3.10}%
+\contentsline {subsubsection}{\numberline {6.22.3.11}primitiveVariables}{107}{subsubsection.6.22.3.11}%
+\contentsline {section}{\numberline {6.23}ccfd/src/mem\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.c File Reference}{108}{section.6.23}%
+\contentsline {subsection}{\numberline {6.23.1}Detailed Description}{108}{subsection.6.23.1}%
+\contentsline {subsection}{\numberline {6.23.2}Function Documentation}{108}{subsection.6.23.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.1}dyn2DcgsizeArray()}{108}{subsubsection.6.23.2.1}%
+\contentsline {subsubsection}{\numberline {6.23.2.2}dyn2DdblArray()}{109}{subsubsection.6.23.2.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.3}dyn2DintArray()}{109}{subsubsection.6.23.2.3}%
+\contentsline {subsubsection}{\numberline {6.23.2.4}dyn3DdblArray()}{110}{subsubsection.6.23.2.4}%
+\contentsline {subsubsection}{\numberline {6.23.2.5}dyn3DintArray()}{110}{subsubsection.6.23.2.5}%
+\contentsline {subsubsection}{\numberline {6.23.2.6}dyn4DdblArray()}{111}{subsubsection.6.23.2.6}%
+\contentsline {subsubsection}{\numberline {6.23.2.7}dynStringArray()}{111}{subsubsection.6.23.2.7}%
+\contentsline {section}{\numberline {6.24}ccfd/src/mem\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.h File Reference}{111}{section.6.24}%
+\contentsline {subsection}{\numberline {6.24.1}Detailed Description}{112}{subsection.6.24.1}%
+\contentsline {subsection}{\numberline {6.24.2}Function Documentation}{112}{subsection.6.24.2}%
+\contentsline {subsubsection}{\numberline {6.24.2.1}dyn2DcgsizeArray()}{112}{subsubsection.6.24.2.1}%
+\contentsline {subsubsection}{\numberline {6.24.2.2}dyn2DdblArray()}{113}{subsubsection.6.24.2.2}%
+\contentsline {subsubsection}{\numberline {6.24.2.3}dyn2DintArray()}{113}{subsubsection.6.24.2.3}%
+\contentsline {subsubsection}{\numberline {6.24.2.4}dyn3DdblArray()}{113}{subsubsection.6.24.2.4}%
+\contentsline {subsubsection}{\numberline {6.24.2.5}dyn3DintArray()}{114}{subsubsection.6.24.2.5}%
+\contentsline {subsubsection}{\numberline {6.24.2.6}dyn4DdblArray()}{114}{subsubsection.6.24.2.6}%
+\contentsline {subsubsection}{\numberline {6.24.2.7}dynStringArray()}{115}{subsubsection.6.24.2.7}%
+\contentsline {section}{\numberline {6.25}ccfd/src/mesh.c File Reference}{115}{section.6.25}%
+\contentsline {subsection}{\numberline {6.25.1}Detailed Description}{117}{subsection.6.25.1}%
+\contentsline {subsection}{\numberline {6.25.2}Function Documentation}{117}{subsection.6.25.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.1}compare()}{117}{subsubsection.6.25.2.1}%
+\contentsline {subsubsection}{\numberline {6.25.2.2}createCartMesh()}{118}{subsubsection.6.25.2.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.3}createElemInfo()}{118}{subsubsection.6.25.2.3}%
+\contentsline {subsubsection}{\numberline {6.25.2.4}createMesh()}{119}{subsubsection.6.25.2.4}%
+\contentsline {subsubsection}{\numberline {6.25.2.5}createReconstructionInfo()}{119}{subsubsection.6.25.2.5}%
+\contentsline {subsubsection}{\numberline {6.25.2.6}createSideInfo()}{119}{subsubsection.6.25.2.6}%
+\contentsline {subsubsection}{\numberline {6.25.2.7}readCGNS()}{120}{subsubsection.6.25.2.7}%
+\contentsline {subsubsection}{\numberline {6.25.2.8}readEMC2()}{120}{subsubsection.6.25.2.8}%
+\contentsline {subsubsection}{\numberline {6.25.2.9}readGmsh()}{121}{subsubsection.6.25.2.9}%
+\contentsline {subsection}{\numberline {6.25.3}Variable Documentation}{121}{subsection.6.25.3}%
+\contentsline {subsubsection}{\numberline {6.25.3.1}BCside}{122}{subsubsection.6.25.3.1}%
+\contentsline {subsubsection}{\numberline {6.25.3.2}cartMesh}{122}{subsubsection.6.25.3.2}%
+\contentsline {subsubsection}{\numberline {6.25.3.3}dxRef}{122}{subsubsection.6.25.3.3}%
+\contentsline {subsubsection}{\numberline {6.25.3.4}elem}{122}{subsubsection.6.25.3.4}%
+\contentsline {subsubsection}{\numberline {6.25.3.5}firstBCside}{122}{subsubsection.6.25.3.5}%
+\contentsline {subsubsection}{\numberline {6.25.3.6}firstElem}{123}{subsubsection.6.25.3.6}%
+\contentsline {subsubsection}{\numberline {6.25.3.7}firstNode}{123}{subsubsection.6.25.3.7}%
+\contentsline {subsubsection}{\numberline {6.25.3.8}firstSide}{123}{subsubsection.6.25.3.8}%
+\contentsline {subsubsection}{\numberline {6.25.3.9}gridFile}{123}{subsubsection.6.25.3.9}%
+\contentsline {subsubsection}{\numberline {6.25.3.10}meshFormat}{123}{subsubsection.6.25.3.10}%
+\contentsline {subsubsection}{\numberline {6.25.3.11}meshType}{124}{subsubsection.6.25.3.11}%
+\contentsline {subsubsection}{\numberline {6.25.3.12}nBCsides}{124}{subsubsection.6.25.3.12}%
+\contentsline {subsubsection}{\numberline {6.25.3.13}nElems}{124}{subsubsection.6.25.3.13}%
+\contentsline {subsubsection}{\numberline {6.25.3.14}nInnerSides}{124}{subsubsection.6.25.3.14}%
+\contentsline {subsubsection}{\numberline {6.25.3.15}nNodes}{124}{subsubsection.6.25.3.15}%
+\contentsline {subsubsection}{\numberline {6.25.3.16}nQuads}{125}{subsubsection.6.25.3.16}%
+\contentsline {subsubsection}{\numberline {6.25.3.17}nSides}{125}{subsubsection.6.25.3.17}%
+\contentsline {subsubsection}{\numberline {6.25.3.18}nTrias}{125}{subsubsection.6.25.3.18}%
+\contentsline {subsubsection}{\numberline {6.25.3.19}side}{125}{subsubsection.6.25.3.19}%
+\contentsline {subsubsection}{\numberline {6.25.3.20}strIniCondFile}{125}{subsubsection.6.25.3.20}%
+\contentsline {subsubsection}{\numberline {6.25.3.21}strMeshFile}{126}{subsubsection.6.25.3.21}%
+\contentsline {subsubsection}{\numberline {6.25.3.22}strMeshFormat}{126}{subsubsection.6.25.3.22}%
+\contentsline {subsubsection}{\numberline {6.25.3.23}totalArea\_q}{126}{subsubsection.6.25.3.23}%
+\contentsline {subsubsection}{\numberline {6.25.3.24}xMax}{126}{subsubsection.6.25.3.24}%
+\contentsline {subsubsection}{\numberline {6.25.3.25}xMin}{126}{subsubsection.6.25.3.25}%
+\contentsline {subsubsection}{\numberline {6.25.3.26}yMax}{127}{subsubsection.6.25.3.26}%
+\contentsline {subsubsection}{\numberline {6.25.3.27}yMin}{127}{subsubsection.6.25.3.27}%
+\contentsline {section}{\numberline {6.26}ccfd/src/mesh.h File Reference}{127}{section.6.26}%
+\contentsline {subsection}{\numberline {6.26.1}Detailed Description}{128}{subsection.6.26.1}%
+\contentsline {subsection}{\numberline {6.26.2}Variable Documentation}{128}{subsection.6.26.2}%
+\contentsline {subsubsection}{\numberline {6.26.2.1}BCside}{128}{subsubsection.6.26.2.1}%
+\contentsline {subsubsection}{\numberline {6.26.2.2}cartMesh}{129}{subsubsection.6.26.2.2}%
+\contentsline {subsubsection}{\numberline {6.26.2.3}dxRef}{129}{subsubsection.6.26.2.3}%
+\contentsline {subsubsection}{\numberline {6.26.2.4}elem}{129}{subsubsection.6.26.2.4}%
+\contentsline {subsubsection}{\numberline {6.26.2.5}firstBCside}{129}{subsubsection.6.26.2.5}%
+\contentsline {subsubsection}{\numberline {6.26.2.6}firstElem}{129}{subsubsection.6.26.2.6}%
+\contentsline {subsubsection}{\numberline {6.26.2.7}firstNode}{130}{subsubsection.6.26.2.7}%
+\contentsline {subsubsection}{\numberline {6.26.2.8}firstSide}{130}{subsubsection.6.26.2.8}%
+\contentsline {subsubsection}{\numberline {6.26.2.9}gridFile}{130}{subsubsection.6.26.2.9}%
+\contentsline {subsubsection}{\numberline {6.26.2.10}meshFormat}{130}{subsubsection.6.26.2.10}%
+\contentsline {subsubsection}{\numberline {6.26.2.11}meshType}{130}{subsubsection.6.26.2.11}%
+\contentsline {subsubsection}{\numberline {6.26.2.12}nBCsides}{130}{subsubsection.6.26.2.12}%
+\contentsline {subsubsection}{\numberline {6.26.2.13}nElems}{131}{subsubsection.6.26.2.13}%
+\contentsline {subsubsection}{\numberline {6.26.2.14}nInnerSides}{131}{subsubsection.6.26.2.14}%
+\contentsline {subsubsection}{\numberline {6.26.2.15}nNodes}{131}{subsubsection.6.26.2.15}%
+\contentsline {subsubsection}{\numberline {6.26.2.16}nQuads}{131}{subsubsection.6.26.2.16}%
+\contentsline {subsubsection}{\numberline {6.26.2.17}nSides}{131}{subsubsection.6.26.2.17}%
+\contentsline {subsubsection}{\numberline {6.26.2.18}nTrias}{132}{subsubsection.6.26.2.18}%
+\contentsline {subsubsection}{\numberline {6.26.2.19}side}{132}{subsubsection.6.26.2.19}%
+\contentsline {subsubsection}{\numberline {6.26.2.20}strIniCondFile}{132}{subsubsection.6.26.2.20}%
+\contentsline {subsubsection}{\numberline {6.26.2.21}strMeshFile}{132}{subsubsection.6.26.2.21}%
+\contentsline {subsubsection}{\numberline {6.26.2.22}strMeshFormat}{132}{subsubsection.6.26.2.22}%
+\contentsline {subsubsection}{\numberline {6.26.2.23}totalArea\_q}{133}{subsubsection.6.26.2.23}%
+\contentsline {subsubsection}{\numberline {6.26.2.24}xMax}{133}{subsubsection.6.26.2.24}%
+\contentsline {subsubsection}{\numberline {6.26.2.25}xMin}{133}{subsubsection.6.26.2.25}%
+\contentsline {subsubsection}{\numberline {6.26.2.26}yMax}{133}{subsubsection.6.26.2.26}%
+\contentsline {subsubsection}{\numberline {6.26.2.27}yMin}{133}{subsubsection.6.26.2.27}%
+\contentsline {section}{\numberline {6.27}ccfd/src/output.c File Reference}{134}{section.6.27}%
+\contentsline {subsection}{\numberline {6.27.1}Detailed Description}{135}{subsection.6.27.1}%
+\contentsline {subsection}{\numberline {6.27.2}Function Documentation}{135}{subsection.6.27.2}%
+\contentsline {subsubsection}{\numberline {6.27.2.1}cgnsFinalizeOutput()}{135}{subsubsection.6.27.2.1}%
+\contentsline {subsubsection}{\numberline {6.27.2.2}cgnsOutput()}{135}{subsubsection.6.27.2.2}%
+\contentsline {subsubsection}{\numberline {6.27.2.3}csvOutput()}{136}{subsubsection.6.27.2.3}%
+\contentsline {subsubsection}{\numberline {6.27.2.4}curveOutput()}{136}{subsubsection.6.27.2.4}%
+\contentsline {subsubsection}{\numberline {6.27.2.5}dataOutput()}{137}{subsubsection.6.27.2.5}%
+\contentsline {subsection}{\numberline {6.27.3}Variable Documentation}{137}{subsection.6.27.3}%
+\contentsline {subsubsection}{\numberline {6.27.3.1}doErrorOutput}{137}{subsubsection.6.27.3.1}%
+\contentsline {subsubsection}{\numberline {6.27.3.2}IOiterInterval}{137}{subsubsection.6.27.3.2}%
+\contentsline {subsubsection}{\numberline {6.27.3.3}IOtimeInterval}{137}{subsubsection.6.27.3.3}%
+\contentsline {subsubsection}{\numberline {6.27.3.4}iVisuProg}{138}{subsubsection.6.27.3.4}%
+\contentsline {subsubsection}{\numberline {6.27.3.5}outputTimes}{138}{subsubsection.6.27.3.5}%
+\contentsline {subsubsection}{\numberline {6.27.3.6}resFile}{138}{subsubsection.6.27.3.6}%
+\contentsline {subsubsection}{\numberline {6.27.3.7}strOutFile}{138}{subsubsection.6.27.3.7}%
+\contentsline {section}{\numberline {6.28}ccfd/src/output.h File Reference}{138}{section.6.28}%
+\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{139}{subsection.6.28.1}%
+\contentsline {subsection}{\numberline {6.28.2}Function Documentation}{139}{subsection.6.28.2}%
+\contentsline {subsubsection}{\numberline {6.28.2.1}dataOutput()}{139}{subsubsection.6.28.2.1}%
+\contentsline {subsection}{\numberline {6.28.3}Variable Documentation}{140}{subsection.6.28.3}%
+\contentsline {subsubsection}{\numberline {6.28.3.1}doErrorOutput}{140}{subsubsection.6.28.3.1}%
+\contentsline {subsubsection}{\numberline {6.28.3.2}IOiterInterval}{140}{subsubsection.6.28.3.2}%
+\contentsline {subsubsection}{\numberline {6.28.3.3}IOtimeInterval}{140}{subsubsection.6.28.3.3}%
+\contentsline {subsubsection}{\numberline {6.28.3.4}iVisuProg}{140}{subsubsection.6.28.3.4}%
+\contentsline {subsubsection}{\numberline {6.28.3.5}outputTimes}{141}{subsubsection.6.28.3.5}%
+\contentsline {subsubsection}{\numberline {6.28.3.6}resFile}{141}{subsubsection.6.28.3.6}%
+\contentsline {subsubsection}{\numberline {6.28.3.7}strOutFile}{141}{subsubsection.6.28.3.7}%
+\contentsline {section}{\numberline {6.29}ccfd/src/read\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.c File Reference}{141}{section.6.29}%
+\contentsline {subsection}{\numberline {6.29.1}Detailed Description}{142}{subsection.6.29.1}%
+\contentsline {subsection}{\numberline {6.29.2}Function Documentation}{142}{subsection.6.29.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.1}countKeys()}{142}{subsubsection.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.2}deleteCmd()}{143}{subsubsection.6.29.2.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.3}fillCmds()}{143}{subsubsection.6.29.2.3}%
+\contentsline {subsubsection}{\numberline {6.29.2.4}findCmd()}{144}{subsubsection.6.29.2.4}%
+\contentsline {subsubsection}{\numberline {6.29.2.5}getBool()}{144}{subsubsection.6.29.2.5}%
+\contentsline {subsubsection}{\numberline {6.29.2.6}getDbl()}{145}{subsubsection.6.29.2.6}%
+\contentsline {subsubsection}{\numberline {6.29.2.7}getDblArray()}{145}{subsubsection.6.29.2.7}%
+\contentsline {subsubsection}{\numberline {6.29.2.8}getInt()}{146}{subsubsection.6.29.2.8}%
+\contentsline {subsubsection}{\numberline {6.29.2.9}getIntArray()}{146}{subsubsection.6.29.2.9}%
+\contentsline {subsubsection}{\numberline {6.29.2.10}getStr()}{147}{subsubsection.6.29.2.10}%
+\contentsline {subsection}{\numberline {6.29.3}Variable Documentation}{147}{subsection.6.29.3}%
+\contentsline {subsubsection}{\numberline {6.29.3.1}firstCmd}{147}{subsubsection.6.29.3.1}%
+\contentsline {section}{\numberline {6.30}ccfd/src/read\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tools.h File Reference}{147}{section.6.30}%
+\contentsline {subsection}{\numberline {6.30.1}Detailed Description}{148}{subsection.6.30.1}%
+\contentsline {subsection}{\numberline {6.30.2}Function Documentation}{148}{subsection.6.30.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.1}countKeys()}{148}{subsubsection.6.30.2.1}%
+\contentsline {subsubsection}{\numberline {6.30.2.2}fillCmds()}{149}{subsubsection.6.30.2.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.3}getBool()}{149}{subsubsection.6.30.2.3}%
+\contentsline {subsubsection}{\numberline {6.30.2.4}getDbl()}{150}{subsubsection.6.30.2.4}%
+\contentsline {subsubsection}{\numberline {6.30.2.5}getDblArray()}{150}{subsubsection.6.30.2.5}%
+\contentsline {subsubsection}{\numberline {6.30.2.6}getInt()}{151}{subsubsection.6.30.2.6}%
+\contentsline {subsubsection}{\numberline {6.30.2.7}getIntArray()}{151}{subsubsection.6.30.2.7}%
+\contentsline {subsubsection}{\numberline {6.30.2.8}getStr()}{152}{subsubsection.6.30.2.8}%
+\contentsline {section}{\numberline {6.31}ccfd/src/reconstruction.c File Reference}{152}{section.6.31}%
+\contentsline {subsection}{\numberline {6.31.1}Detailed Description}{153}{subsection.6.31.1}%
+\contentsline {subsection}{\numberline {6.31.2}Function Documentation}{153}{subsection.6.31.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.1}limiterBarthJespersen()}{153}{subsubsection.6.31.2.1}%
+\contentsline {subsubsection}{\numberline {6.31.2.2}limiterVenkatakrishnan()}{153}{subsubsection.6.31.2.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.3}spatialReconstruction()}{154}{subsubsection.6.31.2.3}%
+\contentsline {subsection}{\numberline {6.31.3}Variable Documentation}{154}{subsection.6.31.3}%
+\contentsline {subsubsection}{\numberline {6.31.3.1}limiter}{154}{subsubsection.6.31.3.1}%
+\contentsline {subsubsection}{\numberline {6.31.3.2}venk\_k}{155}{subsubsection.6.31.3.2}%
+\contentsline {section}{\numberline {6.32}ccfd/src/reconstruction.h File Reference}{155}{section.6.32}%
+\contentsline {subsection}{\numberline {6.32.1}Detailed Description}{155}{subsection.6.32.1}%
+\contentsline {subsection}{\numberline {6.32.2}Function Documentation}{155}{subsection.6.32.2}%
+\contentsline {subsubsection}{\numberline {6.32.2.1}spatialReconstruction()}{155}{subsubsection.6.32.2.1}%
+\contentsline {subsection}{\numberline {6.32.3}Variable Documentation}{156}{subsection.6.32.3}%
+\contentsline {subsubsection}{\numberline {6.32.3.1}limiter}{156}{subsubsection.6.32.3.1}%
+\contentsline {subsubsection}{\numberline {6.32.3.2}venk\_k}{156}{subsubsection.6.32.3.2}%
+\contentsline {section}{\numberline {6.33}ccfd/src/source.c File Reference}{156}{section.6.33}%
+\contentsline {subsection}{\numberline {6.33.1}Detailed Description}{157}{subsection.6.33.1}%
+\contentsline {subsection}{\numberline {6.33.2}Function Documentation}{157}{subsection.6.33.2}%
+\contentsline {subsubsection}{\numberline {6.33.2.1}calcSource()}{157}{subsubsection.6.33.2.1}%
+\contentsline {subsubsection}{\numberline {6.33.2.2}evalSource()}{157}{subsubsection.6.33.2.2}%
+\contentsline {section}{\numberline {6.34}ccfd/src/source.h File Reference}{158}{section.6.34}%
+\contentsline {subsection}{\numberline {6.34.1}Detailed Description}{158}{subsection.6.34.1}%
+\contentsline {subsection}{\numberline {6.34.2}Function Documentation}{158}{subsection.6.34.2}%
+\contentsline {subsubsection}{\numberline {6.34.2.1}calcSource()}{158}{subsubsection.6.34.2.1}%
+\contentsline {section}{\numberline {6.35}ccfd/src/time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Discretization.c File Reference}{158}{section.6.35}%
+\contentsline {subsection}{\numberline {6.35.1}Detailed Description}{160}{subsection.6.35.1}%
+\contentsline {subsection}{\numberline {6.35.2}Function Documentation}{160}{subsection.6.35.2}%
+\contentsline {subsubsection}{\numberline {6.35.2.1}calcTimeStep()}{160}{subsubsection.6.35.2.1}%
+\contentsline {subsubsection}{\numberline {6.35.2.2}explicitTimeStepEuler()}{161}{subsubsection.6.35.2.2}%
+\contentsline {subsubsection}{\numberline {6.35.2.3}explicitTimeStepRK()}{161}{subsubsection.6.35.2.3}%
+\contentsline {subsubsection}{\numberline {6.35.2.4}implicitTimeStep()}{161}{subsubsection.6.35.2.4}%
+\contentsline {subsubsection}{\numberline {6.35.2.5}timeDisc()}{162}{subsubsection.6.35.2.5}%
+\contentsline {subsection}{\numberline {6.35.3}Variable Documentation}{162}{subsection.6.35.3}%
+\contentsline {subsubsection}{\numberline {6.35.3.1}abortResidual}{162}{subsubsection.6.35.3.1}%
+\contentsline {subsubsection}{\numberline {6.35.3.2}abortVariable}{163}{subsubsection.6.35.3.2}%
+\contentsline {subsubsection}{\numberline {6.35.3.3}abortVariableName}{163}{subsubsection.6.35.3.3}%
+\contentsline {subsubsection}{\numberline {6.35.3.4}cdAbortResidual}{163}{subsubsection.6.35.3.4}%
+\contentsline {subsubsection}{\numberline {6.35.3.5}cfl}{163}{subsubsection.6.35.3.5}%
+\contentsline {subsubsection}{\numberline {6.35.3.6}clAbortResidual}{163}{subsubsection.6.35.3.6}%
+\contentsline {subsubsection}{\numberline {6.35.3.7}deltaX}{164}{subsubsection.6.35.3.7}%
+\contentsline {subsubsection}{\numberline {6.35.3.8}dfl}{164}{subsubsection.6.35.3.8}%
+\contentsline {subsubsection}{\numberline {6.35.3.9}doAbortOnCdResidual}{164}{subsubsection.6.35.3.9}%
+\contentsline {subsubsection}{\numberline {6.35.3.10}doAbortOnClResidual}{164}{subsubsection.6.35.3.10}%
+\contentsline {subsubsection}{\numberline {6.35.3.11}F\_X0}{164}{subsubsection.6.35.3.11}%
+\contentsline {subsubsection}{\numberline {6.35.3.12}F\_XK}{165}{subsubsection.6.35.3.12}%
+\contentsline {subsubsection}{\numberline {6.35.3.13}iniIterationNumber}{165}{subsubsection.6.35.3.13}%
+\contentsline {subsubsection}{\numberline {6.35.3.14}isImplicit}{165}{subsubsection.6.35.3.14}%
+\contentsline {subsubsection}{\numberline {6.35.3.15}isRestart}{165}{subsubsection.6.35.3.15}%
+\contentsline {subsubsection}{\numberline {6.35.3.16}isStationary}{165}{subsubsection.6.35.3.16}%
+\contentsline {subsubsection}{\numberline {6.35.3.17}isTimeStep1D}{166}{subsubsection.6.35.3.17}%
+\contentsline {subsubsection}{\numberline {6.35.3.18}maxIter}{166}{subsubsection.6.35.3.18}%
+\contentsline {subsubsection}{\numberline {6.35.3.19}nRKstages}{166}{subsubsection.6.35.3.19}%
+\contentsline {subsubsection}{\numberline {6.35.3.20}printIter}{166}{subsubsection.6.35.3.20}%
+\contentsline {subsubsection}{\numberline {6.35.3.21}printTime}{166}{subsubsection.6.35.3.21}%
+\contentsline {subsubsection}{\numberline {6.35.3.22}Q}{167}{subsubsection.6.35.3.22}%
+\contentsline {subsubsection}{\numberline {6.35.3.23}restartTime}{167}{subsubsection.6.35.3.23}%
+\contentsline {subsubsection}{\numberline {6.35.3.24}RKcoeff}{167}{subsubsection.6.35.3.24}%
+\contentsline {subsubsection}{\numberline {6.35.3.25}startTime}{167}{subsubsection.6.35.3.25}%
+\contentsline {subsubsection}{\numberline {6.35.3.26}stopTime}{167}{subsubsection.6.35.3.26}%
+\contentsline {subsubsection}{\numberline {6.35.3.27}t}{168}{subsubsection.6.35.3.27}%
+\contentsline {subsubsection}{\numberline {6.35.3.28}timeOrder}{168}{subsubsection.6.35.3.28}%
+\contentsline {subsubsection}{\numberline {6.35.3.29}timeOverall}{168}{subsubsection.6.35.3.29}%
+\contentsline {section}{\numberline {6.36}ccfd/src/time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Discretization.h File Reference}{168}{section.6.36}%
+\contentsline {subsection}{\numberline {6.36.1}Detailed Description}{169}{subsection.6.36.1}%
+\contentsline {subsection}{\numberline {6.36.2}Function Documentation}{169}{subsection.6.36.2}%
+\contentsline {subsubsection}{\numberline {6.36.2.1}timeDisc()}{169}{subsubsection.6.36.2.1}%
+\contentsline {subsection}{\numberline {6.36.3}Variable Documentation}{170}{subsection.6.36.3}%
+\contentsline {subsubsection}{\numberline {6.36.3.1}abortResidual}{170}{subsubsection.6.36.3.1}%
+\contentsline {subsubsection}{\numberline {6.36.3.2}abortVariable}{170}{subsubsection.6.36.3.2}%
+\contentsline {subsubsection}{\numberline {6.36.3.3}abortVariableName}{170}{subsubsection.6.36.3.3}%
+\contentsline {subsubsection}{\numberline {6.36.3.4}cdAbortResidual}{170}{subsubsection.6.36.3.4}%
+\contentsline {subsubsection}{\numberline {6.36.3.5}cfl}{170}{subsubsection.6.36.3.5}%
+\contentsline {subsubsection}{\numberline {6.36.3.6}clAbortResidual}{171}{subsubsection.6.36.3.6}%
+\contentsline {subsubsection}{\numberline {6.36.3.7}dfl}{171}{subsubsection.6.36.3.7}%
+\contentsline {subsubsection}{\numberline {6.36.3.8}doAbortOnCdResidual}{171}{subsubsection.6.36.3.8}%
+\contentsline {subsubsection}{\numberline {6.36.3.9}doAbortOnClResidual}{171}{subsubsection.6.36.3.9}%
+\contentsline {subsubsection}{\numberline {6.36.3.10}iniIterationNumber}{171}{subsubsection.6.36.3.10}%
+\contentsline {subsubsection}{\numberline {6.36.3.11}isImplicit}{172}{subsubsection.6.36.3.11}%
+\contentsline {subsubsection}{\numberline {6.36.3.12}isRestart}{172}{subsubsection.6.36.3.12}%
+\contentsline {subsubsection}{\numberline {6.36.3.13}isStationary}{172}{subsubsection.6.36.3.13}%
+\contentsline {subsubsection}{\numberline {6.36.3.14}isTimeStep1D}{172}{subsubsection.6.36.3.14}%
+\contentsline {subsubsection}{\numberline {6.36.3.15}maxIter}{172}{subsubsection.6.36.3.15}%
+\contentsline {subsubsection}{\numberline {6.36.3.16}nRKstages}{173}{subsubsection.6.36.3.16}%
+\contentsline {subsubsection}{\numberline {6.36.3.17}printIter}{173}{subsubsection.6.36.3.17}%
+\contentsline {subsubsection}{\numberline {6.36.3.18}printTime}{173}{subsubsection.6.36.3.18}%
+\contentsline {subsubsection}{\numberline {6.36.3.19}restartTime}{173}{subsubsection.6.36.3.19}%
+\contentsline {subsubsection}{\numberline {6.36.3.20}RKcoeff}{173}{subsubsection.6.36.3.20}%
+\contentsline {subsubsection}{\numberline {6.36.3.21}startTime}{174}{subsubsection.6.36.3.21}%
+\contentsline {subsubsection}{\numberline {6.36.3.22}stopTime}{174}{subsubsection.6.36.3.22}%
+\contentsline {subsubsection}{\numberline {6.36.3.23}t}{174}{subsubsection.6.36.3.23}%
+\contentsline {subsubsection}{\numberline {6.36.3.24}timeOrder}{174}{subsubsection.6.36.3.24}%
+\contentsline {subsubsection}{\numberline {6.36.3.25}timeOverall}{174}{subsubsection.6.36.3.25}%
+\contentsline {chapter}{Index}{175}{section*.78}%

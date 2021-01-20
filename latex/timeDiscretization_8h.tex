@@ -2,26 +2,16 @@
 \label{timeDiscretization_8h}\index{ccfd/src/timeDiscretization.h@{ccfd/src/timeDiscretization.h}}
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
-Include dependency graph for time\+Discretization.\+h\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=222pt]{timeDiscretization_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{timeDiscretization_8h__dep__incl}
-\end{center}
-\end{figure}
+Include dependency graph for time\+Discretization.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{timeDiscretization_8h_a8d358a7f1b63d3070c36a84867452233}\label{timeDiscretization_8h_a8d358a7f1b63d3070c36a84867452233}} 
-\#define \mbox{\hyperlink{timeDiscretization_8h_a8d358a7f1b63d3070c36a84867452233}{C\+P\+U\+\_\+\+T\+I\+ME}}()~((double)clock() / (double)C\+L\+O\+C\+K\+S\+\_\+\+P\+E\+R\+\_\+\+S\+EC)
-\begin{DoxyCompactList}\small\item\em Get the C\+PU time for a serial program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\#define \mbox{\hyperlink{timeDiscretization_8h_a8d358a7f1b63d3070c36a84867452233}{CPU\+\_\+\+TIME}}()~((double)clock() / (double)CLOCKS\+\_\+\+PER\+\_\+\+SEC)
+\begin{DoxyCompactList}\small\item\em Get the CPU time for a serial program. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -77,9 +67,9 @@ int \mbox{\hyperlink{timeDiscretization_8h_a835852fbecaf8bc03bd4071d41459d60}{pr
 \item 
 double \mbox{\hyperlink{timeDiscretization_8h_afd14c1eaa6699157322739669db120f2}{print\+Time}}
 \item 
-int \mbox{\hyperlink{timeDiscretization_8h_a0b2ffb008b64af75b3f1d2a904c5de15}{n\+R\+Kstages}}
+int \mbox{\hyperlink{timeDiscretization_8h_a0b2ffb008b64af75b3f1d2a904c5de15}{n\+RKstages}}
 \item 
-double \mbox{\hyperlink{timeDiscretization_8h_a763c08fe134b29369fd69e1072bece49}{R\+Kcoeff}} \mbox{[}6\mbox{]}
+double \mbox{\hyperlink{timeDiscretization_8h_a763c08fe134b29369fd69e1072bece49}{RKcoeff}} \mbox{[}6\mbox{]}
 \item 
 bool \mbox{\hyperlink{timeDiscretization_8h_a3a085d46709989d19d5c36f6af969029}{is\+Implicit}}
 \end{DoxyCompactItemize}
@@ -90,7 +80,7 @@ bool \mbox{\hyperlink{timeDiscretization_8h_a3a085d46709989d19d5c36f6af969029}{i
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Sat 21 Mar 2020 07\+:48\+:34 PM C\+ET 
+Sat 21 Mar 2020 07\+:48\+:34 PM CET 
 \end{DoxyDate}
 
 
@@ -107,7 +97,7 @@ Main time discretization loop.
 
 Selection of temporal integration method, as well as management of data output and analysis tools. 
 
-References abort\+Residual, abort\+Variable, abort\+Variable\+Name, analyze(), calc\+Errors(), calc\+Time\+Step(), wing\+\_\+t\+::cd, cd\+Abort\+Residual, wing\+\_\+t\+::cl, cl\+Abort\+Residual, C\+P\+U\+\_\+\+T\+I\+ME, data\+Output(), deltaX, do\+Abort\+On\+Cd\+Residual, do\+Abort\+On\+Cl\+Residual, do\+Calc\+Wing, E, explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), F\+\_\+\+X0, F\+\_\+\+XK, finalize\+Data\+Output(), has\+Exact\+Solution, implicit\+Time\+Step(), ini\+Iteration\+Number, record\+Point\+\_\+t\+::io\+File, I\+Oiter\+Interval, I\+Otime\+Interval, is\+Implicit, is\+Stationary, max\+Iter, MX, MY, n\+G\+M\+R\+E\+Siter\+Global, n\+Newton\+Iter\+Global, record\+Point\+\_\+t\+::n\+Points, n\+R\+Kstages, N\+V\+AR, print\+Iter, print\+Time, Q, record\+Point, res\+File, R\+HO, stop\+Time, t, time\+Order, and wing.
+References abort\+Residual, abort\+Variable, abort\+Variable\+Name, analyze(), calc\+Errors(), calc\+Time\+Step(), wing\+\_\+t\+::cd, cd\+Abort\+Residual, wing\+\_\+t\+::cl, cl\+Abort\+Residual, CPU\+\_\+\+TIME, data\+Output(), deltaX, do\+Abort\+On\+Cd\+Residual, do\+Abort\+On\+Cl\+Residual, do\+Calc\+Wing, E, explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), F\+\_\+\+X0, F\+\_\+\+XK, finalize\+Data\+Output(), has\+Exact\+Solution, implicit\+Time\+Step(), ini\+Iteration\+Number, record\+Point\+\_\+t\+::io\+File, IOiter\+Interval, IOtime\+Interval, is\+Implicit, is\+Stationary, max\+Iter, MX, MY, n\+GMRESiter\+Global, n\+Newton\+Iter\+Global, record\+Point\+\_\+t\+::n\+Points, n\+RKstages, NVAR, print\+Iter, print\+Time, Q, record\+Point, res\+File, RHO, stop\+Time, t, time\+Order, and wing.
 
 
 
@@ -120,7 +110,7 @@ Referenced by main().
 \index{timeDiscretization.h@{timeDiscretization.h}!abortResidual@{abortResidual}}
 \index{abortResidual@{abortResidual}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{abortResidual}{abortResidual}}
-{\footnotesize\ttfamily double abort\+Residual}
+{\footnotesize\ttfamily double abort\+Residual\hspace{0.3cm}{\ttfamily [extern]}}
 
 residual at which to abort the calculation 
 
@@ -130,7 +120,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!abortVariable@{abortVariable}}
 \index{abortVariable@{abortVariable}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{abortVariable}{abortVariable}}
-{\footnotesize\ttfamily int abort\+Variable}
+{\footnotesize\ttfamily int abort\+Variable\hspace{0.3cm}{\ttfamily [extern]}}
 
 abort variable 
 
@@ -140,7 +130,7 @@ Referenced by analyze(), init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!abortVariableName@{abortVariableName}}
 \index{abortVariableName@{abortVariableName}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{abortVariableName}{abortVariableName}}
-{\footnotesize\ttfamily char abort\+Variable\+Name\mbox{[}4\mbox{]}}
+{\footnotesize\ttfamily char abort\+Variable\+Name\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 string of the abort variable 
 
@@ -150,7 +140,7 @@ Referenced by init\+Analyze(), init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!cdAbortResidual@{cdAbortResidual}}
 \index{cdAbortResidual@{cdAbortResidual}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{cdAbortResidual}{cdAbortResidual}}
-{\footnotesize\ttfamily double cd\+Abort\+Residual}
+{\footnotesize\ttfamily double cd\+Abort\+Residual\hspace{0.3cm}{\ttfamily [extern]}}
 
 CD abort residual 
 
@@ -160,7 +150,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!cfl@{cfl}}
 \index{cfl@{cfl}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{cfl}{cfl}}
-{\footnotesize\ttfamily double cfl}
+{\footnotesize\ttfamily double cfl\hspace{0.3cm}{\ttfamily [extern]}}
 
 Courant-\/\+Friedrichs-\/\+Lewy number 
 
@@ -170,7 +160,7 @@ Referenced by calc\+Time\+Step(), and init\+Time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!clAbortResidual@{clAbortResidual}}
 \index{clAbortResidual@{clAbortResidual}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{clAbortResidual}{clAbortResidual}}
-{\footnotesize\ttfamily double cl\+Abort\+Residual}
+{\footnotesize\ttfamily double cl\+Abort\+Residual\hspace{0.3cm}{\ttfamily [extern]}}
 
 CL abort residual 
 
@@ -180,7 +170,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!dfl@{dfl}}
 \index{dfl@{dfl}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{dfl}{dfl}}
-{\footnotesize\ttfamily double dfl}
+{\footnotesize\ttfamily double dfl\hspace{0.3cm}{\ttfamily [extern]}}
 
 diffusive Courant-\/\+Friedrichs-\/\+Lewy number 
 
@@ -190,7 +180,7 @@ Referenced by calc\+Time\+Step(), and init\+Time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!doAbortOnCdResidual@{doAbortOnCdResidual}}
 \index{doAbortOnCdResidual@{doAbortOnCdResidual}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{doAbortOnCdResidual}{doAbortOnCdResidual}}
-{\footnotesize\ttfamily bool do\+Abort\+On\+Cd\+Residual}
+{\footnotesize\ttfamily bool do\+Abort\+On\+Cd\+Residual\hspace{0.3cm}{\ttfamily [extern]}}
 
 CD abort flag 
 
@@ -200,7 +190,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!doAbortOnClResidual@{doAbortOnClResidual}}
 \index{doAbortOnClResidual@{doAbortOnClResidual}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{doAbortOnClResidual}{doAbortOnClResidual}}
-{\footnotesize\ttfamily bool do\+Abort\+On\+Cl\+Residual}
+{\footnotesize\ttfamily bool do\+Abort\+On\+Cl\+Residual\hspace{0.3cm}{\ttfamily [extern]}}
 
 CL abort flag 
 
@@ -210,7 +200,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!iniIterationNumber@{iniIterationNumber}}
 \index{iniIterationNumber@{iniIterationNumber}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{iniIterationNumber}{iniIterationNumber}}
-{\footnotesize\ttfamily long ini\+Iteration\+Number}
+{\footnotesize\ttfamily long ini\+Iteration\+Number\hspace{0.3cm}{\ttfamily [extern]}}
 
 initial iteration number 
 
@@ -220,7 +210,7 @@ Referenced by init\+Time\+Disc(), main(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!isImplicit@{isImplicit}}
 \index{isImplicit@{isImplicit}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{isImplicit}{isImplicit}}
-{\footnotesize\ttfamily bool is\+Implicit}
+{\footnotesize\ttfamily bool is\+Implicit\hspace{0.3cm}{\ttfamily [extern]}}
 
 implicit calculation flag 
 
@@ -230,7 +220,7 @@ Referenced by free\+Linear\+Solver(), init\+Linear\+Solver(), init\+Time\+Disc()
 \index{timeDiscretization.h@{timeDiscretization.h}!isRestart@{isRestart}}
 \index{isRestart@{isRestart}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{isRestart}{isRestart}}
-{\footnotesize\ttfamily bool is\+Restart}
+{\footnotesize\ttfamily bool is\+Restart\hspace{0.3cm}{\ttfamily [extern]}}
 
 restart flag 
 
@@ -240,7 +230,7 @@ Referenced by init\+Analyze(), init\+Mesh(), init\+Time\+Disc(), main(), and set
 \index{timeDiscretization.h@{timeDiscretization.h}!isStationary@{isStationary}}
 \index{isStationary@{isStationary}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{isStationary}{isStationary}}
-{\footnotesize\ttfamily bool is\+Stationary}
+{\footnotesize\ttfamily bool is\+Stationary\hspace{0.3cm}{\ttfamily [extern]}}
 
 flag for stationary problem 
 
@@ -250,7 +240,7 @@ Referenced by analyze(), cgns\+Finalize\+Output(), data\+Output(), init\+Analyze
 \index{timeDiscretization.h@{timeDiscretization.h}!isTimeStep1D@{isTimeStep1D}}
 \index{isTimeStep1D@{isTimeStep1D}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{isTimeStep1D}{isTimeStep1D}}
-{\footnotesize\ttfamily bool is\+Time\+Step1D}
+{\footnotesize\ttfamily bool is\+Time\+Step1D\hspace{0.3cm}{\ttfamily [extern]}}
 
 flag for 1D problem 
 
@@ -260,7 +250,7 @@ Referenced by calc\+Time\+Step(), and init\+Time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!maxIter@{maxIter}}
 \index{maxIter@{maxIter}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{maxIter}{maxIter}}
-{\footnotesize\ttfamily long max\+Iter}
+{\footnotesize\ttfamily long max\+Iter\hspace{0.3cm}{\ttfamily [extern]}}
 
 maximum number of iterations 
 
@@ -270,17 +260,17 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!nRKstages@{nRKstages}}
 \index{nRKstages@{nRKstages}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{nRKstages}{nRKstages}}
-{\footnotesize\ttfamily int n\+R\+Kstages}
+{\footnotesize\ttfamily int n\+RKstages\hspace{0.3cm}{\ttfamily [extern]}}
 
 number of Runge-\/\+Kutta stages 
 
-Referenced by explicit\+Time\+Step\+R\+K(), init\+Time\+Disc(), and time\+Disc().
+Referenced by explicit\+Time\+Step\+RK(), init\+Time\+Disc(), and time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8h_a835852fbecaf8bc03bd4071d41459d60}\label{timeDiscretization_8h_a835852fbecaf8bc03bd4071d41459d60}} 
 \index{timeDiscretization.h@{timeDiscretization.h}!printIter@{printIter}}
 \index{printIter@{printIter}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{printIter}{printIter}}
-{\footnotesize\ttfamily int print\+Iter}
+{\footnotesize\ttfamily int print\+Iter\hspace{0.3cm}{\ttfamily [extern]}}
 
 iterations after which to output 
 
@@ -290,7 +280,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!printTime@{printTime}}
 \index{printTime@{printTime}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{printTime}{printTime}}
-{\footnotesize\ttfamily double print\+Time}
+{\footnotesize\ttfamily double print\+Time\hspace{0.3cm}{\ttfamily [extern]}}
 
 calculation time after which to output 
 
@@ -300,7 +290,7 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!restartTime@{restartTime}}
 \index{restartTime@{restartTime}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{restartTime}{restartTime}}
-{\footnotesize\ttfamily double restart\+Time}
+{\footnotesize\ttfamily double restart\+Time\hspace{0.3cm}{\ttfamily [extern]}}
 
 calculation time for restart 
 
@@ -310,17 +300,17 @@ Referenced by init\+Time\+Disc(), and main().
 \index{timeDiscretization.h@{timeDiscretization.h}!RKcoeff@{RKcoeff}}
 \index{RKcoeff@{RKcoeff}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{RKcoeff}{RKcoeff}}
-{\footnotesize\ttfamily double R\+Kcoeff\mbox{[}6\mbox{]}}
+{\footnotesize\ttfamily double RKcoeff\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 array of Runge-\/\+Kutta coefficients 
 
-Referenced by explicit\+Time\+Step\+R\+K(), and init\+Time\+Disc().
+Referenced by explicit\+Time\+Step\+RK(), and init\+Time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8h_a0a07a521d3525b9b7dc70c0a625adea0}\label{timeDiscretization_8h_a0a07a521d3525b9b7dc70c0a625adea0}} 
 \index{timeDiscretization.h@{timeDiscretization.h}!startTime@{startTime}}
 \index{startTime@{startTime}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{startTime}{startTime}}
-{\footnotesize\ttfamily double start\+Time}
+{\footnotesize\ttfamily double start\+Time\hspace{0.3cm}{\ttfamily [extern]}}
 
 starting time 
 
@@ -330,7 +320,7 @@ Referenced by main().
 \index{timeDiscretization.h@{timeDiscretization.h}!stopTime@{stopTime}}
 \index{stopTime@{stopTime}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{stopTime}{stopTime}}
-{\footnotesize\ttfamily double stop\+Time}
+{\footnotesize\ttfamily double stop\+Time\hspace{0.3cm}{\ttfamily [extern]}}
 
 simulation end time 
 
@@ -340,17 +330,17 @@ Referenced by calc\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!t@{t}}
 \index{t@{t}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{t}{t}}
-{\footnotesize\ttfamily double t}
+{\footnotesize\ttfamily double t\hspace{0.3cm}{\ttfamily [extern]}}
 
 global calculation time 
 
-Referenced by calc\+Time\+Step(), cgns\+Read\+Solution(), G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
+Referenced by calc\+Time\+Step(), cgns\+Read\+Solution(), GMRES\+\_\+\+M(), implicit\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8h_a53f383d4521a7587259696a23ab73ef7}\label{timeDiscretization_8h_a53f383d4521a7587259696a23ab73ef7}} 
 \index{timeDiscretization.h@{timeDiscretization.h}!timeOrder@{timeOrder}}
 \index{timeOrder@{timeOrder}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{timeOrder}{timeOrder}}
-{\footnotesize\ttfamily int time\+Order}
+{\footnotesize\ttfamily int time\+Order\hspace{0.3cm}{\ttfamily [extern]}}
 
 order of the time integration 
 
@@ -360,7 +350,7 @@ Referenced by fv\+Time\+Derivative(), init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.h@{timeDiscretization.h}!timeOverall@{timeOverall}}
 \index{timeOverall@{timeOverall}!timeDiscretization.h@{timeDiscretization.h}}
 \doxysubsubsection{\texorpdfstring{timeOverall}{timeOverall}}
-{\footnotesize\ttfamily double time\+Overall}
+{\footnotesize\ttfamily double time\+Overall\hspace{0.3cm}{\ttfamily [extern]}}
 
 overall time 
 

@@ -1,674 +1,674 @@
 \begin{theindex}
 
   \item {abortResidual}
-    \subitem {timeDiscretization.c}, \hyperpage{177}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{162}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {abortVariable}
-    \subitem {timeDiscretization.c}, \hyperpage{178}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{162}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {abortVariableName}
-    \subitem {timeDiscretization.c}, \hyperpage{178}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{163}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {alpha}
-    \subitem {initialCondition.c}, \hyperpage{91}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{84}
+    \subitem {initialCondition.h}, \hyperpage{86}
   \item {analyze}
-    \subitem {analyze.c}, \hyperpage{40}
-    \subitem {analyze.h}, \hyperpage{44}
+    \subitem {analyze.c}, \hyperpage{38}
+    \subitem {analyze.h}, \hyperpage{42}
   \item {analyze.c}
-    \subitem {analyze}, \hyperpage{40}
-    \subitem {calcErrors}, \hyperpage{41}
-    \subitem {doCalcWing}, \hyperpage{42}
-    \subitem {evalRecordPoints}, \hyperpage{41}
-    \subitem {globalResidual}, \hyperpage{41}
-    \subitem {hasExactSolution}, \hyperpage{42}
-    \subitem {recordPoint}, \hyperpage{42}
-    \subitem {wing}, \hyperpage{42}
+    \subitem {analyze}, \hyperpage{38}
+    \subitem {calcErrors}, \hyperpage{39}
+    \subitem {doCalcWing}, \hyperpage{40}
+    \subitem {evalRecordPoints}, \hyperpage{39}
+    \subitem {globalResidual}, \hyperpage{39}
+    \subitem {hasExactSolution}, \hyperpage{40}
+    \subitem {recordPoint}, \hyperpage{40}
+    \subitem {wing}, \hyperpage{40}
   \item {analyze.h}
-    \subitem {analyze}, \hyperpage{44}
-    \subitem {calcErrors}, \hyperpage{45}
-    \subitem {doCalcWing}, \hyperpage{45}
-    \subitem {globalResidual}, \hyperpage{45}
-    \subitem {hasExactSolution}, \hyperpage{46}
-    \subitem {recordPoint}, \hyperpage{46}
-    \subitem {wing}, \hyperpage{46}
+    \subitem {analyze}, \hyperpage{42}
+    \subitem {calcErrors}, \hyperpage{42}
+    \subitem {doCalcWing}, \hyperpage{43}
+    \subitem {globalResidual}, \hyperpage{42}
+    \subitem {hasExactSolution}, \hyperpage{43}
+    \subitem {recordPoint}, \hyperpage{43}
+    \subitem {wing}, \hyperpage{43}
   \item {area}
     \subitem {elem\_t}, \hyperpage{18}
   \item {areaq}
     \subitem {elem\_t}, \hyperpage{18}
   \item {AUSMD}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {AUSMDV}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
 
   \indexspace
 
   \item {BARTHJESPERSEN}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {bary}
-    \subitem {elem\_t}, \hyperpage{19}
+    \subitem {elem\_t}, \hyperpage{18}
   \item {baryBaryDist}
-    \subitem {side\_t}, \hyperpage{29}
+    \subitem {side\_t}, \hyperpage{27}
   \item {baryBaryVec}
-    \subitem {side\_t}, \hyperpage{29}
+    \subitem {side\_t}, \hyperpage{27}
   \item {BC}
-    \subitem {side\_t}, \hyperpage{29}
-    \subitem {sideList\_t}, \hyperpage{33}
+    \subitem {side\_t}, \hyperpage{28}
+    \subitem {sideList\_t}, \hyperpage{31}
   \item {BCid}
-    \subitem {boundary\_t}, \hyperpage{12}
-    \subitem {side\_t}, \hyperpage{29}
+    \subitem {boundary\_t}, \hyperpage{11}
+    \subitem {side\_t}, \hyperpage{28}
   \item {BCrange}
     \subitem {cartMesh\_t}, \hyperpage{14}
   \item {BCside}
-    \subitem {mesh.c}, \hyperpage{132}
-    \subitem {mesh.h}, \hyperpage{140}
+    \subitem {mesh.c}, \hyperpage{121}
+    \subitem {mesh.h}, \hyperpage{128}
   \item {BCtype}
     \subitem {boundary\_t}, \hyperpage{12}
-    \subitem {cartMesh\_t}, \hyperpage{15}
-    \subitem {side\_t}, \hyperpage{30}
+    \subitem {cartMesh\_t}, \hyperpage{14}
+    \subitem {side\_t}, \hyperpage{28}
   \item {BOTTOM}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {boundary}
-    \subitem {boundary.c}, \hyperpage{48}
-    \subitem {boundary.h}, \hyperpage{51}
+    \subitem {boundary.c}, \hyperpage{45}
+    \subitem {boundary.h}, \hyperpage{48}
   \item {boundary.c}
+    \subitem {boundary}, \hyperpage{45}
+    \subitem {firstBC}, \hyperpage{46}
+    \subitem {isPeriodic}, \hyperpage{46}
+    \subitem {nBC}, \hyperpage{46}
+    \subitem {setBCatBarys}, \hyperpage{45}
+    \subitem {setBCatSides}, \hyperpage{45}
+  \item {boundary.h}
     \subitem {boundary}, \hyperpage{48}
     \subitem {firstBC}, \hyperpage{49}
     \subitem {isPeriodic}, \hyperpage{49}
     \subitem {nBC}, \hyperpage{49}
     \subitem {setBCatBarys}, \hyperpage{48}
-    \subitem {setBCatSides}, \hyperpage{49}
-  \item {boundary.h}
-    \subitem {boundary}, \hyperpage{51}
-    \subitem {firstBC}, \hyperpage{53}
-    \subitem {isPeriodic}, \hyperpage{53}
-    \subitem {nBC}, \hyperpage{53}
-    \subitem {setBCatBarys}, \hyperpage{52}
-    \subitem {setBCatSides}, \hyperpage{52}
+    \subitem {setBCatSides}, \hyperpage{48}
   \item {boundary\_t}, \hyperpage{11}
-    \subitem {BCid}, \hyperpage{12}
+    \subitem {BCid}, \hyperpage{11}
     \subitem {BCtype}, \hyperpage{12}
     \subitem {connection}, \hyperpage{12}
     \subitem {exactFunc}, \hyperpage{12}
-    \subitem {heatFlux}, \hyperpage{13}
+    \subitem {heatFlux}, \hyperpage{12}
     \subitem {isAdiabatic}, \hyperpage{13}
     \subitem {isTemperaturePrescribed}, \hyperpage{13}
     \subitem {next}, \hyperpage{13}
     \subitem {pVar}, \hyperpage{13}
-    \subitem {temperature}, \hyperpage{14}
+    \subitem {temperature}, \hyperpage{13}
   \item {boundaryConditionType}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {buildMatrix}
-    \subitem {linearSolver.c}, \hyperpage{96}
+    \subitem {linearSolver.c}, \hyperpage{88}
 
   \indexspace
 
   \item {calcDinv}
-    \subitem {linearSolver.c}, \hyperpage{97}
+    \subitem {linearSolver.c}, \hyperpage{89}
   \item {calcErrors}
-    \subitem {analyze.c}, \hyperpage{41}
-    \subitem {analyze.h}, \hyperpage{45}
+    \subitem {analyze.c}, \hyperpage{39}
+    \subitem {analyze.h}, \hyperpage{42}
   \item {calcSource}
-    \subitem {source.c}, \hyperpage{172}
-    \subitem {source.h}, \hyperpage{173}
+    \subitem {source.c}, \hyperpage{157}
+    \subitem {source.h}, \hyperpage{158}
   \item {calcTimeStep}
-    \subitem {timeDiscretization.c}, \hyperpage{175}
+    \subitem {timeDiscretization.c}, \hyperpage{160}
   \item {CARTESIAN}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {cartesianMeshSides}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {cartMesh}
-    \subitem {mesh.c}, \hyperpage{132}
-    \subitem {mesh.h}, \hyperpage{140}
+    \subitem {mesh.c}, \hyperpage{122}
+    \subitem {mesh.h}, \hyperpage{128}
   \item {cartMesh\_t}, \hyperpage{14}
     \subitem {BCrange}, \hyperpage{14}
-    \subitem {BCtype}, \hyperpage{15}
+    \subitem {BCtype}, \hyperpage{14}
     \subitem {iMax}, \hyperpage{15}
     \subitem {jMax}, \hyperpage{15}
     \subitem {nBC}, \hyperpage{15}
-  \item {ccfd/src/analyze.c}, \hyperpage{39}
-  \item {ccfd/src/analyze.h}, \hyperpage{43}
-  \item {ccfd/src/boundary.c}, \hyperpage{47}
-  \item {ccfd/src/boundary.h}, \hyperpage{50}
-  \item {ccfd/src/equation.c}, \hyperpage{53}
-  \item {ccfd/src/equation.h}, \hyperpage{58}
-  \item {ccfd/src/equationOfState.c}, \hyperpage{62}
-  \item {ccfd/src/equationOfState.h}, \hyperpage{65}
-  \item {ccfd/src/exactFunction.c}, \hyperpage{67}
-  \item {ccfd/src/exactFunction.h}, \hyperpage{69}
-  \item {ccfd/src/exactRiemann.c}, \hyperpage{71}
-  \item {ccfd/src/exactRiemann.h}, \hyperpage{75}
-  \item {ccfd/src/finiteVolume.c}, \hyperpage{76}
-  \item {ccfd/src/finiteVolume.h}, \hyperpage{78}
-  \item {ccfd/src/fluxCalculation.c}, \hyperpage{80}
-  \item {ccfd/src/fluxCalculation.h}, \hyperpage{89}
-  \item {ccfd/src/initialCondition.c}, \hyperpage{90}
-  \item {ccfd/src/initialCondition.h}, \hyperpage{93}
-  \item {ccfd/src/linearSolver.c}, \hyperpage{95}
-  \item {ccfd/src/linearSolver.h}, \hyperpage{104}
-  \item {ccfd/src/main.c}, \hyperpage{110}
-  \item {ccfd/src/main.h}, \hyperpage{111}
-  \item {ccfd/src/memTools.c}, \hyperpage{117}
-  \item {ccfd/src/memTools.h}, \hyperpage{121}
-  \item {ccfd/src/mesh.c}, \hyperpage{125}
-  \item {ccfd/src/mesh.h}, \hyperpage{138}
-  \item {ccfd/src/output.c}, \hyperpage{146}
-  \item {ccfd/src/output.h}, \hyperpage{151}
-  \item {ccfd/src/readInTools.c}, \hyperpage{154}
-  \item {ccfd/src/readInTools.h}, \hyperpage{161}
-  \item {ccfd/src/reconstruction.c}, \hyperpage{166}
-  \item {ccfd/src/reconstruction.h}, \hyperpage{169}
-  \item {ccfd/src/source.c}, \hyperpage{171}
-  \item {ccfd/src/source.h}, \hyperpage{173}
-  \item {ccfd/src/timeDiscretization.c}, \hyperpage{174}
-  \item {ccfd/src/timeDiscretization.h}, \hyperpage{184}
+  \item {ccfd/src/analyze.c}, \hyperpage{37}
+  \item {ccfd/src/analyze.h}, \hyperpage{41}
+  \item {ccfd/src/boundary.c}, \hyperpage{44}
+  \item {ccfd/src/boundary.h}, \hyperpage{47}
+  \item {ccfd/src/equation.c}, \hyperpage{50}
+  \item {ccfd/src/equation.h}, \hyperpage{54}
+  \item {ccfd/src/equationOfState.c}, \hyperpage{58}
+  \item {ccfd/src/equationOfState.h}, \hyperpage{60}
+  \item {ccfd/src/exactFunction.c}, \hyperpage{62}
+  \item {ccfd/src/exactFunction.h}, \hyperpage{64}
+  \item {ccfd/src/exactRiemann.c}, \hyperpage{65}
+  \item {ccfd/src/exactRiemann.h}, \hyperpage{68}
+  \item {ccfd/src/finiteVolume.c}, \hyperpage{70}
+  \item {ccfd/src/finiteVolume.h}, \hyperpage{71}
+  \item {ccfd/src/fluxCalculation.c}, \hyperpage{73}
+  \item {ccfd/src/fluxCalculation.h}, \hyperpage{82}
+  \item {ccfd/src/initialCondition.c}, \hyperpage{83}
+  \item {ccfd/src/initialCondition.h}, \hyperpage{85}
+  \item {ccfd/src/linearSolver.c}, \hyperpage{87}
+  \item {ccfd/src/linearSolver.h}, \hyperpage{96}
+  \item {ccfd/src/main.c}, \hyperpage{101}
+  \item {ccfd/src/main.h}, \hyperpage{102}
+  \item {ccfd/src/memTools.c}, \hyperpage{108}
+  \item {ccfd/src/memTools.h}, \hyperpage{111}
+  \item {ccfd/src/mesh.c}, \hyperpage{115}
+  \item {ccfd/src/mesh.h}, \hyperpage{127}
+  \item {ccfd/src/output.c}, \hyperpage{134}
+  \item {ccfd/src/output.h}, \hyperpage{138}
+  \item {ccfd/src/readInTools.c}, \hyperpage{141}
+  \item {ccfd/src/readInTools.h}, \hyperpage{147}
+  \item {ccfd/src/reconstruction.c}, \hyperpage{152}
+  \item {ccfd/src/reconstruction.h}, \hyperpage{155}
+  \item {ccfd/src/source.c}, \hyperpage{156}
+  \item {ccfd/src/source.h}, \hyperpage{158}
+  \item {ccfd/src/timeDiscretization.c}, \hyperpage{158}
+  \item {ccfd/src/timeDiscretization.h}, \hyperpage{168}
   \item {CD}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {cd}
-    \subitem {wing\_t}, \hyperpage{36}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {cdAbortResidual}
-    \subitem {timeDiscretization.c}, \hyperpage{178}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{163}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {CEN}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {cfl}
-    \subitem {timeDiscretization.c}, \hyperpage{178}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{163}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {CGNS}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {cgnsFinalizeOutput}
-    \subitem {output.c}, \hyperpage{147}
+    \subitem {output.c}, \hyperpage{135}
   \item {cgnsOutput}
-    \subitem {output.c}, \hyperpage{147}
+    \subitem {output.c}, \hyperpage{135}
   \item {CHARACTERISTIC}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {charCons}
-    \subitem {equationOfState.c}, \hyperpage{63}
-    \subitem {equationOfState.h}, \hyperpage{66}
+    \subitem {equationOfState.c}, \hyperpage{59}
+    \subitem {equationOfState.h}, \hyperpage{61}
   \item {CL}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {cl}
-    \subitem {wing\_t}, \hyperpage{37}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {clAbortResidual}
-    \subitem {timeDiscretization.c}, \hyperpage{178}
-    \subitem {timeDiscretization.h}, \hyperpage{186}
+    \subitem {timeDiscretization.c}, \hyperpage{163}
+    \subitem {timeDiscretization.h}, \hyperpage{170}
   \item {clcdResiduals}
-    \subitem {main.h}, \hyperpage{114}
-  \item {cmd\_t}, \hyperpage{16}
+    \subitem {main.h}, \hyperpage{105}
+  \item {cmd\_t}, \hyperpage{15}
     \subitem {key}, \hyperpage{16}
     \subitem {next}, \hyperpage{16}
     \subitem {prev}, \hyperpage{16}
-    \subitem {value}, \hyperpage{17}
+    \subitem {value}, \hyperpage{16}
   \item {compare}
-    \subitem {mesh.c}, \hyperpage{127}
+    \subitem {mesh.c}, \hyperpage{117}
   \item {connection}
     \subitem {boundary\_t}, \hyperpage{12}
-    \subitem {side\_t}, \hyperpage{30}
+    \subitem {side\_t}, \hyperpage{28}
   \item {consChar}
-    \subitem {equationOfState.c}, \hyperpage{63}
-    \subitem {equationOfState.h}, \hyperpage{66}
+    \subitem {equationOfState.c}, \hyperpage{59}
+    \subitem {equationOfState.h}, \hyperpage{61}
   \item {conservativeVariables}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {consPrim}
-    \subitem {equationOfState.c}, \hyperpage{64}
-    \subitem {equationOfState.h}, \hyperpage{67}
+    \subitem {equationOfState.c}, \hyperpage{59}
+    \subitem {equationOfState.h}, \hyperpage{62}
   \item {convectiveFlux}
-    \subitem {fluxCalculation.c}, \hyperpage{81}
+    \subitem {fluxCalculation.c}, \hyperpage{74}
   \item {countKeys}
-    \subitem {readInTools.c}, \hyperpage{156}
-    \subitem {readInTools.h}, \hyperpage{162}
+    \subitem {readInTools.c}, \hyperpage{142}
+    \subitem {readInTools.h}, \hyperpage{148}
   \item {cp}
-    \subitem {equation.c}, \hyperpage{54}
-    \subitem {equation.h}, \hyperpage{59}
+    \subitem {equation.c}, \hyperpage{50}
+    \subitem {equation.h}, \hyperpage{55}
   \item {createCartMesh}
-    \subitem {mesh.c}, \hyperpage{127}
+    \subitem {mesh.c}, \hyperpage{118}
   \item {createElemInfo}
-    \subitem {mesh.c}, \hyperpage{129}
+    \subitem {mesh.c}, \hyperpage{118}
   \item {createMesh}
-    \subitem {mesh.c}, \hyperpage{129}
+    \subitem {mesh.c}, \hyperpage{118}
   \item {createReconstructionInfo}
-    \subitem {mesh.c}, \hyperpage{130}
+    \subitem {mesh.c}, \hyperpage{119}
   \item {createSideInfo}
-    \subitem {mesh.c}, \hyperpage{130}
+    \subitem {mesh.c}, \hyperpage{119}
   \item {CSV}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {csvOutput}
-    \subitem {output.c}, \hyperpage{148}
+    \subitem {output.c}, \hyperpage{136}
   \item {CURVE}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {curveOutput}
-    \subitem {output.c}, \hyperpage{148}
+    \subitem {output.c}, \hyperpage{136}
   \item {cVar}
-    \subitem {elem\_t}, \hyperpage{19}
+    \subitem {elem\_t}, \hyperpage{18}
   \item {cVarStage}
-    \subitem {elem\_t}, \hyperpage{19}
+    \subitem {elem\_t}, \hyperpage{18}
 
   \indexspace
 
   \item {D}
-    \subitem {linearSolver.c}, \hyperpage{99}
+    \subitem {linearSolver.c}, \hyperpage{91}
   \item {dataOutput}
-    \subitem {output.c}, \hyperpage{149}
-    \subitem {output.h}, \hyperpage{152}
+    \subitem {output.c}, \hyperpage{136}
+    \subitem {output.h}, \hyperpage{139}
   \item {deleteCmd}
-    \subitem {readInTools.c}, \hyperpage{156}
+    \subitem {readInTools.c}, \hyperpage{143}
   \item {deltaX}
-    \subitem {timeDiscretization.c}, \hyperpage{179}
+    \subitem {timeDiscretization.c}, \hyperpage{163}
   \item {deltaXstar}
-    \subitem {linearSolver.c}, \hyperpage{99}
+    \subitem {linearSolver.c}, \hyperpage{91}
   \item {dfl}
-    \subitem {timeDiscretization.c}, \hyperpage{179}
-    \subitem {timeDiscretization.h}, \hyperpage{187}
+    \subitem {timeDiscretization.c}, \hyperpage{164}
+    \subitem {timeDiscretization.h}, \hyperpage{171}
   \item {Dinv}
-    \subitem {linearSolver.c}, \hyperpage{99}
+    \subitem {linearSolver.c}, \hyperpage{91}
   \item {directions}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {doAbortOnCdResidual}
-    \subitem {timeDiscretization.c}, \hyperpage{179}
-    \subitem {timeDiscretization.h}, \hyperpage{187}
+    \subitem {timeDiscretization.c}, \hyperpage{164}
+    \subitem {timeDiscretization.h}, \hyperpage{171}
   \item {doAbortOnClResidual}
-    \subitem {timeDiscretization.c}, \hyperpage{179}
-    \subitem {timeDiscretization.h}, \hyperpage{187}
+    \subitem {timeDiscretization.c}, \hyperpage{164}
+    \subitem {timeDiscretization.h}, \hyperpage{171}
   \item {doCalcSource}
-    \subitem {equation.c}, \hyperpage{54}
-    \subitem {equation.h}, \hyperpage{59}
+    \subitem {equation.c}, \hyperpage{51}
+    \subitem {equation.h}, \hyperpage{55}
   \item {doCalcWing}
-    \subitem {analyze.c}, \hyperpage{42}
-    \subitem {analyze.h}, \hyperpage{45}
+    \subitem {analyze.c}, \hyperpage{40}
+    \subitem {analyze.h}, \hyperpage{43}
   \item {doErrorOutput}
-    \subitem {output.c}, \hyperpage{149}
-    \subitem {output.h}, \hyperpage{153}
+    \subitem {output.c}, \hyperpage{137}
+    \subitem {output.h}, \hyperpage{140}
   \item {domain}
     \subitem {elem\_t}, \hyperpage{19}
   \item {domainID}
-    \subitem {initialCondition.c}, \hyperpage{92}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{84}
+    \subitem {initialCondition.h}, \hyperpage{86}
   \item {dRdU}
-    \subitem {linearSolver.c}, \hyperpage{100}
+    \subitem {linearSolver.c}, \hyperpage{92}
   \item {dt}
     \subitem {elem\_t}, \hyperpage{19}
   \item {dtLoc}
-    \subitem {elem\_t}, \hyperpage{20}
+    \subitem {elem\_t}, \hyperpage{19}
   \item {dxRef}
-    \subitem {mesh.c}, \hyperpage{133}
-    \subitem {mesh.h}, \hyperpage{140}
+    \subitem {mesh.c}, \hyperpage{122}
+    \subitem {mesh.h}, \hyperpage{129}
   \item {dyn2DcgsizeArray}
-    \subitem {memTools.c}, \hyperpage{118}
-    \subitem {memTools.h}, \hyperpage{122}
+    \subitem {memTools.c}, \hyperpage{108}
+    \subitem {memTools.h}, \hyperpage{112}
   \item {dyn2DdblArray}
-    \subitem {memTools.c}, \hyperpage{118}
-    \subitem {memTools.h}, \hyperpage{122}
+    \subitem {memTools.c}, \hyperpage{109}
+    \subitem {memTools.h}, \hyperpage{112}
   \item {dyn2DintArray}
-    \subitem {memTools.c}, \hyperpage{119}
-    \subitem {memTools.h}, \hyperpage{123}
+    \subitem {memTools.c}, \hyperpage{109}
+    \subitem {memTools.h}, \hyperpage{113}
   \item {dyn3DdblArray}
-    \subitem {memTools.c}, \hyperpage{119}
-    \subitem {memTools.h}, \hyperpage{123}
+    \subitem {memTools.c}, \hyperpage{110}
+    \subitem {memTools.h}, \hyperpage{113}
   \item {dyn3DintArray}
-    \subitem {memTools.c}, \hyperpage{119}
-    \subitem {memTools.h}, \hyperpage{123}
+    \subitem {memTools.c}, \hyperpage{110}
+    \subitem {memTools.h}, \hyperpage{114}
   \item {dyn4DdblArray}
-    \subitem {memTools.c}, \hyperpage{120}
-    \subitem {memTools.h}, \hyperpage{124}
+    \subitem {memTools.c}, \hyperpage{110}
+    \subitem {memTools.h}, \hyperpage{114}
   \item {dynStringArray}
-    \subitem {memTools.c}, \hyperpage{120}
-    \subitem {memTools.h}, \hyperpage{124}
+    \subitem {memTools.c}, \hyperpage{111}
+    \subitem {memTools.h}, \hyperpage{115}
 
   \indexspace
 
   \item {E}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {elem}
-    \subitem {mesh.c}, \hyperpage{133}
-    \subitem {mesh.h}, \hyperpage{140}
-    \subitem {recordPoint\_t}, \hyperpage{27}
-    \subitem {side\_t}, \hyperpage{30}
+    \subitem {mesh.c}, \hyperpage{122}
+    \subitem {mesh.h}, \hyperpage{129}
+    \subitem {recordPoint\_t}, \hyperpage{26}
+    \subitem {side\_t}, \hyperpage{28}
   \item {elem\_t}, \hyperpage{17}
     \subitem {area}, \hyperpage{18}
     \subitem {areaq}, \hyperpage{18}
-    \subitem {bary}, \hyperpage{19}
-    \subitem {cVar}, \hyperpage{19}
-    \subitem {cVarStage}, \hyperpage{19}
+    \subitem {bary}, \hyperpage{18}
+    \subitem {cVar}, \hyperpage{18}
+    \subitem {cVarStage}, \hyperpage{18}
     \subitem {domain}, \hyperpage{19}
     \subitem {dt}, \hyperpage{19}
-    \subitem {dtLoc}, \hyperpage{20}
-    \subitem {elemType}, \hyperpage{20}
-    \subitem {firstSide}, \hyperpage{20}
+    \subitem {dtLoc}, \hyperpage{19}
+    \subitem {elemType}, \hyperpage{19}
+    \subitem {firstSide}, \hyperpage{19}
     \subitem {id}, \hyperpage{20}
     \subitem {innerSides}, \hyperpage{20}
-    \subitem {next}, \hyperpage{21}
-    \subitem {nGP}, \hyperpage{21}
-    \subitem {node}, \hyperpage{21}
+    \subitem {next}, \hyperpage{20}
+    \subitem {nGP}, \hyperpage{20}
+    \subitem {node}, \hyperpage{20}
     \subitem {pVar}, \hyperpage{21}
     \subitem {source}, \hyperpage{21}
-    \subitem {sx}, \hyperpage{22}
-    \subitem {sy}, \hyperpage{22}
-    \subitem {u\_t}, \hyperpage{22}
+    \subitem {sx}, \hyperpage{21}
+    \subitem {sy}, \hyperpage{21}
+    \subitem {u\_t}, \hyperpage{21}
     \subitem {u\_x}, \hyperpage{22}
     \subitem {u\_y}, \hyperpage{22}
-    \subitem {venkEps\_sq}, \hyperpage{23}
-    \subitem {wGP}, \hyperpage{23}
-    \subitem {xGP}, \hyperpage{23}
+    \subitem {venkEps\_sq}, \hyperpage{22}
+    \subitem {wGP}, \hyperpage{22}
+    \subitem {xGP}, \hyperpage{22}
   \item {elemType}
-    \subitem {elem\_t}, \hyperpage{20}
+    \subitem {elem\_t}, \hyperpage{19}
   \item {eps2newton}
-    \subitem {linearSolver.c}, \hyperpage{100}
-    \subitem {linearSolver.h}, \hyperpage{106}
+    \subitem {linearSolver.c}, \hyperpage{92}
+    \subitem {linearSolver.h}, \hyperpage{98}
   \item {eps2newton\_sq}
-    \subitem {linearSolver.c}, \hyperpage{100}
-    \subitem {linearSolver.h}, \hyperpage{106}
+    \subitem {linearSolver.c}, \hyperpage{92}
+    \subitem {linearSolver.h}, \hyperpage{98}
   \item {epsGMRES}
-    \subitem {linearSolver.c}, \hyperpage{100}
-    \subitem {linearSolver.h}, \hyperpage{107}
+    \subitem {linearSolver.c}, \hyperpage{92}
+    \subitem {linearSolver.h}, \hyperpage{98}
   \item {equation.c}
-    \subitem {cp}, \hyperpage{54}
-    \subitem {doCalcSource}, \hyperpage{54}
+    \subitem {cp}, \hyperpage{50}
+    \subitem {doCalcSource}, \hyperpage{51}
+    \subitem {gam}, \hyperpage{51}
+    \subitem {gam1}, \hyperpage{51}
+    \subitem {gam1q}, \hyperpage{51}
+    \subitem {gam2}, \hyperpage{51}
+    \subitem {iFlux}, \hyperpage{52}
+    \subitem {intExactFunc}, \hyperpage{52}
+    \subitem {mu}, \hyperpage{52}
+    \subitem {pi}, \hyperpage{52}
+    \subitem {Pr}, \hyperpage{52}
+    \subitem {R}, \hyperpage{53}
+    \subitem {sourceFunc}, \hyperpage{53}
+    \subitem {sqrt2}, \hyperpage{53}
+    \subitem {sqrt3}, \hyperpage{53}
+    \subitem {sqrt3q}, \hyperpage{53}
+  \item {equation.h}
+    \subitem {cp}, \hyperpage{55}
+    \subitem {doCalcSource}, \hyperpage{55}
     \subitem {gam}, \hyperpage{55}
     \subitem {gam1}, \hyperpage{55}
     \subitem {gam1q}, \hyperpage{55}
-    \subitem {gam2}, \hyperpage{55}
-    \subitem {iFlux}, \hyperpage{55}
+    \subitem {gam2}, \hyperpage{56}
+    \subitem {iFlux}, \hyperpage{56}
     \subitem {intExactFunc}, \hyperpage{56}
     \subitem {mu}, \hyperpage{56}
     \subitem {pi}, \hyperpage{56}
-    \subitem {Pr}, \hyperpage{56}
-    \subitem {R}, \hyperpage{56}
+    \subitem {Pr}, \hyperpage{57}
+    \subitem {R}, \hyperpage{57}
     \subitem {sourceFunc}, \hyperpage{57}
     \subitem {sqrt2}, \hyperpage{57}
     \subitem {sqrt3}, \hyperpage{57}
-    \subitem {sqrt3q}, \hyperpage{57}
-  \item {equation.h}
-    \subitem {cp}, \hyperpage{59}
-    \subitem {doCalcSource}, \hyperpage{59}
-    \subitem {gam}, \hyperpage{59}
-    \subitem {gam1}, \hyperpage{59}
-    \subitem {gam1q}, \hyperpage{60}
-    \subitem {gam2}, \hyperpage{60}
-    \subitem {iFlux}, \hyperpage{60}
-    \subitem {intExactFunc}, \hyperpage{60}
-    \subitem {mu}, \hyperpage{60}
-    \subitem {pi}, \hyperpage{61}
-    \subitem {Pr}, \hyperpage{61}
-    \subitem {R}, \hyperpage{61}
-    \subitem {sourceFunc}, \hyperpage{61}
-    \subitem {sqrt2}, \hyperpage{61}
-    \subitem {sqrt3}, \hyperpage{62}
-    \subitem {sqrt3q}, \hyperpage{62}
+    \subitem {sqrt3q}, \hyperpage{58}
   \item {equationOfState.c}
-    \subitem {charCons}, \hyperpage{63}
-    \subitem {consChar}, \hyperpage{63}
-    \subitem {consPrim}, \hyperpage{64}
-    \subitem {primCons}, \hyperpage{64}
+    \subitem {charCons}, \hyperpage{59}
+    \subitem {consChar}, \hyperpage{59}
+    \subitem {consPrim}, \hyperpage{59}
+    \subitem {primCons}, \hyperpage{60}
   \item {equationOfState.h}
-    \subitem {charCons}, \hyperpage{66}
-    \subitem {consChar}, \hyperpage{66}
-    \subitem {consPrim}, \hyperpage{67}
-    \subitem {primCons}, \hyperpage{67}
+    \subitem {charCons}, \hyperpage{61}
+    \subitem {consChar}, \hyperpage{61}
+    \subitem {consPrim}, \hyperpage{62}
+    \subitem {primCons}, \hyperpage{62}
   \item {evalRecordPoints}
-    \subitem {analyze.c}, \hyperpage{41}
+    \subitem {analyze.c}, \hyperpage{39}
   \item {evalSource}
-    \subitem {source.c}, \hyperpage{172}
+    \subitem {source.c}, \hyperpage{157}
   \item {exactFunc}
     \subitem {boundary\_t}, \hyperpage{12}
-    \subitem {exactFunction.c}, \hyperpage{68}
-    \subitem {exactFunction.h}, \hyperpage{70}
+    \subitem {exactFunction.c}, \hyperpage{63}
+    \subitem {exactFunction.h}, \hyperpage{64}
   \item {exactFunction.c}
-    \subitem {exactFunc}, \hyperpage{68}
+    \subitem {exactFunc}, \hyperpage{63}
   \item {exactFunction.h}
-    \subitem {exactFunc}, \hyperpage{70}
+    \subitem {exactFunc}, \hyperpage{64}
   \item {exactRiemann}
-    \subitem {exactRiemann.c}, \hyperpage{72}
-    \subitem {exactRiemann.h}, \hyperpage{75}
+    \subitem {exactRiemann.c}, \hyperpage{66}
+    \subitem {exactRiemann.h}, \hyperpage{69}
   \item {exactRiemann.c}
-    \subitem {exactRiemann}, \hyperpage{72}
-    \subitem {G}, \hyperpage{74}
-    \subitem {nIter}, \hyperpage{74}
-    \subitem {preFun}, \hyperpage{72}
-    \subitem {tol}, \hyperpage{74}
+    \subitem {exactRiemann}, \hyperpage{66}
+    \subitem {G}, \hyperpage{68}
+    \subitem {nIter}, \hyperpage{68}
+    \subitem {preFun}, \hyperpage{66}
+    \subitem {tol}, \hyperpage{68}
   \item {exactRiemann.h}
-    \subitem {exactRiemann}, \hyperpage{75}
+    \subitem {exactRiemann}, \hyperpage{69}
   \item {EXACTSOL}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {explicitTimeStepEuler}
-    \subitem {timeDiscretization.c}, \hyperpage{176}
+    \subitem {timeDiscretization.c}, \hyperpage{160}
   \item {explicitTimeStepRK}
-    \subitem {timeDiscretization.c}, \hyperpage{176}
+    \subitem {timeDiscretization.c}, \hyperpage{161}
 
   \indexspace
 
   \item {F\_X0}
-    \subitem {timeDiscretization.c}, \hyperpage{179}
+    \subitem {timeDiscretization.c}, \hyperpage{164}
   \item {F\_XK}
-    \subitem {timeDiscretization.c}, \hyperpage{180}
+    \subitem {timeDiscretization.c}, \hyperpage{164}
   \item {fillCmds}
-    \subitem {readInTools.c}, \hyperpage{156}
-    \subitem {readInTools.h}, \hyperpage{162}
+    \subitem {readInTools.c}, \hyperpage{143}
+    \subitem {readInTools.h}, \hyperpage{149}
   \item {findCmd}
-    \subitem {readInTools.c}, \hyperpage{157}
+    \subitem {readInTools.c}, \hyperpage{144}
   \item {finiteVolume.c}
-    \subitem {fluxFunction}, \hyperpage{77}
-    \subitem {fvTimeDerivative}, \hyperpage{77}
-    \subitem {spatialOrder}, \hyperpage{78}
+    \subitem {fluxFunction}, \hyperpage{71}
+    \subitem {fvTimeDerivative}, \hyperpage{70}
+    \subitem {spatialOrder}, \hyperpage{71}
   \item {finiteVolume.h}
-    \subitem {fluxFunction}, \hyperpage{79}
-    \subitem {fvTimeDerivative}, \hyperpage{79}
-    \subitem {spatialOrder}, \hyperpage{79}
+    \subitem {fluxFunction}, \hyperpage{72}
+    \subitem {fvTimeDerivative}, \hyperpage{72}
+    \subitem {spatialOrder}, \hyperpage{72}
   \item {firstBC}
-    \subitem {boundary.c}, \hyperpage{49}
-    \subitem {boundary.h}, \hyperpage{53}
+    \subitem {boundary.c}, \hyperpage{46}
+    \subitem {boundary.h}, \hyperpage{49}
   \item {firstBCside}
-    \subitem {mesh.c}, \hyperpage{133}
-    \subitem {mesh.h}, \hyperpage{140}
+    \subitem {mesh.c}, \hyperpage{122}
+    \subitem {mesh.h}, \hyperpage{129}
   \item {firstCmd}
-    \subitem {readInTools.c}, \hyperpage{161}
+    \subitem {readInTools.c}, \hyperpage{147}
   \item {firstElem}
-    \subitem {mesh.c}, \hyperpage{133}
-    \subitem {mesh.h}, \hyperpage{141}
+    \subitem {mesh.c}, \hyperpage{122}
+    \subitem {mesh.h}, \hyperpage{129}
   \item {firstNode}
-    \subitem {mesh.c}, \hyperpage{133}
-    \subitem {mesh.h}, \hyperpage{141}
+    \subitem {mesh.c}, \hyperpage{123}
+    \subitem {mesh.h}, \hyperpage{129}
   \item {firstPressureSide}
-    \subitem {wing\_t}, \hyperpage{37}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {firstSide}
-    \subitem {elem\_t}, \hyperpage{20}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{141}
+    \subitem {elem\_t}, \hyperpage{19}
+    \subitem {mesh.c}, \hyperpage{123}
+    \subitem {mesh.h}, \hyperpage{130}
   \item {firstSuctionSide}
-    \subitem {wing\_t}, \hyperpage{37}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {flux}
-    \subitem {side\_t}, \hyperpage{30}
+    \subitem {side\_t}, \hyperpage{29}
   \item {flux\_ausmd}
-    \subitem {fluxCalculation.c}, \hyperpage{82}
+    \subitem {fluxCalculation.c}, \hyperpage{75}
   \item {flux\_ausmdv}
-    \subitem {fluxCalculation.c}, \hyperpage{82}
+    \subitem {fluxCalculation.c}, \hyperpage{75}
   \item {flux\_cen}
-    \subitem {fluxCalculation.c}, \hyperpage{83}
+    \subitem {fluxCalculation.c}, \hyperpage{76}
   \item {flux\_god}
-    \subitem {fluxCalculation.c}, \hyperpage{84}
+    \subitem {fluxCalculation.c}, \hyperpage{77}
   \item {flux\_hll}
-    \subitem {fluxCalculation.c}, \hyperpage{84}
+    \subitem {fluxCalculation.c}, \hyperpage{77}
   \item {flux\_hllc}
-    \subitem {fluxCalculation.c}, \hyperpage{85}
+    \subitem {fluxCalculation.c}, \hyperpage{78}
   \item {flux\_hlle}
-    \subitem {fluxCalculation.c}, \hyperpage{86}
+    \subitem {fluxCalculation.c}, \hyperpage{78}
   \item {flux\_lxf}
-    \subitem {fluxCalculation.c}, \hyperpage{86}
+    \subitem {fluxCalculation.c}, \hyperpage{79}
   \item {flux\_roe}
-    \subitem {fluxCalculation.c}, \hyperpage{87}
+    \subitem {fluxCalculation.c}, \hyperpage{80}
   \item {flux\_stw}
-    \subitem {fluxCalculation.c}, \hyperpage{88}
+    \subitem {fluxCalculation.c}, \hyperpage{80}
   \item {flux\_vanleer}
-    \subitem {fluxCalculation.c}, \hyperpage{88}
+    \subitem {fluxCalculation.c}, \hyperpage{81}
   \item {fluxCalculation}
-    \subitem {fluxCalculation.c}, \hyperpage{89}
-    \subitem {fluxCalculation.h}, \hyperpage{90}
+    \subitem {fluxCalculation.c}, \hyperpage{82}
+    \subitem {fluxCalculation.h}, \hyperpage{82}
   \item {fluxCalculation.c}
-    \subitem {convectiveFlux}, \hyperpage{81}
-    \subitem {flux\_ausmd}, \hyperpage{82}
-    \subitem {flux\_ausmdv}, \hyperpage{82}
-    \subitem {flux\_cen}, \hyperpage{83}
-    \subitem {flux\_god}, \hyperpage{84}
-    \subitem {flux\_hll}, \hyperpage{84}
-    \subitem {flux\_hllc}, \hyperpage{85}
-    \subitem {flux\_hlle}, \hyperpage{86}
-    \subitem {flux\_lxf}, \hyperpage{86}
-    \subitem {flux\_roe}, \hyperpage{87}
-    \subitem {flux\_stw}, \hyperpage{88}
-    \subitem {flux\_vanleer}, \hyperpage{88}
-    \subitem {fluxCalculation}, \hyperpage{89}
+    \subitem {convectiveFlux}, \hyperpage{74}
+    \subitem {flux\_ausmd}, \hyperpage{75}
+    \subitem {flux\_ausmdv}, \hyperpage{75}
+    \subitem {flux\_cen}, \hyperpage{76}
+    \subitem {flux\_god}, \hyperpage{77}
+    \subitem {flux\_hll}, \hyperpage{77}
+    \subitem {flux\_hllc}, \hyperpage{78}
+    \subitem {flux\_hlle}, \hyperpage{78}
+    \subitem {flux\_lxf}, \hyperpage{79}
+    \subitem {flux\_roe}, \hyperpage{80}
+    \subitem {flux\_stw}, \hyperpage{80}
+    \subitem {flux\_vanleer}, \hyperpage{81}
+    \subitem {fluxCalculation}, \hyperpage{82}
   \item {fluxCalculation.h}
-    \subitem {fluxCalculation}, \hyperpage{90}
+    \subitem {fluxCalculation}, \hyperpage{82}
   \item {fluxFunction}
-    \subitem {finiteVolume.c}, \hyperpage{77}
-    \subitem {finiteVolume.h}, \hyperpage{79}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {finiteVolume.c}, \hyperpage{71}
+    \subitem {finiteVolume.h}, \hyperpage{72}
+    \subitem {main.h}, \hyperpage{106}
   \item {fvTimeDerivative}
-    \subitem {finiteVolume.c}, \hyperpage{77}
-    \subitem {finiteVolume.h}, \hyperpage{79}
+    \subitem {finiteVolume.c}, \hyperpage{70}
+    \subitem {finiteVolume.h}, \hyperpage{72}
 
   \indexspace
 
   \item {G}
-    \subitem {exactRiemann.c}, \hyperpage{74}
+    \subitem {exactRiemann.c}, \hyperpage{68}
   \item {gam}
-    \subitem {equation.c}, \hyperpage{55}
-    \subitem {equation.h}, \hyperpage{59}
+    \subitem {equation.c}, \hyperpage{51}
+    \subitem {equation.h}, \hyperpage{55}
   \item {gam1}
-    \subitem {equation.c}, \hyperpage{55}
-    \subitem {equation.h}, \hyperpage{59}
+    \subitem {equation.c}, \hyperpage{51}
+    \subitem {equation.h}, \hyperpage{55}
   \item {gam1q}
-    \subitem {equation.c}, \hyperpage{55}
-    \subitem {equation.h}, \hyperpage{60}
+    \subitem {equation.c}, \hyperpage{51}
+    \subitem {equation.h}, \hyperpage{55}
   \item {gam2}
-    \subitem {equation.c}, \hyperpage{55}
-    \subitem {equation.h}, \hyperpage{60}
+    \subitem {equation.c}, \hyperpage{51}
+    \subitem {equation.h}, \hyperpage{56}
   \item {gamEW}
-    \subitem {linearSolver.c}, \hyperpage{100}
-    \subitem {linearSolver.h}, \hyperpage{107}
+    \subitem {linearSolver.c}, \hyperpage{92}
+    \subitem {linearSolver.h}, \hyperpage{98}
   \item {generalParameters}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {getBool}
-    \subitem {readInTools.c}, \hyperpage{157}
-    \subitem {readInTools.h}, \hyperpage{163}
+    \subitem {readInTools.c}, \hyperpage{144}
+    \subitem {readInTools.h}, \hyperpage{149}
   \item {getDbl}
-    \subitem {readInTools.c}, \hyperpage{158}
-    \subitem {readInTools.h}, \hyperpage{163}
+    \subitem {readInTools.c}, \hyperpage{145}
+    \subitem {readInTools.h}, \hyperpage{150}
   \item {getDblArray}
-    \subitem {readInTools.c}, \hyperpage{158}
-    \subitem {readInTools.h}, \hyperpage{164}
+    \subitem {readInTools.c}, \hyperpage{145}
+    \subitem {readInTools.h}, \hyperpage{150}
   \item {getInt}
-    \subitem {readInTools.c}, \hyperpage{159}
-    \subitem {readInTools.h}, \hyperpage{164}
+    \subitem {readInTools.c}, \hyperpage{146}
+    \subitem {readInTools.h}, \hyperpage{151}
   \item {getIntArray}
-    \subitem {readInTools.c}, \hyperpage{159}
-    \subitem {readInTools.h}, \hyperpage{165}
+    \subitem {readInTools.c}, \hyperpage{146}
+    \subitem {readInTools.h}, \hyperpage{151}
   \item {getStr}
-    \subitem {readInTools.c}, \hyperpage{160}
-    \subitem {readInTools.h}, \hyperpage{165}
+    \subitem {readInTools.c}, \hyperpage{147}
+    \subitem {readInTools.h}, \hyperpage{152}
   \item {globalResidual}
-    \subitem {analyze.c}, \hyperpage{41}
-    \subitem {analyze.h}, \hyperpage{45}
+    \subitem {analyze.c}, \hyperpage{39}
+    \subitem {analyze.h}, \hyperpage{42}
   \item {GMRES\_M}
-    \subitem {linearSolver.c}, \hyperpage{97}
-    \subitem {linearSolver.h}, \hyperpage{105}
+    \subitem {linearSolver.c}, \hyperpage{89}
+    \subitem {linearSolver.h}, \hyperpage{97}
   \item {GOD}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {GP}
-    \subitem {side\_t}, \hyperpage{30}
+    \subitem {side\_t}, \hyperpage{29}
   \item {gridFile}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{141}
+    \subitem {mesh.c}, \hyperpage{123}
+    \subitem {mesh.h}, \hyperpage{130}
 
   \indexspace
 
   \item {hasExactSolution}
-    \subitem {analyze.c}, \hyperpage{42}
-    \subitem {analyze.h}, \hyperpage{46}
+    \subitem {analyze.c}, \hyperpage{40}
+    \subitem {analyze.h}, \hyperpage{43}
   \item {heatFlux}
-    \subitem {boundary\_t}, \hyperpage{13}
+    \subitem {boundary\_t}, \hyperpage{12}
   \item {HLL}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {HLLC}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {HLLE}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
 
   \indexspace
 
   \item {icType}
-    \subitem {initialCondition.c}, \hyperpage{92}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{84}
+    \subitem {initialCondition.h}, \hyperpage{86}
   \item {id}
     \subitem {elem\_t}, \hyperpage{20}
-    \subitem {node\_t}, \hyperpage{24}
-    \subitem {side\_t}, \hyperpage{31}
+    \subitem {node\_t}, \hyperpage{23}
+    \subitem {side\_t}, \hyperpage{29}
   \item {iFlux}
-    \subitem {equation.c}, \hyperpage{55}
-    \subitem {equation.h}, \hyperpage{60}
+    \subitem {equation.c}, \hyperpage{52}
+    \subitem {equation.h}, \hyperpage{56}
   \item {iMax}
     \subitem {cartMesh\_t}, \hyperpage{15}
   \item {implicitTimeStep}
-    \subitem {timeDiscretization.c}, \hyperpage{177}
+    \subitem {timeDiscretization.c}, \hyperpage{161}
   \item {INFLOW}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {iniIterationNumber}
-    \subitem {timeDiscretization.c}, \hyperpage{180}
-    \subitem {timeDiscretization.h}, \hyperpage{187}
+    \subitem {timeDiscretization.c}, \hyperpage{165}
+    \subitem {timeDiscretization.h}, \hyperpage{171}
   \item {initialCondition.c}
-    \subitem {alpha}, \hyperpage{91}
-    \subitem {domainID}, \hyperpage{92}
-    \subitem {icType}, \hyperpage{92}
-    \subitem {nDomains}, \hyperpage{92}
-    \subitem {refState}, \hyperpage{92}
-    \subitem {rp1Dinterface}, \hyperpage{92}
+    \subitem {alpha}, \hyperpage{84}
+    \subitem {domainID}, \hyperpage{84}
+    \subitem {icType}, \hyperpage{84}
+    \subitem {nDomains}, \hyperpage{84}
+    \subitem {refState}, \hyperpage{85}
+    \subitem {rp1Dinterface}, \hyperpage{85}
   \item {initialCondition.h}
-    \subitem {alpha}, \hyperpage{94}
-    \subitem {domainID}, \hyperpage{94}
-    \subitem {icType}, \hyperpage{94}
-    \subitem {nDomains}, \hyperpage{94}
-    \subitem {refState}, \hyperpage{94}
-    \subitem {rp1Dinterface}, \hyperpage{94}
+    \subitem {alpha}, \hyperpage{86}
+    \subitem {domainID}, \hyperpage{86}
+    \subitem {icType}, \hyperpage{86}
+    \subitem {nDomains}, \hyperpage{86}
+    \subitem {refState}, \hyperpage{86}
+    \subitem {rp1Dinterface}, \hyperpage{87}
   \item {innerSides}
     \subitem {elem\_t}, \hyperpage{20}
   \item {intExactFunc}
-    \subitem {equation.c}, \hyperpage{56}
-    \subitem {equation.h}, \hyperpage{60}
+    \subitem {equation.c}, \hyperpage{52}
+    \subitem {equation.h}, \hyperpage{56}
   \item {ioFile}
-    \subitem {recordPoint\_t}, \hyperpage{27}
+    \subitem {recordPoint\_t}, \hyperpage{26}
   \item {ioFormat}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {IOiterInterval}
-    \subitem {output.c}, \hyperpage{149}
-    \subitem {output.h}, \hyperpage{153}
+    \subitem {output.c}, \hyperpage{137}
+    \subitem {output.h}, \hyperpage{140}
   \item {IOtimeInterval}
-    \subitem {output.c}, \hyperpage{149}
-    \subitem {output.h}, \hyperpage{153}
+    \subitem {output.c}, \hyperpage{137}
+    \subitem {output.h}, \hyperpage{140}
   \item {isAdiabatic}
     \subitem {boundary\_t}, \hyperpage{13}
   \item {isImplicit}
-    \subitem {timeDiscretization.c}, \hyperpage{180}
-    \subitem {timeDiscretization.h}, \hyperpage{187}
+    \subitem {timeDiscretization.c}, \hyperpage{165}
+    \subitem {timeDiscretization.h}, \hyperpage{171}
   \item {isPeriodic}
-    \subitem {boundary.c}, \hyperpage{49}
-    \subitem {boundary.h}, \hyperpage{53}
+    \subitem {boundary.c}, \hyperpage{46}
+    \subitem {boundary.h}, \hyperpage{49}
   \item {isRestart}
-    \subitem {timeDiscretization.c}, \hyperpage{180}
-    \subitem {timeDiscretization.h}, \hyperpage{188}
+    \subitem {timeDiscretization.c}, \hyperpage{165}
+    \subitem {timeDiscretization.h}, \hyperpage{172}
   \item {isRotated}
-    \subitem {sideList\_t}, \hyperpage{33}
+    \subitem {sideList\_t}, \hyperpage{31}
   \item {isStationary}
-    \subitem {timeDiscretization.c}, \hyperpage{180}
-    \subitem {timeDiscretization.h}, \hyperpage{188}
+    \subitem {timeDiscretization.c}, \hyperpage{165}
+    \subitem {timeDiscretization.h}, \hyperpage{172}
   \item {isTemperaturePrescribed}
     \subitem {boundary\_t}, \hyperpage{13}
   \item {isTimeStep1D}
-    \subitem {timeDiscretization.c}, \hyperpage{181}
-    \subitem {timeDiscretization.h}, \hyperpage{188}
+    \subitem {timeDiscretization.c}, \hyperpage{165}
+    \subitem {timeDiscretization.h}, \hyperpage{172}
   \item {iter}
-    \subitem {outputTime\_t}, \hyperpage{25}
+    \subitem {outputTime\_t}, \hyperpage{24}
   \item {iVisuProg}
-    \subitem {output.c}, \hyperpage{150}
-    \subitem {output.h}, \hyperpage{153}
+    \subitem {output.c}, \hyperpage{137}
+    \subitem {output.h}, \hyperpage{140}
 
   \indexspace
 
@@ -683,763 +683,754 @@
   \indexspace
 
   \item {LEFT}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {len}
-    \subitem {side\_t}, \hyperpage{31}
+    \subitem {side\_t}, \hyperpage{29}
   \item {limiter}
-    \subitem {reconstruction.c}, \hyperpage{168}
-    \subitem {reconstruction.h}, \hyperpage{170}
+    \subitem {reconstruction.c}, \hyperpage{154}
+    \subitem {reconstruction.h}, \hyperpage{156}
   \item {limiterBarthJespersen}
-    \subitem {reconstruction.c}, \hyperpage{167}
+    \subitem {reconstruction.c}, \hyperpage{153}
   \item {limiterFunction}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {limiterVenkatakrishnan}
-    \subitem {reconstruction.c}, \hyperpage{168}
+    \subitem {reconstruction.c}, \hyperpage{153}
   \item {linearSolver.c}
-    \subitem {buildMatrix}, \hyperpage{96}
-    \subitem {calcDinv}, \hyperpage{97}
-    \subitem {D}, \hyperpage{99}
-    \subitem {deltaXstar}, \hyperpage{99}
-    \subitem {Dinv}, \hyperpage{99}
-    \subitem {dRdU}, \hyperpage{100}
-    \subitem {eps2newton}, \hyperpage{100}
-    \subitem {eps2newton\_sq}, \hyperpage{100}
-    \subitem {epsGMRES}, \hyperpage{100}
-    \subitem {gamEW}, \hyperpage{100}
-    \subitem {GMRES\_M}, \hyperpage{97}
-    \subitem {LUSGS}, \hyperpage{98}
-    \subitem {matrixVector}, \hyperpage{98}
-    \subitem {nGMRESiterGlobal}, \hyperpage{101}
-    \subitem {nInnerGMRES}, \hyperpage{101}
-    \subitem {nInnerNewton}, \hyperpage{101}
-    \subitem {nKdim}, \hyperpage{101}
-    \subitem {nNewtonIter}, \hyperpage{101}
-    \subitem {nNewtonIterGlobal}, \hyperpage{102}
-    \subitem {R0}, \hyperpage{102}
-    \subitem {R\_XK}, \hyperpage{102}
-    \subitem {rEps0}, \hyperpage{102}
-    \subitem {srEps0}, \hyperpage{102}
-    \subitem {usePrecond}, \hyperpage{103}
-    \subitem {V}, \hyperpage{103}
-    \subitem {vectorDotProduct}, \hyperpage{99}
-    \subitem {W}, \hyperpage{103}
-    \subitem {XK}, \hyperpage{103}
-    \subitem {Z}, \hyperpage{103}
+    \subitem {buildMatrix}, \hyperpage{88}
+    \subitem {calcDinv}, \hyperpage{89}
+    \subitem {D}, \hyperpage{91}
+    \subitem {deltaXstar}, \hyperpage{91}
+    \subitem {Dinv}, \hyperpage{91}
+    \subitem {dRdU}, \hyperpage{92}
+    \subitem {eps2newton}, \hyperpage{92}
+    \subitem {eps2newton\_sq}, \hyperpage{92}
+    \subitem {epsGMRES}, \hyperpage{92}
+    \subitem {gamEW}, \hyperpage{92}
+    \subitem {GMRES\_M}, \hyperpage{89}
+    \subitem {LUSGS}, \hyperpage{90}
+    \subitem {matrixVector}, \hyperpage{90}
+    \subitem {nGMRESiterGlobal}, \hyperpage{93}
+    \subitem {nInnerGMRES}, \hyperpage{93}
+    \subitem {nInnerNewton}, \hyperpage{93}
+    \subitem {nKdim}, \hyperpage{93}
+    \subitem {nNewtonIter}, \hyperpage{93}
+    \subitem {nNewtonIterGlobal}, \hyperpage{94}
+    \subitem {R0}, \hyperpage{94}
+    \subitem {R\_XK}, \hyperpage{94}
+    \subitem {rEps0}, \hyperpage{94}
+    \subitem {srEps0}, \hyperpage{94}
+    \subitem {usePrecond}, \hyperpage{95}
+    \subitem {V}, \hyperpage{95}
+    \subitem {vectorDotProduct}, \hyperpage{91}
+    \subitem {W}, \hyperpage{95}
+    \subitem {XK}, \hyperpage{95}
+    \subitem {Z}, \hyperpage{95}
   \item {linearSolver.h}
-    \subitem {eps2newton}, \hyperpage{106}
-    \subitem {eps2newton\_sq}, \hyperpage{106}
-    \subitem {epsGMRES}, \hyperpage{107}
-    \subitem {gamEW}, \hyperpage{107}
-    \subitem {GMRES\_M}, \hyperpage{105}
-    \subitem {nGMRESiterGlobal}, \hyperpage{107}
-    \subitem {nInnerGMRES}, \hyperpage{107}
-    \subitem {nInnerNewton}, \hyperpage{107}
-    \subitem {nKdim}, \hyperpage{108}
-    \subitem {nNewtonIter}, \hyperpage{108}
-    \subitem {nNewtonIterGlobal}, \hyperpage{108}
-    \subitem {R\_XK}, \hyperpage{108}
-    \subitem {rEps0}, \hyperpage{108}
-    \subitem {srEps0}, \hyperpage{109}
-    \subitem {usePrecond}, \hyperpage{109}
-    \subitem {vectorDotProduct}, \hyperpage{106}
-    \subitem {XK}, \hyperpage{109}
+    \subitem {eps2newton}, \hyperpage{98}
+    \subitem {eps2newton\_sq}, \hyperpage{98}
+    \subitem {epsGMRES}, \hyperpage{98}
+    \subitem {gamEW}, \hyperpage{98}
+    \subitem {GMRES\_M}, \hyperpage{97}
+    \subitem {nGMRESiterGlobal}, \hyperpage{99}
+    \subitem {nInnerGMRES}, \hyperpage{99}
+    \subitem {nInnerNewton}, \hyperpage{99}
+    \subitem {nKdim}, \hyperpage{99}
+    \subitem {nNewtonIter}, \hyperpage{99}
+    \subitem {nNewtonIterGlobal}, \hyperpage{100}
+    \subitem {R\_XK}, \hyperpage{100}
+    \subitem {rEps0}, \hyperpage{100}
+    \subitem {srEps0}, \hyperpage{100}
+    \subitem {usePrecond}, \hyperpage{100}
+    \subitem {vectorDotProduct}, \hyperpage{97}
+    \subitem {XK}, \hyperpage{101}
   \item {LUSGS}
-    \subitem {linearSolver.c}, \hyperpage{98}
+    \subitem {linearSolver.c}, \hyperpage{90}
   \item {LXF}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
 
   \indexspace
 
   \item {main}
-    \subitem {main.c}, \hyperpage{110}
+    \subitem {main.c}, \hyperpage{102}
   \item {main.c}
-    \subitem {main}, \hyperpage{110}
+    \subitem {main}, \hyperpage{102}
   \item {main.h}
-    \subitem {AUSMD}, \hyperpage{115}
-    \subitem {AUSMDV}, \hyperpage{115}
-    \subitem {BARTHJESPERSEN}, \hyperpage{116}
-    \subitem {BOTTOM}, \hyperpage{114}
-    \subitem {boundaryConditionType}, \hyperpage{113}
-    \subitem {CARTESIAN}, \hyperpage{116}
-    \subitem {cartesianMeshSides}, \hyperpage{114}
-    \subitem {CD}, \hyperpage{114}
-    \subitem {CEN}, \hyperpage{115}
-    \subitem {CGNS}, \hyperpage{116}
-    \subitem {CHARACTERISTIC}, \hyperpage{113}
-    \subitem {CL}, \hyperpage{114}
-    \subitem {clcdResiduals}, \hyperpage{114}
-    \subitem {conservativeVariables}, \hyperpage{114}
-    \subitem {CSV}, \hyperpage{116}
-    \subitem {CURVE}, \hyperpage{116}
-    \subitem {directions}, \hyperpage{114}
-    \subitem {E}, \hyperpage{114}
-    \subitem {EXACTSOL}, \hyperpage{113}
-    \subitem {fluxFunction}, \hyperpage{115}
-    \subitem {generalParameters}, \hyperpage{115}
-    \subitem {GOD}, \hyperpage{115}
-    \subitem {HLL}, \hyperpage{115}
-    \subitem {HLLC}, \hyperpage{115}
-    \subitem {HLLE}, \hyperpage{115}
-    \subitem {INFLOW}, \hyperpage{113}
-    \subitem {ioFormat}, \hyperpage{115}
-    \subitem {LEFT}, \hyperpage{114}
-    \subitem {limiterFunction}, \hyperpage{116}
-    \subitem {LXF}, \hyperpage{115}
-    \subitem {meshType}, \hyperpage{116}
-    \subitem {MX}, \hyperpage{114}
-    \subitem {MY}, \hyperpage{114}
-    \subitem {NBC}, \hyperpage{115}
-    \subitem {NDIM}, \hyperpage{115}
-    \subitem {NVAR}, \hyperpage{115}
-    \subitem {OUTFLOW}, \hyperpage{113}
-    \subitem {P}, \hyperpage{116}
-    \subitem {PERIODIC}, \hyperpage{113}
-    \subitem {PRESSURE\_OUT}, \hyperpage{113}
-    \subitem {primitiveVariables}, \hyperpage{116}
-    \subitem {RHO}, \hyperpage{114}
-    \subitem {RIGHT}, \hyperpage{114}
-    \subitem {ROE}, \hyperpage{115}
-    \subitem {SLIPWALL}, \hyperpage{113}
-    \subitem {STRLEN}, \hyperpage{113}
-    \subitem {STW}, \hyperpage{115}
-    \subitem {TOP}, \hyperpage{114}
-    \subitem {UNSTRUCTURED}, \hyperpage{116}
-    \subitem {VANLEER}, \hyperpage{115}
-    \subitem {VENKATAKRISHNAN}, \hyperpage{116}
-    \subitem {VX}, \hyperpage{116}
-    \subitem {VY}, \hyperpage{116}
-    \subitem {WALL}, \hyperpage{113}
-    \subitem {X}, \hyperpage{115}
-    \subitem {Y}, \hyperpage{115}
+    \subitem {AUSMD}, \hyperpage{106}
+    \subitem {AUSMDV}, \hyperpage{106}
+    \subitem {BARTHJESPERSEN}, \hyperpage{107}
+    \subitem {BOTTOM}, \hyperpage{105}
+    \subitem {boundaryConditionType}, \hyperpage{104}
+    \subitem {CARTESIAN}, \hyperpage{107}
+    \subitem {cartesianMeshSides}, \hyperpage{105}
+    \subitem {CD}, \hyperpage{105}
+    \subitem {CEN}, \hyperpage{106}
+    \subitem {CGNS}, \hyperpage{107}
+    \subitem {CHARACTERISTIC}, \hyperpage{104}
+    \subitem {CL}, \hyperpage{105}
+    \subitem {clcdResiduals}, \hyperpage{105}
+    \subitem {conservativeVariables}, \hyperpage{105}
+    \subitem {CSV}, \hyperpage{107}
+    \subitem {CURVE}, \hyperpage{107}
+    \subitem {directions}, \hyperpage{105}
+    \subitem {E}, \hyperpage{105}
+    \subitem {EXACTSOL}, \hyperpage{104}
+    \subitem {fluxFunction}, \hyperpage{106}
+    \subitem {generalParameters}, \hyperpage{106}
+    \subitem {GOD}, \hyperpage{106}
+    \subitem {HLL}, \hyperpage{106}
+    \subitem {HLLC}, \hyperpage{106}
+    \subitem {HLLE}, \hyperpage{106}
+    \subitem {INFLOW}, \hyperpage{104}
+    \subitem {ioFormat}, \hyperpage{106}
+    \subitem {LEFT}, \hyperpage{105}
+    \subitem {limiterFunction}, \hyperpage{107}
+    \subitem {LXF}, \hyperpage{106}
+    \subitem {meshType}, \hyperpage{107}
+    \subitem {MX}, \hyperpage{105}
+    \subitem {MY}, \hyperpage{105}
+    \subitem {NBC}, \hyperpage{106}
+    \subitem {NDIM}, \hyperpage{106}
+    \subitem {NVAR}, \hyperpage{106}
+    \subitem {OUTFLOW}, \hyperpage{104}
+    \subitem {P}, \hyperpage{107}
+    \subitem {PERIODIC}, \hyperpage{104}
+    \subitem {PRESSURE\_OUT}, \hyperpage{104}
+    \subitem {primitiveVariables}, \hyperpage{107}
+    \subitem {RHO}, \hyperpage{105}
+    \subitem {RIGHT}, \hyperpage{105}
+    \subitem {ROE}, \hyperpage{106}
+    \subitem {SLIPWALL}, \hyperpage{104}
+    \subitem {STRLEN}, \hyperpage{104}
+    \subitem {STW}, \hyperpage{106}
+    \subitem {TOP}, \hyperpage{105}
+    \subitem {UNSTRUCTURED}, \hyperpage{107}
+    \subitem {VANLEER}, \hyperpage{106}
+    \subitem {VENKATAKRISHNAN}, \hyperpage{107}
+    \subitem {VX}, \hyperpage{107}
+    \subitem {VY}, \hyperpage{107}
+    \subitem {WALL}, \hyperpage{104}
+    \subitem {X}, \hyperpage{106}
+    \subitem {Y}, \hyperpage{106}
   \item {matrixVector}
-    \subitem {linearSolver.c}, \hyperpage{98}
+    \subitem {linearSolver.c}, \hyperpage{90}
   \item {maxIter}
-    \subitem {timeDiscretization.c}, \hyperpage{181}
-    \subitem {timeDiscretization.h}, \hyperpage{188}
+    \subitem {timeDiscretization.c}, \hyperpage{166}
+    \subitem {timeDiscretization.h}, \hyperpage{172}
   \item {memTools.c}
-    \subitem {dyn2DcgsizeArray}, \hyperpage{118}
-    \subitem {dyn2DdblArray}, \hyperpage{118}
-    \subitem {dyn2DintArray}, \hyperpage{119}
-    \subitem {dyn3DdblArray}, \hyperpage{119}
-    \subitem {dyn3DintArray}, \hyperpage{119}
-    \subitem {dyn4DdblArray}, \hyperpage{120}
-    \subitem {dynStringArray}, \hyperpage{120}
+    \subitem {dyn2DcgsizeArray}, \hyperpage{108}
+    \subitem {dyn2DdblArray}, \hyperpage{109}
+    \subitem {dyn2DintArray}, \hyperpage{109}
+    \subitem {dyn3DdblArray}, \hyperpage{110}
+    \subitem {dyn3DintArray}, \hyperpage{110}
+    \subitem {dyn4DdblArray}, \hyperpage{110}
+    \subitem {dynStringArray}, \hyperpage{111}
   \item {memTools.h}
-    \subitem {dyn2DcgsizeArray}, \hyperpage{122}
-    \subitem {dyn2DdblArray}, \hyperpage{122}
-    \subitem {dyn2DintArray}, \hyperpage{123}
-    \subitem {dyn3DdblArray}, \hyperpage{123}
-    \subitem {dyn3DintArray}, \hyperpage{123}
-    \subitem {dyn4DdblArray}, \hyperpage{124}
-    \subitem {dynStringArray}, \hyperpage{124}
+    \subitem {dyn2DcgsizeArray}, \hyperpage{112}
+    \subitem {dyn2DdblArray}, \hyperpage{112}
+    \subitem {dyn2DintArray}, \hyperpage{113}
+    \subitem {dyn3DdblArray}, \hyperpage{113}
+    \subitem {dyn3DintArray}, \hyperpage{114}
+    \subitem {dyn4DdblArray}, \hyperpage{114}
+    \subitem {dynStringArray}, \hyperpage{115}
   \item {mesh.c}
-    \subitem {BCside}, \hyperpage{132}
-    \subitem {cartMesh}, \hyperpage{132}
-    \subitem {compare}, \hyperpage{127}
-    \subitem {createCartMesh}, \hyperpage{127}
-    \subitem {createElemInfo}, \hyperpage{129}
-    \subitem {createMesh}, \hyperpage{129}
-    \subitem {createReconstructionInfo}, \hyperpage{130}
-    \subitem {createSideInfo}, \hyperpage{130}
-    \subitem {dxRef}, \hyperpage{133}
-    \subitem {elem}, \hyperpage{133}
-    \subitem {firstBCside}, \hyperpage{133}
-    \subitem {firstElem}, \hyperpage{133}
-    \subitem {firstNode}, \hyperpage{133}
-    \subitem {firstSide}, \hyperpage{134}
-    \subitem {gridFile}, \hyperpage{134}
-    \subitem {meshFormat}, \hyperpage{134}
-    \subitem {meshType}, \hyperpage{134}
-    \subitem {nBCsides}, \hyperpage{134}
-    \subitem {nElems}, \hyperpage{134}
-    \subitem {nInnerSides}, \hyperpage{135}
-    \subitem {nNodes}, \hyperpage{135}
-    \subitem {nQuads}, \hyperpage{135}
-    \subitem {nSides}, \hyperpage{135}
-    \subitem {nTrias}, \hyperpage{135}
-    \subitem {parameterFile}, \hyperpage{136}
-    \subitem {readCGNS}, \hyperpage{130}
-    \subitem {readEMC2}, \hyperpage{131}
-    \subitem {readGmsh}, \hyperpage{132}
-    \subitem {side}, \hyperpage{136}
-    \subitem {strIniCondFile}, \hyperpage{136}
-    \subitem {strMeshFile}, \hyperpage{136}
-    \subitem {strMeshFormat}, \hyperpage{136}
-    \subitem {totalArea\_q}, \hyperpage{137}
-    \subitem {xMax}, \hyperpage{137}
-    \subitem {xMin}, \hyperpage{137}
-    \subitem {yMax}, \hyperpage{137}
-    \subitem {yMin}, \hyperpage{137}
+    \subitem {BCside}, \hyperpage{121}
+    \subitem {cartMesh}, \hyperpage{122}
+    \subitem {compare}, \hyperpage{117}
+    \subitem {createCartMesh}, \hyperpage{118}
+    \subitem {createElemInfo}, \hyperpage{118}
+    \subitem {createMesh}, \hyperpage{118}
+    \subitem {createReconstructionInfo}, \hyperpage{119}
+    \subitem {createSideInfo}, \hyperpage{119}
+    \subitem {dxRef}, \hyperpage{122}
+    \subitem {elem}, \hyperpage{122}
+    \subitem {firstBCside}, \hyperpage{122}
+    \subitem {firstElem}, \hyperpage{122}
+    \subitem {firstNode}, \hyperpage{123}
+    \subitem {firstSide}, \hyperpage{123}
+    \subitem {gridFile}, \hyperpage{123}
+    \subitem {meshFormat}, \hyperpage{123}
+    \subitem {meshType}, \hyperpage{123}
+    \subitem {nBCsides}, \hyperpage{124}
+    \subitem {nElems}, \hyperpage{124}
+    \subitem {nInnerSides}, \hyperpage{124}
+    \subitem {nNodes}, \hyperpage{124}
+    \subitem {nQuads}, \hyperpage{124}
+    \subitem {nSides}, \hyperpage{125}
+    \subitem {nTrias}, \hyperpage{125}
+    \subitem {readCGNS}, \hyperpage{120}
+    \subitem {readEMC2}, \hyperpage{120}
+    \subitem {readGmsh}, \hyperpage{121}
+    \subitem {side}, \hyperpage{125}
+    \subitem {strIniCondFile}, \hyperpage{125}
+    \subitem {strMeshFile}, \hyperpage{125}
+    \subitem {strMeshFormat}, \hyperpage{126}
+    \subitem {totalArea\_q}, \hyperpage{126}
+    \subitem {xMax}, \hyperpage{126}
+    \subitem {xMin}, \hyperpage{126}
+    \subitem {yMax}, \hyperpage{126}
+    \subitem {yMin}, \hyperpage{127}
   \item {mesh.h}
-    \subitem {BCside}, \hyperpage{140}
-    \subitem {cartMesh}, \hyperpage{140}
-    \subitem {dxRef}, \hyperpage{140}
-    \subitem {elem}, \hyperpage{140}
-    \subitem {firstBCside}, \hyperpage{140}
-    \subitem {firstElem}, \hyperpage{141}
-    \subitem {firstNode}, \hyperpage{141}
-    \subitem {firstSide}, \hyperpage{141}
-    \subitem {gridFile}, \hyperpage{141}
-    \subitem {meshFormat}, \hyperpage{141}
-    \subitem {meshType}, \hyperpage{142}
-    \subitem {nBCsides}, \hyperpage{142}
-    \subitem {nElems}, \hyperpage{142}
-    \subitem {nInnerSides}, \hyperpage{142}
-    \subitem {nNodes}, \hyperpage{142}
-    \subitem {nQuads}, \hyperpage{143}
-    \subitem {nSides}, \hyperpage{143}
-    \subitem {nTrias}, \hyperpage{143}
-    \subitem {parameterFile}, \hyperpage{143}
-    \subitem {side}, \hyperpage{143}
-    \subitem {strIniCondFile}, \hyperpage{144}
-    \subitem {strMeshFile}, \hyperpage{144}
-    \subitem {strMeshFormat}, \hyperpage{144}
-    \subitem {totalArea\_q}, \hyperpage{144}
-    \subitem {xMax}, \hyperpage{144}
-    \subitem {xMin}, \hyperpage{145}
-    \subitem {yMax}, \hyperpage{145}
-    \subitem {yMin}, \hyperpage{145}
+    \subitem {BCside}, \hyperpage{128}
+    \subitem {cartMesh}, \hyperpage{128}
+    \subitem {dxRef}, \hyperpage{129}
+    \subitem {elem}, \hyperpage{129}
+    \subitem {firstBCside}, \hyperpage{129}
+    \subitem {firstElem}, \hyperpage{129}
+    \subitem {firstNode}, \hyperpage{129}
+    \subitem {firstSide}, \hyperpage{130}
+    \subitem {gridFile}, \hyperpage{130}
+    \subitem {meshFormat}, \hyperpage{130}
+    \subitem {meshType}, \hyperpage{130}
+    \subitem {nBCsides}, \hyperpage{130}
+    \subitem {nElems}, \hyperpage{130}
+    \subitem {nInnerSides}, \hyperpage{131}
+    \subitem {nNodes}, \hyperpage{131}
+    \subitem {nQuads}, \hyperpage{131}
+    \subitem {nSides}, \hyperpage{131}
+    \subitem {nTrias}, \hyperpage{131}
+    \subitem {side}, \hyperpage{132}
+    \subitem {strIniCondFile}, \hyperpage{132}
+    \subitem {strMeshFile}, \hyperpage{132}
+    \subitem {strMeshFormat}, \hyperpage{132}
+    \subitem {totalArea\_q}, \hyperpage{132}
+    \subitem {xMax}, \hyperpage{133}
+    \subitem {xMin}, \hyperpage{133}
+    \subitem {yMax}, \hyperpage{133}
+    \subitem {yMin}, \hyperpage{133}
   \item {meshFormat}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{141}
+    \subitem {mesh.c}, \hyperpage{123}
+    \subitem {mesh.h}, \hyperpage{130}
   \item {meshType}
-    \subitem {main.h}, \hyperpage{116}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{142}
+    \subitem {main.h}, \hyperpage{107}
+    \subitem {mesh.c}, \hyperpage{123}
+    \subitem {mesh.h}, \hyperpage{130}
   \item {mu}
-    \subitem {equation.c}, \hyperpage{56}
-    \subitem {equation.h}, \hyperpage{60}
+    \subitem {equation.c}, \hyperpage{52}
+    \subitem {equation.h}, \hyperpage{56}
   \item {MX}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {MY}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
 
   \indexspace
 
   \item {n}
-    \subitem {side\_t}, \hyperpage{31}
+    \subitem {side\_t}, \hyperpage{29}
   \item {NBC}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {nBC}
-    \subitem {boundary.c}, \hyperpage{49}
-    \subitem {boundary.h}, \hyperpage{53}
+    \subitem {boundary.c}, \hyperpage{46}
+    \subitem {boundary.h}, \hyperpage{49}
     \subitem {cartMesh\_t}, \hyperpage{15}
   \item {nBCsides}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{142}
+    \subitem {mesh.c}, \hyperpage{124}
+    \subitem {mesh.h}, \hyperpage{130}
   \item {NDIM}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {nDomains}
-    \subitem {initialCondition.c}, \hyperpage{92}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{84}
+    \subitem {initialCondition.h}, \hyperpage{86}
   \item {nElems}
-    \subitem {mesh.c}, \hyperpage{134}
-    \subitem {mesh.h}, \hyperpage{142}
+    \subitem {mesh.c}, \hyperpage{124}
+    \subitem {mesh.h}, \hyperpage{130}
   \item {next}
     \subitem {boundary\_t}, \hyperpage{13}
     \subitem {cmd\_t}, \hyperpage{16}
-    \subitem {elem\_t}, \hyperpage{21}
-    \subitem {node\_t}, \hyperpage{24}
-    \subitem {outputTime\_t}, \hyperpage{26}
-    \subitem {side\_t}, \hyperpage{31}
-    \subitem {sidePtr\_t}, \hyperpage{35}
+    \subitem {elem\_t}, \hyperpage{20}
+    \subitem {node\_t}, \hyperpage{23}
+    \subitem {outputTime\_t}, \hyperpage{25}
+    \subitem {side\_t}, \hyperpage{30}
+    \subitem {sidePtr\_t}, \hyperpage{33}
   \item {nextElemSide}
-    \subitem {side\_t}, \hyperpage{31}
+    \subitem {side\_t}, \hyperpage{30}
   \item {nGMRESiterGlobal}
-    \subitem {linearSolver.c}, \hyperpage{101}
-    \subitem {linearSolver.h}, \hyperpage{107}
+    \subitem {linearSolver.c}, \hyperpage{93}
+    \subitem {linearSolver.h}, \hyperpage{99}
   \item {nGP}
-    \subitem {elem\_t}, \hyperpage{21}
+    \subitem {elem\_t}, \hyperpage{20}
   \item {nInnerGMRES}
-    \subitem {linearSolver.c}, \hyperpage{101}
-    \subitem {linearSolver.h}, \hyperpage{107}
+    \subitem {linearSolver.c}, \hyperpage{93}
+    \subitem {linearSolver.h}, \hyperpage{99}
   \item {nInnerNewton}
-    \subitem {linearSolver.c}, \hyperpage{101}
-    \subitem {linearSolver.h}, \hyperpage{107}
+    \subitem {linearSolver.c}, \hyperpage{93}
+    \subitem {linearSolver.h}, \hyperpage{99}
   \item {nInnerSides}
-    \subitem {mesh.c}, \hyperpage{135}
-    \subitem {mesh.h}, \hyperpage{142}
+    \subitem {mesh.c}, \hyperpage{124}
+    \subitem {mesh.h}, \hyperpage{131}
   \item {nIter}
-    \subitem {exactRiemann.c}, \hyperpage{74}
+    \subitem {exactRiemann.c}, \hyperpage{68}
   \item {nKdim}
-    \subitem {linearSolver.c}, \hyperpage{101}
-    \subitem {linearSolver.h}, \hyperpage{108}
+    \subitem {linearSolver.c}, \hyperpage{93}
+    \subitem {linearSolver.h}, \hyperpage{99}
   \item {nNewtonIter}
-    \subitem {linearSolver.c}, \hyperpage{101}
-    \subitem {linearSolver.h}, \hyperpage{108}
+    \subitem {linearSolver.c}, \hyperpage{93}
+    \subitem {linearSolver.h}, \hyperpage{99}
   \item {nNewtonIterGlobal}
-    \subitem {linearSolver.c}, \hyperpage{102}
-    \subitem {linearSolver.h}, \hyperpage{108}
+    \subitem {linearSolver.c}, \hyperpage{94}
+    \subitem {linearSolver.h}, \hyperpage{100}
   \item {nNodes}
-    \subitem {mesh.c}, \hyperpage{135}
-    \subitem {mesh.h}, \hyperpage{142}
+    \subitem {mesh.c}, \hyperpage{124}
+    \subitem {mesh.h}, \hyperpage{131}
   \item {node}
-    \subitem {elem\_t}, \hyperpage{21}
-    \subitem {side\_t}, \hyperpage{32}
-    \subitem {sideList\_t}, \hyperpage{34}
-  \item {node\_t}, \hyperpage{24}
-    \subitem {id}, \hyperpage{24}
-    \subitem {next}, \hyperpage{24}
+    \subitem {elem\_t}, \hyperpage{20}
+    \subitem {side\_t}, \hyperpage{30}
+    \subitem {sideList\_t}, \hyperpage{32}
+  \item {node\_t}, \hyperpage{23}
+    \subitem {id}, \hyperpage{23}
+    \subitem {next}, \hyperpage{23}
     \subitem {x}, \hyperpage{24}
   \item {nPoints}
-    \subitem {recordPoint\_t}, \hyperpage{27}
+    \subitem {recordPoint\_t}, \hyperpage{26}
   \item {nQuads}
-    \subitem {mesh.c}, \hyperpage{135}
-    \subitem {mesh.h}, \hyperpage{143}
+    \subitem {mesh.c}, \hyperpage{124}
+    \subitem {mesh.h}, \hyperpage{131}
   \item {nRKstages}
-    \subitem {timeDiscretization.c}, \hyperpage{181}
-    \subitem {timeDiscretization.h}, \hyperpage{188}
+    \subitem {timeDiscretization.c}, \hyperpage{166}
+    \subitem {timeDiscretization.h}, \hyperpage{172}
   \item {nSides}
-    \subitem {mesh.c}, \hyperpage{135}
-    \subitem {mesh.h}, \hyperpage{143}
+    \subitem {mesh.c}, \hyperpage{125}
+    \subitem {mesh.h}, \hyperpage{131}
   \item {nTrias}
-    \subitem {mesh.c}, \hyperpage{135}
-    \subitem {mesh.h}, \hyperpage{143}
+    \subitem {mesh.c}, \hyperpage{125}
+    \subitem {mesh.h}, \hyperpage{131}
   \item {NVAR}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
 
   \indexspace
 
   \item {OUTFLOW}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {output.c}
-    \subitem {cgnsFinalizeOutput}, \hyperpage{147}
-    \subitem {cgnsOutput}, \hyperpage{147}
-    \subitem {csvOutput}, \hyperpage{148}
-    \subitem {curveOutput}, \hyperpage{148}
-    \subitem {dataOutput}, \hyperpage{149}
-    \subitem {doErrorOutput}, \hyperpage{149}
-    \subitem {IOiterInterval}, \hyperpage{149}
-    \subitem {IOtimeInterval}, \hyperpage{149}
-    \subitem {iVisuProg}, \hyperpage{150}
-    \subitem {outputTimes}, \hyperpage{150}
-    \subitem {parameterFile}, \hyperpage{150}
-    \subitem {resFile}, \hyperpage{150}
-    \subitem {strOutFile}, \hyperpage{150}
+    \subitem {cgnsFinalizeOutput}, \hyperpage{135}
+    \subitem {cgnsOutput}, \hyperpage{135}
+    \subitem {csvOutput}, \hyperpage{136}
+    \subitem {curveOutput}, \hyperpage{136}
+    \subitem {dataOutput}, \hyperpage{136}
+    \subitem {doErrorOutput}, \hyperpage{137}
+    \subitem {IOiterInterval}, \hyperpage{137}
+    \subitem {IOtimeInterval}, \hyperpage{137}
+    \subitem {iVisuProg}, \hyperpage{137}
+    \subitem {outputTimes}, \hyperpage{138}
+    \subitem {resFile}, \hyperpage{138}
+    \subitem {strOutFile}, \hyperpage{138}
   \item {output.h}
-    \subitem {dataOutput}, \hyperpage{152}
-    \subitem {doErrorOutput}, \hyperpage{153}
-    \subitem {IOiterInterval}, \hyperpage{153}
-    \subitem {IOtimeInterval}, \hyperpage{153}
-    \subitem {iVisuProg}, \hyperpage{153}
-    \subitem {outputTimes}, \hyperpage{153}
-    \subitem {parameterFile}, \hyperpage{154}
-    \subitem {resFile}, \hyperpage{154}
-    \subitem {strOutFile}, \hyperpage{154}
-  \item {outputTime\_t}, \hyperpage{25}
-    \subitem {iter}, \hyperpage{25}
-    \subitem {next}, \hyperpage{26}
-    \subitem {time}, \hyperpage{26}
+    \subitem {dataOutput}, \hyperpage{139}
+    \subitem {doErrorOutput}, \hyperpage{140}
+    \subitem {IOiterInterval}, \hyperpage{140}
+    \subitem {IOtimeInterval}, \hyperpage{140}
+    \subitem {iVisuProg}, \hyperpage{140}
+    \subitem {outputTimes}, \hyperpage{140}
+    \subitem {resFile}, \hyperpage{141}
+    \subitem {strOutFile}, \hyperpage{141}
+  \item {outputTime\_t}, \hyperpage{24}
+    \subitem {iter}, \hyperpage{24}
+    \subitem {next}, \hyperpage{25}
+    \subitem {time}, \hyperpage{25}
   \item {outputTimes}
-    \subitem {output.c}, \hyperpage{150}
-    \subitem {output.h}, \hyperpage{153}
+    \subitem {output.c}, \hyperpage{138}
+    \subitem {output.h}, \hyperpage{140}
 
   \indexspace
 
   \item {P}
-    \subitem {main.h}, \hyperpage{116}
-  \item {parameterFile}
-    \subitem {mesh.c}, \hyperpage{136}
-    \subitem {mesh.h}, \hyperpage{143}
-    \subitem {output.c}, \hyperpage{150}
-    \subitem {output.h}, \hyperpage{154}
+    \subitem {main.h}, \hyperpage{107}
   \item {PERIODIC}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {pi}
-    \subitem {equation.c}, \hyperpage{56}
-    \subitem {equation.h}, \hyperpage{61}
+    \subitem {equation.c}, \hyperpage{52}
+    \subitem {equation.h}, \hyperpage{56}
   \item {Pr}
-    \subitem {equation.c}, \hyperpage{56}
-    \subitem {equation.h}, \hyperpage{61}
+    \subitem {equation.c}, \hyperpage{52}
+    \subitem {equation.h}, \hyperpage{57}
   \item {preFun}
-    \subitem {exactRiemann.c}, \hyperpage{72}
+    \subitem {exactRiemann.c}, \hyperpage{66}
   \item {PRESSURE\_OUT}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {prev}
     \subitem {cmd\_t}, \hyperpage{16}
   \item {primCons}
-    \subitem {equationOfState.c}, \hyperpage{64}
-    \subitem {equationOfState.h}, \hyperpage{67}
+    \subitem {equationOfState.c}, \hyperpage{60}
+    \subitem {equationOfState.h}, \hyperpage{62}
   \item {primitiveVariables}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {printIter}
-    \subitem {timeDiscretization.c}, \hyperpage{181}
-    \subitem {timeDiscretization.h}, \hyperpage{189}
+    \subitem {timeDiscretization.c}, \hyperpage{166}
+    \subitem {timeDiscretization.h}, \hyperpage{173}
   \item {printTime}
-    \subitem {timeDiscretization.c}, \hyperpage{181}
-    \subitem {timeDiscretization.h}, \hyperpage{189}
+    \subitem {timeDiscretization.c}, \hyperpage{166}
+    \subitem {timeDiscretization.h}, \hyperpage{173}
   \item {pVar}
     \subitem {boundary\_t}, \hyperpage{13}
     \subitem {elem\_t}, \hyperpage{21}
-    \subitem {side\_t}, \hyperpage{32}
+    \subitem {side\_t}, \hyperpage{30}
 
   \indexspace
 
   \item {Q}
-    \subitem {timeDiscretization.c}, \hyperpage{182}
+    \subitem {timeDiscretization.c}, \hyperpage{166}
 
   \indexspace
 
   \item {R}
-    \subitem {equation.c}, \hyperpage{56}
-    \subitem {equation.h}, \hyperpage{61}
+    \subitem {equation.c}, \hyperpage{53}
+    \subitem {equation.h}, \hyperpage{57}
   \item {R0}
-    \subitem {linearSolver.c}, \hyperpage{102}
+    \subitem {linearSolver.c}, \hyperpage{94}
   \item {R\_XK}
-    \subitem {linearSolver.c}, \hyperpage{102}
-    \subitem {linearSolver.h}, \hyperpage{108}
+    \subitem {linearSolver.c}, \hyperpage{94}
+    \subitem {linearSolver.h}, \hyperpage{100}
   \item {readCGNS}
-    \subitem {mesh.c}, \hyperpage{130}
+    \subitem {mesh.c}, \hyperpage{120}
   \item {readEMC2}
-    \subitem {mesh.c}, \hyperpage{131}
+    \subitem {mesh.c}, \hyperpage{120}
   \item {readGmsh}
-    \subitem {mesh.c}, \hyperpage{132}
+    \subitem {mesh.c}, \hyperpage{121}
   \item {readInTools.c}
-    \subitem {countKeys}, \hyperpage{156}
-    \subitem {deleteCmd}, \hyperpage{156}
-    \subitem {fillCmds}, \hyperpage{156}
-    \subitem {findCmd}, \hyperpage{157}
-    \subitem {firstCmd}, \hyperpage{161}
-    \subitem {getBool}, \hyperpage{157}
-    \subitem {getDbl}, \hyperpage{158}
-    \subitem {getDblArray}, \hyperpage{158}
-    \subitem {getInt}, \hyperpage{159}
-    \subitem {getIntArray}, \hyperpage{159}
-    \subitem {getStr}, \hyperpage{160}
+    \subitem {countKeys}, \hyperpage{142}
+    \subitem {deleteCmd}, \hyperpage{143}
+    \subitem {fillCmds}, \hyperpage{143}
+    \subitem {findCmd}, \hyperpage{144}
+    \subitem {firstCmd}, \hyperpage{147}
+    \subitem {getBool}, \hyperpage{144}
+    \subitem {getDbl}, \hyperpage{145}
+    \subitem {getDblArray}, \hyperpage{145}
+    \subitem {getInt}, \hyperpage{146}
+    \subitem {getIntArray}, \hyperpage{146}
+    \subitem {getStr}, \hyperpage{147}
   \item {readInTools.h}
-    \subitem {countKeys}, \hyperpage{162}
-    \subitem {fillCmds}, \hyperpage{162}
-    \subitem {getBool}, \hyperpage{163}
-    \subitem {getDbl}, \hyperpage{163}
-    \subitem {getDblArray}, \hyperpage{164}
-    \subitem {getInt}, \hyperpage{164}
-    \subitem {getIntArray}, \hyperpage{165}
-    \subitem {getStr}, \hyperpage{165}
+    \subitem {countKeys}, \hyperpage{148}
+    \subitem {fillCmds}, \hyperpage{149}
+    \subitem {getBool}, \hyperpage{149}
+    \subitem {getDbl}, \hyperpage{150}
+    \subitem {getDblArray}, \hyperpage{150}
+    \subitem {getInt}, \hyperpage{151}
+    \subitem {getIntArray}, \hyperpage{151}
+    \subitem {getStr}, \hyperpage{152}
   \item {reconstruction.c}
-    \subitem {limiter}, \hyperpage{168}
-    \subitem {limiterBarthJespersen}, \hyperpage{167}
-    \subitem {limiterVenkatakrishnan}, \hyperpage{168}
-    \subitem {spatialReconstruction}, \hyperpage{168}
-    \subitem {venk\_k}, \hyperpage{169}
+    \subitem {limiter}, \hyperpage{154}
+    \subitem {limiterBarthJespersen}, \hyperpage{153}
+    \subitem {limiterVenkatakrishnan}, \hyperpage{153}
+    \subitem {spatialReconstruction}, \hyperpage{154}
+    \subitem {venk\_k}, \hyperpage{154}
   \item {reconstruction.h}
-    \subitem {limiter}, \hyperpage{170}
-    \subitem {spatialReconstruction}, \hyperpage{170}
-    \subitem {venk\_k}, \hyperpage{170}
+    \subitem {limiter}, \hyperpage{156}
+    \subitem {spatialReconstruction}, \hyperpage{155}
+    \subitem {venk\_k}, \hyperpage{156}
   \item {recordPoint}
-    \subitem {analyze.c}, \hyperpage{42}
-    \subitem {analyze.h}, \hyperpage{46}
-  \item {recordPoint\_t}, \hyperpage{26}
-    \subitem {elem}, \hyperpage{27}
-    \subitem {ioFile}, \hyperpage{27}
-    \subitem {nPoints}, \hyperpage{27}
-    \subitem {x}, \hyperpage{27}
+    \subitem {analyze.c}, \hyperpage{40}
+    \subitem {analyze.h}, \hyperpage{43}
+  \item {recordPoint\_t}, \hyperpage{25}
+    \subitem {elem}, \hyperpage{26}
+    \subitem {ioFile}, \hyperpage{26}
+    \subitem {nPoints}, \hyperpage{26}
+    \subitem {x}, \hyperpage{26}
   \item {refLength}
-    \subitem {wing\_t}, \hyperpage{37}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {refState}
-    \subitem {initialCondition.c}, \hyperpage{92}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{85}
+    \subitem {initialCondition.h}, \hyperpage{86}
   \item {rEps0}
-    \subitem {linearSolver.c}, \hyperpage{102}
-    \subitem {linearSolver.h}, \hyperpage{108}
+    \subitem {linearSolver.c}, \hyperpage{94}
+    \subitem {linearSolver.h}, \hyperpage{100}
   \item {resFile}
-    \subitem {output.c}, \hyperpage{150}
-    \subitem {output.h}, \hyperpage{154}
+    \subitem {output.c}, \hyperpage{138}
+    \subitem {output.h}, \hyperpage{141}
   \item {restartTime}
-    \subitem {timeDiscretization.c}, \hyperpage{182}
-    \subitem {timeDiscretization.h}, \hyperpage{189}
+    \subitem {timeDiscretization.c}, \hyperpage{167}
+    \subitem {timeDiscretization.h}, \hyperpage{173}
   \item {RHO}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {RIGHT}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {RKcoeff}
-    \subitem {timeDiscretization.c}, \hyperpage{182}
-    \subitem {timeDiscretization.h}, \hyperpage{189}
+    \subitem {timeDiscretization.c}, \hyperpage{167}
+    \subitem {timeDiscretization.h}, \hyperpage{173}
   \item {ROE}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {rp1Dinterface}
-    \subitem {initialCondition.c}, \hyperpage{92}
-    \subitem {initialCondition.h}, \hyperpage{94}
+    \subitem {initialCondition.c}, \hyperpage{85}
+    \subitem {initialCondition.h}, \hyperpage{87}
 
   \indexspace
 
   \item {setBCatBarys}
-    \subitem {boundary.c}, \hyperpage{48}
-    \subitem {boundary.h}, \hyperpage{52}
+    \subitem {boundary.c}, \hyperpage{45}
+    \subitem {boundary.h}, \hyperpage{48}
   \item {setBCatSides}
-    \subitem {boundary.c}, \hyperpage{49}
-    \subitem {boundary.h}, \hyperpage{52}
+    \subitem {boundary.c}, \hyperpage{45}
+    \subitem {boundary.h}, \hyperpage{48}
   \item {side}
-    \subitem {mesh.c}, \hyperpage{136}
-    \subitem {mesh.h}, \hyperpage{143}
-    \subitem {sideList\_t}, \hyperpage{34}
-    \subitem {sidePtr\_t}, \hyperpage{35}
-  \item {side\_t}, \hyperpage{28}
-    \subitem {baryBaryDist}, \hyperpage{29}
-    \subitem {baryBaryVec}, \hyperpage{29}
-    \subitem {BC}, \hyperpage{29}
-    \subitem {BCid}, \hyperpage{29}
-    \subitem {BCtype}, \hyperpage{30}
-    \subitem {connection}, \hyperpage{30}
-    \subitem {elem}, \hyperpage{30}
-    \subitem {flux}, \hyperpage{30}
-    \subitem {GP}, \hyperpage{30}
-    \subitem {id}, \hyperpage{31}
-    \subitem {len}, \hyperpage{31}
-    \subitem {n}, \hyperpage{31}
-    \subitem {next}, \hyperpage{31}
-    \subitem {nextElemSide}, \hyperpage{31}
+    \subitem {mesh.c}, \hyperpage{125}
+    \subitem {mesh.h}, \hyperpage{132}
+    \subitem {sideList\_t}, \hyperpage{32}
+    \subitem {sidePtr\_t}, \hyperpage{33}
+  \item {side\_t}, \hyperpage{27}
+    \subitem {baryBaryDist}, \hyperpage{27}
+    \subitem {baryBaryVec}, \hyperpage{27}
+    \subitem {BC}, \hyperpage{28}
+    \subitem {BCid}, \hyperpage{28}
+    \subitem {BCtype}, \hyperpage{28}
+    \subitem {connection}, \hyperpage{28}
+    \subitem {elem}, \hyperpage{28}
+    \subitem {flux}, \hyperpage{29}
+    \subitem {GP}, \hyperpage{29}
+    \subitem {id}, \hyperpage{29}
+    \subitem {len}, \hyperpage{29}
+    \subitem {n}, \hyperpage{29}
+    \subitem {next}, \hyperpage{30}
+    \subitem {nextElemSide}, \hyperpage{30}
+    \subitem {node}, \hyperpage{30}
+    \subitem {pVar}, \hyperpage{30}
+    \subitem {w}, \hyperpage{30}
+  \item {sideList\_t}, \hyperpage{31}
+    \subitem {BC}, \hyperpage{31}
+    \subitem {isRotated}, \hyperpage{31}
     \subitem {node}, \hyperpage{32}
-    \subitem {pVar}, \hyperpage{32}
-    \subitem {w}, \hyperpage{32}
-  \item {sideList\_t}, \hyperpage{33}
-    \subitem {BC}, \hyperpage{33}
-    \subitem {isRotated}, \hyperpage{33}
-    \subitem {node}, \hyperpage{34}
-    \subitem {side}, \hyperpage{34}
-  \item {sidePtr\_t}, \hyperpage{34}
-    \subitem {next}, \hyperpage{35}
-    \subitem {side}, \hyperpage{35}
+    \subitem {side}, \hyperpage{32}
+  \item {sidePtr\_t}, \hyperpage{32}
+    \subitem {next}, \hyperpage{33}
+    \subitem {side}, \hyperpage{33}
   \item {SLIPWALL}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {source}
     \subitem {elem\_t}, \hyperpage{21}
   \item {source.c}
-    \subitem {calcSource}, \hyperpage{172}
-    \subitem {evalSource}, \hyperpage{172}
+    \subitem {calcSource}, \hyperpage{157}
+    \subitem {evalSource}, \hyperpage{157}
   \item {source.h}
-    \subitem {calcSource}, \hyperpage{173}
+    \subitem {calcSource}, \hyperpage{158}
   \item {sourceFunc}
-    \subitem {equation.c}, \hyperpage{57}
-    \subitem {equation.h}, \hyperpage{61}
+    \subitem {equation.c}, \hyperpage{53}
+    \subitem {equation.h}, \hyperpage{57}
   \item {spatialOrder}
-    \subitem {finiteVolume.c}, \hyperpage{78}
-    \subitem {finiteVolume.h}, \hyperpage{79}
+    \subitem {finiteVolume.c}, \hyperpage{71}
+    \subitem {finiteVolume.h}, \hyperpage{72}
   \item {spatialReconstruction}
-    \subitem {reconstruction.c}, \hyperpage{168}
-    \subitem {reconstruction.h}, \hyperpage{170}
+    \subitem {reconstruction.c}, \hyperpage{154}
+    \subitem {reconstruction.h}, \hyperpage{155}
   \item {sqrt2}
-    \subitem {equation.c}, \hyperpage{57}
-    \subitem {equation.h}, \hyperpage{61}
+    \subitem {equation.c}, \hyperpage{53}
+    \subitem {equation.h}, \hyperpage{57}
   \item {sqrt3}
-    \subitem {equation.c}, \hyperpage{57}
-    \subitem {equation.h}, \hyperpage{62}
+    \subitem {equation.c}, \hyperpage{53}
+    \subitem {equation.h}, \hyperpage{57}
   \item {sqrt3q}
-    \subitem {equation.c}, \hyperpage{57}
-    \subitem {equation.h}, \hyperpage{62}
+    \subitem {equation.c}, \hyperpage{53}
+    \subitem {equation.h}, \hyperpage{58}
   \item {srEps0}
-    \subitem {linearSolver.c}, \hyperpage{102}
-    \subitem {linearSolver.h}, \hyperpage{109}
+    \subitem {linearSolver.c}, \hyperpage{94}
+    \subitem {linearSolver.h}, \hyperpage{100}
   \item {startTime}
-    \subitem {timeDiscretization.c}, \hyperpage{182}
-    \subitem {timeDiscretization.h}, \hyperpage{189}
+    \subitem {timeDiscretization.c}, \hyperpage{167}
+    \subitem {timeDiscretization.h}, \hyperpage{173}
   \item {stopTime}
-    \subitem {timeDiscretization.c}, \hyperpage{182}
-    \subitem {timeDiscretization.h}, \hyperpage{190}
+    \subitem {timeDiscretization.c}, \hyperpage{167}
+    \subitem {timeDiscretization.h}, \hyperpage{174}
   \item {strIniCondFile}
-    \subitem {mesh.c}, \hyperpage{136}
-    \subitem {mesh.h}, \hyperpage{144}
+    \subitem {mesh.c}, \hyperpage{125}
+    \subitem {mesh.h}, \hyperpage{132}
   \item {STRLEN}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {strMeshFile}
-    \subitem {mesh.c}, \hyperpage{136}
-    \subitem {mesh.h}, \hyperpage{144}
+    \subitem {mesh.c}, \hyperpage{125}
+    \subitem {mesh.h}, \hyperpage{132}
   \item {strMeshFormat}
-    \subitem {mesh.c}, \hyperpage{136}
-    \subitem {mesh.h}, \hyperpage{144}
+    \subitem {mesh.c}, \hyperpage{126}
+    \subitem {mesh.h}, \hyperpage{132}
   \item {strOutFile}
-    \subitem {output.c}, \hyperpage{150}
-    \subitem {output.h}, \hyperpage{154}
+    \subitem {output.c}, \hyperpage{138}
+    \subitem {output.h}, \hyperpage{141}
   \item {STW}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {sx}
-    \subitem {elem\_t}, \hyperpage{22}
+    \subitem {elem\_t}, \hyperpage{21}
   \item {sy}
-    \subitem {elem\_t}, \hyperpage{22}
+    \subitem {elem\_t}, \hyperpage{21}
 
   \indexspace
 
   \item {t}
-    \subitem {timeDiscretization.c}, \hyperpage{183}
-    \subitem {timeDiscretization.h}, \hyperpage{190}
+    \subitem {timeDiscretization.c}, \hyperpage{167}
+    \subitem {timeDiscretization.h}, \hyperpage{174}
   \item {temperature}
-    \subitem {boundary\_t}, \hyperpage{14}
+    \subitem {boundary\_t}, \hyperpage{13}
   \item {time}
-    \subitem {outputTime\_t}, \hyperpage{26}
+    \subitem {outputTime\_t}, \hyperpage{25}
   \item {timeDisc}
-    \subitem {timeDiscretization.c}, \hyperpage{177}
-    \subitem {timeDiscretization.h}, \hyperpage{185}
+    \subitem {timeDiscretization.c}, \hyperpage{162}
+    \subitem {timeDiscretization.h}, \hyperpage{169}
   \item {timeDiscretization.c}
-    \subitem {abortResidual}, \hyperpage{177}
-    \subitem {abortVariable}, \hyperpage{178}
-    \subitem {abortVariableName}, \hyperpage{178}
-    \subitem {calcTimeStep}, \hyperpage{175}
-    \subitem {cdAbortResidual}, \hyperpage{178}
-    \subitem {cfl}, \hyperpage{178}
-    \subitem {clAbortResidual}, \hyperpage{178}
-    \subitem {deltaX}, \hyperpage{179}
-    \subitem {dfl}, \hyperpage{179}
-    \subitem {doAbortOnCdResidual}, \hyperpage{179}
-    \subitem {doAbortOnClResidual}, \hyperpage{179}
-    \subitem {explicitTimeStepEuler}, \hyperpage{176}
-    \subitem {explicitTimeStepRK}, \hyperpage{176}
-    \subitem {F\_X0}, \hyperpage{179}
-    \subitem {F\_XK}, \hyperpage{180}
-    \subitem {implicitTimeStep}, \hyperpage{177}
-    \subitem {iniIterationNumber}, \hyperpage{180}
-    \subitem {isImplicit}, \hyperpage{180}
-    \subitem {isRestart}, \hyperpage{180}
-    \subitem {isStationary}, \hyperpage{180}
-    \subitem {isTimeStep1D}, \hyperpage{181}
-    \subitem {maxIter}, \hyperpage{181}
-    \subitem {nRKstages}, \hyperpage{181}
-    \subitem {printIter}, \hyperpage{181}
-    \subitem {printTime}, \hyperpage{181}
-    \subitem {Q}, \hyperpage{182}
-    \subitem {restartTime}, \hyperpage{182}
-    \subitem {RKcoeff}, \hyperpage{182}
-    \subitem {startTime}, \hyperpage{182}
-    \subitem {stopTime}, \hyperpage{182}
-    \subitem {t}, \hyperpage{183}
-    \subitem {timeDisc}, \hyperpage{177}
-    \subitem {timeOrder}, \hyperpage{183}
-    \subitem {timeOverall}, \hyperpage{183}
+    \subitem {abortResidual}, \hyperpage{162}
+    \subitem {abortVariable}, \hyperpage{162}
+    \subitem {abortVariableName}, \hyperpage{163}
+    \subitem {calcTimeStep}, \hyperpage{160}
+    \subitem {cdAbortResidual}, \hyperpage{163}
+    \subitem {cfl}, \hyperpage{163}
+    \subitem {clAbortResidual}, \hyperpage{163}
+    \subitem {deltaX}, \hyperpage{163}
+    \subitem {dfl}, \hyperpage{164}
+    \subitem {doAbortOnCdResidual}, \hyperpage{164}
+    \subitem {doAbortOnClResidual}, \hyperpage{164}
+    \subitem {explicitTimeStepEuler}, \hyperpage{160}
+    \subitem {explicitTimeStepRK}, \hyperpage{161}
+    \subitem {F\_X0}, \hyperpage{164}
+    \subitem {F\_XK}, \hyperpage{164}
+    \subitem {implicitTimeStep}, \hyperpage{161}
+    \subitem {iniIterationNumber}, \hyperpage{165}
+    \subitem {isImplicit}, \hyperpage{165}
+    \subitem {isRestart}, \hyperpage{165}
+    \subitem {isStationary}, \hyperpage{165}
+    \subitem {isTimeStep1D}, \hyperpage{165}
+    \subitem {maxIter}, \hyperpage{166}
+    \subitem {nRKstages}, \hyperpage{166}
+    \subitem {printIter}, \hyperpage{166}
+    \subitem {printTime}, \hyperpage{166}
+    \subitem {Q}, \hyperpage{166}
+    \subitem {restartTime}, \hyperpage{167}
+    \subitem {RKcoeff}, \hyperpage{167}
+    \subitem {startTime}, \hyperpage{167}
+    \subitem {stopTime}, \hyperpage{167}
+    \subitem {t}, \hyperpage{167}
+    \subitem {timeDisc}, \hyperpage{162}
+    \subitem {timeOrder}, \hyperpage{168}
+    \subitem {timeOverall}, \hyperpage{168}
   \item {timeDiscretization.h}
-    \subitem {abortResidual}, \hyperpage{186}
-    \subitem {abortVariable}, \hyperpage{186}
-    \subitem {abortVariableName}, \hyperpage{186}
-    \subitem {cdAbortResidual}, \hyperpage{186}
-    \subitem {cfl}, \hyperpage{186}
-    \subitem {clAbortResidual}, \hyperpage{186}
-    \subitem {dfl}, \hyperpage{187}
-    \subitem {doAbortOnCdResidual}, \hyperpage{187}
-    \subitem {doAbortOnClResidual}, \hyperpage{187}
-    \subitem {iniIterationNumber}, \hyperpage{187}
-    \subitem {isImplicit}, \hyperpage{187}
-    \subitem {isRestart}, \hyperpage{188}
-    \subitem {isStationary}, \hyperpage{188}
-    \subitem {isTimeStep1D}, \hyperpage{188}
-    \subitem {maxIter}, \hyperpage{188}
-    \subitem {nRKstages}, \hyperpage{188}
-    \subitem {printIter}, \hyperpage{189}
-    \subitem {printTime}, \hyperpage{189}
-    \subitem {restartTime}, \hyperpage{189}
-    \subitem {RKcoeff}, \hyperpage{189}
-    \subitem {startTime}, \hyperpage{189}
-    \subitem {stopTime}, \hyperpage{190}
-    \subitem {t}, \hyperpage{190}
-    \subitem {timeDisc}, \hyperpage{185}
-    \subitem {timeOrder}, \hyperpage{190}
-    \subitem {timeOverall}, \hyperpage{190}
+    \subitem {abortResidual}, \hyperpage{170}
+    \subitem {abortVariable}, \hyperpage{170}
+    \subitem {abortVariableName}, \hyperpage{170}
+    \subitem {cdAbortResidual}, \hyperpage{170}
+    \subitem {cfl}, \hyperpage{170}
+    \subitem {clAbortResidual}, \hyperpage{170}
+    \subitem {dfl}, \hyperpage{171}
+    \subitem {doAbortOnCdResidual}, \hyperpage{171}
+    \subitem {doAbortOnClResidual}, \hyperpage{171}
+    \subitem {iniIterationNumber}, \hyperpage{171}
+    \subitem {isImplicit}, \hyperpage{171}
+    \subitem {isRestart}, \hyperpage{172}
+    \subitem {isStationary}, \hyperpage{172}
+    \subitem {isTimeStep1D}, \hyperpage{172}
+    \subitem {maxIter}, \hyperpage{172}
+    \subitem {nRKstages}, \hyperpage{172}
+    \subitem {printIter}, \hyperpage{173}
+    \subitem {printTime}, \hyperpage{173}
+    \subitem {restartTime}, \hyperpage{173}
+    \subitem {RKcoeff}, \hyperpage{173}
+    \subitem {startTime}, \hyperpage{173}
+    \subitem {stopTime}, \hyperpage{174}
+    \subitem {t}, \hyperpage{174}
+    \subitem {timeDisc}, \hyperpage{169}
+    \subitem {timeOrder}, \hyperpage{174}
+    \subitem {timeOverall}, \hyperpage{174}
   \item {timeOrder}
-    \subitem {timeDiscretization.c}, \hyperpage{183}
-    \subitem {timeDiscretization.h}, \hyperpage{190}
+    \subitem {timeDiscretization.c}, \hyperpage{168}
+    \subitem {timeDiscretization.h}, \hyperpage{174}
   \item {timeOverall}
-    \subitem {timeDiscretization.c}, \hyperpage{183}
-    \subitem {timeDiscretization.h}, \hyperpage{190}
+    \subitem {timeDiscretization.c}, \hyperpage{168}
+    \subitem {timeDiscretization.h}, \hyperpage{174}
   \item {tol}
-    \subitem {exactRiemann.c}, \hyperpage{74}
+    \subitem {exactRiemann.c}, \hyperpage{68}
   \item {TOP}
-    \subitem {main.h}, \hyperpage{114}
+    \subitem {main.h}, \hyperpage{105}
   \item {totalArea\_q}
-    \subitem {mesh.c}, \hyperpage{137}
-    \subitem {mesh.h}, \hyperpage{144}
+    \subitem {mesh.c}, \hyperpage{126}
+    \subitem {mesh.h}, \hyperpage{132}
 
   \indexspace
 
   \item {u\_t}
-    \subitem {elem\_t}, \hyperpage{22}
+    \subitem {elem\_t}, \hyperpage{21}
   \item {u\_x}
     \subitem {elem\_t}, \hyperpage{22}
   \item {u\_y}
     \subitem {elem\_t}, \hyperpage{22}
   \item {UNSTRUCTURED}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {usePrecond}
-    \subitem {linearSolver.c}, \hyperpage{103}
-    \subitem {linearSolver.h}, \hyperpage{109}
+    \subitem {linearSolver.c}, \hyperpage{95}
+    \subitem {linearSolver.h}, \hyperpage{100}
 
   \indexspace
 
   \item {V}
-    \subitem {linearSolver.c}, \hyperpage{103}
+    \subitem {linearSolver.c}, \hyperpage{95}
   \item {value}
-    \subitem {cmd\_t}, \hyperpage{17}
+    \subitem {cmd\_t}, \hyperpage{16}
   \item {VANLEER}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {vectorDotProduct}
-    \subitem {linearSolver.c}, \hyperpage{99}
-    \subitem {linearSolver.h}, \hyperpage{106}
+    \subitem {linearSolver.c}, \hyperpage{91}
+    \subitem {linearSolver.h}, \hyperpage{97}
   \item {venk\_k}
-    \subitem {reconstruction.c}, \hyperpage{169}
-    \subitem {reconstruction.h}, \hyperpage{170}
+    \subitem {reconstruction.c}, \hyperpage{154}
+    \subitem {reconstruction.h}, \hyperpage{156}
   \item {VENKATAKRISHNAN}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {venkEps\_sq}
-    \subitem {elem\_t}, \hyperpage{23}
+    \subitem {elem\_t}, \hyperpage{22}
   \item {VX}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
   \item {VY}
-    \subitem {main.h}, \hyperpage{116}
+    \subitem {main.h}, \hyperpage{107}
 
   \indexspace
 
   \item {W}
-    \subitem {linearSolver.c}, \hyperpage{103}
+    \subitem {linearSolver.c}, \hyperpage{95}
   \item {w}
-    \subitem {side\_t}, \hyperpage{32}
+    \subitem {side\_t}, \hyperpage{30}
   \item {WALL}
-    \subitem {main.h}, \hyperpage{113}
+    \subitem {main.h}, \hyperpage{104}
   \item {wallId}
-    \subitem {wing\_t}, \hyperpage{37}
+    \subitem {wing\_t}, \hyperpage{34}
   \item {wGP}
-    \subitem {elem\_t}, \hyperpage{23}
+    \subitem {elem\_t}, \hyperpage{22}
   \item {wing}
-    \subitem {analyze.c}, \hyperpage{42}
-    \subitem {analyze.h}, \hyperpage{46}
-  \item {wing\_t}, \hyperpage{36}
-    \subitem {cd}, \hyperpage{36}
-    \subitem {cl}, \hyperpage{37}
-    \subitem {firstPressureSide}, \hyperpage{37}
-    \subitem {firstSuctionSide}, \hyperpage{37}
-    \subitem {refLength}, \hyperpage{37}
-    \subitem {wallId}, \hyperpage{37}
-    \subitem {wingBC}, \hyperpage{38}
+    \subitem {analyze.c}, \hyperpage{40}
+    \subitem {analyze.h}, \hyperpage{43}
+  \item {wing\_t}, \hyperpage{33}
+    \subitem {cd}, \hyperpage{34}
+    \subitem {cl}, \hyperpage{34}
+    \subitem {firstPressureSide}, \hyperpage{34}
+    \subitem {firstSuctionSide}, \hyperpage{34}
+    \subitem {refLength}, \hyperpage{34}
+    \subitem {wallId}, \hyperpage{34}
+    \subitem {wingBC}, \hyperpage{35}
   \item {wingBC}
-    \subitem {wing\_t}, \hyperpage{38}
+    \subitem {wing\_t}, \hyperpage{35}
 
   \indexspace
 
   \item {X}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {x}
     \subitem {node\_t}, \hyperpage{24}
-    \subitem {recordPoint\_t}, \hyperpage{27}
+    \subitem {recordPoint\_t}, \hyperpage{26}
   \item {xGP}
-    \subitem {elem\_t}, \hyperpage{23}
+    \subitem {elem\_t}, \hyperpage{22}
   \item {XK}
-    \subitem {linearSolver.c}, \hyperpage{103}
-    \subitem {linearSolver.h}, \hyperpage{109}
+    \subitem {linearSolver.c}, \hyperpage{95}
+    \subitem {linearSolver.h}, \hyperpage{101}
   \item {xMax}
-    \subitem {mesh.c}, \hyperpage{137}
-    \subitem {mesh.h}, \hyperpage{144}
+    \subitem {mesh.c}, \hyperpage{126}
+    \subitem {mesh.h}, \hyperpage{133}
   \item {xMin}
-    \subitem {mesh.c}, \hyperpage{137}
-    \subitem {mesh.h}, \hyperpage{145}
+    \subitem {mesh.c}, \hyperpage{126}
+    \subitem {mesh.h}, \hyperpage{133}
 
   \indexspace
 
   \item {Y}
-    \subitem {main.h}, \hyperpage{115}
+    \subitem {main.h}, \hyperpage{106}
   \item {yMax}
-    \subitem {mesh.c}, \hyperpage{137}
-    \subitem {mesh.h}, \hyperpage{145}
+    \subitem {mesh.c}, \hyperpage{126}
+    \subitem {mesh.h}, \hyperpage{133}
   \item {yMin}
-    \subitem {mesh.c}, \hyperpage{137}
-    \subitem {mesh.h}, \hyperpage{145}
+    \subitem {mesh.c}, \hyperpage{127}
+    \subitem {mesh.h}, \hyperpage{133}
 
   \indexspace
 
   \item {Z}
-    \subitem {linearSolver.c}, \hyperpage{103}
+    \subitem {linearSolver.c}, \hyperpage{95}
 
 \end{theindex}

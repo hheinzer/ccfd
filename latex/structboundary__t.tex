@@ -11,23 +11,18 @@ Structure that holds the information of a boundary condition.
 
 
 
-Collaboration diagram for boundary\+\_\+t\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=185pt]{structboundary__t__coll__graph}
-\end{center}
-\end{figure}
+Collaboration diagram for boundary\+\_\+t\+:
+% FIG 0
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}{B\+Ctype}}
+int \mbox{\hyperlink{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}{BCtype}}
 \item 
-int \mbox{\hyperlink{structboundary__t_ab12159c6b757bdf0490adfe836693398}{B\+Cid}}
+int \mbox{\hyperlink{structboundary__t_ab12159c6b757bdf0490adfe836693398}{BCid}}
 \item 
 int \mbox{\hyperlink{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}{exact\+Func}}
 \item 
-double \mbox{\hyperlink{structboundary__t_a4859dd02f6eecef78b4b1798181902e6}{p\+Var}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}
+double \mbox{\hyperlink{structboundary__t_a4859dd02f6eecef78b4b1798181902e6}{p\+Var}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}
 \item 
 bool \mbox{\hyperlink{structboundary__t_a7ba52ca7598af5e6f89cc6b131089a8d}{is\+Adiabatic}}
 \item 
@@ -51,17 +46,17 @@ Structure that holds the information of a boundary condition.
 \index{boundary\_t@{boundary\_t}!BCid@{BCid}}
 \index{BCid@{BCid}!boundary\_t@{boundary\_t}}
 \doxysubsubsection{\texorpdfstring{BCid}{BCid}}
-{\footnotesize\ttfamily int boundary\+\_\+t\+::\+B\+Cid}
+{\footnotesize\ttfamily int boundary\+\_\+t\+::\+BCid}
 
 boundary condition ID 
 
-Referenced by cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), init\+Boundary(), and init\+Wing().
+Referenced by cgns\+Write\+Mesh(), connect\+Periodic\+BC(), create\+Mesh(), init\+Boundary(), and init\+Wing().
 
 \mbox{\Hypertarget{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}\label{structboundary__t_ab4df5ad3a5ce485cf87755f498ce60cf}} 
 \index{boundary\_t@{boundary\_t}!BCtype@{BCtype}}
 \index{BCtype@{BCtype}!boundary\_t@{boundary\_t}}
 \doxysubsubsection{\texorpdfstring{BCtype}{BCtype}}
-{\footnotesize\ttfamily int boundary\+\_\+t\+::\+B\+Ctype}
+{\footnotesize\ttfamily int boundary\+\_\+t\+::\+BCtype}
 
 boundary type\+:
 \begin{DoxyItemize}
@@ -75,7 +70,7 @@ boundary type\+:
 \item 8\+: pressure outflow 
 \end{DoxyItemize}
 
-Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), init\+Boundary(), and init\+Wing().
+Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+BC(), create\+Mesh(), init\+Boundary(), and init\+Wing().
 
 \mbox{\Hypertarget{structboundary__t_ab1d56584b46dcda1e032bb997a542d41}\label{structboundary__t_ab1d56584b46dcda1e032bb997a542d41}} 
 \index{boundary\_t@{boundary\_t}!connection@{connection}}
@@ -85,7 +80,7 @@ Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create
 
 connection coordinates for periodic BC 
 
-Referenced by connect\+Periodic\+B\+C(), and init\+Boundary().
+Referenced by connect\+Periodic\+BC(), and init\+Boundary().
 
 \mbox{\Hypertarget{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}\label{structboundary__t_ad7f4763eea81e2ad0e0a36bbf212f062}} 
 \index{boundary\_t@{boundary\_t}!exactFunc@{exactFunc}}
@@ -137,7 +132,7 @@ Referenced by cgns\+Write\+Mesh(), create\+Mesh(), free\+Boundary(), init\+Bound
 \index{boundary\_t@{boundary\_t}!pVar@{pVar}}
 \index{pVar@{pVar}!boundary\_t@{boundary\_t}}
 \doxysubsubsection{\texorpdfstring{pVar}{pVar}}
-{\footnotesize\ttfamily double boundary\+\_\+t\+::p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}}
+{\footnotesize\ttfamily double boundary\+\_\+t\+::p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}}
 
 inflow state 
 

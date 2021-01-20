@@ -12,13 +12,8 @@ Contains the flux calculation functions.
 {\ttfamily \#include \char`\"{}exact\+Riemann.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}boundary.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}linear\+Solver.\+h\char`\"{}}\newline
-Include dependency graph for flux\+Calculation.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{fluxCalculation_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for flux\+Calculation.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,11 +22,11 @@ void \mbox{\hyperlink{fluxCalculation_8c_a8b46ee8328797fe0d1c3a7a67a37393b}{flux
 void \mbox{\hyperlink{fluxCalculation_8c_a82ec899dde881f02bd76e20a30705dac}{flux\+\_\+roe}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
 \begin{DoxyCompactList}\small\item\em Roe flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_adf19be98e07effde8ec64671b562daef}{flux\+\_\+hll}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
-\begin{DoxyCompactList}\small\item\em H\+LL flux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em HLL flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a6b74a07d29347f7db696dead0e621bc7}{flux\+\_\+hlle}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
-\begin{DoxyCompactList}\small\item\em H\+L\+LE flux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em HLLE flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a4441c2b103408119024926dd388a2e89}{flux\+\_\+hllc}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
-\begin{DoxyCompactList}\small\item\em H\+L\+LC flux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em HLLC flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a71260814e9fd4b58340179fe4414f162}{flux\+\_\+lxf}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
 \begin{DoxyCompactList}\small\item\em Lax-\/\+Friedrichs flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a504455e1e89b2b15b43cd88315eba42a}{flux\+\_\+stw}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
@@ -39,9 +34,9 @@ void \mbox{\hyperlink{fluxCalculation_8c_a504455e1e89b2b15b43cd88315eba42a}{flux
 void \mbox{\hyperlink{fluxCalculation_8c_ac92afb904e9d16738e9edbf18861b158}{flux\+\_\+cen}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
 \begin{DoxyCompactList}\small\item\em Central flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a9b872c969055acce42ba72a13c879824}{flux\+\_\+ausmd}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
-\begin{DoxyCompactList}\small\item\em A\+U\+S\+MD flux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em AUSMD flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_ac1ab4c281fdf823d688c993c0c8e8afe}{flux\+\_\+ausmdv}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
-\begin{DoxyCompactList}\small\item\em A\+U\+S\+M\+DV flux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em AUSMDV flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_a713a90c01c2da02c3b54a7fae9ca6cba}{flux\+\_\+vanleer}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
 \begin{DoxyCompactList}\small\item\em Van Leer flux. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fluxCalculation_8c_ace705178b5d10394576035f5fda21b80}{convective\+Flux}} (double rhoL, double rhoR, double vxL, double vxR, double vyL, double vyR, double pL, double pR, double flux\+Loc\mbox{[}4\mbox{]})
@@ -57,7 +52,7 @@ Contains the flux calculation functions.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Tue 31 Mar 2020 05\+:18\+:40 PM C\+E\+ST 
+Tue 31 Mar 2020 05\+:18\+:40 PM CEST 
 \end{DoxyDate}
 
 
@@ -95,7 +90,7 @@ Select the convective flux.
 \end{DoxyParams}
 
 
-References A\+U\+S\+MD, A\+U\+S\+M\+DV, C\+EN, flux\+\_\+ausmd(), flux\+\_\+ausmdv(), flux\+\_\+cen(), flux\+\_\+god(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+hlle(), flux\+\_\+lxf(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), G\+OD, H\+LL, H\+L\+LC, H\+L\+LE, i\+Flux, L\+XF, R\+OE, S\+TW, and V\+A\+N\+L\+E\+ER.
+References AUSMD, AUSMDV, CEN, flux\+\_\+ausmd(), flux\+\_\+ausmdv(), flux\+\_\+cen(), flux\+\_\+god(), flux\+\_\+hll(), flux\+\_\+hllc(), flux\+\_\+hlle(), flux\+\_\+lxf(), flux\+\_\+roe(), flux\+\_\+stw(), flux\+\_\+vanleer(), GOD, HLL, HLLC, HLLE, i\+Flux, LXF, ROE, STW, and VANLEER.
 
 
 
@@ -109,7 +104,7 @@ Referenced by flux\+Calculation().
 
 
 
-A\+U\+S\+MD flux. 
+AUSMD flux. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -148,7 +143,7 @@ Referenced by convective\+Flux().
 
 
 
-A\+U\+S\+M\+DV flux. 
+AUSMDV flux. 
 
 \begin{DoxyRefDesc}{Bug}
 \item[\mbox{\hyperlink{bug__bug000001}{Bug}}]This function produces incorrect output, refrain from using it for the time being \end{DoxyRefDesc}
@@ -270,7 +265,7 @@ Referenced by convective\+Flux().
 
 
 
-H\+LL flux. 
+HLL flux. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -295,7 +290,7 @@ H\+LL flux.
 \end{DoxyParams}
 
 
-References gam, gam1, gam1q, MX, and N\+V\+AR.
+References gam, gam1, gam1q, MX, and NVAR.
 
 
 
@@ -309,7 +304,7 @@ Referenced by convective\+Flux().
 
 
 
-H\+L\+LC flux. 
+HLLC flux. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -334,7 +329,7 @@ H\+L\+LC flux.
 \end{DoxyParams}
 
 
-References gam, gam1, gam1q, MX, and N\+V\+AR.
+References gam, gam1, gam1q, MX, and NVAR.
 
 
 
@@ -348,7 +343,7 @@ Referenced by convective\+Flux().
 
 
 
-H\+L\+LE flux. 
+HLLE flux. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -373,7 +368,7 @@ H\+L\+LE flux.
 \end{DoxyParams}
 
 
-References gam, gam1q, MX, and N\+V\+AR.
+References gam, gam1q, MX, and NVAR.
 
 
 
@@ -412,7 +407,7 @@ Lax-\/\+Friedrichs flux.
 \end{DoxyParams}
 
 
-References gam, gam1q, and N\+V\+AR.
+References gam, gam1q, and NVAR.
 
 
 
@@ -547,7 +542,7 @@ Perform the flux calculation.
 
 Calculation of left and right state, the velocity vector is transformed into the normal system of the cell interfaces. The function finishes with a back rotation of the velocity vector into global coordinate system. 
 
-References side\+\_\+t\+::bary\+Bary\+Dist, side\+\_\+t\+::bary\+Bary\+Vec, side\+\_\+t\+::connection, convective\+Flux(), E, side\+\_\+t\+::elem, side\+\_\+t\+::flux, side\+\_\+t\+::len, MX, MY, side\+\_\+t\+::n, N\+D\+IM, n\+Sides, N\+V\+AR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, R\+HO, side, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
+References side\+\_\+t\+::bary\+Bary\+Dist, side\+\_\+t\+::bary\+Bary\+Vec, side\+\_\+t\+::connection, convective\+Flux(), E, side\+\_\+t\+::elem, side\+\_\+t\+::flux, side\+\_\+t\+::len, MX, MY, side\+\_\+t\+::n, NDIM, n\+Sides, NVAR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, RHO, side, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
 
 
 

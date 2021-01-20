@@ -8,20 +8,10 @@ Contains the structure definition of a boundary.
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
-Include dependency graph for boundary.\+h\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=242pt]{boundary_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{boundary_8h__dep__incl}
-\end{center}
-\end{figure}
+Include dependency graph for boundary.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,11 +23,11 @@ struct \mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}}
 \mbox{\Hypertarget{boundary_8h_a05d101d1f79d7e1bda2a9822c0675773}\label{boundary_8h_a05d101d1f79d7e1bda2a9822c0675773}} 
 void \mbox{\hyperlink{boundary_8h_a05d101d1f79d7e1bda2a9822c0675773}{init\+Boundary}} (void)
 \begin{DoxyCompactList}\small\item\em Initialize boundary conditions. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{boundary_8h_aa822e937f3fa5ec4a2cd96cb9a39d254}{set\+B\+Cat\+Sides}} (double time)
+void \mbox{\hyperlink{boundary_8h_aa822e937f3fa5ec4a2cd96cb9a39d254}{set\+BCat\+Sides}} (double time)
 \begin{DoxyCompactList}\small\item\em Set the ghost values at sides. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{boundary_8h_a10ed132aacb524ddf08fb63254798079}{set\+B\+Cat\+Barys}} (double time)
+void \mbox{\hyperlink{boundary_8h_a10ed132aacb524ddf08fb63254798079}{set\+BCat\+Barys}} (double time)
 \begin{DoxyCompactList}\small\item\em Set the ghost values at elements. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{boundary_8h_afe0c3f2f1f7519970db0276c98a359a4}{boundary}} (\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$a\+Side, double time, double int\+\_\+p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double ghost\+\_\+p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}, double x\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]})
+void \mbox{\hyperlink{boundary_8h_afe0c3f2f1f7519970db0276c98a359a4}{boundary}} (\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$a\+Side, double time, double int\+\_\+p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}, double ghost\+\_\+p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}, double x\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]})
 \begin{DoxyCompactList}\small\item\em Set boundary condition value at x. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{boundary_8h_a9a28f864619366666b36443f7ca92f06}\label{boundary_8h_a9a28f864619366666b36443f7ca92f06}} 
 void \mbox{\hyperlink{boundary_8h_a9a28f864619366666b36443f7ca92f06}{free\+Boundary}} (void)
@@ -60,7 +50,7 @@ Contains the structure definition of a boundary.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Tue 24 Mar 2020 10\+:02\+:10 AM C\+ET 
+Tue 24 Mar 2020 10\+:02\+:10 AM CET 
 \end{DoxyDate}
 
 
@@ -69,7 +59,7 @@ Tue 24 Mar 2020 10\+:02\+:10 AM C\+ET
 \index{boundary.h@{boundary.h}!boundary@{boundary}}
 \index{boundary@{boundary}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{boundary()}{boundary()}}
-{\footnotesize\ttfamily void boundary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$}]{a\+Side,  }\item[{double}]{time,  }\item[{double}]{int\+\_\+p\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{ghost\+\_\+p\+Var\mbox{[}\+N\+V\+A\+R\mbox{]},  }\item[{double}]{x\mbox{[}\+N\+D\+I\+M\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void boundary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$}]{a\+Side,  }\item[{double}]{time,  }\item[{double}]{int\+\_\+p\+Var\mbox{[}\+NVAR\mbox{]},  }\item[{double}]{ghost\+\_\+p\+Var\mbox{[}\+NVAR\mbox{]},  }\item[{double}]{x\mbox{[}\+NDIM\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -90,17 +80,17 @@ Set boundary condition value at x.
 \end{DoxyParams}
 
 
-References side\+\_\+t\+::\+BC, boundary\+\_\+t\+::\+B\+Ctype, C\+H\+A\+R\+A\+C\+T\+E\+R\+I\+S\+T\+IC, char\+Cons(), side\+\_\+t\+::connection, cons\+Char(), cons\+Prim(), boundary\+\_\+t\+::exact\+Func, exact\+Func(), E\+X\+A\+C\+T\+S\+OL, gam, I\+N\+F\+L\+OW, mu, MY, side\+\_\+t\+::n, N\+D\+IM, N\+V\+AR, O\+U\+T\+F\+L\+OW, P, P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+O\+UT, prim\+Cons(), boundary\+\_\+t\+::p\+Var, R\+HO, S\+L\+I\+P\+W\+A\+LL, VX, VY, W\+A\+LL, X, and Y.
+References side\+\_\+t\+::\+BC, boundary\+\_\+t\+::\+BCtype, CHARACTERISTIC, char\+Cons(), side\+\_\+t\+::connection, cons\+Char(), cons\+Prim(), boundary\+\_\+t\+::exact\+Func, exact\+Func(), EXACTSOL, gam, INFLOW, mu, MY, side\+\_\+t\+::n, NDIM, NVAR, OUTFLOW, P, PRESSURE\+\_\+\+OUT, prim\+Cons(), boundary\+\_\+t\+::p\+Var, RHO, SLIPWALL, VX, VY, WALL, X, and Y.
 
 
 
-Referenced by set\+B\+Cat\+Barys(), and set\+B\+Cat\+Sides().
+Referenced by set\+BCat\+Barys(), and set\+BCat\+Sides().
 
 \mbox{\Hypertarget{boundary_8h_a10ed132aacb524ddf08fb63254798079}\label{boundary_8h_a10ed132aacb524ddf08fb63254798079}} 
 \index{boundary.h@{boundary.h}!setBCatBarys@{setBCatBarys}}
 \index{setBCatBarys@{setBCatBarys}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{setBCatBarys()}{setBCatBarys()}}
-{\footnotesize\ttfamily void set\+B\+Cat\+Barys (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void set\+BCat\+Barys (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
 
 
 
@@ -113,7 +103,7 @@ Set the ghost values at elements.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, B\+Cside, boundary(), side\+\_\+t\+::connection, side\+\_\+t\+::elem, n\+B\+Csides, and elem\+\_\+t\+::p\+Var.
+References elem\+\_\+t\+::bary, BCside, boundary(), side\+\_\+t\+::connection, side\+\_\+t\+::elem, n\+BCsides, and elem\+\_\+t\+::p\+Var.
 
 
 
@@ -123,7 +113,7 @@ Referenced by spatial\+Reconstruction().
 \index{boundary.h@{boundary.h}!setBCatSides@{setBCatSides}}
 \index{setBCatSides@{setBCatSides}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{setBCatSides()}{setBCatSides()}}
-{\footnotesize\ttfamily void set\+B\+Cat\+Sides (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void set\+BCat\+Sides (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
 
 
 
@@ -136,7 +126,7 @@ Set the ghost values at sides.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, B\+Cside, boundary(), side\+\_\+t\+::connection, side\+\_\+t\+::elem, side\+\_\+t\+::\+GP, n\+B\+Csides, N\+D\+IM, side\+\_\+t\+::p\+Var, X, and Y.
+References elem\+\_\+t\+::bary, BCside, boundary(), side\+\_\+t\+::connection, side\+\_\+t\+::elem, side\+\_\+t\+::\+GP, n\+BCsides, NDIM, side\+\_\+t\+::p\+Var, X, and Y.
 
 
 
@@ -149,7 +139,7 @@ Referenced by fv\+Time\+Derivative().
 \index{boundary.h@{boundary.h}!firstBC@{firstBC}}
 \index{firstBC@{firstBC}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{firstBC}{firstBC}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}}$\ast$ first\+BC}
+{\footnotesize\ttfamily \mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}}$\ast$ first\+BC\hspace{0.3cm}{\ttfamily [extern]}}
 
 pointer to the first boundary condition 
 
@@ -159,17 +149,17 @@ Referenced by cgns\+Write\+Mesh(), create\+Mesh(), free\+Boundary(), init\+Bound
 \index{boundary.h@{boundary.h}!isPeriodic@{isPeriodic}}
 \index{isPeriodic@{isPeriodic}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{isPeriodic}{isPeriodic}}
-{\footnotesize\ttfamily bool is\+Periodic}
+{\footnotesize\ttfamily bool is\+Periodic\hspace{0.3cm}{\ttfamily [extern]}}
 
 periodic boundary condition flag 
 
-Referenced by cgns\+Write\+Mesh(), and connect\+Periodic\+B\+C().
+Referenced by cgns\+Write\+Mesh(), and connect\+Periodic\+BC().
 
 \mbox{\Hypertarget{boundary_8h_ac55cda497e2daf9060d1e76e82acfbaf}\label{boundary_8h_ac55cda497e2daf9060d1e76e82acfbaf}} 
 \index{boundary.h@{boundary.h}!nBC@{nBC}}
 \index{nBC@{nBC}!boundary.h@{boundary.h}}
 \doxysubsubsection{\texorpdfstring{nBC}{nBC}}
-{\footnotesize\ttfamily int n\+BC}
+{\footnotesize\ttfamily int n\+BC\hspace{0.3cm}{\ttfamily [extern]}}
 
 number of boundary conditions 
 

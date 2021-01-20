@@ -22,13 +22,8 @@ Contains the functions for performing the time stepping process.
 {\ttfamily \#include \char`\"{}equation\+Of\+State.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}finite\+Volume.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}mem\+Tools.\+h\char`\"{}}\newline
-Include dependency graph for time\+Discretization.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{timeDiscretization_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for time\+Discretization.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,11 +32,11 @@ void \mbox{\hyperlink{timeDiscretization_8c_ae237d741e17c1bb7084a26b374ac28e4}{i
 \begin{DoxyCompactList}\small\item\em Initialize the time discretization. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{timeDiscretization_8c_a7f7d183a3fbda3e49a1f7dee3f9a56e1}{calc\+Time\+Step}} (double p\+Time, double $\ast$dt, bool $\ast$viscous\+Time\+Step\+Dominates)
 \begin{DoxyCompactList}\small\item\em Compute the time step. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{timeDiscretization_8c_a53d9f3fe48aa391fd231c964315d7791}{explicit\+Time\+Step\+Euler}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+void \mbox{\hyperlink{timeDiscretization_8c_a53d9f3fe48aa391fd231c964315d7791}{explicit\+Time\+Step\+Euler}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}+2\mbox{]})
 \begin{DoxyCompactList}\small\item\em Performs explicit time step using Euler scheme. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{timeDiscretization_8c_abf7842f191c9daa4dc535a274665300f}{explicit\+Time\+Step\+RK}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
-\begin{DoxyCompactList}\small\item\em Performs explicit time step using Runge-\/\+Kutta scheme {\ttfamily n\+R\+Kstages} stages. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{timeDiscretization_8c_af6237b55f5d0e4c01e022a0d51eb4423}{implicit\+Time\+Step}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+void \mbox{\hyperlink{timeDiscretization_8c_abf7842f191c9daa4dc535a274665300f}{explicit\+Time\+Step\+RK}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}+2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Performs explicit time step using Runge-\/\+Kutta scheme {\ttfamily n\+RKstages} stages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{timeDiscretization_8c_af6237b55f5d0e4c01e022a0d51eb4423}{implicit\+Time\+Step}} (double time, double dt, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}+2\mbox{]})
 \begin{DoxyCompactList}\small\item\em Euler implicit time integration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{timeDiscretization_8c_af1ed0288ac4a53f6a6420ff34799197b}{time\+Disc}} (void)
 \begin{DoxyCompactList}\small\item\em Main time discretization loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -92,9 +87,9 @@ int \mbox{\hyperlink{timeDiscretization_8c_a835852fbecaf8bc03bd4071d41459d60}{pr
 \item 
 double \mbox{\hyperlink{timeDiscretization_8c_afd14c1eaa6699157322739669db120f2}{print\+Time}}
 \item 
-int \mbox{\hyperlink{timeDiscretization_8c_a0b2ffb008b64af75b3f1d2a904c5de15}{n\+R\+Kstages}}
+int \mbox{\hyperlink{timeDiscretization_8c_a0b2ffb008b64af75b3f1d2a904c5de15}{n\+RKstages}}
 \item 
-double \mbox{\hyperlink{timeDiscretization_8c_a763c08fe134b29369fd69e1072bece49}{R\+Kcoeff}} \mbox{[}6\mbox{]} = \{0.\+0\}
+double \mbox{\hyperlink{timeDiscretization_8c_a763c08fe134b29369fd69e1072bece49}{RKcoeff}} \mbox{[}6\mbox{]} = \{0.\+0\}
 \item 
 bool \mbox{\hyperlink{timeDiscretization_8c_a3a085d46709989d19d5c36f6af969029}{is\+Implicit}}
 \item 
@@ -115,7 +110,7 @@ Contains the functions for performing the time stepping process.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Sat 21 Mar 2020 07\+:52\+:42 PM C\+ET 
+Sat 21 Mar 2020 07\+:52\+:42 PM CET 
 \end{DoxyDate}
 
 
@@ -141,7 +136,7 @@ Compute the time step.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::area, cfl, dfl, elem\+\_\+t\+::dt, elem, gam, is\+Time\+Step1D, mu, n\+Elems, P, Pr, elem\+\_\+t\+::p\+Var, R\+HO, stop\+Time, elem\+\_\+t\+::sx, elem\+\_\+t\+::sy, t, VX, and VY.
+References elem\+\_\+t\+::area, cfl, dfl, elem\+\_\+t\+::dt, elem, gam, is\+Time\+Step1D, mu, n\+Elems, P, Pr, elem\+\_\+t\+::p\+Var, RHO, stop\+Time, elem\+\_\+t\+::sx, elem\+\_\+t\+::sy, t, VX, and VY.
 
 
 
@@ -151,7 +146,7 @@ Referenced by time\+Disc().
 \index{timeDiscretization.c@{timeDiscretization.c}!explicitTimeStepEuler@{explicitTimeStepEuler}}
 \index{explicitTimeStepEuler@{explicitTimeStepEuler}!timeDiscretization.c@{timeDiscretization.c}}
 \doxysubsubsection{\texorpdfstring{explicitTimeStepEuler()}{explicitTimeStepEuler()}}
-{\footnotesize\ttfamily void explicit\+Time\+Step\+Euler (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void explicit\+Time\+Step\+Euler (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+NVAR+2\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -168,7 +163,7 @@ Performs explicit time step using Euler scheme.
 \end{DoxyParams}
 
 
-References cons\+Prim(), elem\+\_\+t\+::c\+Var, E, elem, fv\+Time\+Derivative(), global\+Residual(), MX, MY, n\+Elems, elem\+\_\+t\+::p\+Var, R\+HO, and elem\+\_\+t\+::u\+\_\+t.
+References cons\+Prim(), elem\+\_\+t\+::c\+Var, E, elem, fv\+Time\+Derivative(), global\+Residual(), MX, MY, n\+Elems, elem\+\_\+t\+::p\+Var, RHO, and elem\+\_\+t\+::u\+\_\+t.
 
 
 
@@ -178,11 +173,11 @@ Referenced by time\+Disc().
 \index{timeDiscretization.c@{timeDiscretization.c}!explicitTimeStepRK@{explicitTimeStepRK}}
 \index{explicitTimeStepRK@{explicitTimeStepRK}!timeDiscretization.c@{timeDiscretization.c}}
 \doxysubsubsection{\texorpdfstring{explicitTimeStepRK()}{explicitTimeStepRK()}}
-{\footnotesize\ttfamily void explicit\+Time\+Step\+RK (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void explicit\+Time\+Step\+RK (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+NVAR+2\mbox{]} }\end{DoxyParamCaption})}
 
 
 
-Performs explicit time step using Runge-\/\+Kutta scheme {\ttfamily n\+R\+Kstages} stages. 
+Performs explicit time step using Runge-\/\+Kutta scheme {\ttfamily n\+RKstages} stages. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -195,7 +190,7 @@ Performs explicit time step using Runge-\/\+Kutta scheme {\ttfamily n\+R\+Kstage
 \end{DoxyParams}
 
 
-References cons\+Prim(), elem\+\_\+t\+::c\+Var, elem\+\_\+t\+::c\+Var\+Stage, E, elem, fv\+Time\+Derivative(), global\+Residual(), MX, MY, n\+Elems, n\+R\+Kstages, elem\+\_\+t\+::p\+Var, R\+HO, R\+Kcoeff, and elem\+\_\+t\+::u\+\_\+t.
+References cons\+Prim(), elem\+\_\+t\+::c\+Var, elem\+\_\+t\+::c\+Var\+Stage, E, elem, fv\+Time\+Derivative(), global\+Residual(), MX, MY, n\+Elems, n\+RKstages, elem\+\_\+t\+::p\+Var, RHO, RKcoeff, and elem\+\_\+t\+::u\+\_\+t.
 
 
 
@@ -205,13 +200,13 @@ Referenced by time\+Disc().
 \index{timeDiscretization.c@{timeDiscretization.c}!implicitTimeStep@{implicitTimeStep}}
 \index{implicitTimeStep@{implicitTimeStep}!timeDiscretization.c@{timeDiscretization.c}}
 \doxysubsubsection{\texorpdfstring{implicitTimeStep()}{implicitTimeStep()}}
-{\footnotesize\ttfamily void implicit\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void implicit\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{res\+Iter\mbox{[}\+NVAR+2\mbox{]} }\end{DoxyParamCaption})}
 
 
 
 Euler implicit time integration. 
 
-The non-\/linear equations require the use of a Newton method with internal sub-\/iteration, using a G\+M\+R\+ES method.
+The non-\/linear equations require the use of a Newton method with internal sub-\/iteration, using a GMRES method.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -224,7 +219,7 @@ The non-\/linear equations require the use of a Newton method with internal sub-
 \end{DoxyParams}
 
 
-References alpha, cons\+Prim(), elem\+\_\+t\+::c\+Var, deltaX, E, elem, eps2newton, eps2newton\+\_\+sq, F\+\_\+\+X0, F\+\_\+\+XK, fv\+Time\+Derivative(), gam\+EW, global\+Residual(), G\+M\+R\+E\+S\+\_\+\+M(), MX, MY, n\+Elems, n\+Inner\+Newton, n\+Newton\+Iter, n\+Newton\+Iter\+Global, elem\+\_\+t\+::p\+Var, Q, R\+\_\+\+XK, R\+HO, t, elem\+\_\+t\+::u\+\_\+t, vector\+Dot\+Product(), and XK.
+References alpha, cons\+Prim(), elem\+\_\+t\+::c\+Var, deltaX, E, elem, eps2newton, eps2newton\+\_\+sq, F\+\_\+\+X0, F\+\_\+\+XK, fv\+Time\+Derivative(), gam\+EW, global\+Residual(), GMRES\+\_\+\+M(), MX, MY, n\+Elems, n\+Inner\+Newton, n\+Newton\+Iter, n\+Newton\+Iter\+Global, elem\+\_\+t\+::p\+Var, Q, R\+\_\+\+XK, RHO, t, elem\+\_\+t\+::u\+\_\+t, vector\+Dot\+Product(), and XK.
 
 
 
@@ -242,7 +237,7 @@ Main time discretization loop.
 
 Selection of temporal integration method, as well as management of data output and analysis tools. 
 
-References abort\+Residual, abort\+Variable, abort\+Variable\+Name, analyze(), calc\+Errors(), calc\+Time\+Step(), wing\+\_\+t\+::cd, cd\+Abort\+Residual, wing\+\_\+t\+::cl, cl\+Abort\+Residual, C\+P\+U\+\_\+\+T\+I\+ME, data\+Output(), deltaX, do\+Abort\+On\+Cd\+Residual, do\+Abort\+On\+Cl\+Residual, do\+Calc\+Wing, E, explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), F\+\_\+\+X0, F\+\_\+\+XK, finalize\+Data\+Output(), has\+Exact\+Solution, implicit\+Time\+Step(), ini\+Iteration\+Number, record\+Point\+\_\+t\+::io\+File, I\+Oiter\+Interval, I\+Otime\+Interval, is\+Implicit, is\+Stationary, max\+Iter, MX, MY, n\+G\+M\+R\+E\+Siter\+Global, n\+Newton\+Iter\+Global, record\+Point\+\_\+t\+::n\+Points, n\+R\+Kstages, N\+V\+AR, print\+Iter, print\+Time, Q, record\+Point, res\+File, R\+HO, stop\+Time, t, time\+Order, and wing.
+References abort\+Residual, abort\+Variable, abort\+Variable\+Name, analyze(), calc\+Errors(), calc\+Time\+Step(), wing\+\_\+t\+::cd, cd\+Abort\+Residual, wing\+\_\+t\+::cl, cl\+Abort\+Residual, CPU\+\_\+\+TIME, data\+Output(), deltaX, do\+Abort\+On\+Cd\+Residual, do\+Abort\+On\+Cl\+Residual, do\+Calc\+Wing, E, explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), F\+\_\+\+X0, F\+\_\+\+XK, finalize\+Data\+Output(), has\+Exact\+Solution, implicit\+Time\+Step(), ini\+Iteration\+Number, record\+Point\+\_\+t\+::io\+File, IOiter\+Interval, IOtime\+Interval, is\+Implicit, is\+Stationary, max\+Iter, MX, MY, n\+GMRESiter\+Global, n\+Newton\+Iter\+Global, record\+Point\+\_\+t\+::n\+Points, n\+RKstages, NVAR, print\+Iter, print\+Time, Q, record\+Point, res\+File, RHO, stop\+Time, t, time\+Order, and wing.
 
 
 
@@ -435,11 +430,11 @@ Referenced by init\+Time\+Disc(), and time\+Disc().
 \index{timeDiscretization.c@{timeDiscretization.c}!nRKstages@{nRKstages}}
 \index{nRKstages@{nRKstages}!timeDiscretization.c@{timeDiscretization.c}}
 \doxysubsubsection{\texorpdfstring{nRKstages}{nRKstages}}
-{\footnotesize\ttfamily int n\+R\+Kstages}
+{\footnotesize\ttfamily int n\+RKstages}
 
 number of Runge-\/\+Kutta stages 
 
-Referenced by explicit\+Time\+Step\+R\+K(), init\+Time\+Disc(), and time\+Disc().
+Referenced by explicit\+Time\+Step\+RK(), init\+Time\+Disc(), and time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8c_a835852fbecaf8bc03bd4071d41459d60}\label{timeDiscretization_8c_a835852fbecaf8bc03bd4071d41459d60}} 
 \index{timeDiscretization.c@{timeDiscretization.c}!printIter@{printIter}}
@@ -485,11 +480,11 @@ Referenced by init\+Time\+Disc(), and main().
 \index{timeDiscretization.c@{timeDiscretization.c}!RKcoeff@{RKcoeff}}
 \index{RKcoeff@{RKcoeff}!timeDiscretization.c@{timeDiscretization.c}}
 \doxysubsubsection{\texorpdfstring{RKcoeff}{RKcoeff}}
-{\footnotesize\ttfamily double R\+Kcoeff\mbox{[}6\mbox{]} = \{0.\+0\}}
+{\footnotesize\ttfamily double RKcoeff\mbox{[}6\mbox{]} = \{0.\+0\}}
 
 array of Runge-\/\+Kutta coefficients 
 
-Referenced by explicit\+Time\+Step\+R\+K(), and init\+Time\+Disc().
+Referenced by explicit\+Time\+Step\+RK(), and init\+Time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8c_a0a07a521d3525b9b7dc70c0a625adea0}\label{timeDiscretization_8c_a0a07a521d3525b9b7dc70c0a625adea0}} 
 \index{timeDiscretization.c@{timeDiscretization.c}!startTime@{startTime}}
@@ -519,7 +514,7 @@ Referenced by calc\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
 
 global calculation time 
 
-Referenced by calc\+Time\+Step(), cgns\+Read\+Solution(), G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
+Referenced by calc\+Time\+Step(), cgns\+Read\+Solution(), GMRES\+\_\+\+M(), implicit\+Time\+Step(), init\+Time\+Disc(), and time\+Disc().
 
 \mbox{\Hypertarget{timeDiscretization_8c_a53f383d4521a7587259696a23ab73ef7}\label{timeDiscretization_8c_a53f383d4521a7587259696a23ab73ef7}} 
 \index{timeDiscretization.c@{timeDiscretization.c}!timeOrder@{timeOrder}}

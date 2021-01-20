@@ -10,13 +10,8 @@ Contains the reconstruction and limiter functions.
 {\ttfamily \#include \char`\"{}reconstruction.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}finite\+Volume.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
-Include dependency graph for reconstruction.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{reconstruction_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for reconstruction.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,7 +37,7 @@ Contains the reconstruction and limiter functions.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Sat 28 Mar 2020 10\+:17\+:02 AM C\+ET 
+Sat 28 Mar 2020 10\+:17\+:02 AM CET 
 \end{DoxyDate}
 
 
@@ -67,7 +62,7 @@ Limiter after Barth \& Jespersen.
 \end{DoxyParams}
 
 
-References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
+References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, X, and Y.
 
 
 
@@ -93,7 +88,7 @@ Limiter after Venkatakrishnan, with additional limiting parameter k.
 \end{DoxyParams}
 
 
-References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, elem\+\_\+t\+::venk\+Eps\+\_\+sq, VX, VY, X, and Y.
+References side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, side\+\_\+t\+::next\+Elem\+Side, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, elem\+\_\+t\+::venk\+Eps\+\_\+sq, VX, VY, X, and Y.
 
 
 
@@ -116,7 +111,7 @@ Compute the gradients of d\+U/dx.
 \end{DoxyParams}
 
 
-References B\+A\+R\+T\+H\+J\+E\+S\+P\+E\+R\+S\+EN, side\+\_\+t\+::connection, side\+\_\+t\+::elem, elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, limiter, limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, R\+HO, set\+B\+Cat\+Barys(), spatial\+Order, elem\+\_\+t\+::u\+\_\+t, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, V\+E\+N\+K\+A\+T\+A\+K\+R\+I\+S\+H\+N\+AN, VX, VY, side\+\_\+t\+::w, X, and Y.
+References BARTHJESPERSEN, side\+\_\+t\+::connection, elem, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::\+GP, limiter, limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, NVAR, P, side\+\_\+t\+::p\+Var, elem\+\_\+t\+::p\+Var, RHO, set\+BCat\+Barys(), spatial\+Order, elem\+\_\+t\+::u\+\_\+t, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VENKATAKRISHNAN, VX, VY, side\+\_\+t\+::w, X, and Y.
 
 
 
@@ -133,7 +128,7 @@ Referenced by calc\+Errors(), and fv\+Time\+Derivative().
 
 limiter selection 
 
-Referenced by init\+F\+V(), and spatial\+Reconstruction().
+Referenced by init\+FV(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{reconstruction_8c_a8ae8a27510ada32e9a17cd0dbc4570f4}\label{reconstruction_8c_a8ae8a27510ada32e9a17cd0dbc4570f4}} 
 \index{reconstruction.c@{reconstruction.c}!venk\_k@{venk\_k}}
@@ -143,5 +138,5 @@ Referenced by init\+F\+V(), and spatial\+Reconstruction().
 
 constant for Venkatakrishnan limiter 
 
-Referenced by init\+F\+V().
+Referenced by init\+FV().
 

@@ -19,13 +19,8 @@ Contains functions for analyzing flow results.
 {\ttfamily \#include \char`\"{}exact\+Function.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}initial\+Condition.\+h\char`\"{}}\newline
-Include dependency graph for analyze.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{analyze_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for analyze.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,11 +41,11 @@ void \mbox{\hyperlink{analyze_8c_a57b9e2f519e234a9b6a526a4e61b38b8}{calc\+Coef}}
 \begin{DoxyCompactList}\small\item\em Calculate CL and CD around the specified wall. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{analyze_8c_a8f154d5a219b094c9718fc43a452d0f8}{eval\+Record\+Points}} (double time)
 \begin{DoxyCompactList}\small\item\em Evaluation of recording points. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{analyze_8c_a5bc9f64ac7233292ac4fd9fb6a5fe52a}{analyze}} (double time, long iter, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+void \mbox{\hyperlink{analyze_8c_a5bc9f64ac7233292ac4fd9fb6a5fe52a}{analyze}} (double time, long iter, double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}+2\mbox{]})
 \begin{DoxyCompactList}\small\item\em Compute aerodynamic coefficients and extract values at record points. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{analyze_8c_aaf09b15337fc9b045b31f8af6ad8ba9c}{calc\+Errors}} (double time)
 \begin{DoxyCompactList}\small\item\em Calculate L1, L2, and Linf error norms, between the flow solution and the exact solution. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{analyze_8c_acf15c3da2b4a14c1d2b700303bf0d875}{global\+Residual}} (double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}+2\mbox{]})
+void \mbox{\hyperlink{analyze_8c_acf15c3da2b4a14c1d2b700303bf0d875}{global\+Residual}} (double res\+Iter\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}+2\mbox{]})
 \begin{DoxyCompactList}\small\item\em Calculate the global residual of the conservative variables. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{analyze_8c_a0b874bfa16c481db6ff3bedb28a832b7}\label{analyze_8c_a0b874bfa16c481db6ff3bedb28a832b7}} 
 void \mbox{\hyperlink{analyze_8c_a0b874bfa16c481db6ff3bedb28a832b7}{free\+Analyze}} (void)
@@ -75,7 +70,7 @@ Contains functions for analyzing flow results.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Sun 29 Mar 2020 06\+:29\+:36 PM C\+E\+ST 
+Sun 29 Mar 2020 06\+:29\+:36 PM CEST 
 \end{DoxyDate}
 
 
@@ -84,7 +79,7 @@ Sun 29 Mar 2020 06\+:29\+:36 PM C\+E\+ST
 \index{analyze.c@{analyze.c}!analyze@{analyze}}
 \index{analyze@{analyze}!analyze.c@{analyze.c}}
 \doxysubsubsection{\texorpdfstring{analyze()}{analyze()}}
-{\footnotesize\ttfamily void analyze (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{long}]{iter,  }\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void analyze (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{long}]{iter,  }\item[{double}]{res\+Iter\mbox{[}\+NVAR+2\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -101,7 +96,7 @@ Compute aerodynamic coefficients and extract values at record points.
 \end{DoxyParams}
 
 
-References abort\+Variable, calc\+Coef(), wing\+\_\+t\+::cd, wing\+\_\+t\+::cl, do\+Calc\+Wing, elem\+\_\+t\+::dt, E, eval\+Record\+Points(), first\+Elem, is\+Stationary, record\+Point\+\_\+t\+::n\+Points, record\+Point, res\+File, R\+HO, VX, VY, and wing.
+References abort\+Variable, calc\+Coef(), wing\+\_\+t\+::cd, wing\+\_\+t\+::cl, do\+Calc\+Wing, elem\+\_\+t\+::dt, E, eval\+Record\+Points(), first\+Elem, is\+Stationary, record\+Point\+\_\+t\+::n\+Points, record\+Point, res\+File, RHO, VX, VY, and wing.
 
 
 
@@ -124,7 +119,7 @@ Calculate L1, L2, and Linf error norms, between the flow solution and the exact 
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::bary, elem, exact\+Func(), int\+Exact\+Func, N\+D\+IM, n\+Elems, elem\+\_\+t\+::n\+GP, N\+V\+AR, P, elem\+\_\+t\+::p\+Var, R\+HO, spatial\+Reconstruction(), total\+Area\+\_\+q, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, elem\+\_\+t\+::w\+GP, X, elem\+\_\+t\+::x\+GP, and Y.
+References elem\+\_\+t\+::bary, elem, exact\+Func(), int\+Exact\+Func, NDIM, n\+Elems, elem\+\_\+t\+::n\+GP, NVAR, P, elem\+\_\+t\+::p\+Var, RHO, spatial\+Reconstruction(), total\+Area\+\_\+q, elem\+\_\+t\+::u\+\_\+x, elem\+\_\+t\+::u\+\_\+y, VX, VY, elem\+\_\+t\+::w\+GP, X, elem\+\_\+t\+::x\+GP, and Y.
 
 
 
@@ -147,7 +142,7 @@ Evaluation of recording points.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::dt, record\+Point\+\_\+t\+::elem, record\+Point\+\_\+t\+::io\+File, record\+Point\+\_\+t\+::n\+Points, P, elem\+\_\+t\+::p\+Var, record\+Point, R\+HO, VX, and VY.
+References elem\+\_\+t\+::dt, record\+Point\+\_\+t\+::elem, record\+Point\+\_\+t\+::io\+File, record\+Point\+\_\+t\+::n\+Points, P, elem\+\_\+t\+::p\+Var, record\+Point, RHO, VX, and VY.
 
 
 
@@ -157,7 +152,7 @@ Referenced by analyze().
 \index{analyze.c@{analyze.c}!globalResidual@{globalResidual}}
 \index{globalResidual@{globalResidual}!analyze.c@{analyze.c}}
 \doxysubsubsection{\texorpdfstring{globalResidual()}{globalResidual()}}
-{\footnotesize\ttfamily void global\+Residual (\begin{DoxyParamCaption}\item[{double}]{res\+Iter\mbox{[}\+N\+V\+A\+R+2\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void global\+Residual (\begin{DoxyParamCaption}\item[{double}]{res\+Iter\mbox{[}\+NVAR+2\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -170,11 +165,11 @@ Calculate the global residual of the conservative variables.
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::area, E, elem, MX, MY, n\+Elems, N\+V\+AR, R\+HO, total\+Area\+\_\+q, and elem\+\_\+t\+::u\+\_\+t.
+References elem\+\_\+t\+::area, E, elem, MX, MY, n\+Elems, NVAR, RHO, total\+Area\+\_\+q, and elem\+\_\+t\+::u\+\_\+t.
 
 
 
-Referenced by explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), and implicit\+Time\+Step().
+Referenced by explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), and implicit\+Time\+Step().
 
 
 

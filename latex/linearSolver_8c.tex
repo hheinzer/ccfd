@@ -20,13 +20,8 @@ Contains the functions for solving the linear system of equations during implici
 {\ttfamily \#include \char`\"{}flux\+Calculation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}equation\+Of\+State.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}finite\+Volume.\+h\char`\"{}}\newline
-Include dependency graph for linear\+Solver.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{linearSolver_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for linear\+Solver.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,11 +34,11 @@ bool \mbox{\hyperlink{linearSolver_8c_ad302ce54b164928564a97815b0668060}{calc\+D
 \begin{DoxyCompactList}\small\item\em Compute inverse of a 4x4 matrix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{linearSolver_8c_ade5704ee53f1a9798c63caac1288bd29}{build\+Matrix}} (double time, double dt)
 \begin{DoxyCompactList}\small\item\em Compute the global Jacobian matrix by use of finite differences. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{linearSolver_8c_a0914461191675371ad62553289b6e49b}{L\+U\+S\+GS}} (double $\ast$$\ast$B, double $\ast$$\ast$delX)
-\begin{DoxyCompactList}\small\item\em L\+U\+S\+GS preconditioner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{linearSolver_8c_a0914461191675371ad62553289b6e49b}{LUSGS}} (double $\ast$$\ast$B, double $\ast$$\ast$delX)
+\begin{DoxyCompactList}\small\item\em LUSGS preconditioner. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{linearSolver_8c_a25cc7dbda26922acc63c81e292b36def}{matrix\+Vector}} (double time, double dt, double \mbox{\hyperlink{initialCondition_8h_a20f4c4490bc8ecbdd1ffcb79acce6035}{alpha}}, double $\ast$$\ast$v, double $\ast$$\ast$res)
 \begin{DoxyCompactList}\small\item\em Computes matrix vector product using spatial operator and finite differences. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{linearSolver_8c_a986b8d14874f4249dd1b584bc9d473b5}{G\+M\+R\+E\+S\+\_\+M}} (double time, double dt, double \mbox{\hyperlink{initialCondition_8h_a20f4c4490bc8ecbdd1ffcb79acce6035}{alpha}}, double $\ast$$\ast$B, double normB, double $\ast$abort\+Crit, double $\ast$$\ast$delX)
+void \mbox{\hyperlink{linearSolver_8c_a986b8d14874f4249dd1b584bc9d473b5}{GMRES\+\_\+M}} (double time, double dt, double \mbox{\hyperlink{initialCondition_8h_a20f4c4490bc8ecbdd1ffcb79acce6035}{alpha}}, double $\ast$$\ast$B, double normB, double $\ast$abort\+Crit, double $\ast$$\ast$delX)
 \begin{DoxyCompactList}\small\item\em Uses matrix free to solve the linear system. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{linearSolver_8c_ab49b5b210a947acdec5ca4ff058d9ba4}\label{linearSolver_8c_ab49b5b210a947acdec5ca4ff058d9ba4}} 
 void \mbox{\hyperlink{linearSolver_8c_ab49b5b210a947acdec5ca4ff058d9ba4}{free\+Linear\+Solver}} (void)
@@ -57,11 +52,11 @@ int \mbox{\hyperlink{linearSolver_8c_a9e698a12f1405edd0b14d5e70d4a890f}{n\+Newto
 \item 
 int \mbox{\hyperlink{linearSolver_8c_ae136204fc2205a21023230d7580c1c36}{n\+Newton\+Iter\+Global}}
 \item 
-int \mbox{\hyperlink{linearSolver_8c_aa276912d8778a829131220de9d7e9844}{n\+G\+M\+R\+E\+Siter\+Global}}
+int \mbox{\hyperlink{linearSolver_8c_aa276912d8778a829131220de9d7e9844}{n\+GMRESiter\+Global}}
 \item 
 int \mbox{\hyperlink{linearSolver_8c_af98da90358e76525add3839c61fdbd2d}{n\+Inner\+Newton}}
 \item 
-int \mbox{\hyperlink{linearSolver_8c_a944cd45a741f9dea609b4c5cfa1ffd4f}{n\+Inner\+G\+M\+R\+ES}}
+int \mbox{\hyperlink{linearSolver_8c_a944cd45a741f9dea609b4c5cfa1ffd4f}{n\+Inner\+GMRES}}
 \item 
 bool \mbox{\hyperlink{linearSolver_8c_afb497e8766ebb2549198f4a1ed0115a0}{use\+Precond}}
 \item 
@@ -73,7 +68,7 @@ double \mbox{\hyperlink{linearSolver_8c_a95bfe70fb475978b534a64e3acf2040e}{eps2n
 \item 
 double \mbox{\hyperlink{linearSolver_8c_ad0251ae2ddee799f670b4e5fc6474e6a}{eps2newton\+\_\+sq}}
 \item 
-double \mbox{\hyperlink{linearSolver_8c_a842f385c4b1df56339ee2bd6c220bdf0}{eps\+G\+M\+R\+ES}}
+double \mbox{\hyperlink{linearSolver_8c_a842f385c4b1df56339ee2bd6c220bdf0}{eps\+GMRES}}
 \item 
 double \mbox{\hyperlink{linearSolver_8c_ae924a03f59827f55c3c5b474c89d07d6}{gam\+EW}}
 \item 
@@ -106,7 +101,7 @@ Contains the functions for solving the linear system of equations during implici
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Sat 28 Mar 2020 03\+:41\+:56 PM C\+ET 
+Sat 28 Mar 2020 03\+:41\+:56 PM CET 
 \end{DoxyDate}
 
 
@@ -130,11 +125,11 @@ Compute the global Jacobian matrix by use of finite differences.
 \end{DoxyParams}
 
 
-References calc\+Dinv(), side\+\_\+t\+::connection, D, Dinv, d\+RdU, side\+\_\+t\+::elem, elem, elem\+\_\+t\+::first\+Side, fv\+Time\+Derivative(), elem\+\_\+t\+::id, n\+Elems, side\+\_\+t\+::next\+Elem\+Side, N\+V\+AR, elem\+\_\+t\+::p\+Var, R\+\_\+\+XK, r\+Eps0, sr\+Eps0, and elem\+\_\+t\+::u\+\_\+t.
+References calc\+Dinv(), side\+\_\+t\+::connection, D, Dinv, d\+RdU, elem, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, fv\+Time\+Derivative(), elem\+\_\+t\+::id, n\+Elems, side\+\_\+t\+::next\+Elem\+Side, NVAR, elem\+\_\+t\+::p\+Var, R\+\_\+\+XK, r\+Eps0, sr\+Eps0, and elem\+\_\+t\+::u\+\_\+t.
 
 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M().
+Referenced by GMRES\+\_\+\+M().
 
 \mbox{\Hypertarget{linearSolver_8c_ad302ce54b164928564a97815b0668060}\label{linearSolver_8c_ad302ce54b164928564a97815b0668060}} 
 \index{linearSolver.c@{linearSolver.c}!calcDinv@{calcDinv}}
@@ -164,7 +159,7 @@ Referenced by build\+Matrix().
 \index{linearSolver.c@{linearSolver.c}!GMRES\_M@{GMRES\_M}}
 \index{GMRES\_M@{GMRES\_M}!linearSolver.c@{linearSolver.c}}
 \doxysubsubsection{\texorpdfstring{GMRES\_M()}{GMRES\_M()}}
-{\footnotesize\ttfamily void G\+M\+R\+E\+S\+\_\+M (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{alpha,  }\item[{double $\ast$$\ast$}]{B,  }\item[{double}]{normB,  }\item[{double $\ast$}]{abort\+Crit,  }\item[{double $\ast$$\ast$}]{delX }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GMRES\+\_\+M (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{double}]{dt,  }\item[{double}]{alpha,  }\item[{double $\ast$$\ast$}]{B,  }\item[{double}]{normB,  }\item[{double $\ast$}]{abort\+Crit,  }\item[{double $\ast$$\ast$}]{delX }\end{DoxyParamCaption})}
 
 
 
@@ -182,14 +177,14 @@ Uses matrix free to solve the linear system.
 \hline
 \mbox{\texttt{ in}}  & {\em normB} & Norm of right hand side \\
 \hline
-\mbox{\texttt{ in,out}}  & {\em abort\+Crit} & G\+M\+R\+ES abort criterium \\
+\mbox{\texttt{ in,out}}  & {\em abort\+Crit} & GMRES abort criterium \\
 \hline
 \mbox{\texttt{ out}}  & {\em delX} & Resulting x vector of the linear system \\
 \hline
 \end{DoxyParams}
 
 
-References alpha, build\+Matrix(), E, eps\+G\+M\+R\+ES, gam, L\+U\+S\+G\+S(), matrix\+Vector(), MX, MY, n\+Elems, n\+G\+M\+R\+E\+Siter\+Global, n\+Inner\+G\+M\+R\+ES, n\+Kdim, R0, R\+HO, t, use\+Precond, V, vector\+Dot\+Product(), W, and Z.
+References alpha, build\+Matrix(), E, eps\+GMRES, gam, LUSGS(), matrix\+Vector(), MX, MY, n\+Elems, n\+GMRESiter\+Global, n\+Inner\+GMRES, n\+Kdim, R0, RHO, t, use\+Precond, V, vector\+Dot\+Product(), W, and Z.
 
 
 
@@ -199,11 +194,11 @@ Referenced by implicit\+Time\+Step().
 \index{linearSolver.c@{linearSolver.c}!LUSGS@{LUSGS}}
 \index{LUSGS@{LUSGS}!linearSolver.c@{linearSolver.c}}
 \doxysubsubsection{\texorpdfstring{LUSGS()}{LUSGS()}}
-{\footnotesize\ttfamily void L\+U\+S\+GS (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{B,  }\item[{double $\ast$$\ast$}]{delX }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void LUSGS (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{B,  }\item[{double $\ast$$\ast$}]{delX }\end{DoxyParamCaption})}
 
 
 
-L\+U\+S\+GS preconditioner. 
+LUSGS preconditioner. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -217,11 +212,11 @@ This function is slow to execute, it might be possible to speed it up via the us
 \end{DoxyNote}
 
 
-References side\+\_\+t\+::connection, delta\+Xstar, Dinv, d\+RdU, side\+\_\+t\+::elem, elem, elem\+\_\+t\+::first\+Side, elem\+\_\+t\+::id, n\+Elems, side\+\_\+t\+::next\+Elem\+Side, and N\+V\+AR.
+References side\+\_\+t\+::connection, delta\+Xstar, Dinv, d\+RdU, elem, side\+\_\+t\+::elem, elem\+\_\+t\+::first\+Side, elem\+\_\+t\+::id, n\+Elems, side\+\_\+t\+::next\+Elem\+Side, and NVAR.
 
 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M().
+Referenced by GMRES\+\_\+\+M().
 
 \mbox{\Hypertarget{linearSolver_8c_a25cc7dbda26922acc63c81e292b36def}\label{linearSolver_8c_a25cc7dbda26922acc63c81e292b36def}} 
 \index{linearSolver.c@{linearSolver.c}!matrixVector@{matrixVector}}
@@ -248,11 +243,11 @@ Computes matrix vector product using spatial operator and finite differences.
 \end{DoxyParams}
 
 
-References alpha, cons\+Prim(), elem\+\_\+t\+::c\+Var, E, elem, fv\+Time\+Derivative(), MX, MY, n\+Elems, elem\+\_\+t\+::p\+Var, R\+\_\+\+XK, r\+Eps0, R\+HO, elem\+\_\+t\+::u\+\_\+t, vector\+Dot\+Product(), and XK.
+References alpha, cons\+Prim(), elem\+\_\+t\+::c\+Var, E, elem, fv\+Time\+Derivative(), MX, MY, n\+Elems, elem\+\_\+t\+::p\+Var, R\+\_\+\+XK, r\+Eps0, RHO, elem\+\_\+t\+::u\+\_\+t, vector\+Dot\+Product(), and XK.
 
 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M().
+Referenced by GMRES\+\_\+\+M().
 
 \mbox{\Hypertarget{linearSolver_8c_ad8c72a0c1caceac1554d2a014545442f}\label{linearSolver_8c_ad8c72a0c1caceac1554d2a014545442f}} 
 \index{linearSolver.c@{linearSolver.c}!vectorDotProduct@{vectorDotProduct}}
@@ -272,15 +267,15 @@ Compute dot product for two state vectors A and B for every element.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-sum(sum(A\+\_\+ij $\ast$ B\+\_\+ij, i = R\+HO,MX,MY,E), i = 1..n\+Elems) 
+sum(sum(A\+\_\+ij $\ast$ B\+\_\+ij, i = RHO,MX,MY,E), i = 1..n\+Elems) 
 \end{DoxyReturn}
 
 
-References E, MX, MY, n\+Elems, and R\+HO.
+References E, MX, MY, n\+Elems, and RHO.
 
 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), and matrix\+Vector().
+Referenced by GMRES\+\_\+\+M(), implicit\+Time\+Step(), and matrix\+Vector().
 
 
 
@@ -291,7 +286,7 @@ Referenced by G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), and matrix\+Vect
 \doxysubsubsection{\texorpdfstring{D}{D}}
 {\footnotesize\ttfamily double$\ast$$\ast$$\ast$ D}
 
-D-\/\+Matrix of L\+U\+S\+GS procedure 
+D-\/\+Matrix of LUSGS procedure 
 
 Referenced by build\+Matrix(), free\+Linear\+Solver(), and init\+Linear\+Solver().
 
@@ -301,9 +296,9 @@ Referenced by build\+Matrix(), free\+Linear\+Solver(), and init\+Linear\+Solver(
 \doxysubsubsection{\texorpdfstring{deltaXstar}{deltaXstar}}
 {\footnotesize\ttfamily double$\ast$$\ast$ delta\+Xstar}
 
-temporary array, used in L\+U\+S\+GS 
+temporary array, used in LUSGS 
 
-Referenced by free\+Linear\+Solver(), init\+Linear\+Solver(), and L\+U\+S\+G\+S().
+Referenced by free\+Linear\+Solver(), init\+Linear\+Solver(), and LUSGS().
 
 \mbox{\Hypertarget{linearSolver_8c_a3d5b2861ff459127ca8b8db315227632}\label{linearSolver_8c_a3d5b2861ff459127ca8b8db315227632}} 
 \index{linearSolver.c@{linearSolver.c}!Dinv@{Dinv}}
@@ -313,7 +308,7 @@ Referenced by free\+Linear\+Solver(), init\+Linear\+Solver(), and L\+U\+S\+G\+S(
 
 inverse of D-\/\+Matrix 
 
-Referenced by build\+Matrix(), free\+Linear\+Solver(), init\+Linear\+Solver(), and L\+U\+S\+G\+S().
+Referenced by build\+Matrix(), free\+Linear\+Solver(), init\+Linear\+Solver(), and LUSGS().
 
 \mbox{\Hypertarget{linearSolver_8c_a4af285a038418585fb46bb7e1d7eea18}\label{linearSolver_8c_a4af285a038418585fb46bb7e1d7eea18}} 
 \index{linearSolver.c@{linearSolver.c}!dRdU@{dRdU}}
@@ -323,7 +318,7 @@ Referenced by build\+Matrix(), free\+Linear\+Solver(), init\+Linear\+Solver(), a
 
 dR / dU 
 
-Referenced by build\+Matrix(), free\+Linear\+Solver(), init\+Linear\+Solver(), and L\+U\+S\+G\+S().
+Referenced by build\+Matrix(), free\+Linear\+Solver(), init\+Linear\+Solver(), and LUSGS().
 
 \mbox{\Hypertarget{linearSolver_8c_a95bfe70fb475978b534a64e3acf2040e}\label{linearSolver_8c_a95bfe70fb475978b534a64e3acf2040e}} 
 \index{linearSolver.c@{linearSolver.c}!eps2newton@{eps2newton}}
@@ -349,11 +344,11 @@ Referenced by implicit\+Time\+Step(), and init\+Linear\+Solver().
 \index{linearSolver.c@{linearSolver.c}!epsGMRES@{epsGMRES}}
 \index{epsGMRES@{epsGMRES}!linearSolver.c@{linearSolver.c}}
 \doxysubsubsection{\texorpdfstring{epsGMRES}{epsGMRES}}
-{\footnotesize\ttfamily double eps\+G\+M\+R\+ES}
+{\footnotesize\ttfamily double eps\+GMRES}
 
-G\+M\+R\+ES relative epsilon 
+GMRES relative epsilon 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_ae924a03f59827f55c3c5b474c89d07d6}\label{linearSolver_8c_ae924a03f59827f55c3c5b474c89d07d6}} 
 \index{linearSolver.c@{linearSolver.c}!gamEW@{gamEW}}
@@ -369,21 +364,21 @@ Referenced by implicit\+Time\+Step(), and init\+Linear\+Solver().
 \index{linearSolver.c@{linearSolver.c}!nGMRESiterGlobal@{nGMRESiterGlobal}}
 \index{nGMRESiterGlobal@{nGMRESiterGlobal}!linearSolver.c@{linearSolver.c}}
 \doxysubsubsection{\texorpdfstring{nGMRESiterGlobal}{nGMRESiterGlobal}}
-{\footnotesize\ttfamily int n\+G\+M\+R\+E\+Siter\+Global}
+{\footnotesize\ttfamily int n\+GMRESiter\+Global}
 
-global number of G\+M\+R\+ES iterations 
+global number of GMRES iterations 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M(), init\+Linear\+Solver(), and time\+Disc().
+Referenced by GMRES\+\_\+\+M(), init\+Linear\+Solver(), and time\+Disc().
 
 \mbox{\Hypertarget{linearSolver_8c_a944cd45a741f9dea609b4c5cfa1ffd4f}\label{linearSolver_8c_a944cd45a741f9dea609b4c5cfa1ffd4f}} 
 \index{linearSolver.c@{linearSolver.c}!nInnerGMRES@{nInnerGMRES}}
 \index{nInnerGMRES@{nInnerGMRES}!linearSolver.c@{linearSolver.c}}
 \doxysubsubsection{\texorpdfstring{nInnerGMRES}{nInnerGMRES}}
-{\footnotesize\ttfamily int n\+Inner\+G\+M\+R\+ES}
+{\footnotesize\ttfamily int n\+Inner\+GMRES}
 
-maximum number of G\+M\+R\+ES iterations for one stage 
+maximum number of GMRES iterations for one stage 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_af98da90358e76525add3839c61fdbd2d}\label{linearSolver_8c_af98da90358e76525add3839c61fdbd2d}} 
 \index{linearSolver.c@{linearSolver.c}!nInnerNewton@{nInnerNewton}}
@@ -403,7 +398,7 @@ Referenced by implicit\+Time\+Step(), and init\+Linear\+Solver().
 
 number Krylov spaces 
 
-Referenced by G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_a9e698a12f1405edd0b14d5e70d4a890f}\label{linearSolver_8c_a9e698a12f1405edd0b14d5e70d4a890f}} 
 \index{linearSolver.c@{linearSolver.c}!nNewtonIter@{nNewtonIter}}
@@ -431,9 +426,9 @@ Referenced by implicit\+Time\+Step(), init\+Linear\+Solver(), and time\+Disc().
 \doxysubsubsection{\texorpdfstring{R0}{R0}}
 {\footnotesize\ttfamily double$\ast$$\ast$ R0}
 
-temporary array, used in G\+M\+R\+ES 
+temporary array, used in GMRES 
 
-Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by free\+Linear\+Solver(), GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_afcc6752617c005ff4974f7b68378ca67}\label{linearSolver_8c_afcc6752617c005ff4974f7b68378ca67}} 
 \index{linearSolver.c@{linearSolver.c}!R\_XK@{R\_XK}}
@@ -451,7 +446,7 @@ Referenced by build\+Matrix(), free\+Linear\+Solver(), implicit\+Time\+Step(), i
 \doxysubsubsection{\texorpdfstring{rEps0}{rEps0}}
 {\footnotesize\ttfamily double r\+Eps0}
 
-D\+B\+L\+\_\+\+E\+P\+S\+I\+L\+ON 
+DBL\+\_\+\+EPSILON 
 
 Referenced by build\+Matrix(), init\+Linear\+Solver(), and matrix\+Vector().
 
@@ -461,7 +456,7 @@ Referenced by build\+Matrix(), init\+Linear\+Solver(), and matrix\+Vector().
 \doxysubsubsection{\texorpdfstring{srEps0}{srEps0}}
 {\footnotesize\ttfamily double sr\+Eps0}
 
-sqrt(\+D\+B\+L\+\_\+\+E\+P\+S\+I\+L\+O\+N) 
+sqrt(\+DBL\+\_\+\+EPSILON) 
 
 Referenced by build\+Matrix(), and init\+Linear\+Solver().
 
@@ -471,9 +466,9 @@ Referenced by build\+Matrix(), and init\+Linear\+Solver().
 \doxysubsubsection{\texorpdfstring{usePrecond}{usePrecond}}
 {\footnotesize\ttfamily bool use\+Precond}
 
-use L\+U\+S\+GS preconditioner flag 
+use LUSGS preconditioner flag 
 
-Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by free\+Linear\+Solver(), GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_aaae2b5d73f13359484d46126865d82ef}\label{linearSolver_8c_aaae2b5d73f13359484d46126865d82ef}} 
 \index{linearSolver.c@{linearSolver.c}!V@{V}}
@@ -481,9 +476,9 @@ Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear
 \doxysubsubsection{\texorpdfstring{V}{V}}
 {\footnotesize\ttfamily double$\ast$$\ast$$\ast$ V}
 
-temporary array, used in G\+M\+R\+ES 
+temporary array, used in GMRES 
 
-Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by free\+Linear\+Solver(), GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_adfb8b7216d10d0672f8116483ef116cb}\label{linearSolver_8c_adfb8b7216d10d0672f8116483ef116cb}} 
 \index{linearSolver.c@{linearSolver.c}!W@{W}}
@@ -491,9 +486,9 @@ Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear
 \doxysubsubsection{\texorpdfstring{W}{W}}
 {\footnotesize\ttfamily double$\ast$$\ast$ W}
 
-temporary array, used in G\+M\+R\+ES 
+temporary array, used in GMRES 
 
-Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by free\+Linear\+Solver(), GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 
 \mbox{\Hypertarget{linearSolver_8c_a2512c967317cac30177521b81511d2d6}\label{linearSolver_8c_a2512c967317cac30177521b81511d2d6}} 
 \index{linearSolver.c@{linearSolver.c}!XK@{XK}}
@@ -511,7 +506,7 @@ Referenced by free\+Linear\+Solver(), implicit\+Time\+Step(), init\+Linear\+Solv
 \doxysubsubsection{\texorpdfstring{Z}{Z}}
 {\footnotesize\ttfamily double$\ast$$\ast$$\ast$ Z}
 
-temporary array, used in G\+M\+R\+ES 
+temporary array, used in GMRES 
 
-Referenced by free\+Linear\+Solver(), G\+M\+R\+E\+S\+\_\+\+M(), and init\+Linear\+Solver().
+Referenced by free\+Linear\+Solver(), GMRES\+\_\+\+M(), and init\+Linear\+Solver().
 

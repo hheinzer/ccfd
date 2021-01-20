@@ -9,17 +9,12 @@ Contains the functions for initializing and evaluating the source term.
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\newline
-Include dependency graph for source.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{source_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for source.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{source_8c_a34ba7036589663f63938c5d55684c20a}{eval\+Source}} (int i\+Source, double x\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}, double time, double source\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]})
+void \mbox{\hyperlink{source_8c_a34ba7036589663f63938c5d55684c20a}{eval\+Source}} (int i\+Source, double x\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}, double time, double source\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]})
 \begin{DoxyCompactList}\small\item\em Evaluate the source term. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{source_8c_adb8cf5bda5a8dc85cd2117153f050f45}{calc\+Source}} (double time)
 \begin{DoxyCompactList}\small\item\em Calculate the contribution of the source terms. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -32,7 +27,7 @@ Contains the functions for initializing and evaluating the source term.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Wed 01 Apr 2020 12\+:25\+:11 PM C\+E\+ST 
+Wed 01 Apr 2020 12\+:25\+:11 PM CEST 
 \end{DoxyDate}
 
 
@@ -54,7 +49,7 @@ Calculate the contribution of the source terms.
 \end{DoxyParams}
 
 
-References E, elem, eval\+Source(), n\+Elems, elem\+\_\+t\+::n\+GP, N\+V\+AR, R\+HO, elem\+\_\+t\+::source, source\+Func, VX, VY, elem\+\_\+t\+::w\+GP, and elem\+\_\+t\+::x\+GP.
+References E, elem, eval\+Source(), n\+Elems, elem\+\_\+t\+::n\+GP, NVAR, RHO, elem\+\_\+t\+::source, source\+Func, VX, VY, elem\+\_\+t\+::w\+GP, and elem\+\_\+t\+::x\+GP.
 
 
 
@@ -64,7 +59,7 @@ Referenced by fv\+Time\+Derivative().
 \index{source.c@{source.c}!evalSource@{evalSource}}
 \index{evalSource@{evalSource}!source.c@{source.c}}
 \doxysubsubsection{\texorpdfstring{evalSource()}{evalSource()}}
-{\footnotesize\ttfamily void eval\+Source (\begin{DoxyParamCaption}\item[{int}]{i\+Source,  }\item[{double}]{x\mbox{[}\+N\+D\+I\+M\mbox{]},  }\item[{double}]{time,  }\item[{double}]{source\mbox{[}\+N\+V\+A\+R\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void eval\+Source (\begin{DoxyParamCaption}\item[{int}]{i\+Source,  }\item[{double}]{x\mbox{[}\+NDIM\mbox{]},  }\item[{double}]{time,  }\item[{double}]{source\mbox{[}\+NVAR\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -83,7 +78,7 @@ Evaluate the source term.
 \end{DoxyParams}
 
 
-References E, gam, gam1, mu, pi, Pr, R\+HO, VX, VY, X, and Y.
+References E, gam, gam1, mu, pi, Pr, RHO, VX, VY, X, and Y.
 
 
 

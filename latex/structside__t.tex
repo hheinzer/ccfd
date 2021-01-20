@@ -11,39 +11,34 @@ Structure for a single side in the global side list.
 
 
 
-Collaboration diagram for side\+\_\+t\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=290pt]{structside__t__coll__graph}
-\end{center}
-\end{figure}
+Collaboration diagram for side\+\_\+t\+:
+% FIG 0
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
 long \mbox{\hyperlink{structside__t_a01b2f885754e6f9dd6cb9891f4f1a7ac}{id}}
 \item 
-int \mbox{\hyperlink{structside__t_a7f4944ca48959e41cd38164899a01a19}{B\+Ctype}}
+int \mbox{\hyperlink{structside__t_a7f4944ca48959e41cd38164899a01a19}{BCtype}}
 \item 
-int \mbox{\hyperlink{structside__t_a76e100aad19a8b9dc3e41a932b1f1874}{B\+Cid}}
+int \mbox{\hyperlink{structside__t_a76e100aad19a8b9dc3e41a932b1f1874}{BCid}}
 \item 
 \mbox{\hyperlink{structboundary__t}{boundary\+\_\+t}} $\ast$ \mbox{\hyperlink{structside__t_a139dc5b219477299c80ebed6f99e1f1f}{BC}}
 \item 
-double \mbox{\hyperlink{structside__t_a608efb712ac8c943cf63ccce2ea97f7a}{p\+Var}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}
+double \mbox{\hyperlink{structside__t_a608efb712ac8c943cf63ccce2ea97f7a}{p\+Var}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}
 \item 
-double \mbox{\hyperlink{structside__t_a681553e1f4d5ecada55c7efe70ffc6cf}{n}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}
+double \mbox{\hyperlink{structside__t_a681553e1f4d5ecada55c7efe70ffc6cf}{n}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}
 \item 
 double \mbox{\hyperlink{structside__t_a1e113105b88ab0a04d9037b4c1c6d7e0}{len}}
 \item 
-double \mbox{\hyperlink{structside__t_ae8b94afda06339d391d50c144570c019}{bary\+Bary\+Vec}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}
+double \mbox{\hyperlink{structside__t_ae8b94afda06339d391d50c144570c019}{bary\+Bary\+Vec}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}
 \item 
 double \mbox{\hyperlink{structside__t_a31ab5541163a146fe3d29f5d7c157485}{bary\+Bary\+Dist}}
 \item 
-double \mbox{\hyperlink{structside__t_ae806f3a2d38436c03016a41764d37920}{GP}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}
+double \mbox{\hyperlink{structside__t_ae806f3a2d38436c03016a41764d37920}{GP}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}
 \item 
-double \mbox{\hyperlink{structside__t_a3217b72c2217ca8fe5c94176cd8e66d7}{w}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}
+double \mbox{\hyperlink{structside__t_a3217b72c2217ca8fe5c94176cd8e66d7}{w}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}
 \item 
-double \mbox{\hyperlink{structside__t_a226ad839495e85685c5b4f91a8470a8a}{flux}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}
+double \mbox{\hyperlink{structside__t_a226ad839495e85685c5b4f91a8470a8a}{flux}} \mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}
 \item 
 \mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$ \mbox{\hyperlink{structside__t_abd0ddb5755094a7ba4257b3f35d26eba}{connection}}
 \item 
@@ -75,7 +70,7 @@ Referenced by create\+Reconstruction\+Info(), and flux\+Calculation().
 \index{side\_t@{side\_t}!baryBaryVec@{baryBaryVec}}
 \index{baryBaryVec@{baryBaryVec}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{baryBaryVec}{baryBaryVec}}
-{\footnotesize\ttfamily double side\+\_\+t\+::bary\+Bary\+Vec\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::bary\+Bary\+Vec\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}}
 
 vector from element barycenter to barycenter of neighbor element 
 
@@ -89,19 +84,19 @@ Referenced by create\+Reconstruction\+Info(), and flux\+Calculation().
 
 pointer to the boundary condition 
 
-Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), create\+Side\+Info(), and init\+Wing().
+Referenced by boundary(), cgns\+Write\+Mesh(), connect\+Periodic\+BC(), create\+Mesh(), create\+Side\+Info(), and init\+Wing().
 
 \mbox{\Hypertarget{structside__t_a76e100aad19a8b9dc3e41a932b1f1874}\label{structside__t_a76e100aad19a8b9dc3e41a932b1f1874}} 
 \index{side\_t@{side\_t}!BCid@{BCid}}
 \index{BCid@{BCid}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{BCid}{BCid}}
-{\footnotesize\ttfamily int side\+\_\+t\+::\+B\+Cid}
+{\footnotesize\ttfamily int side\+\_\+t\+::\+BCid}
 
 boundary condition Sub-\/\+ID \mbox{\Hypertarget{structside__t_a7f4944ca48959e41cd38164899a01a19}\label{structside__t_a7f4944ca48959e41cd38164899a01a19}} 
 \index{side\_t@{side\_t}!BCtype@{BCtype}}
 \index{BCtype@{BCtype}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{BCtype}{BCtype}}
-{\footnotesize\ttfamily int side\+\_\+t\+::\+B\+Ctype}
+{\footnotesize\ttfamily int side\+\_\+t\+::\+BCtype}
 
 boundary condition type \mbox{\Hypertarget{structside__t_abd0ddb5755094a7ba4257b3f35d26eba}\label{structside__t_abd0ddb5755094a7ba4257b3f35d26eba}} 
 \index{side\_t@{side\_t}!connection@{connection}}
@@ -111,7 +106,7 @@ boundary condition type \mbox{\Hypertarget{structside__t_abd0ddb5755094a7ba4257b
 
 neighbor side 
 
-Referenced by boundary(), build\+Matrix(), connect\+Periodic\+B\+C(), create\+Mesh(), create\+Reconstruction\+Info(), create\+Side\+Info(), flux\+Calculation(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), L\+U\+S\+G\+S(), set\+B\+Cat\+Barys(), set\+B\+Cat\+Sides(), and spatial\+Reconstruction().
+Referenced by boundary(), build\+Matrix(), connect\+Periodic\+BC(), create\+Mesh(), create\+Reconstruction\+Info(), create\+Side\+Info(), flux\+Calculation(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), LUSGS(), set\+BCat\+Barys(), set\+BCat\+Sides(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{structside__t_aba22d3b5dd9f9372c60e1fd862c75974}\label{structside__t_aba22d3b5dd9f9372c60e1fd862c75974}} 
 \index{side\_t@{side\_t}!elem@{elem}}
@@ -121,13 +116,13 @@ Referenced by boundary(), build\+Matrix(), connect\+Periodic\+B\+C(), create\+Me
 
 pointer to the element of the side 
 
-Referenced by build\+Matrix(), calc\+Coef(), connect\+Periodic\+B\+C(), create\+Mesh(), create\+Side\+Info(), flux\+Calculation(), free\+Mesh(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), L\+U\+S\+G\+S(), set\+B\+Cat\+Barys(), set\+B\+Cat\+Sides(), and spatial\+Reconstruction().
+Referenced by build\+Matrix(), calc\+Coef(), connect\+Periodic\+BC(), create\+Mesh(), create\+Side\+Info(), flux\+Calculation(), free\+Mesh(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), LUSGS(), set\+BCat\+Barys(), set\+BCat\+Sides(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{structside__t_a226ad839495e85685c5b4f91a8470a8a}\label{structside__t_a226ad839495e85685c5b4f91a8470a8a}} 
 \index{side\_t@{side\_t}!flux@{flux}}
 \index{flux@{flux}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{flux}{flux}}
-{\footnotesize\ttfamily double side\+\_\+t\+::flux\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::flux\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}}
 
 numerical flux of the side 
 
@@ -137,11 +132,11 @@ Referenced by flux\+Calculation(), and fv\+Time\+Derivative().
 \index{side\_t@{side\_t}!GP@{GP}}
 \index{GP@{GP}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{GP}{GP}}
-{\footnotesize\ttfamily double side\+\_\+t\+::\+GP\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::\+GP\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}}
 
 vector from element barycenter to the Gaussian point of the side 
 
-Referenced by calc\+Coef(), connect\+Periodic\+B\+C(), create\+Mesh(), create\+Reconstruction\+Info(), create\+Side\+Info(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), set\+B\+Cat\+Sides(), and spatial\+Reconstruction().
+Referenced by calc\+Coef(), connect\+Periodic\+BC(), create\+Mesh(), create\+Reconstruction\+Info(), create\+Side\+Info(), init\+Wing(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), set\+BCat\+Sides(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{structside__t_a01b2f885754e6f9dd6cb9891f4f1a7ac}\label{structside__t_a01b2f885754e6f9dd6cb9891f4f1a7ac}} 
 \index{side\_t@{side\_t}!id@{id}}
@@ -167,7 +162,7 @@ Referenced by calc\+Coef(), create\+Side\+Info(), and flux\+Calculation().
 \index{side\_t@{side\_t}!n@{n}}
 \index{n@{n}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{n}{n}}
-{\footnotesize\ttfamily double side\+\_\+t\+::n\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::n\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}}
 
 normal vector of side 
 
@@ -181,7 +176,7 @@ Referenced by boundary(), calc\+Coef(), create\+Mesh(), create\+Side\+Info(), fl
 
 point to the next side in the global side list 
 
-Referenced by connect\+Periodic\+B\+C(), and create\+Mesh().
+Referenced by connect\+Periodic\+BC(), and create\+Mesh().
 
 \mbox{\Hypertarget{structside__t_af9ea3a8abd427e9545645451cf6ae735}\label{structside__t_af9ea3a8abd427e9545645451cf6ae735}} 
 \index{side\_t@{side\_t}!nextElemSide@{nextElemSide}}
@@ -191,7 +186,7 @@ Referenced by connect\+Periodic\+B\+C(), and create\+Mesh().
 
 pointer to the next side of the element 
 
-Referenced by build\+Matrix(), create\+Mesh(), create\+Reconstruction\+Info(), free\+Mesh(), fv\+Time\+Derivative(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), L\+U\+S\+G\+S(), and spatial\+Reconstruction().
+Referenced by build\+Matrix(), create\+Mesh(), create\+Reconstruction\+Info(), free\+Mesh(), fv\+Time\+Derivative(), limiter\+Barth\+Jespersen(), limiter\+Venkatakrishnan(), LUSGS(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{structside__t_a9cc5a57e92366ae16be380f2f6d7d538}\label{structside__t_a9cc5a57e92366ae16be380f2f6d7d538}} 
 \index{side\_t@{side\_t}!node@{node}}
@@ -207,17 +202,17 @@ Referenced by cgns\+Write\+Mesh(), create\+Mesh(), and create\+Side\+Info().
 \index{side\_t@{side\_t}!pVar@{pVar}}
 \index{pVar@{pVar}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{pVar}{pVar}}
-{\footnotesize\ttfamily double side\+\_\+t\+::p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{N\+V\+AR}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::p\+Var\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a3f8900a8f39dd09be4151a05ad947388}{NVAR}}\mbox{]}}
 
 primitive variables state at side 
 
-Referenced by calc\+Coef(), flux\+Calculation(), set\+B\+Cat\+Sides(), and spatial\+Reconstruction().
+Referenced by calc\+Coef(), flux\+Calculation(), set\+BCat\+Sides(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{structside__t_a3217b72c2217ca8fe5c94176cd8e66d7}\label{structside__t_a3217b72c2217ca8fe5c94176cd8e66d7}} 
 \index{side\_t@{side\_t}!w@{w}}
 \index{w@{w}!side\_t@{side\_t}}
 \doxysubsubsection{\texorpdfstring{w}{w}}
-{\footnotesize\ttfamily double side\+\_\+t\+::w\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{N\+D\+IM}}\mbox{]}}
+{\footnotesize\ttfamily double side\+\_\+t\+::w\mbox{[}\mbox{\hyperlink{main_8h_a7772fe70d27d49dc06a86ad6cf706174a31642f08be9e4c0080955454631ceb6c}{NDIM}}\mbox{]}}
 
 omegaX and omegaY entries for 2nd order gradient reconstruction 
 

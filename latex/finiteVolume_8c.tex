@@ -17,13 +17,8 @@ Finite volume time derivative functions.
 {\ttfamily \#include \char`\"{}flux\+Calculation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}equation.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}source.\+h\char`\"{}}\newline
-Include dependency graph for finite\+Volume.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{finiteVolume_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for finite\+Volume.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,7 +43,7 @@ Finite volume time derivative functions.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Fri 27 Mar 2020 05\+:10\+:43 PM C\+ET 
+Fri 27 Mar 2020 05\+:10\+:43 PM CET 
 \end{DoxyDate}
 
 
@@ -72,11 +67,11 @@ First, the local time step is calculated, then spacial gradients inside of the c
 \end{DoxyParams}
 
 
-References elem\+\_\+t\+::areaq, calc\+Source(), do\+Calc\+Source, elem\+\_\+t\+::dt, elem\+\_\+t\+::dt\+Loc, E, elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::flux, flux\+Calculation(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, R\+HO, set\+B\+Cat\+Sides(), elem\+\_\+t\+::source, spatial\+Reconstruction(), time\+Order, elem\+\_\+t\+::u\+\_\+t, VX, and VY.
+References elem\+\_\+t\+::areaq, calc\+Source(), do\+Calc\+Source, elem\+\_\+t\+::dt, elem\+\_\+t\+::dt\+Loc, E, elem, elem\+\_\+t\+::first\+Side, side\+\_\+t\+::flux, flux\+Calculation(), n\+Elems, side\+\_\+t\+::next\+Elem\+Side, RHO, set\+BCat\+Sides(), elem\+\_\+t\+::source, spatial\+Reconstruction(), time\+Order, elem\+\_\+t\+::u\+\_\+t, VX, and VY.
 
 
 
-Referenced by build\+Matrix(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), implicit\+Time\+Step(), and matrix\+Vector().
+Referenced by build\+Matrix(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), implicit\+Time\+Step(), and matrix\+Vector().
 
 
 
@@ -95,5 +90,5 @@ the flux function to be used \mbox{\Hypertarget{finiteVolume_8c_a50d190509434bd3
 
 the spacial order to be used 
 
-Referenced by init\+F\+V(), and spatial\+Reconstruction().
+Referenced by init\+FV(), and spatial\+Reconstruction().
 

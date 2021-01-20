@@ -7,20 +7,10 @@ Contains the definitions of all structs for the mesh handling.
 
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}boundary.\+h\char`\"{}}\newline
-Include dependency graph for mesh.\+h\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=208pt]{mesh_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{mesh_8h__dep__incl}
-\end{center}
-\end{figure}
+Include dependency graph for mesh.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,17 +36,15 @@ void \mbox{\hyperlink{mesh_8h_ae33bfb3c739903927db7f7a54278638e}{free\+Mesh}} (v
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-char \mbox{\hyperlink{mesh_8h_aad3cc448dc2ebf66ff33a66195cfbebc}{parameter\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+char \mbox{\hyperlink{mesh_8h_a24161a93b14d1764d58c30d83d059b1f}{str\+Mesh\+Format}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}
 \item 
-char \mbox{\hyperlink{mesh_8h_a24161a93b14d1764d58c30d83d059b1f}{str\+Mesh\+Format}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+char \mbox{\hyperlink{mesh_8h_a248d8abe20644d580d9eaeab709e6f24}{str\+Mesh\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}
 \item 
-char \mbox{\hyperlink{mesh_8h_a248d8abe20644d580d9eaeab709e6f24}{str\+Mesh\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
-\item 
-char \mbox{\hyperlink{mesh_8h_a394fda7463f47da523cd1efd5c59aeaf}{str\+Ini\+Cond\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+char \mbox{\hyperlink{mesh_8h_a394fda7463f47da523cd1efd5c59aeaf}{str\+Ini\+Cond\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}
 \item 
 \mbox{\hyperlink{structcartMesh__t}{cart\+Mesh\+\_\+t}} \mbox{\hyperlink{mesh_8h_a1b67b6ba30cbf11958dca44a8b7a73e7}{cart\+Mesh}}
 \item 
-char \mbox{\hyperlink{mesh_8h_a81c60aff0b3e98cafc32108efc25be9d}{grid\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}
+char \mbox{\hyperlink{mesh_8h_a81c60aff0b3e98cafc32108efc25be9d}{grid\+File}} \mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}
 \item 
 int \mbox{\hyperlink{mesh_8h_a1f0bd89a33eeef71b7b643a305ee864d}{mesh\+Type}}
 \item 
@@ -72,7 +60,7 @@ long \mbox{\hyperlink{mesh_8h_ad275c3f0ea13662bcdcab5c6d71bbe22}{n\+Quads}}
 \item 
 long \mbox{\hyperlink{mesh_8h_afbd57a358fb19f827a5776af788d1c75}{n\+Sides}}
 \item 
-long \mbox{\hyperlink{mesh_8h_af4105a479c40a7a38d0e65d7a9fd31e3}{n\+B\+Csides}}
+long \mbox{\hyperlink{mesh_8h_af4105a479c40a7a38d0e65d7a9fd31e3}{n\+BCsides}}
 \item 
 long \mbox{\hyperlink{mesh_8h_a8fdbb3d298b293e79aca09b41475dce5}{n\+Inner\+Sides}}
 \item 
@@ -92,7 +80,7 @@ double \mbox{\hyperlink{mesh_8h_a21f372ef64234addfe8453786e3580e6}{dx\+Ref}}
 \item 
 \mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$$\ast$ \mbox{\hyperlink{mesh_8h_a12ab5a8a3e4999ba4d8c26798740ce7f}{side}}
 \item 
-\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$$\ast$ \mbox{\hyperlink{mesh_8h_a508eb58346877a73cd49cdd8d0af5538}{B\+Cside}}
+\mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$$\ast$ \mbox{\hyperlink{mesh_8h_a508eb58346877a73cd49cdd8d0af5538}{BCside}}
 \item 
 \mbox{\hyperlink{structelem__t}{elem\+\_\+t}} $\ast$ \mbox{\hyperlink{mesh_8h_a70e56414c0c1dbf47a7748ebe790a0de}{first\+Elem}}
 \item 
@@ -100,7 +88,7 @@ double \mbox{\hyperlink{mesh_8h_a21f372ef64234addfe8453786e3580e6}{dx\+Ref}}
 \item 
 \mbox{\hyperlink{structside__t}{side\+\_\+t}} $\ast$ \mbox{\hyperlink{mesh_8h_a8a95c5ed7761a0366d8f61aeeb7184a4}{first\+Side}}
 \item 
-\mbox{\hyperlink{structsidePtr__t}{side\+Ptr\+\_\+t}} $\ast$ \mbox{\hyperlink{mesh_8h_a71f662759be11886778b12b0b996fd5a}{first\+B\+Cside}}
+\mbox{\hyperlink{structsidePtr__t}{side\+Ptr\+\_\+t}} $\ast$ \mbox{\hyperlink{mesh_8h_a71f662759be11886778b12b0b996fd5a}{first\+BCside}}
 \end{DoxyCompactItemize}
 
 
@@ -111,7 +99,7 @@ Contains the definitions of all structs for the mesh handling.
 hhh 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-Tue 24 Mar 2020 12\+:45\+:49 PM C\+ET 
+Tue 24 Mar 2020 12\+:45\+:49 PM CET 
 \end{DoxyDate}
 
 
@@ -120,17 +108,17 @@ Tue 24 Mar 2020 12\+:45\+:49 PM C\+ET
 \index{mesh.h@{mesh.h}!BCside@{BCside}}
 \index{BCside@{BCside}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{BCside}{BCside}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$$\ast$ B\+Cside}
+{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$$\ast$ BCside\hspace{0.3cm}{\ttfamily [extern]}}
 
 global BC side pointer array 
 
-Referenced by create\+Mesh(), free\+Boundary(), set\+B\+Cat\+Barys(), and set\+B\+Cat\+Sides().
+Referenced by create\+Mesh(), free\+Boundary(), set\+BCat\+Barys(), and set\+BCat\+Sides().
 
 \mbox{\Hypertarget{mesh_8h_a1b67b6ba30cbf11958dca44a8b7a73e7}\label{mesh_8h_a1b67b6ba30cbf11958dca44a8b7a73e7}} 
 \index{mesh.h@{mesh.h}!cartMesh@{cartMesh}}
 \index{cartMesh@{cartMesh}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{cartMesh}{cartMesh}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structcartMesh__t}{cart\+Mesh\+\_\+t}} cart\+Mesh}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcartMesh__t}{cart\+Mesh\+\_\+t}} cart\+Mesh\hspace{0.3cm}{\ttfamily [extern]}}
 
 cartesian mesh structure 
 
@@ -140,7 +128,7 @@ Referenced by create\+Cart\+Mesh(), and read\+Mesh().
 \index{mesh.h@{mesh.h}!dxRef@{dxRef}}
 \index{dxRef@{dxRef}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{dxRef}{dxRef}}
-{\footnotesize\ttfamily double dx\+Ref}
+{\footnotesize\ttfamily double dx\+Ref\hspace{0.3cm}{\ttfamily [extern]}}
 
 reference x length 
 
@@ -150,27 +138,27 @@ Referenced by exact\+Func(), and init\+Mesh().
 \index{mesh.h@{mesh.h}!elem@{elem}}
 \index{elem@{elem}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{elem}{elem}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structelem__t}{elem\+\_\+t}}$\ast$$\ast$ elem}
+{\footnotesize\ttfamily \mbox{\hyperlink{structelem__t}{elem\+\_\+t}}$\ast$$\ast$ elem\hspace{0.3cm}{\ttfamily [extern]}}
 
 global element pointer array 
 
-Referenced by build\+Matrix(), calc\+Errors(), calc\+Source(), calc\+Time\+Step(), create\+Mesh(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), free\+Mesh(), fv\+Time\+Derivative(), global\+Residual(), implicit\+Time\+Step(), init\+F\+V(), L\+U\+S\+G\+S(), matrix\+Vector(), and spatial\+Reconstruction().
+Referenced by build\+Matrix(), calc\+Errors(), calc\+Source(), calc\+Time\+Step(), create\+Mesh(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), free\+Mesh(), fv\+Time\+Derivative(), global\+Residual(), implicit\+Time\+Step(), init\+FV(), LUSGS(), matrix\+Vector(), and spatial\+Reconstruction().
 
 \mbox{\Hypertarget{mesh_8h_a71f662759be11886778b12b0b996fd5a}\label{mesh_8h_a71f662759be11886778b12b0b996fd5a}} 
 \index{mesh.h@{mesh.h}!firstBCside@{firstBCside}}
 \index{firstBCside@{firstBCside}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{firstBCside}{firstBCside}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structsidePtr__t}{side\+Ptr\+\_\+t}}$\ast$ first\+B\+Cside}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsidePtr__t}{side\+Ptr\+\_\+t}}$\ast$ first\+BCside\hspace{0.3cm}{\ttfamily [extern]}}
 
 pointer to first BC side 
 
-Referenced by cgns\+Write\+Mesh(), connect\+Periodic\+B\+C(), create\+Mesh(), free\+Mesh(), and init\+Wing().
+Referenced by cgns\+Write\+Mesh(), connect\+Periodic\+BC(), create\+Mesh(), free\+Mesh(), and init\+Wing().
 
 \mbox{\Hypertarget{mesh_8h_a70e56414c0c1dbf47a7748ebe790a0de}\label{mesh_8h_a70e56414c0c1dbf47a7748ebe790a0de}} 
 \index{mesh.h@{mesh.h}!firstElem@{firstElem}}
 \index{firstElem@{firstElem}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{firstElem}{firstElem}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structelem__t}{elem\+\_\+t}}$\ast$ first\+Elem}
+{\footnotesize\ttfamily \mbox{\hyperlink{structelem__t}{elem\+\_\+t}}$\ast$ first\+Elem\hspace{0.3cm}{\ttfamily [extern]}}
 
 pointer to first element 
 
@@ -180,7 +168,7 @@ Referenced by analyze(), cgns\+Output(), cgns\+Read\+Solution(), cgns\+Write\+Me
 \index{mesh.h@{mesh.h}!firstNode@{firstNode}}
 \index{firstNode@{firstNode}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{firstNode}{firstNode}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structnode__t}{node\+\_\+t}}$\ast$ first\+Node}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__t}{node\+\_\+t}}$\ast$ first\+Node\hspace{0.3cm}{\ttfamily [extern]}}
 
 pointer to first node 
 
@@ -190,17 +178,17 @@ Referenced by cgns\+Write\+Mesh(), create\+Mesh(), and free\+Mesh().
 \index{mesh.h@{mesh.h}!firstSide@{firstSide}}
 \index{firstSide@{firstSide}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{firstSide}{firstSide}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$ first\+Side}
+{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$ first\+Side\hspace{0.3cm}{\ttfamily [extern]}}
 
 pointer to first side 
 
-Referenced by connect\+Periodic\+B\+C(), and create\+Mesh().
+Referenced by connect\+Periodic\+BC(), and create\+Mesh().
 
 \mbox{\Hypertarget{mesh_8h_a81c60aff0b3e98cafc32108efc25be9d}\label{mesh_8h_a81c60aff0b3e98cafc32108efc25be9d}} 
 \index{mesh.h@{mesh.h}!gridFile@{gridFile}}
 \index{gridFile@{gridFile}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{gridFile}{gridFile}}
-{\footnotesize\ttfamily char grid\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+{\footnotesize\ttfamily char grid\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 complete name of the output mesh file 
 
@@ -210,39 +198,39 @@ Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), and
 \index{mesh.h@{mesh.h}!meshFormat@{meshFormat}}
 \index{meshFormat@{meshFormat}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{meshFormat}{meshFormat}}
-{\footnotesize\ttfamily int mesh\+Format}
+{\footnotesize\ttfamily int mesh\+Format\hspace{0.3cm}{\ttfamily [extern]}}
 
 code for the mesh format \mbox{\Hypertarget{mesh_8h_a1f0bd89a33eeef71b7b643a305ee864d}\label{mesh_8h_a1f0bd89a33eeef71b7b643a305ee864d}} 
 \index{mesh.h@{mesh.h}!meshType@{meshType}}
 \index{meshType@{meshType}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{meshType}{meshType}}
-{\footnotesize\ttfamily int \mbox{\hyperlink{main_8h_ae4fb69053e3169f00e40c379de9b18ce}{mesh\+Type}}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{main_8h_ae4fb69053e3169f00e40c379de9b18ce}{mesh\+Type}}\hspace{0.3cm}{\ttfamily [extern]}}
 
 code for the mesh type \mbox{\Hypertarget{mesh_8h_af4105a479c40a7a38d0e65d7a9fd31e3}\label{mesh_8h_af4105a479c40a7a38d0e65d7a9fd31e3}} 
 \index{mesh.h@{mesh.h}!nBCsides@{nBCsides}}
 \index{nBCsides@{nBCsides}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nBCsides}{nBCsides}}
-{\footnotesize\ttfamily long n\+B\+Csides}
+{\footnotesize\ttfamily long n\+BCsides\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of BC sides 
 
-Referenced by cgns\+Write\+Mesh(), create\+Mesh(), set\+B\+Cat\+Barys(), and set\+B\+Cat\+Sides().
+Referenced by cgns\+Write\+Mesh(), create\+Mesh(), set\+BCat\+Barys(), and set\+BCat\+Sides().
 
 \mbox{\Hypertarget{mesh_8h_aa564af0cb1a4e3d22c2ccb63761cb60c}\label{mesh_8h_aa564af0cb1a4e3d22c2ccb63761cb60c}} 
 \index{mesh.h@{mesh.h}!nElems@{nElems}}
 \index{nElems@{nElems}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nElems}{nElems}}
-{\footnotesize\ttfamily long n\+Elems}
+{\footnotesize\ttfamily long n\+Elems\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of elements 
 
-Referenced by build\+Matrix(), calc\+Errors(), calc\+Source(), calc\+Time\+Step(), cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Read\+Solution(), cgns\+Write\+Mesh(), create\+Mesh(), csv\+Output(), curve\+Output(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+R\+K(), free\+Mesh(), fv\+Time\+Derivative(), global\+Residual(), G\+M\+R\+E\+S\+\_\+\+M(), implicit\+Time\+Step(), init\+F\+V(), init\+Linear\+Solver(), init\+Mesh(), init\+Time\+Disc(), L\+U\+S\+G\+S(), matrix\+Vector(), read\+C\+G\+N\+S(), spatial\+Reconstruction(), and vector\+Dot\+Product().
+Referenced by build\+Matrix(), calc\+Errors(), calc\+Source(), calc\+Time\+Step(), cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Read\+Solution(), cgns\+Write\+Mesh(), create\+Mesh(), csv\+Output(), curve\+Output(), explicit\+Time\+Step\+Euler(), explicit\+Time\+Step\+RK(), free\+Mesh(), fv\+Time\+Derivative(), global\+Residual(), GMRES\+\_\+\+M(), implicit\+Time\+Step(), init\+FV(), init\+Linear\+Solver(), init\+Mesh(), init\+Time\+Disc(), LUSGS(), matrix\+Vector(), read\+CGNS(), spatial\+Reconstruction(), and vector\+Dot\+Product().
 
 \mbox{\Hypertarget{mesh_8h_a8fdbb3d298b293e79aca09b41475dce5}\label{mesh_8h_a8fdbb3d298b293e79aca09b41475dce5}} 
 \index{mesh.h@{mesh.h}!nInnerSides@{nInnerSides}}
 \index{nInnerSides@{nInnerSides}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nInnerSides}{nInnerSides}}
-{\footnotesize\ttfamily long n\+Inner\+Sides}
+{\footnotesize\ttfamily long n\+Inner\+Sides\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of non BC sides 
 
@@ -252,7 +240,7 @@ Referenced by create\+Mesh().
 \index{mesh.h@{mesh.h}!nNodes@{nNodes}}
 \index{nNodes@{nNodes}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nNodes}{nNodes}}
-{\footnotesize\ttfamily long n\+Nodes}
+{\footnotesize\ttfamily long n\+Nodes\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of nodes 
 
@@ -262,45 +250,37 @@ Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), and
 \index{mesh.h@{mesh.h}!nQuads@{nQuads}}
 \index{nQuads@{nQuads}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nQuads}{nQuads}}
-{\footnotesize\ttfamily long n\+Quads}
+{\footnotesize\ttfamily long n\+Quads\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of quadrangles 
 
-Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), create\+Cart\+Mesh(), create\+Mesh(), read\+C\+G\+N\+S(), read\+E\+M\+C2(), and read\+Gmsh().
+Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), create\+Cart\+Mesh(), create\+Mesh(), read\+CGNS(), read\+EMC2(), and read\+Gmsh().
 
 \mbox{\Hypertarget{mesh_8h_afbd57a358fb19f827a5776af788d1c75}\label{mesh_8h_afbd57a358fb19f827a5776af788d1c75}} 
 \index{mesh.h@{mesh.h}!nSides@{nSides}}
 \index{nSides@{nSides}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nSides}{nSides}}
-{\footnotesize\ttfamily long n\+Sides}
+{\footnotesize\ttfamily long n\+Sides\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of sides 
 
-Referenced by connect\+Periodic\+B\+C(), create\+Mesh(), and flux\+Calculation().
+Referenced by connect\+Periodic\+BC(), create\+Mesh(), and flux\+Calculation().
 
 \mbox{\Hypertarget{mesh_8h_ad5d7eb9d50e79640a8723471bc5374a4}\label{mesh_8h_ad5d7eb9d50e79640a8723471bc5374a4}} 
 \index{mesh.h@{mesh.h}!nTrias@{nTrias}}
 \index{nTrias@{nTrias}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{nTrias}{nTrias}}
-{\footnotesize\ttfamily long n\+Trias}
+{\footnotesize\ttfamily long n\+Trias\hspace{0.3cm}{\ttfamily [extern]}}
 
 global number of triangles 
 
-Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), create\+Mesh(), read\+C\+G\+N\+S(), read\+E\+M\+C2(), and read\+Gmsh().
+Referenced by cgns\+Finalize\+Output(), cgns\+Output(), cgns\+Write\+Mesh(), create\+Mesh(), read\+CGNS(), read\+EMC2(), and read\+Gmsh().
 
-\mbox{\Hypertarget{mesh_8h_aad3cc448dc2ebf66ff33a66195cfbebc}\label{mesh_8h_aad3cc448dc2ebf66ff33a66195cfbebc}} 
-\index{mesh.h@{mesh.h}!parameterFile@{parameterFile}}
-\index{parameterFile@{parameterFile}!mesh.h@{mesh.h}}
-\doxysubsubsection{\texorpdfstring{parameterFile}{parameterFile}}
-{\footnotesize\ttfamily char parameter\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
-
-parameter file name
-
-name of the parameter file \mbox{\Hypertarget{mesh_8h_a12ab5a8a3e4999ba4d8c26798740ce7f}\label{mesh_8h_a12ab5a8a3e4999ba4d8c26798740ce7f}} 
+\mbox{\Hypertarget{mesh_8h_a12ab5a8a3e4999ba4d8c26798740ce7f}\label{mesh_8h_a12ab5a8a3e4999ba4d8c26798740ce7f}} 
 \index{mesh.h@{mesh.h}!side@{side}}
 \index{side@{side}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{side}{side}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$$\ast$ side}
+{\footnotesize\ttfamily \mbox{\hyperlink{structside__t}{side\+\_\+t}}$\ast$$\ast$ side\hspace{0.3cm}{\ttfamily [extern]}}
 
 global side pointer array 
 
@@ -310,7 +290,7 @@ Referenced by create\+Mesh(), flux\+Calculation(), and free\+Mesh().
 \index{mesh.h@{mesh.h}!strIniCondFile@{strIniCondFile}}
 \index{strIniCondFile@{strIniCondFile}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{strIniCondFile}{strIniCondFile}}
-{\footnotesize\ttfamily char str\+Ini\+Cond\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+{\footnotesize\ttfamily char str\+Ini\+Cond\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 file name of the initial conditions file 
 
@@ -320,7 +300,7 @@ Referenced by cgns\+Read\+Solution(), and main().
 \index{mesh.h@{mesh.h}!strMeshFile@{strMeshFile}}
 \index{strMeshFile@{strMeshFile}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{strMeshFile}{strMeshFile}}
-{\footnotesize\ttfamily char str\+Mesh\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+{\footnotesize\ttfamily char str\+Mesh\+File\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 mesh file base name 
 
@@ -330,7 +310,7 @@ Referenced by create\+Mesh(), and read\+Mesh().
 \index{mesh.h@{mesh.h}!strMeshFormat@{strMeshFormat}}
 \index{strMeshFormat@{strMeshFormat}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{strMeshFormat}{strMeshFormat}}
-{\footnotesize\ttfamily char str\+Mesh\+Format\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{S\+T\+R\+L\+EN}}\mbox{]}}
+{\footnotesize\ttfamily char str\+Mesh\+Format\mbox{[}\mbox{\hyperlink{main_8h_a278cf415676752815cfb411cb0b32802}{STRLEN}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 mesh format string 
 
@@ -340,7 +320,7 @@ Referenced by create\+Mesh(), and read\+Mesh().
 \index{mesh.h@{mesh.h}!totalArea\_q@{totalArea\_q}}
 \index{totalArea\_q@{totalArea\_q}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{totalArea\_q}{totalArea\_q}}
-{\footnotesize\ttfamily double total\+Area\+\_\+q}
+{\footnotesize\ttfamily double total\+Area\+\_\+q\hspace{0.3cm}{\ttfamily [extern]}}
 
 inverse of the global area of the mesh 
 
@@ -350,7 +330,7 @@ Referenced by calc\+Errors(), create\+Elem\+Info(), create\+Mesh(), global\+Resi
 \index{mesh.h@{mesh.h}!xMax@{xMax}}
 \index{xMax@{xMax}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{xMax}{xMax}}
-{\footnotesize\ttfamily double x\+Max}
+{\footnotesize\ttfamily double x\+Max\hspace{0.3cm}{\ttfamily [extern]}}
 
 minimum x-\/direction extension 
 
@@ -360,7 +340,7 @@ Referenced by create\+Cart\+Mesh(), create\+Mesh(), exact\+Func(), and read\+Mes
 \index{mesh.h@{mesh.h}!xMin@{xMin}}
 \index{xMin@{xMin}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{xMin}{xMin}}
-{\footnotesize\ttfamily double x\+Min}
+{\footnotesize\ttfamily double x\+Min\hspace{0.3cm}{\ttfamily [extern]}}
 
 maximum x-\/direction extension 
 
@@ -370,7 +350,7 @@ Referenced by create\+Cart\+Mesh(), create\+Mesh(), exact\+Func(), and read\+Mes
 \index{mesh.h@{mesh.h}!yMax@{yMax}}
 \index{yMax@{yMax}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{yMax}{yMax}}
-{\footnotesize\ttfamily double y\+Max}
+{\footnotesize\ttfamily double y\+Max\hspace{0.3cm}{\ttfamily [extern]}}
 
 minimum y-\/direction extension 
 
@@ -380,7 +360,7 @@ Referenced by create\+Cart\+Mesh(), create\+Mesh(), exact\+Func(), and read\+Mes
 \index{mesh.h@{mesh.h}!yMin@{yMin}}
 \index{yMin@{yMin}!mesh.h@{mesh.h}}
 \doxysubsubsection{\texorpdfstring{yMin}{yMin}}
-{\footnotesize\ttfamily double y\+Min}
+{\footnotesize\ttfamily double y\+Min\hspace{0.3cm}{\ttfamily [extern]}}
 
 maximum y-\/direction extension 
 
