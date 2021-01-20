@@ -1,0 +1,18 @@
+digraph "ccfd/src/initialCondition.h"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="ccfd/src/initialCondition.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ccfd/src/analyze.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$analyze_8c.html",tooltip="Contains functions for analyzing flow results."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ccfd/src/exactFunction.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exactFunction_8c.html",tooltip="Contains the exact function evaluation function."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ccfd/src/initialCondition.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$initialCondition_8c.html",tooltip="Functions involving the initialization and application of initial conditions."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ccfd/src/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Contains the main function of ccfd"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ccfd/src/mesh.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mesh_8c.html",tooltip="Contains all the functions for reading and creating meshes."];
+}

@@ -1,0 +1,22 @@
+digraph "recordPoint_t"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="recordPoint_t",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Recording point structure, used to output flow field at specific points."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elem" ];
+  Node2 [label="elem_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structelem__t.html",tooltip="Structure for a single element in the global element list."];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next" ];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" node" ];
+  Node3 [label="node_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structnode__t.html",tooltip="Structure for a single node in a linked list of nodes."];
+  Node3 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next" ];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" firstSide" ];
+  Node4 [label="side_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structside__t.html",tooltip="Structure for a single side in the global side list."];
+  Node2 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elem" ];
+  Node3 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" node" ];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" BC" ];
+  Node5 [label="boundary_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structboundary__t.html",tooltip="Structure that holds the information of a boundary condition."];
+  Node5 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next" ];
+  Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" connection\nnext\nnextElemSide" ];
+}
