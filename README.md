@@ -1,6 +1,6 @@
 ![ccfd](img/ccfd.png)
 
-The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD [code](https://github.com/flexi-framework/cfdfv) written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This program uses [CGNS](https://cgns.github.io/), for storing the calculation results. The logo is heavily inspired by the software over at [suckless.org](https://suckless.org/).
+The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD [code](https://github.com/flexi-framework/cfdfv) written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This program uses [CGNS](https://cgns.github.io/), for storing the calculation results.
 
 `ccfd` is a two-dimensional finite volume solver for the Euler- or Navier-Stokes-equation systems on structured or unstructured grids. It can perform 1st or 2nd order spacial and temporal discretization, with explicit Euler or Runge-Kutta integration, or implicit Krylov subspace iteration. The code runs on multiple threads using OpenMP parallel for loops, if compiled with `-fopenmp`.    
 
