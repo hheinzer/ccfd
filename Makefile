@@ -23,9 +23,11 @@ ifeq ($(COMPILER), gnu)
   CC    = $(GCC)
   FLAGS = -std=c99 -Wall -Wextra -pedantic -Wno-unknown-pragmas
   ifeq ($(DEBUG), on)
-    FLAGS += -ggdb3 -Og
+    FLAGS += -ggdb3 -O0
   else
-    FLAGS += -O3 -flto -march=native
+    FLAGS += -O3 -march=native -fdata-sections -ffunction-sections
+    FLAGS += -flto=auto -ffat-lto-objects -fuse-linker-plugin
+    FLAGS += -DNDEBUG
   endif
   ifeq ($(PARALLEL), on)
     FLAGS += -fopenmp
