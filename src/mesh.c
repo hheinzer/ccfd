@@ -303,7 +303,7 @@ void createElemInfo(elem_t *aElem)
 	}
 
 	/* element area and its inverse */
-	double vec[2], n[4][2], len[4];
+	double vec[2] = {0}, n[4][2] = {0}, len[4] = {0};
 	for (int i = 0; i < aElem->elemType; ++i) {
 		int j = (i + 1) % aElem->elemType;
 		vec[X] = aElem->node[j]->x[X] - aElem->node[i]->x[X];
