@@ -1,3 +1,5 @@
+*This repository has not been updated in years, the information in this readme may be outdated.*
+
 ![ccfd](img/ccfd.png)
 
 The `ccfd` code is a drop-in replacement for `cfdfv`, a CFD [code](https://github.com/flexi-framework/cfdfv) written in Fortran by the [Institute of Aerodynamics and Gas Dynamics](https://www.iag.uni-stuttgart.de/en/) at the University of Stuttgart for a CFD programming course. This program uses [CGNS](https://cgns.github.io/), for storing the calculation results.
