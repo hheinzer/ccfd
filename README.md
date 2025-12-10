@@ -1,3 +1,5 @@
+**Note: ccfd is deprecated; the active successor is [teal](https://github.com/hheinzer/teal), which carries this solver forward.**
+
 *This repository has not been updated in years, the information in this readme may be outdated.*
 
 ![ccfd](img/ccfd.png)
